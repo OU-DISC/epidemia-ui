@@ -1,3 +1,4 @@
+// TopToolbar.jsx
 import React from "react";
 
 function TopToolbar({
@@ -9,8 +10,8 @@ function TopToolbar({
   onChangeForecastWeeks,
   onExportPDF
 }) {
-  const diseases = ["Malaria", "COVID-19", "Influenza"];
-  const countries = ["Ethiopia", "Kenya", "Uganda"];
+  const diseases = ["Malaria", "West Nile"];
+  const countries = ["Ethiopia", "USA"];
 
   const selectStyle = {
     marginLeft: "0.5rem",
@@ -57,9 +58,7 @@ function TopToolbar({
           style={selectStyle}
         >
           {diseases.map((d) => (
-            <option key={d} value={d}>
-              {d}
-            </option>
+            <option key={d} value={d}>{d}</option>
           ))}
         </select>
       </label>
@@ -72,9 +71,7 @@ function TopToolbar({
           style={selectStyle}
         >
           {countries.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
+            <option key={c} value={c}>{c}</option>
           ))}
         </select>
       </label>
