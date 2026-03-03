@@ -1,49 +1,154 @@
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+// EthiopiaMap.jsx
+import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
 import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
-export default function EthiopiaMap({ onSelectRegion }) {
-  const [geoData, setGeoData] = useState(null);
+// Legend component
+function Legend({ getColor, grades, unit, dataset }) {
+  const map = useMap();
 
   useEffect(() => {
-    fetch("/eth_admin3.geojson")
-      .then((res) => res.json())
-      .then(setGeoData); // just load GeoJSON as-is
-  }, []);
+    const legend = L.control({ position: "topright" });
 
-  function onEachFeature(feature, layer) {
-    const name = feature.properties.adm3_name; // use adm3_name directly
+    legend.onAdd = function () {
+      const div = L.DomUtil.create("div", "info legend");
+      // grades provided by parent based on dataset
+      const labels = [];
 
-    layer.on({
-      click: () => onSelectRegion(name) // callback when district clicked
+      div.style.padding = "6px";
+      div.style.background = "white";
+      div.style.borderRadius = "6px";
+      div.style.boxShadow = "0 0 6px rgba(0,0,0,0.3)";
+
+      div.innerHTML = `<b>${dataset} (${unit})</b><br>`;
+
+      for (let i = 0; i < grades.length; i++) {
+        const from = grades[i];
+        const to = grades[i + 1];
+        labels.push(
+          `<i style="background:${getColor(from + 0.01)}; width:18px; height:18px; display:inline-block; margin-right:4px;"></i> ` +
+          `${from}${to ? " – " + to : "+"}`
+        );
+      }
+
+      div.innerHTML += labels.join("<br>");
+      return div;
+    };
+
+    legend.addTo(map);
+
+    return () => {
+      legend.remove();
+    };
+  }, [map, getColor, grades, unit, dataset]);
+
+  return null;
+}
+
+export default function EthiopiaMap({
+  onSelectRegion,
+  startDate,
+  endDate,
+  dataset,
+  envData = {},   // default to empty object
+  setGeoData
+}) {
+  const [geoData, setGeo] = useState(null);
+  const [selectedDistrict, setSelectedDistrict] = useState(null);
+
+  // Load GeoJSON
+  useEffect(() => {
+    const loadGeo = async () => {
+      try {
+        const res = await fetch("/eth_admin3.geojson");
+        const geojson = await res.json();
+        setGeo(geojson);
+        if (setGeoData) setGeoData(geojson); // pass back to dashboard for controls
+      } catch (err) {
+        console.error("Failed to load GeoJSON", err);
+      }
+    };
+
+    loadGeo();
+  }, [setGeoData]);
+
+  // dataset-specific breakpoints and units
+  const gradeConfig = {
+    NDVI: { grades: [0, 0.2, 0.4, 0.6], unit: "NDVI" },
+    Precipitation: { grades: [0, 50, 100, 200], unit: "mm" },
+    NET: { grades: [0, 15, 25, 35], unit: "°C" },
+    LST: { grades: [0, 15, 25, 35], unit: "°C" }
+  };
+  const { grades, unit } = gradeConfig[dataset] || { grades: [0, 1], unit: "" };
+
+  const getColor = (value) => {
+    if (value == null) return "#e5e5e5";
+    if (value > grades[3]) return "#1a9641";
+    if (value > grades[2]) return "#a6d96a";
+    if (value > grades[1]) return "#fdae61";
+    return "#d7191c";
+  };
+
+  // Style each district safely
+  const style = (feature) => {
+    const districtName = feature?.properties?.adm3_name;
+    const value = envData && districtName ? envData[districtName] : undefined;
+    const isSelected = districtName === selectedDistrict;
+
+    return {
+      fillColor: value !== undefined ? getColor(value) : "#e5e5e5",
+      weight: isSelected ? 4 : 1,  // Bold border if selected
+      color: isSelected ? "#000" : "#555",  // Black border if selected
+      fillOpacity: 0.7
+    };
+  };
+
+  // Tooltip & click callback
+  const onEachFeature = (feature, layer) => {
+    const districtName = feature?.properties?.adm3_name;
+    const value = envData && districtName ? envData[districtName] : undefined;
+
+    layer.on({ 
+      click: () => {
+        setSelectedDistrict(districtName);
+        onSelectRegion(districtName);
+      }
     });
-
-    layer.bindTooltip(name, { sticky: true });
-  }
+    layer.bindTooltip(
+      `${districtName}: ${value !== undefined ? value.toFixed(2) : "Loading..."}`,
+      { sticky: true }
+    );
+  };
 
   return (
-    <MapContainer
-      center={[9.0, 40.5]}
-      zoom={6}
-      style={{ height: "500px", width: "100%" }}
-    >
-      <TileLayer
-        attribution="© OpenStreetMap"
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-
-      {geoData && (
-        <GeoJSON
-          data={geoData}
-          onEachFeature={onEachFeature}
-          style={{
-            fillColor: "#e5e5e5",
-            weight: 1,
-            color: "#555",
-            fillOpacity: 0.7
-          }}
+    <div style={{ position: "relative" }}>
+      <MapContainer
+        center={[9.0, 40.5]}
+        zoom={6}
+        style={{ height: "500px", width: "100%" }}
+      >
+        <TileLayer
+          attribution="© OpenStreetMap"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-      )}
-    </MapContainer>
+
+        {geoData && (
+          <GeoJSON
+            data={geoData}
+            style={style}
+            onEachFeature={onEachFeature}
+          />
+        )}
+
+        {/* Legend */}
+        <Legend
+          getColor={getColor}
+          grades={grades}
+          unit={unit}
+          dataset={dataset}
+        />
+      </MapContainer>
+    </div>
   );
 }

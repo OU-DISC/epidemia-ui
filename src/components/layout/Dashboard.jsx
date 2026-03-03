@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import TopToolbar from "./TopToolbar";
 import EthiopiaMap from "../EthiopiaMap";
+import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import ForecastChart from "../ForecastChart";
+import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
@@ -11,16 +13,34 @@ function Dashboard() {
   const [country, setCountry] = useState("Ethiopia");
   const [forecastWeeks, setForecastWeeks] = useState(4);
   const [region, setRegion] = useState("All Regions");
+  const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [alert, setAlert] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [exporting, setExporting] = useState(false);
 
+  // 🌱 Environmental data states
+  const [startDate, setStartDate] = useState("2026-01-01");
+  const [endDate, setEndDate] = useState("2026-01-07");
+  const [dataset, setDataset] = useState("NDVI");
+  const [geoData, setGeoData] = useState(null);
+  const [envData, setEnvData] = useState({});
+
+  // Update region when a district is clicked on the map
   const updateRegion = (selectedRegion) => {
     setRegion(selectedRegion);
+    // Find and set the geometry for this district
+    if (geoData) {
+      const feature = geoData.features.find((f) => f.properties.adm3_name === selectedRegion);
+      if (feature) {
+        setSelectedGeometry(feature.geometry.coordinates);
+      }
+    }
     // TODO: Fetch new alert/forecast for this region if needed
   };
 
-  // 🔹 PDF export function
+
+
+  // PDF export function
   const handleExportPDF = () => {
     const element = document.getElementById("dashboard");
     if (!element) return alert("Dashboard content not found!");
@@ -43,7 +63,7 @@ function Dashboard() {
 
   return (
     <div id="dashboard" style={{ fontFamily: "Arial, sans-serif" }}>
-      {/* Top toolbar with dropdowns and export button */}
+      {/* Top toolbar */}
       <TopToolbar
         disease={disease}
         onChangeDisease={setDisease}
@@ -58,6 +78,19 @@ function Dashboard() {
       <div style={{ padding: "1rem" }}>
         <h2>{disease} Early Warning ({country})</h2>
 
+        {/* Environmental controls */}
+        <EnvironmentalDataControls
+          geoData={geoData}
+          startDate={startDate}
+          endDate={endDate}
+          dataset={dataset}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          setDataset={setDataset}
+          onDataFetched={setEnvData}
+        />
+
+
         <div
           style={{
             display: "grid",
@@ -67,9 +100,16 @@ function Dashboard() {
           }}
         >
           {/* Map */}
-          <EthiopiaMap onSelectRegion={updateRegion} />
+          <EthiopiaMap
+            onSelectRegion={updateRegion}
+            startDate={startDate}
+            endDate={endDate}
+            dataset={dataset}
+            envData={envData}       // pass fetched data
+            setGeoData={setGeoData} // capture geoData for controls
+          />
 
-          {/* Region info and forecast chart */}
+          {/* Region info and environmental time series chart */}
           <div>
             <h4>{region}</h4>
 
@@ -83,6 +123,16 @@ function Dashboard() {
                 )}
               </div>
             )}
+
+            {/* Time series chart for selected district */}
+            <EnvironmentalTimeSeriesChart
+              selectedDistrict={region !== "All Regions" ? region : null}
+              districtGeometry={selectedGeometry}
+              startDate={startDate}
+              endDate={endDate}
+              dataset={dataset}
+              geoData={geoData}
+            />
 
             {forecast && <ForecastChart data={forecast} />}
           </div>
