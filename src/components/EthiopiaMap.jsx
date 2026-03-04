@@ -51,8 +51,9 @@ export default function EthiopiaMap({
   startDate,
   endDate,
   dataset,
-  envData = {},   // default to empty object
-  setGeoData
+  envData = {},
+  setGeoData,
+  filterRegion = "All Regions"
 }) {
   const [geoData, setGeo] = useState(null);
   const [selectedDistrict, setSelectedDistrict] = useState(null);
@@ -90,16 +91,48 @@ export default function EthiopiaMap({
     return "#d7191c";
   };
 
+  // Color palette for regions
+  const regionColors = [
+    "#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00",
+    "#ffff33", "#a65628", "#f781bf", "#999999", "#66c2a5",
+    "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f"
+  ];
+
+  // Get consistent color for each region
+  const getRegionColor = (regionName) => {
+    if (!regionName) return "#555";
+    const hash = regionName.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    return regionColors[hash % regionColors.length];
+  };
+
   // Style each district safely
   const style = (feature) => {
     const districtName = feature?.properties?.adm3_name;
+    const regionName = feature?.properties?.adm1_name;
     const value = envData && districtName ? envData[districtName] : undefined;
-    const isSelected = districtName === selectedDistrict;
+    const isSelectedDistrict = districtName === selectedDistrict;
+    const isInSelectedRegion = filterRegion !== "All Regions" && regionName === filterRegion;
+    const showAllRegions = filterRegion === "All Regions";
+
+    // Determine border styling
+    let borderWeight = 1;
+    let borderColor = "#555";
+
+    if (isSelectedDistrict) {
+      borderWeight = 4;
+      borderColor = "#000";
+    } else if (isInSelectedRegion) {
+      borderWeight = 3;
+      borderColor = "#222";
+    } else if (showAllRegions) {
+      borderWeight = 2.5;
+      borderColor = getRegionColor(regionName);
+    }
 
     return {
       fillColor: value !== undefined ? getColor(value) : "#e5e5e5",
-      weight: isSelected ? 4 : 1,  // Bold border if selected
-      color: isSelected ? "#000" : "#555",  // Black border if selected
+      weight: borderWeight,
+      color: borderColor,
       fillOpacity: 0.7
     };
   };
@@ -135,7 +168,16 @@ export default function EthiopiaMap({
 
         {geoData && (
           <GeoJSON
-            data={geoData}
+            data={
+              filterRegion === "All Regions"
+                ? geoData
+                : {
+                    ...geoData,
+                    features: geoData.features.filter(
+                      (f) => f.properties.adm1_name === filterRegion
+                    ),
+                  }
+            }
             style={style}
             onEachFeature={onEachFeature}
           />

@@ -8,6 +8,9 @@ function TopToolbar({
   onChangeCountry,
   forecastWeeks,
   onChangeForecastWeeks,
+  selectedAdminRegion,
+  onChangeAdminRegion,
+  availableRegions = [],
   onExportPDF
 }) {
   const diseases = ["Malaria", "West Nile"];
@@ -75,6 +78,21 @@ function TopToolbar({
           ))}
         </select>
       </label>
+
+      {country === "Ethiopia" && (
+        <label style={labelStyle}>
+          Region:
+          <select
+            value={selectedAdminRegion}
+            onChange={(e) => onChangeAdminRegion(e.target.value)}
+            style={selectStyle}
+          >
+            {availableRegions.map((r) => (
+              <option key={r} value={r}>{r}</option>
+            ))}
+          </select>
+        </label>
+      )}
 
       <div style={{ marginLeft: "auto", display: "flex", gap: "0.75rem" }}>
         <label style={labelStyle}>

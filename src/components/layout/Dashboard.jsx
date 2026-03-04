@@ -12,11 +12,13 @@ function Dashboard() {
   const [disease, setDisease] = useState("Malaria");
   const [country, setCountry] = useState("Ethiopia");
   const [forecastWeeks, setForecastWeeks] = useState(4);
+  const [selectedAdminRegion, setSelectedAdminRegion] = useState("All Regions"); // Admin region filter
   const [region, setRegion] = useState("All Regions");
   const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [alert, setAlert] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [exporting, setExporting] = useState(false);
+  const [regions, setRegions] = useState([]); // List of available regions
 
   // 🌱 Environmental data states
   const [startDate, setStartDate] = useState("2026-01-01");
@@ -24,6 +26,17 @@ function Dashboard() {
   const [dataset, setDataset] = useState("NDVI");
   const [geoData, setGeoData] = useState(null);
   const [envData, setEnvData] = useState({});
+
+  // Extract unique regions from geoData when it loads
+  React.useEffect(() => {
+    if (geoData && geoData.features) {
+      const uniqueRegions = [
+        "All Regions",
+        ...new Set(geoData.features.map(f => f.properties.adm1_name).filter(Boolean))
+      ].sort();
+      setRegions(uniqueRegions);
+    }
+  }, [geoData]);
 
   // Update region when a district is clicked on the map
   const updateRegion = (selectedRegion) => {
@@ -71,6 +84,9 @@ function Dashboard() {
         onChangeCountry={setCountry}
         forecastWeeks={forecastWeeks}
         onChangeForecastWeeks={setForecastWeeks}
+        selectedAdminRegion={selectedAdminRegion}
+        onChangeAdminRegion={setSelectedAdminRegion}
+        availableRegions={regions}
         onExportPDF={handleExportPDF}
         exporting={exporting}
       />
@@ -105,8 +121,9 @@ function Dashboard() {
             startDate={startDate}
             endDate={endDate}
             dataset={dataset}
-            envData={envData}       // pass fetched data
-            setGeoData={setGeoData} // capture geoData for controls
+            envData={envData}
+            setGeoData={setGeoData}
+            filterRegion={selectedAdminRegion}
           />
 
           {/* Region info and environmental time series chart */}
