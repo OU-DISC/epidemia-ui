@@ -1,5 +1,5 @@
 // EnvironmentalDataControls.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 export default function EnvironmentalDataControls({
@@ -15,7 +15,7 @@ export default function EnvironmentalDataControls({
   const [loading, setLoading] = useState(false);
 
   // Example: available datasets
-  const datasets = ["NDVI", "NET", "Precipitation", "LST"];
+  const datasets = ["Precipitation", "NDVI", "NET", "LST"];
 
   // Handle fetch button click
   const fetchEnvData = async () => {
@@ -68,30 +68,24 @@ export default function EnvironmentalDataControls({
   };
 
   return (
-    <div
-      style={{
-        padding: "1rem",
-        marginBottom: "1rem",
-        border: "1px solid #ccc",
-        borderRadius: "6px",
-        background: "#f9f9f9",
-      }}
-    >
-      <h3>Fetch Environmental Data</h3>
+    <div className="env-controls">
+      <h3 className="panel-title">Fetch Environmental Data</h3>
 
       {/* Start / End Date Inputs */}
-      <label>
+      <label className="toolbar-field">
         Start Date:{" "}
         <input
+          className="toolbar-input"
           type="date"
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
         />
       </label>
 
-      <label style={{ marginLeft: "1rem" }}>
+      <label className="toolbar-field">
         End Date:{" "}
         <input
+          className="toolbar-input"
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
@@ -99,9 +93,13 @@ export default function EnvironmentalDataControls({
       </label>
 
       {/* Dataset Selector */}
-      <label style={{ marginLeft: "1rem" }}>
+      <label className="toolbar-field">
         Dataset:{" "}
-        <select value={dataset} onChange={(e) => setDataset(e.target.value)}>
+        <select
+          className="toolbar-select"
+          value={dataset}
+          onChange={(e) => setDataset(e.target.value)}
+        >
           {datasets.map((d) => (
             <option key={d} value={d}>
               {d}
@@ -114,7 +112,7 @@ export default function EnvironmentalDataControls({
       <button
         onClick={fetchEnvData}
         disabled={loading}
-        style={{ marginLeft: "1rem", padding: "0.3rem 0.8rem" }}
+        className="toolbar-button"
       >
         {loading ? "Fetching..." : "Fetch Data"}
       </button>

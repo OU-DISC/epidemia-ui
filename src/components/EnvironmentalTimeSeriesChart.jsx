@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import Plot from "react-plotly.js";
 import axios from "axios";
 
 export default function EnvironmentalTimeSeriesChart({
@@ -8,7 +8,6 @@ export default function EnvironmentalTimeSeriesChart({
   startDate,
   endDate,
   dataset,
-  geoData,
 }) {
   const [timeseries, setTimeseries] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -45,19 +44,19 @@ export default function EnvironmentalTimeSeriesChart({
   }, [selectedDistrict, districtGeometry, startDate, endDate, dataset]);
 
   if (!selectedDistrict) {
-    return <div style={{ padding: "1rem", color: "#999" }}>Select a district to view time series</div>;
+    return <div className="chart-state">Select a district to view time series</div>;
   }
 
   if (loading) {
-    return <div style={{ padding: "1rem" }}>Loading chart data...</div>;
+    return <div className="chart-state">Loading chart data...</div>;
   }
 
   if (error) {
-    return <div style={{ padding: "1rem", color: "red" }}>{error}</div>;
+    return <div className="chart-state chart-state-error">{error}</div>;
   }
 
   if (timeseries.length === 0) {
-    return <div style={{ padding: "1rem", color: "#999" }}>No data available for this period</div>;
+    return <div className="chart-state">No data available for this period</div>;
   }
 
   // Unit labels for each dataset
@@ -69,35 +68,51 @@ export default function EnvironmentalTimeSeriesChart({
   };
 
   return (
-    <div style={{ padding: "1rem" }}>
-      <h4>{selectedDistrict} - {dataset}</h4>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={timeseries}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis 
-            dataKey="date" 
-            tick={{ fontSize: 12 }}
-            angle={-45}
-            textAnchor="end"
-            height={80}
-          />
-          <YAxis 
-            label={{ value: unitLabels[dataset] || dataset, angle: -90, position: "insideLeft" }}
-          />
-          <Tooltip 
-            formatter={(value) => value?.toFixed(3) || "N/A"}
-            labelFormatter={(label) => `Date: ${label}`}
-          />
-          <Line
-            type="monotone"
-            dataKey="value"
-            stroke="#8884d8"
-            dot={false}
-            isAnimationActive={false}
-            name={dataset}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+    <div className="time-series-wrap">
+      <h4 className="panel-title">{selectedDistrict} - {dataset}</h4>
+      <Plot
+        data={[
+          {
+            x: timeseries.map((d) => d.date),
+            y: timeseries.map((d) => d.value),
+            type: "scatter",
+            mode: "lines",
+            name: dataset,
+            line: { color: "#7356d8", width: 2.5, shape: "spline" },
+            hovertemplate: `%{x}<br>${dataset}: %{y:.3f}<extra></extra>`,
+          },
+        ]}
+        layout={{
+          autosize: true,
+          height: 320,
+          margin: { l: 58, r: 18, t: 10, b: 70 },
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(255,255,255,0.5)",
+          hovermode: "x unified",
+          xaxis: {
+            title: "Date",
+            tickangle: -35,
+            gridcolor: "#e2e8f1",
+            zeroline: false,
+            tickfont: { size: 11, color: "#495367" },
+            titlefont: { color: "#495367" },
+          },
+          yaxis: {
+            title: unitLabels[dataset] || dataset,
+            gridcolor: "#e2e8f1",
+            zeroline: false,
+            tickfont: { color: "#495367" },
+            titlefont: { color: "#495367" },
+          },
+        }}
+        config={{
+          responsive: true,
+          displaylogo: false,
+          scrollZoom: true,
+        }}
+        style={{ width: "100%", height: "100%" }}
+        useResizeHandler
+      />
     </div>
   );
 }

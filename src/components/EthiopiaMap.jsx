@@ -155,15 +155,15 @@ export default function EthiopiaMap({
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className="map-wrap">
       <MapContainer
         center={[9.0, 40.5]}
         zoom={6}
-        style={{ height: "500px", width: "100%" }}
+        className="district-map"
       >
         <TileLayer
-          attribution="© OpenStreetMap"
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="© OpenStreetMap, © CARTO"
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         />
 
         {geoData && (

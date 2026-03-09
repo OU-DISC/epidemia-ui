@@ -7,6 +7,7 @@ import ForecastChart from "../ForecastChart";
 import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import "./dashboard-theme.css";
 
 function Dashboard() {
   const [disease, setDisease] = useState("Malaria");
@@ -15,15 +16,15 @@ function Dashboard() {
   const [selectedAdminRegion, setSelectedAdminRegion] = useState("All Regions"); // Admin region filter
   const [region, setRegion] = useState("All Regions");
   const [selectedGeometry, setSelectedGeometry] = useState(null);
-  const [alert, setAlert] = useState(null);
-  const [forecast, setForecast] = useState(null);
+  const [alert] = useState(null);
+  const [forecast] = useState(null);
   const [exporting, setExporting] = useState(false);
   const [regions, setRegions] = useState([]); // List of available regions
 
   // 🌱 Environmental data states
   const [startDate, setStartDate] = useState("2026-01-01");
-  const [endDate, setEndDate] = useState("2026-01-07");
-  const [dataset, setDataset] = useState("NDVI");
+  const [endDate, setEndDate] = useState("2026-03-07");
+  const [dataset, setDataset] = useState("Precipitation");
   const [geoData, setGeoData] = useState(null);
   const [envData, setEnvData] = useState({});
 
@@ -75,7 +76,7 @@ function Dashboard() {
   };
 
   return (
-    <div id="dashboard" style={{ fontFamily: "Arial, sans-serif" }}>
+    <div id="dashboard" className="dashboard-shell">
       {/* Top toolbar */}
       <TopToolbar
         disease={disease}
@@ -91,52 +92,60 @@ function Dashboard() {
         exporting={exporting}
       />
 
-      <div style={{ padding: "1rem" }}>
-        <h2>{disease} Early Warning ({country})</h2>
+      <main className="dashboard-content">
+        <section className="dashboard-hero fade-in-up">
+          <p className="dashboard-kicker">Real-Time Surveillance Platform</p>
+          <h1 className="dashboard-title">{disease} Early Warning ({country})</h1>
+        </section>
 
         {/* Environmental controls */}
-        <EnvironmentalDataControls
-          geoData={geoData}
-          startDate={startDate}
-          endDate={endDate}
-          dataset={dataset}
-          setStartDate={setStartDate}
-          setEndDate={setEndDate}
-          setDataset={setDataset}
-          onDataFetched={setEnvData}
-        />
-
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1rem",
-            marginTop: "1rem",
-          }}
-        >
-          {/* Map */}
-          <EthiopiaMap
-            onSelectRegion={updateRegion}
+        <section className="glass-card fade-in-up delay-1">
+          <EnvironmentalDataControls
+            geoData={geoData}
             startDate={startDate}
             endDate={endDate}
             dataset={dataset}
-            envData={envData}
-            setGeoData={setGeoData}
-            filterRegion={selectedAdminRegion}
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+            setDataset={setDataset}
+            onDataFetched={setEnvData}
           />
+        </section>
+
+
+        <section className="dashboard-grid fade-in-up delay-2">
+          {/* Map */}
+          <div className="glass-card map-panel">
+            <div className="panel-header">
+              <h3>District Risk Surface</h3>
+              <span>{dataset}</span>
+            </div>
+
+            <EthiopiaMap
+              onSelectRegion={updateRegion}
+              startDate={startDate}
+              endDate={endDate}
+              dataset={dataset}
+              envData={envData}
+              setGeoData={setGeoData}
+              filterRegion={selectedAdminRegion}
+            />
+          </div>
 
           {/* Region info and environmental time series chart */}
-          <div>
-            <h4>{region}</h4>
+          <div className="glass-card insights-panel">
+            <div className="panel-header">
+              <h3>{region}</h3>
+              <span>District Insight</span>
+            </div>
 
             {alert && (
-              <div style={{ marginBottom: "1rem" }}>
+              <div className="alert-row">
                 {alert.early_warning && (
-                  <span style={{ color: "red" }}>⚠ Early Warning</span>
+                  <span className="alert-warning">Early Warning</span>
                 )}
                 {!alert.early_warning && alert.early_detection && (
-                  <span style={{ color: "orange" }}>▲ Early Detection</span>
+                  <span className="alert-detection">Early Detection</span>
                 )}
               </div>
             )}
@@ -148,13 +157,17 @@ function Dashboard() {
               startDate={startDate}
               endDate={endDate}
               dataset={dataset}
-              geoData={geoData}
             />
 
-            {forecast && <ForecastChart data={forecast} />}
+            {forecast && (
+              <section className="forecast-panel">
+                <h4>Transmission Forecast</h4>
+                <ForecastChart data={forecast} />
+              </section>
+            )}
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }

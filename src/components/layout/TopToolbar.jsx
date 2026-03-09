@@ -11,54 +11,22 @@ function TopToolbar({
   selectedAdminRegion,
   onChangeAdminRegion,
   availableRegions = [],
-  onExportPDF
+  onExportPDF,
+  exporting,
 }) {
   const diseases = ["Malaria", "West Nile"];
   const countries = ["Ethiopia", "USA"];
 
-  const selectStyle = {
-    marginLeft: "0.5rem",
-    padding: "0.25rem 0.5rem",
-    borderRadius: "4px",
-    border: "1px solid #ccc",
-    background: "#fff",
-  };
-
-  const labelStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.25rem",
-    fontWeight: "500"
-  };
-
-  const buttonStyle = {
-    padding: "0.4rem 0.8rem",
-    borderRadius: "4px",
-    border: "none",
-    background: "#007bff",
-    color: "#fff",
-    cursor: "pointer",
-  };
-
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "1rem",
-        padding: "0.75rem 1rem",
-        background: "#f5f7fa",
-        borderBottom: "1px solid #ddd"
-      }}
-    >
-      <strong>EPIDEMIA</strong>
+    <header className="top-toolbar fade-in-up">
+      <strong className="brand-mark">EPIDEMIA</strong>
 
-      <label style={labelStyle}>
+      <label className="toolbar-field">
         Disease:
         <select
           value={disease}
           onChange={(e) => onChangeDisease(e.target.value)}
-          style={selectStyle}
+          className="toolbar-select"
         >
           {diseases.map((d) => (
             <option key={d} value={d}>{d}</option>
@@ -66,12 +34,12 @@ function TopToolbar({
         </select>
       </label>
 
-      <label style={labelStyle}>
+      <label className="toolbar-field">
         Country:
         <select
           value={country}
           onChange={(e) => onChangeCountry(e.target.value)}
-          style={selectStyle}
+          className="toolbar-select"
         >
           {countries.map((c) => (
             <option key={c} value={c}>{c}</option>
@@ -80,12 +48,12 @@ function TopToolbar({
       </label>
 
       {country === "Ethiopia" && (
-        <label style={labelStyle}>
+        <label className="toolbar-field">
           Region:
           <select
             value={selectedAdminRegion}
             onChange={(e) => onChangeAdminRegion(e.target.value)}
-            style={selectStyle}
+            className="toolbar-select"
           >
             {availableRegions.map((r) => (
               <option key={r} value={r}>{r}</option>
@@ -94,13 +62,13 @@ function TopToolbar({
         </label>
       )}
 
-      <div style={{ marginLeft: "auto", display: "flex", gap: "0.75rem" }}>
-        <label style={labelStyle}>
+      <div className="toolbar-actions">
+        <label className="toolbar-field">
           Forecast:
           <select
             value={forecastWeeks}
             onChange={(e) => onChangeForecastWeeks(Number(e.target.value))}
-            style={selectStyle}
+            className="toolbar-select"
           >
             <option value={4}>4 weeks</option>
             <option value={8}>8 weeks</option>
@@ -108,11 +76,11 @@ function TopToolbar({
           </select>
         </label>
 
-        <button onClick={onExportPDF} style={buttonStyle}>
-          Export PDF
+        <button onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
+          {exporting ? "Exporting..." : "Export PDF"}
         </button>
       </div>
-    </div>
+    </header>
   );
 }
 
