@@ -15,7 +15,17 @@ export default function EnvironmentalDataControls({
   const [loading, setLoading] = useState(false);
 
   // Example: available datasets
-  const datasets = ["Precipitation", "NDVI", "NET", "LST"];
+  const datasets = [
+  { label: "Precipitation (totprec)", value: "totprec" },
+  { label: "LST Day Temperature", value: "lst_day" },
+  { label: "LST Night Temperature", value: "lst_night" },
+  { label: "LST Mean Temperature", value: "lst_mean" },
+  { label: "NDVI (Vegetation)", value: "ndvi" },
+  { label: "SAVI", value: "savi" },
+  { label: "EVI", value: "evi" },
+  { label: "NDWI5 (Moisture)", value: "ndwi5" },
+  { label: "NDWI6 (Water Index)", value: "ndwi6" }
+];
 
   // Handle fetch button click
   const fetchEnvData = async () => {
@@ -101,8 +111,8 @@ export default function EnvironmentalDataControls({
           onChange={(e) => setDataset(e.target.value)}
         >
           {datasets.map((d) => (
-            <option key={d} value={d}>
-              {d}
+            <option key={d.value} value={d.value}>
+              {d.label}
             </option>
           ))}
         </select>

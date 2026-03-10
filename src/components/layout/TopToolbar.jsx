@@ -11,6 +11,8 @@ function TopToolbar({
   selectedAdminRegion,
   onChangeAdminRegion,
   availableRegions = [],
+  onRefreshForecast,
+  refreshingForecast,
   onExportPDF,
   exporting,
 }) {
@@ -75,6 +77,14 @@ function TopToolbar({
             <option value={12}>12 weeks</option>
           </select>
         </label>
+
+        <button
+          onClick={onRefreshForecast}
+          className="toolbar-button"
+          disabled={refreshingForecast}
+        >
+          {refreshingForecast ? "Refreshing..." : "Refresh Forecast"}
+        </button>
 
         <button onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
           {exporting ? "Exporting..." : "Export PDF"}

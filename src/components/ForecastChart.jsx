@@ -5,18 +5,27 @@ export default function ForecastChart({ data }) {
     return <div className="chart-state">No forecast data available</div>;
   }
 
-  const dates = data.map((d) => d.date);
-  const upper = data.map((d) => d.upper);
-  const lower = data.map((d) => d.lower);
-  const median = data.map((d) => d.median);
-  const observed = data.map((d) => d.observed);
+  const forecastPoints = data.filter(
+    (d) => d.median !== null && d.median !== undefined
+  );
+  const observedPoints = data.filter(
+    (d) => d.observed !== null && d.observed !== undefined
+  );
+
+  const forecastDates = forecastPoints.map((d) => d.date);
+  const upper = forecastPoints.map((d) => d.upper);
+  const lower = forecastPoints.map((d) => d.lower);
+  const median = forecastPoints.map((d) => d.median);
+
+  const observedDates = observedPoints.map((d) => d.date);
+  const observed = observedPoints.map((d) => d.observed);
 
   return (
     <div className="forecast-chart-wrap">
       <Plot
         data={[
           {
-            x: dates,
+            x: forecastDates,
             y: upper,
             type: "scatter",
             mode: "lines",
@@ -26,7 +35,7 @@ export default function ForecastChart({ data }) {
             name: "Upper",
           },
           {
-            x: dates,
+            x: forecastDates,
             y: lower,
             type: "scatter",
             mode: "lines",
@@ -37,7 +46,7 @@ export default function ForecastChart({ data }) {
             hovertemplate: "Lower: %{y:.2f}<extra></extra>",
           },
           {
-            x: dates,
+            x: forecastDates,
             y: median,
             type: "scatter",
             mode: "lines",
@@ -46,7 +55,7 @@ export default function ForecastChart({ data }) {
             hovertemplate: "Median: %{y:.2f}<extra></extra>",
           },
           {
-            x: dates,
+            x: observedDates,
             y: observed,
             type: "scatter",
             mode: "lines+markers",

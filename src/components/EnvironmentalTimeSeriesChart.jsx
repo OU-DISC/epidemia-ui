@@ -34,7 +34,7 @@ export default function EnvironmentalTimeSeriesChart({
         setTimeseries(res.data.timeseries || []);
       } catch (err) {
         console.error("Error fetching timeseries:", err);
-        setError("Failed to load chart data");
+        setError(err.response?.data?.error || "Failed to load chart data");
       } finally {
         setLoading(false);
       }
@@ -61,10 +61,15 @@ export default function EnvironmentalTimeSeriesChart({
 
   // Unit labels for each dataset
   const unitLabels = {
-    NDVI: "NDVI Index (0-1)",
-    NET: "Temperature (°C)",
-    Precipitation: "Precipitation (mm)",
-    LST: "Land Surface Temp (°C)",
+    totprec: "Precipitation (mm/day)",
+    lst_day: "LST Day (°C)",
+    lst_night: "LST Night (°C)",
+    lst_mean: "LST Mean (°C)",
+    ndvi: "NDVI Index",
+    savi: "SAVI Index",
+    evi: "EVI Index",
+    ndwi5: "NDWI5 Index",
+    ndwi6: "NDWI6 Index",
   };
 
   return (

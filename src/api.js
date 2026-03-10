@@ -9,3 +9,18 @@ export async function fetchForecast(region, horizonWeeks = 8) {
   });
   return response.data;
 }
+
+export async function runEpidemiaPipeline({
+  dataDir = "data",
+  outputDir = "report",
+  horizonWeeks = 8,
+  createReport = false,
+} = {}) {
+  const response = await axios.post(`${API_BASE}/epidemia/run`, {
+    data_dir: dataDir,
+    output_dir: outputDir,
+    horizon_weeks: horizonWeeks,
+    create_report: createReport,
+  });
+  return response.data;
+}

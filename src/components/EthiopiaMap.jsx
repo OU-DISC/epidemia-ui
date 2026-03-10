@@ -76,10 +76,15 @@ export default function EthiopiaMap({
 
   // dataset-specific breakpoints and units
   const gradeConfig = {
-    NDVI: { grades: [0, 0.2, 0.4, 0.6], unit: "NDVI" },
-    Precipitation: { grades: [0, 50, 100, 200], unit: "mm" },
-    NET: { grades: [0, 15, 25, 35], unit: "°C" },
-    LST: { grades: [0, 15, 25, 35], unit: "°C" }
+    totprec: { grades: [0, 5, 15, 30], unit: "mm/day" },
+    lst_day: { grades: [10, 20, 30, 40], unit: "°C" },
+    lst_night: { grades: [0, 10, 20, 30], unit: "°C" },
+    lst_mean: { grades: [5, 15, 25, 35], unit: "°C" },
+    ndvi: { grades: [0, 0.2, 0.4, 0.6], unit: "index" },
+    savi: { grades: [0, 0.2, 0.4, 0.6], unit: "index" },
+    evi: { grades: [0, 0.2, 0.4, 0.6], unit: "index" },
+    ndwi5: { grades: [-0.4, -0.1, 0.1, 0.3], unit: "index" },
+    ndwi6: { grades: [-0.4, -0.1, 0.1, 0.3], unit: "index" }
   };
   const { grades, unit } = gradeConfig[dataset] || { grades: [0, 1], unit: "" };
 

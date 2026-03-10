@@ -1,5 +1,5 @@
 // Dashboard.jsx
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import TopToolbar from "./TopToolbar";
 import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
@@ -7,6 +7,7 @@ import ForecastChart from "../ForecastChart";
 import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import { runEpidemiaPipeline } from "../../api";
 import "./dashboard-theme.css";
 
 function Dashboard() {
@@ -16,17 +17,47 @@ function Dashboard() {
   const [selectedAdminRegion, setSelectedAdminRegion] = useState("All Regions"); // Admin region filter
   const [region, setRegion] = useState("All Regions");
   const [selectedGeometry, setSelectedGeometry] = useState(null);
-  const [alert] = useState(null);
-  const [forecast] = useState(null);
   const [exporting, setExporting] = useState(false);
   const [regions, setRegions] = useState([]); // List of available regions
+  const [epidemiaData, setEpidemiaData] = useState(null);
+  const [epidemiaLoading, setEpidemiaLoading] = useState(false);
+  const [epidemiaError, setEpidemiaError] = useState("");
 
   // 🌱 Environmental data states
   const [startDate, setStartDate] = useState("2026-01-01");
   const [endDate, setEndDate] = useState("2026-03-07");
-  const [dataset, setDataset] = useState("Precipitation");
+  const [dataset, setDataset] = useState("totprec");
   const [geoData, setGeoData] = useState(null);
   const [envData, setEnvData] = useState({});
+
+  const selectedSpecies = disease === "Malaria" ? "pfm" : "pv";
+
+  const loadEpidemia = async () => {
+    setEpidemiaLoading(true);
+    setEpidemiaError("");
+    try {
+      const data = await runEpidemiaPipeline({
+        horizonWeeks: forecastWeeks,
+        dataDir: "data",
+        outputDir: "report",
+        createReport: false,
+      });
+      setEpidemiaData(data);
+    } catch (err) {
+      console.error("Failed to run EPIDEMIA pipeline:", err);
+      if (err.code === "ERR_NETWORK") {
+        setEpidemiaError("Cannot reach forecasting API at http://127.0.0.1:8000. Start backend server and try Refresh Forecast again.");
+      } else {
+        setEpidemiaError(err.response?.data?.detail || err.message || "Failed to run EPIDEMIA pipeline");
+      }
+    } finally {
+      setEpidemiaLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadEpidemia();
+  }, [forecastWeeks]);
 
   // Extract unique regions from geoData when it loads
   React.useEffect(() => {
@@ -49,15 +80,76 @@ function Dashboard() {
         setSelectedGeometry(feature.geometry.coordinates);
       }
     }
-    // TODO: Fetch new alert/forecast for this region if needed
   };
+
+  const selectedAlert = useMemo(() => {
+    if (!epidemiaData?.alerts || region === "All Regions") return null;
+    return (
+      epidemiaData.alerts.find(
+        (a) => a.district === region && a.species === selectedSpecies
+      ) || null
+    );
+  }, [epidemiaData, region, selectedSpecies]);
+
+  const selectedForecast = useMemo(() => {
+    if (!epidemiaData?.forecasts || region === "All Regions") return null;
+    const districtFc = epidemiaData.forecasts.find(
+      (f) => f.district === region && f.species === selectedSpecies
+    );
+    if (!districtFc) return null;
+
+    let observedRows = (districtFc.observed_history || []).map((point) => ({
+      date: point.week_start,
+      median: null,
+      lower: null,
+      upper: null,
+      observed: point.observed,
+    }));
+
+    // Backward-compatible fallback for responses from older backend processes.
+    if (observedRows.length === 0 && selectedAlert?.latest_observed != null && districtFc.forecast?.length) {
+      observedRows = [
+        {
+          date: districtFc.forecast[0].week_start,
+          median: null,
+          lower: null,
+          upper: null,
+          observed: selectedAlert.latest_observed,
+        },
+      ];
+    }
+
+    const forecastRows = districtFc.forecast.map((point) => ({
+      date: point.week_start,
+      median: point.median,
+      lower: point.lower,
+      upper: point.upper,
+      observed: null,
+    }));
+
+    return [...observedRows, ...forecastRows];
+  }, [epidemiaData, region, selectedSpecies, selectedAlert]);
+
+  const forecastSummary = useMemo(() => {
+    const alerts = epidemiaData?.alerts || [];
+    const speciesAlerts = alerts.filter((a) => a.species === selectedSpecies);
+    const warningCount = speciesAlerts.filter((a) => a.early_warning).length;
+    const detectionCount = speciesAlerts.filter(
+      (a) => !a.early_warning && a.early_detection
+    ).length;
+    return {
+      districts: speciesAlerts.length,
+      warnings: warningCount,
+      detections: detectionCount,
+    };
+  }, [epidemiaData, selectedSpecies]);
 
 
 
   // PDF export function
   const handleExportPDF = () => {
     const element = document.getElementById("dashboard");
-    if (!element) return alert("Dashboard content not found!");
+    if (!element) return window.alert("Dashboard content not found!");
 
     setExporting(true);
 
@@ -88,6 +180,8 @@ function Dashboard() {
         selectedAdminRegion={selectedAdminRegion}
         onChangeAdminRegion={setSelectedAdminRegion}
         availableRegions={regions}
+        onRefreshForecast={loadEpidemia}
+        refreshingForecast={epidemiaLoading}
         onExportPDF={handleExportPDF}
         exporting={exporting}
       />
@@ -98,8 +192,27 @@ function Dashboard() {
           <h1 className="dashboard-title">{disease} Early Warning ({country})</h1>
         </section>
 
+        <section className="forecast-cards fade-in-up delay-1">
+          <article className="glass-card forecast-card">
+            <h4>Pipeline</h4>
+            <p>{epidemiaLoading ? "Running" : epidemiaError ? "Error" : "Ready"}</p>
+          </article>
+          <article className="glass-card forecast-card">
+            <h4>Early Warnings</h4>
+            <p>{forecastSummary.warnings}</p>
+          </article>
+          <article className="glass-card forecast-card">
+            <h4>Early Detections</h4>
+            <p>{forecastSummary.detections}</p>
+          </article>
+          <article className="glass-card forecast-card">
+            <h4>Districts Modeled</h4>
+            <p>{forecastSummary.districts}</p>
+          </article>
+        </section>
+
         {/* Environmental controls */}
-        <section className="glass-card fade-in-up delay-1">
+        <section className="glass-card fade-in-up delay-2">
           <EnvironmentalDataControls
             geoData={geoData}
             startDate={startDate}
@@ -139,15 +252,23 @@ function Dashboard() {
               <span>District Insight</span>
             </div>
 
-            {alert && (
+            {epidemiaError && (
+              <div className="chart-state chart-state-error">{epidemiaError}</div>
+            )}
+
+            {selectedAlert && (
               <div className="alert-row">
-                {alert.early_warning && (
+                {selectedAlert.early_warning && (
                   <span className="alert-warning">Early Warning</span>
                 )}
-                {!alert.early_warning && alert.early_detection && (
+                {!selectedAlert.early_warning && selectedAlert.early_detection && (
                   <span className="alert-detection">Early Detection</span>
                 )}
               </div>
+            )}
+
+            {epidemiaLoading && (
+              <div className="chart-state">Updating district forecast...</div>
             )}
 
             {/* Time series chart for selected district */}
@@ -159,11 +280,15 @@ function Dashboard() {
               dataset={dataset}
             />
 
-            {forecast && (
+            {selectedForecast && (
               <section className="forecast-panel">
-                <h4>Transmission Forecast</h4>
-                <ForecastChart data={forecast} />
+                <h4>Transmission Forecast ({selectedSpecies.toUpperCase()})</h4>
+                <ForecastChart data={selectedForecast} />
               </section>
+            )}
+
+            {!epidemiaLoading && !selectedForecast && region !== "All Regions" && (
+              <div className="chart-state">No district forecast available for this selection.</div>
             )}
           </div>
         </section>
