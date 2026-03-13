@@ -81,9 +81,10 @@ export default function EnvironmentalTimeSeriesChart({
             x: timeseries.map((d) => d.date),
             y: timeseries.map((d) => d.value),
             type: "scatter",
-            mode: "lines",
+            mode: "lines+markers",
             name: dataset,
-            line: { color: "#7356d8", width: 2.5, shape: "spline" },
+            line: { color: "#7356d8", width: 2.5, shape: "linear" },
+            marker: { color: "#7356d8", size: 5 },
             hovertemplate: `%{x}<br>${dataset}: %{y:.3f}<extra></extra>`,
           },
         ]}
