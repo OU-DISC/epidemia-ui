@@ -8,6 +8,8 @@ export default function EnvironmentalTimeSeriesChart({
   startDate,
   endDate,
   dataset,
+  syncedHoverDate,
+  onHoverDateChange,
 }) {
   const [timeseries, setTimeseries] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -72,6 +74,19 @@ export default function EnvironmentalTimeSeriesChart({
     ndwi6: "NDWI6 Index",
   };
 
+  const syncHoverDate = (event) => {
+    const hoveredX = event?.points?.[0]?.x;
+    if (hoveredX !== undefined && hoveredX !== null && onHoverDateChange) {
+      onHoverDateChange(String(hoveredX));
+    }
+  };
+
+  const clearHoverDate = () => {
+    if (onHoverDateChange) {
+      onHoverDateChange(null);
+    }
+  };
+
   return (
     <div className="time-series-wrap">
       <h4 className="panel-title">{selectedDistrict} - {dataset}</h4>
@@ -98,6 +113,7 @@ export default function EnvironmentalTimeSeriesChart({
           xaxis: {
             title: "Date",
             tickangle: -35,
+            range: startDate && endDate ? [startDate, endDate] : undefined,
             gridcolor: "#e2e8f1",
             zeroline: false,
             tickfont: { size: 11, color: "#495367" },
@@ -110,6 +126,21 @@ export default function EnvironmentalTimeSeriesChart({
             tickfont: { color: "#495367" },
             titlefont: { color: "#495367" },
           },
+          shapes: syncedHoverDate
+            ? [
+                {
+                  type: "line",
+                  xref: "x",
+                  yref: "paper",
+                  x0: syncedHoverDate,
+                  x1: syncedHoverDate,
+                  y0: 0,
+                  y1: 1,
+                  line: { color: "#41506a", width: 1.2, dash: "dot" },
+                  layer: "above",
+                },
+              ]
+            : [],
         }}
         config={{
           responsive: true,
@@ -118,6 +149,8 @@ export default function EnvironmentalTimeSeriesChart({
         }}
         style={{ width: "100%", height: "100%" }}
         useResizeHandler
+        onHover={syncHoverDate}
+        onUnhover={clearHoverDate}
       />
     </div>
   );

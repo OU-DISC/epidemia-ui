@@ -1,6 +1,6 @@
 import Plot from "react-plotly.js";
 
-export default function ForecastChart({ data }) {
+export default function ForecastChart({ data, alert, syncedHoverDate, onHoverDateChange }) {
   if (!data || data.length === 0) {
     return <div className="chart-state">No forecast data available</div>;
   }
@@ -19,6 +19,81 @@ export default function ForecastChart({ data }) {
 
   const observedDates = observedPoints.map((d) => d.date);
   const observed = observedPoints.map((d) => d.observed);
+  const chartDates = [...observedDates, ...forecastDates];
+
+  const detectionThreshold =
+    alert?.detection_threshold !== null && alert?.detection_threshold !== undefined
+      ? Number(alert.detection_threshold)
+      : null;
+  const warningThreshold =
+    alert?.warning_threshold !== null && alert?.warning_threshold !== undefined
+      ? Number(alert.warning_threshold)
+      : null;
+
+  const isWarning = Boolean(alert?.early_warning);
+  const isDetection = Boolean(!alert?.early_warning && alert?.early_detection);
+  const alertLabel = isWarning
+    ? "Early Warning"
+    : isDetection
+      ? "Early Detection"
+      : null;
+
+  const alertTrace =
+    alertLabel && forecastDates.length > 0 && median.length > 0
+      ? {
+          x: [forecastDates[0]],
+          y: [median[0]],
+          type: "scatter",
+          mode: "markers",
+          name: alertLabel,
+          marker: {
+            size: 12,
+            color: isWarning ? "#c43f3f" : "#d48806",
+            symbol: "diamond",
+            line: { color: "#ffffff", width: 1.5 },
+          },
+          hovertemplate: `${alertLabel}<br>Date: %{x}<br>Median: %{y:.2f}<extra></extra>`,
+        }
+      : null;
+
+  const detectionThresholdTrace =
+    detectionThreshold !== null && chartDates.length > 0
+      ? {
+          x: chartDates,
+          y: chartDates.map(() => detectionThreshold),
+          type: "scatter",
+          mode: "lines",
+          name: "Detection Threshold",
+          line: { color: "#d48806", width: 1.5, dash: "dash" },
+          hovertemplate: "Detection Threshold: %{y:.2f}<extra></extra>",
+        }
+      : null;
+
+  const warningThresholdTrace =
+    warningThreshold !== null && chartDates.length > 0
+      ? {
+          x: chartDates,
+          y: chartDates.map(() => warningThreshold),
+          type: "scatter",
+          mode: "lines",
+          name: "Warning Threshold",
+          line: { color: "#c43f3f", width: 1.5, dash: "dot" },
+          hovertemplate: "Warning Threshold: %{y:.2f}<extra></extra>",
+        }
+      : null;
+
+  const syncHoverDate = (event) => {
+    const hoveredX = event?.points?.[0]?.x;
+    if (hoveredX !== undefined && hoveredX !== null && onHoverDateChange) {
+      onHoverDateChange(String(hoveredX));
+    }
+  };
+
+  const clearHoverDate = () => {
+    if (onHoverDateChange) {
+      onHoverDateChange(null);
+    }
+  };
 
   return (
     <div className="forecast-chart-wrap">
@@ -49,9 +124,10 @@ export default function ForecastChart({ data }) {
             x: forecastDates,
             y: median,
             type: "scatter",
-            mode: "lines",
+            mode: "lines+markers",
             name: "Forecast Median",
             line: { color: "#e04848", width: 2.5 },
+            marker: { size: 5, color: "#e04848" },
             hovertemplate: "Median: %{y:.2f}<extra></extra>",
           },
           {
@@ -64,6 +140,9 @@ export default function ForecastChart({ data }) {
             marker: { size: 5, color: "#1f5b9b" },
             hovertemplate: "Observed: %{y:.2f}<extra></extra>",
           },
+          ...(detectionThresholdTrace ? [detectionThresholdTrace] : []),
+          ...(warningThresholdTrace ? [warningThresholdTrace] : []),
+          ...(alertTrace ? [alertTrace] : []),
         ]}
         layout={{
           autosize: true,
@@ -91,6 +170,39 @@ export default function ForecastChart({ data }) {
             x: 0,
             font: { size: 11 },
           },
+          shapes: syncedHoverDate
+            ? [
+                {
+                  type: "line",
+                  xref: "x",
+                  yref: "paper",
+                  x0: syncedHoverDate,
+                  x1: syncedHoverDate,
+                  y0: 0,
+                  y1: 1,
+                  line: { color: "#41506a", width: 1.2, dash: "dot" },
+                  layer: "above",
+                },
+              ]
+            : [],
+          annotations: alertLabel
+            ? [
+                {
+                  xref: "paper",
+                  yref: "paper",
+                  x: 0,
+                  y: 1.18,
+                  xanchor: "left",
+                  yanchor: "bottom",
+                  text: `Status: ${alertLabel}`,
+                  showarrow: false,
+                  font: {
+                    size: 11,
+                    color: isWarning ? "#c43f3f" : "#a86d00",
+                  },
+                },
+              ]
+            : [],
           hovermode: "x unified",
         }}
         config={{
@@ -101,6 +213,8 @@ export default function ForecastChart({ data }) {
         }}
         style={{ width: "100%", height: "100%" }}
         useResizeHandler
+        onHover={syncHoverDate}
+        onUnhover={clearHoverDate}
       />
     </div>
   );

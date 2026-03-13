@@ -29,6 +29,7 @@ function Dashboard() {
   const [dataset, setDataset] = useState("totprec");
   const [geoData, setGeoData] = useState(null);
   const [envData, setEnvData] = useState({});
+  const [syncedHoverDate, setSyncedHoverDate] = useState(null);
 
   const selectedSpecies = disease === "Malaria" ? "pfm" : "pv";
 
@@ -143,6 +144,22 @@ function Dashboard() {
       detections: detectionCount,
     };
   }, [epidemiaData, selectedSpecies]);
+
+  const forecastDateWindow = useMemo(() => {
+    if (!selectedForecast || selectedForecast.length === 0) return null;
+
+    const dates = selectedForecast
+      .map((point) => point.date)
+      .filter(Boolean)
+      .sort();
+
+    if (dates.length === 0) return null;
+
+    return {
+      startDate: dates[0],
+      endDate: dates[dates.length - 1],
+    };
+  }, [selectedForecast]);
 
 
 
@@ -275,15 +292,22 @@ function Dashboard() {
             <EnvironmentalTimeSeriesChart
               selectedDistrict={region !== "All Regions" ? region : null}
               districtGeometry={selectedGeometry}
-              startDate={startDate}
-              endDate={endDate}
+              startDate={forecastDateWindow?.startDate || startDate}
+              endDate={forecastDateWindow?.endDate || endDate}
               dataset={dataset}
+              syncedHoverDate={syncedHoverDate}
+              onHoverDateChange={setSyncedHoverDate}
             />
 
             {selectedForecast && (
               <section className="forecast-panel">
                 <h4>Transmission Forecast ({selectedSpecies.toUpperCase()})</h4>
-                <ForecastChart data={selectedForecast} />
+                <ForecastChart
+                  data={selectedForecast}
+                  alert={selectedAlert}
+                  syncedHoverDate={syncedHoverDate}
+                  onHoverDateChange={setSyncedHoverDate}
+                />
               </section>
             )}
 
