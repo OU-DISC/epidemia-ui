@@ -19,6 +19,7 @@ function Dashboard() {
   const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [exporting, setExporting] = useState(false);
   const [regions, setRegions] = useState([]); // List of available regions
+  const [districts, setDistricts] = useState(["All Regions"]);
   const [epidemiaData, setEpidemiaData] = useState(null);
   const [epidemiaLoading, setEpidemiaLoading] = useState(false);
   const [epidemiaError, setEpidemiaError] = useState("");
@@ -71,9 +72,40 @@ function Dashboard() {
     }
   }, [geoData]);
 
+  // Build district dropdown list from selected region.
+  React.useEffect(() => {
+    if (!geoData?.features) {
+      setDistricts(["All Regions"]);
+      return;
+    }
+
+    const selectedRegionDistricts = geoData.features
+      .filter((f) => {
+        const adm1 = f?.properties?.adm1_name;
+        return selectedAdminRegion === "All Regions" || adm1 === selectedAdminRegion;
+      })
+      .map((f) => f?.properties?.adm3_name)
+      .filter(Boolean);
+
+    const uniqueDistricts = ["All Regions", ...new Set(selectedRegionDistricts)].sort();
+    setDistricts(uniqueDistricts);
+  }, [geoData, selectedAdminRegion]);
+
+  React.useEffect(() => {
+    if (!districts.includes(region)) {
+      setRegion("All Regions");
+      setSelectedGeometry(null);
+    }
+  }, [districts, region]);
+
   // Update region when a district is clicked on the map
   const updateRegion = (selectedRegion) => {
     setRegion(selectedRegion);
+    if (selectedRegion === "All Regions") {
+      setSelectedGeometry(null);
+      return;
+    }
+
     // Find and set the geometry for this district
     if (geoData) {
       const feature = geoData.features.find((f) => f.properties.adm3_name === selectedRegion);
@@ -197,6 +229,9 @@ function Dashboard() {
         selectedAdminRegion={selectedAdminRegion}
         onChangeAdminRegion={setSelectedAdminRegion}
         availableRegions={regions}
+        selectedDistrict={region}
+        onChangeDistrict={updateRegion}
+        availableDistricts={districts}
         onRefreshForecast={loadEpidemia}
         refreshingForecast={epidemiaLoading}
         onExportPDF={handleExportPDF}

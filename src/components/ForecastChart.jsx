@@ -145,11 +145,13 @@ export default function ForecastChart({ data, alert, syncedHoverDate, onHoverDat
           ...(alertTrace ? [alertTrace] : []),
         ]}
         layout={{
+          uirevision: "forecast-chart",
           autosize: true,
           height: 350,
           margin: { l: 52, r: 24, t: 16, b: 52 },
           paper_bgcolor: "rgba(0,0,0,0)",
           plot_bgcolor: "rgba(255,255,255,0.5)",
+          dragmode: "zoom",
           xaxis: {
             title: "Date",
             gridcolor: "#e2e8f1",

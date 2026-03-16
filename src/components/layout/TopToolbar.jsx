@@ -11,6 +11,9 @@ function TopToolbar({
   selectedAdminRegion,
   onChangeAdminRegion,
   availableRegions = [],
+  selectedDistrict,
+  onChangeDistrict,
+  availableDistricts = [],
   onRefreshForecast,
   refreshingForecast,
   onExportPDF,
@@ -50,18 +53,33 @@ function TopToolbar({
       </label>
 
       {country === "Ethiopia" && (
-        <label className="toolbar-field">
-          Region:
-          <select
-            value={selectedAdminRegion}
-            onChange={(e) => onChangeAdminRegion(e.target.value)}
-            className="toolbar-select"
-          >
-            {availableRegions.map((r) => (
-              <option key={r} value={r}>{r}</option>
-            ))}
-          </select>
-        </label>
+        <>
+          <label className="toolbar-field">
+            Region:
+            <select
+              value={selectedAdminRegion}
+              onChange={(e) => onChangeAdminRegion(e.target.value)}
+              className="toolbar-select"
+            >
+              {availableRegions.map((r) => (
+                <option key={r} value={r}>{r}</option>
+              ))}
+            </select>
+          </label>
+
+          <label className="toolbar-field">
+            District:
+            <select
+              value={selectedDistrict}
+              onChange={(e) => onChangeDistrict(e.target.value)}
+              className="toolbar-select"
+            >
+              {availableDistricts.map((d) => (
+                <option key={d} value={d}>{d === "All Regions" ? "All Districts" : d}</option>
+              ))}
+            </select>
+          </label>
+        </>
       )}
 
       <div className="toolbar-actions">

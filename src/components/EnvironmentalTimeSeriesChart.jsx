@@ -104,11 +104,13 @@ export default function EnvironmentalTimeSeriesChart({
           },
         ]}
         layout={{
+          uirevision: "env-chart",
           autosize: true,
           height: 320,
           margin: { l: 58, r: 18, t: 10, b: 70 },
           paper_bgcolor: "rgba(0,0,0,0)",
           plot_bgcolor: "rgba(255,255,255,0.5)",
+          dragmode: "zoom",
           hovermode: "x unified",
           xaxis: {
             title: "Date",
