@@ -15,7 +15,7 @@ releases:
               repository: ghcr.io/ou-disc/epidemia-ui
               tag: {{ requiredEnv "SHA" | quote }}
           health: /
-          port: 3000
+          port: 80
           ingress:
             enabled: true
             url: epidemia-ui.disc.ourcloud.ou.edu
