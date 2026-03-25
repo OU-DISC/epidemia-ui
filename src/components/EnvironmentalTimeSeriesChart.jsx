@@ -67,12 +67,15 @@ export default function EnvironmentalTimeSeriesChart({
     lst_day: "LST Day (°C)",
     lst_night: "LST Night (°C)",
     lst_mean: "LST Mean (°C)",
+    net: "Air Temperature (°C)",
     ndvi: "NDVI Index",
     savi: "SAVI Index",
     evi: "EVI Index",
     ndwi5: "NDWI5 Index",
     ndwi6: "NDWI6 Index",
   };
+
+  const datasetLabel = unitLabels[dataset] || dataset;
 
   const syncHoverDate = (event) => {
     const hoveredX = event?.points?.[0]?.x;
@@ -89,7 +92,7 @@ export default function EnvironmentalTimeSeriesChart({
 
   return (
     <div className="time-series-wrap">
-      <h4 className="panel-title">{selectedDistrict} - {dataset}</h4>
+      <h4 className="panel-title">{selectedDistrict} - {datasetLabel}</h4>
       <Plot
         data={[
           {
@@ -97,10 +100,10 @@ export default function EnvironmentalTimeSeriesChart({
             y: timeseries.map((d) => d.value),
             type: "scatter",
             mode: "lines+markers",
-            name: dataset,
+            name: datasetLabel,
             line: { color: "#7356d8", width: 2.5, shape: "linear" },
             marker: { color: "#7356d8", size: 5 },
-            hovertemplate: `%{x}<br>${dataset}: %{y:.3f}<extra></extra>`,
+            hovertemplate: `%{x}<br>${datasetLabel}: %{y:.3f}<extra></extra>`,
           },
         ]}
         layout={{
@@ -122,7 +125,7 @@ export default function EnvironmentalTimeSeriesChart({
             titlefont: { color: "#495367" },
           },
           yaxis: {
-            title: unitLabels[dataset] || dataset,
+            title: datasetLabel,
             gridcolor: "#e2e8f1",
             zeroline: false,
             tickfont: { color: "#495367" },

@@ -17,9 +17,9 @@ export default function EnvironmentalDataControls({
   // Example: available datasets
   const datasets = [
   { label: "Precipitation (totprec)", value: "totprec" },
-  { label: "LST Day Temperature", value: "lst_day" },
-  { label: "LST Night Temperature", value: "lst_night" },
-  { label: "LST Mean Temperature", value: "lst_mean" },
+  { label: "LST Day Temperature (°C)", value: "lst_day" },
+  { label: "LST Night Temperature (°C)", value: "lst_night" },
+  { label: "LST Mean Temperature (°C)", value: "lst_mean" },
   { label: "NDVI (Vegetation)", value: "ndvi" },
   { label: "SAVI", value: "savi" },
   { label: "EVI", value: "evi" },
