@@ -1,0 +1,78 @@
+name: Build and push docker image
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build-api:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: benjlevesque/short-sha@v3.0
+      id: short-sha
+      with:
+        length: 6
+
+    - name: Build the Docker image
+      run: docker build . --file ./Dockerfile --tag ghcr.io/ou-disc/epidemia-ui:$SHA
+      env:
+          SHA: ${{ steps.short-sha.outputs.sha }}
+
+    - name: 'Login to GitHub Container Registry'
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{github.actor}}
+        password: ${{secrets.GITHUB_TOKEN}}
+
+    - name: 'Build Inventory Image'
+      run: |
+        docker push ghcr.io/ou-disc/epidemia-ui:$SHA
+      env:
+          SHA: ${{ steps.short-sha.outputs.sha }}
+
+
+  deployment:
+    needs:
+      - build-api
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: benjlevesque/short-sha@v3.0
+      id: short-sha
+      with:
+        length: 6
+
+    ################################################################################################################
+    #
+    # The deploy job requires a kubeconfig. To use that, take the kubeconfig file from
+    # ~/.kube/config and edit the IP address in there to:
+    # server: https://disc.ourcloud.ou.edu:6443
+    #
+    # Then copy the file contents and add it to the project -> settings -> variables -> actions
+    # Name the variable KUBECONFIG and paste the contents as the value.
+    #
+    ################################################################################################################
+    - name: WriteKubeConfig
+      run: |
+        mkdir -p ~/.kube
+        echo "$KUBECONFIG_CONTENT" > ~/.kube/config
+      env:
+        KUBECONFIG_CONTENT: '${{ secrets.KUBECONFIG }}'
+
+    - uses: helmfile/helmfile-action@v1.9.1
+      with:
+        helm-plugins: >
+          https://github.com/databus23/helm-diff,
+          https://github.com/jkroepke/helm-secrets
+        helmfile-args: apply
+      env:
+        SHA: ${{ steps.short-sha.outputs.sha }}

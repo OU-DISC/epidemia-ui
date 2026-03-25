@@ -1,0 +1,45 @@
+repositories:
+  - name: ou-disc-charts
+    url: https://ou-disc.github.io/helmcharts
+
+
+releases:
+  - name: epidemia-ui
+    chart: ou-disc-charts/disc-generic
+    namespace: epidemia
+    version: v3.11.0
+    values:
+      - app:
+          regcred: regcred-ghcr-io
+          image:
+              repository: ghcr.io/ou-disc/epidemia-ui
+              tag: {{ requiredEnv "SHA" | quote }}
+          health: /
+          port: 8050
+          ingress:
+            enabled: true
+            url: epidemia-ui.disc.ourcloud.ou.edu
+            extraAnnotations: |
+                nginx.ingress.kubernetes.io/proxy-body-size: 50m
+#          pvc:
+#            enabled: true
+#            storage: 10Gi
+#            accessMode: ReadWriteOnce
+#            mountPath: /app/server/data
+#          extraEnv: |
+#            - name: SECRET_KEY
+#              valueFrom:
+#                secretKeyRef:
+#                  name: credentials
+#                  key: SECRET_KEY
+#                  optional: false
+
+
+
+helmDefaults:
+  # restores previous state in case of failed release (default false)
+  atomic: true
+  # time in seconds to wait for any individual Kubernetes operation (like Jobs for hooks, and waits on pod/pvc/svc/deployment readiness) (default 300)
+  timeout: 300
+  wait: true
+  createNamespace: false
