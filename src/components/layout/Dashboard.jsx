@@ -7,7 +7,7 @@ import ForecastChart from "../ForecastChart";
 import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import { runEpidemiaPipeline } from "../../api";
+import { FORECAST_API_BASE, runEpidemiaPipeline } from "../../api";
 import "./dashboard-theme.css";
 
 function Dashboard() {
@@ -48,7 +48,8 @@ function Dashboard() {
     } catch (err) {
       console.error("Failed to run EPIDEMIA pipeline:", err);
       if (err.code === "ERR_NETWORK") {
-        setEpidemiaError("Cannot reach forecasting API at http://127.0.0.1:8000. Start backend server and try Refresh Forecast again.");
+        const endpointHint = FORECAST_API_BASE || "same origin";
+        setEpidemiaError(`Cannot reach forecasting API at ${endpointHint}. Start backend server and try Refresh Forecast again.`);
       } else {
         setEpidemiaError(err.response?.data?.detail || err.message || "Failed to run EPIDEMIA pipeline");
       }

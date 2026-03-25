@@ -16,9 +16,54 @@ releases:
               tag: {{ requiredEnv "SHA" | quote }}
           health: /
           port: 8050
+          extraEnv: |
+            - name: REACT_APP_FORECAST_API_BASE
+              value: "https://epidemia-forecast-api.disc.ourcloud.ou.edu"
+            - name: REACT_APP_ENV_API_BASE
+              value: "https://epidemia-env-api.disc.ourcloud.ou.edu"
           ingress:
             enabled: true
             url: epidemia-ui.disc.ourcloud.ou.edu
+            extraAnnotations: |
+                nginx.ingress.kubernetes.io/proxy-body-size: 50m
+  - name: epidemia-forecast-api
+    chart: ou-disc-charts/disc-generic
+    namespace: epidemia
+    version: v3.11.0
+    values:
+      - app:
+          regcred: regcred-ghcr-io
+          image:
+              repository: ghcr.io/ou-disc/epidemia-forecast-api
+              tag: "latest"
+          health: /health
+          port: 8000
+          extraEnv: |
+            - name: CORS_ALLOW_ORIGINS
+              value: "http://localhost:3000,http://127.0.0.1:3000,https://epidemia-ui.disc.ourcloud.ou.edu"
+          ingress:
+            enabled: true
+            url: epidemia-forecast-api.disc.ourcloud.ou.edu
+            extraAnnotations: |
+                nginx.ingress.kubernetes.io/proxy-body-size: 50m
+  - name: epidemia-env-api
+    chart: ou-disc-charts/disc-generic
+    namespace: epidemia
+    version: v3.11.0
+    values:
+      - app:
+          regcred: regcred-ghcr-io
+          image:
+              repository: ghcr.io/ou-disc/epidemia-env-api
+              tag: "latest"
+          health: /health
+          port: 5000
+          extraEnv: |
+            - name: CORS_ALLOW_ORIGINS
+              value: "http://localhost:3000,http://127.0.0.1:3000,https://epidemia-ui.disc.ourcloud.ou.edu"
+          ingress:
+            enabled: true
+            url: epidemia-env-api.disc.ourcloud.ou.edu
             extraAnnotations: |
                 nginx.ingress.kubernetes.io/proxy-body-size: 50m
 #          pvc:

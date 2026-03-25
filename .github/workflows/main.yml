@@ -1,4 +1,4 @@
-name: Build and push docker image
+name: Build and Deploy EPIDEMIA Stack
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build-api:
+  build-frontend-image:
 
     runs-on: ubuntu-latest
 
@@ -20,8 +20,13 @@ jobs:
       with:
         length: 6
 
-    - name: Build the Docker image
-      run: docker build . --file ./Dockerfile --tag ghcr.io/ou-disc/epidemia-ui:$SHA
+    - name: Build frontend image
+      run: |
+        docker build . \
+          --file ./Dockerfile \
+          --build-arg REACT_APP_FORECAST_API_BASE=https://epidemia-forecast-api.disc.ourcloud.ou.edu \
+          --build-arg REACT_APP_ENV_API_BASE=https://epidemia-env-api.disc.ourcloud.ou.edu \
+          --tag ghcr.io/ou-disc/epidemia-ui:$SHA
       env:
           SHA: ${{ steps.short-sha.outputs.sha }}
 
@@ -32,7 +37,7 @@ jobs:
         username: ${{github.actor}}
         password: ${{secrets.GITHUB_TOKEN}}
 
-    - name: 'Build Inventory Image'
+    - name: Push images
       run: |
         docker push ghcr.io/ou-disc/epidemia-ui:$SHA
       env:
@@ -41,7 +46,7 @@ jobs:
 
   deployment:
     needs:
-      - build-api
+      - build-frontend-image
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v4

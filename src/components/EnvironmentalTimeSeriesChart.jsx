@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Plot from "react-plotly.js";
-import axios from "axios";
+import { fetchEnvironmentalTimeseries } from "../api";
 
 export default function EnvironmentalTimeSeriesChart({
   selectedDistrict,
@@ -25,7 +25,7 @@ export default function EnvironmentalTimeSeriesChart({
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.post("http://localhost:5000/api/get_timeseries", {
+        const data = await fetchEnvironmentalTimeseries({
           districtName: selectedDistrict,
           districtGeometry: districtGeometry,
           startDate,
@@ -33,7 +33,7 @@ export default function EnvironmentalTimeSeriesChart({
           dataset,
         });
 
-        setTimeseries(res.data.timeseries || []);
+        setTimeseries(data.timeseries || []);
       } catch (err) {
         console.error("Error fetching timeseries:", err);
         setError(err.response?.data?.error || "Failed to load chart data");

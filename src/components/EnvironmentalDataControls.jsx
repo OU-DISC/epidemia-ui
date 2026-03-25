@@ -1,6 +1,6 @@
 // EnvironmentalDataControls.jsx
 import React, { useState } from "react";
-import axios from "axios";
+import { fetchEnvironmentalDataAll } from "../api";
 
 export default function EnvironmentalDataControls({
   geoData,
@@ -59,16 +59,16 @@ export default function EnvironmentalDataControls({
         console.log("Coordinates:", JSON.stringify(districts[0].geometry).substring(0, 300));
       }
 
-      const res = await axios.post("http://localhost:5000/api/get_env_data_all", {
+      const data = await fetchEnvironmentalDataAll({
         startDate,
         endDate,
         dataset,
         districts,
       });
 
-      console.log("Response:", res.data);
+      console.log("Response:", data);
       // res.data = { "District1": 0.42, ... }
-      if (onDataFetched) onDataFetched(res.data);
+      if (onDataFetched) onDataFetched(data);
     } catch (err) {
       console.error("Full error:", err);
       alert("Failed to fetch environmental data: " + (err.response?.data?.error || err.message));
