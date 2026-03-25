@@ -9,6 +9,9 @@ on:
 jobs:
 
   build-api:
+    permissions:
+      contents: read
+      packages: write
 
     runs-on: ubuntu-latest
 
