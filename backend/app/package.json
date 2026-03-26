@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@google/earthengine": "^1.5.10",
+    "axios": "^1.13.5",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.6",
+    "express": "^5.1.0",
+    "recharts": "^3.7.0"
+  }
+}

@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+numpy
+xarray
+statsmodels
+pydantic
+scikit-learn
+openpyxl
