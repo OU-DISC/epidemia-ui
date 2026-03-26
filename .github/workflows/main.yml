@@ -51,6 +51,7 @@ jobs:
     needs:
       - build-frontend-image
     runs-on: 'ubuntu-latest'
+    timeout-minutes: 40
     steps:
     - uses: actions/checkout@v4
 
@@ -81,6 +82,13 @@ jobs:
         helm-plugins: >
           https://github.com/databus23/helm-diff,
           https://github.com/jkroepke/helm-secrets
-        helmfile-args: apply
+        helmfile-args: --debug apply
       env:
         SHA: ${{ steps.short-sha.outputs.sha }}
+
+    - name: Debug cluster state on failure
+      if: failure()
+      run: |
+        kubectl -n epidemia get pods -o wide || true
+        kubectl -n epidemia get deploy || true
+        kubectl -n epidemia get events --sort-by=.lastTimestamp | tail -n 200 || true
