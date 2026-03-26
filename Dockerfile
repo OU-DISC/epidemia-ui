@@ -1,8 +1,8 @@
-FROM node:24 AS build-stage
+FROM node:22-alpine AS build-stage
 
 WORKDIR /app
 
-ADD . /app/
+COPY . /app/
 
 ARG REACT_APP_FORECAST_API_BASE=""
 ARG REACT_APP_ENV_API_BASE=""
@@ -14,7 +14,7 @@ RUN npm ci
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM nginx:1.27-alpine
 
 COPY --from=build-stage /app/build /usr/share/nginx/html
 
