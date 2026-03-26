@@ -32,7 +32,6 @@ db.sqlite3
 
 # Large data files (too big for git)
 data/data_environmental/
-data/data_epidemiological/
 data/population_weekly_2012-2030.csv
 report/
 
