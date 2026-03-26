@@ -47,9 +47,67 @@ jobs:
           SHA: ${{ steps.short-sha.outputs.sha }}
 
 
+  build-forecast-api-image:
+    permissions:
+      contents: read
+      packages: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build forecast API image
+      run: |
+        docker build . \
+          --file ./backend/Dockerfile.fastapi \
+          --tag ghcr.io/ou-disc/epidemia-forecast-api:latest
+
+    - name: 'Login to GitHub Container Registry'
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{github.actor}}
+        password: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Push forecast API image
+      run: |
+        docker push ghcr.io/ou-disc/epidemia-forecast-api:latest
+
+
+  build-env-api-image:
+    permissions:
+      contents: read
+      packages: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build environmental API image
+      run: |
+        docker build . \
+          --file ./backend/app/Dockerfile.envapi \
+          --tag ghcr.io/ou-disc/epidemia-env-api:latest
+
+    - name: 'Login to GitHub Container Registry'
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{github.actor}}
+        password: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Push environmental API image
+      run: |
+        docker push ghcr.io/ou-disc/epidemia-env-api:latest
+
+
   deployment:
     needs:
       - build-frontend-image
+      - build-forecast-api-image
+      - build-env-api-image
     runs-on: 'ubuntu-latest'
     timeout-minutes: 40
     steps:
