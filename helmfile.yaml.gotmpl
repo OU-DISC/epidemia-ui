@@ -15,7 +15,7 @@ releases:
               repository: ghcr.io/ou-disc/epidemia-ui
               tag: {{ requiredEnv "SHA" | quote }}
           health: /
-          port: 8050
+          port: 80
           extraEnv: |
             - name: REACT_APP_FORECAST_API_BASE
               value: "https://epidemia-forecast-api.disc.ourcloud.ou.edu"

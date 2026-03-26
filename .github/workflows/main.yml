@@ -9,6 +9,9 @@ on:
 jobs:
 
   build-frontend-image:
+    permissions:
+      contents: read
+      packages: write
 
     runs-on: ubuntu-latest
 
@@ -73,7 +76,7 @@ jobs:
       env:
         KUBECONFIG_CONTENT: '${{ secrets.KUBECONFIG }}'
 
-    - uses: helmfile/helmfile-action@v1.9.1
+    - uses: helmfile/helmfile-action@v2.4.0
       with:
         helm-plugins: >
           https://github.com/databus23/helm-diff,
