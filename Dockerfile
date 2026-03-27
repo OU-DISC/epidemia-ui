@@ -1,4 +1,4 @@
-FROM node:22-alpine AS build-stage
+FROM public.ecr.aws/docker/library/node:22-alpine AS build-stage
 
 WORKDIR /app
 
