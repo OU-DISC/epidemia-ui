@@ -10,7 +10,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/ ./
 
-RUN addgroup --system app && adduser --system --ingroup app app
+RUN addgroup --system app && adduser --system --ingroup app app \
+    && mkdir -p /app/backend/report \
+    && chown -R app:app /app/backend/report
 USER app
 
 EXPOSE 8000
