@@ -31,7 +31,6 @@ db.sqlite3
 .env.local
 
 # Large data files (too big for git)
-data/data_environmental/
 data/population_weekly_2012-2030.csv
 report/
 
