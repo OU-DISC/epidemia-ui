@@ -206,32 +206,45 @@ app.use(bodyParser.json({ limit: '50mb' })); // <-- default is 100kb
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
+  const geeStatus = geeAuthError
+    ? 'error'
+    : geeInitialized
+      ? 'ok'
+      : 'initializing';
+  res.status(geeInitialized ? 200 : 503).json({
+    status: geeInitialized ? 'ok' : 'unavailable',
+    gee: geeStatus,
+    ...(geeAuthError ? { geeError: geeAuthError } : {}),
+  });
 });
 
 // Initialize GEE with service account
 let geeInitialized = false;
+let geeAuthError = null;
 try {
   const privateKey = require('./service-account-key.json');
-  ee.data.authenticateViaPrivateKey(privateKey, 
+  ee.data.authenticateViaPrivateKey(privateKey,
     function onAuth() {
       console.log('GEE Authentication successful');
-      ee.initialize(null, null, 
+      ee.initialize(null, null,
         function onInit() {
           console.log('GEE Initialized!');
           geeInitialized = true;
-        }, 
+        },
         function onInitError(err) {
           console.error('GEE init error:', err);
+          geeAuthError = err.message || String(err);
         }
       );
     },
     function onAuthError(err) {
       console.error('GEE Auth error:', err);
+      geeAuthError = err.message || String(err);
     }
   );
 } catch (authErr) {
   console.error('GEE setup error:', authErr);
+  geeAuthError = authErr.message || String(authErr);
 }
 
 // Route to get environmental data
@@ -293,6 +306,12 @@ function fetchDistrictValue(district, startDate, endDate, dataset) {
 }
 
 app.post("/api/get_env_data_all", async (req, res) => {
+  if (!geeInitialized) {
+    const msg = geeAuthError
+      ? `Google Earth Engine authentication failed: ${geeAuthError}`
+      : 'Google Earth Engine is still initializing, please retry shortly';
+    return res.status(503).json({ error: msg });
+  }
   try {
     const { startDate, endDate, dataset, districts } = req.body;
     const results = {};
@@ -327,6 +346,12 @@ app.post("/api/get_env_data_all", async (req, res) => {
 
 // Route to get time series data for a specific district
 app.post("/api/get_timeseries", (req, res) => {
+  if (!geeInitialized) {
+    const msg = geeAuthError
+      ? `Google Earth Engine authentication failed: ${geeAuthError}`
+      : 'Google Earth Engine is still initializing, please retry shortly';
+    return res.status(503).json({ error: msg });
+  }
   try {
     const { districtName, districtGeometry, startDate, endDate, dataset } = req.body;
     if (!districtName || !districtGeometry) {
@@ -399,7 +424,11 @@ app.post("/api/get_timeseries", (req, res) => {
       console.log(`[Timeseries] Successfully created Polygon geometry`);
     } catch (geoErr) {
       console.error(`[Timeseries] Error creating Polygon:`, geoErr.message);
-      return res.status(400).json({ error: "Invalid geometry: " + geoErr.message });
+      const isAuthError = /authentication|credentials|oauth|token/i.test(geoErr.message);
+      if (isAuthError) {
+        return res.status(503).json({ error: 'Google Earth Engine authentication error: ' + geoErr.message });
+      }
+      return res.status(400).json({ error: 'Invalid geometry: ' + geoErr.message });
     }
     const dsConfig = getDatasetConfig(dataset);
     if (!dsConfig) {
