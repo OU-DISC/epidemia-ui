@@ -57,6 +57,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - uses: benjlevesque/short-sha@v3.0
+      id: short-sha
+      with:
+        length: 6
+
     - name: Build forecast API image
       run: |
         docker build . \
@@ -89,6 +94,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - uses: benjlevesque/short-sha@v3.0
+      id: short-sha
+      with:
+        length: 6
 
     - name: Build environmental API image
       run: |
