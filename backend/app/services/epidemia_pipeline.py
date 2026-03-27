@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -53,6 +54,74 @@ class PipelineInputError(ValueError):
 
 
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
+
+
+def _has_required_base_files(data_dir: Path) -> bool:
+    required = [
+        data_dir / "amhara_woredas.csv",
+        data_dir / "env_ref_data_2002_2018.csv",
+        data_dir / "environ_info.xlsx",
+    ]
+    return all(path.exists() for path in required)
+
+
+def _has_env_source(data_dir: Path) -> bool:
+    return (data_dir / "env_data.csv").exists() or (data_dir / "data_environmental").exists()
+
+
+def _has_epi_source(data_dir: Path) -> bool:
+    return (data_dir / "epi_data.csv").exists() or (data_dir / "data_epidemiological").exists()
+
+
+def _candidate_data_dirs(path_str: str) -> List[Path]:
+    candidates: List[Path] = []
+
+    preferred = _resolve_runtime_path(path_str, must_exist=False)
+    candidates.append(preferred)
+
+    override = os.getenv("EPIDEMIA_DATA_DIR", "").strip()
+    if override:
+        candidates.append(_resolve_runtime_path(override, must_exist=False))
+
+    candidates.extend(
+        [
+            BACKEND_ROOT / "data",
+            BACKEND_ROOT.parent / "data",
+            Path.cwd() / "data",
+            Path("/app/backend/data"),
+            Path("/app/data"),
+        ]
+    )
+
+    unique: List[Path] = []
+    seen: set[Path] = set()
+    for candidate in candidates:
+        resolved = candidate.resolve()
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+        unique.append(resolved)
+    return unique
+
+
+def _resolve_data_dir(path_str: str) -> Path:
+    candidates = _candidate_data_dirs(path_str)
+
+    for candidate in candidates:
+        if not candidate.exists():
+            continue
+        if _has_required_base_files(candidate) and _has_env_source(candidate) and _has_epi_source(candidate):
+            return candidate
+
+    preferred = _resolve_runtime_path(path_str, must_exist=True)
+    if _has_required_base_files(preferred):
+        # Keep compatibility with existing workflows and preserve downstream, specific errors.
+        return preferred
+
+    checked = ", ".join(str(path) for path in candidates)
+    raise PipelineInputError(
+        "Could not locate a complete data directory. Checked: " + checked
+    )
 
 
 def _year_week_to_sunday(year: int, week: int) -> date:
@@ -361,7 +430,7 @@ def _corral_epidemiological(report_woredas: pd.DataFrame, data_dir: Path) -> pd.
 
 
 def _load_inputs(req: EpidemiaRunRequest) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    data_dir = _resolve_runtime_path(req.data_dir, must_exist=True)
+    data_dir = _resolve_data_dir(req.data_dir)
 
     woredas_path = data_dir / "amhara_woredas.csv"
     epi_path = data_dir / "epi_data.csv"
