@@ -1,0 +1,1987 @@
+{
+  "message": "EPIDEMIA Python pipeline completed",
+  "generated_at": "2026-03-10T18:51:16.269055Z",
+  "inputs_used": {
+    "data_dir": "data",
+    "output_dir": "report",
+    "horizon_weeks": "1"
+  },
+  "alerts": [
+    {
+      "district": "Abargelie",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 82.0,
+      "latest_forecast": 36.9896581391674
+    },
+    {
+      "district": "Alefa",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 94.0,
+      "latest_forecast": 71.22263972047116
+    },
+    {
+      "district": "Andabiet",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 7.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Ankesha",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 33.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Antsokiya Gemza",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 2.0,
+      "latest_forecast": 6.168507365722616
+    },
+    {
+      "district": "Artuma Fursi",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 1.0,
+      "latest_forecast": 18.34014011553387
+    },
+    {
+      "district": "Awabel",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 4.0,
+      "latest_forecast": 5.075202359840564
+    },
+    {
+      "district": "Bahir Dar Zuria",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 25.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Baso Liben",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 96.0,
+      "latest_forecast": 33.711077555176985
+    },
+    {
+      "district": "Borena",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 8.0,
+      "latest_forecast": 2.029234632065055
+    },
+    {
+      "district": "Bugna",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 5.0,
+      "latest_forecast": 3.49100135199199
+    },
+    {
+      "district": "Burie Zuria",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 7.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Debre Elias",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 25.0,
+      "latest_forecast": 51.470581005390414
+    },
+    {
+      "district": "Dehena",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 3.0,
+      "latest_forecast": 8.86931329341738
+    },
+    {
+      "district": "Dembecha",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 7.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Denbia",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 54.0,
+      "latest_forecast": 141.7243516583849
+    },
+    {
+      "district": "Dera",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 30.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Efratana Gidim",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 4.0,
+      "latest_forecast": 14.199989464997458
+    },
+    {
+      "district": "Estea",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 31.0,
+      "latest_forecast": 21.655716116798033
+    },
+    {
+      "district": "Fagita Lekoma",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 2.0,
+      "latest_forecast": 3.1087212262743122
+    },
+    {
+      "district": "Fogera",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 21.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Gondar Zuria",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 6.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Gonji Kolela",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 1.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Gozamin",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 12.0,
+      "latest_forecast": 22.024599230944837
+    },
+    {
+      "district": "Guagusa Shekudad",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 5.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Jabi Tehnan",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 55.0,
+      "latest_forecast": 39.17626815093132
+    },
+    {
+      "district": "Jawi",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 374.0,
+      "latest_forecast": 348.46044984460866
+    },
+    {
+      "district": "Jilie Timuga",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 19.0,
+      "latest_forecast": 37.2720488824118
+    },
+    {
+      "district": "Kalu",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 1.0,
+      "latest_forecast": 3.2885537197338124
+    },
+    {
+      "district": "Kewet",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 1.0,
+      "latest_forecast": 6.374203290432462
+    },
+    {
+      "district": "Kobo Town",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 8.0,
+      "latest_forecast": 22.51252787386089
+    },
+    {
+      "district": "Lasta",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 6.0,
+      "latest_forecast": 11.304496690253364
+    },
+    {
+      "district": "Libokemkem",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 12.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Mecha",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 13.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Mekit",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 8.0,
+      "latest_forecast": 3.1085983179112553
+    },
+    {
+      "district": "Merehabete",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 8.0,
+      "latest_forecast": 4.581128298772672
+    },
+    {
+      "district": "Metema",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 244.0,
+      "latest_forecast": 412.7093743964318
+    },
+    {
+      "district": "Misrak Belesa",
+      "species": "pfm",
+      "early_detection": true,
+      "early_warning": false,
+      "latest_observed": 81.0,
+      "latest_forecast": 123.53217565360912
+    },
+    {
+      "district": "North Achefer",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 11.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Quara",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 318.0,
+      "latest_forecast": 292.26744859796673
+    },
+    {
+      "district": "Raya Kobo",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 26.0,
+      "latest_forecast": 27.958790581707724
+    },
+    {
+      "district": "Sehela",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 23.0,
+      "latest_forecast": 16.159693080259164
+    },
+    {
+      "district": "Shewa Robit",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 11.0,
+      "latest_forecast": 37.249082576861625
+    },
+    {
+      "district": "South Achefer",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 6.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Tehulederie",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 0.0,
+      "latest_forecast": 1.472898705950521
+    },
+    {
+      "district": "Womberma",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 12.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Yilmana Densa",
+      "species": "pfm",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 13.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Abargelie",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 16.0,
+      "latest_forecast": 6.088774954787278
+    },
+    {
+      "district": "Alefa",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 29.0,
+      "latest_forecast": 28.671518620617
+    },
+    {
+      "district": "Andabiet",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 7.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Ankesha",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 11.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Antsokiya Gemza",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 6.0,
+      "latest_forecast": 9.162239039207755
+    },
+    {
+      "district": "Artuma Fursi",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 2.0,
+      "latest_forecast": 2.673555387775883
+    },
+    {
+      "district": "Awabel",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 1.0,
+      "latest_forecast": 7.031376749249381
+    },
+    {
+      "district": "Bahir Dar Zuria",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 8.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Baso Liben",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 19.0,
+      "latest_forecast": 20.95721033132584
+    },
+    {
+      "district": "Borena",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 3.0,
+      "latest_forecast": 0.5419029726265592
+    },
+    {
+      "district": "Bugna",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 3.0,
+      "latest_forecast": 5.233771706494828
+    },
+    {
+      "district": "Burie Zuria",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 2.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Debre Elias",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 15.0,
+      "latest_forecast": 12.27519182483801
+    },
+    {
+      "district": "Dehena",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 3.0,
+      "latest_forecast": 7.105666075535967
+    },
+    {
+      "district": "Dembecha",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 4.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Denbia",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 18.0,
+      "latest_forecast": 34.38651168507363
+    },
+    {
+      "district": "Dera",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 21.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Efratana Gidim",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 7.0,
+      "latest_forecast": 6.245728934384491
+    },
+    {
+      "district": "Estea",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 39.0,
+      "latest_forecast": 11.733288852211416
+    },
+    {
+      "district": "Fagita Lekoma",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 5.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Fogera",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 0.0,
+      "latest_forecast": 45.67209804575698
+    },
+    {
+      "district": "Gondar Zuria",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 10.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Gonji Kolela",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 1.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Gozamin",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 5.0,
+      "latest_forecast": 4.47107263884255
+    },
+    {
+      "district": "Guagusa Shekudad",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 3.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Jabi Tehnan",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 25.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Jawi",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 52.0,
+      "latest_forecast": 55.92186539778413
+    },
+    {
+      "district": "Jilie Timuga",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 2.0,
+      "latest_forecast": 3.216898144083717
+    },
+    {
+      "district": "Kalu",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 4.0,
+      "latest_forecast": 12.30562042385828
+    },
+    {
+      "district": "Kewet",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 0.0,
+      "latest_forecast": 7.931311783400345
+    },
+    {
+      "district": "Kobo Town",
+      "species": "pv",
+      "early_detection": true,
+      "early_warning": false,
+      "latest_observed": 10.0,
+      "latest_forecast": 27.08292802837427
+    },
+    {
+      "district": "Lasta",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 2.0,
+      "latest_forecast": 3.5061717556581726
+    },
+    {
+      "district": "Libokemkem",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 4.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Mecha",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 7.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Mekit",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 4.0,
+      "latest_forecast": 1.6927290924095395
+    },
+    {
+      "district": "Merehabete",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 3.0,
+      "latest_forecast": 2.065720857549204
+    },
+    {
+      "district": "Metema",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 63.0,
+      "latest_forecast": 69.04533562762273
+    },
+    {
+      "district": "Misrak Belesa",
+      "species": "pv",
+      "early_detection": true,
+      "early_warning": false,
+      "latest_observed": 10.0,
+      "latest_forecast": 33.60365564588344
+    },
+    {
+      "district": "North Achefer",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 6.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Quara",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 75.0,
+      "latest_forecast": 73.25073306059383
+    },
+    {
+      "district": "Raya Kobo",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 19.0,
+      "latest_forecast": 7.619265007989014
+    },
+    {
+      "district": "Sehela",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 19.0,
+      "latest_forecast": 11.279089775780028
+    },
+    {
+      "district": "Shewa Robit",
+      "species": "pv",
+      "early_detection": true,
+      "early_warning": false,
+      "latest_observed": 30.0,
+      "latest_forecast": 37.96915000087792
+    },
+    {
+      "district": "South Achefer",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 3.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Tehulederie",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 1.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Womberma",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 2.0,
+      "latest_forecast": 0.0
+    },
+    {
+      "district": "Yilmana Densa",
+      "species": "pv",
+      "early_detection": false,
+      "early_warning": false,
+      "latest_observed": 4.0,
+      "latest_forecast": 0.0
+    }
+  ],
+  "forecasts": [
+    {
+      "district": "Abargelie",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 36.9896581391674,
+          "lower": 0.0,
+          "upper": 104.385271708018
+        }
+      ]
+    },
+    {
+      "district": "Alefa",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 71.22263972047116,
+          "lower": 0.0,
+          "upper": 149.72291573656636
+        }
+      ]
+    },
+    {
+      "district": "Andabiet",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 122.80896514774905
+        }
+      ]
+    },
+    {
+      "district": "Ankesha",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 262.965427522194
+        }
+      ]
+    },
+    {
+      "district": "Antsokiya Gemza",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 6.168507365722616,
+          "lower": 0.0,
+          "upper": 17.23134491794076
+        }
+      ]
+    },
+    {
+      "district": "Artuma Fursi",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 18.34014011553387,
+          "lower": 0.0,
+          "upper": 69.41609671315388
+        }
+      ]
+    },
+    {
+      "district": "Awabel",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 5.075202359840564,
+          "lower": 0.0,
+          "upper": 24.548156725790907
+        }
+      ]
+    },
+    {
+      "district": "Bahir Dar Zuria",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 207.4786949353379
+        }
+      ]
+    },
+    {
+      "district": "Baso Liben",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 33.711077555176985,
+          "lower": 0.0,
+          "upper": 245.97465879210665
+        }
+      ]
+    },
+    {
+      "district": "Borena",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 2.029234632065055,
+          "lower": 0.0,
+          "upper": 26.61007200013464
+        }
+      ]
+    },
+    {
+      "district": "Bugna",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 3.49100135199199,
+          "lower": 0.0,
+          "upper": 26.947252694445876
+        }
+      ]
+    },
+    {
+      "district": "Burie Zuria",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 176.75563382075802
+        }
+      ]
+    },
+    {
+      "district": "Debre Elias",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 51.470581005390414,
+          "lower": 0.0,
+          "upper": 128.29837602936732
+        }
+      ]
+    },
+    {
+      "district": "Dehena",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 8.86931329341738,
+          "lower": 0.0,
+          "upper": 24.473724718024418
+        }
+      ]
+    },
+    {
+      "district": "Dembecha",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 57.18413981300974
+        }
+      ]
+    },
+    {
+      "district": "Denbia",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 141.7243516583849,
+          "lower": 0.0,
+          "upper": 319.1870522754167
+        }
+      ]
+    },
+    {
+      "district": "Dera",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 394.46415137065566
+        }
+      ]
+    },
+    {
+      "district": "Efratana Gidim",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 14.199989464997458,
+          "lower": 0.0,
+          "upper": 34.030509263155665
+        }
+      ]
+    },
+    {
+      "district": "Estea",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 21.655716116798033,
+          "lower": 0.0,
+          "upper": 193.14447932276923
+        }
+      ]
+    },
+    {
+      "district": "Fagita Lekoma",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 3.1087212262743122,
+          "lower": 0.0,
+          "upper": 38.047418630189405
+        }
+      ]
+    },
+    {
+      "district": "Fogera",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 393.3063615231507
+        }
+      ]
+    },
+    {
+      "district": "Gondar Zuria",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 157.25202877435345
+        }
+      ]
+    },
+    {
+      "district": "Gonji Kolela",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 155.59812364572383
+        }
+      ]
+    },
+    {
+      "district": "Gozamin",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 22.024599230944837,
+          "lower": 0.0,
+          "upper": 74.40960053673905
+        }
+      ]
+    },
+    {
+      "district": "Guagusa Shekudad",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 61.28266598143127
+        }
+      ]
+    },
+    {
+      "district": "Jabi Tehnan",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 39.17626815093132,
+          "lower": 0.0,
+          "upper": 380.67072745913515
+        }
+      ]
+    },
+    {
+      "district": "Jawi",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 348.46044984460866,
+          "lower": 35.75406006593772,
+          "upper": 661.1668396232797
+        }
+      ]
+    },
+    {
+      "district": "Jilie Timuga",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 37.2720488824118,
+          "lower": 0.0,
+          "upper": 94.89015993556319
+        }
+      ]
+    },
+    {
+      "district": "Kalu",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 3.2885537197338124,
+          "lower": 0.0,
+          "upper": 22.37230219846408
+        }
+      ]
+    },
+    {
+      "district": "Kewet",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 6.374203290432462,
+          "lower": 0.0,
+          "upper": 15.707349924420562
+        }
+      ]
+    },
+    {
+      "district": "Kobo Town",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 22.51252787386089,
+          "lower": 0.0,
+          "upper": 51.28517665886343
+        }
+      ]
+    },
+    {
+      "district": "Lasta",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 11.304496690253364,
+          "lower": 0.0,
+          "upper": 25.415402863233652
+        }
+      ]
+    },
+    {
+      "district": "Libokemkem",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 89.36977172749182
+        }
+      ]
+    },
+    {
+      "district": "Mecha",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 120.1264572824772
+        }
+      ]
+    },
+    {
+      "district": "Mekit",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 3.1085983179112553,
+          "lower": 0.0,
+          "upper": 23.38395415374823
+        }
+      ]
+    },
+    {
+      "district": "Merehabete",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 4.581128298772672,
+          "lower": 0.0,
+          "upper": 26.697017736877076
+        }
+      ]
+    },
+    {
+      "district": "Metema",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 412.7093743964318,
+          "lower": 0.0,
+          "upper": 956.88993174904
+        }
+      ]
+    },
+    {
+      "district": "Misrak Belesa",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 123.53217565360912,
+          "lower": 18.258392591390418,
+          "upper": 228.8059587158278
+        }
+      ]
+    },
+    {
+      "district": "North Achefer",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 63.81738888801733
+        }
+      ]
+    },
+    {
+      "district": "Quara",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 292.26744859796673,
+          "lower": 67.89613782651242,
+          "upper": 516.638759369421
+        }
+      ]
+    },
+    {
+      "district": "Raya Kobo",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 27.958790581707724,
+          "lower": 0.0,
+          "upper": 87.70433599123295
+        }
+      ]
+    },
+    {
+      "district": "Sehela",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 16.159693080259164,
+          "lower": 0.0,
+          "upper": 35.57812577973067
+        }
+      ]
+    },
+    {
+      "district": "Shewa Robit",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 37.249082576861625,
+          "lower": 5.543353553145458,
+          "upper": 68.95481160057778
+        }
+      ]
+    },
+    {
+      "district": "South Achefer",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 80.41526154122357
+        }
+      ]
+    },
+    {
+      "district": "Tehulederie",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 1.472898705950521,
+          "lower": 0.0,
+          "upper": 4.842870354310849
+        }
+      ]
+    },
+    {
+      "district": "Womberma",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 390.7926190542935
+        }
+      ]
+    },
+    {
+      "district": "Yilmana Densa",
+      "species": "pfm",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 90.66062434151988
+        }
+      ]
+    },
+    {
+      "district": "Abargelie",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 6.088774954787278,
+          "lower": 0.0,
+          "upper": 17.151322770499704
+        }
+      ]
+    },
+    {
+      "district": "Alefa",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 28.671518620617,
+          "lower": 6.980256851702961,
+          "upper": 50.36278038953104
+        }
+      ]
+    },
+    {
+      "district": "Andabiet",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 62.7143776959556
+        }
+      ]
+    },
+    {
+      "district": "Ankesha",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 284.4735128905515
+        }
+      ]
+    },
+    {
+      "district": "Antsokiya Gemza",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 9.162239039207755,
+          "lower": 0.0,
+          "upper": 22.393254827999755
+        }
+      ]
+    },
+    {
+      "district": "Artuma Fursi",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 2.673555387775883,
+          "lower": 0.0,
+          "upper": 12.485053433297397
+        }
+      ]
+    },
+    {
+      "district": "Awabel",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 7.031376749249381,
+          "lower": 0.0,
+          "upper": 16.963798824655946
+        }
+      ]
+    },
+    {
+      "district": "Bahir Dar Zuria",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 102.40363006065314
+        }
+      ]
+    },
+    {
+      "district": "Baso Liben",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 20.95721033132584,
+          "lower": 0.0,
+          "upper": 72.48728171899117
+        }
+      ]
+    },
+    {
+      "district": "Borena",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.5419029726265592,
+          "lower": 0.0,
+          "upper": 18.331902551351373
+        }
+      ]
+    },
+    {
+      "district": "Bugna",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 5.233771706494828,
+          "lower": 0.0,
+          "upper": 15.06131096088836
+        }
+      ]
+    },
+    {
+      "district": "Burie Zuria",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 151.05925352286545
+        }
+      ]
+    },
+    {
+      "district": "Debre Elias",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 12.27519182483801,
+          "lower": 0.0,
+          "upper": 39.274891494436574
+        }
+      ]
+    },
+    {
+      "district": "Dehena",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 7.105666075535967,
+          "lower": 0.0,
+          "upper": 16.618734328663866
+        }
+      ]
+    },
+    {
+      "district": "Dembecha",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 58.366091484832644
+        }
+      ]
+    },
+    {
+      "district": "Denbia",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 34.38651168507363,
+          "lower": 0.0,
+          "upper": 83.4171089053021
+        }
+      ]
+    },
+    {
+      "district": "Dera",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 107.36484639818738
+        }
+      ]
+    },
+    {
+      "district": "Efratana Gidim",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 6.245728934384491,
+          "lower": 0.9165527433217937,
+          "upper": 11.574905125447188
+        }
+      ]
+    },
+    {
+      "district": "Estea",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 11.733288852211416,
+          "lower": 0.0,
+          "upper": 92.79781476257983
+        }
+      ]
+    },
+    {
+      "district": "Fagita Lekoma",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 27.34322684117114
+        }
+      ]
+    },
+    {
+      "district": "Fogera",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 45.67209804575698,
+          "lower": 0.0,
+          "upper": 181.8605934457134
+        }
+      ]
+    },
+    {
+      "district": "Gondar Zuria",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 50.986745548396115
+        }
+      ]
+    },
+    {
+      "district": "Gonji Kolela",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 52.65308406084403
+        }
+      ]
+    },
+    {
+      "district": "Gozamin",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 4.47107263884255,
+          "lower": 0.0,
+          "upper": 27.484649448324202
+        }
+      ]
+    },
+    {
+      "district": "Guagusa Shekudad",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 76.54954406609033
+        }
+      ]
+    },
+    {
+      "district": "Jabi Tehnan",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 168.6950232894977
+        }
+      ]
+    },
+    {
+      "district": "Jawi",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 55.92186539778413,
+          "lower": 0.0,
+          "upper": 128.98262908366743
+        }
+      ]
+    },
+    {
+      "district": "Jilie Timuga",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 3.216898144083717,
+          "lower": 0.0,
+          "upper": 9.501523832047464
+        }
+      ]
+    },
+    {
+      "district": "Kalu",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 12.30562042385828,
+          "lower": 0.0,
+          "upper": 32.9964646440347
+        }
+      ]
+    },
+    {
+      "district": "Kewet",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 7.931311783400345,
+          "lower": 0.0,
+          "upper": 16.442008226770426
+        }
+      ]
+    },
+    {
+      "district": "Kobo Town",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 27.08292802837427,
+          "lower": 11.157444718665692,
+          "upper": 43.008411338082844
+        }
+      ]
+    },
+    {
+      "district": "Lasta",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 3.5061717556581726,
+          "lower": 0.0,
+          "upper": 9.997122298391965
+        }
+      ]
+    },
+    {
+      "district": "Libokemkem",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 28.898145665394487
+        }
+      ]
+    },
+    {
+      "district": "Mecha",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 110.85539130618007
+        }
+      ]
+    },
+    {
+      "district": "Mekit",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 1.6927290924095395,
+          "lower": 0.0,
+          "upper": 14.268550782194993
+        }
+      ]
+    },
+    {
+      "district": "Merehabete",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 2.065720857549204,
+          "lower": 0.0,
+          "upper": 10.802384112417311
+        }
+      ]
+    },
+    {
+      "district": "Metema",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 69.04533562762273,
+          "lower": 0.0,
+          "upper": 170.8718052571635
+        }
+      ]
+    },
+    {
+      "district": "Misrak Belesa",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 33.60365564588344,
+          "lower": 9.99587195305082,
+          "upper": 57.21143933871606
+        }
+      ]
+    },
+    {
+      "district": "North Achefer",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 29.938261870960492
+        }
+      ]
+    },
+    {
+      "district": "Quara",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 73.25073306059383,
+          "lower": 20.22615882504155,
+          "upper": 126.27530729614611
+        }
+      ]
+    },
+    {
+      "district": "Raya Kobo",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 7.619265007989014,
+          "lower": 0.0,
+          "upper": 49.92070785407174
+        }
+      ]
+    },
+    {
+      "district": "Sehela",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 11.279089775780028,
+          "lower": 3.8811096983624473,
+          "upper": 18.677069853197608
+        }
+      ]
+    },
+    {
+      "district": "Shewa Robit",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 37.96915000087792,
+          "lower": 18.321693384834965,
+          "upper": 57.61660661692087
+        }
+      ]
+    },
+    {
+      "district": "South Achefer",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 65.94153520225065
+        }
+      ]
+    },
+    {
+      "district": "Tehulederie",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 3.858035444586333
+        }
+      ]
+    },
+    {
+      "district": "Womberma",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 327.0013442644939
+        }
+      ]
+    },
+    {
+      "district": "Yilmana Densa",
+      "species": "pv",
+      "history_points": 338,
+      "forecast": [
+        {
+          "week_start": "2018-12-31",
+          "median": 0.0,
+          "lower": 0.0,
+          "upper": 81.11479109685953
+        }
+      ]
+    }
+  ]
+}
