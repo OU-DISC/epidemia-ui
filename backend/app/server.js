@@ -221,8 +221,32 @@ app.get('/health', (req, res) => {
 // Initialize GEE with service account
 let geeInitialized = false;
 let geeAuthError = null;
+
+function loadServiceAccountKey() {
+  const inlineJson = process.env.GEE_SERVICE_ACCOUNT_JSON;
+  if (inlineJson) {
+    return JSON.parse(inlineJson);
+  }
+
+  const base64Json = process.env.GEE_SERVICE_ACCOUNT_JSON_BASE64;
+  if (base64Json) {
+    const decoded = Buffer.from(base64Json, 'base64').toString('utf8');
+    return JSON.parse(decoded);
+  }
+
+  const keyPath = process.env.GEE_SERVICE_ACCOUNT_KEY_PATH || './service-account-key.json';
+  if (fs.existsSync(keyPath)) {
+    return JSON.parse(fs.readFileSync(keyPath, 'utf8'));
+  }
+
+  throw new Error(
+    'GEE credentials not found. Set GEE_SERVICE_ACCOUNT_JSON or GEE_SERVICE_ACCOUNT_JSON_BASE64, or provide ' +
+    `a key file at ${keyPath}`
+  );
+}
+
 try {
-  const privateKey = require('./service-account-key.json');
+  const privateKey = loadServiceAccountKey();
   ee.data.authenticateViaPrivateKey(privateKey,
     function onAuth() {
       console.log('GEE Authentication successful');

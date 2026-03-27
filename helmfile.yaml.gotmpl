@@ -63,6 +63,18 @@ releases:
           extraEnv: |
             - name: CORS_ALLOW_ORIGINS
               value: "http://localhost:3000,http://127.0.0.1:3000,https://epidemia-ui.disc.ourcloud.ou.edu"
+            - name: GEE_SERVICE_ACCOUNT_JSON
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: GEE_SERVICE_ACCOUNT_JSON
+                  optional: true
+            - name: GEE_SERVICE_ACCOUNT_JSON_BASE64
+              valueFrom:
+                secretKeyRef:
+                  name: credentials
+                  key: GEE_SERVICE_ACCOUNT_JSON_BASE64
+                  optional: true
           ingress:
             enabled: true
             url: epidemia-env-api.disc.ourcloud.ou.edu
