@@ -14,7 +14,7 @@ RUN npm ci
 
 RUN npm run build
 
-FROM nginx:1.27-alpine
+FROM public.ecr.aws/docker/library/nginx:1.27-alpine
 
 COPY --from=build-stage /app/build /usr/share/nginx/html
 
