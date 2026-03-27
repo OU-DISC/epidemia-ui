@@ -26,6 +26,7 @@ releases:
             url: epidemia-ui.disc.ourcloud.ou.edu
             extraAnnotations: |
                 nginx.ingress.kubernetes.io/proxy-body-size: 50m
+
   - name: epidemia-forecast-api
     chart: ou-disc-charts/disc-generic
     namespace: epidemia
@@ -35,7 +36,7 @@ releases:
           regcred: regcred-ghcr-io
           image:
               repository: ghcr.io/ou-disc/epidemia-forecast-api
-              tag: "latest"
+              tag: {{ requiredEnv "SHA" | quote }}
           health: /health
           port: 8000
           extraEnv: |
@@ -46,6 +47,7 @@ releases:
             url: epidemia-forecast-api.disc.ourcloud.ou.edu
             extraAnnotations: |
                 nginx.ingress.kubernetes.io/proxy-body-size: 50m
+
   - name: epidemia-env-api
     chart: ou-disc-charts/disc-generic
     namespace: epidemia
@@ -55,7 +57,7 @@ releases:
           regcred: regcred-ghcr-io
           image:
               repository: ghcr.io/ou-disc/epidemia-env-api
-              tag: "latest"
+              tag: {{ requiredEnv "SHA" | quote }}
           health: /health
           port: 5000
           extraEnv: |
