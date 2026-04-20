@@ -19,7 +19,7 @@ function TopToolbar({
   onExportPDF,
   exporting,
 }) {
-  const diseases = ["Malaria", "West Nile"];
+  const diseases = ["Plasmodium falciparum malaria", "Plasmodium vivax malaria"];
   const countries = ["Ethiopia", "USA"];
 
   return (
