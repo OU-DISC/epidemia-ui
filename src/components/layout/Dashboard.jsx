@@ -5,6 +5,7 @@ import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import ForecastChart from "../ForecastChart";
 import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
+import DecisionLayers from "../DecisionLayers";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { FORECAST_API_BASE, runEpidemiaPipeline } from "../../api";
@@ -31,6 +32,10 @@ function Dashboard() {
   const [geoData, setGeoData] = useState(null);
   const [envData, setEnvData] = useState({});
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
+
+  // Decision layers states
+  const [showEarlyWarning, setShowEarlyWarning] = useState(true);
+  const [showEarlyDetection, setShowEarlyDetection] = useState(true);
 
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
@@ -241,6 +246,13 @@ function Dashboard() {
             onExportPDF={handleExportPDF}
             exporting={exporting}
           />
+
+          <DecisionLayers
+            showEarlyWarning={showEarlyWarning}
+            showEarlyDetection={showEarlyDetection}
+            onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
+            onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
+          />
         </aside>
 
         <main className="main-content">
@@ -299,6 +311,9 @@ function Dashboard() {
               envData={envData}
               setGeoData={setGeoData}
               filterRegion={selectedAdminRegion}
+              alerts={epidemiaData?.alerts || []}
+              showEarlyWarning={showEarlyWarning}
+              showEarlyDetection={showEarlyDetection}
             />
           </div>
 
@@ -356,7 +371,8 @@ function Dashboard() {
             )}
           </div>
         </section>
-        </main></div>
+        </main>
+      </div>
     </div>
   );
 }

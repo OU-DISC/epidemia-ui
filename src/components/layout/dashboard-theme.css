@@ -48,6 +48,94 @@ body {
   min-width: 0;
 }
 
+.decision-layers {
+  padding: 20px;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+.decision-layers h3 {
+  margin: 0 0 16px 0;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.layer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.layer-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.layer-checkbox {
+  display: none;
+}
+
+.layer-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+.layer-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.layer-checkbox:checked + .layer-label .layer-icon {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Early Warning Layer - Red/Orange */
+.layer-checkbox[id="early-warning"]:checked + .layer-label {
+  color: #dc2626;
+}
+
+.layer-checkbox[id="early-warning"] + .layer-label .layer-icon {
+  background: linear-gradient(135deg, #dc2626, #ea580c);
+  color: white;
+}
+
+/* Early Detection Layer - Orange */
+.layer-checkbox[id="early-detection"]:checked + .layer-label {
+  color: #ea580c;
+}
+
+.layer-checkbox[id="early-detection"] + .layer-label .layer-icon {
+  background: linear-gradient(135deg, #ea580c, #f97316);
+  color: white;
+}
+
+.layer-checkbox:not(:checked) + .layer-label .layer-icon {
+  background: #e5e7eb;
+  color: #9ca3af;
+}
+
 .top-toolbar {
   display: flex;
   flex-wrap: wrap;

@@ -1,8 +1,96 @@
 // EthiopiaMap.jsx
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+
+// Alert Markers component
+function AlertMarkers({ alerts, showEarlyWarning, showEarlyDetection, geoData }) {
+  const map = useMap();
+  const currentMarkersRef = useRef([]);
+
+  useEffect(() => {
+    // Clear all previously added markers
+    currentMarkersRef.current.forEach(marker => {
+      if (map.hasLayer(marker)) {
+        map.removeLayer(marker);
+      }
+    });
+    currentMarkersRef.current = [];
+
+    const markers = [];
+
+    if (alerts && geoData) {
+      alerts.forEach(alert => {
+        // Skip early warning alerts if layer is disabled
+        if (alert.early_warning && !showEarlyWarning) {
+          return;
+        }
+        
+        // Skip early detection alerts if layer is disabled
+        if (alert.early_detection && !showEarlyDetection) {
+          return;
+        }
+
+        // Find the district geometry
+        const district = geoData.features.find(f => f.properties.adm3_name === alert.district);
+        if (district && district.geometry) {
+          // Calculate centroid of the district
+          const centroid = L.geoJSON(district).getBounds().getCenter();
+
+          // Create marker with appropriate icon and color
+          const isEarlyWarning = alert.early_warning;
+          const iconHtml = isEarlyWarning ? '⚠️' : '🔍';
+          const iconColor = isEarlyWarning ? '#dc2626' : '#ea580c';
+
+          const alertIcon = L.divIcon({
+            html: `<div style="
+              background: ${iconColor};
+              border-radius: 50%;
+              width: 24px;
+              height: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 12px;
+              color: white;
+              border: 2px solid white;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            ">${iconHtml}</div>`,
+            className: 'custom-alert-marker',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12]
+          });
+
+          const marker = L.marker([centroid.lat, centroid.lng], { icon: alertIcon })
+            .bindTooltip(`${alert.district}<br>${isEarlyWarning ? 'Early Warning' : 'Early Detection'}`, {
+              permanent: false,
+              direction: 'top'
+            });
+
+          markers.push(marker);
+        }
+      });
+    }
+
+    // Add all markers to map
+    markers.forEach(marker => marker.addTo(map));
+    
+    // Store reference to current markers for cleanup
+    currentMarkersRef.current = markers;
+
+    // Cleanup function
+    return () => {
+      markers.forEach(marker => {
+        if (map.hasLayer(marker)) {
+          map.removeLayer(marker);
+        }
+      });
+    };
+  }, [map, alerts, showEarlyWarning, showEarlyDetection, geoData]);
+
+  return null;
+}
 
 // Legend component
 function Legend({ getColor, grades, unit, dataset }) {
@@ -53,7 +141,10 @@ export default function EthiopiaMap({
   dataset,
   envData = {},
   setGeoData,
-  filterRegion = "All Regions"
+  filterRegion = "All Regions",
+  alerts = [],
+  showEarlyWarning = true,
+  showEarlyDetection = true
 }) {
   const [geoData, setGeo] = useState(null);
   const [selectedDistrict, setSelectedDistrict] = useState(null);
@@ -194,6 +285,14 @@ export default function EthiopiaMap({
           grades={grades}
           unit={unit}
           dataset={dataset}
+        />
+
+        {/* Alert Markers */}
+        <AlertMarkers
+          alerts={alerts}
+          showEarlyWarning={showEarlyWarning}
+          showEarlyDetection={showEarlyDetection}
+          geoData={geoData}
         />
       </MapContainer>
     </div>
