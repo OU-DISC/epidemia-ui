@@ -25,7 +25,7 @@ function Dashboard() {
   const [epidemiaLoading, setEpidemiaLoading] = useState(false);
   const [epidemiaError, setEpidemiaError] = useState("");
 
-  // 🌱 Environmental data states
+  //  Environmental data states
   const [startDate, setStartDate] = useState("2026-01-01");
   const [endDate, setEndDate] = useState("2026-03-07");
   const [dataset, setDataset] = useState("totprec");
