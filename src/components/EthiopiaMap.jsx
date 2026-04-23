@@ -19,6 +19,41 @@ const GIBS_OVERLAY_CONFIG = {
   },
 };
 
+// Approximate interpretive scales for GIBS raster overlays (tiles use NASA color ramps).
+const ENV_LAYER_LEGEND = {
+  rainfall: {
+    title: "Rainfall (IMERG)",
+    subtitle: "Precipitation rate · NASA GIBS",
+    grades: [0, 2, 8, 20],
+    unit: "mm/hr",
+    colors: ["#f7fcf5", "#c7e9c0", "#41b6c4", "#2c7fb8", "#253494"],
+  },
+  temperature: {
+    title: "Land surface temp (MODIS)",
+    subtitle: "Day LST · NASA GIBS",
+    grades: [-10, 10, 25, 40],
+    unit: "°C (approx.)",
+    colors: ["#313695", "#74add1", "#fee090", "#f46d43", "#a50026"],
+  },
+  ndvi: {
+    title: "NDVI (MODIS)",
+    subtitle: "8-day composite · NASA GIBS",
+    grades: [0, 0.2, 0.4, 0.6],
+    unit: "index",
+    colors: ["#d9d9d9", "#c2e699", "#78c679", "#238443", "#004529"],
+  },
+};
+
+function legendColorForGrade(grades, colors, value) {
+  if (value == null || Number.isNaN(Number(value))) return "#e5e5e5";
+  const v = Number(value);
+  if (v > grades[3]) return colors[4];
+  if (v > grades[2]) return colors[3];
+  if (v > grades[1]) return colors[2];
+  if (v > grades[0]) return colors[1];
+  return colors[0];
+}
+
 function buildGibsUrl(layerId, time, tileMatrixSet = "GoogleMapsCompatible_Level9") {
   // NASA GIBS WMTS (Web Mercator / Google Maps compatible).
   // Docs: https://nasa-gibs.github.io/gibs-api-docs/
@@ -291,44 +326,106 @@ function AlertMarkers({ alerts, showEarlyWarning, showEarlyDetection, geoData })
   return null;
 }
 
-// Legend component
-function Legend({ getColor, grades, unit, dataset }) {
+function buildChoroplethLegendRows(getColor, grades) {
+  const rows = [];
+  for (let i = 0; i < grades.length; i++) {
+    const from = grades[i];
+    const to = grades[i + 1];
+    rows.push({
+      color: getColor(from + 0.01),
+      label: `${from}${to != null ? ` – ${to}` : "+"}`,
+    });
+  }
+  return rows;
+}
+
+function buildOverlayLegendRows(config) {
+  const { grades, colors } = config;
+  return buildChoroplethLegendRows(
+    (v) => legendColorForGrade(grades, colors, v),
+    grades
+  );
+}
+
+// Legend for NASA GIBS environmental raster layer(s) when toggled on.
+function MapLegend({ showRainfallLayer, showTemperatureLayer, showNdviLayer }) {
   const map = useMap();
 
   useEffect(() => {
+    const overlaySections = [];
+    if (showRainfallLayer) {
+      const cfg = ENV_LAYER_LEGEND.rainfall;
+      overlaySections.push({
+        title: cfg.title,
+        subtitle: cfg.subtitle,
+        unit: cfg.unit,
+        rows: buildOverlayLegendRows(cfg),
+      });
+    }
+    if (showTemperatureLayer) {
+      const cfg = ENV_LAYER_LEGEND.temperature;
+      overlaySections.push({
+        title: cfg.title,
+        subtitle: cfg.subtitle,
+        unit: cfg.unit,
+        rows: buildOverlayLegendRows(cfg),
+      });
+    }
+    if (showNdviLayer) {
+      const cfg = ENV_LAYER_LEGEND.ndvi;
+      overlaySections.push({
+        title: cfg.title,
+        subtitle: cfg.subtitle,
+        unit: cfg.unit,
+        rows: buildOverlayLegendRows(cfg),
+      });
+    }
+
+    if (overlaySections.length === 0) {
+      return undefined;
+    }
+
     const legend = L.control({ position: "topright" });
 
     legend.onAdd = function () {
-      const div = L.DomUtil.create("div", "info legend");
-      // grades provided by parent based on dataset
-      const labels = [];
-
-      div.style.padding = "6px";
+      const div = L.DomUtil.create("div", "info legend map-legend-stack");
+      div.style.padding = "8px";
       div.style.background = "white";
       div.style.borderRadius = "6px";
       div.style.boxShadow = "0 0 6px rgba(0,0,0,0.3)";
+      div.style.maxWidth = "220px";
+      div.style.fontSize = "12px";
+      div.style.lineHeight = "1.35";
 
-      div.innerHTML = `<b>${dataset} (${unit})</b><br>`;
+      const parts = [];
 
-      for (let i = 0; i < grades.length; i++) {
-        const from = grades[i];
-        const to = grades[i + 1];
-        labels.push(
-          `<i style="background:${getColor(from + 0.01)}; width:18px; height:18px; display:inline-block; margin-right:4px;"></i> ` +
-          `${from}${to ? " – " + to : "+"}`
+      overlaySections.forEach((sec, idx) => {
+        if (idx > 0) {
+          parts.push(`<div style="margin:8px 0;border-top:1px solid #e5e7eb"></div>`);
+        }
+        parts.push(
+          `<div style="font-weight:700">${sec.title}</div>` +
+            `<div style="color:#64748b;font-size:11px;margin-bottom:4px">${sec.subtitle} · ${sec.unit}</div>`
         );
-      }
+        sec.rows.forEach((r) => {
+          parts.push(
+            `<div style="margin:2px 0">` +
+              `<i style="background:${r.color};width:16px;height:16px;display:inline-block;margin-right:6px;vertical-align:middle;border-radius:2px"></i>` +
+              `<span style="vertical-align:middle">${r.label}</span>` +
+              `</div>`
+          );
+        });
+      });
 
-      div.innerHTML += labels.join("<br>");
+      div.innerHTML = parts.join("");
       return div;
     };
 
     legend.addTo(map);
-
     return () => {
       legend.remove();
     };
-  }, [map, getColor, grades, unit, dataset]);
+  }, [map, showRainfallLayer, showTemperatureLayer, showNdviLayer]);
 
   return null;
 }
@@ -609,13 +706,11 @@ export default function EthiopiaMap({
           />
         )}
 
-        {/* Legend is for choropleth (district fill); hide when boundaries/fills are hidden. */}
-        {!hideBoundaries && (
-          <Legend
-            getColor={getColor}
-            grades={grades}
-            unit={unit}
-            dataset={dataset}
+        {(showRainfallLayer || showTemperatureLayer || showNdviLayer) && (
+          <MapLegend
+            showRainfallLayer={showRainfallLayer}
+            showTemperatureLayer={showTemperatureLayer}
+            showNdviLayer={showNdviLayer}
           />
         )}
 

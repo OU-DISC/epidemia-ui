@@ -12,6 +12,9 @@ import html2canvas from "html2canvas";
 import { FORECAST_API_BASE, runEpidemiaPipeline } from "../../api";
 import "./dashboard-theme.css";
 
+/** District choropleth fetch (Earth Engine). Set to true to show the panel again. */
+const SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL = false;
+
 function buildWeekDates(startDate, endDate) {
   const start = Date.parse(`${startDate}T00:00:00Z`);
   const end = Date.parse(`${endDate}T00:00:00Z`);
@@ -328,6 +331,10 @@ function Dashboard() {
           />
 
           <EnvironmentalLayers
+            startDate={startDate}
+            endDate={endDate}
+            onChangeStartDate={setStartDate}
+            onChangeEndDate={setEndDate}
             showRainfall={showRainfallLayer}
             showTemperature={showTemperatureLayer}
             showNdvi={showNdviLayer}
@@ -343,8 +350,19 @@ function Dashboard() {
             onTogglePlaying={() => setEnvPlaying((v) => !v)}
             averageSampleInfo={averageSampleInfo}
           />
-          
-          
+
+          {SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL && (
+            <div className="glass-card fade-in-up delay-2 env-fetch-sidebar">
+              <EnvironmentalDataControls
+                geoData={geoData}
+                startDate={startDate}
+                endDate={endDate}
+                dataset={dataset}
+                setDataset={setDataset}
+                onDataFetched={setEnvData}
+              />
+            </div>
+          )}
         </aside>
 
         <main className="main-content">
@@ -371,21 +389,6 @@ function Dashboard() {
             <p>{forecastSummary.districts}</p>
           </article>
         </section>
-
-        {/* Environmental controls */}
-        <section className="glass-card fade-in-up delay-2">
-          <EnvironmentalDataControls
-            geoData={geoData}
-            startDate={startDate}
-            endDate={endDate}
-            dataset={dataset}
-            setStartDate={setStartDate}
-            setEndDate={setEndDate}
-            setDataset={setDataset}
-            onDataFetched={setEnvData}
-          />
-        </section>
-
 
         <section className="dashboard-grid fade-in-up delay-2">
           {/* Map */}

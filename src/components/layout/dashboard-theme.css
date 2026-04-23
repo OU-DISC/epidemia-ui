@@ -39,7 +39,7 @@ body {
 }
 
 .control-panel {
-  width: 280px;
+  width: 340px;
   flex-shrink: 0;
 }
 
@@ -60,6 +60,51 @@ body {
 
 .env-layers {
   margin-top: 14px;
+}
+
+.env-layers-date-range {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(80, 109, 150, 0.14);
+}
+
+.env-layers-date-range .toolbar-field {
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.env-layers-date-range .toolbar-input {
+  width: 100%;
+  min-width: 0;
+}
+
+.env-fetch-sidebar {
+  margin-top: 14px;
+}
+
+.env-fetch-sidebar .env-controls {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.env-fetch-sidebar .toolbar-field {
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.env-fetch-sidebar .toolbar-select,
+.env-fetch-sidebar .toolbar-input {
+  width: 100%;
+  min-width: 0;
+}
+
+.env-fetch-sidebar .toolbar-button {
+  width: 100%;
 }
 
 .decision-layers h3 {

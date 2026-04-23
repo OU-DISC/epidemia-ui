@@ -7,8 +7,6 @@ export default function EnvironmentalDataControls({
   startDate,
   endDate,
   dataset,
-  setStartDate,
-  setEndDate,
   setDataset,
   onDataFetched,
 }) {
@@ -80,27 +78,6 @@ export default function EnvironmentalDataControls({
   return (
     <div className="env-controls">
       <h3 className="panel-title">Fetch Environmental Data</h3>
-
-      {/* Start / End Date Inputs */}
-      <label className="toolbar-field">
-        Start Date:{" "}
-        <input
-          className="toolbar-input"
-          type="date"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-        />
-      </label>
-
-      <label className="toolbar-field">
-        End Date:{" "}
-        <input
-          className="toolbar-input"
-          type="date"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-        />
-      </label>
 
       {/* Dataset Selector */}
       <label className="toolbar-field">

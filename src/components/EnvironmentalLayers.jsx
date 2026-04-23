@@ -1,6 +1,10 @@
 import React from "react";
 
 function EnvironmentalLayers({
+  startDate,
+  endDate,
+  onChangeStartDate,
+  onChangeEndDate,
   showRainfall,
   showTemperature,
   showNdvi,
@@ -22,6 +26,27 @@ function EnvironmentalLayers({
   return (
     <div className="decision-layers env-layers">
       <h3>Environmental Layers</h3>
+
+      <div className="env-layers-date-range">
+        <label className="toolbar-field">
+          Start date
+          <input
+            className="toolbar-input"
+            type="date"
+            value={startDate}
+            onChange={(e) => onChangeStartDate(e.target.value)}
+          />
+        </label>
+        <label className="toolbar-field">
+          End date
+          <input
+            className="toolbar-input"
+            type="date"
+            value={endDate}
+            onChange={(e) => onChangeEndDate(e.target.value)}
+          />
+        </label>
+      </div>
 
       <div className="layer-item">
         <input
