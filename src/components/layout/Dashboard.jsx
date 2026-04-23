@@ -6,10 +6,27 @@ import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import ForecastChart from "../ForecastChart";
 import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
 import DecisionLayers from "../DecisionLayers";
+import EnvironmentalLayers from "../EnvironmentalLayers";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import { FORECAST_API_BASE, runEpidemiaPipeline } from "../../api";
 import "./dashboard-theme.css";
+
+function buildWeekDates(startDate, endDate) {
+  const start = Date.parse(`${startDate}T00:00:00Z`);
+  const end = Date.parse(`${endDate}T00:00:00Z`);
+  if (Number.isNaN(start) || Number.isNaN(end)) return [];
+
+  const min = Math.min(start, end);
+  const max = Math.max(start, end);
+
+  const out = [];
+  for (let t = min; t <= max; t += 7 * 24 * 60 * 60 * 1000) {
+    out.push(new Date(t).toISOString().slice(0, 10));
+  }
+  if (out.length === 0) out.push(new Date(max).toISOString().slice(0, 10));
+  return out;
+}
 
 function Dashboard() {
   const [disease, setDisease] = useState("Plasmodium falciparum malaria");
@@ -36,6 +53,54 @@ function Dashboard() {
   // Decision layers states
   const [showEarlyWarning, setShowEarlyWarning] = useState(true);
   const [showEarlyDetection, setShowEarlyDetection] = useState(true);
+
+  // Environmental raster layers (explanatory variables)
+  const [showRainfallLayer, setShowRainfallLayer] = useState(false);
+  const [showTemperatureLayer, setShowTemperatureLayer] = useState(false);
+  const [showNdviLayer, setShowNdviLayer] = useState(false);
+
+  // Raster time controls
+  const [envTimeMode, setEnvTimeMode] = useState("average"); // "average" | "animate"
+  const weekDates = useMemo(() => buildWeekDates(startDate, endDate), [startDate, endDate]);
+  const [weekIndex, setWeekIndex] = useState(0);
+  const [envPlaying, setEnvPlaying] = useState(false);
+  const [envAverageStats, setEnvAverageStats] = useState(null);
+
+  // Keep slider index valid when date range changes.
+  useEffect(() => {
+    setWeekIndex((idx) => {
+      const max = Math.max(0, weekDates.length - 1);
+      return Math.min(Math.max(0, idx), max);
+    });
+  }, [weekDates]);
+
+  // Stop playback when leaving animate mode or no dates.
+  useEffect(() => {
+    if (envTimeMode !== "animate" || weekDates.length < 2) {
+      setEnvPlaying(false);
+    }
+  }, [envTimeMode, weekDates]);
+
+  useEffect(() => {
+    if (!envPlaying) return undefined;
+    if (envTimeMode !== "animate") return undefined;
+    if (weekDates.length < 2) return undefined;
+
+    const interval = window.setInterval(() => {
+      setWeekIndex((idx) => (idx + 1) % weekDates.length);
+    }, 900);
+
+    return () => window.clearInterval(interval);
+  }, [envPlaying, envTimeMode, weekDates]);
+
+  const averageSampleInfo = useMemo(() => {
+    if (envTimeMode !== "average") return "";
+    if (!envAverageStats) return `Sampling 7 dates across ${startDate} → ${endDate}.`;
+    const attempted = envAverageStats?.attempted ?? 7;
+    const loaded = envAverageStats?.loadedAverage ?? null;
+    if (loaded == null) return `Sampling ${attempted} dates across ${startDate} → ${endDate}.`;
+    return `Sampling ${attempted} dates across ${startDate} → ${endDate}. Loaded ~${loaded} / ${attempted} on average (visible tiles).`;
+  }, [envTimeMode, envAverageStats, startDate, endDate]);
 
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
@@ -71,13 +136,21 @@ function Dashboard() {
   // Extract unique regions from geoData when it loads
   React.useEffect(() => {
     if (geoData && geoData.features) {
-      const uniqueRegions = [
-        "All Regions",
-        ...new Set(geoData.features.map(f => f.properties.adm1_name).filter(Boolean))
-      ].sort();
-      setRegions(uniqueRegions);
+      const regionSet = new Set(geoData.features.map((f) => f.properties.adm1_name).filter(Boolean));
+      const regionList = Array.from(regionSet).sort();
+      setRegions(["No Selection", "All Regions", ...regionList]);
     }
   }, [geoData]);
+
+  // Basemap-only mode: clear overlays + district fills + selections.
+  React.useEffect(() => {
+    if (selectedAdminRegion !== "No Selection") return;
+    // Basemap-only should *hide* layers, not reset user choices.
+    // We still stop animation to avoid unnecessary tile churn.
+    setEnvPlaying(false);
+    setRegion("All Regions");
+    setSelectedGeometry(null);
+  }, [selectedAdminRegion]);
 
   // Build district dropdown list from selected region.
   React.useEffect(() => {
@@ -253,6 +326,25 @@ function Dashboard() {
             onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
             onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
           />
+
+          <EnvironmentalLayers
+            showRainfall={showRainfallLayer}
+            showTemperature={showTemperatureLayer}
+            showNdvi={showNdviLayer}
+            onToggleRainfall={() => setShowRainfallLayer((v) => !v)}
+            onToggleTemperature={() => setShowTemperatureLayer((v) => !v)}
+            onToggleNdvi={() => setShowNdviLayer((v) => !v)}
+            timeMode={envTimeMode}
+            onChangeTimeMode={setEnvTimeMode}
+            weekDates={weekDates}
+            weekIndex={weekIndex}
+            onChangeWeekIndex={setWeekIndex}
+            playing={envPlaying}
+            onTogglePlaying={() => setEnvPlaying((v) => !v)}
+            averageSampleInfo={averageSampleInfo}
+          />
+          
+          
         </aside>
 
         <main className="main-content">
@@ -314,6 +406,12 @@ function Dashboard() {
               alerts={epidemiaData?.alerts || []}
               showEarlyWarning={showEarlyWarning}
               showEarlyDetection={showEarlyDetection}
+              showRainfallLayer={showRainfallLayer}
+              showTemperatureLayer={showTemperatureLayer}
+              showNdviLayer={showNdviLayer}
+              envTimeMode={envTimeMode}
+              envTimeDate={weekDates[weekIndex]}
+              onEnvAverageStats={setEnvAverageStats}
             />
           </div>
 
