@@ -1,8 +1,39 @@
 // EthiopiaMap.jsx
 import { MapContainer, TileLayer, GeoJSON, Pane, useMap } from "react-leaflet";
 import { useEffect, useMemo, useState, useRef } from "react";
+import union from "@turf/union";
+import { featureCollection } from "@turf/helpers";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+
+// Woreda (district) lines stay thinner than the merged admin1 (region) ring drawn on top.
+const WEIGHT_WOREDA = 0.6;
+const WEIGHT_WOREDA_IN_FILTER = 0.9;
+const WEIGHT_WOREDA_SELECTED = 1.5;
+const WEIGHT_REGION_OUTLINE = 2.3;
+
+/** One merged polygon per adm1; outer ring is the true regional boundary. */
+function buildAdmin1Outlines(geo) {
+  if (!geo?.features?.length) {
+    return { type: "FeatureCollection", features: [] };
+  }
+  const byRegion = new Map();
+  for (const f of geo.features) {
+    const adm1 = f?.properties?.adm1_name;
+    const g = f?.geometry;
+    if (!adm1 || !g) continue;
+    if (g.type !== "Polygon" && g.type !== "MultiPolygon") continue;
+    if (!byRegion.has(adm1)) byRegion.set(adm1, []);
+    byRegion.get(adm1).push({ type: "Feature", properties: {}, geometry: g });
+  }
+  const out = [];
+  for (const [adm1_name, parts] of byRegion) {
+    if (!parts.length) continue;
+    const merged = union(featureCollection(parts), { properties: { adm1_name } });
+    if (merged) out.push(merged);
+  }
+  return { type: "FeatureCollection", features: out };
+}
 
 const GIBS_OVERLAY_CONFIG = {
   rainfall: {
@@ -449,7 +480,16 @@ export default function EthiopiaMap({
   onEnvAverageStats = null,
 }) {
   const [geoData, setGeo] = useState(null);
+  const [admin1Outlines, setAdmin1Outlines] = useState(null);
   const [selectedDistrict, setSelectedDistrict] = useState(null);
+  const paneIdRef = useRef(null);
+  if (paneIdRef.current == null) {
+    const c = typeof window !== "undefined" ? window.crypto : null;
+    paneIdRef.current = c?.randomUUID?.() ?? `p${String(Math.random()).slice(2, 12)}`;
+  }
+  const pDistrict = `ep-districts-${paneIdRef.current}`;
+  const pAdmin1 = `ep-admin1-${paneIdRef.current}`;
+
   // "No Selection" means: remove boundaries/background fills, but keep overlays working.
   const hideBoundaries = filterRegion === "No Selection";
 
@@ -468,6 +508,27 @@ export default function EthiopiaMap({
 
     loadGeo();
   }, [setGeoData]);
+
+  useEffect(() => {
+    if (!geoData) {
+      setAdmin1Outlines(null);
+      return;
+    }
+    let cancelled = false;
+    const t = setTimeout(() => {
+      try {
+        const built = buildAdmin1Outlines(geoData);
+        if (!cancelled) setAdmin1Outlines(built);
+      } catch (e) {
+        console.error("Failed to build admin1 outlines", e);
+        if (!cancelled) setAdmin1Outlines(null);
+      }
+    }, 0);
+    return () => {
+      cancelled = true;
+      clearTimeout(t);
+    };
+  }, [geoData]);
 
   // dataset-specific breakpoints, units, and color ramps.
   // Legend swatches use the same getColor() so the map and legend stay aligned.
@@ -544,51 +605,59 @@ export default function EthiopiaMap({
     return colors[0];
   };
 
-  // Color palette for regions
-  const regionColors = [
-    "#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00",
-    "#ffff33", "#a65628", "#f781bf", "#999999", "#66c2a5",
-    "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f"
-  ];
+  const filterKey = (filterRegion || "").trim();
 
-  // Get consistent color for each region
-  const getRegionColor = (regionName) => {
-    if (!regionName) return "#555";
-    const hash = regionName.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    return regionColors[hash % regionColors.length];
-  };
+  const admin1DataForView = useMemo(() => {
+    if (!admin1Outlines?.features?.length) return null;
+    if (filterRegion === "All Regions") return admin1Outlines;
+    if (filterRegion === "No Selection") return null;
+    return {
+      type: "FeatureCollection",
+      features: admin1Outlines.features.filter(
+        (f) => (f?.properties?.adm1_name || "").trim() === filterKey
+      ),
+    };
+  }, [admin1Outlines, filterRegion, filterKey]);
 
-  // Style each district safely
+  const districtDataForView = useMemo(() => {
+    if (!geoData) return null;
+    if (filterRegion === "No Selection") return null;
+    if (filterRegion === "All Regions") return geoData;
+    return {
+      type: "FeatureCollection",
+      features: geoData.features.filter(
+        (f) => (f.properties.adm1_name || "").trim() === filterKey
+      ),
+    };
+  }, [geoData, filterRegion, filterKey]);
+
+  // Woreda strokes (thin). Regional ring is a separate admin1 layer on top, thicker.
   const style = (feature) => {
     const districtName = feature?.properties?.adm3_name;
-    const regionName = feature?.properties?.adm1_name;
     const value = envData && districtName ? envData[districtName] : undefined;
     const isSelectedDistrict = districtName === selectedDistrict;
-    const isInSelectedRegion = filterRegion !== "All Regions" && regionName === filterRegion;
-    const showAllRegions = filterRegion === "All Regions";
+    const isInSelectedRegion =
+      filterRegion !== "All Regions" && (feature?.properties?.adm1_name || "").trim() === filterKey;
 
-    // Determine border styling
-    let borderWeight = 1;
-    let borderColor = "#555";
-
-    if (isSelectedDistrict) {
-      borderWeight = 4;
-      borderColor = "#000";
-    } else if (isInSelectedRegion) {
-      borderWeight = 3;
-      borderColor = "#222";
-    } else if (showAllRegions) {
-      borderWeight = 2.5;
-      borderColor = getRegionColor(regionName);
-    }
+    let borderWeight = WEIGHT_WOREDA;
+    if (isSelectedDistrict) borderWeight = WEIGHT_WOREDA_SELECTED;
+    else if (isInSelectedRegion) borderWeight = WEIGHT_WOREDA_IN_FILTER;
 
     return {
       fillColor: value !== undefined ? getColor(value) : "#e5e5e5",
       weight: borderWeight,
-      color: borderColor,
-      fillOpacity: 0.7
+      color: "#000000",
+      fillOpacity: 0.7,
     };
   };
+
+  const admin1OutlineStyle = () => ({
+    color: "#000000",
+    weight: WEIGHT_REGION_OUTLINE,
+    fillOpacity: 0,
+    fill: false,
+    interactive: false,
+  });
 
   // Tooltip & click callback
   const onEachFeature = (feature, layer) => {
@@ -689,21 +758,20 @@ export default function EthiopiaMap({
           )}
         </Pane>
 
-        {!hideBoundaries && geoData && (
-          <GeoJSON
-            data={
-              filterRegion === "All Regions"
-                ? geoData
-                : {
-                    ...geoData,
-                    features: geoData.features.filter(
-                      (f) => f.properties.adm1_name === filterRegion
-                    ),
-                  }
-            }
-            style={style}
-            onEachFeature={onEachFeature}
-          />
+        {!hideBoundaries && districtDataForView && (
+          <Pane name={pDistrict} style={{ zIndex: 420 }}>
+            <GeoJSON
+              data={districtDataForView}
+              style={style}
+              onEachFeature={onEachFeature}
+            />
+          </Pane>
+        )}
+
+        {!hideBoundaries && admin1DataForView?.features?.length > 0 && (
+          <Pane name={pAdmin1} style={{ zIndex: 430 }}>
+            <GeoJSON data={admin1DataForView} style={admin1OutlineStyle} />
+          </Pane>
         )}
 
         {(showRainfallLayer || showTemperatureLayer || showNdviLayer) && (

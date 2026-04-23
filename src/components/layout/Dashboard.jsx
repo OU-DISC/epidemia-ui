@@ -1,5 +1,5 @@
 // Dashboard.jsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import TopToolbar from "./TopToolbar";
 import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
@@ -35,7 +35,10 @@ function Dashboard() {
   const [disease, setDisease] = useState("Plasmodium falciparum malaria");
   const [country, setCountry] = useState("Ethiopia");
   const [forecastWeeks, setForecastWeeks] = useState(4);
-  const [selectedAdminRegion, setSelectedAdminRegion] = useState("All Regions"); // Admin region filter
+  const [selectedAdminRegion, setSelectedAdminRegion] = useState("All Regions"); // Admin region filter (toolbar)
+  /** What the map draws: matches toolbar except a named region is briefly "No Selection" to clear, then the region. */
+  const [mapFilterRegion, setMapFilterRegion] = useState("All Regions");
+  const mapRegionStepTimerRef = useRef(null);
   const [region, setRegion] = useState("All Regions");
   const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [exporting, setExporting] = useState(false);
@@ -107,6 +110,34 @@ function Dashboard() {
 
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
+
+  // Map clears to basemap-only ("No Selection") briefly, then shows the chosen view. Toolbar updates immediately.
+  // "No Selection" alone applies immediately with no second step.
+  const handleChangeAdminRegion = useCallback((value) => {
+    if (mapRegionStepTimerRef.current) {
+      clearTimeout(mapRegionStepTimerRef.current);
+      mapRegionStepTimerRef.current = null;
+    }
+    setSelectedAdminRegion(value);
+    if (value === "No Selection") {
+      setMapFilterRegion("No Selection");
+      return;
+    }
+    setMapFilterRegion("No Selection");
+    mapRegionStepTimerRef.current = window.setTimeout(() => {
+      mapRegionStepTimerRef.current = null;
+      setMapFilterRegion(value);
+    }, 150);
+  }, []);
+
+  useEffect(
+    () => () => {
+      if (mapRegionStepTimerRef.current) {
+        clearTimeout(mapRegionStepTimerRef.current);
+      }
+    },
+    []
+  );
 
   const loadEpidemia = async () => {
     setEpidemiaLoading(true);
@@ -312,7 +343,7 @@ function Dashboard() {
             forecastWeeks={forecastWeeks}
             onChangeForecastWeeks={setForecastWeeks}
             selectedAdminRegion={selectedAdminRegion}
-            onChangeAdminRegion={setSelectedAdminRegion}
+            onChangeAdminRegion={handleChangeAdminRegion}
             availableRegions={regions}
             selectedDistrict={region}
             onChangeDistrict={updateRegion}
@@ -405,7 +436,7 @@ function Dashboard() {
               dataset={dataset}
               envData={envData}
               setGeoData={setGeoData}
-              filterRegion={selectedAdminRegion}
+              filterRegion={mapFilterRegion}
               alerts={epidemiaData?.alerts || []}
               showEarlyWarning={showEarlyWarning}
               showEarlyDetection={showEarlyDetection}
