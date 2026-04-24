@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, GeoJSON, Pane, useMap } from "react-leaflet";
 import { useEffect, useMemo, useState, useRef } from "react";
 import union from "@turf/union";
 import { featureCollection } from "@turf/helpers";
+import { topojsonToFeatureCollection } from "../utils/topojsonToFeatureCollection";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -493,16 +494,25 @@ export default function EthiopiaMap({
   // "No Selection" means: remove boundaries/background fills, but keep overlays working.
   const hideBoundaries = filterRegion === "No Selection";
 
-  // Load GeoJSON
+  // Load boundaries (simplified TopoJSON from `npm run build:boundaries`, or raw GeoJSON fallback).
   useEffect(() => {
     const loadGeo = async () => {
       try {
+        const topoRes = await fetch("/eth_admin3.topojson", { method: "GET" });
+        if (topoRes.ok) {
+          const topology = await topoRes.json();
+          const geojson = topojsonToFeatureCollection(topology);
+          setGeo(geojson);
+          if (setGeoData) setGeoData(geojson);
+          return;
+        }
         const res = await fetch("/eth_admin3.geojson");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const geojson = await res.json();
         setGeo(geojson);
-        if (setGeoData) setGeoData(geojson); // pass back to dashboard for controls
+        if (setGeoData) setGeoData(geojson);
       } catch (err) {
-        console.error("Failed to load GeoJSON", err);
+        console.error("Failed to load district boundaries", err);
       }
     };
 
