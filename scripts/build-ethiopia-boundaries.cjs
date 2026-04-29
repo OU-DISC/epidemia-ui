@@ -5,7 +5,7 @@
  * Output: public/eth_admin3.topojson
  *
  * Usage:  npm run build:boundaries
- * Env:    SIMPLIFY_PCT=2%   (mapshaper Visvalingam / weighted; tune for your map zoom)
+ * Env:    SIMPLIFY_PCT=2%   (mapshaper Visvalingam / weighted; tune for the map zoom)
  *
  * For very large source files, mapshaper-xl requests extra Node heap (6 GB).
  */

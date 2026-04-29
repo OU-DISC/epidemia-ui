@@ -1,6 +1,33 @@
+import { useCallback } from "react";
 import Plot from "react-plotly.js";
+import {
+  parseXAxisRangeFromRelayoutEvent,
+  xAxisRangesEqual,
+} from "../utils/plotlyXAxisSync";
 
-export default function ForecastChart({ data, alert, syncedHoverDate, onHoverDateChange }) {
+export default function ForecastChart({
+  data,
+  alert,
+  syncedHoverDate,
+  onHoverDateChange,
+  syncedXRange,
+  onXRangeChange,
+}) {
+  const handleRelayout = useCallback(
+    (ev) => {
+      if (!onXRangeChange) return;
+      const parsed = parseXAxisRangeFromRelayoutEvent(ev);
+      if (parsed == null) return;
+      if (parsed === "autorange") {
+        onXRangeChange(null);
+        return;
+      }
+      if (xAxisRangesEqual(parsed, syncedXRange)) return;
+      onXRangeChange([parsed[0], parsed[1]]);
+    },
+    [onXRangeChange, syncedXRange]
+  );
+
   if (!data || data.length === 0) {
     return <div className="chart-state">No forecast data available</div>;
   }
@@ -145,7 +172,9 @@ export default function ForecastChart({ data, alert, syncedHoverDate, onHoverDat
           ...(alertTrace ? [alertTrace] : []),
         ]}
         layout={{
-          uirevision: "forecast-chart",
+          uirevision: syncedXRange
+            ? `fc-zoom-${syncedXRange[0]}-${syncedXRange[1]}`
+            : "forecast-chart",
           autosize: true,
           height: 350,
           margin: { l: 52, r: 24, t: 16, b: 52 },
@@ -158,6 +187,9 @@ export default function ForecastChart({ data, alert, syncedHoverDate, onHoverDat
             zeroline: false,
             tickfont: { color: "#495367" },
             titlefont: { color: "#495367" },
+            ...(syncedXRange && syncedXRange.length === 2
+              ? { range: [syncedXRange[0], syncedXRange[1]] }
+              : {}),
           },
           yaxis: {
             title: "Cases",
@@ -217,6 +249,7 @@ export default function ForecastChart({ data, alert, syncedHoverDate, onHoverDat
         useResizeHandler
         onHover={syncHoverDate}
         onUnhover={clearHoverDate}
+        onRelayout={handleRelayout}
       />
     </div>
   );

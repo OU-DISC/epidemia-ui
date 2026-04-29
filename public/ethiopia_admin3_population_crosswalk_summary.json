@@ -1,0 +1,915 @@
+{
+  "generated_at": "2026-04-28T16:59:56.553Z",
+  "geojson_districts": 1082,
+  "citypopulation_records": 741,
+  "matched": 751,
+  "unmatched": 331,
+  "parent_split_rows_available": 0,
+  "match_counts": {
+    "admin_code": 675,
+    "unmatched": 331,
+    "normalized_name": 38,
+    "alias_variant": 2,
+    "exact_name": 36
+  },
+  "unmatched_by_region": {
+    "Tigray": 39,
+    "Afar": 7,
+    "Amhara": 70,
+    "Oromia": 50,
+    "Somali": 45,
+    "Benishangul Gumz": 4,
+    "SNNP": 49,
+    "South West Ethiopia": 22,
+    "Gambela": 1,
+    "Harari": 8,
+    "Addis Ababa": 1,
+    "Dire Dawa": 11,
+    "Sidama": 24
+  },
+  "unmatched_geo_sample": [
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "North Western",
+      "geojson_admin3_name": "Selekleka",
+      "geojson_admin3_code": "ET010109",
+      "geojson_normalized_name": "selekleka"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "North Western",
+      "geojson_admin3_name": "Seyemti Adyabo",
+      "geojson_admin3_code": "ET010110",
+      "geojson_normalized_name": "seyemtiadyabo"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "North Western",
+      "geojson_admin3_name": "Adi Daero",
+      "geojson_admin3_code": "ET010111",
+      "geojson_normalized_name": "adidaero"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "North Western",
+      "geojson_admin3_name": "Adi Hageray",
+      "geojson_admin3_code": "ET010112",
+      "geojson_normalized_name": "adihageray"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "North Western",
+      "geojson_admin3_name": "Tsimbla",
+      "geojson_admin3_code": "ET010113",
+      "geojson_normalized_name": "tsimbla"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "North Western",
+      "geojson_admin3_name": "Endabaguna town",
+      "geojson_admin3_code": "ET010114",
+      "geojson_normalized_name": "endabaguna"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "North Western",
+      "geojson_admin3_name": "May Tsebri town",
+      "geojson_admin3_code": "ET010116",
+      "geojson_normalized_name": "maytsebri"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Naeder",
+      "geojson_admin3_code": "ET010209",
+      "geojson_normalized_name": "naeder"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Rama",
+      "geojson_admin3_code": "ET010214",
+      "geojson_normalized_name": "rama"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Ahsea",
+      "geojson_admin3_code": "ET010215",
+      "geojson_normalized_name": "ahsea"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Egela",
+      "geojson_admin3_code": "ET010216",
+      "geojson_normalized_name": "egela"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Hahayle",
+      "geojson_admin3_code": "ET010217",
+      "geojson_normalized_name": "hahayle"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Endafelasi",
+      "geojson_admin3_code": "ET010218",
+      "geojson_normalized_name": "endafelasi"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Emba Sieneti",
+      "geojson_admin3_code": "ET010219",
+      "geojson_normalized_name": "embasieneti"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Enticho town",
+      "geojson_admin3_code": "ET010220",
+      "geojson_normalized_name": "enticho"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Keyhe tekli",
+      "geojson_admin3_code": "ET010221",
+      "geojson_normalized_name": "keyhetekli"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Central",
+      "geojson_admin3_name": "Tanqua Melashe",
+      "geojson_admin3_code": "ET010222",
+      "geojson_normalized_name": "tanquamelashe"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Bizet",
+      "geojson_admin3_code": "ET010310",
+      "geojson_normalized_name": "bizet"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Edaga Hamus town",
+      "geojson_admin3_code": "ET010311",
+      "geojson_normalized_name": "edagahamus"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Hawzen town",
+      "geojson_admin3_code": "ET010312",
+      "geojson_normalized_name": "hawzen"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Freweyni town",
+      "geojson_admin3_code": "ET010313",
+      "geojson_normalized_name": "freweyni"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Tsaeda Emba",
+      "geojson_admin3_code": "ET010314",
+      "geojson_normalized_name": "tsaedaemba"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Atsbi town",
+      "geojson_admin3_code": "ET010315",
+      "geojson_normalized_name": "atsbi"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Agulae",
+      "geojson_admin3_code": "ET010316",
+      "geojson_normalized_name": "agulae"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Geraleta",
+      "geojson_admin3_code": "ET010317",
+      "geojson_normalized_name": "geraleta"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Eastern",
+      "geojson_admin3_name": "Zala Anbesa town",
+      "geojson_admin3_code": "ET010318",
+      "geojson_normalized_name": "zalaanbesa"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Southern",
+      "geojson_admin3_name": "Selewa",
+      "geojson_admin3_code": "ET010401",
+      "geojson_normalized_name": "selewa"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Southern",
+      "geojson_admin3_name": "Neqsege",
+      "geojson_admin3_code": "ET010403",
+      "geojson_normalized_name": "neqsege"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Southern",
+      "geojson_admin3_name": "Mekhoni town",
+      "geojson_admin3_code": "ET010412",
+      "geojson_normalized_name": "mekhoni"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Southern",
+      "geojson_admin3_name": "Zata",
+      "geojson_admin3_code": "ET010413",
+      "geojson_normalized_name": "zata"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Southern",
+      "geojson_admin3_name": "Chercher",
+      "geojson_admin3_code": "ET010414",
+      "geojson_normalized_name": "chercher"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Western",
+      "geojson_admin3_name": "May Kadra",
+      "geojson_admin3_code": "ET010505",
+      "geojson_normalized_name": "maykadra"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Western",
+      "geojson_admin3_name": "Dansha town",
+      "geojson_admin3_code": "ET010506",
+      "geojson_normalized_name": "dansha"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Western",
+      "geojson_admin3_name": "Korarit",
+      "geojson_admin3_code": "ET010508",
+      "geojson_normalized_name": "korarit"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "Western",
+      "geojson_admin3_name": "May Gaba",
+      "geojson_admin3_code": "ET010509",
+      "geojson_normalized_name": "maygaba"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "South Eastern",
+      "geojson_admin3_name": "Hagere Selam town",
+      "geojson_admin3_code": "ET010605",
+      "geojson_normalized_name": "hagereselam"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "South Eastern",
+      "geojson_admin3_name": "Samre",
+      "geojson_admin3_code": "ET010606",
+      "geojson_normalized_name": "samre"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "South Eastern",
+      "geojson_admin3_name": "Adigudom",
+      "geojson_admin3_code": "ET010607",
+      "geojson_normalized_name": "adigudom"
+    },
+    {
+      "geojson_admin1_name": "Tigray",
+      "geojson_admin2_name": "South Eastern",
+      "geojson_admin3_name": "Wajirat",
+      "geojson_admin3_code": "ET010608",
+      "geojson_normalized_name": "wajirat"
+    },
+    {
+      "geojson_admin1_name": "Afar",
+      "geojson_admin2_name": "Awsi /Zone 1",
+      "geojson_admin3_name": "Adar",
+      "geojson_admin3_code": "ET020109",
+      "geojson_normalized_name": "adar"
+    },
+    {
+      "geojson_admin1_name": "Afar",
+      "geojson_admin2_name": "Awsi /Zone 1",
+      "geojson_admin3_name": "Gerani",
+      "geojson_admin3_code": "ET020110",
+      "geojson_normalized_name": "gerani"
+    },
+    {
+      "geojson_admin1_name": "Afar",
+      "geojson_admin2_name": "Awsi /Zone 1",
+      "geojson_admin3_name": "Samera Logiya town",
+      "geojson_admin3_code": "ET020198",
+      "geojson_normalized_name": "sameralogiya"
+    },
+    {
+      "geojson_admin1_name": "Afar",
+      "geojson_admin2_name": "Kilbati /Zone2",
+      "geojson_admin3_name": "Bidu",
+      "geojson_admin3_code": "ET020208",
+      "geojson_normalized_name": "bidu"
+    },
+    {
+      "geojson_admin1_name": "Afar",
+      "geojson_admin2_name": "Kilbati /Zone2",
+      "geojson_admin3_name": "Abaala town",
+      "geojson_admin3_code": "ET020209",
+      "geojson_normalized_name": "abaala"
+    },
+    {
+      "geojson_admin1_name": "Afar",
+      "geojson_admin2_name": "Gabi /Zone 3",
+      "geojson_admin3_name": "Hanruka",
+      "geojson_admin3_code": "ET020307",
+      "geojson_normalized_name": "hanruka"
+    },
+    {
+      "geojson_admin1_name": "Afar",
+      "geojson_admin2_name": "Gabi /Zone 3",
+      "geojson_admin3_name": "Awash town",
+      "geojson_admin3_code": "ET020396",
+      "geojson_normalized_name": "awash"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Guna Begemider",
+      "geojson_admin3_code": "ET030212",
+      "geojson_normalized_name": "gunabegemider"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Mena Meketewa",
+      "geojson_admin3_code": "ET030213",
+      "geojson_normalized_name": "menameketewa"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Sede Muja",
+      "geojson_admin3_code": "ET030214",
+      "geojson_normalized_name": "sedemuja"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Nefas Mewicha town",
+      "geojson_admin3_code": "ET030215",
+      "geojson_normalized_name": "nefasmewicha"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Wegeda town",
+      "geojson_admin3_code": "ET030216",
+      "geojson_normalized_name": "wegeda"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Ebenat town",
+      "geojson_admin3_code": "ET030217",
+      "geojson_normalized_name": "ebenat"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Hamusit town",
+      "geojson_admin3_code": "ET030218",
+      "geojson_normalized_name": "hamusit"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Woreta town",
+      "geojson_admin3_code": "ET030293",
+      "geojson_normalized_name": "woreta"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Mekan Eyesuse",
+      "geojson_admin3_code": "ET030298",
+      "geojson_normalized_name": "mekaneyesuse"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Gondar",
+      "geojson_admin3_name": "Adiss Zemen town",
+      "geojson_admin3_code": "ET030299",
+      "geojson_normalized_name": "adisszemen"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Wello",
+      "geojson_admin3_name": "Hara town",
+      "geojson_admin3_code": "ET030306",
+      "geojson_normalized_name": "hara"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Wello",
+      "geojson_admin3_name": "Gazo",
+      "geojson_admin3_code": "ET030312",
+      "geojson_normalized_name": "gazo"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Wello",
+      "geojson_admin3_name": "Angot",
+      "geojson_admin3_code": "ET030313",
+      "geojson_normalized_name": "angot"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Wello",
+      "geojson_admin3_name": "Filakit town",
+      "geojson_admin3_code": "ET030314",
+      "geojson_normalized_name": "filakit"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Wello",
+      "geojson_admin3_name": "Gashena town",
+      "geojson_admin3_code": "ET030315",
+      "geojson_normalized_name": "gashena"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Wello",
+      "geojson_admin3_name": "Mersa town",
+      "geojson_admin3_code": "ET030397",
+      "geojson_normalized_name": "mersa"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Wello",
+      "geojson_admin3_name": "Lalibela town",
+      "geojson_admin3_code": "ET030398",
+      "geojson_normalized_name": "lalibela"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Wegel tena town",
+      "geojson_admin3_code": "ET030424",
+      "geojson_normalized_name": "wegeltena"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Degolo town",
+      "geojson_admin3_code": "ET030425",
+      "geojson_normalized_name": "degolo"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Kelala town",
+      "geojson_admin3_code": "ET030426",
+      "geojson_normalized_name": "kelala"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Akeseta town",
+      "geojson_admin3_code": "ET030427",
+      "geojson_normalized_name": "akeseta"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Tulu Awlia",
+      "geojson_admin3_code": "ET030428",
+      "geojson_normalized_name": "tuluawlia"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Harbu town",
+      "geojson_admin3_code": "ET030429",
+      "geojson_normalized_name": "harbu"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Mekane Selame",
+      "geojson_admin3_code": "ET030498",
+      "geojson_normalized_name": "mekaneselame"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "South Wello",
+      "geojson_admin3_name": "Hike town",
+      "geojson_admin3_code": "ET030499",
+      "geojson_normalized_name": "hike"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Shewa (AM)",
+      "geojson_admin3_name": "Tulefa town",
+      "geojson_admin3_code": "ET030524",
+      "geojson_normalized_name": "tulefa"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Shewa (AM)",
+      "geojson_admin3_name": "Arerti town",
+      "geojson_admin3_code": "ET030525",
+      "geojson_normalized_name": "arerti"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Shewa (AM)",
+      "geojson_admin3_name": "Molale town",
+      "geojson_admin3_code": "ET030526",
+      "geojson_normalized_name": "molale"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Shewa (AM)",
+      "geojson_admin3_name": "Shoa Robit",
+      "geojson_admin3_code": "ET030595",
+      "geojson_normalized_name": "shoarobit"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Shewa (AM)",
+      "geojson_admin3_name": "Mehale Meda town",
+      "geojson_admin3_code": "ET030597",
+      "geojson_normalized_name": "mehalemeda"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Shewa (AM)",
+      "geojson_admin3_name": "Ataye town",
+      "geojson_admin3_code": "ET030598",
+      "geojson_normalized_name": "ataye"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "North Shewa (AM)",
+      "geojson_admin3_name": "Aleme Ketma town",
+      "geojson_admin3_code": "ET030599",
+      "geojson_normalized_name": "alemeketma"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Amanuel town",
+      "geojson_admin3_code": "ET030618",
+      "geojson_normalized_name": "amanuel"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Sedae",
+      "geojson_admin3_code": "ET030619",
+      "geojson_normalized_name": "sedae"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Gundwoin town",
+      "geojson_admin3_code": "ET030620",
+      "geojson_normalized_name": "gundwoin"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Debrework town",
+      "geojson_admin3_code": "ET030621",
+      "geojson_normalized_name": "debrework"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Lumame town",
+      "geojson_admin3_code": "ET030622",
+      "geojson_normalized_name": "lumame"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Merto Lemariyam town",
+      "geojson_admin3_code": "ET030623",
+      "geojson_normalized_name": "mertolemariyam"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Mota Town",
+      "geojson_admin3_code": "ET030694",
+      "geojson_normalized_name": "mota"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "East Gojam",
+      "geojson_admin3_name": "Bechena Town",
+      "geojson_admin3_code": "ET030699",
+      "geojson_normalized_name": "bechena"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "West Gojam",
+      "geojson_admin3_name": "Debub Mecha",
+      "geojson_admin3_code": "ET030715",
+      "geojson_normalized_name": "debubmecha"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "West Gojam",
+      "geojson_admin3_name": "Shendi town",
+      "geojson_admin3_code": "ET030716",
+      "geojson_normalized_name": "shendi"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "West Gojam",
+      "geojson_admin3_name": "Dure Bete",
+      "geojson_admin3_code": "ET030719",
+      "geojson_normalized_name": "durebete"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "West Gojam",
+      "geojson_admin3_name": "Jiga town",
+      "geojson_admin3_code": "ET030720",
+      "geojson_normalized_name": "jiga"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "West Gojam",
+      "geojson_admin3_name": "Merawi town",
+      "geojson_admin3_code": "ET030797",
+      "geojson_normalized_name": "merawi"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "West Gojam",
+      "geojson_admin3_name": "Adete town",
+      "geojson_admin3_code": "ET030799",
+      "geojson_normalized_name": "adete"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Wag Hamra",
+      "geojson_admin3_name": "Tsagbeji",
+      "geojson_admin3_code": "ET030808",
+      "geojson_normalized_name": "tsagbeji"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Wag Hamra",
+      "geojson_admin3_name": "Amde Work town",
+      "geojson_admin3_code": "ET030809",
+      "geojson_normalized_name": "amdework"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Awi",
+      "geojson_admin3_name": "Ayehu Guwagusa",
+      "geojson_admin3_code": "ET030908",
+      "geojson_normalized_name": "ayehuguwagusa"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Awi",
+      "geojson_admin3_name": "Agew Gimija Bet",
+      "geojson_admin3_code": "ET030909",
+      "geojson_normalized_name": "agewgimijabet"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Awi",
+      "geojson_admin3_name": "Adiss Kidame town",
+      "geojson_admin3_code": "ET030910",
+      "geojson_normalized_name": "adisskidame"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Awi",
+      "geojson_admin3_name": "Tilili town",
+      "geojson_admin3_code": "ET030911",
+      "geojson_normalized_name": "tilili"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Awi",
+      "geojson_admin3_name": "Fendika town",
+      "geojson_admin3_code": "ET030912",
+      "geojson_normalized_name": "fendika"
+    },
+    {
+      "geojson_admin1_name": "Amhara",
+      "geojson_admin2_name": "Awi",
+      "geojson_admin3_name": "Injibara town",
+      "geojson_admin3_code": "ET030996",
+      "geojson_normalized_name": "injibara"
+    }
+  ],
+  "unused_citypopulation_sample": [
+    {
+      "citypopulation_name": "Afdem",
+      "citypopulation_code": "ET160101",
+      "citypopulation_status": "Special Census District",
+      "citypopulation_normalized_name": "afdem",
+      "population_projection_2022": 57033
+    },
+    {
+      "citypopulation_name": "Mulo",
+      "citypopulation_code": "ET160201",
+      "citypopulation_status": "Special Census District",
+      "citypopulation_normalized_name": "mulo",
+      "population_projection_2022": 875
+    },
+    {
+      "citypopulation_name": "Dawe Kachen",
+      "citypopulation_code": "ET041121",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "dawekachen",
+      "population_projection_2022": 43587
+    },
+    {
+      "citypopulation_name": "Gololcha",
+      "citypopulation_code": "ET041105",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "gololcha",
+      "population_projection_2022": 144855
+    },
+    {
+      "citypopulation_name": "Meda Welabu",
+      "citypopulation_code": "ET041190",
+      "citypopulation_status": "Special Census District",
+      "citypopulation_normalized_name": "medawelabu",
+      "population_projection_2022": 5327
+    },
+    {
+      "citypopulation_name": "Ziway",
+      "citypopulation_code": "ET040713",
+      "citypopulation_status": "Town",
+      "citypopulation_normalized_name": "ziway",
+      "population_projection_2022": 90522
+    },
+    {
+      "citypopulation_name": "Awasa",
+      "citypopulation_code": "ET070419",
+      "citypopulation_status": "City",
+      "citypopulation_normalized_name": "awasa",
+      "population_projection_2022": 555480
+    },
+    {
+      "citypopulation_name": "Cheko",
+      "citypopulation_code": "ET070417",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "cheko",
+      "population_projection_2022": 225450
+    },
+    {
+      "citypopulation_name": "Chere",
+      "citypopulation_code": "ET070415",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "chere",
+      "population_projection_2022": 159944
+    },
+    {
+      "citypopulation_name": "Hula",
+      "citypopulation_code": "ET070407",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "hula",
+      "population_projection_2022": 176997
+    },
+    {
+      "citypopulation_name": "Loko Abeya",
+      "citypopulation_code": "ET070414",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "lokoabeya",
+      "population_projection_2022": 130539
+    },
+    {
+      "citypopulation_name": "Wendo Genet",
+      "citypopulation_code": "ET070420",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "wendogenet",
+      "population_projection_2022": 234490
+    },
+    {
+      "citypopulation_name": "Wensho",
+      "citypopulation_code": "ET070413",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "wensho",
+      "population_projection_2022": 119461
+    },
+    {
+      "citypopulation_name": "Babile",
+      "citypopulation_code": "ET050401",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "babile",
+      "population_projection_2022": 112198
+    },
+    {
+      "citypopulation_name": "Selehad",
+      "citypopulation_code": "ET051004",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "selehad",
+      "population_projection_2022": 49333
+    },
+    {
+      "citypopulation_name": "Mago National Park",
+      "citypopulation_code": "ET070799",
+      "citypopulation_status": "National Park",
+      "citypopulation_normalized_name": "magonationalpark",
+      "population_projection_2022": 0
+    },
+    {
+      "citypopulation_name": "Nech Sar National Park",
+      "citypopulation_code": "ET071099",
+      "citypopulation_status": "National Park",
+      "citypopulation_normalized_name": "nechsarnationalpark",
+      "population_projection_2022": 0
+    },
+    {
+      "citypopulation_name": "Genabosa",
+      "citypopulation_code": "ET071704",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "genabosa",
+      "population_projection_2022": 114558
+    },
+    {
+      "citypopulation_name": "Gesha Deka",
+      "citypopulation_code": "ET070902",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "geshadeka",
+      "population_projection_2022": 115451
+    },
+    {
+      "citypopulation_name": "Guraferda",
+      "citypopulation_code": "ET071102",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "guraferda",
+      "population_projection_2022": 52791
+    },
+    {
+      "citypopulation_name": "Meinit Goldeya",
+      "citypopulation_code": "ET071802",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "meinitgoldeya",
+      "population_projection_2022": 119144
+    },
+    {
+      "citypopulation_name": "Meinit Shasha",
+      "citypopulation_code": "ET071804",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "meinitshasha",
+      "population_projection_2022": 60197
+    },
+    {
+      "citypopulation_name": "Menjiwo",
+      "citypopulation_code": "ET070905",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "menjiwo",
+      "population_projection_2022": 144128
+    },
+    {
+      "citypopulation_name": "Sayilem",
+      "citypopulation_code": "ET070901",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "sayilem",
+      "population_projection_2022": 55991
+    },
+    {
+      "citypopulation_name": "Telo",
+      "citypopulation_code": "ET070906",
+      "citypopulation_status": "District",
+      "citypopulation_normalized_name": "telo",
+      "population_projection_2022": 87160
+    }
+  ],
+  "outputs": {
+    "csv": "public/ethiopia_admin3_population_crosswalk.csv",
+    "surface": "public/ethiopia_admin3_population_surface.json",
+    "parent_splits": "public/ethiopia_population_parent_splits.csv",
+    "summary": "public/ethiopia_admin3_population_crosswalk_summary.json"
+  }
+}

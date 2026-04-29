@@ -4,14 +4,23 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import union from "@turf/union";
 import { featureCollection } from "@turf/helpers";
 import { topojsonToFeatureCollection } from "../utils/topojsonToFeatureCollection";
+import {
+  buildAdm3Lookup,
+  findDistrictFromLookup,
+  getDistrictNameVariants,
+  normalizeDistrictKey,
+} from "../utils/districtNameMatch";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+
+const ALERTS_MAP_PANE = "epidemia-alerts";
 
 // Woreda (district) lines stay thinner than the merged admin1 (region) ring drawn on top.
 const WEIGHT_WOREDA = 0.6;
 const WEIGHT_WOREDA_IN_FILTER = 0.9;
-const WEIGHT_WOREDA_SELECTED = 1.5;
+const WEIGHT_WOREDA_SELECTED = 2.4;
 const WEIGHT_REGION_OUTLINE = 2.3;
+const DISTRICT_CLICK_MAX_ZOOM = 8;
 
 /** One merged polygon per adm1; outer ring is the true regional boundary. */
 function buildAdmin1Outlines(geo) {
@@ -100,6 +109,78 @@ function toGibsTime(dateStr) {
   return /^\d{4}-\d{2}-\d{2}$/.test(s) ? s : null;
 }
 
+const GIBS_PREFETCH_MAX_TILES = 48;
+
+/**
+ * Warm HTTP cache for the *next* animation frame: same tile (z,x,y) the visible
+ * layer will request, so the following week can swap in without a long blank.
+ */
+function GibsNextFramePrefetch({ prefetchTime, layerSpecs }) {
+  const map = useMap();
+
+  useEffect(() => {
+    const t = toGibsTime(prefetchTime);
+    if (!t || !map || !layerSpecs?.length) return undefined;
+
+    const z = map.getZoom();
+    const b = map.getBounds();
+    const nw = map.project(b.getNorthWest(), z);
+    const se = map.project(b.getSouthEast(), z);
+    const ts = 256;
+    const xMin = Math.min(nw.x, se.x);
+    const xMax = Math.max(nw.x, se.x);
+    const yMin = Math.min(nw.y, se.y);
+    const yMax = Math.max(nw.y, se.y);
+    let tx0 = Math.floor(xMin / ts);
+    let tx1 = Math.floor(xMax / ts);
+    let ty0 = Math.floor(yMin / ts);
+    let ty1 = Math.floor(yMax / ts);
+    if (tx1 < tx0) [tx0, tx1] = [tx1, tx0];
+    if (ty1 < ty0) [ty0, ty1] = [ty1, ty0];
+
+    const cxf = (tx0 + tx1) / 2;
+    const cyf = (ty0 + ty1) / 2;
+    const coords = [];
+    for (let x = tx0; x <= tx1; x += 1) {
+      for (let y = ty0; y <= ty1; y += 1) {
+        coords.push([x, y]);
+      }
+    }
+    coords.sort(
+      (a, b) =>
+        (a[0] - cxf) * (a[0] - cxf) +
+        (a[1] - cyf) * (a[1] - cyf) -
+        ((b[0] - cxf) * (b[0] - cxf) + (b[1] - cyf) * (b[1] - cyf))
+    );
+    const perView = Math.max(
+      1,
+      Math.floor(GIBS_PREFETCH_MAX_TILES / layerSpecs.length)
+    );
+    coords.length = Math.min(coords.length, perView);
+
+    const images = [];
+    for (const { layerId, tileMatrixSet } of layerSpecs) {
+      for (const [x, y] of coords) {
+        const u = buildGibsUrl(layerId, t, tileMatrixSet)
+          .replace("{z}", String(z))
+          .replace("{y}", String(y))
+          .replace("{x}", String(x));
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.referrerPolicy = "no-referrer";
+        img.src = u;
+        images.push(img);
+      }
+    }
+
+    return () => {
+      images.length = 0;
+    };
+  }, [map, prefetchTime, layerSpecs]);
+
+  return null;
+}
+
 function dateRangeSamples(startDateStr, endDateStr, count = 7) {
   const start = toGibsTime(startDateStr);
   const end = toGibsTime(endDateStr);
@@ -181,6 +262,8 @@ function AveragedGibsLayer({
         done(null, canvas);
         return canvas;
       }
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
 
       const urlFor = (dateStr) => {
         const url = buildGibsUrl(layerId, dateStr, tileMatrixSet)
@@ -250,30 +333,46 @@ function AveragedGibsLayer({
         onStats({ attempted: sampleDates.length, loadedAverage: null, tiles: 0 });
       }
     };
-  }, [map, layerId, sampleDates, opacity, pane]);
+  }, [map, layerId, tileMatrixSet, sampleDates, opacity, pane, onStats]);
 
   return null;
 }
 
 function TimedGibsLayer({ layerId, tileMatrixSet, time, opacity = 0.4, pane }) {
   const t = toGibsTime(time) || "2020-01-01";
-  // `key` forces a refresh when time changes.
+  // Do not use `key` on the date: that remounts the layer every week and reloads
+  // all tiles from scratch. react-leaflet calls TileLayer.setUrl() when `url` changes.
   return (
     <TileLayer
-      key={`${layerId}:${t}`}
       url={buildGibsUrl(layerId, t, tileMatrixSet)}
       opacity={opacity}
       pane={pane}
+      updateWhenIdle={false}
+      updateWhenZooming
+      keepBuffer={4}
     />
   );
 }
 
 // Alert Markers component
-function AlertMarkers({ alerts, showEarlyWarning, showEarlyDetection, geoData }) {
+function AlertMarkers({
+  alerts,
+  showEarlyWarning,
+  showEarlyDetection,
+  adm3Lookup,
+  selectedSpecies = "pfm",
+  onSelectDistrict,
+}) {
   const map = useMap();
   const currentMarkersRef = useRef([]);
 
   useEffect(() => {
+    if (!map.getPane(ALERTS_MAP_PANE)) {
+      const p = map.createPane(ALERTS_MAP_PANE);
+      p.style.zIndex = 700;
+      p.style.pointerEvents = "auto";
+    }
+
     // Clear all previously added markers
     currentMarkersRef.current.forEach(marker => {
       if (map.hasLayer(marker)) {
@@ -284,8 +383,10 @@ function AlertMarkers({ alerts, showEarlyWarning, showEarlyDetection, geoData })
 
     const markers = [];
 
-    if (alerts && geoData) {
+    if (alerts && adm3Lookup && adm3Lookup.size > 0) {
       alerts.forEach(alert => {
+        if (alert?.species && alert.species !== selectedSpecies) return;
+
         const isEarlyWarning = Boolean(alert?.early_warning);
         // Treat early detection as a separate class from early warning.
         // Many records may have early_detection=true for warning cases, but the UI
@@ -299,11 +400,12 @@ function AlertMarkers({ alerts, showEarlyWarning, showEarlyDetection, geoData })
         if (isEarlyWarning && !showEarlyWarning) return;
         if (isEarlyDetectionOnly && !showEarlyDetection) return;
 
-        // Find the district geometry
-        const district = geoData.features.find(f => f.properties.adm3_name === alert.district);
+        const district = findDistrictFromLookup(adm3Lookup, alert.district);
         if (district && district.geometry) {
           // Calculate centroid of the district
-          const centroid = L.geoJSON(district).getBounds().getCenter();
+          const bounds = L.geoJSON(district).getBounds();
+          const centroid = bounds.getCenter();
+          const districtName = district?.properties?.adm3_name || alert.district;
 
           // Create marker with appropriate icon and color
           const iconHtml = isEarlyWarning ? '⚠️' : '🔍';
@@ -328,11 +430,21 @@ function AlertMarkers({ alerts, showEarlyWarning, showEarlyDetection, geoData })
             iconAnchor: [12, 12]
           });
 
-          const marker = L.marker([centroid.lat, centroid.lng], { icon: alertIcon })
+          const marker = L.marker([centroid.lat, centroid.lng], { icon: alertIcon, pane: ALERTS_MAP_PANE })
             .bindTooltip(`${alert.district}<br>${isEarlyWarning ? 'Early Warning' : 'Early Detection'}`, {
               permanent: false,
               direction: 'top'
             });
+
+          marker.on("click", () => {
+            onSelectDistrict?.(districtName);
+            if (bounds?.isValid?.()) {
+              map.flyTo(centroid, Math.max(map.getZoom(), DISTRICT_CLICK_MAX_ZOOM), {
+                animate: true,
+                duration: 0.65,
+              });
+            }
+          });
 
           markers.push(marker);
         }
@@ -353,19 +465,104 @@ function AlertMarkers({ alerts, showEarlyWarning, showEarlyDetection, geoData })
         }
       });
     };
-  }, [map, alerts, showEarlyWarning, showEarlyDetection, geoData]);
+  }, [map, alerts, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
 
   return null;
 }
 
-function buildChoroplethLegendRows(getColor, grades) {
+function SelectedDistrictFocus({ districtName, adm3Lookup }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!districtName || districtName === "All Regions") return;
+    const district = findDistrictFromLookup(adm3Lookup, districtName);
+    if (!district?.geometry) return;
+
+    const bounds = L.geoJSON(district).getBounds();
+    if (!bounds?.isValid?.()) return;
+
+    map.flyTo(bounds.getCenter(), Math.max(map.getZoom(), DISTRICT_CLICK_MAX_ZOOM), {
+      animate: true,
+      duration: 0.65,
+    });
+  }, [adm3Lookup, districtName, map]);
+
+  return null;
+}
+
+function InteractiveDistrictLayer({ data, style, getTooltip, onSelectDistrict }) {
+  const map = useMap();
+  const layerRef = useRef(null);
+
+  useEffect(() => {
+    if (layerRef.current) {
+      layerRef.current.setStyle(style);
+      layerRef.current.eachLayer((layer) => {
+        if (layer.feature && layer.setTooltipContent) {
+          layer.setTooltipContent(getTooltip(layer.feature));
+        }
+      });
+    }
+  }, [style, getTooltip, data]);
+
+  const zoomToLayer = (layer) => {
+    if (!layer?.getBounds) return;
+    const bounds = layer.getBounds();
+    if (!bounds?.isValid?.()) return;
+
+    map.flyTo(bounds.getCenter(), Math.max(map.getZoom(), DISTRICT_CLICK_MAX_ZOOM), {
+      animate: true,
+      duration: 0.65,
+    });
+  };
+
+  const onEachFeature = (feature, layer) => {
+    const districtName = feature?.properties?.adm3_name;
+
+    layer.on({
+      click: () => {
+        if (!districtName) return;
+        onSelectDistrict(districtName);
+        zoomToLayer(layer);
+        layer.bringToFront?.();
+      },
+      mouseover: () => {
+        layer.setTooltipContent?.(getTooltip(feature));
+        const baseStyle = style(feature);
+        layer.setStyle({
+          ...baseStyle,
+          weight: Math.max(Number(baseStyle.weight) || WEIGHT_WOREDA, WEIGHT_WOREDA_SELECTED),
+          color: "#111827",
+          fillOpacity: 0.85,
+        });
+        layer.bringToFront?.();
+      },
+      mouseout: () => {
+        layer.setStyle(style(feature));
+      },
+    });
+
+    layer.bindTooltip(getTooltip(feature), { sticky: true });
+  };
+
+  return (
+    <GeoJSON
+      ref={layerRef}
+      data={data}
+      style={style}
+      onEachFeature={onEachFeature}
+    />
+  );
+}
+
+function buildChoroplethLegendRows(getColor, grades, formatValue = (value) => value) {
   const rows = [];
   for (let i = 0; i < grades.length; i++) {
     const from = grades[i];
     const to = grades[i + 1];
     rows.push({
       color: getColor(from + 0.01),
-      label: `${from}${to != null ? ` – ${to}` : "+"}`,
+      label: `${formatValue(from)}${to != null ? ` - ${formatValue(to)}` : "+"}`,
     });
   }
   return rows;
@@ -377,6 +574,54 @@ function buildOverlayLegendRows(config) {
     (v) => legendColorForGrade(grades, colors, v),
     grades
   );
+}
+
+function DistrictChoroplethLegend({ title, unit, grades, colors, formatValue }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!grades?.length || !colors?.length) return undefined;
+
+    const rows = buildChoroplethLegendRows(
+      (v) => legendColorForGrade(grades, colors, v),
+      grades,
+      formatValue
+    );
+    const legend = L.control({ position: "bottomright" });
+
+    legend.onAdd = function () {
+      const div = L.DomUtil.create("div", "info legend");
+      div.style.padding = "8px";
+      div.style.background = "white";
+      div.style.borderRadius = "6px";
+      div.style.boxShadow = "0 0 6px rgba(0,0,0,0.3)";
+      div.style.maxWidth = "220px";
+      div.style.fontSize = "12px";
+      div.style.lineHeight = "1.35";
+
+      const parts = [
+        `<div style="font-weight:700">${title}</div>`,
+        unit ? `<div style="color:#64748b;font-size:11px;margin-bottom:4px">${unit}</div>` : "",
+      ];
+      rows.forEach((r) => {
+        parts.push(
+          `<div style="margin:2px 0">` +
+            `<i style="background:${r.color};width:16px;height:16px;display:inline-block;margin-right:6px;vertical-align:middle;border-radius:2px"></i>` +
+            `<span style="vertical-align:middle">${r.label}</span>` +
+            `</div>`
+        );
+      });
+      div.innerHTML = parts.join("");
+      return div;
+    };
+
+    legend.addTo(map);
+    return () => {
+      legend.remove();
+    };
+  }, [map, title, unit, grades, colors, formatValue]);
+
+  return null;
 }
 
 // Legend for NASA GIBS environmental raster layer(s) when toggled on.
@@ -473,12 +718,17 @@ export default function EthiopiaMap({
   alerts = [],
   showEarlyWarning = true,
   showEarlyDetection = true,
+  /** Match toolbar disease: pfm = P. falciparum, pv = P. vivax */
+  selectedSpecies = "pfm",
   showRainfallLayer = false,
   showTemperatureLayer = false,
   showNdviLayer = false,
   envTimeMode = "average",
   envTimeDate = null,
+  /** YYYY-MM-DD: next week to prefetch (animate mode, while playing) for smoother frame changes */
+  gibsPrefetchTime = null,
   onEnvAverageStats = null,
+  selectedDistrictName = null,
 }) {
   const [geoData, setGeo] = useState(null);
   const [admin1Outlines, setAdmin1Outlines] = useState(null);
@@ -540,11 +790,77 @@ export default function EthiopiaMap({
     };
   }, [geoData]);
 
+  const adm3Lookup = useMemo(() => buildAdm3Lookup(geoData), [geoData]);
+
+  useEffect(() => {
+    if (!selectedDistrictName || selectedDistrictName === "All Regions") {
+      setSelectedDistrict(null);
+      return;
+    }
+    setSelectedDistrict(selectedDistrictName);
+  }, [selectedDistrictName]);
+
+  const alertPopulationLookup = useMemo(() => {
+    const out = {};
+    alerts.forEach((alert) => {
+      const population = Number(alert?.population_at_risk);
+      if (!Number.isFinite(population)) return;
+
+      const names = [alert.district];
+      const district = findDistrictFromLookup(adm3Lookup, alert.district);
+      if (district?.properties?.adm3_name) {
+        names.push(district.properties.adm3_name);
+      }
+
+      names.filter(Boolean).forEach((name) => {
+        out[name] = population;
+        getDistrictNameVariants(name).forEach((variant) => {
+          out[variant] = population;
+          out[normalizeDistrictKey(variant)] = population;
+        });
+      });
+    });
+    return out;
+  }, [adm3Lookup, alerts]);
+
+  const gibsPrefetchLayerSpecs = useMemo(() => {
+    const out = [];
+    if (showRainfallLayer) {
+      out.push({
+        layerId: GIBS_OVERLAY_CONFIG.rainfall.layerId,
+        tileMatrixSet: GIBS_OVERLAY_CONFIG.rainfall.tileMatrixSet,
+      });
+    }
+    if (showTemperatureLayer) {
+      out.push({
+        layerId: GIBS_OVERLAY_CONFIG.temperature.layerId,
+        tileMatrixSet: GIBS_OVERLAY_CONFIG.temperature.tileMatrixSet,
+      });
+    }
+    if (showNdviLayer) {
+      out.push({
+        layerId: GIBS_OVERLAY_CONFIG.ndvi.layerId,
+        tileMatrixSet: GIBS_OVERLAY_CONFIG.ndvi.tileMatrixSet,
+      });
+    }
+    return out;
+  }, [showRainfallLayer, showTemperatureLayer, showNdviLayer]);
+
   // dataset-specific breakpoints, units, and color ramps.
   // Legend swatches use the same getColor() so the map and legend stay aligned.
   const gradeConfig = {
+    population: {
+      title: "Population",
+      grades: [0, 50000, 100000, 250000],
+      unit: "people",
+      colors: ["#f7fcf5", "#c7e9c0", "#74c476", "#238b45", "#005a32"],
+      format: (value) =>
+        new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
+    },
+
     // Rainfall: muted tan -> teal/blue (more rain).
     totprec: {
+      title: "Precipitation",
       grades: [0, 5, 15, 30],
       unit: "mm/day",
       colors: ["#f1e8d4", "#c7e9c0", "#7fcdbb", "#41b6c4", "#1d91c0"],
@@ -552,16 +868,19 @@ export default function EthiopiaMap({
 
     // Temperature: cool -> warm.
     lst_day: {
+      title: "LST Day Temperature",
       grades: [10, 20, 30, 40],
       unit: "°C",
       colors: ["#2b83ba", "#abd9e9", "#ffffbf", "#fdae61", "#d7191c"],
     },
     lst_night: {
+      title: "LST Night Temperature",
       grades: [0, 10, 20, 30],
       unit: "°C",
       colors: ["#2b83ba", "#abd9e9", "#ffffbf", "#fdae61", "#d7191c"],
     },
     lst_mean: {
+      title: "LST Mean Temperature",
       grades: [5, 15, 25, 35],
       unit: "°C",
       colors: ["#2b83ba", "#abd9e9", "#ffffbf", "#fdae61", "#d7191c"],
@@ -569,16 +888,19 @@ export default function EthiopiaMap({
 
     // Vegetation: brown/gray -> green.
     ndvi: {
+      title: "NDVI",
       grades: [0, 0.2, 0.4, 0.6],
       unit: "index",
       colors: ["#d9d9d9", "#ccebc5", "#a8ddb5", "#7bccc4", "#2ca25f"],
     },
     savi: {
+      title: "SAVI",
       grades: [0, 0.2, 0.4, 0.6],
       unit: "index",
       colors: ["#d9d9d9", "#ccebc5", "#a8ddb5", "#7bccc4", "#2ca25f"],
     },
     evi: {
+      title: "EVI",
       grades: [0, 0.2, 0.4, 0.6],
       unit: "index",
       colors: ["#d9d9d9", "#ccebc5", "#a8ddb5", "#7bccc4", "#2ca25f"],
@@ -586,11 +908,13 @@ export default function EthiopiaMap({
 
     // Moisture/water indices: dry/negative -> wet/positive.
     ndwi5: {
+      title: "NDWI5",
       grades: [-0.4, -0.1, 0.1, 0.3],
       unit: "index",
       colors: ["#f7f7f7", "#d9d9d9", "#a6bddb", "#67a9cf", "#1c9099"],
     },
     ndwi6: {
+      title: "NDWI6",
       grades: [-0.4, -0.1, 0.1, 0.3],
       unit: "index",
       colors: ["#f7f7f7", "#d9d9d9", "#a6bddb", "#67a9cf", "#1c9099"],
@@ -598,12 +922,14 @@ export default function EthiopiaMap({
   };
 
   const activeScale = gradeConfig[dataset] || {
+    title: dataset,
     grades: [0, 1],
     unit: "",
     colors: ["#f3f4f6", "#d1d5db", "#9ca3af", "#6b7280", "#374151"],
   };
 
   const { grades, unit, colors } = activeScale;
+  const formatMapValue = activeScale.format || ((value) => Number(value).toFixed(2));
 
   const getColor = (value) => {
     if (value == null || Number.isNaN(Number(value))) return "#e5e5e5";
@@ -613,6 +939,22 @@ export default function EthiopiaMap({
     if (v > grades[1]) return colors[2];
     if (v > grades[0]) return colors[1];
     return colors[0];
+  };
+
+  const getDistrictValue = (districtName) => {
+    if (!envData || !districtName) return undefined;
+    const exact = envData[districtName];
+    if (exact !== undefined) return exact;
+    const normalized = envData[normalizeDistrictKey(districtName)];
+    if (normalized !== undefined) return normalized;
+    for (const variant of getDistrictNameVariants(districtName)) {
+      const value = envData[variant] ?? envData[normalizeDistrictKey(variant)];
+      if (value !== undefined) return value;
+    }
+    if (dataset === "population") {
+      return alertPopulationLookup[districtName] || alertPopulationLookup[normalizeDistrictKey(districtName)];
+    }
+    return undefined;
   };
 
   const filterKey = (filterRegion || "").trim();
@@ -644,7 +986,7 @@ export default function EthiopiaMap({
   // Woreda strokes (thin). Regional ring is a separate admin1 layer on top, thicker.
   const style = (feature) => {
     const districtName = feature?.properties?.adm3_name;
-    const value = envData && districtName ? envData[districtName] : undefined;
+    const value = getDistrictValue(districtName);
     const isSelectedDistrict = districtName === selectedDistrict;
     const isInSelectedRegion =
       filterRegion !== "All Regions" && (feature?.properties?.adm1_name || "").trim() === filterKey;
@@ -656,8 +998,8 @@ export default function EthiopiaMap({
     return {
       fillColor: value !== undefined ? getColor(value) : "#e5e5e5",
       weight: borderWeight,
-      color: "#000000",
-      fillOpacity: 0.7,
+      color: isSelectedDistrict ? "#f59e0b" : "#000000",
+      fillOpacity: isSelectedDistrict ? 0.9 : 0.7,
     };
   };
 
@@ -669,21 +1011,21 @@ export default function EthiopiaMap({
     interactive: false,
   });
 
-  // Tooltip & click callback
-  const onEachFeature = (feature, layer) => {
+  const districtTooltip = (feature) => {
     const districtName = feature?.properties?.adm3_name;
-    const value = envData && districtName ? envData[districtName] : undefined;
+    const value = getDistrictValue(districtName);
+    const label = activeScale.title || dataset;
 
-    layer.on({ 
-      click: () => {
-        setSelectedDistrict(districtName);
-        onSelectRegion(districtName);
-      }
-    });
-    layer.bindTooltip(
-      `${districtName}: ${value !== undefined ? value.toFixed(2) : "Loading..."}`,
-      { sticky: true }
-    );
+    if (value === undefined) {
+      return `${districtName}<br>${label}: No data`;
+    }
+
+    return `${districtName}<br>${label}: ${formatMapValue(value)}${unit ? ` ${unit}` : ""}`;
+  };
+
+  const handleSelectDistrict = (districtName) => {
+    setSelectedDistrict(districtName);
+    onSelectRegion?.(districtName);
   };
 
   return (
@@ -698,9 +1040,20 @@ export default function EthiopiaMap({
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         />
 
-        {/* Semi-transparent raster overlays (explanatory variables). */}
-        {/* Put rasters ABOVE district polygons (overlayPane defaults ~400). */}
-        <Pane name="env-raster-overlays" style={{ zIndex: 450 }}>
+        <SelectedDistrictFocus
+          districtName={selectedDistrictName}
+          adm3Lookup={adm3Lookup}
+        />
+
+        {envTimeMode === "animate" && gibsPrefetchTime && gibsPrefetchLayerSpecs.length > 0 && (
+          <GibsNextFramePrefetch
+            prefetchTime={gibsPrefetchTime}
+            layerSpecs={gibsPrefetchLayerSpecs}
+          />
+        )}
+
+        {/* Semi-transparent raster overlays, above district fills but below alert markers. */}
+        <Pane name="env-raster-overlays" style={{ zIndex: 650, pointerEvents: "none" }}>
           {showRainfallLayer && (
             envTimeMode === "animate" ? (
               <TimedGibsLayer
@@ -770,10 +1123,11 @@ export default function EthiopiaMap({
 
         {!hideBoundaries && districtDataForView && (
           <Pane name={pDistrict} style={{ zIndex: 420 }}>
-            <GeoJSON
+            <InteractiveDistrictLayer
               data={districtDataForView}
               style={style}
-              onEachFeature={onEachFeature}
+              getTooltip={districtTooltip}
+              onSelectDistrict={handleSelectDistrict}
             />
           </Pane>
         )}
@@ -782,6 +1136,16 @@ export default function EthiopiaMap({
           <Pane name={pAdmin1} style={{ zIndex: 430 }}>
             <GeoJSON data={admin1DataForView} style={admin1OutlineStyle} />
           </Pane>
+        )}
+
+        {!hideBoundaries && (
+          <DistrictChoroplethLegend
+            title={activeScale.title || dataset}
+            unit={unit}
+            grades={grades}
+            colors={colors}
+            formatValue={formatMapValue}
+          />
         )}
 
         {(showRainfallLayer || showTemperatureLayer || showNdviLayer) && (
@@ -797,7 +1161,9 @@ export default function EthiopiaMap({
           alerts={alerts}
           showEarlyWarning={showEarlyWarning}
           showEarlyDetection={showEarlyDetection}
-          geoData={geoData}
+          adm3Lookup={adm3Lookup}
+          selectedSpecies={selectedSpecies}
+          onSelectDistrict={handleSelectDistrict}
         />
       </MapContainer>
     </div>

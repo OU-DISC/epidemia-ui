@@ -1,0 +1,1083 @@
+geojson_admin3_name,geojson_admin3_code,geojson_admin2_name,geojson_admin1_name,geojson_normalized_name,citypopulation_name,citypopulation_code,citypopulation_status,citypopulation_normalized_name,population_census_2007,population_projection_2022,match_method,match_confidence,match_key,candidate_count
+Tahtay Adiyabo,ET010101,North Western,Tigray,tahtayadiyabo,Tahtay Adiyabo,ET010101,District,tahtayadiyabo,90144,108743,admin_code,1,ET010101,1
+Laelay Adiabo,ET010102,North Western,Tigray,laelayadiabo,Laelay Adiyabo,ET010102,District,laelayadiyabo,113836,137322,admin_code,1,ET010102,1
+Zana,ET010103,North Western,Tigray,zana,Medebay Zana,ET010103,District,medebayzana,125028,152500,admin_code,1,ET010103,1
+Tahtay Koraro,ET010104,North Western,Tigray,tahtaykoraro,Tahtay Koraro,ET010104,District,tahtaykoraro,68989,78483,admin_code,1,ET010104,1
+Asgede,ET010105,North Western,Tigray,asgede,Asgede Tsimbla,ET010105,District,asgedetsimbla,135621,164146,admin_code,1,ET010105,1
+Tselemti,ET010106,North Western,Tigray,tselemti,Tselemti,ET010106,District,tselemti,138858,166395,admin_code,1,ET010106,1
+Sheraro town,ET010107,North Western,Tigray,sheraro,Shiraro,ET010107,Town,shiraro,17045,36127,admin_code,1,ET010107,1
+Indasilassie town,ET010108,North Western,Tigray,indasilassie,Shire Inda Silase,ET010108,Town,shireindasilase,47284,100079,admin_code,1,ET010108,1
+Selekleka,ET010109,North Western,Tigray,selekleka,,,,,,,unmatched,0,selekleka,0
+Seyemti Adyabo,ET010110,North Western,Tigray,seyemtiadyabo,,,,,,,unmatched,0,seyemtiadyabo,0
+Adi Daero,ET010111,North Western,Tigray,adidaero,,,,,,,unmatched,0,adidaero,0
+Adi Hageray,ET010112,North Western,Tigray,adihageray,,,,,,,unmatched,0,adihageray,0
+Tsimbla,ET010113,North Western,Tigray,tsimbla,,,,,,,unmatched,0,tsimbla,0
+Endabaguna town,ET010114,North Western,Tigray,endabaguna,,,,,,,unmatched,0,endabaguna,0
+Dima (TG),ET010115,North Western,Tigray,dima,Dima,ET120205,District,dima,8001,13322,normalized_name,0.85,dima,2
+May Tsebri town,ET010116,North Western,Tigray,maytsebri,,,,,,,unmatched,0,maytsebri,0
+Chila,ET010201,Central,Tigray,chila,Mereb Lehe,ET010201,District,mereblehe,107218,129706,admin_code,1,ET010201,1
+Aheferom,ET010202,Central,Tigray,aheferom,Ahiferom,ET010202,District,ahiferom,173700,220575,admin_code,1,ET010202,1
+Edaga arbi,ET010203,Central,Tigray,edagaarbi,Were Lehe,ET010203,District,werelehe,146104,182387,admin_code,1,ET010203,1
+Adwa,ET010204,Central,Tigray,adwa,Adwa,ET010204,District,adwa,99711,113438,admin_code,1,ET010204,1
+Laelay Maychew,ET010205,Central,Tigray,laelaymaychew,Laelay Maychew,ET010205,District,laelaymaychew,72625,82621,admin_code,1,ET010205,1
+Tahtay Mayechew,ET010206,Central,Tigray,tahtaymayechew,Tahtay Maychew,ET010206,District,tahtaymaychew,99122,123736,admin_code,1,ET010206,1
+Adet,ET010207,Central,Tigray,adet,Nader Adet,ET010207,District,naderadet,104966,121232,admin_code,1,ET010207,1
+Kola Temben,ET010208,Central,Tigray,kolatemben,Kola Temben,ET010208,District,kolatemben,134336,152826,admin_code,1,ET010208,1
+Naeder,ET010209,Central,Tigray,naeder,,,,,,,unmatched,0,naeder,0
+Abergele (TG),ET010210,Central,Tigray,abergele,Tanqua Abergele,ET010210,District,tanquaabergele,93185,112901,admin_code,1,ET010210,1
+Abi Adi town,ET010211,Central,Tigray,abiadi,Abiy Adi,ET010211,Town,abiyadi,16115,34176,admin_code,1,ET010211,1
+Adwa town,ET010212,Central,Tigray,adwa,Adwa,ET010212,Town,adwa,40500,85644,admin_code,1,ET010212,1
+Axum town,ET010213,Central,Tigray,axum,Aksum,ET010213,Town,aksum,44647,94515,admin_code,1,ET010213,1
+Rama,ET010214,Central,Tigray,rama,,,,,,,unmatched,0,rama,0
+Ahsea,ET010215,Central,Tigray,ahsea,,,,,,,unmatched,0,ahsea,0
+Egela,ET010216,Central,Tigray,egela,,,,,,,unmatched,0,egela,0
+Hahayle,ET010217,Central,Tigray,hahayle,,,,,,,unmatched,0,hahayle,0
+Endafelasi,ET010218,Central,Tigray,endafelasi,,,,,,,unmatched,0,endafelasi,0
+Emba Sieneti,ET010219,Central,Tigray,embasieneti,,,,,,,unmatched,0,embasieneti,0
+Enticho town,ET010220,Central,Tigray,enticho,,,,,,,unmatched,0,enticho,0
+Keyhe tekli,ET010221,Central,Tigray,keyhetekli,,,,,,,unmatched,0,keyhetekli,0
+Tanqua Melashe,ET010222,Central,Tigray,tanquamelashe,,,,,,,unmatched,0,tanquamelashe,0
+Gulo Mekeda,ET010301,Eastern,Tigray,gulomekeda,Gulo Meheda,ET010301,District,gulomeheda,84236,105707,admin_code,1,ET010301,1
+Erob,ET010302,Eastern,Tigray,erob,Erob,ET010302,District,erob,25471,31035,admin_code,1,ET010302,1
+Saesie,ET010303,Eastern,Tigray,saesie,Seasi Tsadamba,ET010303,District,seasitsadamba,139191,176854,admin_code,1,ET010303,1
+Ganta Afeshum,ET010304,Eastern,Tigray,gantaafeshum,Ganta Afeshum,ET010304,District,gantaafeshum,88644,104431,admin_code,1,ET010304,1
+Hawzen,ET010305,Eastern,Tigray,hawzen,Hawuzen,ET010305,District,hawuzen,117954,141627,admin_code,1,ET010305,1
+Kelete Awelallo,ET010306,Eastern,Tigray,keleteawelallo,Kilte Awlalo,ET010306,District,kilteawlalo,99708,118141,admin_code,1,ET010306,1
+Atsbi,ET010307,Eastern,Tigray,atsbi,Atsbi Wonberta,ET010307,District,atsbiwonberta,112341,138712,admin_code,1,ET010307,1
+Adigrat town,ET010308,Eastern,Tigray,adigrat,Adigrat,ET010308,Town,adigrat,57588,121776,admin_code,1,ET010308,1
+Wukro town,ET010309,Eastern,Tigray,wukro,Wukro,ET010309,Town,wukro,30210,63956,admin_code,1,ET010309,1
+Bizet,ET010310,Eastern,Tigray,bizet,,,,,,,unmatched,0,bizet,0
+Edaga Hamus town,ET010311,Eastern,Tigray,edagahamus,,,,,,,unmatched,0,edagahamus,0
+Hawzen town,ET010312,Eastern,Tigray,hawzen,,,,,,,unmatched,0,hawzen,0
+Freweyni town,ET010313,Eastern,Tigray,freweyni,,,,,,,unmatched,0,freweyni,0
+Tsaeda Emba,ET010314,Eastern,Tigray,tsaedaemba,,,,,,,unmatched,0,tsaedaemba,0
+Atsbi town,ET010315,Eastern,Tigray,atsbi,,,,,,,unmatched,0,atsbi,0
+Agulae,ET010316,Eastern,Tigray,agulae,,,,,,,unmatched,0,agulae,0
+Geraleta,ET010317,Eastern,Tigray,geraleta,,,,,,,unmatched,0,geraleta,0
+Zala Anbesa town,ET010318,Eastern,Tigray,zalaanbesa,,,,,,,unmatched,0,zalaanbesa,0
+Selewa,ET010401,Southern,Tigray,selewa,,,,,,,unmatched,0,selewa,0
+Bora (TG),ET010402,Southern,Tigray,bora,Bora,ET040710,District,bora,58748,89828,normalized_name,0.85,bora,1
+Neqsege,ET010403,Southern,Tigray,neqsege,,,,,,,unmatched,0,neqsege,0
+Emba Alaje,ET010404,Southern,Tigray,embaalaje,Alaje,ET010404,District,alaje,107972,130287,admin_code,1,ET010404,1
+Endamehoni,ET010405,Southern,Tigray,endamehoni,Endamehoni,ET010405,District,endamehoni,84739,99307,admin_code,1,ET010405,1
+Raya Azebo,ET010406,Southern,Tigray,rayaazebo,Raya Azebo,ET010406,District,rayaazebo,135870,170319,admin_code,1,ET010406,1
+Raya Alamata,ET010407,Southern,Tigray,rayaalamata,Alamata,ET010407,District,alamata,85403,101627,admin_code,1,ET010407,1
+Ofla,ET010408,Southern,Tigray,ofla,Ofla,ET010408,District,ofla,126889,144369,admin_code,1,ET010408,1
+Maichew town,ET010409,Southern,Tigray,maichew,Maychew,ET010409,Town,maychew,23419,49603,admin_code,1,ET010409,1
+Korem town,ET010410,Southern,Tigray,korem,Korem,ET010410,Town,korem,16856,35629,admin_code,1,ET010410,1
+Alamata town,ET010411,Southern,Tigray,alamata,Alamata,ET010411,Town,alamata,33214,70441,admin_code,1,ET010411,1
+Mekhoni town,ET010412,Southern,Tigray,mekhoni,,,,,,,unmatched,0,mekhoni,0
+Zata,ET010413,Southern,Tigray,zata,,,,,,,unmatched,0,zata,0
+Chercher,ET010414,Southern,Tigray,chercher,,,,,,,unmatched,0,chercher,0
+Kafta Humera,ET010501,Western,Tigray,kaftahumera,Kafta Humera,ET010501,District,kaftahumera,92167,134709,admin_code,1,ET010501,1
+Welkait,ET010502,Western,Tigray,welkait,Welkayit,ET010502,District,welkayit,138926,168600,admin_code,1,ET010502,1
+Tsegede (TG),ET010503,Western,Tigray,tsegede,Tsegede,ET010503,District,tsegede,103852,127171,admin_code,1,ET010503,1
+Setit Humera,ET010504,Western,Tigray,setithumera,Humora,ET010504,Town,humora,21653,46080,admin_code,1,ET010504,1
+May Kadra,ET010505,Western,Tigray,maykadra,,,,,,,unmatched,0,maykadra,0
+Dansha town,ET010506,Western,Tigray,dansha,,,,,,,unmatched,0,dansha,0
+Awra (TG),ET010507,Western,Tigray,awra,Awra,ET020401,District,awra,34604,46494,normalized_name,0.85,awra,1
+Korarit,ET010508,Western,Tigray,korarit,,,,,,,unmatched,0,korarit,0
+May Gaba,ET010509,Western,Tigray,maygaba,,,,,,,unmatched,0,maygaba,0
+Saharti,ET010601,South Eastern,Tigray,saharti,Seharti Samre,ET010601,District,sehartisamre,124340,150454,admin_code,1,ET010601,1
+Enderta,ET010602,South Eastern,Tigray,enderta,Enderta,ET010602,District,enderta,114297,130020,admin_code,1,ET010602,1
+Hintalo,ET010603,South Eastern,Tigray,hintalo,Hintalo Wajirat,ET010603,District,hintalowajirat,153505,186342,admin_code,1,ET010603,1
+Degua Temben,ET010604,South Eastern,Tigray,deguatemben,Dega Temben,ET010604,District,degatemben,113595,136330,admin_code,1,ET010604,1
+Hagere Selam town,ET010605,South Eastern,Tigray,hagereselam,,,,,,,unmatched,0,hagereselam,0
+Samre,ET010606,South Eastern,Tigray,samre,,,,,,,unmatched,0,samre,0
+Adigudom,ET010607,South Eastern,Tigray,adigudom,,,,,,,unmatched,0,adigudom,0
+Wajirat,ET010608,South Eastern,Tigray,wajirat,,,,,,,unmatched,0,wajirat,0
+Mekelle,ET010701,Mekelle,Tigray,mekelle,Mekele,ET011062,Town,mekele,215914,457917,alias_variant,0.72,mekelle,1
+Dubti,ET020101,Awsi /Zone 1,Afar,dubti,Dubti,ET020101,District,dubti,65342,122641,admin_code,1,ET020101,1
+Elidar,ET020102,Awsi /Zone 1,Afar,elidar,Elidar,ET020102,District,elidar,58087,113755,admin_code,1,ET020102,1
+Asayita,ET020103,Awsi /Zone 1,Afar,asayita,Asayita,ET020103,District,asayita,50803,84161,admin_code,1,ET020103,1
+Afambo,ET020104,Awsi /Zone 1,Afar,afambo,Afambo,ET020104,District,afambo,24153,32064,admin_code,1,ET020104,1
+Mile,ET020105,Awsi /Zone 1,Afar,mile,Mile,ET020105,District,mile,90673,133319,admin_code,1,ET020105,1
+Chifra,ET020106,Awsi /Zone 1,Afar,chifra,Chifra,ET020106,District,chifra,91080,127884,admin_code,1,ET020106,1
+Dubti town,ET020107,Awsi /Zone 1,Afar,dubti,Dubti,ET020101,District,dubti,65342,122641,normalized_name,0.85,dubti,1
+Kori,ET020108,Awsi /Zone 1,Afar,kori,Kori,ET020108,District,kori,30652,39470,admin_code,1,ET020108,1
+Adar,ET020109,Awsi /Zone 1,Afar,adar,,,,,,,unmatched,0,adar,0
+Gerani,ET020110,Awsi /Zone 1,Afar,gerani,,,,,,,unmatched,0,gerani,0
+Asayita town,ET020111,Awsi /Zone 1,Afar,asayita,Asayita,ET020103,District,asayita,50803,84161,normalized_name,0.85,asayita,1
+Samera Logiya town,ET020198,Awsi /Zone 1,Afar,sameralogiya,,,,,,,unmatched,0,sameralogiya,0
+Erebti,ET020201,Kilbati /Zone2,Afar,erebti,Erebti,ET020201,District,erebti,34801,45654,admin_code,1,ET020201,1
+Kunneba,ET020202,Kilbati /Zone2,Afar,kunneba,Kunoba,ET020202,District,kunoba,54198,73390,admin_code,1,ET020202,1
+Abaala,ET020203,Kilbati /Zone2,Afar,abaala,Abala,ET020203,District,abala,37963,60898,admin_code,1,ET020203,1
+Megale,ET020204,Kilbati /Zone2,Afar,megale,Megale,ET020204,District,megale,28113,37030,admin_code,1,ET020204,1
+Berahile,ET020205,Kilbati /Zone2,Afar,berahile,Berahile,ET020205,District,berahile,78881,108555,admin_code,1,ET020205,1
+Dalol,ET020206,Kilbati /Zone2,Afar,dalol,Dalol,ET020206,District,dalol,83930,110066,admin_code,1,ET020206,1
+Afdera,ET020207,Kilbati /Zone2,Afar,afdera,Afdera,ET020207,District,afdera,32225,45683,admin_code,1,ET020207,1
+Bidu,ET020208,Kilbati /Zone2,Afar,bidu,,,,,,,unmatched,0,bidu,0
+Abaala town,ET020209,Kilbati /Zone2,Afar,abaala,,,,,,,unmatched,0,abaala,0
+Amibara,ET020301,Gabi /Zone 3,Afar,amibara,Amibara,ET020301,District,amibara,63378,114496,admin_code,1,ET020301,1
+Awash,ET020302,Gabi /Zone 3,Afar,awash,Awash Fentale,ET020302,District,awashfentale,29780,58016,admin_code,1,ET020302,1
+Gewane,ET020303,Gabi /Zone 3,Afar,gewane,Gewane,ET020303,District,gewane,31318,47311,admin_code,1,ET020303,1
+Dulecha,ET020304,Gabi /Zone 3,Afar,dulecha,Dulacha,ET020304,District,dulacha,20687,28039,admin_code,1,ET020304,1
+Gelalu,ET020305,Gabi /Zone 3,Afar,gelalu,Bure Mudayitu,ET020305,District,buremudayitu,31794,40879,admin_code,1,ET020305,1
+Arguba,ET020306,Gabi /Zone 3,Afar,arguba,Argoba Liyu,ET020306,District,argobaliyu,21794,30613,admin_code,1,ET020306,1
+Hanruka,ET020307,Gabi /Zone 3,Afar,hanruka,,,,,,,unmatched,0,hanruka,0
+Awash town,ET020396,Gabi /Zone 3,Afar,awash,,,,,,,unmatched,0,awash,0
+Awra (AF),ET020401,Fanti /Zone 4,Afar,awra,Awra,ET020401,District,awra,34604,46494,admin_code,1,ET020401,1
+Euwa,ET020402,Fanti /Zone 4,Afar,euwa,Ewa,ET020402,District,ewa,47203,62178,admin_code,1,ET020402,1
+Teru,ET020403,Fanti /Zone 4,Afar,teru,Teru,ET020403,District,teru,67753,89173,admin_code,1,ET020403,1
+Yalo,ET020404,Fanti /Zone 4,Afar,yalo,Yalo,ET020404,District,yalo,47468,61934,admin_code,1,ET020404,1
+Gulina,ET020405,Fanti /Zone 4,Afar,gulina,Golina,ET020405,District,golina,49794,68628,admin_code,1,ET020405,1
+Telalek,ET020501,Hari /Zone 5,Afar,telalek,Telalak,ET020501,District,telalak,37970,51028,admin_code,1,ET020501,1
+Samurobi,ET020502,Hari /Zone 5,Afar,samurobi,Sumu Robi,ET020502,District,sumurobi,32023,42355,admin_code,1,ET020502,1
+Dawe,ET020503,Hari /Zone 5,Afar,dawe,Dawe,ET020503,District,dawe,42397,57117,admin_code,1,ET020503,1
+Dalefage,ET020504,Hari /Zone 5,Afar,dalefage,Dalifage,ET020504,District,dalifage,36154,52299,admin_code,1,ET020504,1
+Hadelela,ET020505,Hari /Zone 5,Afar,hadelela,Hadele Ele,ET020505,District,hadeleele,35255,47872,admin_code,1,ET020505,1
+Addi Arekay,ET030101,North Gondar,Amhara,addiarekay,Adi Arkay,ET030101,District,adiarkay,93763,123328,admin_code,1,ET030101,1
+Beyeda,ET030102,North Gondar,Amhara,beyeda,Beyeda,ET030102,District,beyeda,97492,120360,admin_code,1,ET030102,1
+Janamora,ET030103,North Gondar,Amhara,janamora,Janamora,ET030103,District,janamora,167757,206459,admin_code,1,ET030103,1
+Debark,ET030104,North Gondar,Amhara,debark,Debark,ET030104,District,debark,159193,212732,admin_code,1,ET030104,1
+Dabat,ET030105,North Gondar,Amhara,dabat,Dabat,ET030105,District,dabat,145509,191048,admin_code,1,ET030105,1
+Dabat town,ET030106,North Gondar,Amhara,dabat,Dabat,ET030105,District,dabat,145509,191048,normalized_name,0.85,dabat,1
+Telemt,ET030119,North Gondar,Amhara,telemt,Tselemet,ET030119,District,tselemet,57241,68645,admin_code,1,ET030119,1
+Debark town,ET030198,North Gondar,Amhara,debark,Debark,ET030104,District,debark,159193,212732,normalized_name,0.85,debark,1
+Ebenat,ET030201,South Gondar,Amhara,ebenat,Ebinat,ET030201,District,ebinat,220177,276611,admin_code,1,ET030201,1
+Libokemekem,ET030202,South Gondar,Amhara,libokemekem,Libo Kemkem,ET030202,District,libokemkem,198435,261205,admin_code,1,ET030202,1
+Fogera,ET030203,South Gondar,Amhara,fogera,Fogera,ET030203,District,fogera,228449,300473,admin_code,1,ET030203,1
+Farta,ET030204,South Gondar,Amhara,farta,Farta,ET030204,District,farta,232181,285572,admin_code,1,ET030204,1
+Lay Gayint,ET030205,South Gondar,Amhara,laygayint,Lay Gayint,ET030205,District,laygayint,206499,271644,admin_code,1,ET030205,1
+Tach Gayint,ET030206,South Gondar,Amhara,tachgayint,Tach Gayint,ET030206,District,tachgayint,101956,130677,admin_code,1,ET030206,1
+Semada,ET030207,South Gondar,Amhara,semada,Simada,ET030207,District,simada,228271,284623,admin_code,1,ET030207,1
+East Esite,ET030208,South Gondar,Amhara,eastesite,Misrak Este,ET030208,District,misrakeste,210825,267478,admin_code,1,ET030208,1
+Dera (AM),ET030209,South Gondar,Amhara,dera,Dera,ET030209,District,dera,248464,315557,admin_code,1,ET030209,1
+Debre Tabor town,ET030210,South Gondar,Amhara,debretabor,Debre Tabor,ET030210,Town,debretabor,55596,125312,admin_code,1,ET030210,1
+Andabet/ West Esite,ET030211,South Gondar,Amhara,andabetwestesite,Merab Este,ET030211,District,merabeste,120885,147261,admin_code,1,ET030211,1
+Guna Begemider,ET030212,South Gondar,Amhara,gunabegemider,,,,,,,unmatched,0,gunabegemider,0
+Mena Meketewa,ET030213,South Gondar,Amhara,menameketewa,,,,,,,unmatched,0,menameketewa,0
+Sede Muja,ET030214,South Gondar,Amhara,sedemuja,,,,,,,unmatched,0,sedemuja,0
+Nefas Mewicha town,ET030215,South Gondar,Amhara,nefasmewicha,,,,,,,unmatched,0,nefasmewicha,0
+Wegeda town,ET030216,South Gondar,Amhara,wegeda,,,,,,,unmatched,0,wegeda,0
+Ebenat town,ET030217,South Gondar,Amhara,ebenat,,,,,,,unmatched,0,ebenat,0
+Hamusit town,ET030218,South Gondar,Amhara,hamusit,,,,,,,unmatched,0,hamusit,0
+Woreta town,ET030293,South Gondar,Amhara,woreta,,,,,,,unmatched,0,woreta,0
+Mekan Eyesuse,ET030298,South Gondar,Amhara,mekaneyesuse,,,,,,,unmatched,0,mekaneyesuse,0
+Adiss Zemen town,ET030299,South Gondar,Amhara,adisszemen,,,,,,,unmatched,0,adisszemen,0
+Bugna,ET030301,North Wello,Amhara,bugna,Bugna,ET030301,District,bugna,75486,90524,admin_code,1,ET030301,1
+Raya Kobo,ET030302,North Wello,Amhara,rayakobo,Kobo,ET030302,District,kobo,221958,301102,admin_code,1,ET030302,1
+Gidan,ET030303,North Wello,Amhara,gidan,Gidan,ET030303,District,gidan,158428,198127,admin_code,1,ET030303,1
+Meket,ET030304,North Wello,Amhara,meket,Meket,ET030304,District,meket,226644,284157,admin_code,1,ET030304,1
+Wadla,ET030305,North Wello,Amhara,wadla,Wadla,ET030305,District,wadla,128170,158196,admin_code,1,ET030305,1
+Hara town,ET030306,North Wello,Amhara,hara,,,,,,,unmatched,0,hara,0
+Guba Lafto,ET030307,North Wello,Amhara,gubalafto,Gubalafto,ET030307,District,gubalafto,139825,172818,admin_code,1,ET030307,1
+Habru,ET030308,North Wello,Amhara,habru,Habru,ET030308,District,habru,192742,253895,admin_code,1,ET030308,1
+Woldiya town,ET030309,North Wello,Amhara,woldiya,Weldiya,ET030309,Town,weldiya,46139,104005,admin_code,1,ET030309,1
+Lasta,ET030310,North Wello,Amhara,lasta,Lasta,ET030310,District,lasta,117777,159484,admin_code,1,ET030310,1
+Dawunt,ET030311,North Wello,Amhara,dawunt,Dawunt,ET030311,District,dawunt,65363,78930,admin_code,1,ET030311,1
+Gazo,ET030312,North Wello,Amhara,gazo,,,,,,,unmatched,0,gazo,0
+Angot,ET030313,North Wello,Amhara,angot,,,,,,,unmatched,0,angot,0
+Filakit town,ET030314,North Wello,Amhara,filakit,,,,,,,unmatched,0,filakit,0
+Gashena town,ET030315,North Wello,Amhara,gashena,,,,,,,unmatched,0,gashena,0
+Mersa town,ET030397,North Wello,Amhara,mersa,,,,,,,unmatched,0,mersa,0
+Lalibela town,ET030398,North Wello,Amhara,lalibela,,,,,,,unmatched,0,lalibela,0
+Kobo town,ET030399,North Wello,Amhara,kobo,Kobo,ET030302,District,kobo,221958,301102,normalized_name,0.85,kobo,1
+Argoba,ET030401,South Wello,Amhara,argoba,Argoba,ET030401,Special District,argoba,34998,41968,admin_code,1,ET030401,1
+Tenta,ET030402,South Wello,Amhara,tenta,Tenta,ET030402,District,tenta,166239,208842,admin_code,1,ET030402,1
+Kutaber,ET030403,South Wello,Amhara,kutaber,Kutaber,ET030403,District,kutaber,95410,119638,admin_code,1,ET030403,1
+Ambasel,ET030404,South Wello,Amhara,ambasel,Ambasel,ET030404,District,ambasel,121899,152372,admin_code,1,ET030404,1
+Thehulederie,ET030405,South Wello,Amhara,thehulederie,Tehuledere,ET030405,District,tehuledere,117877,156926,admin_code,1,ET030405,1
+Delanta,ET030406,South Wello,Amhara,delanta,Delanta,ET030406,District,delanta,127771,161511,admin_code,1,ET030406,1
+Kalu,ET030407,South Wello,Amhara,kalu,Kalu,ET030407,District,kalu,186181,244153,admin_code,1,ET030407,1
+Albuko,ET030408,South Wello,Amhara,albuko,Albuko,ET030408,District,albuko,77167,96179,admin_code,1,ET030408,1
+Dessie Zuria,ET030409,South Wello,Amhara,dessiezuria,Dessie Zuria,ET030409,District,dessiezuria,157679,189114,admin_code,1,ET030409,1
+Legambo,ET030410,South Wello,Amhara,legambo,Legambo,ET030410,District,legambo,165026,205653,admin_code,1,ET030410,1
+Sayint,ET030411,South Wello,Amhara,sayint,Sayint,ET030411,District,sayint,144972,179650,admin_code,1,ET030411,1
+Borena /Debresina,ET030412,South Wello,Amhara,borenadebresina,Debresina,ET030412,District,debresina,158209,198950,admin_code,1,ET030412,1
+Kelela,ET030413,South Wello,Amhara,kelela,Kelela,ET030413,District,kelela,136545,171806,admin_code,1,ET030413,1
+Jama,ET030414,South Wello,Amhara,jama,Jama,ET030414,District,jama,126879,158515,admin_code,1,ET030414,1
+Were Ilu,ET030415,South Wello,Amhara,wereilu,Were Ilu,ET030415,District,wereilu,109244,143105,admin_code,1,ET030415,1
+Wegde,ET030416,South Wello,Amhara,wegde,Wegidi,ET030416,District,wegidi,135240,166961,admin_code,1,ET030416,1
+Kombolcha town,ET030417,South Wello,Amhara,kombolcha,Kombolcha,ET030417,Town,kombolcha,85367,164140,admin_code,1,ET030417,1
+Dessie town,ET030418,South Wello,Amhara,dessie,Dese,ET030418,Town,dese,151174,307638,admin_code,1,ET030418,1
+Mehal Sayint,ET030419,South Wello,Amhara,mehalsayint,Mehal Saynt,ET030419,District,mehalsaynt,73432,88069,admin_code,1,ET030419,1
+Legehida,ET030420,South Wello,Amhara,legehida,Legahida,ET030420,District,legahida,67138,82680,admin_code,1,ET030420,1
+Mekdela,ET030421,South Wello,Amhara,mekdela,Mekdela,ET030421,District,mekdela,142654,176471,admin_code,1,ET030421,1
+Worebabu,ET030422,South Wello,Amhara,worebabu,Werebabu,ET030422,District,werebabu,100530,127642,admin_code,1,ET030422,1
+Wereilu town,ET030423,South Wello,Amhara,wereilu,Were Ilu,ET030415,District,wereilu,109244,143105,normalized_name,0.85,wereilu,1
+Wegel tena town,ET030424,South Wello,Amhara,wegeltena,,,,,,,unmatched,0,wegeltena,0
+Degolo town,ET030425,South Wello,Amhara,degolo,,,,,,,unmatched,0,degolo,0
+Kelala town,ET030426,South Wello,Amhara,kelala,,,,,,,unmatched,0,kelala,0
+Akeseta town,ET030427,South Wello,Amhara,akeseta,,,,,,,unmatched,0,akeseta,0
+Tulu Awlia,ET030428,South Wello,Amhara,tuluawlia,,,,,,,unmatched,0,tuluawlia,0
+Harbu town,ET030429,South Wello,Amhara,harbu,,,,,,,unmatched,0,harbu,0
+Mekane Selame,ET030498,South Wello,Amhara,mekaneselame,,,,,,,unmatched,0,mekaneselame,0
+Hike town,ET030499,South Wello,Amhara,hike,,,,,,,unmatched,0,hike,0
+Mida Woremo,ET030501,North Shewa (AM),Amhara,midaworemo,Mida Woremo,ET030501,District,midaworemo,93729,119819,admin_code,1,ET030501,1
+Merhabete,ET030502,North Shewa (AM),Amhara,merhabete,Merhabete,ET030502,District,merhabete,126501,165514,admin_code,1,ET030502,1
+Ensaro,ET030503,North Shewa (AM),Amhara,ensaro,Ensaro,ET030503,District,ensaro,58203,73111,admin_code,1,ET030503,1
+Moretna Jiru,ET030504,North Shewa (AM),Amhara,moretnajiru,Moretna Jiru,ET030504,District,moretnajiru,92937,120945,admin_code,1,ET030504,1
+Menze Gera Midir,ET030505,North Shewa (AM),Amhara,menzegeramidir,Menz Gera Midir,ET030505,District,menzgeramidir,120469,156127,admin_code,1,ET030505,1
+Gishe Rabel,ET030506,North Shewa (AM),Amhara,gisherabel,Gishe,ET030506,District,gishe,61521,76718,admin_code,1,ET030506,1
+Antsokiya,ET030507,North Shewa (AM),Amhara,antsokiya,Antsokiya Gemza,ET030507,District,antsokiyagemza,79091,108070,admin_code,1,ET030507,1
+Eferatana Gidem,ET030508,North Shewa (AM),Amhara,eferatanagidem,Efrata Gidim,ET030508,District,efratagidim,110493,148674,admin_code,1,ET030508,1
+Menze Mama Midir,ET030509,North Shewa (AM),Amhara,menzemamamidir,Menz Mama Midir,ET030509,District,menzmamamidir,85129,108954,admin_code,1,ET030509,1
+Tarema Ber,ET030510,North Shewa (AM),Amhara,taremaber,Tarma Ber,ET030510,District,tarmaber,84481,112131,admin_code,1,ET030510,1
+Mojan Wedera,ET030511,North Shewa (AM),Amhara,mojanwedera,Mojana Waderea,ET030511,District,mojanawaderea,69667,86153,admin_code,1,ET030511,1
+Kewet,ET030512,North Shewa (AM),Amhara,kewet,Kewet,ET030512,District,kewet,118381,160500,admin_code,1,ET030512,1
+Angolelana Tera,ET030513,North Shewa (AM),Amhara,angolelanatera,Angolala Tera,ET030513,District,angolalatera,82349,104671,admin_code,1,ET030513,1
+Assagirt,ET030514,North Shewa (AM),Amhara,assagirt,Asagirt,ET030514,District,asagirt,48371,59351,admin_code,1,ET030514,1
+Ankober,ET030515,North Shewa (AM),Amhara,ankober,Ankober,ET030515,District,ankober,76510,96367,admin_code,1,ET030515,1
+Hagere Mariam,ET030516,North Shewa (AM),Amhara,hageremariam,Hagere Mariam Kesem,ET030516,District,hageremariamkesem,55235,68537,admin_code,1,ET030516,1
+Berehet,ET030517,North Shewa (AM),Amhara,berehet,Berehet,ET030517,District,berehet,34810,45931,admin_code,1,ET030517,1
+Minjar Shenkora,ET030518,North Shewa (AM),Amhara,minjarshenkora,Minjar Shenkora,ET030518,District,minjarshenkora,128879,167418,admin_code,1,ET030518,1
+Basona Worena,ET030519,North Shewa (AM),Amhara,basonaworena,Basona Werana,ET030519,District,basonawerana,120930,146283,admin_code,1,ET030519,1
+Debre Berhan town,ET030520,North Shewa (AM),Amhara,debreberhan,Debre Birhan,ET030520,Town,debrebirhan,65231,146918,admin_code,1,ET030520,1
+Menze Keya Gabriel,ET030521,North Shewa (AM),Amhara,menzekeyagabriel,Menz Keya Gebreal,ET030521,District,menzkeyagebreal,46219,58197,admin_code,1,ET030521,1
+Menze Lalo Midir,ET030522,North Shewa (AM),Amhara,menzelalomidir,Menz Lalo Midir,ET030522,District,menzlalomidir,17308,20757,admin_code,1,ET030522,1
+Siya Debirna Wayu,ET030523,North Shewa (AM),Amhara,siyadebirnawayu,Saya Debirna Wayu,ET030523,District,sayadebirnawayu,61046,77962,admin_code,1,ET030523,1
+Tulefa town,ET030524,North Shewa (AM),Amhara,tulefa,,,,,,,unmatched,0,tulefa,0
+Arerti town,ET030525,North Shewa (AM),Amhara,arerti,,,,,,,unmatched,0,arerti,0
+Molale town,ET030526,North Shewa (AM),Amhara,molale,,,,,,,unmatched,0,molale,0
+Debre Sina town,ET030527,North Shewa (AM),Amhara,debresina,Debresina,ET030412,District,debresina,158209,198950,normalized_name,0.85,debresina,1
+Shoa Robit,ET030595,North Shewa (AM),Amhara,shoarobit,,,,,,,unmatched,0,shoarobit,0
+Mehale Meda town,ET030597,North Shewa (AM),Amhara,mehalemeda,,,,,,,unmatched,0,mehalemeda,0
+Ataye town,ET030598,North Shewa (AM),Amhara,ataye,,,,,,,unmatched,0,ataye,0
+Aleme Ketma town,ET030599,North Shewa (AM),Amhara,alemeketma,,,,,,,unmatched,0,alemeketma,0
+Bibugn,ET030601,East Gojam,Amhara,bibugn,Bibugn,ET030601,District,bibugn,82002,104935,admin_code,1,ET030601,1
+Hulet Ej Enese,ET030602,East Gojam,Amhara,huletejenese,Hulet Ej Enese,ET030602,District,huletejenese,275638,362868,admin_code,1,ET030602,1
+Goncha Siso Enebse,ET030603,East Gojam,Amhara,gonchasisoenebse,Goncha Siso Enese,ET030603,District,gonchasisoenese,149646,187581,admin_code,1,ET030603,1
+Enebse Sarmder,ET030604,East Gojam,Amhara,enebsesarmder,Enebse Sar Midir,ET030604,District,enebsesarmidir,133855,173450,admin_code,1,ET030604,1
+Enarj Enawga,ET030605,East Gojam,Amhara,enarjenawga,Enarj Enawga,ET030605,District,enarjenawga,167402,215080,admin_code,1,ET030605,1
+Enemay,ET030606,East Gojam,Amhara,enemay,Enemay,ET030606,District,enemay,165292,218116,admin_code,1,ET030606,1
+Debay Telatgen,ET030607,East Gojam,Amhara,debaytelatgen,Debay Tilatgen,ET030607,District,debaytilatgen,128045,158823,admin_code,1,ET030607,1
+Debre Elias,ET030608,East Gojam,Amhara,debreelias,Debre Elias,ET030608,District,debreelias,82150,106864,admin_code,1,ET030608,1
+Michakel,ET030609,East Gojam,Amhara,michakel,Machakel,ET030609,District,machakel,118097,150844,admin_code,1,ET030609,1
+Guzamn,ET030610,East Gojam,Amhara,guzamn,Gozamin,ET030610,District,gozamin,132883,162070,admin_code,1,ET030610,1
+Baso Liben,ET030611,East Gojam,Amhara,basoliben,Baso Liben,ET030611,District,basoliben,138332,172686,admin_code,1,ET030611,1
+Awabel,ET030612,East Gojam,Amhara,awabel,Awabel,ET030612,District,awabel,121588,158301,admin_code,1,ET030612,1
+Dejen,ET030613,East Gojam,Amhara,dejen,Dejen,ET030613,District,dejen,102359,131930,admin_code,1,ET030613,1
+Shebel Bernta,ET030614,East Gojam,Amhara,shebelbernta,Shebel Berenta,ET030614,District,shebelberenta,103988,129173,admin_code,1,ET030614,1
+Debre Markos town,ET030615,East Gojam,Amhara,debremarkos,Debre Markos,ET030615,Town,debremarkos,62497,140699,admin_code,1,ET030615,1
+Senan,ET030616,East Gojam,Amhara,senan,Sinan,ET030616,District,sinan,98939,123465,admin_code,1,ET030616,1
+Aneded,ET030617,East Gojam,Amhara,aneded,Aneded,ET030617,District,aneded,91224,111263,admin_code,1,ET030617,1
+Amanuel town,ET030618,East Gojam,Amhara,amanuel,,,,,,,unmatched,0,amanuel,0
+Sedae,ET030619,East Gojam,Amhara,sedae,,,,,,,unmatched,0,sedae,0
+Gundwoin town,ET030620,East Gojam,Amhara,gundwoin,,,,,,,unmatched,0,gundwoin,0
+Debrework town,ET030621,East Gojam,Amhara,debrework,,,,,,,unmatched,0,debrework,0
+Lumame town,ET030622,East Gojam,Amhara,lumame,,,,,,,unmatched,0,lumame,0
+Merto Lemariyam town,ET030623,East Gojam,Amhara,mertolemariyam,,,,,,,unmatched,0,mertolemariyam,0
+Mota Town,ET030694,East Gojam,Amhara,mota,,,,,,,unmatched,0,mota,0
+Dejen town,ET030698,East Gojam,Amhara,dejen,Dejen,ET030613,District,dejen,102359,131930,normalized_name,0.85,dejen,1
+Bechena Town,ET030699,East Gojam,Amhara,bechena,,,,,,,unmatched,0,bechena,0
+Semen Achefer,ET030701,West Gojam,Amhara,semenachefer,Semen Achefer,ET030701,District,semenachefer,189716,243901,admin_code,1,ET030701,1
+Bahirdar Zuria,ET030702,West Gojam,Amhara,bahirdarzuria,Bahri Dar Zuria,ET030702,District,bahridarzuria,182730,219106,admin_code,1,ET030702,1
+Yilmana Densa,ET030703,West Gojam,Amhara,yilmanadensa,Yilmana Densa,ET030703,District,yilmanadensa,214852,277897,admin_code,1,ET030703,1
+Mecha,ET030704,West Gojam,Amhara,mecha,Mecha,ET030704,District,mecha,292080,374196,admin_code,1,ET030704,1
+Sekela,ET030705,West Gojam,Amhara,sekela,Sekela,ET030705,District,sekela,138691,173483,admin_code,1,ET030705,1
+Quarit,ET030706,West Gojam,Amhara,quarit,Quarit,ET030706,District,quarit,114771,142675,admin_code,1,ET030706,1
+Dega Damot,ET030707,West Gojam,Amhara,degadamot,Dega Damot,ET030707,District,degadamot,152343,189806,admin_code,1,ET030707,1
+Dembecha,ET030708,West Gojam,Amhara,dembecha,Dembecha,ET030708,District,dembecha,129260,173905,admin_code,1,ET030708,1
+Jabi Tehnan,ET030709,West Gojam,Amhara,jabitehnan,Jabi Tehnan,ET030709,District,jabitehnan,179342,228351,admin_code,1,ET030709,1
+Bure (AM),ET030710,West Gojam,Amhara,bure,Bure,ET030710,District,bure,143132,199053,admin_code,1,ET030710,1
+Wemberma,ET030711,West Gojam,Amhara,wemberma,Wonberma,ET030711,District,wonberma,100570,131765,admin_code,1,ET030711,1
+Bahir Dar town,ET030712,West Gojam,Amhara,bahirdar,Bahir Dar,ET030712,Town,bahirdar,221991,455901,admin_code,1,ET030712,1
+Debub Achefer,ET030713,West Gojam,Amhara,debubachefer,Debub Achefer,ET030713,District,debubachefer,136508,176088,admin_code,1,ET030713,1
+Finote Selam town,ET030714,West Gojam,Amhara,finoteselam,Finote Selam,ET030714,Town,finoteselam,25913,58429,admin_code,1,ET030714,1
+Debub Mecha,ET030715,West Gojam,Amhara,debubmecha,,,,,,,unmatched,0,debubmecha,0
+Shendi town,ET030716,West Gojam,Amhara,shendi,,,,,,,unmatched,0,shendi,0
+Denbecha town,ET030717,West Gojam,Amhara,denbecha,Dembecha,ET030708,District,dembecha,129260,173905,alias_variant,0.72,denbecha,1
+Gonje,ET030718,West Gojam,Amhara,gonje,Goncha,ET030718,District,goncha,106688,132438,admin_code,1,ET030718,1
+Dure Bete,ET030719,West Gojam,Amhara,durebete,,,,,,,unmatched,0,durebete,0
+Jiga town,ET030720,West Gojam,Amhara,jiga,,,,,,,unmatched,0,jiga,0
+Merawi town,ET030797,West Gojam,Amhara,merawi,,,,,,,unmatched,0,merawi,0
+Bure town,ET030798,West Gojam,Amhara,bure,Bure,ET030710,District,bure,143132,199053,normalized_name,0.85,bure,2
+Adete town,ET030799,West Gojam,Amhara,adete,,,,,,,unmatched,0,adete,0
+Zequala,ET030801,Wag Hamra,Amhara,zequala,Ziquala,ET030801,District,ziquala,44013,56353,admin_code,1,ET030801,1
+Sekota,ET030802,Wag Hamra,Amhara,sekota,Sekota,ET030802,District,sekota,112396,134790,admin_code,1,ET030802,1
+Dehana,ET030803,Wag Hamra,Amhara,dehana,Dehena,ET030803,District,dehena,109725,135987,admin_code,1,ET030803,1
+Gaz Gibla,ET030804,Wag Hamra,Amhara,gazgibla,Gazgibla,ET030804,District,gazgibla,70854,84969,admin_code,1,ET030804,1
+Abergele (AM),ET030805,Wag Hamra,Amhara,abergele,Abergele,ET030805,District,abergele,43191,51791,admin_code,1,ET030805,1
+Sahila,ET030806,Wag Hamra,Amhara,sahila,Sehala,ET030806,District,sehala,23688,28404,admin_code,1,ET030806,1
+Sekota town,ET030807,Wag Hamra,Amhara,sekota,Sekota,ET030807,Town,sekota,22346,50316,admin_code,1,ET030807,1
+Tsagbeji,ET030808,Wag Hamra,Amhara,tsagbeji,,,,,,,unmatched,0,tsagbeji,0
+Amde Work town,ET030809,Wag Hamra,Amhara,amdework,,,,,,,unmatched,0,amdework,0
+Dangila,ET030901,Awi,Amhara,dangila,Dangila,ET030901,District,dangila,158688,218765,admin_code,1,ET030901,1
+Banja,ET030902,Awi,Amhara,banja,Banja Shekudad,ET030902,District,banjashekudad,111975,158003,admin_code,1,ET030902,1
+Ankasha,ET030903,Awi,Amhara,ankasha,Ankaska Guagusa,ET030903,District,ankaskaguagusa,199826,256973,admin_code,1,ET030903,1
+Guangua,ET030904,Awi,Amhara,guangua,Guangua,ET030904,District,guangua,223066,300682,admin_code,1,ET030904,1
+Fagta Lakoma,ET030905,Awi,Amhara,fagtalakoma,Fagita Lekoma,ET030905,District,fagitalekoma,126367,160936,admin_code,1,ET030905,1
+Jawi,ET030906,Awi,Amhara,jawi,Jawi,ET030906,District,jawi,79090,102969,admin_code,1,ET030906,1
+Guagusa Shikudad,ET030907,Awi,Amhara,guagusashikudad,Guagusa Shikudad,ET030907,District,guagusashikudad,83930,110187,admin_code,1,ET030907,1
+Ayehu Guwagusa,ET030908,Awi,Amhara,ayehuguwagusa,,,,,,,unmatched,0,ayehuguwagusa,0
+Agew Gimija Bet,ET030909,Awi,Amhara,agewgimijabet,,,,,,,unmatched,0,agewgimijabet,0
+Adiss Kidame town,ET030910,Awi,Amhara,adisskidame,,,,,,,unmatched,0,adisskidame,0
+Tilili town,ET030911,Awi,Amhara,tilili,,,,,,,unmatched,0,tilili,0
+Fendika town,ET030912,Awi,Amhara,fendika,,,,,,,unmatched,0,fendika,0
+Injibara town,ET030996,Awi,Amhara,injibara,,,,,,,unmatched,0,injibara,0
+Zigem,ET030997,Awi,Amhara,zigem,,,,,,,unmatched,0,zigem,0
+Dangila town,ET030998,Awi,Amhara,dangila,Dangila,ET030901,District,dangila,158688,218765,normalized_name,0.85,dangila,1
+Chagni town,ET030999,Awi,Amhara,chagni,,,,,,,unmatched,0,chagni,0
+Dewa Cheffa,ET031001,Oromia,Amhara,dewacheffa,Dawa Chefa,ET031001,District,dawachefa,133388,162982,admin_code,1,ET031001,1
+Bati,ET031002,Oromia,Amhara,bati,Bati,ET031002,District,bati,107387,146317,admin_code,1,ET031002,1
+Jilye Tumuga,ET031003,Oromia,Amhara,jilyetumuga,Jile Timuga,ET031003,District,jiletimuga,72882,92761,admin_code,1,ET031003,1
+Artuma Fursi,ET031004,Oromia,Amhara,artumafursi,Artuma Fursi,ET031004,District,artumafursi,82842,105619,admin_code,1,ET031004,1
+Dewa Harewa,ET031005,Oromia,Amhara,dewaharewa,Dawe Harewa,ET031005,District,daweharewa,41359,51399,admin_code,1,ET031005,1
+Kemisie town,ET031006,Oromia,Amhara,kemisie,Kemisie,ET031006,Town,kemisie,19420,43791,admin_code,1,ET031006,1
+Chef Robit town,ET031007,Oromia,Amhara,chefrobit,,,,,,,unmatched,0,chefrobit,0
+Senbete town,ET031008,Oromia,Amhara,senbete,,,,,,,unmatched,0,senbete,0
+Bati Town,ET031099,Oromia,Amhara,bati,Bati,ET031002,District,bati,107387,146317,normalized_name,0.85,bati,1
+Amba Giorgis town,ET031103,Central Gondar,Amhara,ambagiorgis,,,,,,,unmatched,0,ambagiorgis,0
+Shawra town,ET031104,Central Gondar,Amhara,shawra,,,,,,,unmatched,0,shawra,0
+Kolla Debba town,ET031105,Central Gondar,Amhara,kolladebba,,,,,,,unmatched,0,kolladebba,0
+Chilga 1,ET031106,Central Gondar,Amhara,chilga1,,,,,,,unmatched,0,chilga1,0
+Tegede,ET031107,Central Gondar,Amhara,tegede,Tegede,ET031107,District,tegede,73898,94243,admin_code,1,ET031107,1
+Lay Armacho,ET031108,Central Gondar,Amhara,layarmacho,Lay Armachoho,ET031108,District,layarmachoho,157836,202384,admin_code,1,ET031108,1
+Wegera,ET031109,Central Gondar,Amhara,wegera,Wegera,ET031109,District,wegera,220566,284029,admin_code,1,ET031109,1
+Gonder Zuria,ET031110,Central Gondar,Amhara,gonderzuria,Gondar Zuria,ET031110,District,gondarzuria,191394,248807,admin_code,1,ET031110,1
+East Dembia,ET031111,Central Gondar,Amhara,eastdembia,Dembia,ET031111,District,dembia,271053,349512,admin_code,1,ET031111,1
+Chilga 2,ET031112,Central Gondar,Amhara,chilga2,Chilga,ET031112,District,chilga,221462,287299,admin_code,1,ET031112,1
+Alefa,ET031115,Central Gondar,Amhara,alefa,Alefa,ET031115,District,alefa,170491,216632,admin_code,1,ET031115,1
+West Belesa,ET031116,Central Gondar,Amhara,westbelesa,Merab Belsa,ET031116,District,merabbelsa,142791,179286,admin_code,1,ET031116,1
+East Belesa,ET031117,Central Gondar,Amhara,eastbelesa,Misrak Belesa,ET031117,District,misrakbelesa,97838,131048,admin_code,1,ET031117,1
+Gondar town,ET031118,Central Gondar,Amhara,gondar,Gondar,ET031118,Town,gondar,207044,465973,admin_code,1,ET031118,1
+Masero Denb /Central Armacho,ET031119,Central Gondar,Amhara,maserodenbcentralarmacho,,,,,,,unmatched,0,maserodenbcentralarmacho,0
+Tach Armacho,ET031120,Central Gondar,Amhara,tacharmacho,Tach Armachoho,ET031120,District,tacharmachoho,89115,119718,admin_code,1,ET031120,1
+Takusa,ET031121,Central Gondar,Amhara,takusa,Takusa,ET031121,District,takusa,129097,162235,admin_code,1,ET031121,1
+Kinfaz Begela,ET031122,Central Gondar,Amhara,kinfazbegela,,,,,,,unmatched,0,kinfazbegela,0
+West Dembiya,ET031125,Central Gondar,Amhara,westdembiya,,,,,,,unmatched,0,westdembiya,0
+Aykel town,ET031199,Central Gondar,Amhara,aykel,,,,,,,unmatched,0,aykel,0
+Adagn Ager Chaqo,ET031205,West Gondar,Amhara,adagnagerchaqo,,,,,,,unmatched,0,adagnagerchaqo,0
+Mirab Armacho,ET031206,West Gondar,Amhara,mirabarmacho,Merab Armachoho,ET031206,District,merabarmachoho,31730,54023,admin_code,1,ET031206,1
+Metema,ET031213,West Gondar,Amhara,metema,Metema,ET031213,District,metema,110252,163546,admin_code,1,ET031213,1
+Quara,ET031214,West Gondar,Amhara,quara,Quara,ET031214,District,quara,94106,117806,admin_code,1,ET031214,1
+Midre Genet,ET031223,West Gondar,Amhara,midregenet,,,,,,,unmatched,0,midregenet,0
+Metema Yohanes town,ET031224,West Gondar,Amhara,metemayohanes,,,,,,,unmatched,0,metemayohanes,0
+Gendawuha town,ET031292,West Gondar,Amhara,gendawuha,,,,,,,unmatched,0,gendawuha,0
+Mana Sibu,ET040101,West Wellega,Oromia,manasibu,Menesibu,ET040101,District,menesibu,126083,185727,admin_code,1,ET040101,1
+Nejo,ET040102,West Wellega,Oromia,nejo,Nejo,ET040102,District,nejo,130909,199596,admin_code,1,ET040102,1
+Gimbi,ET040103,West Wellega,Oromia,gimbi,Gimbi,ET040103,District,gimbi,74623,104335,admin_code,1,ET040103,1
+Lalo Asabi,ET040104,West Wellega,Oromia,laloasabi,Lalo Asabi,ET040104,District,laloasabi,75584,112696,admin_code,1,ET040104,1
+Kiltu Kara,ET040105,West Wellega,Oromia,kiltukara,Kiltu Kara,ET040105,District,kiltukara,51800,75972,admin_code,1,ET040105,1
+Boji Dirmeji,ET040106,West Wellega,Oromia,bojidirmeji,Boji Dirmeji,ET040106,District,bojidirmeji,42813,64797,admin_code,1,ET040106,1
+Ayira,ET040107,West Wellega,Oromia,ayira,Ayira,ET040107,District,ayira,47537,70574,admin_code,1,ET040107,1
+Jarso (West Wellega),ET040108,West Wellega,Oromia,jarso,Jarso,ET040108,District,jarso,48561,70350,admin_code,1,ET040108,1
+Gudetu Kondole,ET040109,West Wellega,Oromia,gudetukondole,Kondala,ET040109,District,kondala,96253,136667,admin_code,1,ET040109,1
+Boji Chekorsa,ET040110,West Wellega,Oromia,bojichekorsa,Boji Chekorsa,ET040110,District,bojichekorsa,48871,69328,admin_code,1,ET040110,1
+Babo,ET040111,West Wellega,Oromia,babo,Babo Gambel,ET040111,District,babogambel,60513,87107,admin_code,1,ET040111,1
+Yubdo,ET040112,West Wellega,Oromia,yubdo,Yubdo,ET040112,District,yubdo,38858,55903,admin_code,1,ET040112,1
+Gaji,ET040113,West Wellega,Oromia,gaji,Genji,ET040113,District,genji,59793,85873,admin_code,1,ET040113,1
+Haru,ET040114,West Wellega,Oromia,haru,Haru,ET040114,District,haru,67262,97335,admin_code,1,ET040114,1
+Nole Kaba,ET040115,West Wellega,Oromia,nolekaba,Nole Kaba,ET040115,District,nolekaba,59826,87094,admin_code,1,ET040115,1
+Begi,ET040116,West Wellega,Oromia,begi,Begi,ET040116,District,begi,119722,172724,admin_code,1,ET040116,1
+Homa,ET040117,West Wellega,Oromia,homa,Homa,ET040117,District,homa,24557,36012,admin_code,1,ET040117,1
+Sayo Nole,ET040118,West Wellega,Oromia,sayonole,Seyo Nole,ET040118,District,seyonole,76013,107851,admin_code,1,ET040118,1
+Guliso,ET040119,West Wellega,Oromia,guliso,Guliso,ET040119,District,guliso,69856,102983,admin_code,1,ET040119,1
+Gimbi town,ET040193,West Wellega,Oromia,gimbi,Gimbi,ET040193,Town,gimbi,30981,64258,admin_code,1,ET040193,1
+Leta Sibu,ET040197,West Wellega,Oromia,letasibu,,,,,,,unmatched,0,letasibu,0
+Mendi town,ET040198,West Wellega,Oromia,mendi,,,,,,,unmatched,0,mendi,0
+Nejo town,ET040199,West Wellega,Oromia,nejo,Nejo,ET040102,District,nejo,130909,199596,normalized_name,0.85,nejo,1
+Limu (OR),ET040201,East Wellega,Oromia,limu,Haro Limu,ET040201,District,harolimu,52163,72927,admin_code,1,ET040201,1
+Ibantu,ET040202,East Wellega,Oromia,ibantu,Ibantu,ET040202,District,ibantu,36280,52603,admin_code,1,ET040202,1
+Gida Ayana,ET040203,East Wellega,Oromia,gidaayana,Gida Kiremu,ET040203,District,gidakiremu,158635,240109,admin_code,1,ET040203,1
+Haro Limu,ET040204,East Wellega,Oromia,harolimu,Limu,ET040204,District,limu,72483,104157,admin_code,1,ET040204,1
+Boneya Boshe,ET040205,East Wellega,Oromia,boneyaboshe,Boneya Bushe,ET040205,District,boneyabushe,47886,68789,admin_code,1,ET040205,1
+Wayu Tuka,ET040206,East Wellega,Oromia,wayutuka,Wayu Tuka,ET040206,District,wayutuka,63180,88338,admin_code,1,ET040206,1
+Bila Seyo,ET040207,East Wellega,Oromia,bilaseyo,Gudeya Bila,ET040207,District,gudeyabila,54744,80484,admin_code,1,ET040207,1
+Gobu Seyo,ET040208,East Wellega,Oromia,gobuseyo,Gobu Seyo,ET040208,District,gobuseyo,41012,60556,admin_code,1,ET040208,1
+Sibu Sire,ET040209,East Wellega,Oromia,sibusire,Sibu Sire,ET040209,District,sibusire,102228,149855,admin_code,1,ET040209,1
+Diga,ET040210,East Wellega,Oromia,diga,Diga,ET040210,District,diga,66689,98893,admin_code,1,ET040210,1
+Sasiga,ET040211,East Wellega,Oromia,sasiga,Sasiga,ET040211,District,sasiga,80814,114712,admin_code,1,ET040211,1
+Leka Dulecha,ET040212,East Wellega,Oromia,lekadulecha,Leka Dulecha,ET040212,District,lekadulecha,72057,103493,admin_code,1,ET040212,1
+Guto Gida,ET040213,East Wellega,Oromia,gutogida,Guto Gida,ET040213,District,gutogida,89906,125682,admin_code,1,ET040213,1
+Jimma Arjo,ET040214,East Wellega,Oromia,jimmaarjo,Jima Arjo,ET040214,District,jimaarjo,86329,126912,admin_code,1,ET040214,1
+Nunu Kumba,ET040215,East Wellega,Oromia,nunukumba,Nunu Kumba,ET040215,District,nunukumba,64775,93841,admin_code,1,ET040215,1
+Wama Hagalo,ET040216,East Wellega,Oromia,wamahagalo,Wama Hagelo,ET040216,District,wamahagelo,49103,68646,admin_code,1,ET040216,1
+Kiremu,ET040217,East Wellega,Oromia,kiremu,,,,,,,unmatched,0,kiremu,0
+Nekemte town,ET040297,East Wellega,Oromia,nekemte,Nekemte,ET040297,Town,nekemte,75219,156004,admin_code,1,ET040297,1
+Darimu,ET040301,Ilu Aba Bora,Oromia,darimu,Darimu,ET040301,District,darimu,145070,205690,admin_code,1,ET040301,1
+Alge Sachi,ET040302,Ilu Aba Bora,Oromia,algesachi,Alge Sachi,ET040302,District,algesachi,76611,112084,admin_code,1,ET040302,1
+Yayu,ET040309,Ilu Aba Bora,Oromia,yayu,Yayu,ET040309,District,yayu,52851,78996,admin_code,1,ET040309,1
+Metu Zuria,ET040310,Ilu Aba Bora,Oromia,metuzuria,Metu Zuria,ET040310,District,metuzuria,61954,86615,admin_code,1,ET040310,1
+Ale,ET040311,Ilu Aba Bora,Oromia,ale,Ale,ET040311,District,ale,64266,95968,admin_code,1,ET040311,1
+Bure (OR),ET040312,Ilu Aba Bora,Oromia,bure,Bure,ET040312,District,bure,50841,74786,admin_code,1,ET040312,1
+Sale Nono,ET040313,Ilu Aba Bora,Oromia,salenono,Nono Sele,ET040313,District,nonosele,22902,33198,admin_code,1,ET040313,1
+Becho (Ilu Aba Bora),ET040314,Ilu Aba Bora,Oromia,becho,Bicho,ET040314,District,bicho,24947,35928,admin_code,1,ET040314,1
+Bilo Nopha,ET040315,Ilu Aba Bora,Oromia,bilonopha,Bilo Nopha,ET040315,District,bilonopha,28810,41635,admin_code,1,ET040315,1
+Hurumu,ET040316,Ilu Aba Bora,Oromia,hurumu,Hurumu,ET040316,District,hurumu,42667,62707,admin_code,1,ET040316,1
+Didu,ET040317,Ilu Aba Bora,Oromia,didu,Didu,ET040317,District,didu,32639,46418,admin_code,1,ET040317,1
+Halu /Huka,ET040319,Ilu Aba Bora,Oromia,haluhuka,Huka Halu,ET040319,District,hukahalu,16881,24741,admin_code,1,ET040319,1
+Metu town,ET040320,Ilu Aba Bora,Oromia,metu,Metu,ET040320,Town,metu,28782,59706,admin_code,1,ET040320,1
+Dorani,ET040324,Ilu Aba Bora,Oromia,dorani,Doreni,ET040324,District,doreni,36705,51316,admin_code,1,ET040324,1
+Limu Seka,ET040401,Jimma,Oromia,limuseka,Limu Seka,ET040401,District,limuseka,189463,268370,admin_code,1,ET040401,1
+Limu Kosa,ET040402,Jimma,Oromia,limukosa,Limu Kosa,ET040402,District,limukosa,161338,235584,admin_code,1,ET040402,1
+Sekoru,ET040403,Jimma,Oromia,sekoru,Sokoru,ET040403,District,sokoru,136320,199182,admin_code,1,ET040403,1
+Tiro Afeta,ET040404,Jimma,Oromia,tiroafeta,Tiro Afeta,ET040404,District,tiroafeta,131536,187490,admin_code,1,ET040404,1
+Kersa (Jimma),ET040405,Jimma,Oromia,kersa,Kersa,ET040405,District,kersa,165391,234886,admin_code,1,ET040405,1
+Mena (Jimma),ET040406,Jimma,Oromia,mena,Mana,ET040406,District,mana,146675,208014,admin_code,1,ET040406,1
+Goma,ET040407,Jimma,Oromia,goma,Gomma,ET040407,District,gomma,213023,306425,admin_code,1,ET040407,1
+Gera,ET040408,Jimma,Oromia,gera,Gera,ET040408,District,gera,112395,160339,admin_code,1,ET040408,1
+Seka Chekorsa,ET040409,Jimma,Oromia,sekachekorsa,Seka Chekorsa,ET040409,District,sekachekorsa,208096,295677,admin_code,1,ET040409,1
+Dedo,ET040410,Jimma,Oromia,dedo,Dedo,ET040410,District,dedo,288457,407175,admin_code,1,ET040410,1
+Omo Nada,ET040411,Jimma,Oromia,omonada,Omonada,ET040411,District,omonada,248173,355217,admin_code,1,ET040411,1
+Sigmo,ET040412,Jimma,Oromia,sigmo,Sigamo,ET040412,District,sigamo,92313,132790,admin_code,1,ET040412,1
+Setema,ET040413,Jimma,Oromia,setema,Setema,ET040413,District,setema,103221,147517,admin_code,1,ET040413,1
+Shebe Sambo,ET040414,Jimma,Oromia,shebesambo,Shebe Senbo,ET040414,District,shebesenbo,112068,160229,admin_code,1,ET040414,1
+Chora (Jimma),ET040415,Jimma,Oromia,chora,Chora Botor,ET040415,District,chorabotor,91738,128952,admin_code,1,ET040415,1
+Gumay,ET040416,Jimma,Oromia,gumay,Guma,ET040416,District,guma,60490,88133,admin_code,1,ET040416,1
+Agaro town,ET040417,Jimma,Oromia,agaro,Agaro,ET040417,Town,agaro,25458,52802,admin_code,1,ET040417,1
+Jimma town,ET040418,Jimma,Oromia,jimma,Jima,ET040418,Special District,jima,120960,250909,admin_code,1,ET040418,1
+Mancho,ET040490,Jimma,Oromia,mancho,,,,,,,unmatched,0,mancho,0
+Omo Beyam,ET040491,Jimma,Oromia,omobeyam,,,,,,,unmatched,0,omobeyam,0
+Botor Tolay,ET040495,Jimma,Oromia,botortolay,,,,,,,unmatched,0,botortolay,0
+Nono Benja,ET040499,Jimma,Oromia,nonobenja,,,,,,,unmatched,0,nonobenja,0
+Illu Galan,ET040500,West Shewa,Oromia,illugalan,,,,,,,unmatched,0,illugalan,0
+Ginde Beret,ET040501,West Shewa,Oromia,gindeberet,Ginde Beret,ET040501,District,gindeberet,104595,153687,admin_code,1,ET040501,1
+Jeldu,ET040502,West Shewa,Oromia,jeldu,Jeldu,ET040502,District,jeldu,202716,293152,admin_code,1,ET040502,1
+Ambo Zuria,ET040503,West Shewa,Oromia,ambozuria,Ambo Zuria,ET040503,District,ambozuria,108406,152143,admin_code,1,ET040503,1
+Mida Kegn,ET040504,West Shewa,Oromia,midakegn,Midakegn,ET040504,District,midakegn,79580,112669,admin_code,1,ET040504,1
+Cheliya,ET040505,West Shewa,Oromia,cheliya,Cheliya,ET040505,District,cheliya,156962,234814,admin_code,1,ET040505,1
+Bako Tibe,ET040506,West Shewa,Oromia,bakotibe,Bako Tibe,ET040506,District,bakotibe,123031,187456,admin_code,1,ET040506,1
+Dano,ET040507,West Shewa,Oromia,dano,Dano,ET040507,District,dano,97243,140056,admin_code,1,ET040507,1
+Nono,ET040508,West Shewa,Oromia,nono,Nono,ET040508,District,nono,84248,120166,admin_code,1,ET040508,1
+Tikur Enchini,ET040509,West Shewa,Oromia,tikurenchini,Tikur Enchini,ET040509,District,tikurenchini,71417,102795,admin_code,1,ET040509,1
+Dendi,ET040510,West Shewa,Oromia,dendi,Dendi,ET040510,District,dendi,165803,248912,admin_code,1,ET040510,1
+Ejere /Addis Alem,ET040511,West Shewa,Oromia,ejereaddisalem,Ejere,ET040511,District,ejere,86934,128341,admin_code,1,ET040511,1
+Adda Berga,ET040513,West Shewa,Oromia,addaberga,Ada Berga,ET040513,District,adaberga,120654,179471,admin_code,1,ET040513,1
+Meta Robi,ET040514,West Shewa,Oromia,metarobi,Meta Robi,ET040514,District,metarobi,140627,199332,admin_code,1,ET040514,1
+Ambo town,ET040515,West Shewa,Oromia,ambo,Ambo,ET040515,Town,ambo,48171,99905,admin_code,1,ET040515,1
+Abuna Ginde Beret,ET040516,West Shewa,Oromia,abunagindeberet,Abuna Gindeberet,ET040516,District,abunagindeberet,109275,154618,admin_code,1,ET040516,1
+Toke Kutaye,ET040517,West Shewa,Oromia,tokekutaye,Toke Kutayu,ET040517,District,tokekutayu,119999,178562,admin_code,1,ET040517,1
+Jibat,ET040518,West Shewa,Oromia,jibat,Jibat,ET040518,District,jibat,72210,103408,admin_code,1,ET040518,1
+Ifata,ET040519,West Shewa,Oromia,ifata,Elfata,ET040519,District,elfata,57389,81516,admin_code,1,ET040519,1
+Ejersa Lafo,ET040590,West Shewa,Oromia,ejersalafo,,,,,,,unmatched,0,ejersalafo,0
+Cobi,ET040592,West Shewa,Oromia,cobi,,,,,,,unmatched,0,cobi,0
+Meta Walkite,ET040594,West Shewa,Oromia,metawalkite,,,,,,,unmatched,0,metawalkite,0
+Liban Jawi,ET040597,West Shewa,Oromia,libanjawi,,,,,,,unmatched,0,libanjawi,0
+Wara Jarso,ET040601,North Shewa (OR),Oromia,warajarso,Were Jarso,ET040601,District,werejarso,141426,204844,admin_code,1,ET040601,1
+Dera (OR),ET040602,North Shewa (OR),Oromia,dera,Dera,ET040602,District,dera,181217,258746,admin_code,1,ET040602,1
+Hidabu Abote,ET040603,North Shewa (OR),Oromia,hidabuabote,Hidabu Abote,ET040603,District,hidabuabote,82994,120361,admin_code,1,ET040603,1
+Kuyu,ET040604,North Shewa (OR),Oromia,kuyu,Kuyu,ET040604,District,kuyu,121052,182683,admin_code,1,ET040604,1
+Degem,ET040605,North Shewa (OR),Oromia,degem,Degem,ET040605,District,degem,99143,142720,admin_code,1,ET040605,1
+Gerar Jarso,ET040606,North Shewa (OR),Oromia,gerarjarso,Girar Jarso,ET040606,District,girarjarso,67312,94096,admin_code,1,ET040606,1
+Debre Libanos,ET040607,North Shewa (OR),Oromia,debrelibanos,Debere Libanos,ET040607,District,deberelibanos,45179,69208,admin_code,1,ET040607,1
+Wuchale,ET040608,North Shewa (OR),Oromia,wuchale,Wuchale,ET040608,District,wuchale,97529,140693,admin_code,1,ET040608,1
+Abichugna Gne'a,ET040609,North Shewa (OR),Oromia,abichugnagnea,Abichuna Gnaa,ET040609,District,abichunagnaa,74376,107403,admin_code,1,ET040609,1
+Kimbibit,ET040610,North Shewa (OR),Oromia,kimbibit,Kimbibit,ET040610,District,kimbibit,74276,111831,admin_code,1,ET040610,1
+Fiche town,ET040613,North Shewa (OR),Oromia,fiche,Fiche,ET040613,Town,fiche,27493,57067,admin_code,1,ET040613,1
+Yaya Gulele,ET040614,North Shewa (OR),Oromia,yayagulele,Yaya Gulele,ET040614,District,yayagulele,54992,78638,admin_code,1,ET040614,1
+Jida,ET040615,North Shewa (OR),Oromia,jida,Jida,ET040615,District,jida,53658,75016,admin_code,1,ET040615,1
+Aleltu,ET040617,North Shewa (OR),Oromia,aleltu,Aleltu,ET040617,District,aleltu,53414,77280,admin_code,1,ET040617,1
+Fentale,ET040701,East Shewa,Oromia,fentale,Fentale,ET040701,District,fentale,81740,128122,admin_code,1,ET040701,1
+Boset,ET040702,East Shewa,Oromia,boset,Boset,ET040702,District,boset,142112,216576,admin_code,1,ET040702,1
+Adama,ET040703,East Shewa,Oromia,adama,Adama,ET040703,District,adama,155349,234986,admin_code,1,ET040703,1
+Lome (OR),ET040704,East Shewa,Oromia,lome,Lome,ET040704,District,lome,117080,189901,admin_code,1,ET040704,1
+Gimbichu,ET040705,East Shewa,Oromia,gimbichu,Gimbichu,ET040705,District,gimbichu,86902,125759,admin_code,1,ET040705,1
+Ada'a,ET040706,East Shewa,Oromia,adaa,Ada'a,ET040706,District,adaa,130321,182162,admin_code,1,ET040706,1
+Dugda,ET040707,East Shewa,Oromia,dugda,Dugda,ET040707,District,dugda,144910,227064,admin_code,1,ET040707,1
+Adama Tulu Jido Kombolcha,ET040708,East Shewa,Oromia,adamatulujidokombolcha,Adami Tulu Jido Kombolcha,ET040708,District,adamitulujidokombolcha,141405,211827,admin_code,1,ET040708,1
+Bishoftu town,ET040709,East Shewa,Oromia,bishoftu,Bishoftu,ET040709,Town,bishoftu,99928,207383,admin_code,1,ET040709,1
+Bora (OR),ET040710,East Shewa,Oromia,bora,Bora,ET040710,District,bora,58748,89828,admin_code,1,ET040710,1
+Liben Chukala,ET040711,East Shewa,Oromia,libenchukala,Liben,ET040711,District,liben,76351,108706,admin_code,1,ET040711,1
+Adama town,ET040714,East Shewa,Oromia,adama,Adama,ET040714,Special District,adama,220212,456868,admin_code,1,ET040714,1
+Mojo Town,ET040797,East Shewa,Oromia,mojo,,,,,,,unmatched,0,mojo,0
+Metehara town,ET040799,East Shewa,Oromia,metehara,,,,,,,unmatched,0,metehara,0
+Merti,ET040801,Arsi,Oromia,merti,Merti,ET040801,District,merti,90408,136272,admin_code,1,ET040801,1
+Aseko,ET040802,Arsi,Oromia,aseko,Aseko,ET040802,District,aseko,84112,120283,admin_code,1,ET040802,1
+Golocha,ET040803,Arsi,Oromia,golocha,Gololcha,ET040803,District,gololcha,172176,243035,admin_code,1,ET040803,1
+Jeju,ET040804,Arsi,Oromia,jeju,Jeju,ET040804,District,jeju,124093,177990,admin_code,1,ET040804,1
+Dodota,ET040805,Arsi,Oromia,dodota,Dodota,ET040805,District,dodota,64310,102849,admin_code,1,ET040805,1
+Ziway Dugda,ET040806,Arsi,Oromia,ziwaydugda,Ziway Dugda,ET040806,District,ziwaydugda,120862,172018,admin_code,1,ET040806,1
+Hitosa,ET040807,Arsi,Oromia,hitosa,Hitosa,ET040807,District,hitosa,124219,186165,admin_code,1,ET040807,1
+Sude,ET040808,Arsi,Oromia,sude,Sude,ET040808,District,sude,147764,208492,admin_code,1,ET040808,1
+Chole,ET040809,Arsi,Oromia,chole,Chole,ET040809,District,chole,89291,129391,admin_code,1,ET040809,1
+Amigna,ET040810,Arsi,Oromia,amigna,Amigna,ET040810,District,amigna,73245,106743,admin_code,1,ET040810,1
+Seru,ET040811,Arsi,Oromia,seru,Seru,ET040811,District,seru,47929,69151,admin_code,1,ET040811,1
+Robe,ET040812,Arsi,Oromia,robe,Robe,ET040812,District,robe,165210,244937,admin_code,1,ET040812,1
+Tena,ET040813,Arsi,Oromia,tena,Tena,ET040813,District,tena,66203,96783,admin_code,1,ET040813,1
+Shirka,ET040814,Arsi,Oromia,shirka,Shirka,ET040814,District,shirka,163823,237480,admin_code,1,ET040814,1
+Degeluna Tijo,ET040815,Arsi,Oromia,degelunatijo,Digluna Tijo,ET040815,District,diglunatijo,140466,205916,admin_code,1,ET040815,1
+Tiyo,ET040816,Arsi,Oromia,tiyo,Tiyo,ET040816,District,tiyo,86761,125714,admin_code,1,ET040816,1
+Munessa,ET040817,Arsi,Oromia,munessa,Munesa,ET040817,District,munesa,166539,243097,admin_code,1,ET040817,1
+Limu Bilbilo,ET040818,Arsi,Oromia,limubilbilo,Limuna Bilbilo,ET040818,District,limunabilbilo,180695,268424,admin_code,1,ET040818,1
+Guna,ET040819,Arsi,Oromia,guna,Guna,ET040819,District,guna,76365,110515,admin_code,1,ET040819,1
+Sire,ET040820,Arsi,Oromia,sire,Sire,ET040820,District,sire,73970,109061,admin_code,1,ET040820,1
+Lude Hitosa,ET040821,Arsi,Oromia,ludehitosa,Lude Hitosa,ET040821,District,ludehitosa,107133,160132,admin_code,1,ET040821,1
+Diksis,ET040822,Arsi,Oromia,diksis,Deksis,ET040822,District,deksis,72301,106397,admin_code,1,ET040822,1
+Bele Gesgar,ET040823,Arsi,Oromia,belegesgar,Bale Gasegar,ET040823,District,balegasegar,73952,107393,admin_code,1,ET040823,1
+Inkolo Wabe,ET040824,Arsi,Oromia,inkolowabe,Enkelo Wabe,ET040824,District,enkelowabe,58561,86473,admin_code,1,ET040824,1
+Asela town,ET040825,Arsi,Oromia,asela,Asela,ET040825,Town,asela,67269,139537,admin_code,1,ET040825,1
+Shanan Kolu,ET040893,Arsi,Oromia,shanankolu,,,,,,,unmatched,0,shanankolu,0
+Bekoji town,ET040894,Arsi,Oromia,bekoji,,,,,,,unmatched,0,bekoji,0
+Mieso,ET040901,West Hararge,Oromia,mieso,Mieso,ET040901,District,mieso,130709,199886,admin_code,1,ET040901,1
+Doba,ET040902,West Hararge,Oromia,doba,Doba,ET040902,District,doba,133939,189443,admin_code,1,ET040902,1
+Tulo (OR),ET040903,West Hararge,Oromia,tulo,Tulo,ET040903,District,tulo,147384,215337,admin_code,1,ET040903,1
+Mesela,ET040904,West Hararge,Oromia,mesela,Mesela,ET040904,District,mesela,151698,215169,admin_code,1,ET040904,1
+Chiro town,ET040905,West Hararge,Oromia,chiro,Chiro,ET040905,Town,chiro,33670,69793,admin_code,1,ET040905,1
+Anchar,ET040906,West Hararge,Oromia,anchar,Anchar,ET040906,District,anchar,81646,118516,admin_code,1,ET040906,1
+Goba Koricha,ET040907,West Hararge,Oromia,gobakoricha,Guba Koricha,ET040907,District,gubakoricha,122335,172956,admin_code,1,ET040907,1
+Habro,ET040908,West Hararge,Oromia,habro,Habro,ET040908,District,habro,190455,283264,admin_code,1,ET040908,1
+Daro Lebu,ET040909,West Hararge,Oromia,darolebu,Daro Lebu,ET040909,District,darolebu,198095,288304,admin_code,1,ET040909,1
+Boke,ET040910,West Hararge,Oromia,boke,Boke,ET040910,District,boke,151156,215830,admin_code,1,ET040910,1
+Kuni /Oda Bultum,ET040911,West Hararge,Oromia,kuniodabultum,Kuni,ET040911,District,kuni,158282,221264,admin_code,1,ET040911,1
+Gemechis,ET040912,West Hararge,Oromia,gemechis,Gemches,ET040912,District,gemches,184238,260167,admin_code,1,ET040912,1
+Chiro Zuria,ET040913,West Hararge,Oromia,chirozuria,Chiro Zuria,ET040913,District,chirozuria,169912,237521,admin_code,1,ET040913,1
+Bedesa,ET040914,West Hararge,Oromia,bedesa,Bedesa,ET040914,Town,bedesa,18187,37706,admin_code,1,ET040914,1
+Hawi Gudina,ET040915,West Hararge,Oromia,hawigudina,,,,,,,unmatched,0,hawigudina,0
+Gumbi Bordede,ET040991,West Hararge,Oromia,gumbibordede,,,,,,,unmatched,0,gumbibordede,0
+Burqua Dhintu,ET040998,West Hararge,Oromia,burquadhintu,,,,,,,unmatched,0,burquadhintu,0
+Babile town,ET041000,East Hararge,Oromia,babile,Babile,ET041004,District,babile,93708,142988,normalized_name,0.85,babile,2
+Kombolcha,ET041001,East Hararge,Oromia,kombolcha,Kombolcha,ET041001,District,kombolcha,140080,204348,admin_code,1,ET041001,1
+Jarso (East Hararghe),ET041002,East Hararge,Oromia,jarso,Jarso,ET041002,District,jarso,116638,165712,admin_code,1,ET041002,1
+Gursum (OR),ET041003,East Hararge,Oromia,gursum,Gursum,ET041003,District,gursum,151931,220537,admin_code,1,ET041003,1
+Babile (OR),ET041004,East Hararge,Oromia,babile,Babile,ET041004,District,babile,93708,142988,admin_code,1,ET041004,1
+Fedis,ET041005,East Hararge,Oromia,fedis,Fedis,ET041005,District,fedis,113108,161214,admin_code,1,ET041005,1
+Haro Maya,ET041006,East Hararge,Oromia,haromaya,Haramaya,ET041006,District,haramaya,271018,412685,admin_code,1,ET041006,1
+Kurfa Chele,ET041007,East Hararge,Oromia,kurfachele,Kurfa Chele,ET041007,District,kurfachele,58701,85957,admin_code,1,ET041007,1
+Kersa (East Hararge),ET041008,East Hararge,Oromia,kersa,Kersa,ET041008,District,kersa,170816,246497,admin_code,1,ET041008,1
+Meta,ET041009,East Hararge,Oromia,meta,Meta,ET041009,District,meta,252269,362936,admin_code,1,ET041009,1
+Goro Gutu,ET041010,East Hararge,Oromia,gorogutu,Goro Gutu,ET041010,District,gorogutu,143931,208002,admin_code,1,ET041010,1
+Deder,ET041011,East Hararge,Oromia,deder,Deder,ET041011,District,deder,242140,353505,admin_code,1,ET041011,1
+Melka Balo,ET041012,East Hararge,Oromia,melkabalo,Melka Belo,ET041012,District,melkabelo,177416,254319,admin_code,1,ET041012,1
+Bedeno,ET041013,East Hararge,Oromia,bedeno,Bedeno,ET041013,District,bedeno,238966,340232,admin_code,1,ET041013,1
+Midhaga Tola,ET041014,East Hararge,Oromia,midhagatola,Midga Tola,ET041014,District,midgatola,75242,109271,admin_code,1,ET041014,1
+Chinaksen,ET041015,East Hararge,Oromia,chinaksen,Chinaksan,ET041015,District,chinaksan,87063,129986,admin_code,1,ET041015,1
+Girawa,ET041016,East Hararge,Oromia,girawa,Girawa,ET041016,District,girawa,240173,339727,admin_code,1,ET041016,1
+Golo Oda,ET041017,East Hararge,Oromia,golooda,Gola Oda,ET041017,District,golaoda,104440,149748,admin_code,1,ET041017,1
+Meyu Muleke,ET041018,East Hararge,Oromia,meyumuleke,Meyu,ET041018,District,meyu,46210,66752,admin_code,1,ET041018,1
+Haromaya town,ET041019,East Hararge,Oromia,haromaya,,,,,,,unmatched,0,haromaya,0
+Goro Muti,ET041089,East Hararge,Oromia,goromuti,,,,,,,unmatched,0,goromuti,0
+Deder town,ET041097,East Hararge,Oromia,deder,Deder,ET041011,District,deder,242140,353505,normalized_name,0.85,deder,1
+Kumbi,ET041098,East Hararge,Oromia,kumbi,,,,,,,unmatched,0,kumbi,0
+Aweday town,ET041099,East Hararge,Oromia,aweday,,,,,,,unmatched,0,aweday,0
+Agarfa,ET041104,Bale,Oromia,agarfa,Agarfa,ET041104,District,agarfa,102110,151469,admin_code,1,ET041104,1
+Gasera,ET041106,Bale,Oromia,gasera,Gasera,ET041106,District,gasera,78220,112587,admin_code,1,ET041106,1
+Sinana,ET041109,Bale,Oromia,sinana,Sinana,ET041109,District,sinana,118594,165768,admin_code,1,ET041109,1
+Goba (OR),ET041110,Bale,Oromia,goba,Goba,ET041110,District,goba,40757,56978,admin_code,1,ET041110,1
+Harena Buluk,ET041111,Bale,Oromia,harenabuluk,Harena Buluk,ET041111,District,harenabuluk,81497,117236,admin_code,1,ET041111,1
+Mena (Bale),ET041112,Bale,Oromia,mena,Dolo Mena,ET041112,District,dolomena,89670,132559,admin_code,1,ET041112,1
+Meda Welabu,ET041113,Bale,Oromia,medawelabu,Meda Welabu,ET041113,District,medawelabu,97532,138372,admin_code,1,ET041113,1
+Berbere,ET041114,Bale,Oromia,berbere,Berbere,ET041114,District,berbere,90642,130527,admin_code,1,ET041114,1
+Gura Damole,ET041115,Bale,Oromia,guradamole,Guradamole,ET041115,District,guradamole,28961,41347,admin_code,1,ET041115,1
+Goro (Bale),ET041116,Bale,Oromia,goro,Goro,ET041116,District,goro,83106,121943,admin_code,1,ET041116,1
+Robe Town,ET041119,Bale,Oromia,robe,Robe,ET041119,Town,robe,44382,92053,admin_code,1,ET041119,1
+Goba town,ET041120,Bale,Oromia,goba,Goba,ET041120,Town,goba,32025,66469,admin_code,1,ET041120,1
+Dinsho,ET041122,Bale,Oromia,dinsho,Dinsho,ET041122,District,dinsho,39124,56707,admin_code,1,ET041122,1
+Yabelo,ET041207,Borena,Oromia,yabelo,Yabelo,ET041207,District,yabelo,102165,154643,admin_code,1,ET041207,1
+Arero,ET041208,Borena,Oromia,arero,Arero,ET041208,District,arero,48126,69309,admin_code,1,ET041208,1
+Moyale (OR),ET041210,Borena,Oromia,moyale,Moyale,ET041210,District,moyale,31162,43559,admin_code,1,ET041210,1
+Dire,ET041211,Borena,Oromia,dire,Dire,ET041211,District,dire,73401,106761,admin_code,1,ET041211,1
+Teltale,ET041212,Borena,Oromia,teltale,Teletele,ET041212,District,teletele,70501,101846,admin_code,1,ET041212,1
+Miyo,ET041216,Borena,Oromia,miyo,Miyu,ET041216,District,miyu,50601,73413,admin_code,1,ET041216,1
+Dilo,ET041219,Borena,Oromia,dilo,,,,,,,unmatched,0,dilo,0
+Dhas,ET041220,Borena,Oromia,dhas,,,,,,,unmatched,0,dhas,0
+Gomole,ET041223,Borena,Oromia,gomole,,,,,,,unmatched,0,gomole,0
+Guchi,ET041290,Borena,Oromia,guchi,Moyale,ET041290,Special Census District,moyale,43241,74764,admin_code,1,ET041290,1
+Dubluk,ET041291,Borena,Oromia,dubluk,,,,,,,unmatched,0,dubluk,0
+Elwaya,ET041295,Borena,Oromia,elwaya,,,,,,,unmatched,0,elwaya,0
+Yabelo town,ET041296,Borena,Oromia,yabelo,Yabelo,ET041207,District,yabelo,102165,154643,normalized_name,0.85,yabelo,1
+Wachile,ET041298,Borena,Oromia,wachile,,,,,,,unmatched,0,wachile,0
+Ameya,ET041301,South West Shewa,Oromia,ameya,Ameya,ET041301,District,ameya,122056,174866,admin_code,1,ET041301,1
+Wenchi,ET041302,South West Shewa,Oromia,wenchi,Wonchi,ET041302,District,wonchi,93624,132178,admin_code,1,ET041302,1
+Waliso,ET041303,South West Shewa,Oromia,waliso,Woliso,ET041303,District,woliso,143391,202219,admin_code,1,ET041303,1
+Dawo,ET041304,South West Shewa,Oromia,dawo,Dawo,ET041304,District,dawo,84336,120453,admin_code,1,ET041304,1
+Ilu,ET041305,South West Shewa,Oromia,ilu,Ilu,ET041305,District,ilu,61985,91716,admin_code,1,ET041305,1
+Kersana Malima,ET041307,South West Shewa,Oromia,kersanamalima,Kersa Ena Malima,ET041307,District,kersaenamalima,81015,117668,admin_code,1,ET041307,1
+Tole,ET041308,South West Shewa,Oromia,tole,Tole,ET041308,District,tole,62895,89883,admin_code,1,ET041308,1
+Becho (SW Shewa),ET041309,South West Shewa,Oromia,becho,Becho,ET041309,District,becho,74016,113264,admin_code,1,ET041309,1
+Seden Sodo,ET041310,South West Shewa,Oromia,sedensodo,Seden Sodo,ET041310,District,sedensodo,69215,98756,admin_code,1,ET041310,1
+Woliso town,ET041311,South West Shewa,Oromia,woliso,Waliso,ET041311,Town,waliso,37878,78577,admin_code,1,ET041311,1
+Goro (SW Shewa),ET041312,South West Shewa,Oromia,goro,Goro,ET041312,District,goro,45486,66104,admin_code,1,ET041312,1
+Sodo Daci,ET041314,South West Shewa,Oromia,sododaci,Sodo Dacha,ET041314,District,sododacha,43607,62808,admin_code,1,ET041314,1
+Uraga,ET041401,Guji,Oromia,uraga,Uraga,ET041401,District,uraga,176238,251554,admin_code,1,ET041401,1
+Bore,ET041402,Guji,Oromia,bore,Bore,ET041402,District,bore,210179,300766,admin_code,1,ET041402,1
+Adola,ET041403,Guji,Oromia,adola,Adola,ET041403,District,adola,110034,153822,admin_code,1,ET041403,1
+Wadera,ET041404,Guji,Oromia,wadera,Wadera,ET041404,District,wadera,50554,73869,admin_code,1,ET041404,1
+Odo Shakiso,ET041405,Guji,Oromia,odoshakiso,Odo Shakiso,ET041405,District,odoshakiso,206372,311188,admin_code,1,ET041405,1
+Liben,ET041407,Guji,Oromia,liben,Liben,ET041407,District,liben,138813,194997,admin_code,1,ET041407,1
+Dama,ET041408,Guji,Oromia,dama,Dima,ET041408,District,dima,56896,80521,admin_code,1,ET041408,1
+Arda Jila,ET041409,Guji,Oromia,ardajila,,,,,,,unmatched,0,ardajila,0
+Girja /Harenfema,ET041410,Guji,Oromia,girjaharenfema,Girja,ET041410,District,girja,50179,70811,admin_code,1,ET041410,1
+Ana Sora,ET041411,Guji,Oromia,anasora,,,,,,,unmatched,0,anasora,0
+Saba Boru,ET041412,Guji,Oromia,sababoru,,,,,,,unmatched,0,sababoru,0
+Gora Dola,ET041413,Guji,Oromia,goradola,,,,,,,unmatched,0,goradola,0
+Negele town,ET041414,Guji,Oromia,negele,Negele,ET041414,Town,negele,35264,73122,admin_code,1,ET041414,1
+Aga Wayu,ET041482,Guji,Oromia,agawayu,,,,,,,unmatched,0,agawayu,0
+Haro Walabu,ET041490,Guji,Oromia,harowalabu,,,,,,,unmatched,0,harowalabu,0
+Adola town,ET041492,Guji,Oromia,adola,Adola,ET041492,Town,adola,22938,47573,admin_code,1,ET041492,1
+Gumi Idalo,ET041497,Guji,Oromia,gumiidalo,,,,,,,unmatched,0,gumiidalo,0
+Shakiso town,ET041499,Guji,Oromia,shakiso,,,,,,,unmatched,0,shakiso,0
+Bule Hora,ET041501,West Guji,Oromia,bulehora,Bule Hora,ET041501,District,bulehora,264489,393573,admin_code,1,ET041501,1
+Kercha,ET041502,West Guji,Oromia,kercha,Kercha,ET041502,District,kercha,227362,324545,admin_code,1,ET041502,1
+Hambela Wamena,ET041509,West Guji,Oromia,hambelawamena,Hambela Wamena,ET041509,District,hambelawamena,104971,147899,admin_code,1,ET041509,1
+Abaya,ET041513,West Guji,Oromia,abaya,Abaya,ET041513,District,abaya,103348,147573,admin_code,1,ET041513,1
+Dugda Dawa,ET041515,West Guji,Oromia,dugdadawa,Dugida Dawa,ET041515,District,dugidadawa,147327,209712,admin_code,1,ET041515,1
+Gelana (West Guji),ET041517,West Guji,Oromia,gelana,Gelana,ET041517,District,gelana,71369,102141,admin_code,1,ET041517,1
+Melka Soda,ET041518,West Guji,Oromia,melkasoda,,,,,,,unmatched,0,melkasoda,0
+Bule Hora town,ET041587,West Guji,Oromia,bulehora,Bule Hora,ET041501,District,bulehora,264489,393573,normalized_name,0.85,bulehora,1
+Suro Berguda,ET041594,West Guji,Oromia,suroberguda,,,,,,,unmatched,0,suroberguda,0
+Birbirsa Kojowa,ET041596,West Guji,Oromia,birbirsakojowa,,,,,,,unmatched,0,birbirsakojowa,0
+Chora (Buno Bedele),ET041603,Buno Bedele,Oromia,chora,Chora,ET041603,District,chora,100506,145736,admin_code,1,ET041603,1
+Dega,ET041604,Buno Bedele,Oromia,dega,Dega,ET041604,District,dega,39466,57222,admin_code,1,ET041604,1
+Dabo Hana,ET041605,Buno Bedele,Oromia,dabohana,Dabo Hana,ET041605,District,dabohana,41285,60541,admin_code,1,ET041605,1
+Gechi,ET041606,Buno Bedele,Oromia,gechi,Gechi,ET041606,District,gechi,70478,102212,admin_code,1,ET041606,1
+Borecha,ET041607,Buno Bedele,Oromia,borecha,Borecha,ET041607,District,borecha,73708,104883,admin_code,1,ET041607,1
+Dedesa,ET041608,Buno Bedele,Oromia,dedesa,Dedesa,ET041608,District,dedesa,84929,122552,admin_code,1,ET041608,1
+Meko,ET041618,Buno Bedele,Oromia,meko,Mako,ET041618,District,mako,22001,30762,admin_code,1,ET041618,1
+Bedele town,ET041621,Buno Bedele,Oromia,bedele,Bedele,ET041621,Town,bedele,19517,40483,admin_code,1,ET041621,1
+Bedele Zuria,ET041622,Buno Bedele,Oromia,bedelezuria,Bedele Zuria,ET041622,Town,bedelezuria,77687,108613,admin_code,1,ET041622,1
+Chwaka,ET041623,Buno Bedele,Oromia,chwaka,Chewaka,ET041623,District,chewaka,56106,79127,admin_code,1,ET041623,1
+Dodola town,ET041700,West Arsi,Oromia,dodola,Dodola,ET041707,District,dodola,193812,294066,normalized_name,0.85,dodola,1
+Siraro,ET041701,West Arsi,Oromia,siraro,Siraro,ET041701,District,siraro,145649,207138,admin_code,1,ET041701,1
+Shala,ET041702,West Arsi,Oromia,shala,Shala,ET041702,District,shala,149804,214621,admin_code,1,ET041702,1
+Arsi Negele,ET041703,West Arsi,Oromia,arsinegele,Arsi Negele,ET041703,District,arsinegele,260129,398551,admin_code,1,ET041703,1
+Kofele,ET041704,West Arsi,Oromia,kofele,Kofele,ET041704,District,kofele,178950,260610,admin_code,1,ET041704,1
+Kore,ET041705,West Arsi,Oromia,kore,Kore,ET041705,District,kore,103734,148670,admin_code,1,ET041705,1
+Gedeb Asasa,ET041706,West Arsi,Oromia,gedebasasa,Gedeb Asasa,ET041706,District,gedebasasa,186907,275293,admin_code,1,ET041706,1
+Dodola,ET041707,West Arsi,Oromia,dodola,Dodola,ET041707,District,dodola,193812,294066,admin_code,1,ET041707,1
+Kokosa,ET041708,West Arsi,Oromia,kokosa,Kokosa,ET041708,District,kokosa,144549,204291,admin_code,1,ET041708,1
+Nenesebo,ET041709,West Arsi,Oromia,nenesebo,Nensebo,ET041709,District,nensebo,114559,164264,admin_code,1,ET041709,1
+Adaba,ET041710,West Arsi,Oromia,adaba,Adaba,ET041710,District,adaba,138717,202124,admin_code,1,ET041710,1
+Shashemene town,ET041711,West Arsi,Oromia,shashemene,Shashemene,ET041711,Town,shashemene,100454,208368,admin_code,1,ET041711,1
+Shashemene Zuria,ET041712,West Arsi,Oromia,shashemenezuria,Shashemene Zuria,ET041712,District,shashemenezuria,246774,351898,admin_code,1,ET041712,1
+Heban Arsi,ET041783,West Arsi,Oromia,hebanarsi,,,,,,,unmatched,0,hebanarsi,0
+Wondo,ET041797,West Arsi,Oromia,wondo,,,,,,,unmatched,0,wondo,0
+Bishan Guracha,ET041798,West Arsi,Oromia,bishanguracha,,,,,,,unmatched,0,bishanguracha,0
+Arsi Negele town,ET041799,West Arsi,Oromia,arsinegele,Arsi Negele,ET041703,District,arsinegele,260129,398551,normalized_name,0.85,arsinegele,1
+Hawa Galan,ET041801,Kelem Wellega,Oromia,hawagalan,Hawa Gelan,ET041801,District,hawagelan,95976,137920,admin_code,1,ET041801,1
+Yama Logi Welel,ET041802,Kelem Wellega,Oromia,yamalogiwelel,Yemalogi Welel,ET041802,District,yemalogiwelel,51392,72933,admin_code,1,ET041802,1
+Dale Wabera,ET041803,Kelem Wellega,Oromia,dalewabera,Dale Wabera,ET041803,District,dalewabera,104387,155473,admin_code,1,ET041803,1
+Gawo Kebe,ET041804,Kelem Wellega,Oromia,gawokebe,Gawo Kebe,ET041804,District,gawokebe,65396,92592,admin_code,1,ET041804,1
+Sayo,ET041805,Kelem Wellega,Oromia,sayo,Seyo,ET041805,District,seyo,116631,163057,admin_code,1,ET041805,1
+Denbi Dollo town,ET041806,Kelem Wellega,Oromia,denbidollo,Denbi Dollo,ET041806,Town,denbidollo,29448,61070,admin_code,1,ET041806,1
+Anfilo,ET041807,Kelem Wellega,Oromia,anfilo,Anfilo,ET041807,District,anfilo,77156,113163,admin_code,1,ET041807,1
+Dale Sadi,ET041808,Kelem Wellega,Oromia,dalesadi,Dale Sadi,ET041808,District,dalesadi,74039,106704,admin_code,1,ET041808,1
+Gidami,ET041809,Kelem Wellega,Oromia,gidami,Gidami,ET041809,District,gidami,85904,123880,admin_code,1,ET041809,1
+Jimma Horo,ET041810,Kelem Wellega,Oromia,jimmahoro,Jimma Horo,ET041810,District,jimmahoro,45889,66075,admin_code,1,ET041810,1
+Lalo Kile,ET041811,Kelem Wellega,Oromia,lalokile,Lalo Kile,ET041811,District,lalokile,51448,73827,admin_code,1,ET041811,1
+Sedi Chenka,ET041812,Kelem Wellega,Oromia,sedichenka,,,,,,,unmatched,0,sedichenka,0
+Horo,ET041901,Horo Gudru Wellega,Oromia,horo,Horo,ET041901,District,horo,74989,107323,admin_code,1,ET041901,1
+Shambu town,ET041902,Horo Gudru Wellega,Oromia,shambu,Shambu,ET041902,Town,shambu,14995,31095,admin_code,1,ET041902,1
+Guduru,ET041903,Horo Gudru Wellega,Oromia,guduru,Guduru,ET041903,District,guduru,98084,141523,admin_code,1,ET041903,1
+Ababo,ET041904,Horo Gudru Wellega,Oromia,ababo,Hababo Guduru,ET041904,District,hababoguduru,45325,64962,admin_code,1,ET041904,1
+Abay Chomen,ET041905,Horo Gudru Wellega,Oromia,abaychomen,Abey Chomen,ET041905,District,abeychomen,48316,73919,admin_code,1,ET041905,1
+Jimma Genete,ET041906,Horo Gudru Wellega,Oromia,jimmagenete,Jima Genete,ET041906,District,jimagenete,64158,94412,admin_code,1,ET041906,1
+Jimma Rare,ET041907,Horo Gudru Wellega,Oromia,jimmarare,Jima Rare,ET041907,District,jimarare,55580,83549,admin_code,1,ET041907,1
+Jarte Jardega,ET041908,Horo Gudru Wellega,Oromia,jartejardega,Jardega Jarte,ET041908,District,jardegajarte,48943,71642,admin_code,1,ET041908,1
+Amuru,ET041909,Horo Gudru Wellega,Oromia,amuru,Amuru,ET041909,District,amuru,52633,76895,admin_code,1,ET041909,1
+Abe Dongoro,ET041910,Horo Gudru Wellega,Oromia,abedongoro,Abe Dongoro,ET041910,District,abedongoro,67017,95389,admin_code,1,ET041910,1
+Choman Guduru,ET041911,Horo Gudru Wellega,Oromia,chomanguduru,,,,,,,unmatched,0,chomanguduru,0
+Horo Buluk,ET041912,Horo Gudru Wellega,Oromia,horobuluk,,,,,,,unmatched,0,horobuluk,0
+Burayu,ET042001,Finfine Special,Oromia,burayu,Burayu,ET042001,Special District,burayu,63889,122397,admin_code,1,ET042001,1
+Lege Tafo-Lege Dadi town,ET042004,Finfine Special,Oromia,legetafolegedadi,,,,,,,unmatched,0,legetafolegedadi,0
+Sululta town,ET042005,Finfine Special,Oromia,sululta,Sululta,ET042013,District,sululta,129000,190597,normalized_name,0.85,sululta,1
+Sebeta Hawas,ET042006,Finfine Special,Oromia,sebetahawas,Sebeta Hawas,ET042006,District,sebetahawas,132294,189912,admin_code,1,ET042006,1
+Dukem,ET042008,Finfine Special,Oromia,dukem,,,,,,,unmatched,0,dukem,0
+Sebeta town,ET042009,Finfine Special,Oromia,sebeta,Sebeta,ET042009,Town,sebeta,49331,102347,admin_code,1,ET042009,1
+Bereh,ET042011,Finfine Special,Oromia,bereh,Bereh,ET042011,District,bereh,80808,112967,admin_code,1,ET042011,1
+Akaki,ET042012,Finfine Special,Oromia,akaki,Akaki,ET042012,District,akaki,77836,113316,admin_code,1,ET042012,1
+Sululta,ET042013,Finfine Special,Oromia,sululta,Sululta,ET042013,District,sululta,129000,190597,admin_code,1,ET042013,1
+Welmera,ET042014,Finfine Special,Oromia,welmera,Wolmera,ET042014,District,wolmera,83823,119458,admin_code,1,ET042014,1
+Mulo,ET042016,Finfine Special,Oromia,mulo,Mulo,ET042016,District,mulo,35138,50679,admin_code,1,ET042016,1
+Sendafa town,ET042018,Finfine Special,Oromia,sendafa,Sendafa,ET042018,Town,sendafa,12298,25502,admin_code,1,ET042018,1
+Holeta town,ET042020,Finfine Special,Oromia,holeta,Holeta,ET042020,Town,holeta,25593,51544,admin_code,1,ET042020,1
+Gelana (Finfine),ET042098,Finfine Special,Oromia,gelana,Gelana,ET041517,District,gelana,71369,102141,normalized_name,0.85,gelana,1
+Gololcha Bale,ET042101,East Bale,Oromia,gololchabale,,,,,,,unmatched,0,gololchabale,0
+Lege Hida,ET042102,East Bale,Oromia,legehida,Legehida,ET041107,District,legehida,62521,88770,normalized_name,0.85,legehida,2
+Ginir,ET042103,East Bale,Oromia,ginir,Ginir,ET041108,District,ginir,139495,208658,exact_name,0.95,Ginir,1
+Rayitu,ET042104,East Bale,Oromia,rayitu,Rayitu,ET041117,District,rayitu,33169,48533,exact_name,0.95,Rayitu,1
+Seweyna,ET042105,East Bale,Oromia,seweyna,Seweyna,ET041118,District,seweyna,65846,94606,exact_name,0.95,Seweyna,1
+Dawe Ketchen,ET042106,East Bale,Oromia,daweketchen,,,,,,,unmatched,0,daweketchen,0
+Ginir town,ET042107,East Bale,Oromia,ginir,Ginir,ET041108,District,ginir,139495,208658,normalized_name,0.85,ginir,1
+Ayisha,ET050101,Siti,Somali,ayisha,Ayisha,ET050101,District,ayisha,58086,85155,admin_code,1,ET050101,1
+Dembel,ET050102,Siti,Somali,dembel,Denbel,ET050102,District,denbel,82286,120798,admin_code,1,ET050102,1
+Shinile,ET050103,Siti,Somali,shinile,Shinile,ET050103,District,shinile,102574,150900,admin_code,1,ET050103,1
+Erer (SM),ET050104,Siti,Somali,erer,Erer,ET050104,District,erer,77628,113929,admin_code,1,ET050104,1
+Afdem,ET050105,Siti,Somali,afdem,Afdem,ET050105,District,afdem,65031,95640,admin_code,1,ET050105,1
+Hadhagala,ET050106,Siti,Somali,hadhagala,Mulo,ET050106,District,mulo,71481,103767,admin_code,1,ET050106,1
+Miesso,ET050107,Siti,Somali,miesso,,,,,,,unmatched,0,miesso,0
+Gota-Biki,ET050198,Siti,Somali,gotabiki,,,,,,,unmatched,0,gotabiki,0
+Gablalu,ET050199,Siti,Somali,gablalu,,,,,,,unmatched,0,gablalu,0
+Gursum (SM),ET050202,Fafan,Somali,gursum,Gursum,ET050202,District,gursum,27510,40233,admin_code,1,ET050202,1
+Babile (SM),ET050203,Fafan,Somali,babile,Babile,ET041004,District,babile,93708,142988,normalized_name,0.85,babile,2
+Shabeeley,ET050204,Fafan,Somali,shabeeley,,,,,,,unmatched,0,shabeeley,0
+Aw-Bare,ET050205,Fafan,Somali,awbare,Awubere,ET050205,District,awubere,339503,496198,admin_code,1,ET050205,1
+Kebribeyah,ET050206,Fafan,Somali,kebribeyah,Kebri Beyah,ET050206,District,kebribeyah,165518,242880,admin_code,1,ET050206,1
+Harshin,ET050207,Fafan,Somali,harshin,Harshin,ET050207,District,harshin,80244,117187,admin_code,1,ET050207,1
+Tuliguled,ET050283,Fafan,Somali,tuliguled,,,,,,,unmatched,0,tuliguled,0
+Goljano,ET050290,Fafan,Somali,goljano,,,,,,,unmatched,0,goljano,0
+Jigjiga town,ET050293,Fafan,Somali,jigjiga,Jijiga,ET050293,District,jijiga,277560,417688,admin_code,1,ET050293,1
+Wajale town,ET050295,Fafan,Somali,wajale,,,,,,,unmatched,0,wajale,0
+Kebribayah town,ET050296,Fafan,Somali,kebribayah,,,,,,,unmatched,0,kebribayah,0
+Koran /Mulla,ET050297,Fafan,Somali,koranmulla,,,,,,,unmatched,0,koranmulla,0
+Haroreys,ET050298,Fafan,Somali,haroreys,,,,,,,unmatched,0,haroreys,0
+Harawo,ET050299,Fafan,Somali,harawo,,,,,,,unmatched,0,harawo,0
+Degehamedo,ET050301,Jarar,Somali,degehamedo,Degehamedo,ET050301,District,degehamedo,58487,84482,admin_code,1,ET050301,1
+Degehabur,ET050302,Jarar,Somali,degehabur,Degehabur,ET050302,District,degehabur,115555,170713,admin_code,1,ET050302,1
+Aware,ET050303,Jarar,Somali,aware,Aware,ET050303,District,aware,96011,141011,admin_code,1,ET050303,1
+Gashamo,ET050304,Jarar,Somali,gashamo,Gashamo,ET050304,District,gashamo,95191,138537,admin_code,1,ET050304,1
+Gunagado,ET050305,Jarar,Somali,gunagado,Gunagudo,ET050305,District,gunagudo,112924,164233,admin_code,1,ET050305,1
+Bilcil-Bur,ET050306,Jarar,Somali,bilcilbur,,,,,,,unmatched,0,bilcilbur,0
+Degahabur town,ET050307,Jarar,Somali,degahabur,,,,,,,unmatched,0,degahabur,0
+Yocale,ET050382,Jarar,Somali,yocale,,,,,,,unmatched,0,yocale,0
+Daror,ET050392,Jarar,Somali,daror,,,,,,,unmatched,0,daror,0
+Burqod,ET050394,Jarar,Somali,burqod,,,,,,,unmatched,0,burqod,0
+Ararso,ET050395,Jarar,Somali,ararso,,,,,,,unmatched,0,ararso,0
+Dig,ET050399,Jarar,Somali,dig,,,,,,,unmatched,0,dig,0
+Fik,ET050402,Erer,Somali,fik,Fik,ET050402,District,fik,130047,189442,admin_code,1,ET050402,1
+Salahad,ET050403,Erer,Somali,salahad,,,,,,,unmatched,0,salahad,0
+Hamero,ET050404,Erer,Somali,hamero,Hamero,ET050404,District,hamero,60477,87464,admin_code,1,ET050404,1
+Lagahida,ET050407,Erer,Somali,lagahida,Legehida,ET050407,District,legehida,17415,25469,admin_code,1,ET050407,1
+Meyumuluka,ET050408,Erer,Somali,meyumuluka,Meyu Muluke,ET050408,District,meyumuluke,11907,17721,admin_code,1,ET050408,1
+Qubi,ET050497,Erer,Somali,qubi,,,,,,,unmatched,0,qubi,0
+Yahob,ET050498,Erer,Somali,yahob,,,,,,,unmatched,0,yahob,0
+Wangey,ET050499,Erer,Somali,wangey,,,,,,,unmatched,0,wangey,0
+Shaygosh,ET050501,Korahe,Somali,shaygosh,Shekosh,ET050501,District,shekosh,48879,71346,admin_code,1,ET050501,1
+Kebridehar,ET050502,Korahe,Somali,kebridehar,Kebri Dehar,ET050502,District,kebridehar,136142,200228,admin_code,1,ET050502,1
+Shilabo,ET050503,Korahe,Somali,shilabo,Shilabo,ET050503,District,shilabo,57590,83701,admin_code,1,ET050503,1
+Debeweyin,ET050504,Korahe,Somali,debeweyin,Debewoin,ET050504,District,debewoin,70102,102287,admin_code,1,ET050504,1
+Marsin,ET050586,Korahe,Somali,marsin,,,,,,,unmatched,0,marsin,0
+Kebridehar town,ET050592,Korahe,Somali,kebridehar,Kebri Dehar,ET050502,District,kebridehar,136142,200228,normalized_name,0.85,kebridehar,1
+Goglo,ET050595,Korahe,Somali,goglo,,,,,,,unmatched,0,goglo,0
+Lasdhankayre,ET050596,Korahe,Somali,lasdhankayre,,,,,,,unmatched,0,lasdhankayre,0
+Higloley,ET050597,Korahe,Somali,higloley,,,,,,,unmatched,0,higloley,0
+El-Ogaden,ET050598,Korahe,Somali,elogaden,,,,,,,unmatched,0,elogaden,0
+Bodaley,ET050599,Korahe,Somali,bodaley,,,,,,,unmatched,0,bodaley,0
+East Imi,ET050601,Shabelle,Somali,eastimi,Imiberi,ET050601,District,imiberi,81721,119599,admin_code,1,ET050601,1
+Adadle,ET050602,Shabelle,Somali,adadle,Adadilo,ET050602,District,adadilo,83260,120814,admin_code,1,ET050602,1
+Danan,ET050603,Shabelle,Somali,danan,Danan,ET050603,District,danan,23784,35148,admin_code,1,ET050603,1
+Gode,ET050604,Shabelle,Somali,gode,Gode,ET050604,District,gode,109718,163894,admin_code,1,ET050604,1
+Kelafo,ET050605,Shabelle,Somali,kelafo,Kelafo,ET050605,District,kelafo,77471,113668,admin_code,1,ET050605,1
+Mustahil,ET050606,Shabelle,Somali,mustahil,Mustahil,ET050606,District,mustahil,49315,72199,admin_code,1,ET050606,1
+Ferfer,ET050607,Shabelle,Somali,ferfer,Ferfer,ET050607,District,ferfer,38984,57159,admin_code,1,ET050607,1
+Berocano,ET050608,Shabelle,Somali,berocano,,,,,,,unmatched,0,berocano,0
+Godey town,ET050696,Shabelle,Somali,godey,,,,,,,unmatched,0,godey,0
+Elale,ET050698,Shabelle,Somali,elale,,,,,,,unmatched,0,elale,0
+Aba-Korow,ET050699,Shabelle,Somali,abakorow,,,,,,,unmatched,0,abakorow,0
+Danod,ET050701,Doolo,Somali,danod,Danot,ET050701,District,danot,47236,68383,admin_code,1,ET050701,1
+Bokh,ET050702,Doolo,Somali,bokh,Boh,ET050702,District,boh,103164,150152,admin_code,1,ET050702,1
+Galadi,ET050703,Doolo,Somali,galadi,Geladin,ET050703,District,geladin,98053,142512,admin_code,1,ET050703,1
+Warder,ET050704,Doolo,Somali,warder,Warder,ET050704,District,warder,58035,85005,admin_code,1,ET050704,1
+Daratole,ET050788,Doolo,Somali,daratole,,,,,,,unmatched,0,daratole,0
+Lehel-Yucub,ET050798,Doolo,Somali,lehelyucub,,,,,,,unmatched,0,lehelyucub,0
+Galhamur,ET050799,Doolo,Somali,galhamur,,,,,,,unmatched,0,galhamur,0
+Charati,ET050802,Afder,Somali,charati,Weyib,ET050802,District,weyib,94295,136869,admin_code,1,ET050802,1
+Elkare /Serer,ET050804,Afder,Somali,elkareserer,Serer,ET050804,District,serer,57735,83627,admin_code,1,ET050804,1
+West Imi,ET050805,Afder,Somali,westimi,Mirab Imi,ET050805,District,mirabimi,48104,70496,admin_code,1,ET050805,1
+Hargele,ET050806,Afder,Somali,hargele,Afder,ET050806,District,afder,79135,115129,admin_code,1,ET050806,1
+Barey,ET050807,Afder,Somali,barey,Bare,ET050807,District,bare,93340,135360,admin_code,1,ET050807,1
+Dolobay,ET050808,Afder,Somali,dolobay,Dolobay,ET050808,District,dolobay,84134,122543,admin_code,1,ET050808,1
+Raso,ET050809,Afder,Somali,raso,Kersa Dula,ET050809,District,kersadula,42774,62352,admin_code,1,ET050809,1
+Kohle /Qoxle,ET050898,Afder,Somali,kohleqoxle,,,,,,,unmatched,0,kohleqoxle,0
+God-God,ET050899,Afder,Somali,godgod,,,,,,,unmatched,0,godgod,0
+Filtu,ET050901,Liban,Somali,filtu,Filtu,ET050901,District,filtu,130993,189803,admin_code,1,ET050901,1
+Dolo Ado,ET050902,Liban,Somali,doloado,Dolo Odo,ET050902,District,doloodo,111511,166118,admin_code,1,ET050902,1
+Goro Baqaqsa,ET050903,Liban,Somali,gorobaqaqsa,Goro Bekeksa,ET050903,District,gorobekeksa,51271,74532,admin_code,1,ET050903,1
+Guradamole,ET050904,Liban,Somali,guradamole,Guradamole,ET050904,District,guradamole,19841,28782,admin_code,1,ET050904,1
+Deka Suftu,ET050991,Liban,Somali,dekasuftu,,,,,,,unmatched,0,dekasuftu,0
+Bokolmayo,ET050999,Liban,Somali,bokolmayo,,,,,,,unmatched,0,bokolmayo,0
+Ayun,ET051001,Nogob,Somali,ayun,,,,,,,unmatched,0,ayun,0
+Elwayne,ET051002,Nogob,Somali,elwayne,,,,,,,unmatched,0,elwayne,0
+Garbo,ET051003,Nogob,Somali,garbo,Gerbo,ET051003,District,gerbo,45413,66476,admin_code,1,ET051003,1
+Sagag,ET051005,Nogob,Somali,sagag,Segeg,ET051005,District,segeg,23986,35269,admin_code,1,ET051005,1
+Dihun,ET051006,Nogob,Somali,dihun,Dihun,ET051006,District,dihun,25082,36496,admin_code,1,ET051006,1
+Horshagah,ET051095,Nogob,Somali,horshagah,,,,,,,unmatched,0,horshagah,0
+Hararey,ET051096,Nogob,Somali,hararey,,,,,,,unmatched,0,hararey,0
+Moyale (SM),ET051103,Daawa,Somali,moyale,Moyale,ET051103,District,moyale,254137,367953,admin_code,1,ET051103,1
+Hudet,ET051104,Daawa,Somali,hudet,Udet,ET051104,District,udet,43180,63124,admin_code,1,ET051104,1
+Mubarek,ET051187,Daawa,Somali,mubarek,,,,,,,unmatched,0,mubarek,0
+Qada Duma,ET051198,Daawa,Somali,qadaduma,,,,,,,unmatched,0,qadaduma,0
+Gilgel Beles town,ET060200,Metekel,Benishangul Gumz,gilgelbeles,,,,,,,unmatched,0,gilgelbeles,0
+Dangur,ET060201,Metekel,Benishangul Gumz,dangur,Dangur,ET060201,District,dangur,48537,78133,admin_code,1,ET060201,1
+Guba,ET060202,Metekel,Benishangul Gumz,guba,Guba,ET060202,District,guba,14907,23648,admin_code,1,ET060202,1
+Wembera,ET060203,Metekel,Benishangul Gumz,wembera,Wenbera,ET060203,District,wenbera,60000,89152,admin_code,1,ET060203,1
+Mandura,ET060204,Metekel,Benishangul Gumz,mandura,Mandura,ET060204,District,mandura,40746,66361,admin_code,1,ET060204,1
+Dibate,ET060205,Metekel,Benishangul Gumz,dibate,Dibate,ET060205,District,dibate,66654,101051,admin_code,1,ET060205,1
+Pawe,ET060206,Metekel,Benishangul Gumz,pawe,Pawe,ET060206,Special District,pawe,45552,76744,admin_code,1,ET060206,1
+Bulen,ET060207,Metekel,Benishangul Gumz,bulen,Bulen,ET060207,District,bulen,45523,71280,admin_code,1,ET060207,1
+Menge,ET060301,Assosa,Benishangul Gumz,menge,Menge,ET060301,District,menge,40240,55843,admin_code,1,ET060301,1
+Kurmuk,ET060302,Assosa,Benishangul Gumz,kurmuk,Kurmuk,ET060302,District,kurmuk,16734,23368,admin_code,1,ET060302,1
+Assosa,ET060303,Assosa,Benishangul Gumz,assosa,Asossa,ET060303,District,asossa,104147,177292,admin_code,1,ET060303,1
+Sherkole,ET060304,Assosa,Benishangul Gumz,sherkole,Sherkole,ET060304,District,sherkole,24679,34598,admin_code,1,ET060304,1
+Bambasi,ET060305,Assosa,Benishangul Gumz,bambasi,Bambasi,ET060305,District,bambasi,48694,79558,admin_code,1,ET060305,1
+Bilidigilu,ET060306,Assosa,Benishangul Gumz,bilidigilu,Odabuldi-Guli,ET060306,District,odabuldiguli,54584,78305,admin_code,1,ET060306,1
+Homosha,ET060307,Assosa,Benishangul Gumz,homosha,Homesha,ET060307,District,homesha,21744,30603,admin_code,1,ET060307,1
+Undulu,ET060308,Assosa,Benishangul Gumz,undulu,,,,,,,unmatched,0,undulu,0
+Assosa town Administration,ET060309,Assosa,Benishangul Gumz,assosa,,,,,,,unmatched,0,assosa,0
+Kamashi town,ET060400,Kamashi,Benishangul Gumz,kamashi,,,,,,,unmatched,0,kamashi,0
+Zayi,ET060401,Kamashi,Benishangul Gumz,zayi,Yaso,ET060401,District,yaso,12747,19327,admin_code,1,ET060401,1
+Sedal,ET060402,Kamashi,Benishangul Gumz,sedal,Sirba Abay,ET060402,District,sirbaabay,17996,28397,admin_code,1,ET060402,1
+Kamashi,ET060403,Kamashi,Benishangul Gumz,kamashi,Kemashi,ET060403,District,kemashi,17883,33139,admin_code,1,ET060403,1
+Dembe,ET060404,Kamashi,Benishangul Gumz,dembe,Agelo Meti,ET060404,District,agelometi,22774,33828,admin_code,1,ET060404,1
+Mizyiga,ET060405,Kamashi,Benishangul Gumz,mizyiga,Belo Jegonfoy,ET060405,District,belojegonfoy,30143,44798,admin_code,1,ET060405,1
+Maokomo Special,ET060508,Mao Komo Special,Benishangul Gumz,maokomo,Mao Komo,ET060508,Special District,maokomo,50061,72575,admin_code,1,ET060508,1
+Kebena,ET070101,Guraghe,SNNP,kebena,Kebena,ET070101,District,kebena,52379,68135,admin_code,1,ET070101,1
+Abeshege,ET070102,Guraghe,SNNP,abeshege,Abeshge,ET070102,District,abeshge,61424,79901,admin_code,1,ET070102,1
+Ezha,ET070103,Guraghe,SNNP,ezha,Ezha,ET070103,District,ezha,84905,115608,admin_code,1,ET070103,1
+Gedebano Gutazer Welene,ET070104,Guraghe,SNNP,gedebanogutazerwelene,Kokir Gedabano,ET070104,District,kokirgedabano,93408,124073,admin_code,1,ET070104,1
+Sodo,ET070105,Guraghe,SNNP,sodo,Sodo,ET070105,District,sodo,134683,194253,admin_code,1,ET070105,1
+Meskan,ET070106,Guraghe,SNNP,meskan,Mesekan,ET070106,District,mesekan,155782,218370,admin_code,1,ET070106,1
+Mareko,ET070107,Guraghe,SNNP,mareko,Mareko,ET070107,District,mareko,64512,93424,admin_code,1,ET070107,1
+Endiguagn,ET070108,Guraghe,SNNP,endiguagn,Endegagn,ET070108,District,endegagn,49171,65024,admin_code,1,ET070108,1
+Gumer,ET070109,Guraghe,SNNP,gumer,Gumer,ET070109,District,gumer,80178,108369,admin_code,1,ET070109,1
+Cheha,ET070110,Guraghe,SNNP,cheha,Cheha,ET070110,District,cheha,115951,163307,admin_code,1,ET070110,1
+Enemor Ener,ET070111,Guraghe,SNNP,enemorener,Enemorna Ener,ET070111,District,enemornaener,167770,227373,admin_code,1,ET070111,1
+Muhur Na Aklil,ET070112,Guraghe,SNNP,muhurnaaklil,Muhor Na Aklil,ET070112,District,muhornaaklil,87756,115149,admin_code,1,ET070112,1
+Geta,ET070113,Guraghe,SNNP,geta,Geta,ET070113,District,geta,69455,90347,admin_code,1,ET070113,1
+Welkite town,ET070114,Guraghe,SNNP,welkite,Welkite,ET070114,Town,welkite,28866,77514,admin_code,1,ET070114,1
+Butajira town,ET070115,Guraghe,SNNP,butajira,Butajira,ET070115,Town,butajira,33406,89824,admin_code,1,ET070115,1
+Emdebir town,ET070116,Guraghe,SNNP,emdebir,,,,,,,unmatched,0,emdebir,0
+Bui town,ET070117,Guraghe,SNNP,bui,,,,,,,unmatched,0,bui,0
+Misrak Meskan,ET070118,Guraghe,SNNP,misrakmeskan,,,,,,,unmatched,0,misrakmeskan,0
+Debub Sodo,ET070119,Guraghe,SNNP,debubsodo,,,,,,,unmatched,0,debubsodo,0
+Enor Ener,ET070120,Guraghe,SNNP,enorener,,,,,,,unmatched,0,enorener,0
+Misha,ET070201,Hadiya,SNNP,misha,Misha,ET070201,District,misha,127318,173844,admin_code,1,ET070201,1
+Gombora,ET070202,Hadiya,SNNP,gombora,Gomibora,ET070202,District,gomibora,93141,121158,admin_code,1,ET070202,1
+Lemmo,ET070203,Hadiya,SNNP,lemmo,Lemo,ET070203,District,lemo,118594,157107,admin_code,1,ET070203,1
+Shashogo,ET070204,Hadiya,SNNP,shashogo,Shashago,ET070204,District,shashago,103722,146246,admin_code,1,ET070204,1
+Misrak Badawacho,ET070205,Hadiya,SNNP,misrakbadawacho,Misrak Badawacho,ET070205,District,misrakbadawacho,142823,207413,admin_code,1,ET070205,1
+Soro,ET070206,Hadiya,SNNP,soro,Soro,ET070206,District,soro,188858,269031,admin_code,1,ET070206,1
+Duna,ET070207,Hadiya,SNNP,duna,Duna,ET070207,District,duna,122087,166826,admin_code,1,ET070207,1
+Analemmo,ET070208,Hadiya,SNNP,analemmo,Analimo,ET070208,District,analimo,71963,96918,admin_code,1,ET070208,1
+Mirab Badowach,ET070209,Hadiya,SNNP,mirabbadowach,Merab Badwacho,ET070209,District,merabbadwacho,83439,111484,admin_code,1,ET070209,1
+Gibe,ET070210,Hadiya,SNNP,gibe,Gibe,ET070210,District,gibe,109256,149118,admin_code,1,ET070210,1
+Hosaena town,ET070211,Hadiya,SNNP,hosaena,Hosaena,ET070211,Town,hosaena,69995,188192,admin_code,1,ET070211,1
+Shone Town,ET070212,Hadiya,SNNP,shone,,,,,,,unmatched,0,shone,0
+Gimbichu town,ET070213,Hadiya,SNNP,gimbichu,Gimbichu,ET040705,District,gimbichu,86902,125759,normalized_name,0.85,gimbichu,1
+Jajura town,ET070214,Hadiya,SNNP,jajura,,,,,,,unmatched,0,jajura,0
+Ameka,ET070215,Hadiya,SNNP,ameka,,,,,,,unmatched,0,ameka,0
+Siraro Badawacho,ET070216,Hadiya,SNNP,sirarobadawacho,,,,,,,unmatched,0,sirarobadawacho,0
+Mirab Soro,ET070217,Hadiya,SNNP,mirabsoro,,,,,,,unmatched,0,mirabsoro,0
+Tembaro,ET070301,Kembata Tembaro,SNNP,tembaro,Tembaro,ET070301,District,tembaro,105573,147876,admin_code,1,ET070301,1
+Angacha,ET070302,Kembata Tembaro,SNNP,angacha,Angacha,ET070302,District,angacha,88083,124035,admin_code,1,ET070302,1
+Kediada Gambela,ET070303,Kembata Tembaro,SNNP,kediadagambela,Kedida Gamela,ET070303,District,kedidagamela,89391,122753,admin_code,1,ET070303,1
+Kacha Bira,ET070304,Kembata Tembaro,SNNP,kachabira,Kacha Bira,ET070304,District,kachabira,113687,169895,admin_code,1,ET070304,1
+Hadero Tunto,ET070305,Kembata Tembaro,SNNP,haderotunto,Hadero Tunito,ET070305,District,haderotunito,98375,160666,admin_code,1,ET070305,1
+Doyogena,ET070306,Kembata Tembaro,SNNP,doyogena,Doyogena,ET070306,District,doyogena,78634,111623,admin_code,1,ET070306,1
+Damboya,ET070307,Kembata Tembaro,SNNP,damboya,Deniboya,ET070307,District,deniboya,82622,118721,admin_code,1,ET070307,1
+Durame town,ET070308,Kembata Tembaro,SNNP,durame,Durame,ET070308,Town,durame,24472,65852,admin_code,1,ET070308,1
+Adilo,ET070309,Kembata Tembaro,SNNP,adilo,,,,,,,unmatched,0,adilo,0
+Shinshincho town,ET070310,Kembata Tembaro,SNNP,shinshincho,,,,,,,unmatched,0,shinshincho,0
+Hadero town,ET070312,Kembata Tembaro,SNNP,hadero,,,,,,,unmatched,0,hadero,0
+Wenago,ET070501,Gedeo,SNNP,wenago,Wenago,ET070501,District,wenago,116921,163828,admin_code,1,ET070501,1
+Yirgachefe,ET070502,Gedeo,SNNP,yirgachefe,Yirgachefe,ET070502,District,yirgachefe,195256,274952,admin_code,1,ET070502,1
+Kochere,ET070503,Gedeo,SNNP,kochere,Kochire,ET070503,District,kochire,130486,184439,admin_code,1,ET070503,1
+Bule,ET070504,Gedeo,SNNP,bule,Bule,ET070504,District,bule,105192,144474,admin_code,1,ET070504,1
+Dila Zuria,ET070505,Gedeo,SNNP,dilazuria,Dila Zuria,ET070505,District,dilazuria,98439,128050,admin_code,1,ET070505,1
+Gedeb,ET070506,Gedeo,SNNP,gedeb,Gedeb,ET070506,District,gedeb,141990,197082,admin_code,1,ET070506,1
+Dila town,ET070507,Gedeo,SNNP,dila,Dila,ET070507,Town,dila,59150,158795,admin_code,1,ET070507,1
+Chelelektu town,ET070508,Gedeo,SNNP,chelelektu,,,,,,,unmatched,0,chelelektu,0
+Rape,ET070509,Gedeo,SNNP,rape,,,,,,,unmatched,0,rape,0
+Churso,ET070510,Gedeo,SNNP,churso,,,,,,,unmatched,0,churso,0
+Gedeb town,ET070511,Gedeo,SNNP,gedeb,Gedeb,ET070506,District,gedeb,141990,197082,normalized_name,0.85,gedeb,1
+Yirgachefe town,ET070512,Gedeo,SNNP,yirgachefe,Yirgachefe,ET070502,District,yirgachefe,195256,274952,normalized_name,0.85,yirgachefe,1
+Boloso Sore,ET070601,Wolayita,SNNP,bolososore,Boloso Sore,ET070601,District,bolososore,197973,301147,admin_code,1,ET070601,1
+Damot Gale,ET070602,Wolayita,SNNP,damotgale,Damot Gale,ET070602,District,damotgale,151079,230022,admin_code,1,ET070602,1
+Damot Woide,ET070603,Wolayita,SNNP,damotwoide,Damot Woyide,ET070603,District,damotwoyide,91602,126510,admin_code,1,ET070603,1
+Humbo,ET070604,Wolayita,SNNP,humbo,Humbo,ET070604,District,humbo,125441,171818,admin_code,1,ET070604,1
+Sodo Zuria,ET070605,Wolayita,SNNP,sodozuria,Sodo Zuria,ET070605,District,sodozuria,162691,211629,admin_code,1,ET070605,1
+Kindo Koyesha,ET070606,Wolayita,SNNP,kindokoyesha,Kindo Koyisha,ET070606,District,kindokoyisha,104564,145165,admin_code,1,ET070606,1
+Ofa,ET070607,Wolayita,SNNP,ofa,Ofa,ET070607,District,ofa,103870,142636,admin_code,1,ET070607,1
+Boloso Bombe,ET070608,Wolayita,SNNP,bolosobombe,Boloso Bonibe,ET070608,District,bolosobonibe,87956,115883,admin_code,1,ET070608,1
+Damot Sore,ET070609,Wolayita,SNNP,damotsore,Damot Sore,ET070609,District,damotsore,100683,139440,admin_code,1,ET070609,1
+Kindo Daddaye,ET070610,Wolayita,SNNP,kindodaddaye,Kindo Didaye,ET070610,District,kindodidaye,97566,128892,admin_code,1,ET070610,1
+Damot Pullasa,ET070611,Wolayita,SNNP,damotpullasa,Damot Pulasa,ET070611,District,damotpulasa,105157,144197,admin_code,1,ET070611,1
+Duguna Fango,ET070612,Wolayita,SNNP,dugunafango,Deguna Fanigo,ET070612,District,degunafanigo,96480,130244,admin_code,1,ET070612,1
+Sodo Town,ET070613,Wolayita,SNNP,sodo,Sodo,ET070613,Town,sodo,76050,204121,admin_code,1,ET070613,1
+Areka town,ET070614,Wolayita,SNNP,areka,,,,,,,unmatched,0,areka,0
+Boditi town,ET070615,Wolayita,SNNP,boditi,,,,,,,unmatched,0,boditi,0
+Tebela town,ET070616,Wolayita,SNNP,tebela,,,,,,,unmatched,0,tebela,0
+Gesuba town,ET070617,Wolayita,SNNP,gesuba,,,,,,,unmatched,0,gesuba,0
+Gununo Hamus town,ET070618,Wolayita,SNNP,gununohamus,,,,,,,unmatched,0,gununohamus,0
+Hobicha Abaya,ET070619,Wolayita,SNNP,hobichaabaya,,,,,,,unmatched,0,hobichaabaya,0
+Kawo Koisha,ET070620,Wolayita,SNNP,kawokoisha,,,,,,,unmatched,0,kawokoisha,0
+Abela Abaya,ET070621,Wolayita,SNNP,abelaabaya,,,,,,,unmatched,0,abelaabaya,0
+Bayera Koisha,ET070622,Wolayita,SNNP,bayerakoisha,,,,,,,unmatched,0,bayerakoisha,0
+Salamago,ET070701,South Omo,SNNP,salamago,Selamago,ET070701,District,selamago,27866,37954,admin_code,1,ET070701,1
+South Ari,ET070702,South Omo,SNNP,southari,Debub Ari,ET070702,District,debubari,210557,316792,admin_code,1,ET070702,1
+North Ari,ET070703,South Omo,SNNP,northari,Semen Ari,ET070703,District,semenari,67431,90989,admin_code,1,ET070703,1
+Hamer,ET070704,South Omo,SNNP,hamer,Hamer,ET070704,District,hamer,59572,81926,admin_code,1,ET070704,1
+Bena Tsemay,ET070705,South Omo,SNNP,benatsemay,Bena Tsemay,ET070705,District,benatsemay,52968,71850,admin_code,1,ET070705,1
+Dasenech /Kuraz,ET070706,South Omo,SNNP,dasenechkuraz,Dasenech,ET070706,District,dasenech,52708,71846,admin_code,1,ET070706,1
+Malie,ET070707,South Omo,SNNP,malie,Male,ET070707,District,male,84693,111439,admin_code,1,ET070707,1
+Nyngatom,ET070708,South Omo,SNNP,nyngatom,Nyangatom,ET070708,District,nyangatom,17640,22946,admin_code,1,ET070708,1
+Jinka town,ET070709,South Omo,SNNP,jinka,,,,,,,unmatched,0,jinka,0
+Boko Dawula,ET070710,South Omo,SNNP,bokodawula,,,,,,,unmatched,0,bokodawula,0
+Wub Ari,ET070711,South Omo,SNNP,wubari,,,,,,,unmatched,0,wubari,0
+Selamber town,ET071003,Gamo,SNNP,selamber,,,,,,,unmatched,0,selamber,0
+Boreda,ET071004,Gamo,SNNP,boreda,Boreda,ET071004,District,boreda,67960,92222,admin_code,1,ET071004,1
+Mirab Abaya,ET071005,Gamo,SNNP,mirababaya,Merab Abaya,ET071005,District,merababaya,74967,105621,admin_code,1,ET071005,1
+Chencha Zuriya,ET071006,Gamo,SNNP,chenchazuriya,,,,,,,unmatched,0,chenchazuriya,0
+Ezo /Kogota,ET071007,Gamo,SNNP,ezokogota,,,,,,,unmatched,0,ezokogota,0
+Dita,ET071008,Gamo,SNNP,dita,Dita,ET071008,District,dita,83987,113404,admin_code,1,ET071008,1
+Daramalo,ET071009,Gamo,SNNP,daramalo,Deramalo,ET071009,District,deramalo,81025,109842,admin_code,1,ET071009,1
+Chencha,ET071010,Gamo,SNNP,chencha,Chencha,ET071010,District,chencha,111686,163789,admin_code,1,ET071010,1
+Kemba,ET071011,Gamo,SNNP,kemba,Kemba,ET071011,District,kemba,155979,209433,admin_code,1,ET071011,1
+Kemba town,ET071012,Gamo,SNNP,kemba,Kemba,ET071011,District,kemba,155979,209433,normalized_name,0.85,kemba,1
+Gerese,ET071013,Gamo,SNNP,gerese,,,,,,,unmatched,0,gerese,0
+Bonke,ET071014,Gamo,SNNP,bonke,Bonke,ET071014,District,bonke,159089,215775,admin_code,1,ET071014,1
+Arba Minch Zuria,ET071015,Gamo,SNNP,arbaminchzuria,Arba Minch Zuriya,ET071015,District,arbaminchzuriya,164529,214020,admin_code,1,ET071015,1
+Gacho Baba,ET071016,Gamo,SNNP,gachobaba,,,,,,,unmatched,0,gachobaba,0
+Kucha Alpha,ET071017,Gamo,SNNP,kuchaalpha,,,,,,,unmatched,0,kuchaalpha,0
+Garda Marta,ET071018,Gamo,SNNP,gardamarta,,,,,,,unmatched,0,gardamarta,0
+Kucha,ET071019,Gamo,SNNP,kucha,Kucha,ET071019,District,kucha,149287,201296,admin_code,1,ET071019,1
+Arba Minch town,ET071021,Gamo,SNNP,arbaminch,Arba Minch,ET071021,Town,arbaminch,74879,201049,admin_code,1,ET071021,1
+Alle Special,ET071205,Alle,SNNP,alle,,,,,,,unmatched,0,alle,0
+Karat town,ET071301,Konso,SNNP,karat,,,,,,,unmatched,0,karat,0
+Segen Zuria,ET071302,Konso,SNNP,segenzuria,,,,,,,unmatched,0,segenzuria,0
+Karat Zuria,ET071303,Konso,SNNP,karatzuria,Konso,ET071303,District,konso,235087,318819,admin_code,1,ET071303,1
+Kena,ET071304,Konso,SNNP,kena,,,,,,,unmatched,0,kena,0
+Kulito town,ET071401,Halaba,SNNP,kulito,,,,,,,unmatched,0,kulito,0
+Wera,ET071402,Halaba,SNNP,wera,Alaba,ET071402,District,alaba,232325,339423,admin_code,1,ET071402,1
+Atote Ulo,ET071403,Halaba,SNNP,atoteulo,,,,,,,unmatched,0,atoteulo,0
+Wera Djo,ET071404,Halaba,SNNP,weradjo,,,,,,,unmatched,0,weradjo,0
+Melekoza,ET071501,Gofa,SNNP,melekoza,Melekoza,ET071501,District,melekoza,120398,161164,admin_code,1,ET071501,1
+Denba Gofa,ET071502,Gofa,SNNP,denbagofa,Denibu Gofa,ET071502,District,denibugofa,81165,105580,admin_code,1,ET071502,1
+Zala,ET071503,Gofa,SNNP,zala,Zala,ET071503,District,zala,74369,99690,admin_code,1,ET071503,1
+Uba Debre Tsehay,ET071504,Gofa,SNNP,ubadebretsehay,Uba Debre Tsehay,ET071504,District,ubadebretsehay,69120,96069,admin_code,1,ET071504,1
+Gezei Gofa,ET071505,Gofa,SNNP,gezeigofa,Gezegofa,ET071505,District,gezegofa,68650,97282,admin_code,1,ET071505,1
+O'yida,ET071506,Gofa,SNNP,oyida,Ayida,ET071506,District,ayida,33310,43329,admin_code,1,ET071506,1
+Sawla town,ET071507,Gofa,SNNP,sawla,Sawla,ET071507,Town,sawla,22704,61037,admin_code,1,ET071507,1
+Bulike town,ET071508,Gofa,SNNP,bulike,,,,,,,unmatched,0,bulike,0
+Melo Gada,ET071509,Gofa,SNNP,melogada,,,,,,,unmatched,0,melogada,0
+Basketo SP Woreda,ET071601,Basketo,SNNP,basketosp,Basketo,ET071601,District,basketo,56689,80983,admin_code,1,ET071601,1
+Alicho Woriro,ET072001,Siltie,SNNP,alichoworiro,Alicho Werero,ET072001,District,alichowerero,92483,121378,admin_code,1,ET072001,1
+Siltie,ET072002,Siltie,SNNP,siltie,Silti,ET072002,District,silti,177249,252929,admin_code,1,ET072002,1
+Lanfero,ET072003,Siltie,SNNP,lanfero,Lanfuro,ET072003,District,lanfuro,116114,168248,admin_code,1,ET072003,1
+Mierab Azenet Berbere,ET072004,Siltie,SNNP,mierabazenetberbere,Merab Azernet,ET072004,District,merabazernet,59289,84157,admin_code,1,ET072004,1
+Dalocha,ET072005,Siltie,SNNP,dalocha,Dalocha,ET072005,District,dalocha,89807,126233,admin_code,1,ET072005,1
+Sankura,ET072006,Siltie,SNNP,sankura,Sankura,ET072006,District,sankura,84736,115263,admin_code,1,ET072006,1
+Misrak Azenet Berbere,ET072007,Siltie,SNNP,misrakazenetberbere,Misrak Azernet,ET072007,District,misrakazernet,50739,66001,admin_code,1,ET072007,1
+Wulbareg,ET072008,Siltie,SNNP,wulbareg,Wulbareg,ET072008,District,wulbareg,79981,107084,admin_code,1,ET072008,1
+Tora town,ET072009,Siltie,SNNP,tora,,,,,,,unmatched,0,tora,0
+Worabe town,ET072010,Siltie,SNNP,worabe,,,,,,,unmatched,0,worabe,0
+Kibet town,ET072011,Siltie,SNNP,kibet,,,,,,,unmatched,0,kibet,0
+Mito,ET072012,Siltie,SNNP,mito,,,,,,,unmatched,0,mito,0
+Misrak Siltie,ET072013,Siltie,SNNP,misraksiltie,,,,,,,unmatched,0,misraksiltie,0
+Amaro,ET072102,Amaro,SNNP,amaro,Amaro,ET072102,District,amaro,149231,206022,admin_code,1,ET072102,1
+Burji Special,ET072203,Burji,SNNP,burji,Burji,ET072203,District,burji,55681,81167,admin_code,1,ET072203,1
+Derashe Special,ET072304,Derashe,SNNP,derashe,Derashe,ET072304,District,derashe,142758,204041,admin_code,1,ET072304,1
+Yem SP Woreda,ET072401,Yem Special,SNNP,yemsp,Yem,ET072401,Special District,yem,80687,116044,admin_code,1,ET072401,1
+Anderacha,ET110101,Sheka,South West Ethiopia,anderacha,Anderacha,ET070802,District,anderacha,23985,34834,exact_name,0.95,Anderacha,1
+Masha,ET110102,Sheka,South West Ethiopia,masha,Masha,ET070801,District,masha,40810,62514,exact_name,0.95,Masha,1
+Yeki,ET110103,Sheka,South West Ethiopia,yeki,Yeki,ET070803,District,yeki,134519,209337,exact_name,0.95,Yeki,1
+Tepi,ET110104,Sheka,South West Ethiopia,tepi,,,,,,,unmatched,0,tepi,0
+Masha town,ET110105,Sheka,South West Ethiopia,masha,Masha,ET070801,District,masha,40810,62514,normalized_name,0.85,masha,1
+Saylem,ET110201,Kefa,South West Ethiopia,saylem,,,,,,,unmatched,0,saylem,0
+Gesha,ET110202,Kefa,South West Ethiopia,gesha,,,,,,,unmatched,0,gesha,0
+Gewata,ET110203,Kefa,South West Ethiopia,gewata,Gewata,ET070903,District,gewata,72473,96270,exact_name,0.95,Gewata,1
+Gimbo,ET110204,Kefa,South West Ethiopia,gimbo,Gimbo,ET070904,District,gimbo,89892,130328,exact_name,0.95,Gimbo,1
+Adiyio,ET110205,Kefa,South West Ethiopia,adiyio,,,,,,,unmatched,0,adiyio,0
+Tullo,ET110206,Kefa,South West Ethiopia,tullo,,,,,,,unmatched,0,tullo,0
+Cheta,ET110207,Kefa,South West Ethiopia,cheta,Cheta,ET070907,District,cheta,32619,44479,exact_name,0.95,Cheta,1
+Decha,ET110208,Kefa,South West Ethiopia,decha,Decha,ET070908,District,decha,128887,175261,exact_name,0.95,Decha,1
+Chena,ET110209,Kefa,South West Ethiopia,chena,Chena,ET070909,District,chena,158449,222310,exact_name,0.95,Chena,1
+Bita,ET110210,Kefa,South West Ethiopia,bita,Bita,ET070910,District,bita,74577,100830,exact_name,0.95,Bita,1
+Bonga town,ET110211,Kefa,South West Ethiopia,bonga,Bonga,ET070911,Town,bonga,20858,56045,normalized_name,0.85,bonga,1
+Goba (SP),ET110212,Kefa,South West Ethiopia,goba,Goba,ET041110,District,goba,40757,56978,normalized_name,0.85,goba,2
+Shisho Ande,ET110213,Kefa,South West Ethiopia,shishoande,,,,,,,unmatched,0,shishoande,0
+Wacha,ET110214,Kefa,South West Ethiopia,wacha,,,,,,,unmatched,0,wacha,0
+Sheko,ET110301,Bench Sheko,South West Ethiopia,sheko,Sheko,ET071101,District,sheko,49999,71742,exact_name,0.95,Sheko,1
+Gurafereda,ET110302,Bench Sheko,South West Ethiopia,gurafereda,,,,,,,unmatched,0,gurafereda,0
+Debub Bench,ET110303,Bench Sheko,South West Ethiopia,debubbench,Debub Bench,ET071103,District,debubbench,108299,152945,exact_name,0.95,Debub Bench,1
+Shay Bench,ET110304,Bench Sheko,South West Ethiopia,shaybench,Shay Bench,ET071104,District,shaybench,118282,160031,exact_name,0.95,Shay Bench,1
+Semen Bench,ET110305,Bench Sheko,South West Ethiopia,semenbench,Semen Bench,ET071105,District,semenbench,106490,145932,exact_name,0.95,Semen Bench,1
+Gidi Bench,ET110306,Bench Sheko,South West Ethiopia,gidibench,,,,,,,unmatched,0,gidibench,0
+Mizan Aman town,ET110307,Bench Sheko,South West Ethiopia,mizanaman,Mizan Aman,ET071107,Town,mizanaman,34080,91437,normalized_name,0.85,mizanaman,1
+Size town,ET110308,Bench Sheko,South West Ethiopia,size,,,,,,,unmatched,0,size,0
+Tocha,ET110401,Dawuro,South West Ethiopia,tocha,Tocha,ET071701,District,tocha,102848,142959,exact_name,0.95,Tocha,1
+Mareka,ET110402,Dawuro,South West Ethiopia,mareka,Mareka,ET071702,District,mareka,126022,190009,exact_name,0.95,Mareka,1
+Loma,ET110403,Dawuro,South West Ethiopia,loma,Loma,ET071703,District,loma,109192,147556,exact_name,0.95,Loma,1
+Gena,ET110404,Dawuro,South West Ethiopia,gena,,,,,,,unmatched,0,gena,0
+Isara,ET110405,Dawuro,South West Ethiopia,isara,Isara,ET071705,District,isara,64950,90093,exact_name,0.95,Isara,1
+Kachi,ET110406,Dawuro,South West Ethiopia,kachi,,,,,,,unmatched,0,kachi,0
+Tercha Zuriya,ET110407,Dawuro,South West Ethiopia,terchazuriya,,,,,,,unmatched,0,terchazuriya,0
+Mari Mansa,ET110408,Dawuro,South West Ethiopia,marimansa,,,,,,,unmatched,0,marimansa,0
+Disa,ET110409,Dawuro,South West Ethiopia,disa,,,,,,,unmatched,0,disa,0
+Zabagazo,ET110410,Dawuro,South West Ethiopia,zabagazo,,,,,,,unmatched,0,zabagazo,0
+Tercha town,ET110411,Dawuro,South West Ethiopia,tercha,,,,,,,unmatched,0,tercha,0
+Gesa town,ET110412,Dawuro,South West Ethiopia,gesa,,,,,,,unmatched,0,gesa,0
+Gachit,ET110501,Mirab Omo,South West Ethiopia,gachit,,,,,,,unmatched,0,gachit,0
+Menit Goldiye,ET110502,Mirab Omo,South West Ethiopia,menitgoldiye,,,,,,,unmatched,0,menitgoldiye,0
+Gori Gesha,ET110503,Mirab Omo,South West Ethiopia,gorigesha,,,,,,,unmatched,0,gorigesha,0
+Menit Shasha,ET110504,Mirab Omo,South West Ethiopia,menitshasha,,,,,,,unmatched,0,menitshasha,0
+Bero,ET110505,Mirab Omo,South West Ethiopia,bero,Bero,ET071805,District,bero,12256,18523,exact_name,0.95,Bero,1
+Surma,ET110506,Mirab Omo,South West Ethiopia,surma,Surma,ET071806,District,surma,24598,33264,exact_name,0.95,Surma,1
+Maji,ET110507,Mirab Omo,South West Ethiopia,maji,Maji,ET071807,District,maji,31088,47168,exact_name,0.95,Maji,1
+Konta,ET110601,Konta Special,South West Ethiopia,konta,Konta,ET071901,District,konta,90846,129665,exact_name,0.95,Konta,1
+Akobo,ET120101,Nuwer,Gambela,akobo,Akobo,ET120101,District,akobo,24674,34405,admin_code,1,ET120101,1
+Lare,ET120102,Nuwer,Gambela,lare,Lare,ET120102,District,lare,31406,50334,admin_code,1,ET120102,1
+Jikawo,ET120103,Nuwer,Gambela,jikawo,Jikawo,ET120103,District,jikawo,35556,51140,admin_code,1,ET120103,1
+Wantawo,ET120104,Nuwer,Gambela,wantawo,Wantawa,ET120104,District,wantawa,20970,31880,admin_code,1,ET120104,1
+Makuey,ET120105,Nuwer,Gambela,makuey,,,,,,,unmatched,0,makuey,0
+Gambela National Park,ET120200,Agnewak,Gambela,gambelanationalpark,Gambela National Park,ET120200,National Park,gambelanationalpark,0,0,admin_code,1,ET120200,1
+Abobo,ET120201,Agnewak,Gambela,abobo,Abobo,ET120201,District,abobo,15741,26155,admin_code,1,ET120201,1
+Gambela Zuria,ET120202,Agnewak,Gambela,gambelazuria,Gambela Zuria,ET120202,District,gambelazuria,10590,15705,admin_code,1,ET120202,1
+Gog,ET120203,Agnewak,Gambela,gog,Gog,ET120203,District,gog,16836,29373,admin_code,1,ET120203,1
+Jore,ET120204,Agnewak,Gambela,jore,Jor,ET120204,District,jor,9366,13507,admin_code,1,ET120204,1
+Dima (GM),ET120205,Agnewak,Gambela,dima,Dima,ET120205,District,dima,8001,13322,admin_code,1,ET120205,1
+Gambela town,ET120206,Agnewak,Gambela,gambela,Gambela,ET120206,Town,gambela,39022,97643,admin_code,1,ET120206,1
+Godere,ET120301,Majang,Gambela,godere,Godare,ET120301,District,godare,38781,61079,admin_code,1,ET120301,1
+Mengesh,ET120308,Majang,Gambela,mengesh,Mengesh,ET120308,District,mengesh,20467,27954,admin_code,1,ET120308,1
+Itang,ET120407,Itang Special woreda,Gambela,itang,Etang,ET120407,Special District,etang,35686,55507,admin_code,1,ET120407,1
+Sofi,ET130101,Harari,Harari,sofi,,,,,,,unmatched,0,sofi,0
+Shenkor,ET130102,Harari,Harari,shenkor,,,,,,,unmatched,0,shenkor,0
+Jinela,ET130103,Harari,Harari,jinela,,,,,,,unmatched,0,jinela,0
+Hakim,ET130104,Harari,Harari,hakim,,,,,,,unmatched,0,hakim,0
+Erer (HR),ET130105,Harari,Harari,erer,Erer,ET050104,District,erer,77628,113929,normalized_name,0.85,erer,1
+Dire Teyara,ET130106,Harari,Harari,direteyara,,,,,,,unmatched,0,direteyara,0
+Amir Nur,ET130107,Harari,Harari,amirnur,,,,,,,unmatched,0,amirnur,0
+Aboker,ET130108,Harari,Harari,aboker,,,,,,,unmatched,0,aboker,0
+Abadir,ET130109,Harari,Harari,abadir,,,,,,,unmatched,0,abadir,0
+Akaki Kality,ET140101,Region 14,Addis Ababa,akakikality,Akaki Kaliti,ET140101,Sub City,akakikaliti,181270,255348,admin_code,1,ET140101,1
+Nifas Silk Lafto,ET140102,Region 14,Addis Ababa,nifassilklafto,Nefas Silk-Lafto,ET140102,Sub City,nefassilklafto,316283,445683,admin_code,1,ET140102,1
+Kolfe Keraniyo,ET140103,Region 14,Addis Ababa,kolfekeraniyo,Kolfe Keraniyo,ET140103,Sub City,kolfekeraniyo,428895,604226,admin_code,1,ET140103,1
+Bole,ET140104,Region 14,Addis Ababa,bole,Bole,ET140104,Sub City,bole,308995,435421,admin_code,1,ET140104,1
+Lideta,ET140105,Region 14,Addis Ababa,lideta,Lideta,ET140105,Sub City,lideta,201713,284208,admin_code,1,ET140105,1
+Kirkos,ET140106,Region 14,Addis Ababa,kirkos,Kirkos,ET140106,Sub City,kirkos,221234,311765,admin_code,1,ET140106,1
+Yeka,ET140107,Region 14,Addis Ababa,yeka,Yeka,ET140107,Sub City,yeka,346664,488537,admin_code,1,ET140107,1
+Addis Ketema,ET140108,Region 14,Addis Ababa,addisketema,Addis Ketema,ET140108,Sub City,addisketema,255372,359735,admin_code,1,ET140108,1
+Arada,ET140109,Region 14,Addis Ababa,arada,Arada,ET140109,Sub City,arada,211501,298044,admin_code,1,ET140109,1
+Gulele,ET140110,Region 14,Addis Ababa,gulele,Gulele,ET140110,Sub City,gulele,267624,377032,admin_code,1,ET140110,1
+Lemi Kura,ET140111,Region 14,Addis Ababa,lemikura,,,,,,,unmatched,0,lemikura,0
+Sabian,ET150103,Dire Dawa urban,Dire Dawa,sabian,,,,,,,unmatched,0,sabian,0
+Malka Jabti /M.Jebdu),ET150104,Dire Dawa urban,Dire Dawa,malkajabtimjebdu,,,,,,,unmatched,0,malkajabtimjebdu,0
+Legehare,ET150105,Dire Dawa urban,Dire Dawa,legehare,,,,,,,unmatched,0,legehare,0
+Addis Ketema (DD),ET150109,Dire Dawa urban,Dire Dawa,addisketema,Addis Ketema,ET140108,Sub City,addisketema,255372,359735,normalized_name,0.85,addisketema,1
+Gende Kore,ET150110,Dire Dawa urban,Dire Dawa,gendekore,Dire Dawa,ET150110,Special District,diredawa,341834,535000,admin_code,1,ET150110,1
+Dechatu,ET150111,Dire Dawa urban,Dire Dawa,dechatu,,,,,,,unmatched,0,dechatu,0
+Hafat Issa,ET150112,Dire Dawa urban,Dire Dawa,hafatissa,,,,,,,unmatched,0,hafatissa,0
+Kazira,ET150113,Dire Dawa urban,Dire Dawa,kazira,,,,,,,unmatched,0,kazira,0
+Police Maret,ET150114,Dire Dawa urban,Dire Dawa,policemaret,,,,,,,unmatched,0,policemaret,0
+Aseliso,ET150201,Dire Dawa rural,Dire Dawa,aseliso,,,,,,,unmatched,0,aseliso,0
+Jeldessa,ET150206,Dire Dawa rural,Dire Dawa,jeldessa,,,,,,,unmatched,0,jeldessa,0
+Wahil,ET150207,Dire Dawa rural,Dire Dawa,wahil,,,,,,,unmatched,0,wahil,0
+Biyoawale,ET150208,Dire Dawa rural,Dire Dawa,biyoawale,,,,,,,unmatched,0,biyoawale,0
+Shebe Dino,ET160001,Sidama,Sidama,shebedino,Shebedino,ET070401,District,shebedino,233922,320639,normalized_name,0.85,shebedino,1
+Hawassa Zuria,ET160002,Sidama,Sidama,hawassazuria,Hawassa Zuria,ET070402,District,hawassazuria,124472,161914,exact_name,0.95,Hawassa Zuria,1
+Arbegona,ET160003,Sidama,Sidama,arbegona,Arbegona,ET070403,District,arbegona,135862,186021,exact_name,0.95,Arbegona,1
+Dale,ET160004,Sidama,Sidama,dale,Dale,ET070404,District,dale,242658,357733,exact_name,0.95,Dale,1
+Aleta Wendo,ET160005,Sidama,Sidama,aletawendo,Aleta Wendo,ET070405,District,aletawendo,188976,276385,exact_name,0.95,Aleta Wendo,1
+Dara,ET160006,Sidama,Sidama,dara,Dara,ET070406,District,dara,155265,216756,exact_name,0.95,Dara,1
+Hulla,ET160007,Sidama,Sidama,hulla,,,,,,,unmatched,0,hulla,0
+Bensa,ET160008,Sidama,Sidama,bensa,Bensa,ET070408,District,bensa,250727,342116,exact_name,0.95,Bensa,1
+Aroresa,ET160009,Sidama,Sidama,aroresa,Aroresa,ET070409,District,aroresa,170240,225582,exact_name,0.95,Aroresa,1
+Boricha,ET160010,Sidama,Sidama,boricha,Boricha,ET070410,District,boricha,250260,339933,exact_name,0.95,Boricha,1
+Gorche,ET160011,Sidama,Sidama,gorche,Gorche,ET070411,District,gorche,105472,141320,exact_name,0.95,Gorche,1
+Malga,ET160012,Sidama,Sidama,malga,Malga,ET070412,District,malga,109793,148377,exact_name,0.95,Malga,1
+Wonosho,ET160013,Sidama,Sidama,wonosho,,,,,,,unmatched,0,wonosho,0
+Chire,ET160014,Sidama,Sidama,chire,,,,,,,unmatched,0,chire,0
+Bursa,ET160015,Sidama,Sidama,bursa,Bursa,ET070416,District,bursa,103631,137982,exact_name,0.95,Bursa,1
+Aleta Chuko,ET160016,Sidama,Sidama,aletachuko,,,,,,,unmatched,0,aletachuko,0
+Bona Zuria,ET160017,Sidama,Sidama,bonazuria,Bona Zuria,ET070418,District,bonazuria,121236,166043,exact_name,0.95,Bona Zuria,1
+Hawasa town,ET160018,Sidama,Sidama,hawasa,,,,,,,unmatched,0,hawasa,0
+Wondo-Genet,ET160019,Sidama,Sidama,wondogenet,,,,,,,unmatched,0,wondogenet,0
+Yirgalem town,ET160020,Sidama,Sidama,yirgalem,,,,,,,unmatched,0,yirgalem,0
+Aleta Wondo town,ET160021,Sidama,Sidama,aletawondo,,,,,,,unmatched,0,aletawondo,0
+Leku town,ET160022,Sidama,Sidama,leku,,,,,,,unmatched,0,leku,0
+Hawela,ET160023,Sidama,Sidama,hawela,,,,,,,unmatched,0,hawela,0
+Bura,ET160024,Sidama,Sidama,bura,,,,,,,unmatched,0,bura,0
+Dara Otilicho,ET160025,Sidama,Sidama,daraotilicho,,,,,,,unmatched,0,daraotilicho,0
+Teticha,ET160026,Sidama,Sidama,teticha,,,,,,,unmatched,0,teticha,0
+Chirone,ET160027,Sidama,Sidama,chirone,,,,,,,unmatched,0,chirone,0
+Shafamo,ET160028,Sidama,Sidama,shafamo,,,,,,,unmatched,0,shafamo,0
+Chabe Gambeltu,ET160029,Sidama,Sidama,chabegambeltu,,,,,,,unmatched,0,chabegambeltu,0
+Daye town,ET160030,Sidama,Sidama,daye,,,,,,,unmatched,0,daye,0
+Hokko,ET160031,Sidama,Sidama,hokko,,,,,,,unmatched,0,hokko,0
+Bilate Zuria,ET160032,Sidama,Sidama,bilatezuria,,,,,,,unmatched,0,bilatezuria,0
+Darara,ET160033,Sidama,Sidama,darara,,,,,,,unmatched,0,darara,0
+Daella,ET160034,Sidama,Sidama,daella,,,,,,,unmatched,0,daella,0
+Chuko town,ET160035,Sidama,Sidama,chuko,,,,,,,unmatched,0,chuko,0
+Wondo-Genet town,ET160036,Sidama,Sidama,wondogenet,,,,,,,unmatched,0,wondogenet,0
+Loka Abaya,ET160037,Sidama,Sidama,lokaabaya,,,,,,,unmatched,0,lokaabaya,0

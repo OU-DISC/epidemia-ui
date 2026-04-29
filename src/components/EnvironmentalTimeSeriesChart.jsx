@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Plot from "react-plotly.js";
 import { fetchEnvironmentalTimeseries } from "../api";
+import {
+  parseXAxisRangeFromRelayoutEvent,
+  xAxisRangesEqual,
+} from "../utils/plotlyXAxisSync";
 
 export default function EnvironmentalTimeSeriesChart({
   selectedDistrict,
@@ -10,6 +14,8 @@ export default function EnvironmentalTimeSeriesChart({
   dataset,
   syncedHoverDate,
   onHoverDateChange,
+  syncedXRange,
+  onXRangeChange,
 }) {
   const [timeseries, setTimeseries] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -44,6 +50,28 @@ export default function EnvironmentalTimeSeriesChart({
 
     fetchTimeseries();
   }, [selectedDistrict, districtGeometry, startDate, endDate, dataset]);
+
+  const handleRelayout = useCallback(
+    (ev) => {
+      if (!onXRangeChange) return;
+      const parsed = parseXAxisRangeFromRelayoutEvent(ev);
+      if (parsed == null) return;
+      if (parsed === "autorange") {
+        onXRangeChange(null);
+        return;
+      }
+      if (xAxisRangesEqual(parsed, syncedXRange)) return;
+      onXRangeChange([parsed[0], parsed[1]]);
+    },
+    [onXRangeChange, syncedXRange]
+  );
+
+  const defaultXRange =
+    startDate && endDate ? [startDate, endDate] : null;
+  const xAxisRange =
+    syncedXRange && syncedXRange.length === 2
+      ? [syncedXRange[0], syncedXRange[1]]
+      : defaultXRange;
 
   if (!selectedDistrict) {
     return <div className="chart-state">Select a district to view time series</div>;
@@ -107,7 +135,9 @@ export default function EnvironmentalTimeSeriesChart({
           },
         ]}
         layout={{
-          uirevision: "env-chart",
+          uirevision: syncedXRange
+            ? `env-zoom-${syncedXRange[0]}-${syncedXRange[1]}`
+            : `env-${startDate}-${endDate}-${dataset}`,
           autosize: true,
           height: 320,
           margin: { l: 58, r: 18, t: 10, b: 70 },
@@ -118,7 +148,7 @@ export default function EnvironmentalTimeSeriesChart({
           xaxis: {
             title: "Date",
             tickangle: -35,
-            range: startDate && endDate ? [startDate, endDate] : undefined,
+            range: xAxisRange || undefined,
             gridcolor: "#e2e8f1",
             zeroline: false,
             tickfont: { size: 11, color: "#495367" },
@@ -156,6 +186,7 @@ export default function EnvironmentalTimeSeriesChart({
         useResizeHandler
         onHover={syncHoverDate}
         onUnhover={clearHoverDate}
+        onRelayout={handleRelayout}
       />
     </div>
   );

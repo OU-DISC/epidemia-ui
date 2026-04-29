@@ -33,18 +33,11 @@ body {
 }
 
 .dashboard-layout {
-  display: flex;
-  gap: 18px;
-  min-height: calc(100vh - 36px);
-}
-
-.control-panel {
-  width: 340px;
-  flex-shrink: 0;
+  min-height: calc(100vh - 116px);
+  margin-top: 18px;
 }
 
 .main-content {
-  flex: 1;
   min-width: 0;
 }
 
@@ -59,7 +52,7 @@ body {
 }
 
 .env-layers {
-  margin-top: 14px;
+  margin-top: 0;
 }
 
 .env-layers-date-range {
@@ -224,6 +217,7 @@ body {
   background: var(--card);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
+  width: 100%;
 }
 
 .brand-mark {
@@ -390,15 +384,65 @@ body {
   font-size: 0.82rem;
 }
 
+.map-surface-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.map-surface-control .toolbar-select {
+  min-width: 180px;
+  padding: 6px 9px;
+  font-size: 0.84rem;
+}
+
 .map-wrap {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #d0d9e6;
 }
 
+.map-layer-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(320px, 1.2fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
 .district-map {
   height: 520px;
   width: 100%;
+}
+
+/*
+ * Hide hairline “square” seams between WMTS/raster tiles (OSM, NASA GIBS).
+ * Subpixel layout + semi-transparent overlays often shows basemap in the cracks.
+ */
+.district-map .leaflet-tile-container {
+  line-height: 0;
+}
+
+.district-map .leaflet-tile-pane .leaflet-tile {
+  border: none;
+  margin: -0.5px;
+  box-shadow: none;
+}
+
+.district-map .leaflet-tile-pane img,
+.district-map .leaflet-tile-pane canvas {
+  display: block;
+  vertical-align: top;
+  border: 0;
+  outline: none;
+}
+
+/* Leaflet divIcon: remove default square so alert markers are visible */
+.leaflet-div-icon.custom-alert-marker {
+  background: transparent !important;
+  border: none !important;
 }
 
 .alert-row {
@@ -422,6 +466,25 @@ body {
 .alert-detection {
   color: var(--detect);
   background: rgba(209, 127, 34, 0.15);
+}
+
+.population-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 9px 11px;
+  border: 1px solid #d8e1ec;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.48);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.population-row strong {
+  color: var(--ink);
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
 }
 
 .chart-state {
@@ -455,6 +518,115 @@ body {
   padding: 8px;
 }
 
+.alerts-table-panel {
+  margin-top: 14px;
+  padding: 12px;
+}
+
+.panel-subtitle {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.alerts-table-sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
+.table-sort-button {
+  border: 1px solid #c9d6e5;
+  border-radius: 999px;
+  padding: 5px 9px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.table-sort-button.active {
+  border-color: rgba(15, 123, 108, 0.4);
+  color: var(--accent-strong);
+  background: rgba(15, 123, 108, 0.1);
+}
+
+.alerts-table-wrap {
+  overflow: auto;
+  border: 1px solid #d8e1ec;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.alerts-table {
+  width: 100%;
+  min-width: 1040px;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.alerts-table th,
+.alerts-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid rgba(80, 109, 150, 0.12);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.alerts-table th {
+  color: var(--ink-soft);
+  background: rgba(239, 243, 248, 0.92);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.alerts-table tbody tr {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.alerts-table tbody tr:hover {
+  background: rgba(15, 123, 108, 0.07);
+}
+
+.alerts-table tbody tr.selected {
+  background: rgba(245, 158, 11, 0.14);
+}
+
+.table-status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.table-status-warning {
+  color: var(--warn);
+  background: rgba(201, 62, 62, 0.14);
+}
+
+.table-status-detection {
+  color: var(--detect);
+  background: rgba(209, 127, 34, 0.15);
+}
+
+.table-status-normal {
+  color: var(--ink-soft);
+  background: rgba(76, 90, 112, 0.12);
+}
+
+.positive-magnitude {
+  color: var(--warn);
+  font-weight: 700;
+}
+
 .fade-in-up {
   animation: fade-in-up 520ms ease-out both;
 }
@@ -484,6 +656,10 @@ body {
   }
 
   .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-layer-controls {
     grid-template-columns: 1fr;
   }
 

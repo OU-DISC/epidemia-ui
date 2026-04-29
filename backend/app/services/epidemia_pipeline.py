@@ -19,6 +19,7 @@ from app.schemas.epidemia import (
     EpidemiaRunRequest,
     EpidemiaRunResponse,
 )
+from app.services.farrington_thresholds import farrington_thresholds_for_horizon
 
 
 @dataclass
@@ -526,9 +527,11 @@ def _species_pipeline(
 
     epi_weekly = (
         epi_data.assign(week_start=lambda d: d["obs_date"] - pd.to_timedelta(d["obs_date"].dt.weekday, unit="D"))
-        .groupby(["woreda_name", "week_start"], as_index=False)[species.case_column]
-        .sum()
-        .rename(columns={species.case_column: "cases"})
+        .groupby(["woreda_name", "week_start"], as_index=False)
+        .agg(
+            cases=(species.case_column, "sum"),
+            pop_at_risk=("pop_at_risk", "max"),
+        )
     )
 
     merged = epi_weekly.merge(env_weekly, on=["woreda_name", "week_start"], how="left")
@@ -567,18 +570,36 @@ def _species_pipeline(
 
         latest_obs = float(history.iloc[-1]) if not history.empty else None
         latest_fc = float(preds[0]) if len(preds) else None
-        baseline = float(np.nanpercentile(history.values, 75)) if len(history) else 0.0
-        warning_threshold = baseline * 1.25
+        baseline_pct = float(np.nanpercentile(history.values, 75)) if len(history) else 0.0
+        warn_pct = baseline_pct * 1.25
+
+        pop_series = None
+        if "pop_at_risk" in district_df.columns and district_df["pop_at_risk"].notna().any():
+            pop_series = district_df["pop_at_risk"].to_numpy(dtype=float)
+
+        farr = farrington_thresholds_for_horizon(
+            history.values.astype(float),
+            pop_series,
+            str(species.species),
+        )
+        if farr is not None:
+            detection_threshold, warning_threshold = farr
+        else:
+            detection_threshold, warning_threshold = baseline_pct, warn_pct
 
         alerts.append(
             DistrictAlert(
                 district=str(woreda_name),
                 species=species.species,  # type: ignore[arg-type]
-                early_detection=bool(latest_fc is not None and latest_fc > baseline),
-                early_warning=bool(latest_fc is not None and latest_fc > warning_threshold),
+                early_detection=bool(
+                    latest_fc is not None and latest_fc > detection_threshold
+                ),
+                early_warning=bool(
+                    latest_fc is not None and latest_fc > warning_threshold
+                ),
                 latest_observed=latest_obs,
                 latest_forecast=latest_fc,
-                detection_threshold=baseline,
+                detection_threshold=detection_threshold,
                 warning_threshold=warning_threshold,
             )
         )

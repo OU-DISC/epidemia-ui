@@ -1,0 +1,5189 @@
+[
+  {
+    "name": "Addis Ketema",
+    "status": "Sub City",
+    "population_census_2007": 255372,
+    "population_projection_2022": 359735,
+    "admin_code": "ET140108"
+  },
+  {
+    "name": "Akaki Kaliti",
+    "status": "Sub City",
+    "population_census_2007": 181270,
+    "population_projection_2022": 255348,
+    "admin_code": "ET140101"
+  },
+  {
+    "name": "Arada",
+    "status": "Sub City",
+    "population_census_2007": 211501,
+    "population_projection_2022": 298044,
+    "admin_code": "ET140109"
+  },
+  {
+    "name": "Bole",
+    "status": "Sub City",
+    "population_census_2007": 308995,
+    "population_projection_2022": 435421,
+    "admin_code": "ET140104"
+  },
+  {
+    "name": "Gulele",
+    "status": "Sub City",
+    "population_census_2007": 267624,
+    "population_projection_2022": 377032,
+    "admin_code": "ET140110"
+  },
+  {
+    "name": "Kirkos",
+    "status": "Sub City",
+    "population_census_2007": 221234,
+    "population_projection_2022": 311765,
+    "admin_code": "ET140106"
+  },
+  {
+    "name": "Kolfe Keraniyo",
+    "status": "Sub City",
+    "population_census_2007": 428895,
+    "population_projection_2022": 604226,
+    "admin_code": "ET140103"
+  },
+  {
+    "name": "Lideta",
+    "status": "Sub City",
+    "population_census_2007": 201713,
+    "population_projection_2022": 284208,
+    "admin_code": "ET140105"
+  },
+  {
+    "name": "Nefas Silk-Lafto",
+    "status": "Sub City",
+    "population_census_2007": 316283,
+    "population_projection_2022": 445683,
+    "admin_code": "ET140102"
+  },
+  {
+    "name": "Yeka",
+    "status": "Sub City",
+    "population_census_2007": 346664,
+    "population_projection_2022": 488537,
+    "admin_code": "ET140107"
+  },
+  {
+    "name": "Abala",
+    "status": "District",
+    "population_census_2007": 37963,
+    "population_projection_2022": 60898,
+    "admin_code": "ET020203"
+  },
+  {
+    "name": "Afambo",
+    "status": "District",
+    "population_census_2007": 24153,
+    "population_projection_2022": 32064,
+    "admin_code": "ET020104"
+  },
+  {
+    "name": "Afdem",
+    "status": "Special Census District",
+    "population_census_2007": 48020,
+    "population_projection_2022": 57033,
+    "admin_code": "ET160101"
+  },
+  {
+    "name": "Afdera",
+    "status": "District",
+    "population_census_2007": 32225,
+    "population_projection_2022": 45683,
+    "admin_code": "ET020207"
+  },
+  {
+    "name": "Amibara",
+    "status": "District",
+    "population_census_2007": 63378,
+    "population_projection_2022": 114496,
+    "admin_code": "ET020301"
+  },
+  {
+    "name": "Argoba Liyu",
+    "status": "District",
+    "population_census_2007": 21794,
+    "population_projection_2022": 30613,
+    "admin_code": "ET020306"
+  },
+  {
+    "name": "Asayita",
+    "status": "District",
+    "population_census_2007": 50803,
+    "population_projection_2022": 84161,
+    "admin_code": "ET020103"
+  },
+  {
+    "name": "Awash Fentale",
+    "status": "District",
+    "population_census_2007": 29780,
+    "population_projection_2022": 58016,
+    "admin_code": "ET020302"
+  },
+  {
+    "name": "Awra",
+    "status": "District",
+    "population_census_2007": 34604,
+    "population_projection_2022": 46494,
+    "admin_code": "ET020401"
+  },
+  {
+    "name": "Berahile",
+    "status": "District",
+    "population_census_2007": 78881,
+    "population_projection_2022": 108555,
+    "admin_code": "ET020205"
+  },
+  {
+    "name": "Bure Mudayitu",
+    "status": "District",
+    "population_census_2007": 31794,
+    "population_projection_2022": 40879,
+    "admin_code": "ET020305"
+  },
+  {
+    "name": "Chifra",
+    "status": "District",
+    "population_census_2007": 91080,
+    "population_projection_2022": 127884,
+    "admin_code": "ET020106"
+  },
+  {
+    "name": "Dalifage",
+    "status": "District",
+    "population_census_2007": 36154,
+    "population_projection_2022": 52299,
+    "admin_code": "ET020504"
+  },
+  {
+    "name": "Dalol",
+    "status": "District",
+    "population_census_2007": 83930,
+    "population_projection_2022": 110066,
+    "admin_code": "ET020206"
+  },
+  {
+    "name": "Dawe",
+    "status": "District",
+    "population_census_2007": 42397,
+    "population_projection_2022": 57117,
+    "admin_code": "ET020503"
+  },
+  {
+    "name": "Dubti",
+    "status": "District",
+    "population_census_2007": 65342,
+    "population_projection_2022": 122641,
+    "admin_code": "ET020101"
+  },
+  {
+    "name": "Dulacha",
+    "status": "District",
+    "population_census_2007": 20687,
+    "population_projection_2022": 28039,
+    "admin_code": "ET020304"
+  },
+  {
+    "name": "Elidar",
+    "status": "District",
+    "population_census_2007": 58087,
+    "population_projection_2022": 113755,
+    "admin_code": "ET020102"
+  },
+  {
+    "name": "Erebti",
+    "status": "District",
+    "population_census_2007": 34801,
+    "population_projection_2022": 45654,
+    "admin_code": "ET020201"
+  },
+  {
+    "name": "Ewa",
+    "status": "District",
+    "population_census_2007": 47203,
+    "population_projection_2022": 62178,
+    "admin_code": "ET020402"
+  },
+  {
+    "name": "Gewane",
+    "status": "District",
+    "population_census_2007": 31318,
+    "population_projection_2022": 47311,
+    "admin_code": "ET020303"
+  },
+  {
+    "name": "Golina",
+    "status": "District",
+    "population_census_2007": 49794,
+    "population_projection_2022": 68628,
+    "admin_code": "ET020405"
+  },
+  {
+    "name": "Hadele Ele",
+    "status": "District",
+    "population_census_2007": 35255,
+    "population_projection_2022": 47872,
+    "admin_code": "ET020505"
+  },
+  {
+    "name": "Kori",
+    "status": "District",
+    "population_census_2007": 30652,
+    "population_projection_2022": 39470,
+    "admin_code": "ET020108"
+  },
+  {
+    "name": "Kunoba",
+    "status": "District",
+    "population_census_2007": 54198,
+    "population_projection_2022": 73390,
+    "admin_code": "ET020202"
+  },
+  {
+    "name": "Megale",
+    "status": "District",
+    "population_census_2007": 28113,
+    "population_projection_2022": 37030,
+    "admin_code": "ET020204"
+  },
+  {
+    "name": "Mile",
+    "status": "District",
+    "population_census_2007": 90673,
+    "population_projection_2022": 133319,
+    "admin_code": "ET020105"
+  },
+  {
+    "name": "Mulo",
+    "status": "Special Census District",
+    "population_census_2007": 749,
+    "population_projection_2022": 875,
+    "admin_code": "ET160201"
+  },
+  {
+    "name": "Sumu Robi",
+    "status": "District",
+    "population_census_2007": 32023,
+    "population_projection_2022": 42355,
+    "admin_code": "ET020502"
+  },
+  {
+    "name": "Telalak",
+    "status": "District",
+    "population_census_2007": 37970,
+    "population_projection_2022": 51028,
+    "admin_code": "ET020501"
+  },
+  {
+    "name": "Teru",
+    "status": "District",
+    "population_census_2007": 67753,
+    "population_projection_2022": 89173,
+    "admin_code": "ET020403"
+  },
+  {
+    "name": "Yalo",
+    "status": "District",
+    "population_census_2007": 47468,
+    "population_projection_2022": 61934,
+    "admin_code": "ET020404"
+  },
+  {
+    "name": "Abergele",
+    "status": "District",
+    "population_census_2007": 43191,
+    "population_projection_2022": 51791,
+    "admin_code": "ET030805"
+  },
+  {
+    "name": "Adi Arkay",
+    "status": "District",
+    "population_census_2007": 93763,
+    "population_projection_2022": 123328,
+    "admin_code": "ET030101"
+  },
+  {
+    "name": "Albuko",
+    "status": "District",
+    "population_census_2007": 77167,
+    "population_projection_2022": 96179,
+    "admin_code": "ET030408"
+  },
+  {
+    "name": "Alefa",
+    "status": "District",
+    "population_census_2007": 170491,
+    "population_projection_2022": 216632,
+    "admin_code": "ET031115"
+  },
+  {
+    "name": "Ambasel",
+    "status": "District",
+    "population_census_2007": 121899,
+    "population_projection_2022": 152372,
+    "admin_code": "ET030404"
+  },
+  {
+    "name": "Aneded",
+    "status": "District",
+    "population_census_2007": 91224,
+    "population_projection_2022": 111263,
+    "admin_code": "ET030617"
+  },
+  {
+    "name": "Angolala Tera",
+    "status": "District",
+    "population_census_2007": 82349,
+    "population_projection_2022": 104671,
+    "admin_code": "ET030513"
+  },
+  {
+    "name": "Ankaska Guagusa",
+    "status": "District",
+    "population_census_2007": 199826,
+    "population_projection_2022": 256973,
+    "admin_code": "ET030903"
+  },
+  {
+    "name": "Ankober",
+    "status": "District",
+    "population_census_2007": 76510,
+    "population_projection_2022": 96367,
+    "admin_code": "ET030515"
+  },
+  {
+    "name": "Antsokiya Gemza",
+    "status": "District",
+    "population_census_2007": 79091,
+    "population_projection_2022": 108070,
+    "admin_code": "ET030507"
+  },
+  {
+    "name": "Argoba",
+    "status": "Special District",
+    "population_census_2007": 34998,
+    "population_projection_2022": 41968,
+    "admin_code": "ET030401"
+  },
+  {
+    "name": "Artuma Fursi",
+    "status": "District",
+    "population_census_2007": 82842,
+    "population_projection_2022": 105619,
+    "admin_code": "ET031004"
+  },
+  {
+    "name": "Asagirt",
+    "status": "District",
+    "population_census_2007": 48371,
+    "population_projection_2022": 59351,
+    "admin_code": "ET030514"
+  },
+  {
+    "name": "Awabel",
+    "status": "District",
+    "population_census_2007": 121588,
+    "population_projection_2022": 158301,
+    "admin_code": "ET030612"
+  },
+  {
+    "name": "Bahir Dar",
+    "status": "Town",
+    "population_census_2007": 221991,
+    "population_projection_2022": 455901,
+    "admin_code": "ET030712"
+  },
+  {
+    "name": "Bahri Dar Zuria",
+    "status": "District",
+    "population_census_2007": 182730,
+    "population_projection_2022": 219106,
+    "admin_code": "ET030702"
+  },
+  {
+    "name": "Banja Shekudad",
+    "status": "District",
+    "population_census_2007": 111975,
+    "population_projection_2022": 158003,
+    "admin_code": "ET030902"
+  },
+  {
+    "name": "Baso Liben",
+    "status": "District",
+    "population_census_2007": 138332,
+    "population_projection_2022": 172686,
+    "admin_code": "ET030611"
+  },
+  {
+    "name": "Basona Werana",
+    "status": "District",
+    "population_census_2007": 120930,
+    "population_projection_2022": 146283,
+    "admin_code": "ET030519"
+  },
+  {
+    "name": "Bati",
+    "status": "District",
+    "population_census_2007": 107387,
+    "population_projection_2022": 146317,
+    "admin_code": "ET031002"
+  },
+  {
+    "name": "Berehet",
+    "status": "District",
+    "population_census_2007": 34810,
+    "population_projection_2022": 45931,
+    "admin_code": "ET030517"
+  },
+  {
+    "name": "Beyeda",
+    "status": "District",
+    "population_census_2007": 97492,
+    "population_projection_2022": 120360,
+    "admin_code": "ET030102"
+  },
+  {
+    "name": "Bibugn",
+    "status": "District",
+    "population_census_2007": 82002,
+    "population_projection_2022": 104935,
+    "admin_code": "ET030601"
+  },
+  {
+    "name": "Bugna",
+    "status": "District",
+    "population_census_2007": 75486,
+    "population_projection_2022": 90524,
+    "admin_code": "ET030301"
+  },
+  {
+    "name": "Bure",
+    "status": "District",
+    "population_census_2007": 143132,
+    "population_projection_2022": 199053,
+    "admin_code": "ET030710"
+  },
+  {
+    "name": "Chilga",
+    "status": "District",
+    "population_census_2007": 221462,
+    "population_projection_2022": 287299,
+    "admin_code": "ET031112"
+  },
+  {
+    "name": "Dabat",
+    "status": "District",
+    "population_census_2007": 145509,
+    "population_projection_2022": 191048,
+    "admin_code": "ET030105"
+  },
+  {
+    "name": "Dangila",
+    "status": "District",
+    "population_census_2007": 158688,
+    "population_projection_2022": 218765,
+    "admin_code": "ET030901"
+  },
+  {
+    "name": "Dawa Chefa",
+    "status": "District",
+    "population_census_2007": 133388,
+    "population_projection_2022": 162982,
+    "admin_code": "ET031001"
+  },
+  {
+    "name": "Dawe Harewa",
+    "status": "District",
+    "population_census_2007": 41359,
+    "population_projection_2022": 51399,
+    "admin_code": "ET031005"
+  },
+  {
+    "name": "Dawunt",
+    "status": "District",
+    "population_census_2007": 65363,
+    "population_projection_2022": 78930,
+    "admin_code": "ET030311"
+  },
+  {
+    "name": "Debark",
+    "status": "District",
+    "population_census_2007": 159193,
+    "population_projection_2022": 212732,
+    "admin_code": "ET030104"
+  },
+  {
+    "name": "Debay Tilatgen",
+    "status": "District",
+    "population_census_2007": 128045,
+    "population_projection_2022": 158823,
+    "admin_code": "ET030607"
+  },
+  {
+    "name": "Debre Birhan",
+    "status": "Town",
+    "population_census_2007": 65231,
+    "population_projection_2022": 146918,
+    "admin_code": "ET030520"
+  },
+  {
+    "name": "Debre Elias",
+    "status": "District",
+    "population_census_2007": 82150,
+    "population_projection_2022": 106864,
+    "admin_code": "ET030608"
+  },
+  {
+    "name": "Debre Markos",
+    "status": "Town",
+    "population_census_2007": 62497,
+    "population_projection_2022": 140699,
+    "admin_code": "ET030615"
+  },
+  {
+    "name": "Debresina",
+    "status": "District",
+    "population_census_2007": 158209,
+    "population_projection_2022": 198950,
+    "admin_code": "ET030412"
+  },
+  {
+    "name": "Debre Tabor",
+    "status": "Town",
+    "population_census_2007": 55596,
+    "population_projection_2022": 125312,
+    "admin_code": "ET030210"
+  },
+  {
+    "name": "Debub Achefer",
+    "status": "District",
+    "population_census_2007": 136508,
+    "population_projection_2022": 176088,
+    "admin_code": "ET030713"
+  },
+  {
+    "name": "Dega Damot",
+    "status": "District",
+    "population_census_2007": 152343,
+    "population_projection_2022": 189806,
+    "admin_code": "ET030707"
+  },
+  {
+    "name": "Dehena",
+    "status": "District",
+    "population_census_2007": 109725,
+    "population_projection_2022": 135987,
+    "admin_code": "ET030803"
+  },
+  {
+    "name": "Dejen",
+    "status": "District",
+    "population_census_2007": 102359,
+    "population_projection_2022": 131930,
+    "admin_code": "ET030613"
+  },
+  {
+    "name": "Delanta",
+    "status": "District",
+    "population_census_2007": 127771,
+    "population_projection_2022": 161511,
+    "admin_code": "ET030406"
+  },
+  {
+    "name": "Dembecha",
+    "status": "District",
+    "population_census_2007": 129260,
+    "population_projection_2022": 173905,
+    "admin_code": "ET030708"
+  },
+  {
+    "name": "Dembia",
+    "status": "District",
+    "population_census_2007": 271053,
+    "population_projection_2022": 349512,
+    "admin_code": "ET031111"
+  },
+  {
+    "name": "Dera",
+    "status": "District",
+    "population_census_2007": 248464,
+    "population_projection_2022": 315557,
+    "admin_code": "ET030209"
+  },
+  {
+    "name": "Dese",
+    "status": "Town",
+    "population_census_2007": 151174,
+    "population_projection_2022": 307638,
+    "admin_code": "ET030418"
+  },
+  {
+    "name": "Dessie Zuria",
+    "status": "District",
+    "population_census_2007": 157679,
+    "population_projection_2022": 189114,
+    "admin_code": "ET030409"
+  },
+  {
+    "name": "Ebinat",
+    "status": "District",
+    "population_census_2007": 220177,
+    "population_projection_2022": 276611,
+    "admin_code": "ET030201"
+  },
+  {
+    "name": "Efrata Gidim",
+    "status": "District",
+    "population_census_2007": 110493,
+    "population_projection_2022": 148674,
+    "admin_code": "ET030508"
+  },
+  {
+    "name": "Enarj Enawga",
+    "status": "District",
+    "population_census_2007": 167402,
+    "population_projection_2022": 215080,
+    "admin_code": "ET030605"
+  },
+  {
+    "name": "Enebse Sar Midir",
+    "status": "District",
+    "population_census_2007": 133855,
+    "population_projection_2022": 173450,
+    "admin_code": "ET030604"
+  },
+  {
+    "name": "Enemay",
+    "status": "District",
+    "population_census_2007": 165292,
+    "population_projection_2022": 218116,
+    "admin_code": "ET030606"
+  },
+  {
+    "name": "Ensaro",
+    "status": "District",
+    "population_census_2007": 58203,
+    "population_projection_2022": 73111,
+    "admin_code": "ET030503"
+  },
+  {
+    "name": "Fagita Lekoma",
+    "status": "District",
+    "population_census_2007": 126367,
+    "population_projection_2022": 160936,
+    "admin_code": "ET030905"
+  },
+  {
+    "name": "Farta",
+    "status": "District",
+    "population_census_2007": 232181,
+    "population_projection_2022": 285572,
+    "admin_code": "ET030204"
+  },
+  {
+    "name": "Finote Selam",
+    "status": "Town",
+    "population_census_2007": 25913,
+    "population_projection_2022": 58429,
+    "admin_code": "ET030714"
+  },
+  {
+    "name": "Fogera",
+    "status": "District",
+    "population_census_2007": 228449,
+    "population_projection_2022": 300473,
+    "admin_code": "ET030203"
+  },
+  {
+    "name": "Gazgibla",
+    "status": "District",
+    "population_census_2007": 70854,
+    "population_projection_2022": 84969,
+    "admin_code": "ET030804"
+  },
+  {
+    "name": "Gidan",
+    "status": "District",
+    "population_census_2007": 158428,
+    "population_projection_2022": 198127,
+    "admin_code": "ET030303"
+  },
+  {
+    "name": "Gishe",
+    "status": "District",
+    "population_census_2007": 61521,
+    "population_projection_2022": 76718,
+    "admin_code": "ET030506"
+  },
+  {
+    "name": "Goncha",
+    "status": "District",
+    "population_census_2007": 106688,
+    "population_projection_2022": 132438,
+    "admin_code": "ET030718"
+  },
+  {
+    "name": "Goncha Siso Enese",
+    "status": "District",
+    "population_census_2007": 149646,
+    "population_projection_2022": 187581,
+    "admin_code": "ET030603"
+  },
+  {
+    "name": "Gondar",
+    "status": "Town",
+    "population_census_2007": 207044,
+    "population_projection_2022": 465973,
+    "admin_code": "ET031118"
+  },
+  {
+    "name": "Gondar Zuria",
+    "status": "District",
+    "population_census_2007": 191394,
+    "population_projection_2022": 248807,
+    "admin_code": "ET031110"
+  },
+  {
+    "name": "Gozamin",
+    "status": "District",
+    "population_census_2007": 132883,
+    "population_projection_2022": 162070,
+    "admin_code": "ET030610"
+  },
+  {
+    "name": "Guagusa Shikudad",
+    "status": "District",
+    "population_census_2007": 83930,
+    "population_projection_2022": 110187,
+    "admin_code": "ET030907"
+  },
+  {
+    "name": "Guangua",
+    "status": "District",
+    "population_census_2007": 223066,
+    "population_projection_2022": 300682,
+    "admin_code": "ET030904"
+  },
+  {
+    "name": "Gubalafto",
+    "status": "District",
+    "population_census_2007": 139825,
+    "population_projection_2022": 172818,
+    "admin_code": "ET030307"
+  },
+  {
+    "name": "Habru",
+    "status": "District",
+    "population_census_2007": 192742,
+    "population_projection_2022": 253895,
+    "admin_code": "ET030308"
+  },
+  {
+    "name": "Hagere Mariam Kesem",
+    "status": "District",
+    "population_census_2007": 55235,
+    "population_projection_2022": 68537,
+    "admin_code": "ET030516"
+  },
+  {
+    "name": "Hulet Ej Enese",
+    "status": "District",
+    "population_census_2007": 275638,
+    "population_projection_2022": 362868,
+    "admin_code": "ET030602"
+  },
+  {
+    "name": "Jabi Tehnan",
+    "status": "District",
+    "population_census_2007": 179342,
+    "population_projection_2022": 228351,
+    "admin_code": "ET030709"
+  },
+  {
+    "name": "Jama",
+    "status": "District",
+    "population_census_2007": 126879,
+    "population_projection_2022": 158515,
+    "admin_code": "ET030414"
+  },
+  {
+    "name": "Janamora",
+    "status": "District",
+    "population_census_2007": 167757,
+    "population_projection_2022": 206459,
+    "admin_code": "ET030103"
+  },
+  {
+    "name": "Jawi",
+    "status": "District",
+    "population_census_2007": 79090,
+    "population_projection_2022": 102969,
+    "admin_code": "ET030906"
+  },
+  {
+    "name": "Jile Timuga",
+    "status": "District",
+    "population_census_2007": 72882,
+    "population_projection_2022": 92761,
+    "admin_code": "ET031003"
+  },
+  {
+    "name": "Kalu",
+    "status": "District",
+    "population_census_2007": 186181,
+    "population_projection_2022": 244153,
+    "admin_code": "ET030407"
+  },
+  {
+    "name": "Kelela",
+    "status": "District",
+    "population_census_2007": 136545,
+    "population_projection_2022": 171806,
+    "admin_code": "ET030413"
+  },
+  {
+    "name": "Kemisie",
+    "status": "Town",
+    "population_census_2007": 19420,
+    "population_projection_2022": 43791,
+    "admin_code": "ET031006"
+  },
+  {
+    "name": "Kewet",
+    "status": "District",
+    "population_census_2007": 118381,
+    "population_projection_2022": 160500,
+    "admin_code": "ET030512"
+  },
+  {
+    "name": "Kobo",
+    "status": "District",
+    "population_census_2007": 221958,
+    "population_projection_2022": 301102,
+    "admin_code": "ET030302"
+  },
+  {
+    "name": "Kombolcha",
+    "status": "Town",
+    "population_census_2007": 85367,
+    "population_projection_2022": 164140,
+    "admin_code": "ET030417"
+  },
+  {
+    "name": "Kutaber",
+    "status": "District",
+    "population_census_2007": 95410,
+    "population_projection_2022": 119638,
+    "admin_code": "ET030403"
+  },
+  {
+    "name": "Lasta",
+    "status": "District",
+    "population_census_2007": 117777,
+    "population_projection_2022": 159484,
+    "admin_code": "ET030310"
+  },
+  {
+    "name": "Lay Armachoho",
+    "status": "District",
+    "population_census_2007": 157836,
+    "population_projection_2022": 202384,
+    "admin_code": "ET031108"
+  },
+  {
+    "name": "Lay Gayint",
+    "status": "District",
+    "population_census_2007": 206499,
+    "population_projection_2022": 271644,
+    "admin_code": "ET030205"
+  },
+  {
+    "name": "Legahida",
+    "status": "District",
+    "population_census_2007": 67138,
+    "population_projection_2022": 82680,
+    "admin_code": "ET030420"
+  },
+  {
+    "name": "Legambo",
+    "status": "District",
+    "population_census_2007": 165026,
+    "population_projection_2022": 205653,
+    "admin_code": "ET030410"
+  },
+  {
+    "name": "Libo Kemkem",
+    "status": "District",
+    "population_census_2007": 198435,
+    "population_projection_2022": 261205,
+    "admin_code": "ET030202"
+  },
+  {
+    "name": "Machakel",
+    "status": "District",
+    "population_census_2007": 118097,
+    "population_projection_2022": 150844,
+    "admin_code": "ET030609"
+  },
+  {
+    "name": "Mecha",
+    "status": "District",
+    "population_census_2007": 292080,
+    "population_projection_2022": 374196,
+    "admin_code": "ET030704"
+  },
+  {
+    "name": "Mehal Saynt",
+    "status": "District",
+    "population_census_2007": 73432,
+    "population_projection_2022": 88069,
+    "admin_code": "ET030419"
+  },
+  {
+    "name": "Mekdela",
+    "status": "District",
+    "population_census_2007": 142654,
+    "population_projection_2022": 176471,
+    "admin_code": "ET030421"
+  },
+  {
+    "name": "Meket",
+    "status": "District",
+    "population_census_2007": 226644,
+    "population_projection_2022": 284157,
+    "admin_code": "ET030304"
+  },
+  {
+    "name": "Menz Gera Midir",
+    "status": "District",
+    "population_census_2007": 120469,
+    "population_projection_2022": 156127,
+    "admin_code": "ET030505"
+  },
+  {
+    "name": "Menz Keya Gebreal",
+    "status": "District",
+    "population_census_2007": 46219,
+    "population_projection_2022": 58197,
+    "admin_code": "ET030521"
+  },
+  {
+    "name": "Menz Lalo Midir",
+    "status": "District",
+    "population_census_2007": 17308,
+    "population_projection_2022": 20757,
+    "admin_code": "ET030522"
+  },
+  {
+    "name": "Menz Mama Midir",
+    "status": "District",
+    "population_census_2007": 85129,
+    "population_projection_2022": 108954,
+    "admin_code": "ET030509"
+  },
+  {
+    "name": "Merab Armachoho",
+    "status": "District",
+    "population_census_2007": 31730,
+    "population_projection_2022": 54023,
+    "admin_code": "ET031206"
+  },
+  {
+    "name": "Merab Belsa",
+    "status": "District",
+    "population_census_2007": 142791,
+    "population_projection_2022": 179286,
+    "admin_code": "ET031116"
+  },
+  {
+    "name": "Merab Este",
+    "status": "District",
+    "population_census_2007": 120885,
+    "population_projection_2022": 147261,
+    "admin_code": "ET030211"
+  },
+  {
+    "name": "Merhabete",
+    "status": "District",
+    "population_census_2007": 126501,
+    "population_projection_2022": 165514,
+    "admin_code": "ET030502"
+  },
+  {
+    "name": "Metema",
+    "status": "District",
+    "population_census_2007": 110252,
+    "population_projection_2022": 163546,
+    "admin_code": "ET031213"
+  },
+  {
+    "name": "Mida Woremo",
+    "status": "District",
+    "population_census_2007": 93729,
+    "population_projection_2022": 119819,
+    "admin_code": "ET030501"
+  },
+  {
+    "name": "Minjar Shenkora",
+    "status": "District",
+    "population_census_2007": 128879,
+    "population_projection_2022": 167418,
+    "admin_code": "ET030518"
+  },
+  {
+    "name": "Misrak Belesa",
+    "status": "District",
+    "population_census_2007": 97838,
+    "population_projection_2022": 131048,
+    "admin_code": "ET031117"
+  },
+  {
+    "name": "Misrak Este",
+    "status": "District",
+    "population_census_2007": 210825,
+    "population_projection_2022": 267478,
+    "admin_code": "ET030208"
+  },
+  {
+    "name": "Mojana Waderea",
+    "status": "District",
+    "population_census_2007": 69667,
+    "population_projection_2022": 86153,
+    "admin_code": "ET030511"
+  },
+  {
+    "name": "Moretna Jiru",
+    "status": "District",
+    "population_census_2007": 92937,
+    "population_projection_2022": 120945,
+    "admin_code": "ET030504"
+  },
+  {
+    "name": "Quara",
+    "status": "District",
+    "population_census_2007": 94106,
+    "population_projection_2022": 117806,
+    "admin_code": "ET031214"
+  },
+  {
+    "name": "Quarit",
+    "status": "District",
+    "population_census_2007": 114771,
+    "population_projection_2022": 142675,
+    "admin_code": "ET030706"
+  },
+  {
+    "name": "Saya Debirna Wayu",
+    "status": "District",
+    "population_census_2007": 61046,
+    "population_projection_2022": 77962,
+    "admin_code": "ET030523"
+  },
+  {
+    "name": "Sayint",
+    "status": "District",
+    "population_census_2007": 144972,
+    "population_projection_2022": 179650,
+    "admin_code": "ET030411"
+  },
+  {
+    "name": "Sehala",
+    "status": "District",
+    "population_census_2007": 23688,
+    "population_projection_2022": 28404,
+    "admin_code": "ET030806"
+  },
+  {
+    "name": "Sekela",
+    "status": "District",
+    "population_census_2007": 138691,
+    "population_projection_2022": 173483,
+    "admin_code": "ET030705"
+  },
+  {
+    "name": "Sekota",
+    "status": "District",
+    "population_census_2007": 112396,
+    "population_projection_2022": 134790,
+    "admin_code": "ET030802"
+  },
+  {
+    "name": "Sekota",
+    "status": "Town",
+    "population_census_2007": 22346,
+    "population_projection_2022": 50316,
+    "admin_code": "ET030807"
+  },
+  {
+    "name": "Semen Achefer",
+    "status": "District",
+    "population_census_2007": 189716,
+    "population_projection_2022": 243901,
+    "admin_code": "ET030701"
+  },
+  {
+    "name": "Shebel Berenta",
+    "status": "District",
+    "population_census_2007": 103988,
+    "population_projection_2022": 129173,
+    "admin_code": "ET030614"
+  },
+  {
+    "name": "Simada",
+    "status": "District",
+    "population_census_2007": 228271,
+    "population_projection_2022": 284623,
+    "admin_code": "ET030207"
+  },
+  {
+    "name": "Sinan",
+    "status": "District",
+    "population_census_2007": 98939,
+    "population_projection_2022": 123465,
+    "admin_code": "ET030616"
+  },
+  {
+    "name": "Tach Armachoho",
+    "status": "District",
+    "population_census_2007": 89115,
+    "population_projection_2022": 119718,
+    "admin_code": "ET031120"
+  },
+  {
+    "name": "Tach Gayint",
+    "status": "District",
+    "population_census_2007": 101956,
+    "population_projection_2022": 130677,
+    "admin_code": "ET030206"
+  },
+  {
+    "name": "Takusa",
+    "status": "District",
+    "population_census_2007": 129097,
+    "population_projection_2022": 162235,
+    "admin_code": "ET031121"
+  },
+  {
+    "name": "Tarma Ber",
+    "status": "District",
+    "population_census_2007": 84481,
+    "population_projection_2022": 112131,
+    "admin_code": "ET030510"
+  },
+  {
+    "name": "Tegede",
+    "status": "District",
+    "population_census_2007": 73898,
+    "population_projection_2022": 94243,
+    "admin_code": "ET031107"
+  },
+  {
+    "name": "Tehuledere",
+    "status": "District",
+    "population_census_2007": 117877,
+    "population_projection_2022": 156926,
+    "admin_code": "ET030405"
+  },
+  {
+    "name": "Tenta",
+    "status": "District",
+    "population_census_2007": 166239,
+    "population_projection_2022": 208842,
+    "admin_code": "ET030402"
+  },
+  {
+    "name": "Tselemet",
+    "status": "District",
+    "population_census_2007": 57241,
+    "population_projection_2022": 68645,
+    "admin_code": "ET030119"
+  },
+  {
+    "name": "Wadla",
+    "status": "District",
+    "population_census_2007": 128170,
+    "population_projection_2022": 158196,
+    "admin_code": "ET030305"
+  },
+  {
+    "name": "Wegera",
+    "status": "District",
+    "population_census_2007": 220566,
+    "population_projection_2022": 284029,
+    "admin_code": "ET031109"
+  },
+  {
+    "name": "Wegidi",
+    "status": "District",
+    "population_census_2007": 135240,
+    "population_projection_2022": 166961,
+    "admin_code": "ET030416"
+  },
+  {
+    "name": "Weldiya",
+    "status": "Town",
+    "population_census_2007": 46139,
+    "population_projection_2022": 104005,
+    "admin_code": "ET030309"
+  },
+  {
+    "name": "Werebabu",
+    "status": "District",
+    "population_census_2007": 100530,
+    "population_projection_2022": 127642,
+    "admin_code": "ET030422"
+  },
+  {
+    "name": "Were Ilu",
+    "status": "District",
+    "population_census_2007": 109244,
+    "population_projection_2022": 143105,
+    "admin_code": "ET030415"
+  },
+  {
+    "name": "Wonberma",
+    "status": "District",
+    "population_census_2007": 100570,
+    "population_projection_2022": 131765,
+    "admin_code": "ET030711"
+  },
+  {
+    "name": "Yilmana Densa",
+    "status": "District",
+    "population_census_2007": 214852,
+    "population_projection_2022": 277897,
+    "admin_code": "ET030703"
+  },
+  {
+    "name": "Ziquala",
+    "status": "District",
+    "population_census_2007": 44013,
+    "population_projection_2022": 56353,
+    "admin_code": "ET030801"
+  },
+  {
+    "name": "Agelo Meti",
+    "status": "District",
+    "population_census_2007": 22774,
+    "population_projection_2022": 33828,
+    "admin_code": "ET060404"
+  },
+  {
+    "name": "Asossa",
+    "status": "District",
+    "population_census_2007": 104147,
+    "population_projection_2022": 177292,
+    "admin_code": "ET060303"
+  },
+  {
+    "name": "Bambasi",
+    "status": "District",
+    "population_census_2007": 48694,
+    "population_projection_2022": 79558,
+    "admin_code": "ET060305"
+  },
+  {
+    "name": "Belo Jegonfoy",
+    "status": "District",
+    "population_census_2007": 30143,
+    "population_projection_2022": 44798,
+    "admin_code": "ET060405"
+  },
+  {
+    "name": "Bulen",
+    "status": "District",
+    "population_census_2007": 45523,
+    "population_projection_2022": 71280,
+    "admin_code": "ET060207"
+  },
+  {
+    "name": "Dangur",
+    "status": "District",
+    "population_census_2007": 48537,
+    "population_projection_2022": 78133,
+    "admin_code": "ET060201"
+  },
+  {
+    "name": "Dibate",
+    "status": "District",
+    "population_census_2007": 66654,
+    "population_projection_2022": 101051,
+    "admin_code": "ET060205"
+  },
+  {
+    "name": "Guba",
+    "status": "District",
+    "population_census_2007": 14907,
+    "population_projection_2022": 23648,
+    "admin_code": "ET060202"
+  },
+  {
+    "name": "Homesha",
+    "status": "District",
+    "population_census_2007": 21744,
+    "population_projection_2022": 30603,
+    "admin_code": "ET060307"
+  },
+  {
+    "name": "Kemashi",
+    "status": "District",
+    "population_census_2007": 17883,
+    "population_projection_2022": 33139,
+    "admin_code": "ET060403"
+  },
+  {
+    "name": "Kurmuk",
+    "status": "District",
+    "population_census_2007": 16734,
+    "population_projection_2022": 23368,
+    "admin_code": "ET060302"
+  },
+  {
+    "name": "Mandura",
+    "status": "District",
+    "population_census_2007": 40746,
+    "population_projection_2022": 66361,
+    "admin_code": "ET060204"
+  },
+  {
+    "name": "Mao Komo",
+    "status": "Special District",
+    "population_census_2007": 50061,
+    "population_projection_2022": 72575,
+    "admin_code": "ET060508"
+  },
+  {
+    "name": "Menge",
+    "status": "District",
+    "population_census_2007": 40240,
+    "population_projection_2022": 55843,
+    "admin_code": "ET060301"
+  },
+  {
+    "name": "Odabuldi-Guli",
+    "status": "District",
+    "population_census_2007": 54584,
+    "population_projection_2022": 78305,
+    "admin_code": "ET060306"
+  },
+  {
+    "name": "Pawe",
+    "status": "Special District",
+    "population_census_2007": 45552,
+    "population_projection_2022": 76744,
+    "admin_code": "ET060206"
+  },
+  {
+    "name": "Sherkole",
+    "status": "District",
+    "population_census_2007": 24679,
+    "population_projection_2022": 34598,
+    "admin_code": "ET060304"
+  },
+  {
+    "name": "Sirba Abay",
+    "status": "District",
+    "population_census_2007": 17996,
+    "population_projection_2022": 28397,
+    "admin_code": "ET060402"
+  },
+  {
+    "name": "Wenbera",
+    "status": "District",
+    "population_census_2007": 60000,
+    "population_projection_2022": 89152,
+    "admin_code": "ET060203"
+  },
+  {
+    "name": "Yaso",
+    "status": "District",
+    "population_census_2007": 12747,
+    "population_projection_2022": 19327,
+    "admin_code": "ET060401"
+  },
+  {
+    "name": "Dire Dawa",
+    "status": "Special District",
+    "population_census_2007": 341834,
+    "population_projection_2022": 535000,
+    "admin_code": "ET150110"
+  },
+  {
+    "name": "Abobo",
+    "status": "District",
+    "population_census_2007": 15741,
+    "population_projection_2022": 26155,
+    "admin_code": "ET120201"
+  },
+  {
+    "name": "Akobo",
+    "status": "District",
+    "population_census_2007": 24674,
+    "population_projection_2022": 34405,
+    "admin_code": "ET120101"
+  },
+  {
+    "name": "Dima",
+    "status": "District",
+    "population_census_2007": 8001,
+    "population_projection_2022": 13322,
+    "admin_code": "ET120205"
+  },
+  {
+    "name": "Etang",
+    "status": "Special District",
+    "population_census_2007": 35686,
+    "population_projection_2022": 55507,
+    "admin_code": "ET120407"
+  },
+  {
+    "name": "Gambela",
+    "status": "Town",
+    "population_census_2007": 39022,
+    "population_projection_2022": 97643,
+    "admin_code": "ET120206"
+  },
+  {
+    "name": "Gambela National Park",
+    "status": "National Park",
+    "population_census_2007": 0,
+    "population_projection_2022": 0,
+    "admin_code": "ET120200"
+  },
+  {
+    "name": "Gambela Zuria",
+    "status": "District",
+    "population_census_2007": 10590,
+    "population_projection_2022": 15705,
+    "admin_code": "ET120202"
+  },
+  {
+    "name": "Godare",
+    "status": "District",
+    "population_census_2007": 38781,
+    "population_projection_2022": 61079,
+    "admin_code": "ET120301"
+  },
+  {
+    "name": "Gog",
+    "status": "District",
+    "population_census_2007": 16836,
+    "population_projection_2022": 29373,
+    "admin_code": "ET120203"
+  },
+  {
+    "name": "Jikawo",
+    "status": "District",
+    "population_census_2007": 35556,
+    "population_projection_2022": 51140,
+    "admin_code": "ET120103"
+  },
+  {
+    "name": "Jor",
+    "status": "District",
+    "population_census_2007": 9366,
+    "population_projection_2022": 13507,
+    "admin_code": "ET120204"
+  },
+  {
+    "name": "Lare",
+    "status": "District",
+    "population_census_2007": 31406,
+    "population_projection_2022": 50334,
+    "admin_code": "ET120102"
+  },
+  {
+    "name": "Mengesh",
+    "status": "District",
+    "population_census_2007": 20467,
+    "population_projection_2022": 27954,
+    "admin_code": "ET120308"
+  },
+  {
+    "name": "Wantawa",
+    "status": "District",
+    "population_census_2007": 20970,
+    "population_projection_2022": 31880,
+    "admin_code": "ET120104"
+  },
+  {
+    "name": "Abaya",
+    "status": "District",
+    "population_census_2007": 103348,
+    "population_projection_2022": 147573,
+    "admin_code": "ET041513"
+  },
+  {
+    "name": "Abe Dongoro",
+    "status": "District",
+    "population_census_2007": 67017,
+    "population_projection_2022": 95389,
+    "admin_code": "ET041910"
+  },
+  {
+    "name": "Abey Chomen",
+    "status": "District",
+    "population_census_2007": 48316,
+    "population_projection_2022": 73919,
+    "admin_code": "ET041905"
+  },
+  {
+    "name": "Abichuna Gnaa",
+    "status": "District",
+    "population_census_2007": 74376,
+    "population_projection_2022": 107403,
+    "admin_code": "ET040609"
+  },
+  {
+    "name": "Abuna Gindeberet",
+    "status": "District",
+    "population_census_2007": 109275,
+    "population_projection_2022": 154618,
+    "admin_code": "ET040516"
+  },
+  {
+    "name": "Ada'a",
+    "status": "District",
+    "population_census_2007": 130321,
+    "population_projection_2022": 182162,
+    "admin_code": "ET040706"
+  },
+  {
+    "name": "Adaba",
+    "status": "District",
+    "population_census_2007": 138717,
+    "population_projection_2022": 202124,
+    "admin_code": "ET041710"
+  },
+  {
+    "name": "Ada Berga",
+    "status": "District",
+    "population_census_2007": 120654,
+    "population_projection_2022": 179471,
+    "admin_code": "ET040513"
+  },
+  {
+    "name": "Adama",
+    "status": "District",
+    "population_census_2007": 155349,
+    "population_projection_2022": 234986,
+    "admin_code": "ET040703"
+  },
+  {
+    "name": "Adama",
+    "status": "Special District",
+    "population_census_2007": 220212,
+    "population_projection_2022": 456868,
+    "admin_code": "ET040714"
+  },
+  {
+    "name": "Adami Tulu Jido Kombolcha",
+    "status": "District",
+    "population_census_2007": 141405,
+    "population_projection_2022": 211827,
+    "admin_code": "ET040708"
+  },
+  {
+    "name": "Adola",
+    "status": "District",
+    "population_census_2007": 110034,
+    "population_projection_2022": 153822,
+    "admin_code": "ET041403"
+  },
+  {
+    "name": "Adola",
+    "status": "Town",
+    "population_census_2007": 22938,
+    "population_projection_2022": 47573,
+    "admin_code": "ET041492"
+  },
+  {
+    "name": "Agarfa",
+    "status": "District",
+    "population_census_2007": 102110,
+    "population_projection_2022": 151469,
+    "admin_code": "ET041104"
+  },
+  {
+    "name": "Agaro",
+    "status": "Town",
+    "population_census_2007": 25458,
+    "population_projection_2022": 52802,
+    "admin_code": "ET040417"
+  },
+  {
+    "name": "Akaki",
+    "status": "District",
+    "population_census_2007": 77836,
+    "population_projection_2022": 113316,
+    "admin_code": "ET042012"
+  },
+  {
+    "name": "Ale",
+    "status": "District",
+    "population_census_2007": 64266,
+    "population_projection_2022": 95968,
+    "admin_code": "ET040311"
+  },
+  {
+    "name": "Aleltu",
+    "status": "District",
+    "population_census_2007": 53414,
+    "population_projection_2022": 77280,
+    "admin_code": "ET040617"
+  },
+  {
+    "name": "Alge Sachi",
+    "status": "District",
+    "population_census_2007": 76611,
+    "population_projection_2022": 112084,
+    "admin_code": "ET040302"
+  },
+  {
+    "name": "Ambo",
+    "status": "Town",
+    "population_census_2007": 48171,
+    "population_projection_2022": 99905,
+    "admin_code": "ET040515"
+  },
+  {
+    "name": "Ambo Zuria",
+    "status": "District",
+    "population_census_2007": 108406,
+    "population_projection_2022": 152143,
+    "admin_code": "ET040503"
+  },
+  {
+    "name": "Ameya",
+    "status": "District",
+    "population_census_2007": 122056,
+    "population_projection_2022": 174866,
+    "admin_code": "ET041301"
+  },
+  {
+    "name": "Amigna",
+    "status": "District",
+    "population_census_2007": 73245,
+    "population_projection_2022": 106743,
+    "admin_code": "ET040810"
+  },
+  {
+    "name": "Amuru",
+    "status": "District",
+    "population_census_2007": 52633,
+    "population_projection_2022": 76895,
+    "admin_code": "ET041909"
+  },
+  {
+    "name": "Anchar",
+    "status": "District",
+    "population_census_2007": 81646,
+    "population_projection_2022": 118516,
+    "admin_code": "ET040906"
+  },
+  {
+    "name": "Anfilo",
+    "status": "District",
+    "population_census_2007": 77156,
+    "population_projection_2022": 113163,
+    "admin_code": "ET041807"
+  },
+  {
+    "name": "Arero",
+    "status": "District",
+    "population_census_2007": 48126,
+    "population_projection_2022": 69309,
+    "admin_code": "ET041208"
+  },
+  {
+    "name": "Arsi Negele",
+    "status": "District",
+    "population_census_2007": 260129,
+    "population_projection_2022": 398551,
+    "admin_code": "ET041703"
+  },
+  {
+    "name": "Aseko",
+    "status": "District",
+    "population_census_2007": 84112,
+    "population_projection_2022": 120283,
+    "admin_code": "ET040802"
+  },
+  {
+    "name": "Asela",
+    "status": "Town",
+    "population_census_2007": 67269,
+    "population_projection_2022": 139537,
+    "admin_code": "ET040825"
+  },
+  {
+    "name": "Ayira",
+    "status": "District",
+    "population_census_2007": 47537,
+    "population_projection_2022": 70574,
+    "admin_code": "ET040107"
+  },
+  {
+    "name": "Babile",
+    "status": "District",
+    "population_census_2007": 93708,
+    "population_projection_2022": 142988,
+    "admin_code": "ET041004"
+  },
+  {
+    "name": "Babo Gambel",
+    "status": "District",
+    "population_census_2007": 60513,
+    "population_projection_2022": 87107,
+    "admin_code": "ET040111"
+  },
+  {
+    "name": "Bako Tibe",
+    "status": "District",
+    "population_census_2007": 123031,
+    "population_projection_2022": 187456,
+    "admin_code": "ET040506"
+  },
+  {
+    "name": "Bale Gasegar",
+    "status": "District",
+    "population_census_2007": 73952,
+    "population_projection_2022": 107393,
+    "admin_code": "ET040823"
+  },
+  {
+    "name": "Becho",
+    "status": "District",
+    "population_census_2007": 74016,
+    "population_projection_2022": 113264,
+    "admin_code": "ET041309"
+  },
+  {
+    "name": "Bedele",
+    "status": "Town",
+    "population_census_2007": 19517,
+    "population_projection_2022": 40483,
+    "admin_code": "ET041621"
+  },
+  {
+    "name": "Bedele Zuria",
+    "status": "Town",
+    "population_census_2007": 77687,
+    "population_projection_2022": 108613,
+    "admin_code": "ET041622"
+  },
+  {
+    "name": "Bedeno",
+    "status": "District",
+    "population_census_2007": 238966,
+    "population_projection_2022": 340232,
+    "admin_code": "ET041013"
+  },
+  {
+    "name": "Bedesa",
+    "status": "Town",
+    "population_census_2007": 18187,
+    "population_projection_2022": 37706,
+    "admin_code": "ET040914"
+  },
+  {
+    "name": "Begi",
+    "status": "District",
+    "population_census_2007": 119722,
+    "population_projection_2022": 172724,
+    "admin_code": "ET040116"
+  },
+  {
+    "name": "Berbere",
+    "status": "District",
+    "population_census_2007": 90642,
+    "population_projection_2022": 130527,
+    "admin_code": "ET041114"
+  },
+  {
+    "name": "Bereh",
+    "status": "District",
+    "population_census_2007": 80808,
+    "population_projection_2022": 112967,
+    "admin_code": "ET042011"
+  },
+  {
+    "name": "Bicho",
+    "status": "District",
+    "population_census_2007": 24947,
+    "population_projection_2022": 35928,
+    "admin_code": "ET040314"
+  },
+  {
+    "name": "Bilo Nopha",
+    "status": "District",
+    "population_census_2007": 28810,
+    "population_projection_2022": 41635,
+    "admin_code": "ET040315"
+  },
+  {
+    "name": "Bishoftu",
+    "status": "Town",
+    "population_census_2007": 99928,
+    "population_projection_2022": 207383,
+    "admin_code": "ET040709"
+  },
+  {
+    "name": "Boji Chekorsa",
+    "status": "District",
+    "population_census_2007": 48871,
+    "population_projection_2022": 69328,
+    "admin_code": "ET040110"
+  },
+  {
+    "name": "Boji Dirmeji",
+    "status": "District",
+    "population_census_2007": 42813,
+    "population_projection_2022": 64797,
+    "admin_code": "ET040106"
+  },
+  {
+    "name": "Boke",
+    "status": "District",
+    "population_census_2007": 151156,
+    "population_projection_2022": 215830,
+    "admin_code": "ET040910"
+  },
+  {
+    "name": "Boneya Bushe",
+    "status": "District",
+    "population_census_2007": 47886,
+    "population_projection_2022": 68789,
+    "admin_code": "ET040205"
+  },
+  {
+    "name": "Bora",
+    "status": "District",
+    "population_census_2007": 58748,
+    "population_projection_2022": 89828,
+    "admin_code": "ET040710"
+  },
+  {
+    "name": "Bore",
+    "status": "District",
+    "population_census_2007": 210179,
+    "population_projection_2022": 300766,
+    "admin_code": "ET041402"
+  },
+  {
+    "name": "Borecha",
+    "status": "District",
+    "population_census_2007": 73708,
+    "population_projection_2022": 104883,
+    "admin_code": "ET041607"
+  },
+  {
+    "name": "Boset",
+    "status": "District",
+    "population_census_2007": 142112,
+    "population_projection_2022": 216576,
+    "admin_code": "ET040702"
+  },
+  {
+    "name": "Bule Hora",
+    "status": "District",
+    "population_census_2007": 264489,
+    "population_projection_2022": 393573,
+    "admin_code": "ET041501"
+  },
+  {
+    "name": "Burayu",
+    "status": "Special District",
+    "population_census_2007": 63889,
+    "population_projection_2022": 122397,
+    "admin_code": "ET042001"
+  },
+  {
+    "name": "Bure",
+    "status": "District",
+    "population_census_2007": 50841,
+    "population_projection_2022": 74786,
+    "admin_code": "ET040312"
+  },
+  {
+    "name": "Cheliya",
+    "status": "District",
+    "population_census_2007": 156962,
+    "population_projection_2022": 234814,
+    "admin_code": "ET040505"
+  },
+  {
+    "name": "Chewaka",
+    "status": "District",
+    "population_census_2007": 56106,
+    "population_projection_2022": 79127,
+    "admin_code": "ET041623"
+  },
+  {
+    "name": "Chinaksan",
+    "status": "District",
+    "population_census_2007": 87063,
+    "population_projection_2022": 129986,
+    "admin_code": "ET041015"
+  },
+  {
+    "name": "Chiro",
+    "status": "Town",
+    "population_census_2007": 33670,
+    "population_projection_2022": 69793,
+    "admin_code": "ET040905"
+  },
+  {
+    "name": "Chiro Zuria",
+    "status": "District",
+    "population_census_2007": 169912,
+    "population_projection_2022": 237521,
+    "admin_code": "ET040913"
+  },
+  {
+    "name": "Chole",
+    "status": "District",
+    "population_census_2007": 89291,
+    "population_projection_2022": 129391,
+    "admin_code": "ET040809"
+  },
+  {
+    "name": "Chora",
+    "status": "District",
+    "population_census_2007": 100506,
+    "population_projection_2022": 145736,
+    "admin_code": "ET041603"
+  },
+  {
+    "name": "Chora Botor",
+    "status": "District",
+    "population_census_2007": 91738,
+    "population_projection_2022": 128952,
+    "admin_code": "ET040415"
+  },
+  {
+    "name": "Dabo Hana",
+    "status": "District",
+    "population_census_2007": 41285,
+    "population_projection_2022": 60541,
+    "admin_code": "ET041605"
+  },
+  {
+    "name": "Dale Sadi",
+    "status": "District",
+    "population_census_2007": 74039,
+    "population_projection_2022": 106704,
+    "admin_code": "ET041808"
+  },
+  {
+    "name": "Dale Wabera",
+    "status": "District",
+    "population_census_2007": 104387,
+    "population_projection_2022": 155473,
+    "admin_code": "ET041803"
+  },
+  {
+    "name": "Dano",
+    "status": "District",
+    "population_census_2007": 97243,
+    "population_projection_2022": 140056,
+    "admin_code": "ET040507"
+  },
+  {
+    "name": "Darimu",
+    "status": "District",
+    "population_census_2007": 145070,
+    "population_projection_2022": 205690,
+    "admin_code": "ET040301"
+  },
+  {
+    "name": "Daro Lebu",
+    "status": "District",
+    "population_census_2007": 198095,
+    "population_projection_2022": 288304,
+    "admin_code": "ET040909"
+  },
+  {
+    "name": "Dawe Kachen",
+    "status": "District",
+    "population_census_2007": 30849,
+    "population_projection_2022": 43587,
+    "admin_code": "ET041121"
+  },
+  {
+    "name": "Dawo",
+    "status": "District",
+    "population_census_2007": 84336,
+    "population_projection_2022": 120453,
+    "admin_code": "ET041304"
+  },
+  {
+    "name": "Debere Libanos",
+    "status": "District",
+    "population_census_2007": 45179,
+    "population_projection_2022": 69208,
+    "admin_code": "ET040607"
+  },
+  {
+    "name": "Deder",
+    "status": "District",
+    "population_census_2007": 242140,
+    "population_projection_2022": 353505,
+    "admin_code": "ET041011"
+  },
+  {
+    "name": "Dedesa",
+    "status": "District",
+    "population_census_2007": 84929,
+    "population_projection_2022": 122552,
+    "admin_code": "ET041608"
+  },
+  {
+    "name": "Dedo",
+    "status": "District",
+    "population_census_2007": 288457,
+    "population_projection_2022": 407175,
+    "admin_code": "ET040410"
+  },
+  {
+    "name": "Dega",
+    "status": "District",
+    "population_census_2007": 39466,
+    "population_projection_2022": 57222,
+    "admin_code": "ET041604"
+  },
+  {
+    "name": "Degem",
+    "status": "District",
+    "population_census_2007": 99143,
+    "population_projection_2022": 142720,
+    "admin_code": "ET040605"
+  },
+  {
+    "name": "Deksis",
+    "status": "District",
+    "population_census_2007": 72301,
+    "population_projection_2022": 106397,
+    "admin_code": "ET040822"
+  },
+  {
+    "name": "Denbi Dollo",
+    "status": "Town",
+    "population_census_2007": 29448,
+    "population_projection_2022": 61070,
+    "admin_code": "ET041806"
+  },
+  {
+    "name": "Dendi",
+    "status": "District",
+    "population_census_2007": 165803,
+    "population_projection_2022": 248912,
+    "admin_code": "ET040510"
+  },
+  {
+    "name": "Dera",
+    "status": "District",
+    "population_census_2007": 181217,
+    "population_projection_2022": 258746,
+    "admin_code": "ET040602"
+  },
+  {
+    "name": "Didu",
+    "status": "District",
+    "population_census_2007": 32639,
+    "population_projection_2022": 46418,
+    "admin_code": "ET040317"
+  },
+  {
+    "name": "Diga",
+    "status": "District",
+    "population_census_2007": 66689,
+    "population_projection_2022": 98893,
+    "admin_code": "ET040210"
+  },
+  {
+    "name": "Digluna Tijo",
+    "status": "District",
+    "population_census_2007": 140466,
+    "population_projection_2022": 205916,
+    "admin_code": "ET040815"
+  },
+  {
+    "name": "Dima",
+    "status": "District",
+    "population_census_2007": 56896,
+    "population_projection_2022": 80521,
+    "admin_code": "ET041408"
+  },
+  {
+    "name": "Dinsho",
+    "status": "District",
+    "population_census_2007": 39124,
+    "population_projection_2022": 56707,
+    "admin_code": "ET041122"
+  },
+  {
+    "name": "Dire",
+    "status": "District",
+    "population_census_2007": 73401,
+    "population_projection_2022": 106761,
+    "admin_code": "ET041211"
+  },
+  {
+    "name": "Doba",
+    "status": "District",
+    "population_census_2007": 133939,
+    "population_projection_2022": 189443,
+    "admin_code": "ET040902"
+  },
+  {
+    "name": "Dodola",
+    "status": "District",
+    "population_census_2007": 193812,
+    "population_projection_2022": 294066,
+    "admin_code": "ET041707"
+  },
+  {
+    "name": "Dodota",
+    "status": "District",
+    "population_census_2007": 64310,
+    "population_projection_2022": 102849,
+    "admin_code": "ET040805"
+  },
+  {
+    "name": "Dolo Mena",
+    "status": "District",
+    "population_census_2007": 89670,
+    "population_projection_2022": 132559,
+    "admin_code": "ET041112"
+  },
+  {
+    "name": "Doreni",
+    "status": "District",
+    "population_census_2007": 36705,
+    "population_projection_2022": 51316,
+    "admin_code": "ET040324"
+  },
+  {
+    "name": "Dugda",
+    "status": "District",
+    "population_census_2007": 144910,
+    "population_projection_2022": 227064,
+    "admin_code": "ET040707"
+  },
+  {
+    "name": "Dugida Dawa",
+    "status": "District",
+    "population_census_2007": 147327,
+    "population_projection_2022": 209712,
+    "admin_code": "ET041515"
+  },
+  {
+    "name": "Ejere",
+    "status": "District",
+    "population_census_2007": 86934,
+    "population_projection_2022": 128341,
+    "admin_code": "ET040511"
+  },
+  {
+    "name": "Elfata",
+    "status": "District",
+    "population_census_2007": 57389,
+    "population_projection_2022": 81516,
+    "admin_code": "ET040519"
+  },
+  {
+    "name": "Enkelo Wabe",
+    "status": "District",
+    "population_census_2007": 58561,
+    "population_projection_2022": 86473,
+    "admin_code": "ET040824"
+  },
+  {
+    "name": "Fedis",
+    "status": "District",
+    "population_census_2007": 113108,
+    "population_projection_2022": 161214,
+    "admin_code": "ET041005"
+  },
+  {
+    "name": "Fentale",
+    "status": "District",
+    "population_census_2007": 81740,
+    "population_projection_2022": 128122,
+    "admin_code": "ET040701"
+  },
+  {
+    "name": "Fiche",
+    "status": "Town",
+    "population_census_2007": 27493,
+    "population_projection_2022": 57067,
+    "admin_code": "ET040613"
+  },
+  {
+    "name": "Gasera",
+    "status": "District",
+    "population_census_2007": 78220,
+    "population_projection_2022": 112587,
+    "admin_code": "ET041106"
+  },
+  {
+    "name": "Gawo Kebe",
+    "status": "District",
+    "population_census_2007": 65396,
+    "population_projection_2022": 92592,
+    "admin_code": "ET041804"
+  },
+  {
+    "name": "Gechi",
+    "status": "District",
+    "population_census_2007": 70478,
+    "population_projection_2022": 102212,
+    "admin_code": "ET041606"
+  },
+  {
+    "name": "Gedeb Asasa",
+    "status": "District",
+    "population_census_2007": 186907,
+    "population_projection_2022": 275293,
+    "admin_code": "ET041706"
+  },
+  {
+    "name": "Gelana",
+    "status": "District",
+    "population_census_2007": 71369,
+    "population_projection_2022": 102141,
+    "admin_code": "ET041517"
+  },
+  {
+    "name": "Gemches",
+    "status": "District",
+    "population_census_2007": 184238,
+    "population_projection_2022": 260167,
+    "admin_code": "ET040912"
+  },
+  {
+    "name": "Genji",
+    "status": "District",
+    "population_census_2007": 59793,
+    "population_projection_2022": 85873,
+    "admin_code": "ET040113"
+  },
+  {
+    "name": "Gera",
+    "status": "District",
+    "population_census_2007": 112395,
+    "population_projection_2022": 160339,
+    "admin_code": "ET040408"
+  },
+  {
+    "name": "Gida Kiremu",
+    "status": "District",
+    "population_census_2007": 158635,
+    "population_projection_2022": 240109,
+    "admin_code": "ET040203"
+  },
+  {
+    "name": "Gidami",
+    "status": "District",
+    "population_census_2007": 85904,
+    "population_projection_2022": 123880,
+    "admin_code": "ET041809"
+  },
+  {
+    "name": "Gimbi",
+    "status": "District",
+    "population_census_2007": 74623,
+    "population_projection_2022": 104335,
+    "admin_code": "ET040103"
+  },
+  {
+    "name": "Gimbi",
+    "status": "Town",
+    "population_census_2007": 30981,
+    "population_projection_2022": 64258,
+    "admin_code": "ET040193"
+  },
+  {
+    "name": "Gimbichu",
+    "status": "District",
+    "population_census_2007": 86902,
+    "population_projection_2022": 125759,
+    "admin_code": "ET040705"
+  },
+  {
+    "name": "Ginde Beret",
+    "status": "District",
+    "population_census_2007": 104595,
+    "population_projection_2022": 153687,
+    "admin_code": "ET040501"
+  },
+  {
+    "name": "Ginir",
+    "status": "District",
+    "population_census_2007": 139495,
+    "population_projection_2022": 208658,
+    "admin_code": "ET041108"
+  },
+  {
+    "name": "Girar Jarso",
+    "status": "District",
+    "population_census_2007": 67312,
+    "population_projection_2022": 94096,
+    "admin_code": "ET040606"
+  },
+  {
+    "name": "Girawa",
+    "status": "District",
+    "population_census_2007": 240173,
+    "population_projection_2022": 339727,
+    "admin_code": "ET041016"
+  },
+  {
+    "name": "Girja",
+    "status": "District",
+    "population_census_2007": 50179,
+    "population_projection_2022": 70811,
+    "admin_code": "ET041410"
+  },
+  {
+    "name": "Goba",
+    "status": "District",
+    "population_census_2007": 40757,
+    "population_projection_2022": 56978,
+    "admin_code": "ET041110"
+  },
+  {
+    "name": "Goba",
+    "status": "Town",
+    "population_census_2007": 32025,
+    "population_projection_2022": 66469,
+    "admin_code": "ET041120"
+  },
+  {
+    "name": "Gobu Seyo",
+    "status": "District",
+    "population_census_2007": 41012,
+    "population_projection_2022": 60556,
+    "admin_code": "ET040208"
+  },
+  {
+    "name": "Gola Oda",
+    "status": "District",
+    "population_census_2007": 104440,
+    "population_projection_2022": 149748,
+    "admin_code": "ET041017"
+  },
+  {
+    "name": "Gololcha",
+    "status": "District",
+    "population_census_2007": 172176,
+    "population_projection_2022": 243035,
+    "admin_code": "ET040803"
+  },
+  {
+    "name": "Gololcha",
+    "status": "District",
+    "population_census_2007": 100809,
+    "population_projection_2022": 144855,
+    "admin_code": "ET041105"
+  },
+  {
+    "name": "Gomma",
+    "status": "District",
+    "population_census_2007": 213023,
+    "population_projection_2022": 306425,
+    "admin_code": "ET040407"
+  },
+  {
+    "name": "Goro",
+    "status": "District",
+    "population_census_2007": 83106,
+    "population_projection_2022": 121943,
+    "admin_code": "ET041116"
+  },
+  {
+    "name": "Goro",
+    "status": "District",
+    "population_census_2007": 45486,
+    "population_projection_2022": 66104,
+    "admin_code": "ET041312"
+  },
+  {
+    "name": "Goro Gutu",
+    "status": "District",
+    "population_census_2007": 143931,
+    "population_projection_2022": 208002,
+    "admin_code": "ET041010"
+  },
+  {
+    "name": "Guba Koricha",
+    "status": "District",
+    "population_census_2007": 122335,
+    "population_projection_2022": 172956,
+    "admin_code": "ET040907"
+  },
+  {
+    "name": "Gudeya Bila",
+    "status": "District",
+    "population_census_2007": 54744,
+    "population_projection_2022": 80484,
+    "admin_code": "ET040207"
+  },
+  {
+    "name": "Guduru",
+    "status": "District",
+    "population_census_2007": 98084,
+    "population_projection_2022": 141523,
+    "admin_code": "ET041903"
+  },
+  {
+    "name": "Guliso",
+    "status": "District",
+    "population_census_2007": 69856,
+    "population_projection_2022": 102983,
+    "admin_code": "ET040119"
+  },
+  {
+    "name": "Guma",
+    "status": "District",
+    "population_census_2007": 60490,
+    "population_projection_2022": 88133,
+    "admin_code": "ET040416"
+  },
+  {
+    "name": "Guna",
+    "status": "District",
+    "population_census_2007": 76365,
+    "population_projection_2022": 110515,
+    "admin_code": "ET040819"
+  },
+  {
+    "name": "Guradamole",
+    "status": "District",
+    "population_census_2007": 28961,
+    "population_projection_2022": 41347,
+    "admin_code": "ET041115"
+  },
+  {
+    "name": "Gursum",
+    "status": "District",
+    "population_census_2007": 151931,
+    "population_projection_2022": 220537,
+    "admin_code": "ET041003"
+  },
+  {
+    "name": "Guto Gida",
+    "status": "District",
+    "population_census_2007": 89906,
+    "population_projection_2022": 125682,
+    "admin_code": "ET040213"
+  },
+  {
+    "name": "Hababo Guduru",
+    "status": "District",
+    "population_census_2007": 45325,
+    "population_projection_2022": 64962,
+    "admin_code": "ET041904"
+  },
+  {
+    "name": "Habro",
+    "status": "District",
+    "population_census_2007": 190455,
+    "population_projection_2022": 283264,
+    "admin_code": "ET040908"
+  },
+  {
+    "name": "Hambela Wamena",
+    "status": "District",
+    "population_census_2007": 104971,
+    "population_projection_2022": 147899,
+    "admin_code": "ET041509"
+  },
+  {
+    "name": "Haramaya",
+    "status": "District",
+    "population_census_2007": 271018,
+    "population_projection_2022": 412685,
+    "admin_code": "ET041006"
+  },
+  {
+    "name": "Harena Buluk",
+    "status": "District",
+    "population_census_2007": 81497,
+    "population_projection_2022": 117236,
+    "admin_code": "ET041111"
+  },
+  {
+    "name": "Haro Limu",
+    "status": "District",
+    "population_census_2007": 52163,
+    "population_projection_2022": 72927,
+    "admin_code": "ET040201"
+  },
+  {
+    "name": "Haru",
+    "status": "District",
+    "population_census_2007": 67262,
+    "population_projection_2022": 97335,
+    "admin_code": "ET040114"
+  },
+  {
+    "name": "Hawa Gelan",
+    "status": "District",
+    "population_census_2007": 95976,
+    "population_projection_2022": 137920,
+    "admin_code": "ET041801"
+  },
+  {
+    "name": "Hidabu Abote",
+    "status": "District",
+    "population_census_2007": 82994,
+    "population_projection_2022": 120361,
+    "admin_code": "ET040603"
+  },
+  {
+    "name": "Hitosa",
+    "status": "District",
+    "population_census_2007": 124219,
+    "population_projection_2022": 186165,
+    "admin_code": "ET040807"
+  },
+  {
+    "name": "Holeta",
+    "status": "Town",
+    "population_census_2007": 25593,
+    "population_projection_2022": 51544,
+    "admin_code": "ET042020"
+  },
+  {
+    "name": "Homa",
+    "status": "District",
+    "population_census_2007": 24557,
+    "population_projection_2022": 36012,
+    "admin_code": "ET040117"
+  },
+  {
+    "name": "Horo",
+    "status": "District",
+    "population_census_2007": 74989,
+    "population_projection_2022": 107323,
+    "admin_code": "ET041901"
+  },
+  {
+    "name": "Huka Halu",
+    "status": "District",
+    "population_census_2007": 16881,
+    "population_projection_2022": 24741,
+    "admin_code": "ET040319"
+  },
+  {
+    "name": "Hurumu",
+    "status": "District",
+    "population_census_2007": 42667,
+    "population_projection_2022": 62707,
+    "admin_code": "ET040316"
+  },
+  {
+    "name": "Ibantu",
+    "status": "District",
+    "population_census_2007": 36280,
+    "population_projection_2022": 52603,
+    "admin_code": "ET040202"
+  },
+  {
+    "name": "Ilu",
+    "status": "District",
+    "population_census_2007": 61985,
+    "population_projection_2022": 91716,
+    "admin_code": "ET041305"
+  },
+  {
+    "name": "Jardega Jarte",
+    "status": "District",
+    "population_census_2007": 48943,
+    "population_projection_2022": 71642,
+    "admin_code": "ET041908"
+  },
+  {
+    "name": "Jarso",
+    "status": "District",
+    "population_census_2007": 48561,
+    "population_projection_2022": 70350,
+    "admin_code": "ET040108"
+  },
+  {
+    "name": "Jarso",
+    "status": "District",
+    "population_census_2007": 116638,
+    "population_projection_2022": 165712,
+    "admin_code": "ET041002"
+  },
+  {
+    "name": "Jeju",
+    "status": "District",
+    "population_census_2007": 124093,
+    "population_projection_2022": 177990,
+    "admin_code": "ET040804"
+  },
+  {
+    "name": "Jeldu",
+    "status": "District",
+    "population_census_2007": 202716,
+    "population_projection_2022": 293152,
+    "admin_code": "ET040502"
+  },
+  {
+    "name": "Jibat",
+    "status": "District",
+    "population_census_2007": 72210,
+    "population_projection_2022": 103408,
+    "admin_code": "ET040518"
+  },
+  {
+    "name": "Jida",
+    "status": "District",
+    "population_census_2007": 53658,
+    "population_projection_2022": 75016,
+    "admin_code": "ET040615"
+  },
+  {
+    "name": "Jima",
+    "status": "Special District",
+    "population_census_2007": 120960,
+    "population_projection_2022": 250909,
+    "admin_code": "ET040418"
+  },
+  {
+    "name": "Jima Arjo",
+    "status": "District",
+    "population_census_2007": 86329,
+    "population_projection_2022": 126912,
+    "admin_code": "ET040214"
+  },
+  {
+    "name": "Jima Genete",
+    "status": "District",
+    "population_census_2007": 64158,
+    "population_projection_2022": 94412,
+    "admin_code": "ET041906"
+  },
+  {
+    "name": "Jima Rare",
+    "status": "District",
+    "population_census_2007": 55580,
+    "population_projection_2022": 83549,
+    "admin_code": "ET041907"
+  },
+  {
+    "name": "Jimma Horo",
+    "status": "District",
+    "population_census_2007": 45889,
+    "population_projection_2022": 66075,
+    "admin_code": "ET041810"
+  },
+  {
+    "name": "Kercha",
+    "status": "District",
+    "population_census_2007": 227362,
+    "population_projection_2022": 324545,
+    "admin_code": "ET041502"
+  },
+  {
+    "name": "Kersa",
+    "status": "District",
+    "population_census_2007": 165391,
+    "population_projection_2022": 234886,
+    "admin_code": "ET040405"
+  },
+  {
+    "name": "Kersa",
+    "status": "District",
+    "population_census_2007": 170816,
+    "population_projection_2022": 246497,
+    "admin_code": "ET041008"
+  },
+  {
+    "name": "Kersa Ena Malima",
+    "status": "District",
+    "population_census_2007": 81015,
+    "population_projection_2022": 117668,
+    "admin_code": "ET041307"
+  },
+  {
+    "name": "Kiltu Kara",
+    "status": "District",
+    "population_census_2007": 51800,
+    "population_projection_2022": 75972,
+    "admin_code": "ET040105"
+  },
+  {
+    "name": "Kimbibit",
+    "status": "District",
+    "population_census_2007": 74276,
+    "population_projection_2022": 111831,
+    "admin_code": "ET040610"
+  },
+  {
+    "name": "Kofele",
+    "status": "District",
+    "population_census_2007": 178950,
+    "population_projection_2022": 260610,
+    "admin_code": "ET041704"
+  },
+  {
+    "name": "Kokosa",
+    "status": "District",
+    "population_census_2007": 144549,
+    "population_projection_2022": 204291,
+    "admin_code": "ET041708"
+  },
+  {
+    "name": "Kombolcha",
+    "status": "District",
+    "population_census_2007": 140080,
+    "population_projection_2022": 204348,
+    "admin_code": "ET041001"
+  },
+  {
+    "name": "Kondala",
+    "status": "District",
+    "population_census_2007": 96253,
+    "population_projection_2022": 136667,
+    "admin_code": "ET040109"
+  },
+  {
+    "name": "Kore",
+    "status": "District",
+    "population_census_2007": 103734,
+    "population_projection_2022": 148670,
+    "admin_code": "ET041705"
+  },
+  {
+    "name": "Kuni",
+    "status": "District",
+    "population_census_2007": 158282,
+    "population_projection_2022": 221264,
+    "admin_code": "ET040911"
+  },
+  {
+    "name": "Kurfa Chele",
+    "status": "District",
+    "population_census_2007": 58701,
+    "population_projection_2022": 85957,
+    "admin_code": "ET041007"
+  },
+  {
+    "name": "Kuyu",
+    "status": "District",
+    "population_census_2007": 121052,
+    "population_projection_2022": 182683,
+    "admin_code": "ET040604"
+  },
+  {
+    "name": "Lalo Asabi",
+    "status": "District",
+    "population_census_2007": 75584,
+    "population_projection_2022": 112696,
+    "admin_code": "ET040104"
+  },
+  {
+    "name": "Lalo Kile",
+    "status": "District",
+    "population_census_2007": 51448,
+    "population_projection_2022": 73827,
+    "admin_code": "ET041811"
+  },
+  {
+    "name": "Legehida",
+    "status": "District",
+    "population_census_2007": 62521,
+    "population_projection_2022": 88770,
+    "admin_code": "ET041107"
+  },
+  {
+    "name": "Leka Dulecha",
+    "status": "District",
+    "population_census_2007": 72057,
+    "population_projection_2022": 103493,
+    "admin_code": "ET040212"
+  },
+  {
+    "name": "Liben",
+    "status": "District",
+    "population_census_2007": 76351,
+    "population_projection_2022": 108706,
+    "admin_code": "ET040711"
+  },
+  {
+    "name": "Liben",
+    "status": "District",
+    "population_census_2007": 138813,
+    "population_projection_2022": 194997,
+    "admin_code": "ET041407"
+  },
+  {
+    "name": "Limu",
+    "status": "District",
+    "population_census_2007": 72483,
+    "population_projection_2022": 104157,
+    "admin_code": "ET040204"
+  },
+  {
+    "name": "Limu Kosa",
+    "status": "District",
+    "population_census_2007": 161338,
+    "population_projection_2022": 235584,
+    "admin_code": "ET040402"
+  },
+  {
+    "name": "Limuna Bilbilo",
+    "status": "District",
+    "population_census_2007": 180695,
+    "population_projection_2022": 268424,
+    "admin_code": "ET040818"
+  },
+  {
+    "name": "Limu Seka",
+    "status": "District",
+    "population_census_2007": 189463,
+    "population_projection_2022": 268370,
+    "admin_code": "ET040401"
+  },
+  {
+    "name": "Lome",
+    "status": "District",
+    "population_census_2007": 117080,
+    "population_projection_2022": 189901,
+    "admin_code": "ET040704"
+  },
+  {
+    "name": "Lude Hitosa",
+    "status": "District",
+    "population_census_2007": 107133,
+    "population_projection_2022": 160132,
+    "admin_code": "ET040821"
+  },
+  {
+    "name": "Mako",
+    "status": "District",
+    "population_census_2007": 22001,
+    "population_projection_2022": 30762,
+    "admin_code": "ET041618"
+  },
+  {
+    "name": "Mana",
+    "status": "District",
+    "population_census_2007": 146675,
+    "population_projection_2022": 208014,
+    "admin_code": "ET040406"
+  },
+  {
+    "name": "Meda Welabu",
+    "status": "District",
+    "population_census_2007": 97532,
+    "population_projection_2022": 138372,
+    "admin_code": "ET041113"
+  },
+  {
+    "name": "Meda Welabu",
+    "status": "Special Census District",
+    "population_census_2007": 4560,
+    "population_projection_2022": 5327,
+    "admin_code": "ET041190"
+  },
+  {
+    "name": "Melka Belo",
+    "status": "District",
+    "population_census_2007": 177416,
+    "population_projection_2022": 254319,
+    "admin_code": "ET041012"
+  },
+  {
+    "name": "Menesibu",
+    "status": "District",
+    "population_census_2007": 126083,
+    "population_projection_2022": 185727,
+    "admin_code": "ET040101"
+  },
+  {
+    "name": "Merti",
+    "status": "District",
+    "population_census_2007": 90408,
+    "population_projection_2022": 136272,
+    "admin_code": "ET040801"
+  },
+  {
+    "name": "Mesela",
+    "status": "District",
+    "population_census_2007": 151698,
+    "population_projection_2022": 215169,
+    "admin_code": "ET040904"
+  },
+  {
+    "name": "Meta",
+    "status": "District",
+    "population_census_2007": 252269,
+    "population_projection_2022": 362936,
+    "admin_code": "ET041009"
+  },
+  {
+    "name": "Meta Robi",
+    "status": "District",
+    "population_census_2007": 140627,
+    "population_projection_2022": 199332,
+    "admin_code": "ET040514"
+  },
+  {
+    "name": "Metu",
+    "status": "Town",
+    "population_census_2007": 28782,
+    "population_projection_2022": 59706,
+    "admin_code": "ET040320"
+  },
+  {
+    "name": "Metu Zuria",
+    "status": "District",
+    "population_census_2007": 61954,
+    "population_projection_2022": 86615,
+    "admin_code": "ET040310"
+  },
+  {
+    "name": "Meyu",
+    "status": "District",
+    "population_census_2007": 46210,
+    "population_projection_2022": 66752,
+    "admin_code": "ET041018"
+  },
+  {
+    "name": "Midakegn",
+    "status": "District",
+    "population_census_2007": 79580,
+    "population_projection_2022": 112669,
+    "admin_code": "ET040504"
+  },
+  {
+    "name": "Midga Tola",
+    "status": "District",
+    "population_census_2007": 75242,
+    "population_projection_2022": 109271,
+    "admin_code": "ET041014"
+  },
+  {
+    "name": "Mieso",
+    "status": "District",
+    "population_census_2007": 130709,
+    "population_projection_2022": 199886,
+    "admin_code": "ET040901"
+  },
+  {
+    "name": "Miyu",
+    "status": "District",
+    "population_census_2007": 50601,
+    "population_projection_2022": 73413,
+    "admin_code": "ET041216"
+  },
+  {
+    "name": "Moyale",
+    "status": "District",
+    "population_census_2007": 31162,
+    "population_projection_2022": 43559,
+    "admin_code": "ET041210"
+  },
+  {
+    "name": "Moyale",
+    "status": "Special Census District",
+    "population_census_2007": 43241,
+    "population_projection_2022": 74764,
+    "admin_code": "ET041290"
+  },
+  {
+    "name": "Mulo",
+    "status": "District",
+    "population_census_2007": 35138,
+    "population_projection_2022": 50679,
+    "admin_code": "ET042016"
+  },
+  {
+    "name": "Munesa",
+    "status": "District",
+    "population_census_2007": 166539,
+    "population_projection_2022": 243097,
+    "admin_code": "ET040817"
+  },
+  {
+    "name": "Negele",
+    "status": "Town",
+    "population_census_2007": 35264,
+    "population_projection_2022": 73122,
+    "admin_code": "ET041414"
+  },
+  {
+    "name": "Nejo",
+    "status": "District",
+    "population_census_2007": 130909,
+    "population_projection_2022": 199596,
+    "admin_code": "ET040102"
+  },
+  {
+    "name": "Nekemte",
+    "status": "Town",
+    "population_census_2007": 75219,
+    "population_projection_2022": 156004,
+    "admin_code": "ET040297"
+  },
+  {
+    "name": "Nensebo",
+    "status": "District",
+    "population_census_2007": 114559,
+    "population_projection_2022": 164264,
+    "admin_code": "ET041709"
+  },
+  {
+    "name": "Nole Kaba",
+    "status": "District",
+    "population_census_2007": 59826,
+    "population_projection_2022": 87094,
+    "admin_code": "ET040115"
+  },
+  {
+    "name": "Nono",
+    "status": "District",
+    "population_census_2007": 84248,
+    "population_projection_2022": 120166,
+    "admin_code": "ET040508"
+  },
+  {
+    "name": "Nono Sele",
+    "status": "District",
+    "population_census_2007": 22902,
+    "population_projection_2022": 33198,
+    "admin_code": "ET040313"
+  },
+  {
+    "name": "Nunu Kumba",
+    "status": "District",
+    "population_census_2007": 64775,
+    "population_projection_2022": 93841,
+    "admin_code": "ET040215"
+  },
+  {
+    "name": "Odo Shakiso",
+    "status": "District",
+    "population_census_2007": 206372,
+    "population_projection_2022": 311188,
+    "admin_code": "ET041405"
+  },
+  {
+    "name": "Omonada",
+    "status": "District",
+    "population_census_2007": 248173,
+    "population_projection_2022": 355217,
+    "admin_code": "ET040411"
+  },
+  {
+    "name": "Rayitu",
+    "status": "District",
+    "population_census_2007": 33169,
+    "population_projection_2022": 48533,
+    "admin_code": "ET041117"
+  },
+  {
+    "name": "Robe",
+    "status": "District",
+    "population_census_2007": 165210,
+    "population_projection_2022": 244937,
+    "admin_code": "ET040812"
+  },
+  {
+    "name": "Robe",
+    "status": "Town",
+    "population_census_2007": 44382,
+    "population_projection_2022": 92053,
+    "admin_code": "ET041119"
+  },
+  {
+    "name": "Sasiga",
+    "status": "District",
+    "population_census_2007": 80814,
+    "population_projection_2022": 114712,
+    "admin_code": "ET040211"
+  },
+  {
+    "name": "Sebeta",
+    "status": "Town",
+    "population_census_2007": 49331,
+    "population_projection_2022": 102347,
+    "admin_code": "ET042009"
+  },
+  {
+    "name": "Sebeta Hawas",
+    "status": "District",
+    "population_census_2007": 132294,
+    "population_projection_2022": 189912,
+    "admin_code": "ET042006"
+  },
+  {
+    "name": "Seden Sodo",
+    "status": "District",
+    "population_census_2007": 69215,
+    "population_projection_2022": 98756,
+    "admin_code": "ET041310"
+  },
+  {
+    "name": "Seka Chekorsa",
+    "status": "District",
+    "population_census_2007": 208096,
+    "population_projection_2022": 295677,
+    "admin_code": "ET040409"
+  },
+  {
+    "name": "Sendafa",
+    "status": "Town",
+    "population_census_2007": 12298,
+    "population_projection_2022": 25502,
+    "admin_code": "ET042018"
+  },
+  {
+    "name": "Seru",
+    "status": "District",
+    "population_census_2007": 47929,
+    "population_projection_2022": 69151,
+    "admin_code": "ET040811"
+  },
+  {
+    "name": "Setema",
+    "status": "District",
+    "population_census_2007": 103221,
+    "population_projection_2022": 147517,
+    "admin_code": "ET040413"
+  },
+  {
+    "name": "Seweyna",
+    "status": "District",
+    "population_census_2007": 65846,
+    "population_projection_2022": 94606,
+    "admin_code": "ET041118"
+  },
+  {
+    "name": "Seyo",
+    "status": "District",
+    "population_census_2007": 116631,
+    "population_projection_2022": 163057,
+    "admin_code": "ET041805"
+  },
+  {
+    "name": "Seyo Nole",
+    "status": "District",
+    "population_census_2007": 76013,
+    "population_projection_2022": 107851,
+    "admin_code": "ET040118"
+  },
+  {
+    "name": "Shala",
+    "status": "District",
+    "population_census_2007": 149804,
+    "population_projection_2022": 214621,
+    "admin_code": "ET041702"
+  },
+  {
+    "name": "Shambu",
+    "status": "Town",
+    "population_census_2007": 14995,
+    "population_projection_2022": 31095,
+    "admin_code": "ET041902"
+  },
+  {
+    "name": "Shashemene",
+    "status": "Town",
+    "population_census_2007": 100454,
+    "population_projection_2022": 208368,
+    "admin_code": "ET041711"
+  },
+  {
+    "name": "Shashemene Zuria",
+    "status": "District",
+    "population_census_2007": 246774,
+    "population_projection_2022": 351898,
+    "admin_code": "ET041712"
+  },
+  {
+    "name": "Shebe Senbo",
+    "status": "District",
+    "population_census_2007": 112068,
+    "population_projection_2022": 160229,
+    "admin_code": "ET040414"
+  },
+  {
+    "name": "Shirka",
+    "status": "District",
+    "population_census_2007": 163823,
+    "population_projection_2022": 237480,
+    "admin_code": "ET040814"
+  },
+  {
+    "name": "Sibu Sire",
+    "status": "District",
+    "population_census_2007": 102228,
+    "population_projection_2022": 149855,
+    "admin_code": "ET040209"
+  },
+  {
+    "name": "Sigamo",
+    "status": "District",
+    "population_census_2007": 92313,
+    "population_projection_2022": 132790,
+    "admin_code": "ET040412"
+  },
+  {
+    "name": "Sinana",
+    "status": "District",
+    "population_census_2007": 118594,
+    "population_projection_2022": 165768,
+    "admin_code": "ET041109"
+  },
+  {
+    "name": "Siraro",
+    "status": "District",
+    "population_census_2007": 145649,
+    "population_projection_2022": 207138,
+    "admin_code": "ET041701"
+  },
+  {
+    "name": "Sire",
+    "status": "District",
+    "population_census_2007": 73970,
+    "population_projection_2022": 109061,
+    "admin_code": "ET040820"
+  },
+  {
+    "name": "Sodo Dacha",
+    "status": "District",
+    "population_census_2007": 43607,
+    "population_projection_2022": 62808,
+    "admin_code": "ET041314"
+  },
+  {
+    "name": "Sokoru",
+    "status": "District",
+    "population_census_2007": 136320,
+    "population_projection_2022": 199182,
+    "admin_code": "ET040403"
+  },
+  {
+    "name": "Sude",
+    "status": "District",
+    "population_census_2007": 147764,
+    "population_projection_2022": 208492,
+    "admin_code": "ET040808"
+  },
+  {
+    "name": "Sululta",
+    "status": "District",
+    "population_census_2007": 129000,
+    "population_projection_2022": 190597,
+    "admin_code": "ET042013"
+  },
+  {
+    "name": "Teletele",
+    "status": "District",
+    "population_census_2007": 70501,
+    "population_projection_2022": 101846,
+    "admin_code": "ET041212"
+  },
+  {
+    "name": "Tena",
+    "status": "District",
+    "population_census_2007": 66203,
+    "population_projection_2022": 96783,
+    "admin_code": "ET040813"
+  },
+  {
+    "name": "Tikur Enchini",
+    "status": "District",
+    "population_census_2007": 71417,
+    "population_projection_2022": 102795,
+    "admin_code": "ET040509"
+  },
+  {
+    "name": "Tiro Afeta",
+    "status": "District",
+    "population_census_2007": 131536,
+    "population_projection_2022": 187490,
+    "admin_code": "ET040404"
+  },
+  {
+    "name": "Tiyo",
+    "status": "District",
+    "population_census_2007": 86761,
+    "population_projection_2022": 125714,
+    "admin_code": "ET040816"
+  },
+  {
+    "name": "Toke Kutayu",
+    "status": "District",
+    "population_census_2007": 119999,
+    "population_projection_2022": 178562,
+    "admin_code": "ET040517"
+  },
+  {
+    "name": "Tole",
+    "status": "District",
+    "population_census_2007": 62895,
+    "population_projection_2022": 89883,
+    "admin_code": "ET041308"
+  },
+  {
+    "name": "Tulo",
+    "status": "District",
+    "population_census_2007": 147384,
+    "population_projection_2022": 215337,
+    "admin_code": "ET040903"
+  },
+  {
+    "name": "Uraga",
+    "status": "District",
+    "population_census_2007": 176238,
+    "population_projection_2022": 251554,
+    "admin_code": "ET041401"
+  },
+  {
+    "name": "Wadera",
+    "status": "District",
+    "population_census_2007": 50554,
+    "population_projection_2022": 73869,
+    "admin_code": "ET041404"
+  },
+  {
+    "name": "Waliso",
+    "status": "Town",
+    "population_census_2007": 37878,
+    "population_projection_2022": 78577,
+    "admin_code": "ET041311"
+  },
+  {
+    "name": "Wama Hagelo",
+    "status": "District",
+    "population_census_2007": 49103,
+    "population_projection_2022": 68646,
+    "admin_code": "ET040216"
+  },
+  {
+    "name": "Wayu Tuka",
+    "status": "District",
+    "population_census_2007": 63180,
+    "population_projection_2022": 88338,
+    "admin_code": "ET040206"
+  },
+  {
+    "name": "Were Jarso",
+    "status": "District",
+    "population_census_2007": 141426,
+    "population_projection_2022": 204844,
+    "admin_code": "ET040601"
+  },
+  {
+    "name": "Woliso",
+    "status": "District",
+    "population_census_2007": 143391,
+    "population_projection_2022": 202219,
+    "admin_code": "ET041303"
+  },
+  {
+    "name": "Wolmera",
+    "status": "District",
+    "population_census_2007": 83823,
+    "population_projection_2022": 119458,
+    "admin_code": "ET042014"
+  },
+  {
+    "name": "Wonchi",
+    "status": "District",
+    "population_census_2007": 93624,
+    "population_projection_2022": 132178,
+    "admin_code": "ET041302"
+  },
+  {
+    "name": "Wuchale",
+    "status": "District",
+    "population_census_2007": 97529,
+    "population_projection_2022": 140693,
+    "admin_code": "ET040608"
+  },
+  {
+    "name": "Yabelo",
+    "status": "District",
+    "population_census_2007": 102165,
+    "population_projection_2022": 154643,
+    "admin_code": "ET041207"
+  },
+  {
+    "name": "Yaya Gulele",
+    "status": "District",
+    "population_census_2007": 54992,
+    "population_projection_2022": 78638,
+    "admin_code": "ET040614"
+  },
+  {
+    "name": "Yayu",
+    "status": "District",
+    "population_census_2007": 52851,
+    "population_projection_2022": 78996,
+    "admin_code": "ET040309"
+  },
+  {
+    "name": "Yemalogi Welel",
+    "status": "District",
+    "population_census_2007": 51392,
+    "population_projection_2022": 72933,
+    "admin_code": "ET041802"
+  },
+  {
+    "name": "Yubdo",
+    "status": "District",
+    "population_census_2007": 38858,
+    "population_projection_2022": 55903,
+    "admin_code": "ET040112"
+  },
+  {
+    "name": "Ziway",
+    "status": "Town",
+    "population_census_2007": 43660,
+    "population_projection_2022": 90522,
+    "admin_code": "ET040713"
+  },
+  {
+    "name": "Ziway Dugda",
+    "status": "District",
+    "population_census_2007": 120862,
+    "population_projection_2022": 172018,
+    "admin_code": "ET040806"
+  },
+  {
+    "name": "Aleta Wendo",
+    "status": "District",
+    "population_census_2007": 188976,
+    "population_projection_2022": 276385,
+    "admin_code": "ET070405"
+  },
+  {
+    "name": "Arbegona",
+    "status": "District",
+    "population_census_2007": 135862,
+    "population_projection_2022": 186021,
+    "admin_code": "ET070403"
+  },
+  {
+    "name": "Aroresa",
+    "status": "District",
+    "population_census_2007": 170240,
+    "population_projection_2022": 225582,
+    "admin_code": "ET070409"
+  },
+  {
+    "name": "Awasa",
+    "status": "City",
+    "population_census_2007": 258808,
+    "population_projection_2022": 555480,
+    "admin_code": "ET070419"
+  },
+  {
+    "name": "Bensa",
+    "status": "District",
+    "population_census_2007": 250727,
+    "population_projection_2022": 342116,
+    "admin_code": "ET070408"
+  },
+  {
+    "name": "Bona Zuria",
+    "status": "District",
+    "population_census_2007": 121236,
+    "population_projection_2022": 166043,
+    "admin_code": "ET070418"
+  },
+  {
+    "name": "Boricha",
+    "status": "District",
+    "population_census_2007": 250260,
+    "population_projection_2022": 339933,
+    "admin_code": "ET070410"
+  },
+  {
+    "name": "Bursa",
+    "status": "District",
+    "population_census_2007": 103631,
+    "population_projection_2022": 137982,
+    "admin_code": "ET070416"
+  },
+  {
+    "name": "Cheko",
+    "status": "District",
+    "population_census_2007": 167300,
+    "population_projection_2022": 225450,
+    "admin_code": "ET070417"
+  },
+  {
+    "name": "Chere",
+    "status": "District",
+    "population_census_2007": 120449,
+    "population_projection_2022": 159944,
+    "admin_code": "ET070415"
+  },
+  {
+    "name": "Dale",
+    "status": "District",
+    "population_census_2007": 242658,
+    "population_projection_2022": 357733,
+    "admin_code": "ET070404"
+  },
+  {
+    "name": "Dara",
+    "status": "District",
+    "population_census_2007": 155265,
+    "population_projection_2022": 216756,
+    "admin_code": "ET070406"
+  },
+  {
+    "name": "Gorche",
+    "status": "District",
+    "population_census_2007": 105472,
+    "population_projection_2022": 141320,
+    "admin_code": "ET070411"
+  },
+  {
+    "name": "Hawassa Zuria",
+    "status": "District",
+    "population_census_2007": 124472,
+    "population_projection_2022": 161914,
+    "admin_code": "ET070402"
+  },
+  {
+    "name": "Hula",
+    "status": "District",
+    "population_census_2007": 129263,
+    "population_projection_2022": 176997,
+    "admin_code": "ET070407"
+  },
+  {
+    "name": "Loko Abeya",
+    "status": "District",
+    "population_census_2007": 99233,
+    "population_projection_2022": 130539,
+    "admin_code": "ET070414"
+  },
+  {
+    "name": "Malga",
+    "status": "District",
+    "population_census_2007": 109793,
+    "population_projection_2022": 148377,
+    "admin_code": "ET070412"
+  },
+  {
+    "name": "Shebedino",
+    "status": "District",
+    "population_census_2007": 233922,
+    "population_projection_2022": 320639,
+    "admin_code": "ET070401"
+  },
+  {
+    "name": "Wendo Genet",
+    "status": "District",
+    "population_census_2007": 155715,
+    "population_projection_2022": 234490,
+    "admin_code": "ET070420"
+  },
+  {
+    "name": "Wensho",
+    "status": "District",
+    "population_census_2007": 89662,
+    "population_projection_2022": 119461,
+    "admin_code": "ET070413"
+  },
+  {
+    "name": "Adadilo",
+    "status": "District",
+    "population_census_2007": 83260,
+    "population_projection_2022": 120814,
+    "admin_code": "ET050602"
+  },
+  {
+    "name": "Afdem",
+    "status": "District",
+    "population_census_2007": 65031,
+    "population_projection_2022": 95640,
+    "admin_code": "ET050105"
+  },
+  {
+    "name": "Afder",
+    "status": "District",
+    "population_census_2007": 79135,
+    "population_projection_2022": 115129,
+    "admin_code": "ET050806"
+  },
+  {
+    "name": "Aware",
+    "status": "District",
+    "population_census_2007": 96011,
+    "population_projection_2022": 141011,
+    "admin_code": "ET050303"
+  },
+  {
+    "name": "Awubere",
+    "status": "District",
+    "population_census_2007": 339503,
+    "population_projection_2022": 496198,
+    "admin_code": "ET050205"
+  },
+  {
+    "name": "Ayisha",
+    "status": "District",
+    "population_census_2007": 58086,
+    "population_projection_2022": 85155,
+    "admin_code": "ET050101"
+  },
+  {
+    "name": "Babile",
+    "status": "District",
+    "population_census_2007": 77317,
+    "population_projection_2022": 112198,
+    "admin_code": "ET050401"
+  },
+  {
+    "name": "Bare",
+    "status": "District",
+    "population_census_2007": 93340,
+    "population_projection_2022": 135360,
+    "admin_code": "ET050807"
+  },
+  {
+    "name": "Boh",
+    "status": "District",
+    "population_census_2007": 103164,
+    "population_projection_2022": 150152,
+    "admin_code": "ET050702"
+  },
+  {
+    "name": "Danan",
+    "status": "District",
+    "population_census_2007": 23784,
+    "population_projection_2022": 35148,
+    "admin_code": "ET050603"
+  },
+  {
+    "name": "Danot",
+    "status": "District",
+    "population_census_2007": 47236,
+    "population_projection_2022": 68383,
+    "admin_code": "ET050701"
+  },
+  {
+    "name": "Debewoin",
+    "status": "District",
+    "population_census_2007": 70102,
+    "population_projection_2022": 102287,
+    "admin_code": "ET050504"
+  },
+  {
+    "name": "Degehabur",
+    "status": "District",
+    "population_census_2007": 115555,
+    "population_projection_2022": 170713,
+    "admin_code": "ET050302"
+  },
+  {
+    "name": "Degehamedo",
+    "status": "District",
+    "population_census_2007": 58487,
+    "population_projection_2022": 84482,
+    "admin_code": "ET050301"
+  },
+  {
+    "name": "Denbel",
+    "status": "District",
+    "population_census_2007": 82286,
+    "population_projection_2022": 120798,
+    "admin_code": "ET050102"
+  },
+  {
+    "name": "Dihun",
+    "status": "District",
+    "population_census_2007": 25082,
+    "population_projection_2022": 36496,
+    "admin_code": "ET051006"
+  },
+  {
+    "name": "Dolobay",
+    "status": "District",
+    "population_census_2007": 84134,
+    "population_projection_2022": 122543,
+    "admin_code": "ET050808"
+  },
+  {
+    "name": "Dolo Odo",
+    "status": "District",
+    "population_census_2007": 111511,
+    "population_projection_2022": 166118,
+    "admin_code": "ET050902"
+  },
+  {
+    "name": "Erer",
+    "status": "District",
+    "population_census_2007": 77628,
+    "population_projection_2022": 113929,
+    "admin_code": "ET050104"
+  },
+  {
+    "name": "Ferfer",
+    "status": "District",
+    "population_census_2007": 38984,
+    "population_projection_2022": 57159,
+    "admin_code": "ET050607"
+  },
+  {
+    "name": "Fik",
+    "status": "District",
+    "population_census_2007": 130047,
+    "population_projection_2022": 189442,
+    "admin_code": "ET050402"
+  },
+  {
+    "name": "Filtu",
+    "status": "District",
+    "population_census_2007": 130993,
+    "population_projection_2022": 189803,
+    "admin_code": "ET050901"
+  },
+  {
+    "name": "Gashamo",
+    "status": "District",
+    "population_census_2007": 95191,
+    "population_projection_2022": 138537,
+    "admin_code": "ET050304"
+  },
+  {
+    "name": "Geladin",
+    "status": "District",
+    "population_census_2007": 98053,
+    "population_projection_2022": 142512,
+    "admin_code": "ET050703"
+  },
+  {
+    "name": "Gerbo",
+    "status": "District",
+    "population_census_2007": 45413,
+    "population_projection_2022": 66476,
+    "admin_code": "ET051003"
+  },
+  {
+    "name": "Gode",
+    "status": "District",
+    "population_census_2007": 109718,
+    "population_projection_2022": 163894,
+    "admin_code": "ET050604"
+  },
+  {
+    "name": "Goro Bekeksa",
+    "status": "District",
+    "population_census_2007": 51271,
+    "population_projection_2022": 74532,
+    "admin_code": "ET050903"
+  },
+  {
+    "name": "Gunagudo",
+    "status": "District",
+    "population_census_2007": 112924,
+    "population_projection_2022": 164233,
+    "admin_code": "ET050305"
+  },
+  {
+    "name": "Guradamole",
+    "status": "District",
+    "population_census_2007": 19841,
+    "population_projection_2022": 28782,
+    "admin_code": "ET050904"
+  },
+  {
+    "name": "Gursum",
+    "status": "District",
+    "population_census_2007": 27510,
+    "population_projection_2022": 40233,
+    "admin_code": "ET050202"
+  },
+  {
+    "name": "Hamero",
+    "status": "District",
+    "population_census_2007": 60477,
+    "population_projection_2022": 87464,
+    "admin_code": "ET050404"
+  },
+  {
+    "name": "Harshin",
+    "status": "District",
+    "population_census_2007": 80244,
+    "population_projection_2022": 117187,
+    "admin_code": "ET050207"
+  },
+  {
+    "name": "Imiberi",
+    "status": "District",
+    "population_census_2007": 81721,
+    "population_projection_2022": 119599,
+    "admin_code": "ET050601"
+  },
+  {
+    "name": "Jijiga",
+    "status": "District",
+    "population_census_2007": 277560,
+    "population_projection_2022": 417688,
+    "admin_code": "ET050293"
+  },
+  {
+    "name": "Kebri Beyah",
+    "status": "District",
+    "population_census_2007": 165518,
+    "population_projection_2022": 242880,
+    "admin_code": "ET050206"
+  },
+  {
+    "name": "Kebri Dehar",
+    "status": "District",
+    "population_census_2007": 136142,
+    "population_projection_2022": 200228,
+    "admin_code": "ET050502"
+  },
+  {
+    "name": "Kelafo",
+    "status": "District",
+    "population_census_2007": 77471,
+    "population_projection_2022": 113668,
+    "admin_code": "ET050605"
+  },
+  {
+    "name": "Kersa Dula",
+    "status": "District",
+    "population_census_2007": 42774,
+    "population_projection_2022": 62352,
+    "admin_code": "ET050809"
+  },
+  {
+    "name": "Legehida",
+    "status": "District",
+    "population_census_2007": 17415,
+    "population_projection_2022": 25469,
+    "admin_code": "ET050407"
+  },
+  {
+    "name": "Meyu Muluke",
+    "status": "District",
+    "population_census_2007": 11907,
+    "population_projection_2022": 17721,
+    "admin_code": "ET050408"
+  },
+  {
+    "name": "Mirab Imi",
+    "status": "District",
+    "population_census_2007": 48104,
+    "population_projection_2022": 70496,
+    "admin_code": "ET050805"
+  },
+  {
+    "name": "Moyale",
+    "status": "District",
+    "population_census_2007": 254137,
+    "population_projection_2022": 367953,
+    "admin_code": "ET051103"
+  },
+  {
+    "name": "Mulo",
+    "status": "District",
+    "population_census_2007": 71481,
+    "population_projection_2022": 103767,
+    "admin_code": "ET050106"
+  },
+  {
+    "name": "Mustahil",
+    "status": "District",
+    "population_census_2007": 49315,
+    "population_projection_2022": 72199,
+    "admin_code": "ET050606"
+  },
+  {
+    "name": "Segeg",
+    "status": "District",
+    "population_census_2007": 23986,
+    "population_projection_2022": 35269,
+    "admin_code": "ET051005"
+  },
+  {
+    "name": "Selehad",
+    "status": "District",
+    "population_census_2007": 34082,
+    "population_projection_2022": 49333,
+    "admin_code": "ET051004"
+  },
+  {
+    "name": "Serer",
+    "status": "District",
+    "population_census_2007": 57735,
+    "population_projection_2022": 83627,
+    "admin_code": "ET050804"
+  },
+  {
+    "name": "Shekosh",
+    "status": "District",
+    "population_census_2007": 48879,
+    "population_projection_2022": 71346,
+    "admin_code": "ET050501"
+  },
+  {
+    "name": "Shilabo",
+    "status": "District",
+    "population_census_2007": 57590,
+    "population_projection_2022": 83701,
+    "admin_code": "ET050503"
+  },
+  {
+    "name": "Shinile",
+    "status": "District",
+    "population_census_2007": 102574,
+    "population_projection_2022": 150900,
+    "admin_code": "ET050103"
+  },
+  {
+    "name": "Udet",
+    "status": "District",
+    "population_census_2007": 43180,
+    "population_projection_2022": 63124,
+    "admin_code": "ET051104"
+  },
+  {
+    "name": "Warder",
+    "status": "District",
+    "population_census_2007": 58035,
+    "population_projection_2022": 85005,
+    "admin_code": "ET050704"
+  },
+  {
+    "name": "Weyib",
+    "status": "District",
+    "population_census_2007": 94295,
+    "population_projection_2022": 136869,
+    "admin_code": "ET050802"
+  },
+  {
+    "name": "Abeshge",
+    "status": "District",
+    "population_census_2007": 61424,
+    "population_projection_2022": 79901,
+    "admin_code": "ET070102"
+  },
+  {
+    "name": "Alaba",
+    "status": "District",
+    "population_census_2007": 232325,
+    "population_projection_2022": 339423,
+    "admin_code": "ET071402"
+  },
+  {
+    "name": "Alicho Werero",
+    "status": "District",
+    "population_census_2007": 92483,
+    "population_projection_2022": 121378,
+    "admin_code": "ET072001"
+  },
+  {
+    "name": "Amaro",
+    "status": "District",
+    "population_census_2007": 149231,
+    "population_projection_2022": 206022,
+    "admin_code": "ET072102"
+  },
+  {
+    "name": "Analimo",
+    "status": "District",
+    "population_census_2007": 71963,
+    "population_projection_2022": 96918,
+    "admin_code": "ET070208"
+  },
+  {
+    "name": "Angacha",
+    "status": "District",
+    "population_census_2007": 88083,
+    "population_projection_2022": 124035,
+    "admin_code": "ET070302"
+  },
+  {
+    "name": "Arba Minch",
+    "status": "Town",
+    "population_census_2007": 74879,
+    "population_projection_2022": 201049,
+    "admin_code": "ET071021"
+  },
+  {
+    "name": "Arba Minch Zuriya",
+    "status": "District",
+    "population_census_2007": 164529,
+    "population_projection_2022": 214020,
+    "admin_code": "ET071015"
+  },
+  {
+    "name": "Ayida",
+    "status": "District",
+    "population_census_2007": 33310,
+    "population_projection_2022": 43329,
+    "admin_code": "ET071506"
+  },
+  {
+    "name": "Basketo",
+    "status": "District",
+    "population_census_2007": 56689,
+    "population_projection_2022": 80983,
+    "admin_code": "ET071601"
+  },
+  {
+    "name": "Bena Tsemay",
+    "status": "District",
+    "population_census_2007": 52968,
+    "population_projection_2022": 71850,
+    "admin_code": "ET070705"
+  },
+  {
+    "name": "Boloso Bonibe",
+    "status": "District",
+    "population_census_2007": 87956,
+    "population_projection_2022": 115883,
+    "admin_code": "ET070608"
+  },
+  {
+    "name": "Boloso Sore",
+    "status": "District",
+    "population_census_2007": 197973,
+    "population_projection_2022": 301147,
+    "admin_code": "ET070601"
+  },
+  {
+    "name": "Bonke",
+    "status": "District",
+    "population_census_2007": 159089,
+    "population_projection_2022": 215775,
+    "admin_code": "ET071014"
+  },
+  {
+    "name": "Boreda",
+    "status": "District",
+    "population_census_2007": 67960,
+    "population_projection_2022": 92222,
+    "admin_code": "ET071004"
+  },
+  {
+    "name": "Bule",
+    "status": "District",
+    "population_census_2007": 105192,
+    "population_projection_2022": 144474,
+    "admin_code": "ET070504"
+  },
+  {
+    "name": "Burji",
+    "status": "District",
+    "population_census_2007": 55681,
+    "population_projection_2022": 81167,
+    "admin_code": "ET072203"
+  },
+  {
+    "name": "Butajira",
+    "status": "Town",
+    "population_census_2007": 33406,
+    "population_projection_2022": 89824,
+    "admin_code": "ET070115"
+  },
+  {
+    "name": "Cheha",
+    "status": "District",
+    "population_census_2007": 115951,
+    "population_projection_2022": 163307,
+    "admin_code": "ET070110"
+  },
+  {
+    "name": "Chencha",
+    "status": "District",
+    "population_census_2007": 111686,
+    "population_projection_2022": 163789,
+    "admin_code": "ET071010"
+  },
+  {
+    "name": "Dalocha",
+    "status": "District",
+    "population_census_2007": 89807,
+    "population_projection_2022": 126233,
+    "admin_code": "ET072005"
+  },
+  {
+    "name": "Damot Gale",
+    "status": "District",
+    "population_census_2007": 151079,
+    "population_projection_2022": 230022,
+    "admin_code": "ET070602"
+  },
+  {
+    "name": "Damot Pulasa",
+    "status": "District",
+    "population_census_2007": 105157,
+    "population_projection_2022": 144197,
+    "admin_code": "ET070611"
+  },
+  {
+    "name": "Damot Sore",
+    "status": "District",
+    "population_census_2007": 100683,
+    "population_projection_2022": 139440,
+    "admin_code": "ET070609"
+  },
+  {
+    "name": "Damot Woyide",
+    "status": "District",
+    "population_census_2007": 91602,
+    "population_projection_2022": 126510,
+    "admin_code": "ET070603"
+  },
+  {
+    "name": "Dasenech",
+    "status": "District",
+    "population_census_2007": 52708,
+    "population_projection_2022": 71846,
+    "admin_code": "ET070706"
+  },
+  {
+    "name": "Debub Ari",
+    "status": "District",
+    "population_census_2007": 210557,
+    "population_projection_2022": 316792,
+    "admin_code": "ET070702"
+  },
+  {
+    "name": "Deguna Fanigo",
+    "status": "District",
+    "population_census_2007": 96480,
+    "population_projection_2022": 130244,
+    "admin_code": "ET070612"
+  },
+  {
+    "name": "Deniboya",
+    "status": "District",
+    "population_census_2007": 82622,
+    "population_projection_2022": 118721,
+    "admin_code": "ET070307"
+  },
+  {
+    "name": "Denibu Gofa",
+    "status": "District",
+    "population_census_2007": 81165,
+    "population_projection_2022": 105580,
+    "admin_code": "ET071502"
+  },
+  {
+    "name": "Deramalo",
+    "status": "District",
+    "population_census_2007": 81025,
+    "population_projection_2022": 109842,
+    "admin_code": "ET071009"
+  },
+  {
+    "name": "Derashe",
+    "status": "District",
+    "population_census_2007": 142758,
+    "population_projection_2022": 204041,
+    "admin_code": "ET072304"
+  },
+  {
+    "name": "Dila",
+    "status": "Town",
+    "population_census_2007": 59150,
+    "population_projection_2022": 158795,
+    "admin_code": "ET070507"
+  },
+  {
+    "name": "Dila Zuria",
+    "status": "District",
+    "population_census_2007": 98439,
+    "population_projection_2022": 128050,
+    "admin_code": "ET070505"
+  },
+  {
+    "name": "Dita",
+    "status": "District",
+    "population_census_2007": 83987,
+    "population_projection_2022": 113404,
+    "admin_code": "ET071008"
+  },
+  {
+    "name": "Doyogena",
+    "status": "District",
+    "population_census_2007": 78634,
+    "population_projection_2022": 111623,
+    "admin_code": "ET070306"
+  },
+  {
+    "name": "Duna",
+    "status": "District",
+    "population_census_2007": 122087,
+    "population_projection_2022": 166826,
+    "admin_code": "ET070207"
+  },
+  {
+    "name": "Durame",
+    "status": "Town",
+    "population_census_2007": 24472,
+    "population_projection_2022": 65852,
+    "admin_code": "ET070308"
+  },
+  {
+    "name": "Endegagn",
+    "status": "District",
+    "population_census_2007": 49171,
+    "population_projection_2022": 65024,
+    "admin_code": "ET070108"
+  },
+  {
+    "name": "Enemorna Ener",
+    "status": "District",
+    "population_census_2007": 167770,
+    "population_projection_2022": 227373,
+    "admin_code": "ET070111"
+  },
+  {
+    "name": "Ezha",
+    "status": "District",
+    "population_census_2007": 84905,
+    "population_projection_2022": 115608,
+    "admin_code": "ET070103"
+  },
+  {
+    "name": "Gedeb",
+    "status": "District",
+    "population_census_2007": 141990,
+    "population_projection_2022": 197082,
+    "admin_code": "ET070506"
+  },
+  {
+    "name": "Geta",
+    "status": "District",
+    "population_census_2007": 69455,
+    "population_projection_2022": 90347,
+    "admin_code": "ET070113"
+  },
+  {
+    "name": "Gezegofa",
+    "status": "District",
+    "population_census_2007": 68650,
+    "population_projection_2022": 97282,
+    "admin_code": "ET071505"
+  },
+  {
+    "name": "Gibe",
+    "status": "District",
+    "population_census_2007": 109256,
+    "population_projection_2022": 149118,
+    "admin_code": "ET070210"
+  },
+  {
+    "name": "Gomibora",
+    "status": "District",
+    "population_census_2007": 93141,
+    "population_projection_2022": 121158,
+    "admin_code": "ET070202"
+  },
+  {
+    "name": "Gumer",
+    "status": "District",
+    "population_census_2007": 80178,
+    "population_projection_2022": 108369,
+    "admin_code": "ET070109"
+  },
+  {
+    "name": "Hadero Tunito",
+    "status": "District",
+    "population_census_2007": 98375,
+    "population_projection_2022": 160666,
+    "admin_code": "ET070305"
+  },
+  {
+    "name": "Hamer",
+    "status": "District",
+    "population_census_2007": 59572,
+    "population_projection_2022": 81926,
+    "admin_code": "ET070704"
+  },
+  {
+    "name": "Hosaena",
+    "status": "Town",
+    "population_census_2007": 69995,
+    "population_projection_2022": 188192,
+    "admin_code": "ET070211"
+  },
+  {
+    "name": "Humbo",
+    "status": "District",
+    "population_census_2007": 125441,
+    "population_projection_2022": 171818,
+    "admin_code": "ET070604"
+  },
+  {
+    "name": "Kacha Bira",
+    "status": "District",
+    "population_census_2007": 113687,
+    "population_projection_2022": 169895,
+    "admin_code": "ET070304"
+  },
+  {
+    "name": "Kebena",
+    "status": "District",
+    "population_census_2007": 52379,
+    "population_projection_2022": 68135,
+    "admin_code": "ET070101"
+  },
+  {
+    "name": "Kedida Gamela",
+    "status": "District",
+    "population_census_2007": 89391,
+    "population_projection_2022": 122753,
+    "admin_code": "ET070303"
+  },
+  {
+    "name": "Kemba",
+    "status": "District",
+    "population_census_2007": 155979,
+    "population_projection_2022": 209433,
+    "admin_code": "ET071011"
+  },
+  {
+    "name": "Kindo Didaye",
+    "status": "District",
+    "population_census_2007": 97566,
+    "population_projection_2022": 128892,
+    "admin_code": "ET070610"
+  },
+  {
+    "name": "Kindo Koyisha",
+    "status": "District",
+    "population_census_2007": 104564,
+    "population_projection_2022": 145165,
+    "admin_code": "ET070606"
+  },
+  {
+    "name": "Kochire",
+    "status": "District",
+    "population_census_2007": 130486,
+    "population_projection_2022": 184439,
+    "admin_code": "ET070503"
+  },
+  {
+    "name": "Kokir Gedabano",
+    "status": "District",
+    "population_census_2007": 93408,
+    "population_projection_2022": 124073,
+    "admin_code": "ET070104"
+  },
+  {
+    "name": "Konso",
+    "status": "District",
+    "population_census_2007": 235087,
+    "population_projection_2022": 318819,
+    "admin_code": "ET071303"
+  },
+  {
+    "name": "Kucha",
+    "status": "District",
+    "population_census_2007": 149287,
+    "population_projection_2022": 201296,
+    "admin_code": "ET071019"
+  },
+  {
+    "name": "Lanfuro",
+    "status": "District",
+    "population_census_2007": 116114,
+    "population_projection_2022": 168248,
+    "admin_code": "ET072003"
+  },
+  {
+    "name": "Lemo",
+    "status": "District",
+    "population_census_2007": 118594,
+    "population_projection_2022": 157107,
+    "admin_code": "ET070203"
+  },
+  {
+    "name": "Mago National Park",
+    "status": "National Park",
+    "population_census_2007": 0,
+    "population_projection_2022": 0,
+    "admin_code": "ET070799"
+  },
+  {
+    "name": "Male",
+    "status": "District",
+    "population_census_2007": 84693,
+    "population_projection_2022": 111439,
+    "admin_code": "ET070707"
+  },
+  {
+    "name": "Mareko",
+    "status": "District",
+    "population_census_2007": 64512,
+    "population_projection_2022": 93424,
+    "admin_code": "ET070107"
+  },
+  {
+    "name": "Melekoza",
+    "status": "District",
+    "population_census_2007": 120398,
+    "population_projection_2022": 161164,
+    "admin_code": "ET071501"
+  },
+  {
+    "name": "Merab Abaya",
+    "status": "District",
+    "population_census_2007": 74967,
+    "population_projection_2022": 105621,
+    "admin_code": "ET071005"
+  },
+  {
+    "name": "Merab Azernet",
+    "status": "District",
+    "population_census_2007": 59289,
+    "population_projection_2022": 84157,
+    "admin_code": "ET072004"
+  },
+  {
+    "name": "Merab Badwacho",
+    "status": "District",
+    "population_census_2007": 83439,
+    "population_projection_2022": 111484,
+    "admin_code": "ET070209"
+  },
+  {
+    "name": "Mesekan",
+    "status": "District",
+    "population_census_2007": 155782,
+    "population_projection_2022": 218370,
+    "admin_code": "ET070106"
+  },
+  {
+    "name": "Misha",
+    "status": "District",
+    "population_census_2007": 127318,
+    "population_projection_2022": 173844,
+    "admin_code": "ET070201"
+  },
+  {
+    "name": "Misrak Azernet",
+    "status": "District",
+    "population_census_2007": 50739,
+    "population_projection_2022": 66001,
+    "admin_code": "ET072007"
+  },
+  {
+    "name": "Misrak Badawacho",
+    "status": "District",
+    "population_census_2007": 142823,
+    "population_projection_2022": 207413,
+    "admin_code": "ET070205"
+  },
+  {
+    "name": "Muhor Na Aklil",
+    "status": "District",
+    "population_census_2007": 87756,
+    "population_projection_2022": 115149,
+    "admin_code": "ET070112"
+  },
+  {
+    "name": "Nech Sar National Park",
+    "status": "National Park",
+    "population_census_2007": 0,
+    "population_projection_2022": 0,
+    "admin_code": "ET071099"
+  },
+  {
+    "name": "Nyangatom",
+    "status": "District",
+    "population_census_2007": 17640,
+    "population_projection_2022": 22946,
+    "admin_code": "ET070708"
+  },
+  {
+    "name": "Ofa",
+    "status": "District",
+    "population_census_2007": 103870,
+    "population_projection_2022": 142636,
+    "admin_code": "ET070607"
+  },
+  {
+    "name": "Sankura",
+    "status": "District",
+    "population_census_2007": 84736,
+    "population_projection_2022": 115263,
+    "admin_code": "ET072006"
+  },
+  {
+    "name": "Sawla",
+    "status": "Town",
+    "population_census_2007": 22704,
+    "population_projection_2022": 61037,
+    "admin_code": "ET071507"
+  },
+  {
+    "name": "Selamago",
+    "status": "District",
+    "population_census_2007": 27866,
+    "population_projection_2022": 37954,
+    "admin_code": "ET070701"
+  },
+  {
+    "name": "Semen Ari",
+    "status": "District",
+    "population_census_2007": 67431,
+    "population_projection_2022": 90989,
+    "admin_code": "ET070703"
+  },
+  {
+    "name": "Shashago",
+    "status": "District",
+    "population_census_2007": 103722,
+    "population_projection_2022": 146246,
+    "admin_code": "ET070204"
+  },
+  {
+    "name": "Silti",
+    "status": "District",
+    "population_census_2007": 177249,
+    "population_projection_2022": 252929,
+    "admin_code": "ET072002"
+  },
+  {
+    "name": "Sodo",
+    "status": "District",
+    "population_census_2007": 134683,
+    "population_projection_2022": 194253,
+    "admin_code": "ET070105"
+  },
+  {
+    "name": "Sodo",
+    "status": "Town",
+    "population_census_2007": 76050,
+    "population_projection_2022": 204121,
+    "admin_code": "ET070613"
+  },
+  {
+    "name": "Sodo Zuria",
+    "status": "District",
+    "population_census_2007": 162691,
+    "population_projection_2022": 211629,
+    "admin_code": "ET070605"
+  },
+  {
+    "name": "Soro",
+    "status": "District",
+    "population_census_2007": 188858,
+    "population_projection_2022": 269031,
+    "admin_code": "ET070206"
+  },
+  {
+    "name": "Tembaro",
+    "status": "District",
+    "population_census_2007": 105573,
+    "population_projection_2022": 147876,
+    "admin_code": "ET070301"
+  },
+  {
+    "name": "Uba Debre Tsehay",
+    "status": "District",
+    "population_census_2007": 69120,
+    "population_projection_2022": 96069,
+    "admin_code": "ET071504"
+  },
+  {
+    "name": "Welkite",
+    "status": "Town",
+    "population_census_2007": 28866,
+    "population_projection_2022": 77514,
+    "admin_code": "ET070114"
+  },
+  {
+    "name": "Wenago",
+    "status": "District",
+    "population_census_2007": 116921,
+    "population_projection_2022": 163828,
+    "admin_code": "ET070501"
+  },
+  {
+    "name": "Wulbareg",
+    "status": "District",
+    "population_census_2007": 79981,
+    "population_projection_2022": 107084,
+    "admin_code": "ET072008"
+  },
+  {
+    "name": "Yem",
+    "status": "Special District",
+    "population_census_2007": 80687,
+    "population_projection_2022": 116044,
+    "admin_code": "ET072401"
+  },
+  {
+    "name": "Yirgachefe",
+    "status": "District",
+    "population_census_2007": 195256,
+    "population_projection_2022": 274952,
+    "admin_code": "ET070502"
+  },
+  {
+    "name": "Zala",
+    "status": "District",
+    "population_census_2007": 74369,
+    "population_projection_2022": 99690,
+    "admin_code": "ET071503"
+  },
+  {
+    "name": "Anderacha",
+    "status": "District",
+    "population_census_2007": 23985,
+    "population_projection_2022": 34834,
+    "admin_code": "ET070802"
+  },
+  {
+    "name": "Bero",
+    "status": "District",
+    "population_census_2007": 12256,
+    "population_projection_2022": 18523,
+    "admin_code": "ET071805"
+  },
+  {
+    "name": "Bita",
+    "status": "District",
+    "population_census_2007": 74577,
+    "population_projection_2022": 100830,
+    "admin_code": "ET070910"
+  },
+  {
+    "name": "Bonga",
+    "status": "Town",
+    "population_census_2007": 20858,
+    "population_projection_2022": 56045,
+    "admin_code": "ET070911"
+  },
+  {
+    "name": "Chena",
+    "status": "District",
+    "population_census_2007": 158449,
+    "population_projection_2022": 222310,
+    "admin_code": "ET070909"
+  },
+  {
+    "name": "Cheta",
+    "status": "District",
+    "population_census_2007": 32619,
+    "population_projection_2022": 44479,
+    "admin_code": "ET070907"
+  },
+  {
+    "name": "Debub Bench",
+    "status": "District",
+    "population_census_2007": 108299,
+    "population_projection_2022": 152945,
+    "admin_code": "ET071103"
+  },
+  {
+    "name": "Decha",
+    "status": "District",
+    "population_census_2007": 128887,
+    "population_projection_2022": 175261,
+    "admin_code": "ET070908"
+  },
+  {
+    "name": "Genabosa",
+    "status": "District",
+    "population_census_2007": 86565,
+    "population_projection_2022": 114558,
+    "admin_code": "ET071704"
+  },
+  {
+    "name": "Gesha Deka",
+    "status": "District",
+    "population_census_2007": 85104,
+    "population_projection_2022": 115451,
+    "admin_code": "ET070902"
+  },
+  {
+    "name": "Gewata",
+    "status": "District",
+    "population_census_2007": 72473,
+    "population_projection_2022": 96270,
+    "admin_code": "ET070903"
+  },
+  {
+    "name": "Gimbo",
+    "status": "District",
+    "population_census_2007": 89892,
+    "population_projection_2022": 130328,
+    "admin_code": "ET070904"
+  },
+  {
+    "name": "Guraferda",
+    "status": "District",
+    "population_census_2007": 35271,
+    "population_projection_2022": 52791,
+    "admin_code": "ET071102"
+  },
+  {
+    "name": "Isara",
+    "status": "District",
+    "population_census_2007": 64950,
+    "population_projection_2022": 90093,
+    "admin_code": "ET071705"
+  },
+  {
+    "name": "Konta",
+    "status": "District",
+    "population_census_2007": 90846,
+    "population_projection_2022": 129665,
+    "admin_code": "ET071901"
+  },
+  {
+    "name": "Loma",
+    "status": "District",
+    "population_census_2007": 109192,
+    "population_projection_2022": 147556,
+    "admin_code": "ET071703"
+  },
+  {
+    "name": "Maji",
+    "status": "District",
+    "population_census_2007": 31088,
+    "population_projection_2022": 47168,
+    "admin_code": "ET071807"
+  },
+  {
+    "name": "Mareka",
+    "status": "District",
+    "population_census_2007": 126022,
+    "population_projection_2022": 190009,
+    "admin_code": "ET071702"
+  },
+  {
+    "name": "Masha",
+    "status": "District",
+    "population_census_2007": 40810,
+    "population_projection_2022": 62514,
+    "admin_code": "ET070801"
+  },
+  {
+    "name": "Meinit Goldeya",
+    "status": "District",
+    "population_census_2007": 88863,
+    "population_projection_2022": 119144,
+    "admin_code": "ET071802"
+  },
+  {
+    "name": "Meinit Shasha",
+    "status": "District",
+    "population_census_2007": 43305,
+    "population_projection_2022": 60197,
+    "admin_code": "ET071804"
+  },
+  {
+    "name": "Menjiwo",
+    "status": "District",
+    "population_census_2007": 107731,
+    "population_projection_2022": 144128,
+    "admin_code": "ET070905"
+  },
+  {
+    "name": "Mizan Aman",
+    "status": "Town",
+    "population_census_2007": 34080,
+    "population_projection_2022": 91437,
+    "admin_code": "ET071107"
+  },
+  {
+    "name": "Sayilem",
+    "status": "District",
+    "population_census_2007": 40874,
+    "population_projection_2022": 55991,
+    "admin_code": "ET070901"
+  },
+  {
+    "name": "Semen Bench",
+    "status": "District",
+    "population_census_2007": 106490,
+    "population_projection_2022": 145932,
+    "admin_code": "ET071105"
+  },
+  {
+    "name": "Shay Bench",
+    "status": "District",
+    "population_census_2007": 118282,
+    "population_projection_2022": 160031,
+    "admin_code": "ET071104"
+  },
+  {
+    "name": "Sheko",
+    "status": "District",
+    "population_census_2007": 49999,
+    "population_projection_2022": 71742,
+    "admin_code": "ET071101"
+  },
+  {
+    "name": "Surma",
+    "status": "District",
+    "population_census_2007": 24598,
+    "population_projection_2022": 33264,
+    "admin_code": "ET071806"
+  },
+  {
+    "name": "Telo",
+    "status": "District",
+    "population_census_2007": 63252,
+    "population_projection_2022": 87160,
+    "admin_code": "ET070906"
+  },
+  {
+    "name": "Tocha",
+    "status": "District",
+    "population_census_2007": 102848,
+    "population_projection_2022": 142959,
+    "admin_code": "ET071701"
+  },
+  {
+    "name": "Yeki",
+    "status": "District",
+    "population_census_2007": 134519,
+    "population_projection_2022": 209337,
+    "admin_code": "ET070803"
+  },
+  {
+    "name": "Abiy Adi",
+    "status": "Town",
+    "population_census_2007": 16115,
+    "population_projection_2022": 34176,
+    "admin_code": "ET010211"
+  },
+  {
+    "name": "Adigrat",
+    "status": "Town",
+    "population_census_2007": 57588,
+    "population_projection_2022": 121776,
+    "admin_code": "ET010308"
+  },
+  {
+    "name": "Adwa",
+    "status": "District",
+    "population_census_2007": 99711,
+    "population_projection_2022": 113438,
+    "admin_code": "ET010204"
+  },
+  {
+    "name": "Adwa",
+    "status": "Town",
+    "population_census_2007": 40500,
+    "population_projection_2022": 85644,
+    "admin_code": "ET010212"
+  },
+  {
+    "name": "Ahiferom",
+    "status": "District",
+    "population_census_2007": 173700,
+    "population_projection_2022": 220575,
+    "admin_code": "ET010202"
+  },
+  {
+    "name": "Aksum",
+    "status": "Town",
+    "population_census_2007": 44647,
+    "population_projection_2022": 94515,
+    "admin_code": "ET010213"
+  },
+  {
+    "name": "Alaje",
+    "status": "District",
+    "population_census_2007": 107972,
+    "population_projection_2022": 130287,
+    "admin_code": "ET010404"
+  },
+  {
+    "name": "Alamata",
+    "status": "District",
+    "population_census_2007": 85403,
+    "population_projection_2022": 101627,
+    "admin_code": "ET010407"
+  },
+  {
+    "name": "Alamata",
+    "status": "Town",
+    "population_census_2007": 33214,
+    "population_projection_2022": 70441,
+    "admin_code": "ET010411"
+  },
+  {
+    "name": "Asgede Tsimbla",
+    "status": "District",
+    "population_census_2007": 135621,
+    "population_projection_2022": 164146,
+    "admin_code": "ET010105"
+  },
+  {
+    "name": "Atsbi Wonberta",
+    "status": "District",
+    "population_census_2007": 112341,
+    "population_projection_2022": 138712,
+    "admin_code": "ET010307"
+  },
+  {
+    "name": "Dega Temben",
+    "status": "District",
+    "population_census_2007": 113595,
+    "population_projection_2022": 136330,
+    "admin_code": "ET010604"
+  },
+  {
+    "name": "Endamehoni",
+    "status": "District",
+    "population_census_2007": 84739,
+    "population_projection_2022": 99307,
+    "admin_code": "ET010405"
+  },
+  {
+    "name": "Enderta",
+    "status": "District",
+    "population_census_2007": 114297,
+    "population_projection_2022": 130020,
+    "admin_code": "ET010602"
+  },
+  {
+    "name": "Erob",
+    "status": "District",
+    "population_census_2007": 25471,
+    "population_projection_2022": 31035,
+    "admin_code": "ET010302"
+  },
+  {
+    "name": "Ganta Afeshum",
+    "status": "District",
+    "population_census_2007": 88644,
+    "population_projection_2022": 104431,
+    "admin_code": "ET010304"
+  },
+  {
+    "name": "Gulo Meheda",
+    "status": "District",
+    "population_census_2007": 84236,
+    "population_projection_2022": 105707,
+    "admin_code": "ET010301"
+  },
+  {
+    "name": "Hawuzen",
+    "status": "District",
+    "population_census_2007": 117954,
+    "population_projection_2022": 141627,
+    "admin_code": "ET010305"
+  },
+  {
+    "name": "Hintalo Wajirat",
+    "status": "District",
+    "population_census_2007": 153505,
+    "population_projection_2022": 186342,
+    "admin_code": "ET010603"
+  },
+  {
+    "name": "Humora",
+    "status": "Town",
+    "population_census_2007": 21653,
+    "population_projection_2022": 46080,
+    "admin_code": "ET010504"
+  },
+  {
+    "name": "Kafta Humera",
+    "status": "District",
+    "population_census_2007": 92167,
+    "population_projection_2022": 134709,
+    "admin_code": "ET010501"
+  },
+  {
+    "name": "Kilte Awlalo",
+    "status": "District",
+    "population_census_2007": 99708,
+    "population_projection_2022": 118141,
+    "admin_code": "ET010306"
+  },
+  {
+    "name": "Kola Temben",
+    "status": "District",
+    "population_census_2007": 134336,
+    "population_projection_2022": 152826,
+    "admin_code": "ET010208"
+  },
+  {
+    "name": "Korem",
+    "status": "Town",
+    "population_census_2007": 16856,
+    "population_projection_2022": 35629,
+    "admin_code": "ET010410"
+  },
+  {
+    "name": "Laelay Adiyabo",
+    "status": "District",
+    "population_census_2007": 113836,
+    "population_projection_2022": 137322,
+    "admin_code": "ET010102"
+  },
+  {
+    "name": "Laelay Maychew",
+    "status": "District",
+    "population_census_2007": 72625,
+    "population_projection_2022": 82621,
+    "admin_code": "ET010205"
+  },
+  {
+    "name": "Maychew",
+    "status": "Town",
+    "population_census_2007": 23419,
+    "population_projection_2022": 49603,
+    "admin_code": "ET010409"
+  },
+  {
+    "name": "Medebay Zana",
+    "status": "District",
+    "population_census_2007": 125028,
+    "population_projection_2022": 152500,
+    "admin_code": "ET010103"
+  },
+  {
+    "name": "Mekele",
+    "status": "Town",
+    "population_census_2007": 215914,
+    "population_projection_2022": 457917,
+    "admin_code": "ET011062"
+  },
+  {
+    "name": "Mereb Lehe",
+    "status": "District",
+    "population_census_2007": 107218,
+    "population_projection_2022": 129706,
+    "admin_code": "ET010201"
+  },
+  {
+    "name": "Nader Adet",
+    "status": "District",
+    "population_census_2007": 104966,
+    "population_projection_2022": 121232,
+    "admin_code": "ET010207"
+  },
+  {
+    "name": "Ofla",
+    "status": "District",
+    "population_census_2007": 126889,
+    "population_projection_2022": 144369,
+    "admin_code": "ET010408"
+  },
+  {
+    "name": "Raya Azebo",
+    "status": "District",
+    "population_census_2007": 135870,
+    "population_projection_2022": 170319,
+    "admin_code": "ET010406"
+  },
+  {
+    "name": "Seasi Tsadamba",
+    "status": "District",
+    "population_census_2007": 139191,
+    "population_projection_2022": 176854,
+    "admin_code": "ET010303"
+  },
+  {
+    "name": "Seharti Samre",
+    "status": "District",
+    "population_census_2007": 124340,
+    "population_projection_2022": 150454,
+    "admin_code": "ET010601"
+  },
+  {
+    "name": "Shiraro",
+    "status": "Town",
+    "population_census_2007": 17045,
+    "population_projection_2022": 36127,
+    "admin_code": "ET010107"
+  },
+  {
+    "name": "Shire Inda Silase",
+    "status": "Town",
+    "population_census_2007": 47284,
+    "population_projection_2022": 100079,
+    "admin_code": "ET010108"
+  },
+  {
+    "name": "Tahtay Adiyabo",
+    "status": "District",
+    "population_census_2007": 90144,
+    "population_projection_2022": 108743,
+    "admin_code": "ET010101"
+  },
+  {
+    "name": "Tahtay Koraro",
+    "status": "District",
+    "population_census_2007": 68989,
+    "population_projection_2022": 78483,
+    "admin_code": "ET010104"
+  },
+  {
+    "name": "Tahtay Maychew",
+    "status": "District",
+    "population_census_2007": 99122,
+    "population_projection_2022": 123736,
+    "admin_code": "ET010206"
+  },
+  {
+    "name": "Tanqua Abergele",
+    "status": "District",
+    "population_census_2007": 93185,
+    "population_projection_2022": 112901,
+    "admin_code": "ET010210"
+  },
+  {
+    "name": "Tsegede",
+    "status": "District",
+    "population_census_2007": 103852,
+    "population_projection_2022": 127171,
+    "admin_code": "ET010503"
+  },
+  {
+    "name": "Tselemti",
+    "status": "District",
+    "population_census_2007": 138858,
+    "population_projection_2022": 166395,
+    "admin_code": "ET010106"
+  },
+  {
+    "name": "Welkayit",
+    "status": "District",
+    "population_census_2007": 138926,
+    "population_projection_2022": 168600,
+    "admin_code": "ET010502"
+  },
+  {
+    "name": "Were Lehe",
+    "status": "District",
+    "population_census_2007": 146104,
+    "population_projection_2022": 182387,
+    "admin_code": "ET010203"
+  },
+  {
+    "name": "Wukro",
+    "status": "Town",
+    "population_census_2007": 30210,
+    "population_projection_2022": 63956,
+    "admin_code": "ET010309"
+  }
+]
