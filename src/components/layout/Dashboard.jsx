@@ -10,7 +10,11 @@ import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
-import { FORECAST_API_BASE, runEpidemiaPipeline } from "../../api";
+import {
+  FORECAST_API_BASE,
+  fetchLatestEpidemiaReport,
+  runEpidemiaPipeline,
+} from "../../api";
 import {
   buildAdm3Lookup,
   findDistrictFromLookup,
@@ -82,7 +86,9 @@ function Dashboard() {
   const [districts, setDistricts] = useState(["All Regions"]);
   const [epidemiaData, setEpidemiaData] = useState(null);
   const [epidemiaLoading, setEpidemiaLoading] = useState(false);
+  const [epidemiaRefreshing, setEpidemiaRefreshing] = useState(false);
   const [epidemiaError, setEpidemiaError] = useState("");
+  const forecastRequestIdRef = useRef(0);
 
   //  Environmental data states
   const [startDate, setStartDate] = useState("2026-01-01");
@@ -188,8 +194,39 @@ function Dashboard() {
     []
   );
 
-  const loadEpidemia = useCallback(async () => {
+  const loadLatestEpidemia = useCallback(async () => {
+    const requestId = forecastRequestIdRef.current + 1;
+    forecastRequestIdRef.current = requestId;
     setEpidemiaLoading(true);
+    setEpidemiaError("");
+    try {
+      const data = await fetchLatestEpidemiaReport({ outputDir: "report" });
+      if (forecastRequestIdRef.current === requestId) {
+        setEpidemiaData(data);
+      }
+    } catch (err) {
+      console.error("Failed to load latest EPIDEMIA report:", err);
+      if (forecastRequestIdRef.current === requestId) {
+        if (err.code === "ERR_NETWORK") {
+          const endpointHint = FORECAST_API_BASE || "same origin";
+          setEpidemiaError(
+            `Cannot reach forecasting API at ${endpointHint}. Start backend server and try Refresh Forecast again.`
+          );
+        } else {
+          setEpidemiaError(
+            err.response?.data?.detail || err.message || "Failed to load latest forecast report"
+          );
+        }
+      }
+    } finally {
+      setEpidemiaLoading(false);
+    }
+  }, []);
+
+  const refreshEpidemia = useCallback(async () => {
+    const requestId = forecastRequestIdRef.current + 1;
+    forecastRequestIdRef.current = requestId;
+    setEpidemiaRefreshing(true);
     setEpidemiaError("");
     try {
       const data = await runEpidemiaPipeline({
@@ -198,23 +235,31 @@ function Dashboard() {
         outputDir: "report",
         createReport: false,
       });
-      setEpidemiaData(data);
+      if (forecastRequestIdRef.current === requestId) {
+        setEpidemiaData(data);
+      }
     } catch (err) {
       console.error("Failed to run EPIDEMIA pipeline:", err);
-      if (err.code === "ERR_NETWORK") {
-        const endpointHint = FORECAST_API_BASE || "same origin";
-        setEpidemiaError(`Cannot reach forecasting API at ${endpointHint}. Start backend server and try Refresh Forecast again.`);
-      } else {
-        setEpidemiaError(err.response?.data?.detail || err.message || "Failed to run EPIDEMIA pipeline");
+      if (forecastRequestIdRef.current === requestId) {
+        if (err.code === "ERR_NETWORK") {
+          const endpointHint = FORECAST_API_BASE || "same origin";
+          setEpidemiaError(
+            `Cannot reach forecasting API at ${endpointHint}. Start backend server and try again.`
+          );
+        } else {
+          setEpidemiaError(
+            err.response?.data?.detail || err.message || "Failed to refresh forecast"
+          );
+        }
       }
     } finally {
-      setEpidemiaLoading(false);
+      setEpidemiaRefreshing(false);
     }
   }, [forecastWeeks]);
 
   useEffect(() => {
-    loadEpidemia();
-  }, [loadEpidemia]);
+    loadLatestEpidemia();
+  }, [loadLatestEpidemia]);
 
   useEffect(() => {
     let cancelled = false;
@@ -559,8 +604,8 @@ function Dashboard() {
         selectedDistrict={region}
         onChangeDistrict={updateRegion}
         availableDistricts={districts}
-        onRefreshForecast={loadEpidemia}
-        refreshingForecast={epidemiaLoading}
+        onRefreshForecast={refreshEpidemia}
+        refreshingForecast={epidemiaRefreshing}
         onExportPDF={handleExportPDF}
         exporting={exporting}
       />
@@ -575,7 +620,7 @@ function Dashboard() {
         <section className="forecast-cards fade-in-up delay-1">
           <article className="glass-card forecast-card">
             <h4>Pipeline</h4>
-            <p>{epidemiaLoading ? "Running" : epidemiaError ? "Error" : "Ready"}</p>
+            <p>{epidemiaRefreshing ? "Running" : epidemiaLoading ? "Loading latest" : epidemiaError ? "Error" : "Ready"}</p>
           </article>
           <article className="glass-card forecast-card">
             <h4>Early Warnings</h4>
@@ -707,6 +752,10 @@ function Dashboard() {
             )}
 
             {epidemiaLoading && (
+              <div className="chart-state">Loading latest district forecast...</div>
+            )}
+
+            {epidemiaRefreshing && (
               <div className="chart-state">Updating district forecast...</div>
             )}
 
@@ -737,7 +786,7 @@ function Dashboard() {
               </section>
             )}
 
-            {!epidemiaLoading && !selectedForecast && region !== "All Regions" && (
+            {!epidemiaLoading && !epidemiaRefreshing && !selectedForecast && region !== "All Regions" && (
               <div className="chart-state">No district forecast available for this selection.</div>
             )}
           </div>

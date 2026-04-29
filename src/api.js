@@ -46,6 +46,13 @@ export async function runEpidemiaPipeline({
   return response.data;
 }
 
+export async function fetchLatestEpidemiaReport({ outputDir = "report" } = {}) {
+  const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest"), {
+    params: { output_dir: outputDir },
+  });
+  return response.data;
+}
+
 export async function fetchEnvironmentalDataAll({
   startDate,
   endDate,
