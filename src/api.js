@@ -23,6 +23,18 @@ export const ENV_API_BASE = normalizeBase(
 
 const buildApiUrl = (base, path) => `${base}${path}`;
 
+async function fetchStaticLatestEpidemiaReport() {
+  if (!isBrowser) {
+    throw new Error("Static latest report is only available in the browser");
+  }
+
+  const response = await fetch("/report_data.json");
+  if (!response.ok) {
+    throw new Error(`Static latest forecast report not found (${response.status})`);
+  }
+  return response.json();
+}
+
 export async function fetchForecast(region, horizonWeeks = 8) {
   const response = await axios.post(buildApiUrl(FORECAST_API_BASE, "/forecast"), {
     region: region,
@@ -47,10 +59,25 @@ export async function runEpidemiaPipeline({
 }
 
 export async function fetchLatestEpidemiaReport({ outputDir = "report" } = {}) {
-  const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest"), {
-    params: { output_dir: outputDir },
-  });
-  return response.data;
+  if (!isLocalhost && !FORECAST_API_BASE) {
+    return fetchStaticLatestEpidemiaReport();
+  }
+
+  try {
+    const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest"), {
+      params: { output_dir: outputDir },
+    });
+    return response.data;
+  } catch (err) {
+    if (isBrowser) {
+      try {
+        return await fetchStaticLatestEpidemiaReport();
+      } catch {
+        // Keep the API error because it has the most useful endpoint details.
+      }
+    }
+    throw err;
+  }
 }
 
 export async function fetchEnvironmentalDataAll({
