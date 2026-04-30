@@ -21,6 +21,8 @@ const WEIGHT_WOREDA_IN_FILTER = 0.9;
 const WEIGHT_WOREDA_SELECTED = 2.4;
 const WEIGHT_REGION_OUTLINE = 2.3;
 const DISTRICT_CLICK_MAX_ZOOM = 8;
+const MAP_DEFAULT_CENTER = [9.0, 40.5];
+const MAP_DEFAULT_ZOOM = 6;
 
 /** One merged polygon per adm1; outer ring is the true regional boundary. */
 function buildAdmin1Outlines(geo) {
@@ -107,6 +109,38 @@ function toGibsTime(dateStr) {
   if (!dateStr) return null;
   const s = String(dateStr).trim();
   return /^\d{4}-\d{2}-\d{2}$/.test(s) ? s : null;
+}
+
+function HomeMapControl() {
+  const map = useMap();
+
+  useEffect(() => {
+    const homeControl = L.control({ position: "topleft" });
+
+    homeControl.onAdd = () => {
+      const container = L.DomUtil.create("div", "leaflet-bar leaflet-control leaflet-control-home");
+      const button = L.DomUtil.create("button", "leaflet-control-home-button", container);
+      button.type = "button";
+      button.title = "Reset map view";
+      button.setAttribute("aria-label", "Reset map view");
+      button.innerHTML = "⌂";
+
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.on(button, "click", (event) => {
+        L.DomEvent.stop(event);
+        map.setView(MAP_DEFAULT_CENTER, MAP_DEFAULT_ZOOM);
+      });
+
+      return container;
+    };
+
+    homeControl.addTo(map);
+    return () => {
+      homeControl.remove();
+    };
+  }, [map]);
+
+  return null;
 }
 
 const GIBS_PREFETCH_MAX_TILES = 48;
@@ -1031,10 +1065,12 @@ export default function EthiopiaMap({
   return (
     <div className="map-wrap">
       <MapContainer
-        center={[9.0, 40.5]}
-        zoom={6}
+        center={MAP_DEFAULT_CENTER}
+        zoom={MAP_DEFAULT_ZOOM}
         className="district-map"
       >
+        <HomeMapControl />
+
         <TileLayer
           attribution="© OpenStreetMap, © CARTO"
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"

@@ -654,6 +654,20 @@ def _save_artifacts(
     return artifacts
 
 
+def load_latest_epidemia_report(output_dir: str = "report") -> EpidemiaRunResponse:
+    report_json = _resolve_runtime_path(output_dir) / "report_data.json"
+    if not report_json.exists():
+        raise PipelineInputError(
+            f"No cached EPIDEMIA report found at {report_json}. Run the pipeline first."
+        )
+
+    with report_json.open("r", encoding="utf-8") as f:
+        payload = json.load(f)
+
+    payload.setdefault("artifacts", {"report_data": str(report_json)})
+    return EpidemiaRunResponse.model_validate(payload)
+
+
 def run_epidemia_pipeline(req: EpidemiaRunRequest) -> EpidemiaRunResponse:
     report_woredas, epi_data, env_data, env_ref_data, env_info = _load_inputs(req)
 

@@ -47,6 +47,13 @@ export default function ForecastChart({
   const observedDates = observedPoints.map((d) => d.date);
   const observed = observedPoints.map((d) => d.observed);
   const chartDates = [...observedDates, ...forecastDates];
+  const defaultXRange = Array.from(new Set(chartDates)).sort();
+  const xAxisRange =
+    syncedXRange && syncedXRange.length === 2
+      ? [syncedXRange[0], syncedXRange[1]]
+      : defaultXRange.length >= 2
+        ? [defaultXRange[0], defaultXRange[defaultXRange.length - 1]]
+        : null;
 
   const detectionThreshold =
     alert?.detection_threshold !== null && alert?.detection_threshold !== undefined
@@ -176,20 +183,19 @@ export default function ForecastChart({
             ? `fc-zoom-${syncedXRange[0]}-${syncedXRange[1]}`
             : "forecast-chart",
           autosize: true,
-          height: 350,
-          margin: { l: 52, r: 24, t: 16, b: 52 },
+          height: 330,
+          margin: { l: 58, r: 24, t: 16, b: 60 },
           paper_bgcolor: "rgba(0,0,0,0)",
           plot_bgcolor: "rgba(255,255,255,0.5)",
           dragmode: "zoom",
           xaxis: {
             title: "Date",
+            tickangle: -35,
             gridcolor: "#e2e8f1",
             zeroline: false,
-            tickfont: { color: "#495367" },
+            tickfont: { size: 11, color: "#495367" },
             titlefont: { color: "#495367" },
-            ...(syncedXRange && syncedXRange.length === 2
-              ? { range: [syncedXRange[0], syncedXRange[1]] }
-              : {}),
+            ...(xAxisRange ? { range: xAxisRange } : {}),
           },
           yaxis: {
             title: "Cases",

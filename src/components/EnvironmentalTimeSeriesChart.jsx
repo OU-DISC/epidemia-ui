@@ -139,8 +139,8 @@ export default function EnvironmentalTimeSeriesChart({
             ? `env-zoom-${syncedXRange[0]}-${syncedXRange[1]}`
             : `env-${startDate}-${endDate}-${dataset}`,
           autosize: true,
-          height: 320,
-          margin: { l: 58, r: 18, t: 10, b: 70 },
+          height: 330,
+          margin: { l: 58, r: 24, t: 16, b: 60 },
           paper_bgcolor: "rgba(0,0,0,0)",
           plot_bgcolor: "rgba(255,255,255,0.5)",
           dragmode: "zoom",

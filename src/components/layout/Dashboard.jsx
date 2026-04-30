@@ -44,6 +44,15 @@ function formatPopulation(value) {
   return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value));
 }
 
+function DiseaseTitle({ disease, country }) {
+  const speciesName = disease.replace(/\s+malaria$/i, "");
+  return (
+    <>
+      <em>{speciesName}</em> malaria Early Warning ({country})
+    </>
+  );
+}
+
 function finiteNumber(value) {
   const n = Number(value);
   return Number.isFinite(n) ? n : null;
@@ -614,7 +623,9 @@ function Dashboard() {
         <main className="main-content">
           <section className="dashboard-hero fade-in-up">
             <p className="dashboard-kicker">Real-Time Surveillance Platform</p>
-            <h1 className="dashboard-title">{disease} Early Warning ({country})</h1>
+            <h1 className="dashboard-title">
+              <DiseaseTitle disease={disease} country={country} />
+            </h1>
           </section>
 
         <section className="forecast-cards fade-in-up delay-1">
@@ -657,6 +668,34 @@ function Dashboard() {
               </label>
             </div>
 
+            <DecisionLayers
+              showEarlyWarning={showEarlyWarning}
+              showEarlyDetection={showEarlyDetection}
+              onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
+              onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
+            />
+
+            <EnvironmentalLayers
+              startDate={startDate}
+              endDate={endDate}
+              onChangeStartDate={setStartDate}
+              onChangeEndDate={setEndDate}
+              showRainfall={showRainfallLayer}
+              showTemperature={showTemperatureLayer}
+              showNdvi={showNdviLayer}
+              onToggleRainfall={() => setShowRainfallLayer((v) => !v)}
+              onToggleTemperature={() => setShowTemperatureLayer((v) => !v)}
+              onToggleNdvi={() => setShowNdviLayer((v) => !v)}
+              timeMode={envTimeMode}
+              onChangeTimeMode={setEnvTimeMode}
+              weekDates={weekDates}
+              weekIndex={weekIndex}
+              onChangeWeekIndex={setWeekIndex}
+              playing={envPlaying}
+              onTogglePlaying={() => setEnvPlaying((v) => !v)}
+              averageSampleInfo={averageSampleInfo}
+            />
+
             <EthiopiaMap
               onSelectRegion={updateRegion}
               startDate={startDate}
@@ -679,36 +718,6 @@ function Dashboard() {
               onEnvAverageStats={setEnvAverageStats}
             />
 
-            <div className="map-layer-controls">
-              <DecisionLayers
-                showEarlyWarning={showEarlyWarning}
-                showEarlyDetection={showEarlyDetection}
-                onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
-                onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
-              />
-
-              <EnvironmentalLayers
-                startDate={startDate}
-                endDate={endDate}
-                onChangeStartDate={setStartDate}
-                onChangeEndDate={setEndDate}
-                showRainfall={showRainfallLayer}
-                showTemperature={showTemperatureLayer}
-                showNdvi={showNdviLayer}
-                onToggleRainfall={() => setShowRainfallLayer((v) => !v)}
-                onToggleTemperature={() => setShowTemperatureLayer((v) => !v)}
-                onToggleNdvi={() => setShowNdviLayer((v) => !v)}
-                timeMode={envTimeMode}
-                onChangeTimeMode={setEnvTimeMode}
-                weekDates={weekDates}
-                weekIndex={weekIndex}
-                onChangeWeekIndex={setWeekIndex}
-                playing={envPlaying}
-                onTogglePlaying={() => setEnvPlaying((v) => !v)}
-                averageSampleInfo={averageSampleInfo}
-              />
-            </div>
-
             {SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL && (
               <div className="glass-card fade-in-up delay-2 env-fetch-sidebar">
                 <EnvironmentalDataControls
@@ -727,7 +736,11 @@ function Dashboard() {
           <div className="glass-card insights-panel">
             <div className="panel-header">
               <h3>{region}</h3>
-              <span>District Insight</span>
+              <span>
+                {selectedAlert
+                  ? `Population: ${formatPopulation(selectedAlert.population_at_risk)}`
+                  : "District Insight"}
+              </span>
             </div>
 
             {epidemiaError && (
@@ -743,10 +756,6 @@ function Dashboard() {
                   {!selectedAlert.early_warning && selectedAlert.early_detection && (
                     <span className="alert-detection">Early Detection</span>
                   )}
-                </div>
-                <div className="population-row">
-                  <span>Population at risk</span>
-                  <strong>{formatPopulation(selectedAlert.population_at_risk)}</strong>
                 </div>
               </>
             )}

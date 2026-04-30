@@ -2,8 +2,8 @@ import React from 'react';
 
 function DecisionLayers({ showEarlyWarning, showEarlyDetection, onToggleEarlyWarning, onToggleEarlyDetection }) {
   return (
-    <div className="decision-layers">
-      <h3>Decision Layers</h3>
+    <div className="decision-layers decision-layers-compact">
+      <h3>Decision Layers:</h3>
 
       <div className="layer-item">
         <input

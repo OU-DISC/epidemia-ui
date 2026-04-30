@@ -5,7 +5,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.schemas.forecast import ForecastRequest, ForecastResponse
 from app.services.malaria_forecast import run_malaria_forecast
 from app.schemas.epidemia import EpidemiaRunRequest, EpidemiaRunResponse
-from app.services.epidemia_pipeline import run_epidemia_pipeline, PipelineInputError
+from app.services.epidemia_pipeline import (
+    load_latest_epidemia_report,
+    run_epidemia_pipeline,
+    PipelineInputError,
+)
 
 
 DEFAULT_ALLOWED_ORIGINS = [
@@ -54,6 +58,14 @@ def run_epidemia(request: EpidemiaRunRequest):
         return run_epidemia_pipeline(request)
     except PipelineInputError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/epidemia/latest", response_model=EpidemiaRunResponse)
+def latest_epidemia(output_dir: str = "report"):
+    try:
+        return load_latest_epidemia_report(output_dir=output_dir)
+    except PipelineInputError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
 if __name__ == "__main__":
     import uvicorn

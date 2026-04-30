@@ -24,8 +24,8 @@ function EnvironmentalLayers({
   const currentDate = weekDates && weekDates.length ? weekDates[weekIndex] : "";
 
   return (
-    <div className="decision-layers env-layers">
-      <h3>Environmental Layers</h3>
+    <div className="decision-layers env-layers env-layers-compact">
+      <h3>Environmental Layers:</h3>
 
       <div className="env-layers-date-range">
         <label className="toolbar-field">
@@ -91,14 +91,13 @@ function EnvironmentalLayers({
       </div>
 
       {anyLayer && (
-        <div style={{ marginTop: 14 }}>
-          <div className="toolbar-field" style={{ width: "100%", justifyContent: "space-between" }}>
+        <div className="env-layers-time-controls">
+          <div className="toolbar-field env-layers-time-mode">
             <span>Time</span>
             <select
               className="toolbar-select"
               value={timeMode}
               onChange={(e) => onChangeTimeMode(e.target.value)}
-              style={{ width: "56%" }}
             >
               <option value="animate">Animate (weekly)</option>
               <option value="average">Average (range)</option>
@@ -107,9 +106,9 @@ function EnvironmentalLayers({
 
           {timeMode === "animate" && (
             <>
-              <div className="toolbar-field" style={{ width: "100%", justifyContent: "space-between", marginTop: 10 }}>
+              <div className="toolbar-field env-layers-week-label">
                 <span>Week</span>
-                <span style={{ color: "var(--ink-soft)", fontWeight: 600 }}>{currentDate || "—"}</span>
+                <span>{currentDate || "—"}</span>
               </div>
 
               <input
@@ -118,14 +117,13 @@ function EnvironmentalLayers({
                 max={Math.max(0, (weekDates?.length || 1) - 1)}
                 value={weekIndex}
                 onChange={(e) => onChangeWeekIndex(Number(e.target.value))}
-                style={{ width: "100%", marginTop: 6 }}
+                className="env-layers-week-slider"
               />
 
               <button
                 type="button"
                 className="toolbar-button"
                 onClick={onTogglePlaying}
-                style={{ width: "100%", marginTop: 10 }}
               >
                 {playing ? "Pause" : "Play"}
               </button>
@@ -133,7 +131,7 @@ function EnvironmentalLayers({
           )}
 
           {timeMode === "average" && (
-            <div style={{ marginTop: 10, color: "var(--ink-soft)", fontSize: "0.86rem", lineHeight: 1.25 }}>
+            <div className="env-layers-average-note">
               {averageSampleInfo || "Averaging over selected date range."}
             </div>
           )}
