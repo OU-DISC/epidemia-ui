@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Downloaded source rasters are large; derived JSON surfaces live in public/.
+/data/worldpop/*.tif

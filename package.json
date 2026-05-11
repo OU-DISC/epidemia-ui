@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:boundaries": "node scripts/build-ethiopia-boundaries.cjs",
-    "build:population-crosswalk": "node scripts/build-population-crosswalk.cjs"
+    "build:population-crosswalk": "node scripts/build-population-crosswalk.cjs",
+    "build:population-worldpop": "node scripts/build-worldpop-population-surface.mjs"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "geotiff": "^3.0.5",
     "mapshaper": "^0.6.121"
   }
 }

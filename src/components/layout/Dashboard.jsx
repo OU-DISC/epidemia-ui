@@ -107,7 +107,6 @@ function Dashboard() {
   const [geoData, setGeoData] = useState(null);
   const [envData, setEnvData] = useState({});
   const [populationSurface, setPopulationSurface] = useState({});
-  const [generalPopulation, setGeneralPopulation] = useState([]);
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
   /** [start, end] date strings; null = each chart uses its own default x span */
   const [syncedXRange, setSyncedXRange] = useState(null);
@@ -272,19 +271,15 @@ function Dashboard() {
 
   useEffect(() => {
     let cancelled = false;
-    Promise.all([
-      fetch("/ethiopia_population_2022.json").then((res) => (res.ok ? res.json() : [])),
-      fetch("/ethiopia_admin3_population_surface.json").then((res) => (res.ok ? res.json() : {})),
-    ])
-      .then(([populationRows, surface]) => {
+    fetch("/ethiopia_admin3_population_surface.json")
+      .then((res) => (res.ok ? res.json() : {}))
+      .then((surface) => {
         if (cancelled) return;
-        setGeneralPopulation(Array.isArray(populationRows) ? populationRows : []);
         setPopulationSurface(surface && typeof surface === "object" ? surface : {});
       })
       .catch((err) => {
         console.error("Failed to load population data", err);
         if (!cancelled) {
-          setGeneralPopulation([]);
           setPopulationSurface({});
         }
       });
@@ -426,46 +421,18 @@ function Dashboard() {
 
   const populationData = useMemo(() => {
     const out = { ...populationSurface };
-    const featureByPcode = new Map();
-    (geoData?.features || []).forEach((feature) => {
-      const pcode = feature?.properties?.adm3_pcode;
-      if (pcode) featureByPcode.set(String(pcode), feature);
-    });
 
-    generalPopulation.forEach((record) => {
-      const population = Number(record.population_projection_2022);
-      if (!Number.isFinite(population)) return;
-
-      const codedFeature = record.admin_code
-        ? featureByPcode.get(String(record.admin_code))
-        : null;
-      const codedName = codedFeature?.properties?.adm3_name;
-      if (codedName) {
-        out[codedName] = population;
-        getDistrictNameVariants(codedName).forEach((variant) => {
+    const assignIfMissing = (name, population) => {
+      if (!name || !Number.isFinite(population)) return;
+      const variants = [name, ...getDistrictNameVariants(name)];
+      variants.forEach((variant) => {
+        const normalized = normalizeDistrictKey(variant);
+        if (out[variant] == null && out[normalized] == null) {
           out[variant] = population;
-          out[normalizeDistrictKey(variant)] = population;
-        });
-      }
-
-      const names = [record.name, ...(record.aliases || [])].filter(Boolean);
-      names.forEach((name) => {
-        getDistrictNameVariants(name).forEach((variant) => {
-          out[variant] = population;
-          out[normalizeDistrictKey(variant)] = population;
-        });
-
-        const district = findDistrictFromLookup(adm3Lookup, name);
-        const mapName = district?.properties?.adm3_name;
-        if (mapName) {
-          out[mapName] = population;
-          getDistrictNameVariants(mapName).forEach((variant) => {
-            out[variant] = population;
-            out[normalizeDistrictKey(variant)] = population;
-          });
+          out[normalized] = population;
         }
       });
-    });
+    };
 
     const alerts = epidemiaData?.alerts || [];
 
@@ -476,22 +443,12 @@ function Dashboard() {
 
         const district = findDistrictFromLookup(adm3Lookup, alert.district);
         const mapName = district?.properties?.adm3_name || alert.district;
-        if (mapName) {
-          out[mapName] = population;
-          getDistrictNameVariants(mapName).forEach((variant) => {
-            out[variant] = population;
-            out[normalizeDistrictKey(variant)] = population;
-          });
-        }
-        out[alert.district] = population;
-        getDistrictNameVariants(alert.district).forEach((variant) => {
-          out[variant] = population;
-          out[normalizeDistrictKey(variant)] = population;
-        });
+        assignIfMissing(mapName, population);
+        assignIfMissing(alert.district, population);
       });
 
     return out;
-  }, [adm3Lookup, epidemiaData, generalPopulation, geoData, populationSurface]);
+  }, [adm3Lookup, epidemiaData, populationSurface]);
 
   const mapData = mapDataset === "population" ? populationData : envData;
 
@@ -651,7 +608,7 @@ function Dashboard() {
           {/* Map */}
           <div className="glass-card map-panel">
             <div className="panel-header">
-              <h3>District Risk Surface</h3>
+              <h3>District Surface</h3>
               <label className="map-surface-control">
                 <span>Surface</span>
                 <select

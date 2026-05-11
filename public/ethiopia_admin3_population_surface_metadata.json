@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-11T14:36:02.773Z",
+  "source": "WorldPop Ethiopia - Spatial Distribution of Population",
+  "source_url": "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2025A/2025/ETH/v1/100m/constrained/eth_pop_2025_CN_100m_R2025A_v1.tif",
+  "source_page": "https://hub.worldpop.org/geodata/summary?id=73279",
+  "doi": "10.5258/SOTON/WP00839",
+  "dataset_version": "R2025A v1",
+  "year": 2025,
+  "resolution": "3 arc seconds, approximately 100m at the equator",
+  "projection": "WGS84",
+  "units": "people per grid cell, summed to adm3 districts",
+  "geojson_districts": 1082,
+  "raster": {
+    "width": 18001,
+    "height": 13788,
+    "bbox": [
+      32.99833248134,
+      3.405000322379987,
+      47.99916575467,
+      14.895000276419987
+    ]
+  },
+  "outputs": {
+    "surface": "public/ethiopia_admin3_population_surface.json"
+  }
+}

@@ -610,7 +610,7 @@ function buildOverlayLegendRows(config) {
   );
 }
 
-function DistrictChoroplethLegend({ title, unit, grades, colors, formatValue }) {
+function DistrictChoroplethLegend({ title, unit, source, grades, colors, formatValue }) {
   const map = useMap();
 
   useEffect(() => {
@@ -636,6 +636,7 @@ function DistrictChoroplethLegend({ title, unit, grades, colors, formatValue }) 
       const parts = [
         `<div style="font-weight:700">${title}</div>`,
         unit ? `<div style="color:#64748b;font-size:11px;margin-bottom:4px">${unit}</div>` : "",
+        source ? `<div style="color:#64748b;font-size:11px;margin-bottom:4px">${source}</div>` : "",
       ];
       rows.forEach((r) => {
         parts.push(
@@ -653,7 +654,7 @@ function DistrictChoroplethLegend({ title, unit, grades, colors, formatValue }) 
     return () => {
       legend.remove();
     };
-  }, [map, title, unit, grades, colors, formatValue]);
+  }, [map, title, unit, source, grades, colors, formatValue]);
 
   return null;
 }
@@ -884,9 +885,10 @@ export default function EthiopiaMap({
   // Legend swatches use the same getColor() so the map and legend stay aligned.
   const gradeConfig = {
     population: {
-      title: "Population",
+      title: "Population (WorldPop 2025)",
       grades: [0, 50000, 100000, 250000],
-      unit: "people",
+      unit: "people per district",
+      source: "WorldPop R2025A v1, 100m WGS84",
       colors: ["#f7fcf5", "#c7e9c0", "#74c476", "#238b45", "#005a32"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
@@ -963,6 +965,7 @@ export default function EthiopiaMap({
   };
 
   const { grades, unit, colors } = activeScale;
+  const source = activeScale.source;
   const formatMapValue = activeScale.format || ((value) => Number(value).toFixed(2));
 
   const getColor = (value) => {
@@ -1178,6 +1181,7 @@ export default function EthiopiaMap({
           <DistrictChoroplethLegend
             title={activeScale.title || dataset}
             unit={unit}
+            source={source}
             grades={grades}
             colors={colors}
             formatValue={formatMapValue}
