@@ -26,8 +26,7 @@ import "./dashboard-theme.css";
 /** District choropleth fetch (Earth Engine). Set to true to show the panel again. */
 const SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL = false;
 
-const MAP_SURFACE_OPTIONS = [
-  { label: "Population", value: "population" },
+const WEATHER_DATASET_OPTIONS = [
   { label: "Precipitation", value: "totprec" },
   { label: "LST Day Temperature", value: "lst_day" },
   { label: "LST Night Temperature", value: "lst_night" },
@@ -37,6 +36,11 @@ const MAP_SURFACE_OPTIONS = [
   { label: "EVI", value: "evi" },
   { label: "NDWI5", value: "ndwi5" },
   { label: "NDWI6", value: "ndwi6" },
+];
+
+const HEALTH_LAYER_OPTIONS = [
+  { label: "Population", value: "population" },
+  { label: "Incident Rate", value: "incident_rate" },
 ];
 
 function formatPopulation(value) {
@@ -56,6 +60,22 @@ function DiseaseTitle({ disease, country }) {
 function finiteNumber(value) {
   const n = Number(value);
   return Number.isFinite(n) ? n : null;
+}
+
+function surfaceValueForDistrict(surface, districtName) {
+  if (!surface || !districtName) return null;
+  const exact = finiteNumber(surface[districtName]);
+  if (exact != null) return exact;
+
+  const normalized = finiteNumber(surface[normalizeDistrictKey(districtName)]);
+  if (normalized != null) return normalized;
+
+  for (const variant of getDistrictNameVariants(districtName)) {
+    const value = finiteNumber(surface[variant] ?? surface[normalizeDistrictKey(variant)]);
+    if (value != null) return value;
+  }
+
+  return null;
 }
 
 function alertStatus(alert) {
@@ -103,9 +123,9 @@ function Dashboard() {
   const [startDate, setStartDate] = useState("2026-01-01");
   const [endDate, setEndDate] = useState("2026-03-07");
   const [dataset, setDataset] = useState("totprec");
-  const [mapDataset, setMapDataset] = useState("population");
+  const [healthLayer, setHealthLayer] = useState("population");
   const [geoData, setGeoData] = useState(null);
-  const [envData, setEnvData] = useState({});
+  const [, setEnvData] = useState({});
   const [populationSurface, setPopulationSurface] = useState({});
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
   /** [start, end] date strings; null = each chart uses its own default x span */
@@ -450,7 +470,39 @@ function Dashboard() {
     return out;
   }, [adm3Lookup, epidemiaData, populationSurface]);
 
-  const mapData = mapDataset === "population" ? populationData : envData;
+  const incidentRateData = useMemo(() => {
+    const out = {};
+    const assignRate = (name, rate) => {
+      if (!name || !Number.isFinite(rate)) return;
+      const variants = [name, ...getDistrictNameVariants(name)];
+      variants.forEach((variant) => {
+        out[variant] = rate;
+        out[normalizeDistrictKey(variant)] = rate;
+      });
+    };
+
+    (epidemiaData?.alerts || [])
+      .filter((alert) => alert.species === selectedSpecies)
+      .forEach((alert) => {
+        const observed = finiteNumber(alert.latest_observed);
+        if (observed == null) return;
+
+        const district = findDistrictFromLookup(adm3Lookup, alert.district);
+        const mapName = district?.properties?.adm3_name || alert.district;
+        const population =
+          surfaceValueForDistrict(populationData, mapName) ??
+          finiteNumber(alert.population_at_risk);
+        if (population == null || population <= 0) return;
+
+        const rate = (observed / population) * 100000;
+        assignRate(mapName, rate);
+        assignRate(alert.district, rate);
+      });
+
+    return out;
+  }, [adm3Lookup, epidemiaData, populationData, selectedSpecies]);
+
+  const healthLayerData = healthLayer === "incident_rate" ? incidentRateData : populationData;
 
   const forecastTableRows = useMemo(() => {
     const alerts = (epidemiaData?.alerts || []).filter((a) => a.species === selectedSpecies);
@@ -526,7 +578,7 @@ function Dashboard() {
   }, [
     region,
     dataset,
-    mapDataset,
+    healthLayer,
     startDate,
     endDate,
     disease,
@@ -608,21 +660,37 @@ function Dashboard() {
           {/* Map */}
           <div className="glass-card map-panel">
             <div className="panel-header">
-              <h3>District Surface</h3>
-              <label className="map-surface-control">
-                <span>Surface</span>
-                <select
-                  className="toolbar-select"
-                  value={mapDataset}
-                  onChange={(e) => setMapDataset(e.target.value)}
-                >
-                  {MAP_SURFACE_OPTIONS.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </label>
+              <h3>District Layers</h3>
+              <div className="map-layer-controls">
+                <label className="map-surface-control">
+                  <span>Weather Dataset</span>
+                  <select
+                    className="toolbar-select"
+                    value={dataset}
+                    onChange={(e) => setDataset(e.target.value)}
+                  >
+                    {WEATHER_DATASET_OPTIONS.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className="map-surface-control">
+                  <span>Health Layer</span>
+                  <select
+                    className="toolbar-select"
+                    value={healthLayer}
+                    onChange={(e) => setHealthLayer(e.target.value)}
+                  >
+                    {HEALTH_LAYER_OPTIONS.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
             </div>
 
             <DecisionLayers
@@ -657,8 +725,8 @@ function Dashboard() {
               onSelectRegion={updateRegion}
               startDate={startDate}
               endDate={endDate}
-              dataset={mapDataset}
-              envData={mapData}
+              dataset={healthLayer}
+              envData={healthLayerData}
               setGeoData={setGeoData}
               filterRegion={mapFilterRegion}
               alerts={epidemiaData?.alerts || []}

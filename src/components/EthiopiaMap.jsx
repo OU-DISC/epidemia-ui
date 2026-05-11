@@ -562,17 +562,6 @@ function InteractiveDistrictLayer({ data, style, getTooltip, onSelectDistrict })
       },
       mouseover: () => {
         layer.setTooltipContent?.(getTooltip(feature));
-        const baseStyle = style(feature);
-        layer.setStyle({
-          ...baseStyle,
-          weight: Math.max(Number(baseStyle.weight) || WEIGHT_WOREDA, WEIGHT_WOREDA_SELECTED),
-          color: "#111827",
-          fillOpacity: 0.85,
-        });
-        layer.bringToFront?.();
-      },
-      mouseout: () => {
-        layer.setStyle(style(feature));
       },
     });
 
@@ -892,6 +881,15 @@ export default function EthiopiaMap({
       colors: ["#f7fcf5", "#c7e9c0", "#74c476", "#238b45", "#005a32"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
+    },
+    incident_rate: {
+      title: "Incident Rate",
+      grades: [0, 10, 50, 100],
+      unit: "cases per 100,000 people",
+      source: "Latest observed cases / WorldPop population",
+      colors: ["#fff7ec", "#fee8c8", "#fdbb84", "#e34a33", "#7f0000"],
+      format: (value) =>
+        new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(Number(value)),
     },
 
     // Rainfall: muted tan -> teal/blue (more rain).

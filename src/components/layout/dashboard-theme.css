@@ -525,6 +525,13 @@ body {
   font-size: 0.82rem;
 }
 
+.map-layer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 12px;
+}
+
 .map-surface-control {
   display: inline-flex;
   align-items: center;
@@ -546,13 +553,6 @@ body {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #d0d9e6;
-}
-
-.map-layer-controls {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 12px;
 }
 
 .district-map {
@@ -804,10 +804,6 @@ body {
   }
 
   .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .map-layer-controls {
     grid-template-columns: 1fr;
   }
 
