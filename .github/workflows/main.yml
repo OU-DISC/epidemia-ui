@@ -156,6 +156,8 @@ jobs:
 
     - uses: helmfile/helmfile-action@v2.4.0
       with:
+        helmfile-version: v1.1.7
+        helm-version: v3.16.4
         helm-plugins: >
           https://github.com/databus23/helm-diff,
           https://github.com/jkroepke/helm-secrets
