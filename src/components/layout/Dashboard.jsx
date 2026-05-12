@@ -78,6 +78,35 @@ function surfaceValueForDistrict(surface, districtName) {
   return null;
 }
 
+function yearFromDate(value) {
+  const match = String(value || "").match(/^(\d{4})/);
+  return match ? Number(match[1]) : null;
+}
+
+function nearestAvailableYear(targetYear, years) {
+  if (!targetYear || years.length === 0) return null;
+  if (years.includes(targetYear)) return targetYear;
+
+  return years.reduce((nearest, year) => {
+    if (nearest == null) return year;
+    return Math.abs(year - targetYear) < Math.abs(nearest - targetYear) ? year : nearest;
+  }, null);
+}
+
+function isObjectRecord(value) {
+  return value != null && typeof value === "object" && !Array.isArray(value);
+}
+
+async function fetchJsonIfAvailable(url) {
+  const res = await fetch(url);
+  if (!res.ok) return null;
+
+  const text = await res.text();
+  if (!text.trim() || text.trimStart().startsWith("<")) return null;
+
+  return JSON.parse(text);
+}
+
 function alertStatus(alert) {
   if (alert?.early_warning) return "Early Warning";
   if (alert?.early_detection) return "Early Detection";
@@ -126,7 +155,8 @@ function Dashboard() {
   const [healthLayer, setHealthLayer] = useState("population");
   const [geoData, setGeoData] = useState(null);
   const [, setEnvData] = useState({});
-  const [populationSurface, setPopulationSurface] = useState({});
+  const [populationSurfacesByYear, setPopulationSurfacesByYear] = useState({});
+  const [legacyPopulationSurface, setLegacyPopulationSurface] = useState({});
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
   /** [start, end] date strings; null = each chart uses its own default x span */
   const [syncedXRange, setSyncedXRange] = useState(null);
@@ -291,18 +321,31 @@ function Dashboard() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/ethiopia_admin3_population_surface.json")
-      .then((res) => (res.ok ? res.json() : {}))
-      .then((surface) => {
+    const loadPopulationSurface = async () => {
+      try {
+        const byYear = await fetchJsonIfAvailable("/ethiopia_admin3_population_surface_by_year.json");
+        if (isObjectRecord(byYear) && Object.values(byYear).some(isObjectRecord)) {
+          if (!cancelled) {
+            setPopulationSurfacesByYear(byYear);
+            setLegacyPopulationSurface({});
+          }
+          return;
+        }
+
+        const surface = await fetchJsonIfAvailable("/ethiopia_admin3_population_surface.json");
         if (cancelled) return;
-        setPopulationSurface(surface && typeof surface === "object" ? surface : {});
-      })
-      .catch((err) => {
+        setPopulationSurfacesByYear({});
+        setLegacyPopulationSurface(isObjectRecord(surface) ? surface : {});
+      } catch (err) {
         console.error("Failed to load population data", err);
         if (!cancelled) {
-          setPopulationSurface({});
+          setPopulationSurfacesByYear({});
+          setLegacyPopulationSurface({});
         }
-      });
+      }
+    };
+
+    loadPopulationSurface();
 
     return () => {
       cancelled = true;
@@ -438,6 +481,27 @@ function Dashboard() {
       detections: detectionCount,
     };
   }, [epidemiaData, selectedSpecies]);
+
+  const populationSurfaceYears = useMemo(
+    () =>
+      Object.keys(populationSurfacesByYear)
+        .map(Number)
+        .filter(Number.isFinite)
+        .sort((a, b) => a - b),
+    [populationSurfacesByYear]
+  );
+
+  const populationYear = useMemo(
+    () => nearestAvailableYear(yearFromDate(endDate), populationSurfaceYears),
+    [endDate, populationSurfaceYears]
+  );
+
+  const populationSurface = useMemo(() => {
+    if (populationYear != null) {
+      return populationSurfacesByYear[String(populationYear)] || {};
+    }
+    return legacyPopulationSurface;
+  }, [legacyPopulationSurface, populationSurfacesByYear, populationYear]);
 
   const populationData = useMemo(() => {
     const out = { ...populationSurface };
@@ -727,6 +791,7 @@ function Dashboard() {
               endDate={endDate}
               dataset={healthLayer}
               envData={healthLayerData}
+              populationYear={populationYear}
               setGeoData={setGeoData}
               filterRegion={mapFilterRegion}
               alerts={epidemiaData?.alerts || []}

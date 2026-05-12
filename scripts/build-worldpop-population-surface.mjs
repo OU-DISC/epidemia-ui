@@ -7,15 +7,59 @@ import { fromFile } from "geotiff";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(ROOT, "public");
-const DATA_DIR = path.join(ROOT, "data", "worldpop");
+const DATA_DIRS = [
+  path.join(ROOT, "data", "worldpop"),
+  path.resolve(ROOT, "..", "..", "data", "worldpop"),
+];
 const GEO_PATH = path.join(PUBLIC_DIR, "eth_admin3.geojson");
 const SURFACE_OUT = path.join(PUBLIC_DIR, "ethiopia_admin3_population_surface.json");
+const SURFACE_BY_YEAR_OUT = path.join(PUBLIC_DIR, "ethiopia_admin3_population_surface_by_year.json");
 const METADATA_OUT = path.join(PUBLIC_DIR, "ethiopia_admin3_population_surface_metadata.json");
-const WORLDPOP_URL =
-  "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2025A/2025/ETH/v1/100m/constrained/eth_pop_2025_CN_100m_R2025A_v1.tif";
-const WORLDPOP_TIF = path.join(DATA_DIR, "eth_pop_2025_CN_100m_R2025A_v1.tif");
+const DEFAULT_WORLDPOP_YEAR = 2025;
+const DATASET_VERSION = "R2025A v1";
 const BLOCK_ROWS = 512;
 const INDEX_CELL_DEGREES = 0.25;
+
+function worldPopUrlForYear(year) {
+  if (year < 2015 || year > 2030) return null;
+  return `https://data.worldpop.org/GIS/Population/Global_2015_2030/R2025A/${year}/ETH/v1/100m/constrained/eth_pop_${year}_CN_100m_R2025A_v1.tif`;
+}
+
+function localWorldPopTifForYear(year) {
+  return path.join(DATA_DIRS[0], `eth_pop_${year}_CN_100m_R2025A_v1.tif`);
+}
+
+function extractYear(filePath) {
+  const match = path.basename(filePath).match(/\b((?:19|20)\d{2})\b/);
+  if (!match) return null;
+  const year = Number(match[1]);
+  return Number.isInteger(year) ? year : null;
+}
+
+function listTifs(dir) {
+  if (!fs.existsSync(dir)) return [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  return entries.flatMap((entry) => {
+    const entryPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) return listTifs(entryPath);
+    return /\.(?:tif|tiff)$/i.test(entry.name) ? [entryPath] : [];
+  });
+}
+
+function discoverWorldPopRasters() {
+  const rastersByYear = new Map();
+  for (const dataDir of DATA_DIRS) {
+    for (const filePath of listTifs(dataDir)) {
+      const year = extractYear(filePath);
+      if (year == null || rastersByYear.has(year)) continue;
+      rastersByYear.set(year, filePath);
+    }
+  }
+
+  return Array.from(rastersByYear.entries())
+    .map(([year, filePath]) => ({ year, filePath }))
+    .sort((a, b) => a.year - b.year);
+}
 
 function normalizeName(value) {
   if (value == null || value === "") return "";
@@ -173,87 +217,129 @@ function addSurfaceValue(surface, key, value) {
   surface[normalizeName(key)] = value;
 }
 
-await downloadFile(WORLDPOP_URL, WORLDPOP_TIF);
-
-const geo = JSON.parse(fs.readFileSync(GEO_PATH, "utf8"));
-const { index, prepared } = buildFeatureIndex(geo.features || []);
-const tiff = await fromFile(WORLDPOP_TIF);
-const image = await tiff.getImage();
-const width = image.getWidth();
-const height = image.getHeight();
-const [minX, minY, maxX, maxY] = image.getBoundingBox();
-const pixelWidth = (maxX - minX) / width;
-const pixelHeight = (maxY - minY) / height;
-const nodata = Number(image.getGDALNoData());
-
-console.log(`Aggregating ${width}x${height} WorldPop raster into ${prepared.length} districts`);
-
-for (let row = 0; row < height; row += BLOCK_ROWS) {
-  const rowEnd = Math.min(row + BLOCK_ROWS, height);
-  const [values] = await image.readRasters({
-    window: [0, row, width, rowEnd],
-    samples: [0],
+async function aggregateRaster({ year, filePath }, index, prepared) {
+  prepared.forEach((entry) => {
+    entry.total = 0;
   });
 
-  for (let localRow = 0; localRow < rowEnd - row; localRow += 1) {
-    const y = maxY - (row + localRow + 0.5) * pixelHeight;
-    for (let col = 0; col < width; col += 1) {
-      const value = Number(values[localRow * width + col]);
-      if (!Number.isFinite(value) || value <= 0 || value === nodata) continue;
+  const tiff = await fromFile(filePath);
+  const image = await tiff.getImage();
+  const width = image.getWidth();
+  const height = image.getHeight();
+  const [minX, minY, maxX, maxY] = image.getBoundingBox();
+  const pixelWidth = (maxX - minX) / width;
+  const pixelHeight = (maxY - minY) / height;
+  const nodata = Number(image.getGDALNoData());
 
-      const x = minX + (col + 0.5) * pixelWidth;
-      const candidates = index.get(indexKey(x, y));
-      if (!candidates?.length) continue;
+  console.log(
+    `Aggregating ${year} ${width}x${height} WorldPop raster into ${prepared.length} districts`
+  );
 
-      for (const candidate of candidates) {
-        const [cMinX, cMinY, cMaxX, cMaxY] = candidate.bbox;
-        if (x < cMinX || x > cMaxX || y < cMinY || y > cMaxY) continue;
-        if (pointInGeometry(x, y, candidate.feature.geometry)) {
-          candidate.total += value;
-          break;
+  for (let row = 0; row < height; row += BLOCK_ROWS) {
+    const rowEnd = Math.min(row + BLOCK_ROWS, height);
+    const [values] = await image.readRasters({
+      window: [0, row, width, rowEnd],
+      samples: [0],
+    });
+
+    for (let localRow = 0; localRow < rowEnd - row; localRow += 1) {
+      const y = maxY - (row + localRow + 0.5) * pixelHeight;
+      for (let col = 0; col < width; col += 1) {
+        const value = Number(values[localRow * width + col]);
+        if (!Number.isFinite(value) || value <= 0 || value === nodata) continue;
+
+        const x = minX + (col + 0.5) * pixelWidth;
+        const candidates = index.get(indexKey(x, y));
+        if (!candidates?.length) continue;
+
+        for (const candidate of candidates) {
+          const [cMinX, cMinY, cMaxX, cMaxY] = candidate.bbox;
+          if (x < cMinX || x > cMaxX || y < cMinY || y > cMaxY) continue;
+          if (pointInGeometry(x, y, candidate.feature.geometry)) {
+            candidate.total += value;
+            break;
+          }
         }
       }
     }
+
+    const percent = (((rowEnd / height) * 100)).toFixed(1);
+    console.log(`Processed ${year} ${rowEnd}/${height} rows (${percent}%)`);
   }
 
-  const percent = (((rowEnd / height) * 100)).toFixed(1);
-  console.log(`Processed ${rowEnd}/${height} rows (${percent}%)`);
+  const surface = {};
+  for (const entry of prepared) {
+    const props = entry.feature.properties || {};
+    const population = Math.round(entry.total);
+    const names = [
+      props.adm3_name,
+      props.adm3_pcode,
+      ...(getDistrictNameVariants(props.adm3_name)),
+    ].filter(Boolean);
+    names.forEach((name) => addSurfaceValue(surface, name, population));
+  }
+
+  return {
+    surface,
+    raster: {
+      width,
+      height,
+      bbox: [minX, minY, maxX, maxY],
+    },
+  };
 }
 
-const surface = {};
-for (const entry of prepared) {
-  const props = entry.feature.properties || {};
-  const population = Math.round(entry.total);
-  const names = [
-    props.adm3_name,
-    props.adm3_pcode,
-    ...(getDistrictNameVariants(props.adm3_name)),
-  ].filter(Boolean);
-  names.forEach((name) => addSurfaceValue(surface, name, population));
+let rasters = discoverWorldPopRasters();
+if (rasters.length === 0) {
+  const fallbackUrl = worldPopUrlForYear(DEFAULT_WORLDPOP_YEAR);
+  const fallbackTif = localWorldPopTifForYear(DEFAULT_WORLDPOP_YEAR);
+  await downloadFile(fallbackUrl, fallbackTif);
+  rasters = discoverWorldPopRasters();
 }
 
-fs.writeFileSync(SURFACE_OUT, `${JSON.stringify(surface, null, 2)}\n`, "utf8");
+if (rasters.length === 0) {
+  throw new Error(`No WorldPop GeoTIFFs found in ${DATA_DIRS.join(" or ")}`);
+}
+
+const geo = JSON.parse(fs.readFileSync(GEO_PATH, "utf8"));
+const { index, prepared } = buildFeatureIndex(geo.features || []);
+const surfacesByYear = {};
+const rasterMetadataByYear = {};
+
+for (const raster of rasters) {
+  const { surface, raster: metadata } = await aggregateRaster(raster, index, prepared);
+  surfacesByYear[raster.year] = surface;
+  rasterMetadataByYear[raster.year] = {
+    ...metadata,
+    source_file: path.relative(ROOT, raster.filePath).replace(/\\/g, "/"),
+    source_url: worldPopUrlForYear(raster.year),
+  };
+}
+
+const latestYear = Math.max(...rasters.map(({ year }) => year));
+const latestSurface = surfacesByYear[latestYear];
+
+fs.writeFileSync(SURFACE_BY_YEAR_OUT, `${JSON.stringify(surfacesByYear, null, 2)}\n`, "utf8");
+fs.writeFileSync(SURFACE_OUT, `${JSON.stringify(latestSurface, null, 2)}\n`, "utf8");
 fs.writeFileSync(
   METADATA_OUT,
   `${JSON.stringify(
     {
       generated_at: new Date().toISOString(),
       source: "WorldPop Ethiopia - Spatial Distribution of Population",
-      source_url: WORLDPOP_URL,
+      source_url: worldPopUrlForYear(latestYear),
       source_page: "https://hub.worldpop.org/geodata/summary?id=73279",
       doi: "10.5258/SOTON/WP00839",
-      dataset_version: "R2025A v1",
-      year: 2025,
+      dataset_version: DATASET_VERSION,
+      years: rasters.map(({ year }) => year),
+      default_year: latestYear,
       resolution: "3 arc seconds, approximately 100m at the equator",
       projection: "WGS84",
       units: "people per grid cell, summed to adm3 districts",
       geojson_districts: prepared.length,
-      raster: {
-        width,
-        height,
-        bbox: [minX, minY, maxX, maxY],
-      },
+      rasters: rasterMetadataByYear,
       outputs: {
+        surface_by_year: path.relative(ROOT, SURFACE_BY_YEAR_OUT).replace(/\\/g, "/"),
         surface: path.relative(ROOT, SURFACE_OUT).replace(/\\/g, "/"),
       },
     },
@@ -263,5 +349,6 @@ fs.writeFileSync(
   "utf8"
 );
 
+console.log(`Wrote ${path.relative(process.cwd(), SURFACE_BY_YEAR_OUT)}`);
 console.log(`Wrote ${path.relative(process.cwd(), SURFACE_OUT)}`);
 console.log(`Wrote ${path.relative(process.cwd(), METADATA_OUT)}`);

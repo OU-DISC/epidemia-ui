@@ -737,6 +737,7 @@ export default function EthiopiaMap({
   endDate,
   dataset,
   envData = {},
+  populationYear = null,
   setGeoData,
   filterRegion = "All Regions",
   alerts = [],
@@ -874,10 +875,10 @@ export default function EthiopiaMap({
   // Legend swatches use the same getColor() so the map and legend stay aligned.
   const gradeConfig = {
     population: {
-      title: "Population (WorldPop 2025)",
+      title: `Population (WorldPop${populationYear ? ` ${populationYear}` : ""})`,
       grades: [0, 50000, 100000, 250000],
       unit: "people per district",
-      source: "WorldPop R2025A v1, 100m WGS84",
+      source: `WorldPop R2025A v1, 100m WGS84${populationYear ? `, ${populationYear}` : ""}`,
       colors: ["#f7fcf5", "#c7e9c0", "#74c476", "#238b45", "#005a32"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
@@ -886,7 +887,7 @@ export default function EthiopiaMap({
       title: "Incident Rate",
       grades: [0, 10, 50, 100],
       unit: "cases per 100,000 people",
-      source: "Latest observed cases / WorldPop population",
+      source: `Latest observed cases / WorldPop${populationYear ? ` ${populationYear}` : ""} population`,
       colors: ["#fff7ec", "#fee8c8", "#fdbb84", "#e34a33", "#7f0000"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(Number(value)),
