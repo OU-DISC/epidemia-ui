@@ -5,6 +5,11 @@ import {
   parseXAxisRangeFromRelayoutEvent,
   xAxisRangesEqual,
 } from "../utils/plotlyXAxisSync";
+import {
+  buildVerticalDateLine,
+  resolveChartHighlightDate,
+} from "../utils/chartHighlightDate";
+import { useSyncedChartHover } from "../utils/useSyncedChartHover";
 
 export default function EnvironmentalTimeSeriesChart({
   selectedDistrict,
@@ -16,10 +21,13 @@ export default function EnvironmentalTimeSeriesChart({
   onHoverDateChange,
   syncedXRange,
   onXRangeChange,
+  alertTimeMode = "current",
+  alertAnimationWeek = null,
 }) {
   const [timeseries, setTimeseries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
 
   useEffect(() => {
     if (!selectedDistrict || !districtGeometry || !startDate || !endDate || !dataset) {
@@ -104,19 +112,14 @@ export default function EnvironmentalTimeSeriesChart({
   };
 
   const datasetLabel = unitLabels[dataset] || dataset;
+  const chartDates = timeseries.map((d) => d.date);
 
-  const syncHoverDate = (event) => {
-    const hoveredX = event?.points?.[0]?.x;
-    if (hoveredX !== undefined && hoveredX !== null && onHoverDateChange) {
-      onHoverDateChange(String(hoveredX));
-    }
-  };
-
-  const clearHoverDate = () => {
-    if (onHoverDateChange) {
-      onHoverDateChange(null);
-    }
-  };
+  const highlightDate = resolveChartHighlightDate({
+    alertTimeMode,
+    alertAnimationWeek,
+    syncedHoverDate,
+    chartDates,
+  });
 
   return (
     <div className="time-series-wrap">
@@ -161,21 +164,7 @@ export default function EnvironmentalTimeSeriesChart({
             tickfont: { color: "#495367" },
             titlefont: { color: "#495367" },
           },
-          shapes: syncedHoverDate
-            ? [
-                {
-                  type: "line",
-                  xref: "x",
-                  yref: "paper",
-                  x0: syncedHoverDate,
-                  x1: syncedHoverDate,
-                  y0: 0,
-                  y1: 1,
-                  line: { color: "#41506a", width: 1.2, dash: "dot" },
-                  layer: "above",
-                },
-              ]
-            : [],
+          shapes: buildVerticalDateLine(highlightDate),
         }}
         config={{
           responsive: true,

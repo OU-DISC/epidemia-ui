@@ -1,8 +1,10 @@
 fastapi
 uvicorn
+python-multipart
 pandas
 numpy
 xarray
+pygam
 statsmodels
 pydantic
 scikit-learn

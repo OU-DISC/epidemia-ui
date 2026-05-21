@@ -20,6 +20,13 @@ from app.schemas.epidemia import (
     EpidemiaRunResponse,
 )
 from app.services.farrington_thresholds import farrington_thresholds_for_horizon
+from app.services.seasonal_gam_thresholds import (
+    build_env_climatology,
+    compute_seasonal_thresholds,
+    thresholds_for_week,
+    weekly_env_features,
+)
+from app.services.worldpop_population import apply_worldpop_population
 
 
 @dataclass
@@ -474,6 +481,8 @@ def _load_inputs(req: EpidemiaRunRequest) -> Tuple[pd.DataFrame, pd.DataFrame, p
     epi_data = _ensure_datetime(epi_data, "obs_date")
     env_data = _ensure_datetime(env_data, "obs_date")
 
+    epi_data = apply_worldpop_population(epi_data)
+
     env_start_date = pd.Timestamp(_year_week_to_sunday(req.env_start_year, req.env_start_week))
     env_data = env_data[env_data["obs_date"] >= env_start_date]
 
@@ -481,13 +490,7 @@ def _load_inputs(req: EpidemiaRunRequest) -> Tuple[pd.DataFrame, pd.DataFrame, p
 
 
 def _weekly_env_signal(env_data: pd.DataFrame) -> pd.DataFrame:
-    grouped = (
-        env_data.assign(week_start=lambda d: d["obs_date"] - pd.to_timedelta(d["obs_date"].dt.weekday, unit="D"))
-        .groupby(["woreda_name", "week_start"], as_index=False)["obs_value"]
-        .mean()
-        .rename(columns={"obs_value": "env_mean"})
-    )
-    return grouped
+    return weekly_env_features(env_data)
 
 
 def _fit_and_forecast(series: pd.Series, horizon: int) -> np.ndarray:
@@ -520,6 +523,7 @@ def _species_pipeline(
     species: SpeciesConfig,
     epi_data: pd.DataFrame,
     env_weekly: pd.DataFrame,
+    env_clim: Dict[str, Dict[str, Dict[int, float]]],
     horizon_weeks: int,
 ) -> Tuple[List[DistrictForecast], List[DistrictAlert]]:
     forecasts: List[DistrictForecast] = []
@@ -540,31 +544,56 @@ def _species_pipeline(
         district_df = district_df.sort_values("week_start")
         history = district_df["cases"].astype(float)
 
-        # Keep a recent observed window to display a meaningful observed line in UI.
-        observed_window = district_df[["week_start", "cases"]].tail(16)
-        observed_history = [
-            DistrictObservedPoint(
-                week_start=pd.Timestamp(row["week_start"]).date(),
-                observed=float(row["cases"]),
-            )
-            for _, row in observed_window.iterrows()
-            if pd.notna(row["cases"])
-        ]
+        observed_window = district_df[
+            ["week_start", "cases", "pop_at_risk", "rainfall", "temperature"]
+        ].tail(16)
 
         preds = _fit_and_forecast(history, horizon=horizon_weeks)
         hist_std = float(np.nanstd(history.values)) if len(history) > 1 else 0.0
         hist_std = max(hist_std, 1.0)
 
         last_week = pd.Timestamp(district_df["week_start"].max())
+        forecast_weeks = pd.Series(
+            [(last_week + timedelta(weeks=i)) for i in range(1, horizon_weeks + 1)]
+        )
+        predict_weeks = pd.concat(
+            [observed_window["week_start"], forecast_weeks], ignore_index=True
+        )
+
+        threshold_df = compute_seasonal_thresholds(
+            district_df=district_df.rename(columns={"cases": "cases"}),
+            predict_weeks=predict_weeks,
+            env_clim=env_clim,
+            woreda_name=str(woreda_name),
+            species=str(species.species),
+        )
+
+        observed_history: List[DistrictObservedPoint] = []
+        for _, row in observed_window.iterrows():
+            if pd.isna(row["cases"]):
+                continue
+            detect, warn = thresholds_for_week(threshold_df, row["week_start"])
+            observed_history.append(
+                DistrictObservedPoint(
+                    week_start=pd.Timestamp(row["week_start"]).date(),
+                    observed=float(row["cases"]),
+                    detection_threshold=detect,
+                    warning_threshold=warn,
+                )
+            )
+
         points: List[DistrictForecastPoint] = []
         for i, pred in enumerate(preds, start=1):
             week_date = (last_week + timedelta(weeks=i)).date()
+            detect, warn = thresholds_for_week(threshold_df, week_date)
             points.append(
                 DistrictForecastPoint(
                     week_start=week_date,
                     median=float(pred),
                     lower=float(max(pred - 1.28 * hist_std, 0.0)),
                     upper=float(pred + 1.28 * hist_std),
+                    detection_threshold=detect,
+                    warning_threshold=warn,
                 )
             )
 
@@ -576,16 +605,27 @@ def _species_pipeline(
         pop_series = None
         if "pop_at_risk" in district_df.columns and district_df["pop_at_risk"].notna().any():
             pop_series = district_df["pop_at_risk"].to_numpy(dtype=float)
+        latest_population = None
+        if pop_series is not None and len(pop_series):
+            finite_pop = pop_series[np.isfinite(pop_series)]
+            if finite_pop.size:
+                latest_population = float(finite_pop[-1])
 
-        farr = farrington_thresholds_for_horizon(
-            history.values.astype(float),
-            pop_series,
-            str(species.species),
+        first_fc_detect, first_fc_warn = thresholds_for_week(
+            threshold_df, points[0].week_start if points else None
         )
-        if farr is not None:
-            detection_threshold, warning_threshold = farr
+        if first_fc_detect is not None and first_fc_warn is not None:
+            detection_threshold, warning_threshold = first_fc_detect, first_fc_warn
         else:
-            detection_threshold, warning_threshold = baseline_pct, warn_pct
+            farr = farrington_thresholds_for_horizon(
+                history.values.astype(float),
+                pop_series,
+                str(species.species),
+            )
+            if farr is not None:
+                detection_threshold, warning_threshold = farr
+            else:
+                detection_threshold, warning_threshold = baseline_pct, warn_pct
 
         alerts.append(
             DistrictAlert(
@@ -601,6 +641,7 @@ def _species_pipeline(
                 latest_forecast=latest_fc,
                 detection_threshold=detection_threshold,
                 warning_threshold=warning_threshold,
+                population_at_risk=latest_population,
             )
         )
 
@@ -673,9 +714,10 @@ def run_epidemia_pipeline(req: EpidemiaRunRequest) -> EpidemiaRunResponse:
 
     # Variables are loaded for parity with the original R orchestration, even if not
     # all are consumed in this first Python implementation pass.
-    _ = report_woredas, env_ref_data, env_info
+    _ = report_woredas, env_info
 
     env_weekly = _weekly_env_signal(env_data)
+    env_clim = build_env_climatology(env_ref_data)
 
     all_forecasts: List[DistrictForecast] = []
     all_alerts: List[DistrictAlert] = []
@@ -685,6 +727,7 @@ def run_epidemia_pipeline(req: EpidemiaRunRequest) -> EpidemiaRunResponse:
             species=species,
             epi_data=epi_data,
             env_weekly=env_weekly,
+            env_clim=env_clim,
             horizon_weeks=req.horizon_weeks,
         )
         all_forecasts.extend(species_forecasts)

@@ -1,0 +1,288 @@
+.project-wizard-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(6px);
+}
+
+.project-wizard-card {
+  width: min(760px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  padding: 24px 28px;
+  border-radius: 18px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.project-wizard-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.project-wizard-kicker {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.project-wizard-header h2 {
+  margin: 0 0 8px;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+}
+
+.project-wizard-subtitle {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.project-wizard-skip {
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.project-wizard-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.project-wizard-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.project-wizard-step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.project-wizard-step.active {
+  background: rgba(15, 123, 108, 0.12);
+  color: var(--accent-strong);
+}
+
+.project-wizard-step.done {
+  background: rgba(15, 123, 108, 0.08);
+  color: var(--accent);
+}
+
+.project-wizard-error {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(201, 62, 62, 0.1);
+  color: #9f1f1f;
+  font-size: 0.88rem;
+}
+
+.project-wizard-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.project-wizard-upload {
+  display: grid;
+  gap: 12px;
+}
+
+.project-wizard-dropzone {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  padding: 28px 18px;
+  border: 2px dashed rgba(15, 123, 108, 0.35);
+  border-radius: 14px;
+  background: rgba(15, 123, 108, 0.04);
+  cursor: pointer;
+  text-align: center;
+}
+
+.project-wizard-dropzone input {
+  display: none;
+}
+
+.project-wizard-dropzone-note {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.project-wizard-upload-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-wizard-file-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.project-wizard-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.project-wizard-checklist li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.project-wizard-checklist li.ok span {
+  color: var(--accent);
+}
+
+.project-wizard-checklist li.missing span {
+  color: var(--warn);
+}
+
+.project-wizard-checklist strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.project-wizard-checklist p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.project-wizard-validation {
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.project-wizard-validation.ok {
+  background: rgba(15, 123, 108, 0.08);
+}
+
+.project-wizard-validation.bad {
+  background: rgba(201, 62, 62, 0.08);
+}
+
+.project-wizard-validation-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.project-wizard-unmatched {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.project-wizard-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.project-wizard-field {
+  display: grid;
+  gap: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.project-wizard-field .toolbar-input,
+.project-wizard-field .toolbar-select {
+  width: 100%;
+}
+
+.project-wizard-note {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.project-wizard-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.toolbar-button.ghost {
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: var(--ink-soft);
+}
+
+.project-wizard-run-panel {
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.project-wizard-spinner {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  border: 3px solid rgba(15, 123, 108, 0.18);
+  border-top-color: var(--accent);
+  animation: project-wizard-spin 0.9s linear infinite;
+}
+
+@keyframes project-wizard-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 720px) {
+  .project-wizard-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-wizard-header {
+    flex-direction: column;
+  }
+}

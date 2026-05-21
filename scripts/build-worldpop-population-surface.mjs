@@ -10,11 +10,13 @@ const PUBLIC_DIR = path.join(ROOT, "public");
 const DATA_DIRS = [
   path.join(ROOT, "data", "worldpop"),
   path.resolve(ROOT, "..", "..", "data", "worldpop"),
+  path.resolve(ROOT, "..", "..", "backend", "data", "worldpop"),
 ];
 const GEO_PATH = path.join(PUBLIC_DIR, "eth_admin3.geojson");
 const SURFACE_OUT = path.join(PUBLIC_DIR, "ethiopia_admin3_population_surface.json");
 const SURFACE_BY_YEAR_OUT = path.join(PUBLIC_DIR, "ethiopia_admin3_population_surface_by_year.json");
 const METADATA_OUT = path.join(PUBLIC_DIR, "ethiopia_admin3_population_surface_metadata.json");
+const BACKEND_DATA_DIR = path.resolve(ROOT, "..", "..", "backend", "data");
 const DEFAULT_WORLDPOP_YEAR = 2025;
 const DATASET_VERSION = "R2025A v1";
 const BLOCK_ROWS = 512;
@@ -30,7 +32,12 @@ function localWorldPopTifForYear(year) {
 }
 
 function extractYear(filePath) {
-  const match = path.basename(filePath).match(/\b((?:19|20)\d{2})\b/);
+  const baseName = path.basename(filePath);
+  const fromPrefix = baseName.match(/eth_pop_((?:19|20)\d{2})_/i);
+  if (fromPrefix) {
+    return Number(fromPrefix[1]);
+  }
+  const match = baseName.match(/\b((?:19|20)\d{2})\b/);
   if (!match) return null;
   const year = Number(match[1]);
   return Number.isInteger(year) ? year : null;
@@ -348,6 +355,10 @@ fs.writeFileSync(
   )}\n`,
   "utf8"
 );
+fs.mkdirSync(BACKEND_DATA_DIR, { recursive: true });
+fs.copyFileSync(SURFACE_BY_YEAR_OUT, path.join(BACKEND_DATA_DIR, path.basename(SURFACE_BY_YEAR_OUT)));
+fs.copyFileSync(SURFACE_OUT, path.join(BACKEND_DATA_DIR, path.basename(SURFACE_OUT)));
+fs.copyFileSync(METADATA_OUT, path.join(BACKEND_DATA_DIR, path.basename(METADATA_OUT)));
 
 console.log(`Wrote ${path.relative(process.cwd(), SURFACE_BY_YEAR_OUT)}`);
 console.log(`Wrote ${path.relative(process.cwd(), SURFACE_OUT)}`);

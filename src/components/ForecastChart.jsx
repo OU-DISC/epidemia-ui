@@ -4,6 +4,11 @@ import {
   parseXAxisRangeFromRelayoutEvent,
   xAxisRangesEqual,
 } from "../utils/plotlyXAxisSync";
+import {
+  buildVerticalDateLine,
+  resolveChartHighlightDate,
+} from "../utils/chartHighlightDate";
+import { useSyncedChartHover } from "../utils/useSyncedChartHover";
 
 export default function ForecastChart({
   data,
@@ -12,7 +17,11 @@ export default function ForecastChart({
   onHoverDateChange,
   syncedXRange,
   onXRangeChange,
+  alertTimeMode = "current",
+  alertAnimationWeek = null,
 }) {
+  const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
+
   const handleRelayout = useCallback(
     (ev) => {
       if (!onXRangeChange) return;
@@ -64,6 +73,16 @@ export default function ForecastChart({
       ? Number(alert.warning_threshold)
       : null;
 
+  const seasonalThresholdPoints = [...data]
+    .filter(
+      (point) =>
+        point.detection_threshold !== null &&
+        point.detection_threshold !== undefined &&
+        point.date
+    )
+    .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  const hasSeasonalThresholds = seasonalThresholdPoints.length > 0;
+
   const isWarning = Boolean(alert?.early_warning);
   const isDetection = Boolean(!alert?.early_warning && alert?.early_detection);
   const alertLabel = isWarning
@@ -71,6 +90,13 @@ export default function ForecastChart({
     : isDetection
       ? "Early Detection"
       : null;
+
+  const highlightDate = resolveChartHighlightDate({
+    alertTimeMode,
+    alertAnimationWeek,
+    syncedHoverDate,
+    chartDates,
+  });
 
   const alertTrace =
     alertLabel && forecastDates.length > 0 && median.length > 0
@@ -91,43 +117,59 @@ export default function ForecastChart({
       : null;
 
   const detectionThresholdTrace =
-    detectionThreshold !== null && chartDates.length > 0
+    hasSeasonalThresholds
       ? {
-          x: chartDates,
-          y: chartDates.map(() => detectionThreshold),
+          x: seasonalThresholdPoints.map((point) => point.date),
+          y: seasonalThresholdPoints.map((point) => Number(point.detection_threshold)),
           type: "scatter",
           mode: "lines",
           name: "Detection Threshold",
           line: { color: "#d48806", width: 1.5, dash: "dash" },
           hovertemplate: "Detection Threshold: %{y:.2f}<extra></extra>",
         }
-      : null;
+      : detectionThreshold !== null && chartDates.length > 0
+        ? {
+            x: chartDates,
+            y: chartDates.map(() => detectionThreshold),
+            type: "scatter",
+            mode: "lines",
+            name: "Detection Threshold",
+            line: { color: "#d48806", width: 1.5, dash: "dash" },
+            hovertemplate: "Detection Threshold: %{y:.2f}<extra></extra>",
+          }
+        : null;
+
+  const warningThresholdPoints = [...data]
+    .filter(
+      (point) =>
+        point.warning_threshold !== null &&
+        point.warning_threshold !== undefined &&
+        point.date
+    )
+    .sort((a, b) => String(a.date).localeCompare(String(b.date)));
 
   const warningThresholdTrace =
-    warningThreshold !== null && chartDates.length > 0
+    hasSeasonalThresholds
       ? {
-          x: chartDates,
-          y: chartDates.map(() => warningThreshold),
+          x: warningThresholdPoints.map((point) => point.date),
+          y: warningThresholdPoints.map((point) => Number(point.warning_threshold)),
           type: "scatter",
           mode: "lines",
           name: "Warning Threshold",
           line: { color: "#c43f3f", width: 1.5, dash: "dot" },
           hovertemplate: "Warning Threshold: %{y:.2f}<extra></extra>",
         }
-      : null;
-
-  const syncHoverDate = (event) => {
-    const hoveredX = event?.points?.[0]?.x;
-    if (hoveredX !== undefined && hoveredX !== null && onHoverDateChange) {
-      onHoverDateChange(String(hoveredX));
-    }
-  };
-
-  const clearHoverDate = () => {
-    if (onHoverDateChange) {
-      onHoverDateChange(null);
-    }
-  };
+      : warningThreshold !== null && chartDates.length > 0
+        ? {
+            x: chartDates,
+            y: chartDates.map(() => warningThreshold),
+            type: "scatter",
+            mode: "lines",
+            name: "Warning Threshold",
+            line: { color: "#c43f3f", width: 1.5, dash: "dot" },
+            hovertemplate: "Warning Threshold: %{y:.2f}<extra></extra>",
+          }
+        : null;
 
   return (
     <div className="forecast-chart-wrap">
@@ -210,21 +252,7 @@ export default function ForecastChart({
             x: 0,
             font: { size: 11 },
           },
-          shapes: syncedHoverDate
-            ? [
-                {
-                  type: "line",
-                  xref: "x",
-                  yref: "paper",
-                  x0: syncedHoverDate,
-                  x1: syncedHoverDate,
-                  y0: 0,
-                  y1: 1,
-                  line: { color: "#41506a", width: 1.2, dash: "dot" },
-                  layer: "above",
-                },
-              ]
-            : [],
+          shapes: buildVerticalDateLine(highlightDate),
           annotations: alertLabel
             ? [
                 {

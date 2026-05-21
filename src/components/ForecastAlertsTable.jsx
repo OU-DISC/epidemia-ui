@@ -1,4 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+
+const ROWS_PER_PAGE = 10;
 
 const SORT_LABELS = {
   priority: "Priority",
@@ -31,10 +33,13 @@ function statusClass(status) {
 export default function ForecastAlertsTable({
   rows,
   selectedDistrict,
-  onSelectDistrict,
+  comparisonDistricts = [],
+  onToggleComparisonDistrict,
+  embedded = false,
 }) {
   const [sortKey, setSortKey] = useState("priority");
   const [sortDir, setSortDir] = useState("desc");
+  const [page, setPage] = useState(0);
 
   const sortedRows = useMemo(() => {
     const copy = [...rows];
@@ -52,6 +57,35 @@ export default function ForecastAlertsTable({
     return copy;
   }, [rows, sortDir, sortKey]);
 
+  const topPriorityRankByKey = useMemo(() => {
+    const rankByKey = new Map();
+    [...rows]
+      .filter((row) => row.statusRank > 1)
+      .sort((a, b) => b.priority - a.priority)
+      .slice(0, 3)
+      .forEach((row, index) => {
+        rankByKey.set(`${row.species}-${row.rawDistrict}`, index + 1);
+      });
+    return rankByKey;
+  }, [rows]);
+
+  const pageCount = Math.max(1, Math.ceil(sortedRows.length / ROWS_PER_PAGE));
+  const safePage = Math.min(page, pageCount - 1);
+  const pageStart = safePage * ROWS_PER_PAGE;
+  const pageRows = sortedRows.slice(pageStart, pageStart + ROWS_PER_PAGE);
+
+  useEffect(() => {
+    setPage(0);
+  }, [rows.length, sortKey, sortDir]);
+
+  useEffect(() => {
+    if (!selectedDistrict || selectedDistrict === "All Regions") return;
+    const index = sortedRows.findIndex((row) => row.mapDistrict === selectedDistrict);
+    if (index >= 0) {
+      setPage(Math.floor(index / ROWS_PER_PAGE));
+    }
+  }, [selectedDistrict, sortedRows]);
+
   const handleSort = (key) => {
     if (key === sortKey) {
       setSortDir((dir) => (dir === "asc" ? "desc" : "asc"));
@@ -66,13 +100,18 @@ export default function ForecastAlertsTable({
     return sortDir === "asc" ? " ↑" : " ↓";
   };
 
+  const panelClassName = embedded
+    ? "alerts-table-panel alerts-table-embedded"
+    : "glass-card alerts-table-panel fade-in-up delay-2";
+
   return (
-    <section className="glass-card alerts-table-panel fade-in-up delay-2">
+    <section className={panelClassName}>
       <div className="panel-header">
         <div>
           <h3>Tabular Forecast View</h3>
           <p className="panel-subtitle">
-            Alerts and forecasts by district, prioritized by status, magnitude, persistence, and population.
+            Alerts and forecasts by district. Click rows to compare up to three districts in the
+            chart below. Top 3 priority alerts are highlighted.
           </p>
         </div>
         <span>{rows.length} districts</span>
@@ -110,13 +149,43 @@ export default function ForecastAlertsTable({
             </tr>
           </thead>
           <tbody>
-            {sortedRows.map((row) => (
+            {pageRows.map((row) => {
+              const rowKey = `${row.species}-${row.rawDistrict}`;
+              const topRank = topPriorityRankByKey.get(rowKey);
+              const compareSlot = comparisonDistricts.findIndex(
+                (district) => district === row.mapDistrict
+              );
+              const rowClassName = [
+                row.mapDistrict === selectedDistrict ? "selected" : "",
+                compareSlot >= 0 ? `compare-selected compare-selected-${compareSlot + 1}` : "",
+                topRank ? "top-priority-row" : "",
+                topRank ? `top-priority-row-${topRank}` : "",
+              ]
+                .filter(Boolean)
+                .join(" ");
+
+              return (
               <tr
-                key={`${row.species}-${row.rawDistrict}`}
-                className={row.mapDistrict === selectedDistrict ? "selected" : ""}
-                onClick={() => onSelectDistrict?.(row.mapDistrict)}
+                key={rowKey}
+                className={rowClassName}
+                onClick={() => onToggleComparisonDistrict?.(row.mapDistrict)}
               >
-                <td>{formatNumber(row.priority, 0)}</td>
+                <td>
+                  {compareSlot >= 0 ? (
+                    <span
+                      className={`compare-slot-badge compare-slot-badge-${compareSlot + 1}`}
+                      title={`Comparison slot ${compareSlot + 1}`}
+                    >
+                      C{compareSlot + 1}
+                    </span>
+                  ) : null}
+                  {topRank ? (
+                    <span className="top-priority-badge" title={`Top priority #${topRank}`}>
+                      #{topRank}
+                    </span>
+                  ) : null}
+                  {formatNumber(row.priority, 0)}
+                </td>
                 <td>
                   <strong>{row.mapDistrict}</strong>
                 </td>
@@ -136,10 +205,41 @@ export default function ForecastAlertsTable({
                 <td>{row.persistenceWeeks} wk</td>
                 <td>{formatNumber(row.populationAtRisk, 0)}</td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>
+
+      {sortedRows.length > ROWS_PER_PAGE && (
+        <div className="alerts-table-pagination">
+          <span className="alerts-table-page-info">
+            Showing {pageStart + 1}-{Math.min(pageStart + ROWS_PER_PAGE, sortedRows.length)} of{" "}
+            {sortedRows.length}
+          </span>
+          <div className="alerts-table-page-controls">
+            <button
+              type="button"
+              className="table-page-button"
+              disabled={safePage === 0}
+              onClick={() => setPage((current) => Math.max(0, current - 1))}
+            >
+              Previous
+            </button>
+            <span className="alerts-table-page-number">
+              Page {safePage + 1} of {pageCount}
+            </span>
+            <button
+              type="button"
+              className="table-page-button"
+              disabled={safePage >= pageCount - 1}
+              onClick={() => setPage((current) => Math.min(pageCount - 1, current + 1))}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

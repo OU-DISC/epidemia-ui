@@ -1,4 +1,6 @@
 import React from "react";
+import HelpTip from "./HelpTip";
+import { DASHBOARD_HELP } from "../utils/dashboardHelpText";
 
 function EnvironmentalLayers({
   startDate,
@@ -25,7 +27,12 @@ function EnvironmentalLayers({
 
   return (
     <div className="decision-layers env-layers env-layers-compact">
-      <h3>Environmental Layers:</h3>
+      <h3>
+        <span className="layer-heading-label">
+          Environmental Layers:
+          <HelpTip text={DASHBOARD_HELP.envLayers} label="Environmental layers" placement="below" />
+        </span>
+      </h3>
 
       <div className="env-layers-date-range">
         <label className="toolbar-field">
@@ -93,7 +100,10 @@ function EnvironmentalLayers({
       {anyLayer && (
         <div className="env-layers-time-controls">
           <div className="toolbar-field env-layers-time-mode">
-            <span>Time</span>
+            <span className="toolbar-field-label">
+              Time
+              <HelpTip text={DASHBOARD_HELP.envTime} label="Environmental time mode" />
+            </span>
             <select
               className="toolbar-select"
               value={timeMode}

@@ -10,6 +10,7 @@ import {
   getDistrictNameVariants,
   normalizeDistrictKey,
 } from "../utils/districtNameMatch";
+import { formatDistrictTooltipHtml } from "../utils/alertExplainer";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -391,6 +392,7 @@ function TimedGibsLayer({ layerId, tileMatrixSet, time, opacity = 0.4, pane }) {
 // Alert Markers component
 function AlertMarkers({
   alerts,
+  alertTooltipByDistrict = {},
   showEarlyWarning,
   showEarlyDetection,
   adm3Lookup,
@@ -465,10 +467,20 @@ function AlertMarkers({
           });
 
           const marker = L.marker([centroid.lat, centroid.lng], { icon: alertIcon, pane: ALERTS_MAP_PANE })
-            .bindTooltip(`${alert.district}<br>${isEarlyWarning ? 'Early Warning' : 'Early Detection'}`, {
-              permanent: false,
-              direction: 'top'
-            });
+            .bindTooltip(
+              alertTooltipByDistrict[districtName] ||
+                alertTooltipByDistrict[normalizeDistrictKey(districtName)] ||
+                `${districtName}<br>${isEarlyWarning ? "Early Warning" : "Early Detection"}`,
+              {
+                permanent: false,
+                direction: "top",
+                sticky: true,
+                className: alertTooltipByDistrict[districtName] ||
+                  alertTooltipByDistrict[normalizeDistrictKey(districtName)]
+                  ? "alert-explainer-tooltip"
+                  : "district-map-tooltip",
+              }
+            );
 
           marker.on("click", () => {
             onSelectDistrict?.(districtName);
@@ -499,7 +511,7 @@ function AlertMarkers({
         }
       });
     };
-  }, [map, alerts, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
+  }, [map, alerts, alertTooltipByDistrict, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
 
   return null;
 }
@@ -524,20 +536,33 @@ function SelectedDistrictFocus({ districtName, adm3Lookup }) {
   return null;
 }
 
-function InteractiveDistrictLayer({ data, style, getTooltip, onSelectDistrict }) {
+function InteractiveDistrictLayer({ data, style, getTooltip, getTooltipClassName, onSelectDistrict }) {
   const map = useMap();
   const layerRef = useRef(null);
+
+  const tooltipOptions = (feature) => ({
+    sticky: true,
+    direction: "top",
+    className: getTooltipClassName?.(feature) || "district-info-tooltip-wrap",
+  });
 
   useEffect(() => {
     if (layerRef.current) {
       layerRef.current.setStyle(style);
       layerRef.current.eachLayer((layer) => {
         if (layer.feature && layer.setTooltipContent) {
-          layer.setTooltipContent(getTooltip(layer.feature));
+          const feature = layer.feature;
+          layer.setTooltipContent(getTooltip(feature));
+          layer.unbindTooltip?.();
+          layer.bindTooltip(getTooltip(feature), {
+            sticky: true,
+            direction: "top",
+            className: getTooltipClassName?.(feature) || "district-info-tooltip-wrap",
+          });
         }
       });
     }
-  }, [style, getTooltip, data]);
+  }, [style, getTooltip, getTooltipClassName, data]);
 
   const zoomToLayer = (layer) => {
     if (!layer?.getBounds) return;
@@ -565,7 +590,7 @@ function InteractiveDistrictLayer({ data, style, getTooltip, onSelectDistrict })
       },
     });
 
-    layer.bindTooltip(getTooltip(feature), { sticky: true });
+    layer.bindTooltip(getTooltip(feature), tooltipOptions(feature));
   };
 
   return (
@@ -741,6 +766,8 @@ export default function EthiopiaMap({
   setGeoData,
   filterRegion = "All Regions",
   alerts = [],
+  alertTooltipByDistrict = {},
+  districtTooltipByDistrict = {},
   showEarlyWarning = true,
   showEarlyDetection = true,
   /** Match toolbar disease: pfm = P. falciparum, pv = P. vivax */
@@ -754,6 +781,8 @@ export default function EthiopiaMap({
   gibsPrefetchTime = null,
   onEnvAverageStats = null,
   selectedDistrictName = null,
+  alertTimeMode = "current",
+  alertAnimationWeek = null,
 }) {
   const [geoData, setGeo] = useState(null);
   const [admin1Outlines, setAdmin1Outlines] = useState(null);
@@ -1047,16 +1076,75 @@ export default function EthiopiaMap({
     interactive: false,
   });
 
-  const districtTooltip = (feature) => {
-    const districtName = feature?.properties?.adm3_name;
-    const value = getDistrictValue(districtName);
-    const label = activeScale.title || dataset;
+  const resolveAlertTooltip = (districtName) => {
+    if (!districtName || !alertTooltipByDistrict) return null;
+    const exact = alertTooltipByDistrict[districtName];
+    if (exact) return exact;
+    const normalized = alertTooltipByDistrict[normalizeDistrictKey(districtName)];
+    if (normalized) return normalized;
+    for (const variant of getDistrictNameVariants(districtName)) {
+      const value =
+        alertTooltipByDistrict[variant] ??
+        alertTooltipByDistrict[normalizeDistrictKey(variant)];
+      if (value) return value;
+    }
+    return null;
+  };
 
-    if (value === undefined) {
-      return `${districtName}<br>${label}: No data`;
+  const resolveDistrictTooltip = (districtName, feature) => {
+    if (!districtName) return null;
+
+    const fromLookup = (lookup) => {
+      if (!lookup) return null;
+      const exact = lookup[districtName];
+      if (exact) return exact;
+      const normalized = lookup[normalizeDistrictKey(districtName)];
+      if (normalized) return normalized;
+      for (const variant of getDistrictNameVariants(districtName)) {
+        const value = lookup[variant] ?? lookup[normalizeDistrictKey(variant)];
+        if (value) return value;
+      }
+      return null;
+    };
+
+    const districtTooltip = fromLookup(districtTooltipByDistrict);
+    if (districtTooltip) return districtTooltip;
+
+    if (feature?.properties) {
+      return formatDistrictTooltipHtml({
+        region: feature.properties.adm1_name,
+        district: districtName,
+        population: undefined,
+        cases: undefined,
+        populationYear,
+      });
     }
 
-    return `${districtName}<br>${label}: ${formatMapValue(value)}${unit ? ` ${unit}` : ""}`;
+    return null;
+  };
+
+  const districtTooltip = (feature) => {
+    const districtName = feature?.properties?.adm3_name;
+    const alertTooltip = resolveAlertTooltip(districtName);
+    if (alertTooltip) return alertTooltip;
+
+    const districtInfoTooltip = resolveDistrictTooltip(districtName, feature);
+    if (districtInfoTooltip) return districtInfoTooltip;
+
+    return formatDistrictTooltipHtml({
+      region: feature?.properties?.adm1_name,
+      district: districtName,
+      population: undefined,
+      cases: undefined,
+      populationYear,
+    });
+  };
+
+  const districtTooltipClassName = (feature) => {
+    const districtName = feature?.properties?.adm3_name;
+    return resolveAlertTooltip(districtName)
+      ? "alert-explainer-tooltip"
+      : "district-info-tooltip-wrap";
   };
 
   const handleSelectDistrict = (districtName) => {
@@ -1065,7 +1153,12 @@ export default function EthiopiaMap({
   };
 
   return (
-    <div className="map-wrap">
+    <div className="map-wrap" id="epidemia-report-map">
+      {alertTimeMode === "animate" && alertAnimationWeek && (
+        <div className="map-alert-time-badge" aria-live="polite">
+          Alert history · week of {alertAnimationWeek}
+        </div>
+      )}
       <MapContainer
         center={MAP_DEFAULT_CENTER}
         zoom={MAP_DEFAULT_ZOOM}
@@ -1165,6 +1258,7 @@ export default function EthiopiaMap({
               data={districtDataForView}
               style={style}
               getTooltip={districtTooltip}
+              getTooltipClassName={districtTooltipClassName}
               onSelectDistrict={handleSelectDistrict}
             />
           </Pane>
@@ -1198,6 +1292,7 @@ export default function EthiopiaMap({
         {/* Alert markers are independent of boundaries; keep enabled. */}
         <AlertMarkers
           alerts={alerts}
+          alertTooltipByDistrict={alertTooltipByDistrict}
           showEarlyWarning={showEarlyWarning}
           showEarlyDetection={showEarlyDetection}
           adm3Lookup={adm3Lookup}

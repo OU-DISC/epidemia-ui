@@ -18,6 +18,8 @@ function TopToolbar({
   refreshingForecast,
   onExportPDF,
   exporting,
+  projectName,
+  onNewProject,
 }) {
   const diseases = ["Plasmodium falciparum malaria", "Plasmodium vivax malaria"];
   const countries = ["Ethiopia", "USA"];
@@ -83,6 +85,21 @@ function TopToolbar({
       )}
 
       <div className="toolbar-actions">
+        <button
+          type="button"
+          className="toolbar-button"
+          onClick={onNewProject}
+          title="Upload CSV and run your first forecast"
+        >
+          New Project
+        </button>
+
+        {projectName && (
+          <span className="toolbar-project-name" title="Active project">
+            {projectName}
+          </span>
+        )}
+
         <label className="toolbar-field">
           Forecast:
           <select
@@ -105,7 +122,7 @@ function TopToolbar({
         </button>
 
         <button onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
-          {exporting ? "Exporting..." : "Export PDF"}
+          {exporting ? "Exporting..." : "Export Weekly Report"}
         </button>
       </div>
     </header>

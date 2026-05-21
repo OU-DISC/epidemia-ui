@@ -23,11 +23,15 @@ class DistrictForecastPoint(BaseModel):
     median: float
     lower: float
     upper: float
+    detection_threshold: Optional[float] = None
+    warning_threshold: Optional[float] = None
 
 
 class DistrictObservedPoint(BaseModel):
     week_start: date
     observed: float
+    detection_threshold: Optional[float] = None
+    warning_threshold: Optional[float] = None
 
 
 class DistrictAlert(BaseModel):
@@ -39,6 +43,7 @@ class DistrictAlert(BaseModel):
     latest_forecast: Optional[float] = None
     detection_threshold: Optional[float] = None
     warning_threshold: Optional[float] = None
+    population_at_risk: Optional[float] = None
 
 
 class DistrictForecast(BaseModel):

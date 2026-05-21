@@ -1,4 +1,5 @@
 import axios from "axios";
+import { buildSampleEpiCsvFromReport } from "./utils/buildSampleEpiCsv";
 
 const isBrowser = typeof window !== "undefined";
 const isLocalhost =
@@ -114,6 +115,57 @@ export async function fetchEnvironmentalTimeseries({
       endDate,
       dataset,
     }
+  );
+  return response.data;
+}
+
+export async function validateEpiUpload(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  const response = await axios.post(
+    buildApiUrl(FORECAST_API_BASE, "/epidemia/validate/epi"),
+    formData,
+    { headers: { "Content-Type": "multipart/form-data" } }
+  );
+  return response.data;
+}
+
+export async function fetchSampleEpiCsv() {
+  if (FORECAST_API_BASE) {
+    try {
+      const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/sample/epi"));
+      return response.data;
+    } catch (err) {
+      const status = err.response?.status;
+      if (status !== 404 && err.code !== "ERR_NETWORK") {
+        throw err;
+      }
+    }
+  }
+
+  return buildSampleEpiCsvFromReport();
+}
+
+export async function setupEpidemiaProject({
+  file,
+  projectName,
+  horizonWeeks = 8,
+  defaultSpecies = "pfm",
+  defaultRegion = "All Regions",
+  geography = "amhara",
+}) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("project_name", projectName);
+  formData.append("horizon_weeks", String(horizonWeeks));
+  formData.append("default_species", defaultSpecies);
+  formData.append("default_region", defaultRegion);
+  formData.append("geography", geography);
+
+  const response = await axios.post(
+    buildApiUrl(FORECAST_API_BASE, "/epidemia/project/setup"),
+    formData,
+    { headers: { "Content-Type": "multipart/form-data" } }
   );
   return response.data;
 }

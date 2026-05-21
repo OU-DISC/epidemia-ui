@@ -5,11 +5,13 @@ import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import ForecastChart from "../ForecastChart";
 import ForecastAlertsTable from "../ForecastAlertsTable";
+import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
+import SituationStrip from "../SituationStrip";
+import HelpTip from "../HelpTip";
+import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
 import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 import {
   FORECAST_API_BASE,
   fetchLatestEpidemiaReport,
@@ -21,6 +23,17 @@ import {
   getDistrictNameVariants,
   normalizeDistrictKey,
 } from "../../utils/districtNameMatch";
+import { buildAlertTooltipLookup } from "../../utils/buildAlertTooltipLookup";
+import {
+  buildAlertWeekDates,
+  buildAlertsForWeek,
+  buildAnimatedAlertTooltipLookup,
+  countAlertTypes,
+} from "../../utils/buildAlertHistory";
+import { buildDistrictTooltipLookup } from "../../utils/buildDistrictTooltipLookup";
+import { buildComparisonDistrictOptions, buildDistrictForecastSeries } from "../../utils/buildDistrictForecastSeries";
+import { exportWeeklyReport } from "../../utils/exportWeeklyReport";
+import { speciesToDisease } from "../../utils/projectStorage";
 import "./dashboard-theme.css";
 
 /** District choropleth fetch (Earth Engine). Set to true to show the panel again. */
@@ -129,15 +142,26 @@ function buildWeekDates(startDate, endDate) {
   return out;
 }
 
-function Dashboard() {
-  const [disease, setDisease] = useState("Plasmodium falciparum malaria");
+function Dashboard({
+  projectConfig = null,
+  bootstrapEpidemiaData = null,
+  onBootstrapConsumed,
+  onOpenProjectWizard,
+}) {
+  const [disease, setDisease] = useState(
+    () => speciesToDisease(projectConfig?.defaultSpecies) || "Plasmodium falciparum malaria"
+  );
   const [country, setCountry] = useState("Ethiopia");
-  const [forecastWeeks, setForecastWeeks] = useState(4);
-  const [selectedAdminRegion, setSelectedAdminRegion] = useState("All Regions"); // Admin region filter (toolbar)
+  const [forecastWeeks, setForecastWeeks] = useState(projectConfig?.horizonWeeks || 4);
+  const [selectedAdminRegion, setSelectedAdminRegion] = useState(
+    projectConfig?.defaultRegion || "All Regions"
+  );
   /** What the map draws: matches toolbar except a named region is briefly "No Selection" to clear, then the region. */
-  const [mapFilterRegion, setMapFilterRegion] = useState("All Regions");
+  const [mapFilterRegion, setMapFilterRegion] = useState(
+    projectConfig?.defaultRegion || "All Regions"
+  );
   const mapRegionStepTimerRef = useRef(null);
-  const [region, setRegion] = useState("All Regions");
+  const [region, setRegion] = useState(projectConfig?.defaultRegion || "All Regions");
   const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [exporting, setExporting] = useState(false);
   const [regions, setRegions] = useState([]); // List of available regions
@@ -147,6 +171,9 @@ function Dashboard() {
   const [epidemiaRefreshing, setEpidemiaRefreshing] = useState(false);
   const [epidemiaError, setEpidemiaError] = useState("");
   const forecastRequestIdRef = useRef(0);
+  const userPrefersAllDistrictsRef = useRef(false);
+  const projectDataDir = projectConfig?.dataDir || "data";
+  const projectOutputDir = projectConfig?.outputDir || "report";
 
   //  Environmental data states
   const [startDate, setStartDate] = useState("2026-01-01");
@@ -160,10 +187,18 @@ function Dashboard() {
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
   /** [start, end] date strings; null = each chart uses its own default x span */
   const [syncedXRange, setSyncedXRange] = useState(null);
+  const [rightPanelView, setRightPanelView] = useState("charts");
+  const [comparisonDistricts, setComparisonDistricts] = useState(["", "", ""]);
 
   // Decision layers states
   const [showEarlyWarning, setShowEarlyWarning] = useState(true);
   const [showEarlyDetection, setShowEarlyDetection] = useState(true);
+
+  // Alert history animation (last 4–8 weeks from observed case history)
+  const [alertTimeMode, setAlertTimeMode] = useState("current"); // "current" | "animate"
+  const [alertHistoryWeeks, setAlertHistoryWeeks] = useState(8);
+  const [alertWeekIndex, setAlertWeekIndex] = useState(0);
+  const [alertPlaying, setAlertPlaying] = useState(false);
 
   // Environmental raster layers (explanatory variables)
   const [showRainfallLayer, setShowRainfallLayer] = useState(false);
@@ -224,6 +259,67 @@ function Dashboard() {
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
   const adm3Lookup = useMemo(() => buildAdm3Lookup(geoData), [geoData]);
 
+  const alertWeekDates = useMemo(
+    () =>
+      buildAlertWeekDates(
+        epidemiaData?.forecasts,
+        selectedSpecies,
+        alertHistoryWeeks,
+        endDate
+      ),
+    [epidemiaData?.forecasts, selectedSpecies, alertHistoryWeeks, endDate]
+  );
+
+  useEffect(() => {
+    setAlertWeekIndex((idx) => {
+      const max = Math.max(0, alertWeekDates.length - 1);
+      return Math.min(Math.max(0, idx), max);
+    });
+  }, [alertWeekDates]);
+
+  useEffect(() => {
+    if (alertTimeMode !== "animate" || alertWeekDates.length < 2) {
+      setAlertPlaying(false);
+    }
+  }, [alertTimeMode, alertWeekDates]);
+
+  useEffect(() => {
+    if (!alertPlaying) return undefined;
+    if (alertTimeMode !== "animate") return undefined;
+    if (alertWeekDates.length < 2) return undefined;
+
+    const interval = window.setInterval(() => {
+      setAlertWeekIndex((idx) => (idx + 1) % alertWeekDates.length);
+    }, 900);
+
+    return () => window.clearInterval(interval);
+  }, [alertPlaying, alertTimeMode, alertWeekDates]);
+
+  const alertAnimationWeek =
+    alertTimeMode === "animate" && alertWeekDates.length
+      ? alertWeekDates[alertWeekIndex]
+      : null;
+
+  const mapAlerts = useMemo(() => {
+    if (alertTimeMode !== "animate" || !alertAnimationWeek) {
+      return epidemiaData?.alerts || [];
+    }
+    return buildAlertsForWeek(
+      epidemiaData?.forecasts,
+      epidemiaData?.alerts,
+      selectedSpecies,
+      alertAnimationWeek
+    );
+  }, [
+    alertTimeMode,
+    alertAnimationWeek,
+    epidemiaData?.forecasts,
+    epidemiaData?.alerts,
+    selectedSpecies,
+  ]);
+
+  const alertWeekCounts = useMemo(() => countAlertTypes(mapAlerts), [mapAlerts]);
+
   // Map clears to basemap-only ("No Selection") briefly, then shows the chosen view. Toolbar updates immediately.
   // "No Selection" alone applies immediately with no second step.
   const handleChangeAdminRegion = useCallback((value) => {
@@ -258,7 +354,7 @@ function Dashboard() {
     setEpidemiaLoading(true);
     setEpidemiaError("");
     try {
-      const data = await fetchLatestEpidemiaReport({ outputDir: "report" });
+      const data = await fetchLatestEpidemiaReport({ outputDir: projectOutputDir });
       if (forecastRequestIdRef.current === requestId) {
         setEpidemiaData(data);
       }
@@ -279,7 +375,7 @@ function Dashboard() {
     } finally {
       setEpidemiaLoading(false);
     }
-  }, []);
+  }, [projectOutputDir]);
 
   const refreshEpidemia = useCallback(async () => {
     const requestId = forecastRequestIdRef.current + 1;
@@ -289,8 +385,8 @@ function Dashboard() {
     try {
       const data = await runEpidemiaPipeline({
         horizonWeeks: forecastWeeks,
-        dataDir: "data",
-        outputDir: "report",
+        dataDir: projectDataDir,
+        outputDir: projectOutputDir,
         createReport: false,
       });
       if (forecastRequestIdRef.current === requestId) {
@@ -313,7 +409,14 @@ function Dashboard() {
     } finally {
       setEpidemiaRefreshing(false);
     }
-  }, [forecastWeeks]);
+  }, [forecastWeeks, projectDataDir, projectOutputDir]);
+
+  useEffect(() => {
+    if (!bootstrapEpidemiaData) return;
+    setEpidemiaData(bootstrapEpidemiaData);
+    setEpidemiaError("");
+    onBootstrapConsumed?.();
+  }, [bootstrapEpidemiaData, onBootstrapConsumed]);
 
   useEffect(() => {
     loadLatestEpidemia();
@@ -390,29 +493,21 @@ function Dashboard() {
     setDistricts(uniqueDistricts);
   }, [geoData, selectedAdminRegion]);
 
-  React.useEffect(() => {
-    if (!districts.includes(region)) {
-      setRegion("All Regions");
-      setSelectedGeometry(null);
-    }
-  }, [districts, region]);
-
-  // Update region when a district is clicked on the map
-  const updateRegion = (selectedRegion) => {
+  const updateRegion = useCallback((selectedRegion) => {
+    userPrefersAllDistrictsRef.current = selectedRegion === "All Regions";
     setRegion(selectedRegion);
     if (selectedRegion === "All Regions") {
       setSelectedGeometry(null);
       return;
     }
 
-    // Find and set the geometry for this district
     if (geoData) {
       const feature = geoData.features.find((f) => f.properties.adm3_name === selectedRegion);
       if (feature) {
         setSelectedGeometry(feature.geometry.coordinates);
       }
     }
-  };
+  }, [geoData]);
 
   const selectedAlert = useMemo(() => {
     if (!epidemiaData?.alerts || region === "All Regions") return null;
@@ -442,6 +537,8 @@ function Dashboard() {
       lower: null,
       upper: null,
       observed: point.observed,
+      detection_threshold: point.detection_threshold ?? null,
+      warning_threshold: point.warning_threshold ?? null,
     }));
 
     // Backward-compatible fallback for responses from older backend processes.
@@ -463,6 +560,8 @@ function Dashboard() {
       lower: point.lower,
       upper: point.upper,
       observed: null,
+      detection_threshold: point.detection_threshold ?? null,
+      warning_threshold: point.warning_threshold ?? null,
     }));
 
     return [...observedRows, ...forecastRows];
@@ -518,18 +617,17 @@ function Dashboard() {
       });
     };
 
-    const alerts = epidemiaData?.alerts || [];
+    // WorldPop is the primary population source for the map. Only fill gaps when a
+    // district is missing from the WorldPop surface (legacy name mismatches).
+    (epidemiaData?.alerts || []).forEach((alert) => {
+      const population = Number(alert.population_at_risk);
+      if (!Number.isFinite(population)) return;
 
-    alerts
-      .forEach((alert) => {
-        const population = Number(alert.population_at_risk);
-        if (!Number.isFinite(population)) return;
-
-        const district = findDistrictFromLookup(adm3Lookup, alert.district);
-        const mapName = district?.properties?.adm3_name || alert.district;
-        assignIfMissing(mapName, population);
-        assignIfMissing(alert.district, population);
-      });
+      const district = findDistrictFromLookup(adm3Lookup, alert.district);
+      const mapName = district?.properties?.adm3_name || alert.district;
+      assignIfMissing(mapName, population);
+      assignIfMissing(alert.district, population);
+    });
 
     return out;
   }, [adm3Lookup, epidemiaData, populationSurface]);
@@ -590,7 +688,12 @@ function Dashboard() {
         magnitude != null && activeThreshold > 0 ? (magnitude / activeThreshold) * 100 : null;
       const persistenceWeeks = (forecast?.forecast || []).filter((point) => {
         const median = finiteNumber(point.median);
-        return median != null && activeThreshold != null && median > activeThreshold;
+        const warningThreshold = finiteNumber(point.warning_threshold);
+        const detectionThreshold = finiteNumber(point.detection_threshold);
+        if (median == null) return false;
+        if (warningThreshold != null && median > warningThreshold) return true;
+        if (detectionThreshold != null && median > detectionThreshold) return true;
+        return false;
       }).length;
       const populationAtRisk = finiteNumber(alert.population_at_risk);
       const positiveMagnitudePercent = Math.max(0, magnitudePercent || 0);
@@ -621,6 +724,144 @@ function Dashboard() {
     });
   }, [adm3Lookup, epidemiaData, selectedSpecies]);
 
+  const topPriorityDistrict = useMemo(() => {
+    const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
+    return options[0]?.value || null;
+  }, [forecastTableRows, selectedAdminRegion]);
+
+  React.useEffect(() => {
+    if (districts.includes(region)) return;
+
+    userPrefersAllDistrictsRef.current = false;
+    if (topPriorityDistrict && districts.includes(topPriorityDistrict)) {
+      updateRegion(topPriorityDistrict);
+      return;
+    }
+
+    setRegion("All Regions");
+    setSelectedGeometry(null);
+  }, [districts, region, topPriorityDistrict, updateRegion]);
+
+  React.useEffect(() => {
+    if (userPrefersAllDistrictsRef.current) return;
+    if (!topPriorityDistrict || region !== "All Regions") return;
+    updateRegion(topPriorityDistrict);
+  }, [topPriorityDistrict, region, updateRegion]);
+
+  const defaultComparisonDistricts = useMemo(() => {
+    const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
+    return [
+      options[0]?.value || "",
+      options[1]?.value || "",
+      options[2]?.value || "",
+    ];
+  }, [forecastTableRows, selectedAdminRegion]);
+
+  React.useEffect(() => {
+    setComparisonDistricts(defaultComparisonDistricts);
+  }, [defaultComparisonDistricts]);
+
+  const comparisonSeries = useMemo(() => {
+    const uniqueDistricts = [...new Set(comparisonDistricts.filter(Boolean))].slice(0, 3);
+    return uniqueDistricts
+      .map((districtName) =>
+        buildDistrictForecastSeries(
+          epidemiaData,
+          adm3Lookup,
+          districtName,
+          selectedSpecies
+        )
+      )
+      .filter(Boolean);
+  }, [adm3Lookup, comparisonDistricts, epidemiaData, selectedSpecies]);
+
+  const toggleComparisonDistrict = useCallback(
+    (districtName) => {
+      setComparisonDistricts((current) => {
+        const isSelected = current.includes(districtName);
+        let next;
+
+        if (isSelected) {
+          const remaining = current.filter((district) => district !== districtName);
+          next = [remaining[0] || "", remaining[1] || "", remaining[2] || ""];
+          if (region === districtName) {
+            const fallback = next.find(Boolean);
+            updateRegion(fallback || topPriorityDistrict || "All Regions");
+          }
+        } else {
+          const active = current.filter(Boolean);
+          if (active.length < 3) {
+            next = [...current];
+            const slot = next.findIndex((district) => !district);
+            next[slot] = districtName;
+          } else {
+            next = [current[0], current[1], districtName];
+          }
+          updateRegion(districtName);
+        }
+
+        return next;
+      });
+    },
+    [region, topPriorityDistrict, updateRegion]
+  );
+
+  const pipelineStatus = useMemo(() => {
+    if (epidemiaRefreshing) return { kind: "running", label: "Running" };
+    if (epidemiaLoading) return { kind: "loading", label: "Loading latest" };
+    if (epidemiaError) return { kind: "error", label: "Error" };
+    return { kind: "ready", label: "Ready" };
+  }, [epidemiaLoading, epidemiaRefreshing, epidemiaError]);
+
+  const speciesLabel = selectedSpecies === "pv" ? "P. vivax" : "P. falciparum";
+
+  const currentAlertTooltipByDistrict = useMemo(
+    () =>
+      buildAlertTooltipLookup({
+        forecastTableRows,
+        alerts: epidemiaData?.alerts || [],
+        selectedSpecies,
+        speciesLabel,
+        populationData,
+        incidentRateData,
+        populationYear,
+        surfaceValueForDistrict,
+      }),
+    [
+      forecastTableRows,
+      epidemiaData?.alerts,
+      selectedSpecies,
+      speciesLabel,
+      populationData,
+      incidentRateData,
+      populationYear,
+    ]
+  );
+
+  const alertTooltipByDistrict = useMemo(() => {
+    if (alertTimeMode !== "animate" || !alertAnimationWeek) {
+      return currentAlertTooltipByDistrict;
+    }
+    return buildAnimatedAlertTooltipLookup(mapAlerts, speciesLabel, alertAnimationWeek);
+  }, [
+    alertTimeMode,
+    alertAnimationWeek,
+    currentAlertTooltipByDistrict,
+    mapAlerts,
+    speciesLabel,
+  ]);
+
+  const districtTooltipByDistrict = useMemo(
+    () =>
+      buildDistrictTooltipLookup({
+        forecastTableRows,
+        populationData,
+        populationYear,
+        surfaceValueForDistrict,
+      }),
+    [forecastTableRows, populationData, populationYear]
+  );
+
   const forecastDateWindow = useMemo(() => {
     if (!selectedForecast || selectedForecast.length === 0) return null;
 
@@ -650,25 +891,47 @@ function Dashboard() {
     forecastDateWindow?.endDate,
   ]);
 
-  // PDF export function
-  const handleExportPDF = () => {
-    const element = document.getElementById("dashboard");
-    if (!element) return window.alert("Dashboard content not found!");
-
+  // Weekly report export
+  const handleExportPDF = async () => {
     setExporting(true);
+    const previousView = rightPanelView;
 
-    html2canvas(element, { scale: 2, useCORS: true }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("landscape", "pt", "a4");
+    try {
+      if (region !== "All Regions") {
+        setRightPanelView("charts");
+        await new Promise((resolve) => setTimeout(resolve, 700));
+      }
 
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      const topAlerts = [...forecastTableRows]
+        .filter((row) => row.statusRank > 1)
+        .sort((a, b) => b.priority - a.priority)
+        .slice(0, 5);
 
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("EPIDEMIA_Report.pdf");
-
+      await exportWeeklyReport({
+        disease,
+        country,
+        speciesLabel,
+        generatedAt: epidemiaData?.generated_at,
+        summary: forecastSummary,
+        topAlerts,
+        tableRows: forecastTableRows,
+        selectedDistrict: region,
+        selectedDistrictInsight:
+          region !== "All Regions"
+            ? forecastTableRows.find((row) => row.mapDistrict === region) || null
+            : null,
+        dateRange: {
+          startDate: forecastDateWindow?.startDate || startDate,
+          endDate: forecastDateWindow?.endDate || endDate,
+        },
+      });
+    } catch (err) {
+      console.error("Failed to export weekly report:", err);
+      window.alert(err?.message || "Failed to export weekly report.");
+    } finally {
+      setRightPanelView(previousView);
       setExporting(false);
-    });
+    }
   };
 
   return (
@@ -690,6 +953,8 @@ function Dashboard() {
         refreshingForecast={epidemiaRefreshing}
         onExportPDF={handleExportPDF}
         exporting={exporting}
+        projectName={projectConfig?.projectName}
+        onNewProject={onOpenProjectWizard}
       />
 
       <div className="dashboard-layout">
@@ -701,33 +966,24 @@ function Dashboard() {
             </h1>
           </section>
 
-        <section className="forecast-cards fade-in-up delay-1">
-          <article className="glass-card forecast-card">
-            <h4>Pipeline</h4>
-            <p>{epidemiaRefreshing ? "Running" : epidemiaLoading ? "Loading latest" : epidemiaError ? "Error" : "Ready"}</p>
-          </article>
-          <article className="glass-card forecast-card">
-            <h4>Early Warnings</h4>
-            <p>{forecastSummary.warnings}</p>
-          </article>
-          <article className="glass-card forecast-card">
-            <h4>Early Detections</h4>
-            <p>{forecastSummary.detections}</p>
-          </article>
-          <article className="glass-card forecast-card">
-            <h4>Districts Modeled</h4>
-            <p>{forecastSummary.districts}</p>
-          </article>
-        </section>
+        <SituationStrip summary={forecastSummary} pipelineStatus={pipelineStatus} />
 
         <section className="dashboard-grid fade-in-up delay-2">
           {/* Map */}
           <div className="glass-card map-panel">
             <div className="panel-header">
-              <h3>District Layers</h3>
+              <h3>
+                <span className="panel-header-label">
+                  District Layers
+                  <HelpTip text={DASHBOARD_HELP.districtLayers} label="District layers" placement="below" />
+                </span>
+              </h3>
               <div className="map-layer-controls">
                 <label className="map-surface-control">
-                  <span>Weather Dataset</span>
+                  <span className="toolbar-field-label">
+                    Weather Dataset
+                    <HelpTip text={DASHBOARD_HELP.weatherDataset} label="Weather dataset" />
+                  </span>
                   <select
                     className="toolbar-select"
                     value={dataset}
@@ -741,7 +997,10 @@ function Dashboard() {
                   </select>
                 </label>
                 <label className="map-surface-control">
-                  <span>Health Layer</span>
+                  <span className="toolbar-field-label">
+                    Health Layer
+                    <HelpTip text={DASHBOARD_HELP.healthLayer} label="Health layer" />
+                  </span>
                   <select
                     className="toolbar-select"
                     value={healthLayer}
@@ -762,6 +1021,16 @@ function Dashboard() {
               showEarlyDetection={showEarlyDetection}
               onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
               onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
+              alertTimeMode={alertTimeMode}
+              onChangeAlertTimeMode={setAlertTimeMode}
+              alertWeekDates={alertWeekDates}
+              alertWeekIndex={alertWeekIndex}
+              onChangeAlertWeekIndex={setAlertWeekIndex}
+              alertPlaying={alertPlaying}
+              onToggleAlertPlaying={() => setAlertPlaying((v) => !v)}
+              alertHistoryWeeks={alertHistoryWeeks}
+              onChangeAlertHistoryWeeks={setAlertHistoryWeeks}
+              alertWeekCounts={alertWeekCounts}
             />
 
             <EnvironmentalLayers
@@ -794,10 +1063,14 @@ function Dashboard() {
               populationYear={populationYear}
               setGeoData={setGeoData}
               filterRegion={mapFilterRegion}
-              alerts={epidemiaData?.alerts || []}
+              alerts={mapAlerts}
+              alertTooltipByDistrict={alertTooltipByDistrict}
+              districtTooltipByDistrict={districtTooltipByDistrict}
               selectedSpecies={selectedSpecies}
               showEarlyWarning={showEarlyWarning}
               showEarlyDetection={showEarlyDetection}
+              alertTimeMode={alertTimeMode}
+              alertAnimationWeek={alertAnimationWeek}
               selectedDistrictName={region !== "All Regions" ? region : null}
               showRainfallLayer={showRainfallLayer}
               showTemperatureLayer={showTemperatureLayer}
@@ -822,80 +1095,134 @@ function Dashboard() {
             )}
           </div>
 
-          {/* Region info and environmental time series chart */}
-          <div className="glass-card insights-panel">
+          {/* Charts / table tabs */}
+          <div className="glass-card insights-panel side-panel">
             <div className="panel-header">
               <h3>{region}</h3>
-              <span>
+              <span className="panel-header-meta">
                 {selectedAlert
                   ? `Population: ${formatPopulation(selectedAlert.population_at_risk)}`
                   : "District Insight"}
+                <HelpTip text={DASHBOARD_HELP.districtInsight} label="District insight" />
               </span>
             </div>
 
-            {epidemiaError && (
-              <div className="chart-state chart-state-error">{epidemiaError}</div>
-            )}
+            <div className="side-panel-tabs" role="tablist" aria-label="Insights views">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={rightPanelView === "charts"}
+                className={rightPanelView === "charts" ? "side-panel-tab active" : "side-panel-tab"}
+                onClick={() => setRightPanelView("charts")}
+              >
+                <span className="side-panel-tab-label">
+                  Charts
+                  <HelpTip text={DASHBOARD_HELP.chartsTab} label="Charts tab" />
+                </span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={rightPanelView === "table"}
+                className={rightPanelView === "table" ? "side-panel-tab active" : "side-panel-tab"}
+                onClick={() => setRightPanelView("table")}
+              >
+                <span className="side-panel-tab-label">
+                  Forecast Table
+                  <HelpTip text={DASHBOARD_HELP.tableTab} label="Forecast table tab" />
+                </span>
+              </button>
+            </div>
 
-            {selectedAlert && (
-              <>
-                <div className="alert-row">
-                  {selectedAlert.early_warning && (
-                    <span className="alert-warning">Early Warning</span>
-                  )}
-                  {!selectedAlert.early_warning && selectedAlert.early_detection && (
-                    <span className="alert-detection">Early Detection</span>
-                  )}
+            {rightPanelView === "charts" && (
+              <div className="side-panel-body charts-view" role="tabpanel">
+                {epidemiaError && (
+                  <div className="chart-state chart-state-error">{epidemiaError}</div>
+                )}
+
+                {epidemiaLoading && (
+                  <div className="chart-state">Loading latest district forecast...</div>
+                )}
+
+                {epidemiaRefreshing && (
+                  <div className="chart-state">Updating district forecast...</div>
+                )}
+
+                <div id="epidemia-report-env-chart">
+                  <EnvironmentalTimeSeriesChart
+                    selectedDistrict={region !== "All Regions" ? region : null}
+                    districtGeometry={selectedGeometry}
+                    startDate={forecastDateWindow?.startDate || startDate}
+                    endDate={forecastDateWindow?.endDate || endDate}
+                    dataset={dataset}
+                    syncedHoverDate={syncedHoverDate}
+                    onHoverDateChange={setSyncedHoverDate}
+                    syncedXRange={syncedXRange}
+                    onXRangeChange={setSyncedXRange}
+                    alertTimeMode={alertTimeMode}
+                    alertAnimationWeek={alertAnimationWeek}
+                  />
                 </div>
-              </>
+
+                {selectedForecast && (
+                  <section className="forecast-panel">
+                    <h4>Transmission Forecast ({selectedSpecies.toUpperCase()})</h4>
+                    <div id="epidemia-report-forecast-chart">
+                      <ForecastChart
+                        data={selectedForecast}
+                        alert={selectedAlert}
+                        syncedHoverDate={syncedHoverDate}
+                        onHoverDateChange={setSyncedHoverDate}
+                        syncedXRange={syncedXRange}
+                        onXRangeChange={setSyncedXRange}
+                        alertTimeMode={alertTimeMode}
+                        alertAnimationWeek={alertAnimationWeek}
+                      />
+                    </div>
+                  </section>
+                )}
+
+                {!epidemiaLoading && !epidemiaRefreshing && !selectedForecast && region !== "All Regions" && (
+                  <div className="chart-state">No district forecast available for this selection.</div>
+                )}
+              </div>
             )}
 
-            {epidemiaLoading && (
-              <div className="chart-state">Loading latest district forecast...</div>
-            )}
-
-            {epidemiaRefreshing && (
-              <div className="chart-state">Updating district forecast...</div>
-            )}
-
-            {/* Time series chart for selected district */}
-            <EnvironmentalTimeSeriesChart
-              selectedDistrict={region !== "All Regions" ? region : null}
-              districtGeometry={selectedGeometry}
-              startDate={forecastDateWindow?.startDate || startDate}
-              endDate={forecastDateWindow?.endDate || endDate}
-              dataset={dataset}
-              syncedHoverDate={syncedHoverDate}
-              onHoverDateChange={setSyncedHoverDate}
-              syncedXRange={syncedXRange}
-              onXRangeChange={setSyncedXRange}
-            />
-
-            {selectedForecast && (
-              <section className="forecast-panel">
-                <h4>Transmission Forecast ({selectedSpecies.toUpperCase()})</h4>
-                <ForecastChart
-                  data={selectedForecast}
-                  alert={selectedAlert}
-                  syncedHoverDate={syncedHoverDate}
-                  onHoverDateChange={setSyncedHoverDate}
-                  syncedXRange={syncedXRange}
-                  onXRangeChange={setSyncedXRange}
+            {rightPanelView === "table" && (
+              <div className="side-panel-body table-view" role="tabpanel">
+                <ForecastAlertsTable
+                  embedded
+                  rows={forecastTableRows}
+                  selectedDistrict={region}
+                  comparisonDistricts={comparisonDistricts}
+                  onToggleComparisonDistrict={toggleComparisonDistrict}
                 />
-              </section>
-            )}
 
-            {!epidemiaLoading && !epidemiaRefreshing && !selectedForecast && region !== "All Regions" && (
-              <div className="chart-state">No district forecast available for this selection.</div>
+                {!epidemiaLoading && !epidemiaRefreshing && (
+                  <div className="table-view-comparison">
+                    <div className="table-view-comparison-intro">
+                      <h4>District comparison</h4>
+                      <p>
+                        Click table rows to add or remove districts (up to 3). Solid lines =
+                        observed, dotted = forecast.
+                      </p>
+                    </div>
+                    <MultiDistrictComparisonChart
+                      series={comparisonSeries}
+                      height={220}
+                      syncedHoverDate={syncedHoverDate}
+                      onHoverDateChange={setSyncedHoverDate}
+                      syncedXRange={syncedXRange}
+                      onXRangeChange={setSyncedXRange}
+                      alertTimeMode={alertTimeMode}
+                      alertAnimationWeek={alertAnimationWeek}
+                    />
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </section>
-
-        <ForecastAlertsTable
-          rows={forecastTableRows}
-          selectedDistrict={region}
-          onSelectDistrict={updateRegion}
-        />
         </main>
       </div>
     </div>
