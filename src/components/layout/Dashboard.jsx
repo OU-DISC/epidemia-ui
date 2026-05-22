@@ -187,6 +187,20 @@ function Dashboard({
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
   /** [start, end] date strings; null = each chart uses its own default x span */
   const [syncedXRange, setSyncedXRange] = useState(null);
+  const handleSyncedXRangeChange = useCallback((nextRange) => {
+    setSyncedXRange((current) => {
+      if (nextRange == null && current == null) return current;
+      if (
+        nextRange &&
+        current &&
+        nextRange[0] === current[0] &&
+        nextRange[1] === current[1]
+      ) {
+        return current;
+      }
+      return nextRange;
+    });
+  }, []);
   const [rightPanelView, setRightPanelView] = useState("charts");
   const [comparisonDistricts, setComparisonDistricts] = useState(["", "", ""]);
 
@@ -740,13 +754,17 @@ function Dashboard({
 
     setRegion("All Regions");
     setSelectedGeometry(null);
+    // Stop auto-select from fighting this fallback when the priority district
+    // is not present in the dropdown (name mismatch before geo loads, etc.).
+    userPrefersAllDistrictsRef.current = true;
   }, [districts, region, topPriorityDistrict, updateRegion]);
 
   React.useEffect(() => {
     if (userPrefersAllDistrictsRef.current) return;
     if (!topPriorityDistrict || region !== "All Regions") return;
+    if (!districts.includes(topPriorityDistrict)) return;
     updateRegion(topPriorityDistrict);
-  }, [topPriorityDistrict, region, updateRegion]);
+  }, [topPriorityDistrict, region, updateRegion, districts]);
 
   const defaultComparisonDistricts = useMemo(() => {
     const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
@@ -1158,7 +1176,7 @@ function Dashboard({
                     syncedHoverDate={syncedHoverDate}
                     onHoverDateChange={setSyncedHoverDate}
                     syncedXRange={syncedXRange}
-                    onXRangeChange={setSyncedXRange}
+                    onXRangeChange={handleSyncedXRangeChange}
                     alertTimeMode={alertTimeMode}
                     alertAnimationWeek={alertAnimationWeek}
                   />
@@ -1174,7 +1192,7 @@ function Dashboard({
                         syncedHoverDate={syncedHoverDate}
                         onHoverDateChange={setSyncedHoverDate}
                         syncedXRange={syncedXRange}
-                        onXRangeChange={setSyncedXRange}
+                        onXRangeChange={handleSyncedXRangeChange}
                         alertTimeMode={alertTimeMode}
                         alertAnimationWeek={alertAnimationWeek}
                       />
@@ -1209,11 +1227,11 @@ function Dashboard({
                     </div>
                     <MultiDistrictComparisonChart
                       series={comparisonSeries}
-                      height={220}
+                      height={300}
                       syncedHoverDate={syncedHoverDate}
                       onHoverDateChange={setSyncedHoverDate}
                       syncedXRange={syncedXRange}
-                      onXRangeChange={setSyncedXRange}
+                      onXRangeChange={handleSyncedXRangeChange}
                       alertTimeMode={alertTimeMode}
                       alertAnimationWeek={alertAnimationWeek}
                     />

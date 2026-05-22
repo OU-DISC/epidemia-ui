@@ -717,11 +717,14 @@ body {
 
 .table-view-comparison .comparison-chart-wrap {
   min-height: 0;
+  height: auto;
+  overflow: hidden;
 }
 
 .table-view-comparison .js-plotly-plot,
 .table-view-comparison .plot-container {
-  min-height: 0;
+  min-height: 0 !important;
+  height: auto !important;
 }
 
 .comparison-chart-wrap {

@@ -158,7 +158,7 @@ export default function MultiDistrictComparisonChart({
           scrollZoom: true,
           modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"],
         }}
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: `${height}px` }}
         useResizeHandler
         onHover={syncHoverDate}
         onUnhover={clearHoverDate}
