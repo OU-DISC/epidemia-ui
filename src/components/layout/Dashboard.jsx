@@ -1434,13 +1434,16 @@ function Dashboard({
                     />
                   </div>
 
-                  {selectedDistrictNeedsDetail && (
-                    <div className="chart-state">Loading full district history...</div>
-                  )}
-
-                  {selectedForecast && !selectedDistrictNeedsDetail && !districtDetailLoading && (
+                  {selectedForecast && (
                     <section className="forecast-panel">
-                      <h4>Transmission Forecast ({selectedSpecies.toUpperCase()})</h4>
+                      <h4>
+                        Transmission Forecast ({selectedSpecies.toUpperCase()})
+                        {(selectedDistrictNeedsDetail || districtDetailLoading) && (
+                          <span className="forecast-panel-loading-note">
+                            Loading full history…
+                          </span>
+                        )}
+                      </h4>
                       <div id="epidemia-report-forecast-chart">
                         <ForecastChart
                           data={selectedForecast}
