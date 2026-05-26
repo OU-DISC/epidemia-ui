@@ -32,6 +32,14 @@ db.sqlite3
 
 # Large data files (too big for git)
 data/population_weekly_2012-2030.csv
+app/data/env_data.csv
+app/data/weekly_malaria_with_admin_geo_2014_2025.csv
+data/env_data.csv
+data/weekly_malaria_with_admin_geo_2014_2025.csv
+
+# Generated pipeline outputs (run backend/scripts/build_forecast_cache.py)
+report/report_data.json
+report/report_data_*.json
 
 # Service keys
 service-account-key.json

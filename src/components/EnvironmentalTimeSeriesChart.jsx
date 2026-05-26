@@ -1,15 +1,23 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Plot from "react-plotly.js";
+import { useEffect, useMemo, useState } from "react";
+import { Plot } from "../utils/plotly";
 import { fetchEnvironmentalTimeseries } from "../api";
-import {
-  parseXAxisRangeFromRelayoutEvent,
-  xAxisRangesEqual,
-} from "../utils/plotlyXAxisSync";
-import {
-  buildVerticalDateLine,
-  resolveChartHighlightDate,
-} from "../utils/chartHighlightDate";
+import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
+import { chartRangeUiRevision, CHART_PANEL_HEIGHT } from "../utils/chartDateRange";
+import { buildPlotlyDateXAxis } from "../utils/plotlyDateAxisSync";
+
+const ENV_DATASET_LABELS = {
+  totprec: "Precipitation (mm/day)",
+  lst_day: "LST Day (°C)",
+  lst_night: "LST Night (°C)",
+  lst_mean: "LST Mean (°C)",
+  net: "Air Temperature (°C)",
+  ndvi: "NDVI Index",
+  savi: "SAVI Index",
+  evi: "EVI Index",
+  ndwi5: "NDWI5 Index",
+  ndwi6: "NDWI6 Index",
+};
 
 export default function EnvironmentalTimeSeriesChart({
   selectedDistrict,
@@ -17,10 +25,12 @@ export default function EnvironmentalTimeSeriesChart({
   startDate,
   endDate,
   dataset,
+  onPlotReady,
+  onPlotPurge,
+  registerHighlightResolver,
+  chartScopeKey = "",
   syncedHoverDate,
   onHoverDateChange,
-  syncedXRange,
-  onXRangeChange,
   alertTimeMode = "current",
   alertAnimationWeek = null,
 }) {
@@ -28,6 +38,7 @@ export default function EnvironmentalTimeSeriesChart({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
+  const xaxis = useMemo(() => buildPlotlyDateXAxis("Date"), []);
 
   useEffect(() => {
     if (!selectedDistrict || !districtGeometry || !startDate || !endDate || !dataset) {
@@ -59,27 +70,56 @@ export default function EnvironmentalTimeSeriesChart({
     fetchTimeseries();
   }, [selectedDistrict, districtGeometry, startDate, endDate, dataset]);
 
-  const handleRelayout = useCallback(
-    (ev) => {
-      if (!onXRangeChange) return;
-      const parsed = parseXAxisRangeFromRelayoutEvent(ev);
-      if (parsed == null) return;
-      if (parsed === "autorange") {
-        onXRangeChange(null);
-        return;
-      }
-      if (xAxisRangesEqual(parsed, syncedXRange)) return;
-      onXRangeChange([parsed[0], parsed[1]]);
-    },
-    [onXRangeChange, syncedXRange]
+  const chartDates = useMemo(
+    () => (timeseries || []).map((point) => point.date).filter(Boolean),
+    [timeseries]
   );
 
-  const defaultXRange =
-    startDate && endDate ? [startDate, endDate] : null;
-  const xAxisRange =
-    syncedXRange && syncedXRange.length === 2
-      ? [syncedXRange[0], syncedXRange[1]]
-      : defaultXRange;
+  const datasetLabel = ENV_DATASET_LABELS[dataset] || dataset;
+
+  useEffect(() => {
+    if (!registerHighlightResolver) return undefined;
+    registerHighlightResolver("env", (hoverDate) =>
+      resolveChartHighlightDate({
+        alertTimeMode,
+        alertAnimationWeek,
+        syncedHoverDate: hoverDate,
+        chartDates,
+      })
+    );
+    return () => registerHighlightResolver("env", null);
+  }, [
+    alertAnimationWeek,
+    alertTimeMode,
+    chartDates,
+    registerHighlightResolver,
+  ]);
+
+  const layout = useMemo(
+    () => ({
+      uirevision: chartRangeUiRevision(
+        "env",
+        chartScopeKey,
+        `-${dataset}-${selectedDistrict || "none"}`
+      ),
+      autosize: true,
+      height: CHART_PANEL_HEIGHT,
+      margin: { l: 58, r: 24, t: 16, b: 60 },
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(255,255,255,0.5)",
+      dragmode: "zoom",
+      hovermode: "x unified",
+      xaxis,
+      yaxis: {
+        title: datasetLabel,
+        gridcolor: "#e2e8f1",
+        zeroline: false,
+        tickfont: { color: "#495367" },
+        titlefont: { color: "#495367" },
+      },
+    }),
+    [chartScopeKey, dataset, datasetLabel, selectedDistrict, xaxis]
+  );
 
   if (!selectedDistrict) {
     return <div className="chart-state">Select a district to view time series</div>;
@@ -97,33 +137,11 @@ export default function EnvironmentalTimeSeriesChart({
     return <div className="chart-state">No data available for this period</div>;
   }
 
-  // Unit labels for each dataset
-  const unitLabels = {
-    totprec: "Precipitation (mm/day)",
-    lst_day: "LST Day (°C)",
-    lst_night: "LST Night (°C)",
-    lst_mean: "LST Mean (°C)",
-    net: "Air Temperature (°C)",
-    ndvi: "NDVI Index",
-    savi: "SAVI Index",
-    evi: "EVI Index",
-    ndwi5: "NDWI5 Index",
-    ndwi6: "NDWI6 Index",
-  };
-
-  const datasetLabel = unitLabels[dataset] || dataset;
-  const chartDates = timeseries.map((d) => d.date);
-
-  const highlightDate = resolveChartHighlightDate({
-    alertTimeMode,
-    alertAnimationWeek,
-    syncedHoverDate,
-    chartDates,
-  });
-
   return (
-    <div className="time-series-wrap">
-      <h4 className="panel-title">{selectedDistrict} - {datasetLabel}</h4>
+    <div className="time-series-wrap chart-panel-slot">
+      <h4 className="panel-title">
+        {selectedDistrict} - {datasetLabel}
+      </h4>
       <Plot
         data={[
           {
@@ -137,45 +155,18 @@ export default function EnvironmentalTimeSeriesChart({
             hovertemplate: `%{x}<br>${datasetLabel}: %{y:.3f}<extra></extra>`,
           },
         ]}
-        layout={{
-          uirevision: syncedXRange
-            ? `env-zoom-${syncedXRange[0]}-${syncedXRange[1]}`
-            : `env-${startDate}-${endDate}-${dataset}`,
-          autosize: true,
-          height: 330,
-          margin: { l: 58, r: 24, t: 16, b: 60 },
-          paper_bgcolor: "rgba(0,0,0,0)",
-          plot_bgcolor: "rgba(255,255,255,0.5)",
-          dragmode: "zoom",
-          hovermode: "x unified",
-          xaxis: {
-            title: "Date",
-            tickangle: -35,
-            range: xAxisRange || undefined,
-            gridcolor: "#e2e8f1",
-            zeroline: false,
-            tickfont: { size: 11, color: "#495367" },
-            titlefont: { color: "#495367" },
-          },
-          yaxis: {
-            title: datasetLabel,
-            gridcolor: "#e2e8f1",
-            zeroline: false,
-            tickfont: { color: "#495367" },
-            titlefont: { color: "#495367" },
-          },
-          shapes: buildVerticalDateLine(highlightDate),
-        }}
+        layout={layout}
         config={{
           responsive: true,
           displaylogo: false,
           scrollZoom: true,
         }}
-        style={{ width: "100%", height: "100%" }}
+        style={{ width: "100%", height: `${CHART_PANEL_HEIGHT}px` }}
         useResizeHandler
+        onInitialized={onPlotReady}
+        onPurge={onPlotPurge}
         onHover={syncHoverDate}
         onUnhover={clearHoverDate}
-        onRelayout={handleRelayout}
       />
     </div>
   );

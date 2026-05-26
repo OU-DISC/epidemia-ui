@@ -3,12 +3,12 @@ export const DASHBOARD_HELP = {
     "Switch between P. falciparum and P. vivax forecasts, alerts, and map markers.",
   country: "Select the country context for the dashboard view.",
   region:
-    "Filter the map and district lists to one admin region, or show all of Amhara.",
+    "Filter the map and district lists to one admin region, or show all of Ethiopia.",
   district:
     "Focus charts and map selection on one district, or view all districts.",
   forecastWeeks: "Number of future weeks included in the transmission forecast.",
   refreshForecast:
-    "Re-run the EPIDEMIA pipeline with the latest project data and refresh alerts.",
+    "Re-run the EPIDEMIA pipeline for the selected district's region (toolbar region is set automatically when you pick a district), then merge into the cached national report.",
   exportReport:
     "Download a multi-page PDF with summary, map snapshot, alert table, and charts.",
   newProject:
@@ -40,6 +40,8 @@ export const DASHBOARD_HELP = {
 
   envLayers:
     "Overlay rainfall, temperature, or vegetation rasters on the map for context.",
+  envDateRange:
+    "Start and end dates filter map layers, environmental charts, transmission forecast charts, and alert history replay.",
   envTime:
     "Animate environmental layers week by week, or average them over the date range.",
 

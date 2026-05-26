@@ -1,43 +1,28 @@
-import { useCallback, useMemo } from "react";
-import Plot from "react-plotly.js";
-import {
-  parseXAxisRangeFromRelayoutEvent,
-  xAxisRangesEqual,
-} from "../utils/plotlyXAxisSync";
-import {
-  buildVerticalDateLine,
-  resolveChartHighlightDate,
-} from "../utils/chartHighlightDate";
+import { useEffect, useMemo } from "react";
+import { Plot } from "../utils/plotly";
+import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
+import { chartRangeUiRevision } from "../utils/chartDateRange";
+import { buildPlotlyDateXAxis } from "../utils/plotlyDateAxisSync";
 
 const DISTRICT_COLORS = ["#1f5b9b", "#e04848", "#7356d8"];
 
 export default function MultiDistrictComparisonChart({
   series = [],
+  startDate,
+  endDate,
+  chartScopeKey = "",
+  onPlotReady,
+  onPlotPurge,
+  registerHighlightResolver,
   syncedHoverDate,
   onHoverDateChange,
-  syncedXRange,
-  onXRangeChange,
   alertTimeMode = "current",
   alertAnimationWeek = null,
   height = 380,
 }) {
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
-
-  const handleRelayout = useCallback(
-    (ev) => {
-      if (!onXRangeChange) return;
-      const parsed = parseXAxisRangeFromRelayoutEvent(ev);
-      if (parsed == null) return;
-      if (parsed === "autorange") {
-        onXRangeChange(null);
-        return;
-      }
-      if (xAxisRangesEqual(parsed, syncedXRange)) return;
-      onXRangeChange([parsed[0], parsed[1]]);
-    },
-    [onXRangeChange, syncedXRange]
-  );
+  const xaxis = useMemo(() => buildPlotlyDateXAxis("Date"), []);
 
   const activeSeries = (series || []).filter((item) => item?.rows?.length);
 
@@ -51,19 +36,23 @@ export default function MultiDistrictComparisonChart({
     return Array.from(dates).sort();
   }, [activeSeries]);
 
-  const defaultXRange =
-    chartDates.length >= 2 ? [chartDates[0], chartDates[chartDates.length - 1]] : null;
-  const xAxisRange =
-    syncedXRange && syncedXRange.length === 2
-      ? [syncedXRange[0], syncedXRange[1]]
-      : defaultXRange;
-
-  const highlightDate = resolveChartHighlightDate({
-    alertTimeMode,
+  useEffect(() => {
+    if (!registerHighlightResolver) return undefined;
+    registerHighlightResolver("compare", (hoverDate) =>
+      resolveChartHighlightDate({
+        alertTimeMode,
+        alertAnimationWeek,
+        syncedHoverDate: hoverDate,
+        chartDates,
+      })
+    );
+    return () => registerHighlightResolver("compare", null);
+  }, [
     alertAnimationWeek,
-    syncedHoverDate,
+    alertTimeMode,
     chartDates,
-  });
+    registerHighlightResolver,
+  ]);
 
   const traces = useMemo(() => {
     const out = [];
@@ -109,6 +98,38 @@ export default function MultiDistrictComparisonChart({
     return out;
   }, [activeSeries]);
 
+  const layout = useMemo(
+    () => ({
+      uirevision: chartRangeUiRevision(
+        "compare",
+        chartScopeKey,
+        `-${activeSeries.map((s) => s.district).join("|")}`
+      ),
+      autosize: true,
+      height,
+      margin: { l: 58, r: 24, t: 24, b: 60 },
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(255,255,255,0.5)",
+      dragmode: "zoom",
+      hovermode: "x unified",
+      xaxis,
+      yaxis: {
+        title: "Cases",
+        gridcolor: "#e2e8f1",
+        zeroline: false,
+        tickfont: { color: "#495367" },
+        titlefont: { color: "#495367" },
+      },
+      legend: {
+        orientation: "h",
+        y: 1.14,
+        x: 0,
+        font: { size: 10 },
+      },
+    }),
+    [activeSeries, chartScopeKey, height, xaxis]
+  );
+
   if (activeSeries.length === 0) {
     return <div className="chart-state">Select at least one district to compare.</div>;
   }
@@ -117,41 +138,7 @@ export default function MultiDistrictComparisonChart({
     <div className="comparison-chart-wrap">
       <Plot
         data={traces}
-        layout={{
-          uirevision: syncedXRange
-            ? `compare-zoom-${syncedXRange[0]}-${syncedXRange[1]}`
-            : "district-comparison-chart",
-          autosize: true,
-          height,
-          margin: { l: 58, r: 24, t: 24, b: 60 },
-          paper_bgcolor: "rgba(0,0,0,0)",
-          plot_bgcolor: "rgba(255,255,255,0.5)",
-          dragmode: "zoom",
-          hovermode: "x unified",
-          xaxis: {
-            title: "Date",
-            tickangle: -35,
-            gridcolor: "#e2e8f1",
-            zeroline: false,
-            tickfont: { size: 11, color: "#495367" },
-            titlefont: { color: "#495367" },
-            ...(xAxisRange ? { range: xAxisRange } : {}),
-          },
-          yaxis: {
-            title: "Cases",
-            gridcolor: "#e2e8f1",
-            zeroline: false,
-            tickfont: { color: "#495367" },
-            titlefont: { color: "#495367" },
-          },
-          legend: {
-            orientation: "h",
-            y: 1.14,
-            x: 0,
-            font: { size: 10 },
-          },
-          shapes: buildVerticalDateLine(highlightDate),
-        }}
+        layout={layout}
         config={{
           responsive: true,
           displaylogo: false,
@@ -160,9 +147,10 @@ export default function MultiDistrictComparisonChart({
         }}
         style={{ width: "100%", height: `${height}px` }}
         useResizeHandler
+        onInitialized={onPlotReady}
+        onPurge={onPlotPurge}
         onHover={syncHoverDate}
         onUnhover={clearHoverDate}
-        onRelayout={handleRelayout}
       />
     </div>
   );

@@ -1,0 +1,2 @@
+class PipelineInputError(ValueError):
+    pass

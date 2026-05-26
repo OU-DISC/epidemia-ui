@@ -1,9 +1,10 @@
+import { normalizeChartAxisDate } from "./plotlyXAxisSync";
+
 function normalizeDate(value) {
   if (value == null || value === "") return null;
-  if (value instanceof Date && !Number.isNaN(value.getTime())) {
-    return value.toISOString().slice(0, 10);
-  }
-  return String(value).slice(0, 10);
+  const normalized = normalizeChartAxisDate(value);
+  if (!normalized || normalized.length < 10) return null;
+  return normalized.slice(0, 10);
 }
 
 export function normalizeHoverDate(value) {
@@ -20,6 +21,34 @@ function dateWithinRange(date, chartDates) {
   if (!sorted.length) return false;
 
   return target >= sorted[0] && target <= sorted[sorted.length - 1];
+}
+
+function snapToNearestChartDate(date, chartDates) {
+  const target = normalizeDate(date);
+  if (!target || !chartDates?.length) return null;
+
+  const sorted = chartDates.map(normalizeDate).filter(Boolean).sort();
+  if (!sorted.length) return null;
+
+  const exact = sorted.find((day) => day === target);
+  if (exact) return exact;
+
+  const targetMs = Date.parse(`${target}T00:00:00Z`);
+  if (Number.isNaN(targetMs)) return null;
+
+  let nearest = null;
+  let nearestDiff = Infinity;
+  for (const day of sorted) {
+    const dayMs = Date.parse(`${day}T00:00:00Z`);
+    if (Number.isNaN(dayMs)) continue;
+    const diff = Math.abs(dayMs - targetMs);
+    if (diff < nearestDiff) {
+      nearestDiff = diff;
+      nearest = day;
+    }
+  }
+
+  return nearest;
 }
 
 /**
@@ -41,7 +70,7 @@ export function resolveChartHighlightDate({
     const exact = chartDates.some((date) => normalizeDate(date) === normalized);
     if (exact) return normalized;
     if (dateWithinRange(normalized, chartDates)) return normalized;
-    return null;
+    return snapToNearestChartDate(normalized, chartDates);
   };
 
   const hovered = resolve(syncedHoverDate);
@@ -57,13 +86,17 @@ export function resolveChartHighlightDate({
 export function buildVerticalDateLine(date) {
   if (!date) return [];
 
+  const day = String(date).slice(0, 10);
+  const ms = Date.parse(`${day}T12:00:00Z`);
+  const x = Number.isNaN(ms) ? day : ms;
+
   return [
     {
       type: "line",
       xref: "x",
       yref: "paper",
-      x0: date,
-      x1: date,
+      x0: x,
+      x1: x,
       y0: 0,
       y1: 1,
       line: { color: "#41506a", width: 1.2, dash: "dash" },

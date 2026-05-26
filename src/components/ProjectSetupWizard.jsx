@@ -21,17 +21,17 @@ const STEPS = [
 
 const REGIONS = [
   "All Regions",
+  "Addis Ababa",
+  "Afar",
   "Amhara",
-  "Awi",
-  "East Gojjam",
-  "North Gondar",
-  "North Shewa",
-  "North Wollo",
-  "Oromia Special Zone",
-  "South Gondar",
-  "South Wollo",
-  "Wag Hemra",
-  "West Gojjam",
+  "Benishangul Gumz",
+  "Dire Dawa",
+  "Gambela",
+  "Harari",
+  "Oromia",
+  "SNNP",
+  "Somali",
+  "Tigray",
 ];
 
 function ProjectSetupWizard({ onComplete, onSkip }) {
@@ -49,6 +49,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
   const [horizonWeeks, setHorizonWeeks] = useState(8);
   const [defaultSpecies, setDefaultSpecies] = useState("pfm");
   const [defaultRegion, setDefaultRegion] = useState("All Regions");
+  const [geography, setGeography] = useState("ethiopia");
 
   const currentStep = STEPS[stepIndex]?.id;
 
@@ -133,6 +134,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
         horizonWeeks,
         defaultSpecies,
         defaultRegion,
+        geography,
       });
       onComplete?.({
         projectId: result.project_id,
@@ -142,7 +144,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
         horizonWeeks: result.horizon_weeks,
         defaultSpecies: result.default_species,
         defaultRegion: result.default_region,
-        geography: "amhara",
+        geography: geography,
       }, result.run);
     } catch (err) {
       setError(err.response?.data?.detail || err.message || "Project setup failed");
@@ -300,8 +302,13 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
 
               <label className="project-wizard-field">
                 Geography
-                <select className="toolbar-select" value="amhara" disabled>
-                  <option value="amhara">Ethiopia · Amhara Region (woreda list)</option>
+                <select
+                  className="toolbar-select"
+                  value={geography}
+                  onChange={(e) => setGeography(e.target.value)}
+                >
+                  <option value="ethiopia">Ethiopia · National (admin-3 woredas)</option>
+                  <option value="amhara">Ethiopia · Amhara Region (legacy list)</option>
                 </select>
               </label>
 

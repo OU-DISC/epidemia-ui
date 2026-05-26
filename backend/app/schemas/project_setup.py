@@ -23,7 +23,7 @@ class ProjectSetupRequest(BaseModel):
     horizon_weeks: int = Field(default=8, ge=1, le=52)
     default_species: Literal["pfm", "pv"] = Field(default="pfm")
     default_region: str = Field(default="All Regions")
-    geography: Literal["amhara"] = Field(default="amhara")
+    geography: Literal["amhara", "ethiopia"] = Field(default="ethiopia")
 
 
 class ProjectSetupResponse(BaseModel):

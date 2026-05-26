@@ -666,6 +666,24 @@ body {
 
 .side-panel-body.charts-view {
   overflow: auto;
+  gap: 12px;
+}
+
+.side-panel-body.charts-view .chart-panel-slot,
+.side-panel-body.charts-view .forecast-panel {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.chart-panel-slot {
+  position: relative;
+}
+
+.chart-panel-slot .js-plotly-plot,
+.chart-panel-slot .plot-container.plotly {
+  height: 330px !important;
+  min-height: 330px;
+  max-height: 330px;
 }
 
 .side-panel-body.table-view {

@@ -14,7 +14,13 @@ function formatNumber(value, digits = 1) {
 /**
  * Collect the last N week_start dates from observed_history for a species.
  */
-export function buildAlertWeekDates(forecasts, selectedSpecies, maxWeeks = 8, endDate = null) {
+export function buildAlertWeekDates(
+  forecasts,
+  selectedSpecies,
+  maxWeeks = 8,
+  startDate = null,
+  endDate = null
+) {
   const weekSet = new Set();
 
   (forecasts || [])
@@ -26,6 +32,9 @@ export function buildAlertWeekDates(forecasts, selectedSpecies, maxWeeks = 8, en
     });
 
   let sorted = Array.from(weekSet).sort();
+  if (startDate) {
+    sorted = sorted.filter((week) => week >= startDate);
+  }
   if (endDate) {
     sorted = sorted.filter((week) => week <= endDate);
   }

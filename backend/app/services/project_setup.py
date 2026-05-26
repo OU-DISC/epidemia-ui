@@ -12,15 +12,24 @@ import pandas as pd
 
 from app.schemas.epidemia import EpidemiaRunRequest, EpidemiaRunResponse
 from app.schemas.project_setup import EpiValidationResponse, ProjectSetupRequest, ProjectSetupResponse
+from app.services.district_data import (
+    ENV_INFO,
+    ENV_REF_AMHARA,
+    ENV_REF_NATIONAL,
+    WOREDAS_AMHARA,
+    WOREDAS_ETHIOPIA,
+    has_required_base_files,
+    report_woreda_names,
+)
 from app.services.epidemia_pipeline import (
     BACKEND_ROOT,
-    PipelineInputError,
     REQUIRED_EPI_COLUMNS,
     _candidate_data_dirs,
     _ensure_datetime,
     _validate_columns,
     run_epidemia_pipeline,
 )
+from app.services.pipeline_input_error import PipelineInputError
 
 PROJECTS_ROOT = BACKEND_ROOT / "projects"
 BASE_DATA_CANDIDATES = _candidate_data_dirs("data")
@@ -30,22 +39,13 @@ def _resolve_base_data_dir() -> Path:
     for candidate in BASE_DATA_CANDIDATES:
         if not candidate.exists():
             continue
-        if (candidate / "amhara_woredas.csv").exists() and (
+        if has_required_base_files(candidate) and (
             (candidate / "env_data.csv").exists() or (candidate / "data_environmental").exists()
         ):
             return candidate
     raise PipelineInputError(
-        "Base data directory not found. Expected backend/data with woredas and environmental files."
+        "Base data directory not found. Expected backend/data with district registry and environmental files."
     )
-
-
-def _report_woreda_names(base_data_dir: Path) -> set[str]:
-    woredas = pd.read_csv(base_data_dir / "amhara_woredas.csv")
-    if "report" in woredas.columns:
-        woredas = woredas[woredas["report"] == 1]
-    if "woreda_name" not in woredas.columns:
-        raise PipelineInputError("amhara_woredas.csv must include 'woreda_name'")
-    return set(woredas["woreda_name"].astype(str))
 
 
 def _read_epi_dataframe(csv_text: str) -> pd.DataFrame:
@@ -54,10 +54,15 @@ def _read_epi_dataframe(csv_text: str) -> pd.DataFrame:
     return pd.read_csv(io.StringIO(csv_text))
 
 
-def validate_epi_csv(csv_text: str, base_data_dir: Path | None = None) -> EpiValidationResponse:
+def validate_epi_csv(
+    csv_text: str,
+    base_data_dir: Path | None = None,
+    geography: str = "auto",
+) -> EpiValidationResponse:
     try:
         base_dir = base_data_dir or _resolve_base_data_dir()
-        report_names = _report_woreda_names(base_dir)
+        report_names = report_woreda_names(base_dir, geography=geography)
+        geography_label = "national" if geography == "ethiopia" else "reporting"
     except PipelineInputError as exc:
         return EpiValidationResponse(ok=False, message=str(exc))
 
@@ -102,7 +107,7 @@ def validate_epi_csv(csv_text: str, base_data_dir: Path | None = None) -> EpiVal
 
     message = "CSV looks good." if ok else "Fix the issues below before running the forecast."
     if len(matched) == 0:
-        message = "No uploaded woreda names match the Amhara reporting districts list."
+        message = f"No uploaded woreda names match the {geography_label} districts list."
 
     return EpiValidationResponse(
         ok=ok,
@@ -132,8 +137,8 @@ def _copy_tree(source: Path, destination: Path, names: Iterable[str]) -> None:
 
 
 def _ensure_environ_info(project_dir: Path, base_data_dir: Path) -> None:
-    target = project_dir / "environ_info.xlsx"
-    source = base_data_dir / "environ_info.xlsx"
+    target = project_dir / ENV_INFO
+    source = base_data_dir / ENV_INFO
     if source.exists():
         shutil.copy2(source, target)
         return
@@ -146,16 +151,28 @@ def _ensure_environ_info(project_dir: Path, base_data_dir: Path) -> None:
     ).to_excel(target, index=False)
 
 
-def _bootstrap_project_dir(project_dir: Path, csv_text: str, base_data_dir: Path) -> None:
+def _bootstrap_files_for_geography(geography: str) -> tuple[str, str]:
+    if geography == "ethiopia":
+        return WOREDAS_ETHIOPIA, ENV_REF_NATIONAL
+    return WOREDAS_AMHARA, ENV_REF_AMHARA
+
+
+def _bootstrap_project_dir(
+    project_dir: Path,
+    csv_text: str,
+    base_data_dir: Path,
+    geography: str = "ethiopia",
+) -> None:
     project_dir.mkdir(parents=True, exist_ok=True)
     (project_dir / "report").mkdir(parents=True, exist_ok=True)
 
+    woredas_file, env_ref_file = _bootstrap_files_for_geography(geography)
     _copy_tree(
         base_data_dir,
         project_dir,
         [
-            "amhara_woredas.csv",
-            "env_ref_data_2002_2018.csv",
+            woredas_file,
+            env_ref_file,
             "data_environmental",
             "env_data.csv",
             "ethiopia_admin3_population_surface.json",
@@ -226,7 +243,11 @@ def build_sample_epi_csv() -> str:
 
 def setup_project(csv_text: str, config: ProjectSetupRequest) -> ProjectSetupResponse:
     base_data_dir = _resolve_base_data_dir()
-    validation = validate_epi_csv(csv_text, base_data_dir=base_data_dir)
+    validation = validate_epi_csv(
+        csv_text,
+        base_data_dir=base_data_dir,
+        geography=config.geography,
+    )
     if not validation.ok:
         raise PipelineInputError(validation.message)
 
@@ -235,7 +256,7 @@ def setup_project(csv_text: str, config: ProjectSetupRequest) -> ProjectSetupRes
     if project_dir.exists():
         raise PipelineInputError(f"Project directory already exists: {project_dir}")
 
-    _bootstrap_project_dir(project_dir, csv_text, base_data_dir)
+    _bootstrap_project_dir(project_dir, csv_text, base_data_dir, geography=config.geography)
 
     data_dir = f"projects/{project_id}"
     output_dir = f"projects/{project_id}/report"

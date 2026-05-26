@@ -1,20 +1,20 @@
 // Dashboard.jsx
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import TopToolbar from "./TopToolbar";
 import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
-import ForecastChart from "../ForecastChart";
 import ForecastAlertsTable from "../ForecastAlertsTable";
 import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
 import SituationStrip from "../SituationStrip";
 import HelpTip from "../HelpTip";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
-import EnvironmentalTimeSeriesChart from "../EnvironmentalTimeSeriesChart";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
 import {
-  FORECAST_API_BASE,
+  fetchDistrictForecastDetail,
   fetchLatestEpidemiaReport,
+  fetchMapEpidemiaReport,
+  FORECAST_API_BASE,
   runEpidemiaPipeline,
 } from "../../api";
 import {
@@ -22,6 +22,8 @@ import {
   findDistrictFromLookup,
   getDistrictNameVariants,
   normalizeDistrictKey,
+  resolveAdminRegionByPcode,
+  resolveAdminRegionForDistrict,
 } from "../../utils/districtNameMatch";
 import { buildAlertTooltipLookup } from "../../utils/buildAlertTooltipLookup";
 import {
@@ -32,9 +34,29 @@ import {
 } from "../../utils/buildAlertHistory";
 import { buildDistrictTooltipLookup } from "../../utils/buildDistrictTooltipLookup";
 import { buildComparisonDistrictOptions, buildDistrictForecastSeries } from "../../utils/buildDistrictForecastSeries";
+import { filterForecastRowsByDateRange } from "../../utils/filterForecastByDateRange";
 import { exportWeeklyReport } from "../../utils/exportWeeklyReport";
 import { speciesToDisease } from "../../utils/projectStorage";
+import {
+  CHART_DEFAULT_END_DATE,
+  CHART_DEFAULT_START_DATE,
+} from "../../utils/chartDateRange";
+import {
+  normalizeChartAxisDate,
+  parseXAxisRangeFromRelayoutEvent,
+} from "../../utils/plotlyXAxisSync";
+import { useChartPlotRegistry } from "../../utils/useChartPlotRegistry";
+import {
+  findDistrictForecastRow,
+  forecastHistoryCoversRange,
+  mergeDistrictForecast,
+  mergeForecastBootstrap,
+  resolveReportDistrictForSelection,
+} from "../../utils/epidemiaReportMerge";
 import "./dashboard-theme.css";
+
+const EnvironmentalTimeSeriesChart = lazy(() => import("../EnvironmentalTimeSeriesChart"));
+const ForecastChart = lazy(() => import("../ForecastChart"));
 
 /** District choropleth fetch (Earth Engine). Set to true to show the panel again. */
 const SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL = false;
@@ -126,6 +148,19 @@ function alertStatus(alert) {
   return "Normal";
 }
 
+function runAfterFirstPaint(task) {
+  if (typeof window === "undefined") {
+    task();
+    return () => {};
+  }
+  if ("requestIdleCallback" in window) {
+    const id = window.requestIdleCallback(() => task(), { timeout: 1500 });
+    return () => window.cancelIdleCallback(id);
+  }
+  const id = window.setTimeout(task, 0);
+  return () => window.clearTimeout(id);
+}
+
 function buildWeekDates(startDate, endDate) {
   const start = Date.parse(`${startDate}T00:00:00Z`);
   const end = Date.parse(`${endDate}T00:00:00Z`);
@@ -170,37 +205,52 @@ function Dashboard({
   const [epidemiaLoading, setEpidemiaLoading] = useState(false);
   const [epidemiaRefreshing, setEpidemiaRefreshing] = useState(false);
   const [epidemiaError, setEpidemiaError] = useState("");
+  const [districtDetailLoading, setDistrictDetailLoading] = useState(false);
   const forecastRequestIdRef = useRef(0);
+  const mapRequestIdRef = useRef(0);
+  const districtDetailRequestRef = useRef(0);
+  const skipInitialForecastLoadRef = useRef(false);
   const userPrefersAllDistrictsRef = useRef(false);
   const projectDataDir = projectConfig?.dataDir || "data";
   const projectOutputDir = projectConfig?.outputDir || "report";
 
   //  Environmental data states
-  const [startDate, setStartDate] = useState("2026-01-01");
-  const [endDate, setEndDate] = useState("2026-03-07");
+  const [startDate, setStartDate] = useState(CHART_DEFAULT_START_DATE);
+  const [endDate, setEndDate] = useState(CHART_DEFAULT_END_DATE);
   const [dataset, setDataset] = useState("totprec");
-  const [healthLayer, setHealthLayer] = useState("population");
+  const [healthLayer, setHealthLayer] = useState("incident_rate");
   const [geoData, setGeoData] = useState(null);
   const [, setEnvData] = useState({});
   const [populationSurfacesByYear, setPopulationSurfacesByYear] = useState({});
   const [legacyPopulationSurface, setLegacyPopulationSurface] = useState({});
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
-  /** [start, end] date strings; null = each chart uses its own default x span */
-  const [syncedXRange, setSyncedXRange] = useState(null);
-  const handleSyncedXRangeChange = useCallback((nextRange) => {
-    setSyncedXRange((current) => {
-      if (nextRange == null && current == null) return current;
-      if (
-        nextRange &&
-        current &&
-        nextRange[0] === current[0] &&
-        nextRange[1] === current[1]
-      ) {
-        return current;
-      }
-      return nextRange;
-    });
+  const chartScopeKey = `${region}|${dataset}|${healthLayer}|${disease}`;
+  const chartDatesRef = useRef({ startDate, endDate });
+  chartDatesRef.current = { startDate, endDate };
+
+  const handleChartDateRelayout = useCallback((ev) => {
+    const parsed = parseXAxisRangeFromRelayoutEvent(ev);
+    if (parsed == null) return;
+    if (parsed === "autorange") {
+      setStartDate(CHART_DEFAULT_START_DATE);
+      setEndDate(CHART_DEFAULT_END_DATE);
+      return;
+    }
+    const nextStart = normalizeChartAxisDate(parsed[0]);
+    const nextEnd = normalizeChartAxisDate(parsed[1]);
+    const { startDate: curStart, endDate: curEnd } = chartDatesRef.current;
+    if (nextStart === curStart && nextEnd === curEnd) return;
+    setStartDate(nextStart);
+    setEndDate(nextEnd);
   }, []);
+
+  const { makePlotReadyHandler, makePlotPurgeHandler, registerHighlightResolver } =
+    useChartPlotRegistry(startDate, endDate, handleChartDateRelayout, syncedHoverDate);
+
+  useEffect(() => {
+    setStartDate(CHART_DEFAULT_START_DATE);
+    setEndDate(CHART_DEFAULT_END_DATE);
+  }, [chartScopeKey]);
   const [rightPanelView, setRightPanelView] = useState("charts");
   const [comparisonDistricts, setComparisonDistricts] = useState(["", "", ""]);
 
@@ -272,6 +322,60 @@ function Dashboard({
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
   const adm3Lookup = useMemo(() => buildAdm3Lookup(geoData), [geoData]);
+  const districtsNeedingDetail = useMemo(() => {
+    const names = new Set();
+
+    const addIfNeeded = (selectedDistrict) => {
+      const reportDistrict = resolveReportDistrictForSelection(
+        epidemiaData,
+        adm3Lookup,
+        selectedDistrict,
+        selectedSpecies
+      );
+      if (!reportDistrict) return;
+
+      const row = findDistrictForecastRow(
+        epidemiaData,
+        adm3Lookup,
+        selectedDistrict,
+        selectedSpecies
+      );
+      if (forecastHistoryCoversRange(row, startDate, endDate)) return;
+
+      names.add(reportDistrict);
+    };
+
+    if (region && region !== "All Regions") {
+      addIfNeeded(region);
+    }
+    comparisonDistricts.filter(Boolean).forEach(addIfNeeded);
+    return [...names];
+  }, [
+    adm3Lookup,
+    comparisonDistricts,
+    endDate,
+    epidemiaData,
+    region,
+    selectedSpecies,
+    startDate,
+  ]);
+
+  const selectedDistrictNeedsDetail = useMemo(() => {
+    if (region === "All Regions") return false;
+    const reportDistrict = resolveReportDistrictForSelection(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies
+    );
+    return Boolean(reportDistrict && districtsNeedingDetail.includes(reportDistrict));
+  }, [
+    adm3Lookup,
+    districtsNeedingDetail,
+    epidemiaData,
+    region,
+    selectedSpecies,
+  ]);
 
   const alertWeekDates = useMemo(
     () =>
@@ -279,9 +383,10 @@ function Dashboard({
         epidemiaData?.forecasts,
         selectedSpecies,
         alertHistoryWeeks,
+        startDate,
         endDate
       ),
-    [epidemiaData?.forecasts, selectedSpecies, alertHistoryWeeks, endDate]
+    [epidemiaData?.forecasts, selectedSpecies, alertHistoryWeeks, startDate, endDate]
   );
 
   useEffect(() => {
@@ -362,7 +467,26 @@ function Dashboard({
     []
   );
 
-  const loadLatestEpidemia = useCallback(async () => {
+  const loadMapEpidemia = useCallback(async () => {
+    const requestId = mapRequestIdRef.current + 1;
+    mapRequestIdRef.current = requestId;
+    try {
+      const data = await fetchMapEpidemiaReport({ outputDir: projectOutputDir });
+      if (mapRequestIdRef.current === requestId) {
+        setEpidemiaData((current) => mergeForecastBootstrap(current, data));
+        setEpidemiaError("");
+      }
+    } catch (err) {
+      console.error("Failed to load map EPIDEMIA report:", err);
+      if (mapRequestIdRef.current === requestId) {
+        setEpidemiaError(
+          err.response?.data?.detail || err.message || "Failed to load map forecast report"
+        );
+      }
+    }
+  }, [projectOutputDir]);
+
+  const loadForecastBootstrap = useCallback(async () => {
     const requestId = forecastRequestIdRef.current + 1;
     forecastRequestIdRef.current = requestId;
     setEpidemiaLoading(true);
@@ -370,7 +494,7 @@ function Dashboard({
     try {
       const data = await fetchLatestEpidemiaReport({ outputDir: projectOutputDir });
       if (forecastRequestIdRef.current === requestId) {
-        setEpidemiaData(data);
+        setEpidemiaData((current) => mergeForecastBootstrap(current, data));
       }
     } catch (err) {
       console.error("Failed to load latest EPIDEMIA report:", err);
@@ -387,11 +511,40 @@ function Dashboard({
         }
       }
     } finally {
-      setEpidemiaLoading(false);
+      if (forecastRequestIdRef.current === requestId) {
+        setEpidemiaLoading(false);
+      }
     }
   }, [projectOutputDir]);
 
   const refreshEpidemia = useCallback(async () => {
+    let regionFilter = null;
+    if (
+      selectedAdminRegion &&
+      selectedAdminRegion !== "All Regions" &&
+      selectedAdminRegion !== "No Selection"
+    ) {
+      regionFilter = selectedAdminRegion;
+    } else if (region && region !== "All Regions") {
+      regionFilter = resolveAdminRegionForDistrict(adm3Lookup, region, geoData);
+      if (!regionFilter) {
+        const feature =
+          findDistrictFromLookup(adm3Lookup, region) ||
+          geoData?.features?.find((f) => f?.properties?.adm3_name === region);
+        const pcode = feature?.properties?.adm3_pcode;
+        if (pcode) {
+          regionFilter = resolveAdminRegionByPcode(geoData, pcode);
+        }
+      }
+    }
+
+    if (!regionFilter) {
+      setEpidemiaError(
+        "Select a district on the map or a region in the toolbar before refreshing the forecast."
+      );
+      return;
+    }
+
     const requestId = forecastRequestIdRef.current + 1;
     forecastRequestIdRef.current = requestId;
     setEpidemiaRefreshing(true);
@@ -402,6 +555,8 @@ function Dashboard({
         dataDir: projectDataDir,
         outputDir: projectOutputDir,
         createReport: false,
+        forceRefresh: true,
+        regionFilter,
       });
       if (forecastRequestIdRef.current === requestId) {
         setEpidemiaData(data);
@@ -423,18 +578,91 @@ function Dashboard({
     } finally {
       setEpidemiaRefreshing(false);
     }
-  }, [forecastWeeks, projectDataDir, projectOutputDir]);
+  }, [
+    forecastWeeks,
+    projectDataDir,
+    projectOutputDir,
+    selectedAdminRegion,
+    region,
+    adm3Lookup,
+    geoData,
+  ]);
 
   useEffect(() => {
     if (!bootstrapEpidemiaData) return;
     setEpidemiaData(bootstrapEpidemiaData);
     setEpidemiaError("");
+    skipInitialForecastLoadRef.current = true;
     onBootstrapConsumed?.();
   }, [bootstrapEpidemiaData, onBootstrapConsumed]);
 
   useEffect(() => {
-    loadLatestEpidemia();
-  }, [loadLatestEpidemia]);
+    if (skipInitialForecastLoadRef.current) {
+      skipInitialForecastLoadRef.current = false;
+      return undefined;
+    }
+
+    let cancelled = false;
+    loadMapEpidemia().finally(() => {
+      if (cancelled) return;
+      return runAfterFirstPaint(() => {
+        if (!cancelled) loadForecastBootstrap();
+      });
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [loadForecastBootstrap, loadMapEpidemia]);
+
+  useEffect(() => {
+    if (!epidemiaData || districtsNeedingDetail.length === 0) {
+      setDistrictDetailLoading(false);
+      return undefined;
+    }
+
+    const requestId = districtDetailRequestRef.current + 1;
+    districtDetailRequestRef.current = requestId;
+    setDistrictDetailLoading(true);
+
+    Promise.all(
+      districtsNeedingDetail.map((district) =>
+        fetchDistrictForecastDetail({
+          outputDir: projectOutputDir,
+          district,
+          species: selectedSpecies,
+          startDate,
+          endDate,
+        }).catch((err) => {
+          console.warn(`Failed to load forecast detail for ${district}:`, err);
+          return null;
+        })
+      )
+    )
+      .then((details) => {
+        if (districtDetailRequestRef.current !== requestId) return;
+        setEpidemiaData((current) => {
+          if (!current) return current;
+          return details.reduce(
+            (report, detail) => (detail ? mergeDistrictForecast(report, detail) : report),
+            current
+          );
+        });
+      })
+      .finally(() => {
+        if (districtDetailRequestRef.current === requestId) {
+          setDistrictDetailLoading(false);
+        }
+      });
+
+    return undefined;
+  }, [
+    districtsNeedingDetail,
+    endDate,
+    projectOutputDir,
+    selectedSpecies,
+    startDate,
+  ]);
 
   useEffect(() => {
     let cancelled = false;
@@ -515,13 +743,24 @@ function Dashboard({
       return;
     }
 
+    let feature = null;
     if (geoData) {
-      const feature = geoData.features.find((f) => f.properties.adm3_name === selectedRegion);
+      feature =
+        geoData.features.find((f) => f.properties.adm3_name === selectedRegion) ||
+        findDistrictFromLookup(adm3Lookup, selectedRegion);
       if (feature) {
         setSelectedGeometry(feature.geometry.coordinates);
       }
     }
-  }, [geoData]);
+
+    const adm1 =
+      feature?.properties?.adm1_name ||
+      resolveAdminRegionForDistrict(adm3Lookup, selectedRegion, geoData);
+    if (adm1 && adm1 !== selectedAdminRegion) {
+      setSelectedAdminRegion(adm1);
+      setMapFilterRegion(adm1);
+    }
+  }, [geoData, adm3Lookup, selectedAdminRegion]);
 
   const selectedAlert = useMemo(() => {
     if (!epidemiaData?.alerts || region === "All Regions") return null;
@@ -537,11 +776,11 @@ function Dashboard({
 
   const selectedForecast = useMemo(() => {
     if (!epidemiaData?.forecasts || region === "All Regions") return null;
-    const districtFc = epidemiaData.forecasts.find(
-      (f) =>
-        f.species === selectedSpecies &&
-        (f.district === region ||
-          findDistrictFromLookup(adm3Lookup, f.district)?.properties?.adm3_name === region)
+    const districtFc = findDistrictForecastRow(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies
     );
     if (!districtFc) return null;
 
@@ -578,8 +817,12 @@ function Dashboard({
       warning_threshold: point.warning_threshold ?? null,
     }));
 
-    return [...observedRows, ...forecastRows];
-  }, [adm3Lookup, epidemiaData, region, selectedSpecies, selectedAlert]);
+    return filterForecastRowsByDateRange(
+      [...observedRows, ...forecastRows],
+      startDate,
+      endDate
+    );
+  }, [adm3Lookup, epidemiaData, region, selectedSpecies, selectedAlert, startDate, endDate]);
 
   const forecastSummary = useMemo(() => {
     const alerts = epidemiaData?.alerts || [];
@@ -743,6 +986,26 @@ function Dashboard({
     return options[0]?.value || null;
   }, [forecastTableRows, selectedAdminRegion]);
 
+  const defaultStartupDistrict = useMemo(() => {
+    if (topPriorityDistrict && districts.includes(topPriorityDistrict)) {
+      return topPriorityDistrict;
+    }
+    const firstAlertDistrict = forecastTableRows[0]?.mapDistrict;
+    if (firstAlertDistrict && districts.includes(firstAlertDistrict)) {
+      return firstAlertDistrict;
+    }
+    return districts.find((name) => name !== "All Regions") || null;
+  }, [districts, forecastTableRows, topPriorityDistrict]);
+
+  // Pick a default district on startup so charts show data (highest-priority alert).
+  React.useEffect(() => {
+    if (userPrefersAllDistrictsRef.current) return;
+    if (region !== "All Regions") return;
+    if (!defaultStartupDistrict) return;
+    updateRegion(defaultStartupDistrict);
+  }, [defaultStartupDistrict, region, updateRegion]);
+
+  // If the current district name is missing from the dropdown, recover or reset.
   React.useEffect(() => {
     if (districts.includes(region)) return;
 
@@ -758,13 +1021,6 @@ function Dashboard({
     // is not present in the dropdown (name mismatch before geo loads, etc.).
     userPrefersAllDistrictsRef.current = true;
   }, [districts, region, topPriorityDistrict, updateRegion]);
-
-  React.useEffect(() => {
-    if (userPrefersAllDistrictsRef.current) return;
-    if (!topPriorityDistrict || region !== "All Regions") return;
-    if (!districts.includes(topPriorityDistrict)) return;
-    updateRegion(topPriorityDistrict);
-  }, [topPriorityDistrict, region, updateRegion, districts]);
 
   const defaultComparisonDistricts = useMemo(() => {
     const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
@@ -787,11 +1043,13 @@ function Dashboard({
           epidemiaData,
           adm3Lookup,
           districtName,
-          selectedSpecies
+          selectedSpecies,
+          startDate,
+          endDate
         )
       )
       .filter(Boolean);
-  }, [adm3Lookup, comparisonDistricts, epidemiaData, selectedSpecies]);
+  }, [adm3Lookup, comparisonDistricts, epidemiaData, selectedSpecies, startDate, endDate]);
 
   const toggleComparisonDistrict = useCallback(
     (districtName) => {
@@ -880,34 +1138,6 @@ function Dashboard({
     [forecastTableRows, populationData, populationYear]
   );
 
-  const forecastDateWindow = useMemo(() => {
-    if (!selectedForecast || selectedForecast.length === 0) return null;
-
-    const dates = selectedForecast
-      .map((point) => point.date)
-      .filter(Boolean)
-      .sort();
-
-    if (dates.length === 0) return null;
-
-    return {
-      startDate: dates[0],
-      endDate: dates[dates.length - 1],
-    };
-  }, [selectedForecast]);
-
-  useEffect(() => {
-    setSyncedXRange(null);
-  }, [
-    region,
-    dataset,
-    healthLayer,
-    startDate,
-    endDate,
-    disease,
-    forecastDateWindow?.startDate,
-    forecastDateWindow?.endDate,
-  ]);
 
   // Weekly report export
   const handleExportPDF = async () => {
@@ -939,8 +1169,8 @@ function Dashboard({
             ? forecastTableRows.find((row) => row.mapDistrict === region) || null
             : null,
         dateRange: {
-          startDate: forecastDateWindow?.startDate || startDate,
-          endDate: forecastDateWindow?.endDate || endDate,
+          startDate,
+          endDate,
         },
       });
     } catch (err) {
@@ -1166,39 +1396,52 @@ function Dashboard({
                   <div className="chart-state">Updating district forecast...</div>
                 )}
 
-                <div id="epidemia-report-env-chart">
-                  <EnvironmentalTimeSeriesChart
-                    selectedDistrict={region !== "All Regions" ? region : null}
-                    districtGeometry={selectedGeometry}
-                    startDate={forecastDateWindow?.startDate || startDate}
-                    endDate={forecastDateWindow?.endDate || endDate}
-                    dataset={dataset}
-                    syncedHoverDate={syncedHoverDate}
-                    onHoverDateChange={setSyncedHoverDate}
-                    syncedXRange={syncedXRange}
-                    onXRangeChange={handleSyncedXRangeChange}
-                    alertTimeMode={alertTimeMode}
-                    alertAnimationWeek={alertAnimationWeek}
-                  />
-                </div>
+                <Suspense fallback={<div className="chart-state">Loading charts...</div>}>
+                  <div id="epidemia-report-env-chart">
+                    <EnvironmentalTimeSeriesChart
+                      selectedDistrict={region !== "All Regions" ? region : null}
+                      districtGeometry={selectedGeometry}
+                      startDate={startDate}
+                      endDate={endDate}
+                      dataset={dataset}
+                      onPlotReady={makePlotReadyHandler("env")}
+                      onPlotPurge={makePlotPurgeHandler("env")}
+                      registerHighlightResolver={registerHighlightResolver}
+                      chartScopeKey={chartScopeKey}
+                      syncedHoverDate={syncedHoverDate}
+                      onHoverDateChange={setSyncedHoverDate}
+                      alertTimeMode={alertTimeMode}
+                      alertAnimationWeek={alertAnimationWeek}
+                    />
+                  </div>
 
-                {selectedForecast && (
-                  <section className="forecast-panel">
-                    <h4>Transmission Forecast ({selectedSpecies.toUpperCase()})</h4>
-                    <div id="epidemia-report-forecast-chart">
-                      <ForecastChart
-                        data={selectedForecast}
-                        alert={selectedAlert}
-                        syncedHoverDate={syncedHoverDate}
-                        onHoverDateChange={setSyncedHoverDate}
-                        syncedXRange={syncedXRange}
-                        onXRangeChange={handleSyncedXRangeChange}
-                        alertTimeMode={alertTimeMode}
-                        alertAnimationWeek={alertAnimationWeek}
-                      />
-                    </div>
-                  </section>
-                )}
+                  {selectedDistrictNeedsDetail && (
+                    <div className="chart-state">Loading full district history...</div>
+                  )}
+
+                  {selectedForecast && !selectedDistrictNeedsDetail && !districtDetailLoading && (
+                    <section className="forecast-panel">
+                      <h4>Transmission Forecast ({selectedSpecies.toUpperCase()})</h4>
+                      <div id="epidemia-report-forecast-chart">
+                        <ForecastChart
+                          data={selectedForecast}
+                          alert={selectedAlert}
+                          startDate={startDate}
+                          endDate={endDate}
+                          onPlotReady={makePlotReadyHandler("forecast")}
+                          onPlotPurge={makePlotPurgeHandler("forecast")}
+                          registerHighlightResolver={registerHighlightResolver}
+                          chartScopeKey={chartScopeKey}
+                          districtKey={region !== "All Regions" ? region : ""}
+                          syncedHoverDate={syncedHoverDate}
+                          onHoverDateChange={setSyncedHoverDate}
+                          alertTimeMode={alertTimeMode}
+                          alertAnimationWeek={alertAnimationWeek}
+                        />
+                      </div>
+                    </section>
+                  )}
+                </Suspense>
 
                 {!epidemiaLoading && !epidemiaRefreshing && !selectedForecast && region !== "All Regions" && (
                   <div className="chart-state">No district forecast available for this selection.</div>
@@ -1227,11 +1470,15 @@ function Dashboard({
                     </div>
                     <MultiDistrictComparisonChart
                       series={comparisonSeries}
+                      startDate={startDate}
+                      endDate={endDate}
+                      chartScopeKey={chartScopeKey}
                       height={300}
                       syncedHoverDate={syncedHoverDate}
                       onHoverDateChange={setSyncedHoverDate}
-                      syncedXRange={syncedXRange}
-                      onXRangeChange={handleSyncedXRangeChange}
+                      onPlotReady={makePlotReadyHandler("compare")}
+                      onPlotPurge={makePlotPurgeHandler("compare")}
+                      registerHighlightResolver={registerHighlightResolver}
                       alertTimeMode={alertTimeMode}
                       alertAnimationWeek={alertAnimationWeek}
                     />

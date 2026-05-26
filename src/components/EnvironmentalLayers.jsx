@@ -35,6 +35,10 @@ function EnvironmentalLayers({
       </h3>
 
       <div className="env-layers-date-range">
+        <span className="toolbar-field-label env-layers-date-heading">
+          Chart date range
+          <HelpTip text={DASHBOARD_HELP.envDateRange} label="Chart date range" />
+        </span>
         <label className="toolbar-field">
           Start date
           <input

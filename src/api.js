@@ -1,5 +1,6 @@
 import axios from "axios";
 import { buildSampleEpiCsvFromReport } from "./utils/buildSampleEpiCsv";
+import { normalizeDistrictKey, districtForecastCacheUrl } from "./utils/districtNameMatch";
 
 const isBrowser = typeof window !== "undefined";
 const isLocalhost =
@@ -36,6 +37,52 @@ async function fetchStaticLatestEpidemiaReport() {
   return response.json();
 }
 
+function trimReportClientSide(report, historyWeeks = 16) {
+  if (!report?.forecasts) return report;
+  return {
+    ...report,
+    forecasts: report.forecasts.map((forecast) => {
+      const history = [...(forecast.observed_history || [])].sort((a, b) =>
+        String(a.week_start).localeCompare(String(b.week_start))
+      );
+      return {
+        ...forecast,
+        observed_history: history.slice(-historyWeeks),
+      };
+    }),
+  };
+}
+
+async function fetchStaticMapBootstrapReportDirect() {
+  if (!isBrowser) return null;
+
+  const response = await fetch("/report_map_bootstrap.json");
+  if (!response.ok) return null;
+
+  const data = await response.json();
+  if (data?.alerts) return data;
+  return null;
+}
+
+async function fetchStaticBootstrapReportDirect() {
+  if (!isBrowser) return null;
+
+  const response = await fetch("/report_bootstrap.json");
+  if (!response.ok) return null;
+
+  const data = await response.json();
+  if (data?.forecasts?.length) return data;
+  return null;
+}
+
+async function fetchStaticBootstrapReport(historyWeeks = 16) {
+  const cached = await fetchStaticBootstrapReportDirect().catch(() => null);
+  if (cached) return cached;
+
+  const report = await fetchStaticLatestEpidemiaReport();
+  return trimReportClientSide(report, historyWeeks);
+}
+
 export async function fetchForecast(region, horizonWeeks = 8) {
   const response = await axios.post(buildApiUrl(FORECAST_API_BASE, "/forecast"), {
     region: region,
@@ -49,36 +96,168 @@ export async function runEpidemiaPipeline({
   outputDir = "report",
   horizonWeeks = 8,
   createReport = false,
+  forceRefresh = false,
+  regionFilter = null,
 } = {}) {
   const response = await axios.post(buildApiUrl(FORECAST_API_BASE, "/epidemia/run"), {
     data_dir: dataDir,
     output_dir: outputDir,
     horizon_weeks: horizonWeeks,
     create_report: createReport,
+    force_refresh: forceRefresh,
+    region_filter: regionFilter,
   });
   return response.data;
 }
 
-export async function fetchLatestEpidemiaReport({ outputDir = "report" } = {}) {
-  if (!isLocalhost && !FORECAST_API_BASE) {
-    return fetchStaticLatestEpidemiaReport();
+export async function fetchMapEpidemiaReport({ outputDir = "report" } = {}) {
+  if (isBrowser) {
+    const staticMapBootstrap = await fetchStaticMapBootstrapReportDirect().catch(() => null);
+    if (staticMapBootstrap) return staticMapBootstrap;
   }
 
-  try {
-    const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest"), {
-      params: { output_dir: outputDir },
+  if (FORECAST_API_BASE) {
+    try {
+      const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/map"), {
+        params: { output_dir: outputDir },
+      });
+      if (response.data) return response.data;
+    } catch (err) {
+      if (isBrowser) {
+        const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
+        if (staticBootstrap?.alerts) {
+          return {
+            ...staticBootstrap,
+            forecasts: [],
+          };
+        }
+      }
+      throw err;
+    }
+  }
+
+  const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
+  if (staticBootstrap?.alerts) {
+    return { ...staticBootstrap, forecasts: [] };
+  }
+
+  throw new Error("Map forecast report not found");
+}
+
+export async function fetchLatestEpidemiaReport({ outputDir = "report", historyWeeks = 16 } = {}) {
+  if (isBrowser) {
+    const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
+    if (staticBootstrap) return staticBootstrap;
+  }
+
+  if (!isLocalhost && !FORECAST_API_BASE) {
+    return fetchStaticBootstrapReport(historyWeeks);
+  }
+
+  if (FORECAST_API_BASE) {
+    try {
+      const response = await axios.get(
+        buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/bootstrap"),
+        {
+          params: { output_dir: outputDir, history_weeks: historyWeeks },
+        }
+      );
+      if (response.data) {
+        return response.data;
+      }
+    } catch (err) {
+      if (isBrowser) {
+        const staticData = await fetchStaticBootstrapReport(historyWeeks).catch(() => null);
+        if (staticData) return staticData;
+      }
+      throw err;
+    }
+  }
+
+  return fetchStaticBootstrapReport(historyWeeks);
+}
+
+function trimDistrictDetailClientSide(detail, startDate, endDate) {
+  if (!detail) return detail;
+  const filteredHistory = (detail.observed_history || []).filter((point) => {
+    const week = point?.week_start;
+    if (!week) return false;
+    if (startDate && week < startDate) return false;
+    if (endDate && week > endDate) return false;
+    return true;
+  });
+  return { ...detail, observed_history: filteredHistory };
+}
+
+async function fetchStaticDistrictForecastDetail(district, species, startDate, endDate) {
+  if (!isBrowser) return null;
+
+  const url = districtForecastCacheUrl(district, species);
+  const response = await fetch(url);
+  if (!response.ok) return null;
+
+  const data = await response.json();
+  if (!data?.district) return null;
+  return trimDistrictDetailClientSide(data, startDate, endDate);
+}
+
+export async function fetchDistrictForecastDetail({
+  outputDir = "report",
+  district,
+  species = "pfm",
+  startDate,
+  endDate,
+} = {}) {
+  if (!district) {
+    throw new Error("district is required");
+  }
+
+  const staticDetail = await fetchStaticDistrictForecastDetail(
+    district,
+    species,
+    startDate,
+    endDate
+  ).catch(() => null);
+  if (staticDetail) return staticDetail;
+
+  if (FORECAST_API_BASE) {
+    const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/district"), {
+      params: {
+        output_dir: outputDir,
+        district,
+        species,
+        start_date: startDate || undefined,
+        end_date: endDate || undefined,
+      },
     });
     return response.data;
-  } catch (err) {
-    if (isBrowser) {
-      try {
-        return await fetchStaticLatestEpidemiaReport();
-      } catch {
-        // Keep the API error because it has the most useful endpoint details.
-      }
-    }
-    throw err;
   }
+
+  const report = await fetchStaticLatestEpidemiaReport();
+  const targetKey = normalizeDistrictKey(district);
+  const match = (report.forecasts || []).find(
+    (forecast) =>
+      forecast.species === species &&
+      (String(forecast.district || "") === String(district) ||
+        normalizeDistrictKey(forecast.district) === targetKey)
+  );
+  if (!match) {
+    throw new Error(`No forecast found for district '${district}'`);
+  }
+
+  const filteredHistory = (match.observed_history || []).filter((point) => {
+    const week = point?.week_start;
+    if (!week) return false;
+    if (startDate && week < startDate) return false;
+    if (endDate && week > endDate) return false;
+    return true;
+  });
+
+  return trimDistrictDetailClientSide(
+    { ...match, observed_history: filteredHistory },
+    startDate,
+    endDate
+  );
 }
 
 export async function fetchEnvironmentalDataAll({
@@ -152,7 +331,7 @@ export async function setupEpidemiaProject({
   horizonWeeks = 8,
   defaultSpecies = "pfm",
   defaultRegion = "All Regions",
-  geography = "amhara",
+  geography = "ethiopia",
 }) {
   const formData = new FormData();
   formData.append("file", file);

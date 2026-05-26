@@ -8,7 +8,7 @@ export const REQUIRED_EPI_COLUMNS = [
 
 export const EPI_COLUMN_HELP = {
   obs_date: "Weekly observation date (YYYY-MM-DD)",
-  woreda_name: "District / woreda name matching Amhara reporting list",
+  woreda_name: "District / woreda name matching the national or regional district list",
   pop_at_risk: "Population at risk for that week",
   test_pf_tot: "P. falciparum cases (tests positive total)",
   test_pv_only: "P. vivax-only cases",

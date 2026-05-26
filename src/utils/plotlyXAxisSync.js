@@ -10,6 +10,16 @@ export function parseXAxisRangeFromRelayoutEvent(ev) {
     return "autorange";
   }
 
+  const nestedAxis = ev.xaxis;
+  if (nestedAxis && typeof nestedAxis === "object") {
+    if (nestedAxis.autorange === true) return "autorange";
+    if (Array.isArray(nestedAxis.range) && nestedAxis.range.length >= 2) {
+      const a = toDateStringForAxis(nestedAxis.range[0]);
+      const b = toDateStringForAxis(nestedAxis.range[1]);
+      return orderRangeChronological(a, b);
+    }
+  }
+
   if (Object.keys(ev).length === 0) return null;
 
   let r0 = ev["xaxis.range[0]"];
@@ -48,11 +58,39 @@ function orderRangeChronological(a, b) {
 function toDateStringForAxis(v) {
   if (v == null) return "";
   if (typeof v === "number" && !Number.isNaN(v)) {
-    return new Date(v).toISOString().slice(0, 10);
+    return msToChartDay(v);
   }
   const s = String(v);
   if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
-  return s;
+  const parsed = Date.parse(s);
+  return Number.isNaN(parsed) ? s : msToChartDay(parsed);
+}
+
+/** Convert Plotly ms timestamp to YYYY-MM-DD (UTC). */
+export function msToChartDay(ms) {
+  if (typeof ms !== "number" || Number.isNaN(ms)) {
+    if (ms == null || ms === "") return "";
+    const text = String(ms);
+    if (/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0, 10);
+    return text;
+  }
+  const date = new Date(ms);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+/** Normalize axis values to YYYY-MM-DD for shared zoom state. */
+export function normalizeChartAxisDate(value) {
+  if (value == null || value === "") return "";
+  if (typeof value === "number" && !Number.isNaN(value)) {
+    return msToChartDay(value);
+  }
+  const text = String(value);
+  if (/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0, 10);
+  const parsed = Date.parse(text);
+  return Number.isNaN(parsed) ? text : msToChartDay(parsed);
 }
 
 /**

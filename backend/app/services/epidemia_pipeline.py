@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import json
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
 import numpy as np
 import pandas as pd
@@ -26,6 +27,20 @@ from app.services.seasonal_gam_thresholds import (
     thresholds_for_week,
     weekly_env_features,
 )
+from app.services.district_data import (
+    ENV_INFO,
+    has_required_base_files,
+    load_report_woredas,
+    resolve_env_ref_path,
+    resolve_woredas_path,
+)
+from app.services.forecast_cache import (
+    compute_data_fingerprint,
+    load_cached_response,
+    publish_report_copy,
+    write_cache_meta,
+)
+from app.services.pipeline_input_error import PipelineInputError
 from app.services.worldpop_population import apply_worldpop_population
 
 
@@ -57,20 +72,7 @@ REQUIRED_ENV_COLUMNS = {
 }
 
 
-class PipelineInputError(ValueError):
-    pass
-
-
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
-
-
-def _has_required_base_files(data_dir: Path) -> bool:
-    required = [
-        data_dir / "amhara_woredas.csv",
-        data_dir / "env_ref_data_2002_2018.csv",
-        data_dir / "environ_info.xlsx",
-    ]
-    return all(path.exists() for path in required)
 
 
 def _has_env_source(data_dir: Path) -> bool:
@@ -118,11 +120,11 @@ def _resolve_data_dir(path_str: str) -> Path:
     for candidate in candidates:
         if not candidate.exists():
             continue
-        if _has_required_base_files(candidate) and _has_env_source(candidate) and _has_epi_source(candidate):
+        if has_required_base_files(candidate) and _has_env_source(candidate) and _has_epi_source(candidate):
             return candidate
 
     preferred = _resolve_runtime_path(path_str, must_exist=True)
-    if _has_required_base_files(preferred):
+    if has_required_base_files(preferred):
         # Keep compatibility with existing workflows and preserve downstream, specific errors.
         return preferred
 
@@ -440,21 +442,19 @@ def _corral_epidemiological(report_woredas: pd.DataFrame, data_dir: Path) -> pd.
 def _load_inputs(req: EpidemiaRunRequest) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     data_dir = _resolve_data_dir(req.data_dir)
 
-    woredas_path = data_dir / "amhara_woredas.csv"
+    woredas_path = resolve_woredas_path(data_dir)
     epi_path = data_dir / "epi_data.csv"
     env_path = data_dir / "env_data.csv"
-    env_ref_path = data_dir / "env_ref_data_2002_2018.csv"
-    env_info_path = data_dir / "environ_info.xlsx"
+    env_ref_path = resolve_env_ref_path(data_dir)
+    env_info_path = data_dir / ENV_INFO
 
-    missing = [str(path) for path in (woredas_path, env_ref_path, env_info_path) if not path.exists()]
+    missing = [str(path) for path in (env_info_path,) if not path.exists()]
     if missing:
         raise PipelineInputError(
             "Missing input files. Expected: " + ", ".join(missing)
         )
 
-    report_woredas = pd.read_csv(woredas_path)
-    if "report" in report_woredas.columns:
-        report_woredas = report_woredas[report_woredas["report"] == 1]
+    report_woredas = load_report_woredas(data_dir)
 
     if epi_path.exists():
         epi_data = pd.read_csv(epi_path)
@@ -471,9 +471,6 @@ def _load_inputs(req: EpidemiaRunRequest) -> Tuple[pd.DataFrame, pd.DataFrame, p
     _validate_columns(epi_data, REQUIRED_EPI_COLUMNS, "epi_data")
     _validate_columns(env_data, REQUIRED_ENV_COLUMNS, "env_data")
 
-    if "woreda_name" not in report_woredas.columns:
-        raise PipelineInputError("amhara_woredas.csv must include 'woreda_name'")
-
     report_names = set(report_woredas["woreda_name"].astype(str))
     epi_data = epi_data[epi_data["woreda_name"].astype(str).isin(report_names)]
     env_data = env_data[env_data["woreda_name"].astype(str).isin(report_names)]
@@ -487,6 +484,87 @@ def _load_inputs(req: EpidemiaRunRequest) -> Tuple[pd.DataFrame, pd.DataFrame, p
     env_data = env_data[env_data["obs_date"] >= env_start_date]
 
     return report_woredas, epi_data, env_data, env_ref_data, env_info
+
+
+def _normalize_region_filter(region_filter: Optional[str]) -> Optional[str]:
+    if not region_filter:
+        return None
+    value = str(region_filter).strip()
+    if not value or value in {"All Regions", "No Selection"}:
+        return None
+    return value
+
+
+def _apply_region_filter(
+    report_woredas: pd.DataFrame,
+    epi_data: pd.DataFrame,
+    env_data: pd.DataFrame,
+    region_filter: str,
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, Set[str]]:
+    if "region" not in report_woredas.columns:
+        raise PipelineInputError(
+            "District registry has no 'region' column; regional refresh requires national woredas data"
+        )
+
+    regional_woredas = report_woredas[
+        report_woredas["region"].astype(str) == region_filter
+    ]
+    if regional_woredas.empty:
+        raise PipelineInputError(f"No districts found for region: {region_filter}")
+
+    district_names = set(regional_woredas["woreda_name"].astype(str))
+    epi_filtered = epi_data[epi_data["woreda_name"].astype(str).isin(district_names)]
+    env_filtered = env_data[env_data["woreda_name"].astype(str).isin(district_names)]
+    return regional_woredas, epi_filtered, env_filtered, district_names
+
+
+def _load_existing_report_payload(req: EpidemiaRunRequest) -> Optional[Dict]:
+    report_json = _resolve_runtime_path(req.output_dir) / "report_data.json"
+    if not report_json.exists():
+        return None
+    with report_json.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def _merge_regional_run(
+    existing: Optional[Dict],
+    new_forecasts: List[DistrictForecast],
+    new_alerts: List[DistrictAlert],
+    region_district_names: Set[str],
+    generated_at: str,
+    region_filter: str,
+    inputs_used: Dict[str, str],
+) -> Dict:
+    new_forecast_rows = [item.model_dump() for item in new_forecasts]
+    new_alert_rows = [item.model_dump() for item in new_alerts]
+
+    if existing is None:
+        return {
+            "message": f"EPIDEMIA regional forecast completed for {region_filter}",
+            "generated_at": generated_at,
+            "inputs_used": inputs_used,
+            "forecasts": new_forecast_rows,
+            "alerts": new_alert_rows,
+        }
+
+    kept_forecasts = [
+        item
+        for item in existing.get("forecasts", [])
+        if item.get("district") not in region_district_names
+    ]
+    kept_alerts = [
+        item
+        for item in existing.get("alerts", [])
+        if item.get("district") not in region_district_names
+    ]
+
+    return {
+        "message": f"EPIDEMIA regional forecast refreshed for {region_filter}",
+        "generated_at": generated_at,
+        "inputs_used": inputs_used,
+        "forecasts": kept_forecasts + new_forecast_rows,
+        "alerts": kept_alerts + new_alert_rows,
+    }
 
 
 def _weekly_env_signal(env_data: pd.DataFrame) -> pd.DataFrame:
@@ -519,6 +597,125 @@ def _fit_and_forecast(series: pd.Series, horizon: int) -> np.ndarray:
     return np.maximum(np.asarray(preds, dtype=float), 0.0)
 
 
+def _forecast_one_district(
+    woreda_name: str,
+    district_df: pd.DataFrame,
+    species: SpeciesConfig,
+    env_clim: Dict[str, Dict[str, Dict[int, float]]],
+    horizon_weeks: int,
+) -> Tuple[DistrictForecast, DistrictAlert]:
+    district_df = district_df.sort_values("week_start")
+    history = district_df["cases"].astype(float)
+
+    observed_window = district_df[
+        ["week_start", "cases", "pop_at_risk", "rainfall", "temperature"]
+    ]
+
+    preds = _fit_and_forecast(history, horizon=horizon_weeks)
+    hist_std = float(np.nanstd(history.values)) if len(history) > 1 else 0.0
+    hist_std = max(hist_std, 1.0)
+
+    last_week = pd.Timestamp(district_df["week_start"].max())
+    forecast_weeks = pd.Series(
+        [(last_week + timedelta(weeks=i)) for i in range(1, horizon_weeks + 1)]
+    )
+    predict_weeks = pd.concat(
+        [observed_window["week_start"], forecast_weeks], ignore_index=True
+    )
+
+    threshold_df = compute_seasonal_thresholds(
+        district_df=district_df.rename(columns={"cases": "cases"}),
+        predict_weeks=predict_weeks,
+        env_clim=env_clim,
+        woreda_name=str(woreda_name),
+        species=str(species.species),
+    )
+
+    observed_history: List[DistrictObservedPoint] = []
+    for _, row in observed_window.iterrows():
+        if pd.isna(row["cases"]):
+            continue
+        detect, warn = thresholds_for_week(threshold_df, row["week_start"])
+        observed_history.append(
+            DistrictObservedPoint(
+                week_start=pd.Timestamp(row["week_start"]).date(),
+                observed=float(row["cases"]),
+                detection_threshold=detect,
+                warning_threshold=warn,
+            )
+        )
+
+    points: List[DistrictForecastPoint] = []
+    for i, pred in enumerate(preds, start=1):
+        week_date = (last_week + timedelta(weeks=i)).date()
+        detect, warn = thresholds_for_week(threshold_df, week_date)
+        points.append(
+            DistrictForecastPoint(
+                week_start=week_date,
+                median=float(pred),
+                lower=float(max(pred - 1.28 * hist_std, 0.0)),
+                upper=float(pred + 1.28 * hist_std),
+                detection_threshold=detect,
+                warning_threshold=warn,
+            )
+        )
+
+    latest_obs = float(history.iloc[-1]) if not history.empty else None
+    latest_fc = float(preds[0]) if len(preds) else None
+    baseline_pct = float(np.nanpercentile(history.values, 75)) if len(history) else 0.0
+    warn_pct = baseline_pct * 1.25
+
+    pop_series = None
+    if "pop_at_risk" in district_df.columns and district_df["pop_at_risk"].notna().any():
+        pop_series = district_df["pop_at_risk"].to_numpy(dtype=float)
+    latest_population = None
+    if pop_series is not None and len(pop_series):
+        finite_pop = pop_series[np.isfinite(pop_series)]
+        if finite_pop.size:
+            latest_population = float(finite_pop[-1])
+
+    first_fc_detect, first_fc_warn = thresholds_for_week(
+        threshold_df, points[0].week_start if points else None
+    )
+    if first_fc_detect is not None and first_fc_warn is not None:
+        detection_threshold, warning_threshold = first_fc_detect, first_fc_warn
+    else:
+        farr = farrington_thresholds_for_horizon(
+            history.values.astype(float),
+            pop_series,
+            str(species.species),
+        )
+        if farr is not None:
+            detection_threshold, warning_threshold = farr
+        else:
+            detection_threshold, warning_threshold = baseline_pct, warn_pct
+
+    alert = DistrictAlert(
+        district=str(woreda_name),
+        species=species.species,  # type: ignore[arg-type]
+        early_detection=bool(
+            latest_fc is not None and latest_fc > detection_threshold
+        ),
+        early_warning=bool(
+            latest_fc is not None and latest_fc > warning_threshold
+        ),
+        latest_observed=latest_obs,
+        latest_forecast=latest_fc,
+        detection_threshold=detection_threshold,
+        warning_threshold=warning_threshold,
+        population_at_risk=latest_population,
+    )
+
+    forecast = DistrictForecast(
+        district=str(woreda_name),
+        species=species.species,  # type: ignore[arg-type]
+        history_points=int(len(history)),
+        observed_history=observed_history,
+        forecast=points,
+    )
+    return forecast, alert
+
+
 def _species_pipeline(
     species: SpeciesConfig,
     epi_data: pd.DataFrame,
@@ -540,120 +737,37 @@ def _species_pipeline(
 
     merged = epi_weekly.merge(env_weekly, on=["woreda_name", "week_start"], how="left")
 
-    for woreda_name, district_df in merged.groupby("woreda_name"):
-        district_df = district_df.sort_values("week_start")
-        history = district_df["cases"].astype(float)
+    district_groups = list(merged.groupby("woreda_name"))
+    worker_count = max(1, int(os.getenv("EPIDEMIA_WORKERS", "4")))
 
-        observed_window = district_df[
-            ["week_start", "cases", "pop_at_risk", "rainfall", "temperature"]
-        ].tail(16)
-
-        preds = _fit_and_forecast(history, horizon=horizon_weeks)
-        hist_std = float(np.nanstd(history.values)) if len(history) > 1 else 0.0
-        hist_std = max(hist_std, 1.0)
-
-        last_week = pd.Timestamp(district_df["week_start"].max())
-        forecast_weeks = pd.Series(
-            [(last_week + timedelta(weeks=i)) for i in range(1, horizon_weeks + 1)]
-        )
-        predict_weeks = pd.concat(
-            [observed_window["week_start"], forecast_weeks], ignore_index=True
-        )
-
-        threshold_df = compute_seasonal_thresholds(
-            district_df=district_df.rename(columns={"cases": "cases"}),
-            predict_weeks=predict_weeks,
-            env_clim=env_clim,
-            woreda_name=str(woreda_name),
-            species=str(species.species),
-        )
-
-        observed_history: List[DistrictObservedPoint] = []
-        for _, row in observed_window.iterrows():
-            if pd.isna(row["cases"]):
-                continue
-            detect, warn = thresholds_for_week(threshold_df, row["week_start"])
-            observed_history.append(
-                DistrictObservedPoint(
-                    week_start=pd.Timestamp(row["week_start"]).date(),
-                    observed=float(row["cases"]),
-                    detection_threshold=detect,
-                    warning_threshold=warn,
-                )
+    if len(district_groups) <= 1 or worker_count == 1:
+        for woreda_name, district_df in district_groups:
+            forecast, alert = _forecast_one_district(
+                str(woreda_name),
+                district_df,
+                species,
+                env_clim,
+                horizon_weeks,
             )
-
-        points: List[DistrictForecastPoint] = []
-        for i, pred in enumerate(preds, start=1):
-            week_date = (last_week + timedelta(weeks=i)).date()
-            detect, warn = thresholds_for_week(threshold_df, week_date)
-            points.append(
-                DistrictForecastPoint(
-                    week_start=week_date,
-                    median=float(pred),
-                    lower=float(max(pred - 1.28 * hist_std, 0.0)),
-                    upper=float(pred + 1.28 * hist_std),
-                    detection_threshold=detect,
-                    warning_threshold=warn,
-                )
-            )
-
-        latest_obs = float(history.iloc[-1]) if not history.empty else None
-        latest_fc = float(preds[0]) if len(preds) else None
-        baseline_pct = float(np.nanpercentile(history.values, 75)) if len(history) else 0.0
-        warn_pct = baseline_pct * 1.25
-
-        pop_series = None
-        if "pop_at_risk" in district_df.columns and district_df["pop_at_risk"].notna().any():
-            pop_series = district_df["pop_at_risk"].to_numpy(dtype=float)
-        latest_population = None
-        if pop_series is not None and len(pop_series):
-            finite_pop = pop_series[np.isfinite(pop_series)]
-            if finite_pop.size:
-                latest_population = float(finite_pop[-1])
-
-        first_fc_detect, first_fc_warn = thresholds_for_week(
-            threshold_df, points[0].week_start if points else None
-        )
-        if first_fc_detect is not None and first_fc_warn is not None:
-            detection_threshold, warning_threshold = first_fc_detect, first_fc_warn
-        else:
-            farr = farrington_thresholds_for_horizon(
-                history.values.astype(float),
-                pop_series,
-                str(species.species),
-            )
-            if farr is not None:
-                detection_threshold, warning_threshold = farr
-            else:
-                detection_threshold, warning_threshold = baseline_pct, warn_pct
-
-        alerts.append(
-            DistrictAlert(
-                district=str(woreda_name),
-                species=species.species,  # type: ignore[arg-type]
-                early_detection=bool(
-                    latest_fc is not None and latest_fc > detection_threshold
-                ),
-                early_warning=bool(
-                    latest_fc is not None and latest_fc > warning_threshold
-                ),
-                latest_observed=latest_obs,
-                latest_forecast=latest_fc,
-                detection_threshold=detection_threshold,
-                warning_threshold=warning_threshold,
-                population_at_risk=latest_population,
-            )
-        )
-
-        forecasts.append(
-            DistrictForecast(
-                district=str(woreda_name),
-                species=species.species,  # type: ignore[arg-type]
-                history_points=int(len(history)),
-                observed_history=observed_history,
-                forecast=points,
-            )
-        )
+            forecasts.append(forecast)
+            alerts.append(alert)
+    else:
+        with ThreadPoolExecutor(max_workers=worker_count) as pool:
+            futures = {
+                pool.submit(
+                    _forecast_one_district,
+                    str(woreda_name),
+                    district_df,
+                    species,
+                    env_clim,
+                    horizon_weeks,
+                ): str(woreda_name)
+                for woreda_name, district_df in district_groups
+            }
+            for future in as_completed(futures):
+                forecast, alert = future.result()
+                forecasts.append(forecast)
+                alerts.append(alert)
 
     return forecasts, alerts
 
@@ -661,6 +775,7 @@ def _species_pipeline(
 def _save_artifacts(
     req: EpidemiaRunRequest,
     response_payload: Dict,
+    cache_meta: Dict | None = None,
 ) -> Dict[str, str]:
     out_dir = _resolve_runtime_path(req.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -692,25 +807,80 @@ def _save_artifacts(
         report_md.write_text("\n".join(lines), encoding="utf-8")
         artifacts["report_markdown"] = str(report_md)
 
+    if cache_meta is not None:
+        meta_path = write_cache_meta(req, cache_meta)
+        artifacts["cache_meta"] = str(meta_path)
+
+    published = publish_report_copy(report_json, BACKEND_ROOT)
+    if published:
+        artifacts["report_data_public"] = published[0]
+
     return artifacts
 
 
 def load_latest_epidemia_report(output_dir: str = "report") -> EpidemiaRunResponse:
-    report_json = _resolve_runtime_path(output_dir) / "report_data.json"
-    if not report_json.exists():
-        raise PipelineInputError(
-            f"No cached EPIDEMIA report found at {report_json}. Run the pipeline first."
-        )
+    from app.services.forecast_cache import load_latest_report_payload
 
-    with report_json.open("r", encoding="utf-8") as f:
-        payload = json.load(f)
-
+    payload, report_json = load_latest_report_payload(output_dir)
     payload.setdefault("artifacts", {"report_data": str(report_json)})
     return EpidemiaRunResponse.model_validate(payload)
 
 
+def load_map_epidemia_report(output_dir: str = "report") -> EpidemiaRunResponse:
+    from app.services.forecast_cache import load_map_bootstrap_report_payload
+
+    payload, report_json = load_map_bootstrap_report_payload(output_dir)
+    payload.setdefault("artifacts", {"report_data": str(report_json)})
+    return EpidemiaRunResponse.model_validate(payload)
+
+
+def load_bootstrap_epidemia_report(
+    output_dir: str = "report", history_weeks: int = 16
+) -> EpidemiaRunResponse:
+    from app.services.forecast_cache import load_bootstrap_report_payload
+
+    payload, report_json = load_bootstrap_report_payload(output_dir, history_weeks=history_weeks)
+    payload.setdefault("artifacts", {"report_data": str(report_json)})
+    return EpidemiaRunResponse.model_validate(payload)
+
+
+def load_district_epidemia_forecast(
+    output_dir: str = "report",
+    district: str = "",
+    species: str = "pfm",
+    start_date: str | None = None,
+    end_date: str | None = None,
+) -> DistrictForecast:
+    from app.services.forecast_cache import load_district_forecast_payload
+
+    payload = load_district_forecast_payload(
+        output_dir,
+        district=district,
+        species=species,
+        start_date=start_date,
+        end_date=end_date,
+    )
+    return DistrictForecast.model_validate(payload)
+
+
 def run_epidemia_pipeline(req: EpidemiaRunRequest) -> EpidemiaRunResponse:
+    region_filter = _normalize_region_filter(req.region_filter)
+
+    if not req.force_refresh and not region_filter:
+        cached = load_cached_response(req)
+        if cached is not None:
+            return cached
+
+    import time
+
+    started = time.perf_counter()
     report_woredas, epi_data, env_data, env_ref_data, env_info = _load_inputs(req)
+    region_district_names: Set[str] = set()
+
+    if region_filter:
+        report_woredas, epi_data, env_data, region_district_names = _apply_region_filter(
+            report_woredas, epi_data, env_data, region_filter
+        )
 
     # Variables are loaded for parity with the original R orchestration, even if not
     # all are consumed in this first Python implementation pass.
@@ -734,25 +904,58 @@ def run_epidemia_pipeline(req: EpidemiaRunRequest) -> EpidemiaRunResponse:
         all_alerts.extend(species_alerts)
 
     generated_at = datetime.utcnow().isoformat() + "Z"
-    response_payload = {
-        "message": "EPIDEMIA Python pipeline completed",
-        "generated_at": generated_at,
-        "inputs_used": {
-            "data_dir": req.data_dir,
-            "output_dir": req.output_dir,
-            "horizon_weeks": str(req.horizon_weeks),
-        },
-        "alerts": [item.model_dump() for item in all_alerts],
-        "forecasts": [item.model_dump() for item in all_forecasts],
+    elapsed_seconds = round(time.perf_counter() - started, 2)
+    inputs_used = {
+        "data_dir": req.data_dir,
+        "output_dir": req.output_dir,
+        "horizon_weeks": str(req.horizon_weeks),
     }
+    if region_filter:
+        inputs_used["region_filter"] = region_filter
 
-    artifacts = _save_artifacts(req, response_payload)
+    if region_filter:
+        existing_payload = _load_existing_report_payload(req)
+        response_payload = _merge_regional_run(
+            existing_payload,
+            all_forecasts,
+            all_alerts,
+            region_district_names,
+            generated_at,
+            region_filter,
+            inputs_used,
+        )
+    else:
+        response_payload = {
+            "message": "EPIDEMIA Python pipeline completed",
+            "generated_at": generated_at,
+            "inputs_used": inputs_used,
+            "alerts": [item.model_dump() for item in all_alerts],
+            "forecasts": [item.model_dump() for item in all_forecasts],
+        }
+
+    district_count = len({item["district"] for item in response_payload["forecasts"]})
+    cache_meta = {
+        "generated_at": generated_at,
+        "data_fingerprint": compute_data_fingerprint(req),
+        "horizon_weeks": req.horizon_weeks,
+        "env_start_year": req.env_start_year,
+        "env_start_week": req.env_start_week,
+        "district_count": district_count,
+        "forecast_count": len(response_payload["forecasts"]),
+        "alert_count": len(response_payload["alerts"]),
+        "elapsed_seconds": elapsed_seconds,
+    }
+    if region_filter:
+        cache_meta["region_filter"] = region_filter
+        cache_meta["regional_district_count"] = len(region_district_names)
+
+    artifacts = _save_artifacts(req, response_payload, cache_meta=cache_meta)
 
     return EpidemiaRunResponse(
         message=response_payload["message"],
         generated_at=generated_at,
         inputs_used=response_payload["inputs_used"],
-        alerts=all_alerts,
-        forecasts=all_forecasts,
+        alerts=[DistrictAlert.model_validate(item) for item in response_payload["alerts"]],
+        forecasts=[DistrictForecast.model_validate(item) for item in response_payload["forecasts"]],
         artifacts=artifacts,
     )

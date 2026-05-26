@@ -12,6 +12,12 @@ export function normalizeDistrictKey(s) {
     .replace(/[^a-z0-9]+/g, "");
 }
 
+/** Static path for a pre-generated per-district forecast cache file. */
+export function districtForecastCacheUrl(district, species = "pfm") {
+  const speciesNorm = String(species || "pfm").toLowerCase();
+  return `/district_forecasts/${speciesNorm}/${normalizeDistrictKey(district)}.json`;
+}
+
 function replaceWord(value, from, to) {
   return value.replace(new RegExp(`\\b${from}\\b`, "gi"), to);
 }
@@ -83,4 +89,28 @@ export function findDistrictFromLookup(lookup, districtName) {
     if (match) return match;
   }
   return null;
+}
+
+/** Resolve admin-1 region from a selected district name (map adm3_name or pipeline woreda_name). */
+export function resolveAdminRegionForDistrict(lookup, districtName, geoData = null) {
+  if (!districtName || districtName === "All Regions") return null;
+
+  let feature = findDistrictFromLookup(lookup, districtName);
+  if (!feature && geoData?.features) {
+    feature = geoData.features.find((f) => f?.properties?.adm3_name === districtName) || null;
+  }
+
+  const adm1 = feature?.properties?.adm1_name;
+  return adm1 && String(adm1).trim() ? String(adm1).trim() : null;
+}
+
+/** Resolve admin-1 region from geojson NewPCODE / adm3_pcode (e.g. ET010101). */
+export function resolveAdminRegionByPcode(geoData, pcode) {
+  if (!pcode || !geoData?.features) return null;
+  const normalized = String(pcode).trim().toUpperCase();
+  const feature = geoData.features.find(
+    (f) => String(f?.properties?.adm3_pcode || "").trim().toUpperCase() === normalized
+  );
+  const adm1 = feature?.properties?.adm1_name;
+  return adm1 && String(adm1).trim() ? String(adm1).trim() : null;
 }

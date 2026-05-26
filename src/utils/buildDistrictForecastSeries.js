@@ -1,10 +1,13 @@
 import { findDistrictFromLookup } from "./districtNameMatch";
+import { filterForecastRowsByDateRange } from "./filterForecastByDateRange";
 
 export function buildDistrictForecastSeries(
   epidemiaData,
   adm3Lookup,
   districtName,
-  selectedSpecies
+  selectedSpecies,
+  startDate = null,
+  endDate = null
 ) {
   if (!epidemiaData?.forecasts || !districtName) return null;
 
@@ -66,7 +69,11 @@ export function buildDistrictForecastSeries(
   return {
     district: districtName,
     alert,
-    rows: [...observedRows, ...forecastRows],
+    rows: filterForecastRowsByDateRange(
+      [...observedRows, ...forecastRows],
+      startDate,
+      endDate
+    ),
   };
 }
 

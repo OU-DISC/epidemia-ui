@@ -22,7 +22,11 @@ export function useSyncedChartHover(onHoverDateChange) {
         clearTimerRef.current = null;
       }
 
-      const normalized = normalizeHoverDate(event?.points?.[0]?.x);
+      const rawX =
+        event?.points?.[0]?.x ??
+        event?.xvals?.[0] ??
+        event?.points?.[0]?.text;
+      const normalized = normalizeHoverDate(rawX);
       if (normalized && onHoverDateChange) {
         onHoverDateChange(normalized);
       }

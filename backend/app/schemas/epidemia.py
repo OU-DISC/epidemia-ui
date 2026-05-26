@@ -16,6 +16,14 @@ class EpidemiaRunRequest(BaseModel):
     env_start_year: int = Field(default=2012, ge=1900)
     env_start_week: int = Field(default=1, ge=1, le=53)
     create_report: bool = Field(default=False, description="If true, writes a markdown summary report")
+    force_refresh: bool = Field(
+        default=False,
+        description="If true, recompute even when a valid cached report exists",
+    )
+    region_filter: Optional[str] = Field(
+        default=None,
+        description="Admin-1 region name; when set, only districts in that region are forecast",
+    )
 
 
 class DistrictForecastPoint(BaseModel):
