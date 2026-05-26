@@ -278,7 +278,35 @@ def _write_bootstrap_copies(bootstrap: dict, report_json: Path) -> None:
         pass
 
 
+def _read_json_file(path: Path) -> dict | None:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def _load_standalone_bootstrap(
+    paths: list[Path],
+    *,
+    is_valid,
+) -> tuple[dict, Path] | None:
+    for bootstrap_path in paths:
+        if not bootstrap_path.exists():
+            continue
+        payload = _read_json_file(bootstrap_path)
+        if payload and is_valid(payload):
+            return payload, bootstrap_path
+    return None
+
+
 def load_map_bootstrap_report_payload(output_dir: str = "report") -> tuple[dict, Path]:
+    standalone = _load_standalone_bootstrap(
+        map_bootstrap_json_paths(output_dir),
+        is_valid=lambda payload: payload.get("alerts") is not None,
+    )
+    if standalone:
+        return standalone
+
     report_json = resolve_best_report_json(output_dir)
     report_stat = report_json.stat()
 
@@ -287,12 +315,9 @@ def load_map_bootstrap_report_payload(output_dir: str = "report") -> tuple[dict,
             continue
         bootstrap_stat = bootstrap_path.stat()
         if bootstrap_stat.st_mtime >= report_stat.st_mtime:
-            try:
-                payload = json.loads(bootstrap_path.read_text(encoding="utf-8"))
-                if payload.get("alerts") is not None:
-                    return payload, report_json
-            except (OSError, json.JSONDecodeError):
-                continue
+            payload = _read_json_file(bootstrap_path)
+            if payload and payload.get("alerts") is not None:
+                return payload, report_json
 
     payload = _read_report_payload(report_json)
     bootstrap = build_map_bootstrap_payload(payload)
@@ -303,6 +328,13 @@ def load_map_bootstrap_report_payload(output_dir: str = "report") -> tuple[dict,
 def load_bootstrap_report_payload(
     output_dir: str = "report", history_weeks: int = 16
 ) -> tuple[dict, Path]:
+    standalone = _load_standalone_bootstrap(
+        bootstrap_json_paths(output_dir),
+        is_valid=lambda payload: bool(payload.get("forecasts")),
+    )
+    if standalone:
+        return standalone
+
     report_json = resolve_best_report_json(output_dir)
     report_stat = report_json.stat()
 

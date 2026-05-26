@@ -14,7 +14,7 @@ import {
   fetchDistrictForecastDetail,
   fetchLatestEpidemiaReport,
   fetchMapEpidemiaReport,
-  FORECAST_API_BASE,
+  formatForecastApiError,
   runEpidemiaPipeline,
 } from "../../api";
 import {
@@ -322,60 +322,6 @@ function Dashboard({
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
   const adm3Lookup = useMemo(() => buildAdm3Lookup(geoData), [geoData]);
-  const districtsNeedingDetail = useMemo(() => {
-    const names = new Set();
-
-    const addIfNeeded = (selectedDistrict) => {
-      const reportDistrict = resolveReportDistrictForSelection(
-        epidemiaData,
-        adm3Lookup,
-        selectedDistrict,
-        selectedSpecies
-      );
-      if (!reportDistrict) return;
-
-      const row = findDistrictForecastRow(
-        epidemiaData,
-        adm3Lookup,
-        selectedDistrict,
-        selectedSpecies
-      );
-      if (forecastHistoryCoversRange(row, startDate, endDate)) return;
-
-      names.add(reportDistrict);
-    };
-
-    if (region && region !== "All Regions") {
-      addIfNeeded(region);
-    }
-    comparisonDistricts.filter(Boolean).forEach(addIfNeeded);
-    return [...names];
-  }, [
-    adm3Lookup,
-    comparisonDistricts,
-    endDate,
-    epidemiaData,
-    region,
-    selectedSpecies,
-    startDate,
-  ]);
-
-  const selectedDistrictNeedsDetail = useMemo(() => {
-    if (region === "All Regions") return false;
-    const reportDistrict = resolveReportDistrictForSelection(
-      epidemiaData,
-      adm3Lookup,
-      region,
-      selectedSpecies
-    );
-    return Boolean(reportDistrict && districtsNeedingDetail.includes(reportDistrict));
-  }, [
-    adm3Lookup,
-    districtsNeedingDetail,
-    epidemiaData,
-    region,
-    selectedSpecies,
-  ]);
 
   const alertWeekDates = useMemo(
     () =>
@@ -479,9 +425,7 @@ function Dashboard({
     } catch (err) {
       console.error("Failed to load map EPIDEMIA report:", err);
       if (mapRequestIdRef.current === requestId) {
-        setEpidemiaError(
-          err.response?.data?.detail || err.message || "Failed to load map forecast report"
-        );
+        setEpidemiaError(formatForecastApiError(err, "load map forecast report"));
       }
     }
   }, [projectOutputDir]);
@@ -499,16 +443,7 @@ function Dashboard({
     } catch (err) {
       console.error("Failed to load latest EPIDEMIA report:", err);
       if (forecastRequestIdRef.current === requestId) {
-        if (err.code === "ERR_NETWORK") {
-          const endpointHint = FORECAST_API_BASE || "same origin";
-          setEpidemiaError(
-            `Cannot reach forecasting API at ${endpointHint}. Start backend server and try Refresh Forecast again.`
-          );
-        } else {
-          setEpidemiaError(
-            err.response?.data?.detail || err.message || "Failed to load latest forecast report"
-          );
-        }
+        setEpidemiaError(formatForecastApiError(err, "load latest forecast report"));
       }
     } finally {
       if (forecastRequestIdRef.current === requestId) {
@@ -564,16 +499,7 @@ function Dashboard({
     } catch (err) {
       console.error("Failed to run EPIDEMIA pipeline:", err);
       if (forecastRequestIdRef.current === requestId) {
-        if (err.code === "ERR_NETWORK") {
-          const endpointHint = FORECAST_API_BASE || "same origin";
-          setEpidemiaError(
-            `Cannot reach forecasting API at ${endpointHint}. Start backend server and try again.`
-          );
-        } else {
-          setEpidemiaError(
-            err.response?.data?.detail || err.message || "Failed to refresh forecast"
-          );
-        }
+        setEpidemiaError(formatForecastApiError(err, "refresh forecast"));
       }
     } finally {
       setEpidemiaRefreshing(false);
@@ -614,55 +540,6 @@ function Dashboard({
       cancelled = true;
     };
   }, [loadForecastBootstrap, loadMapEpidemia]);
-
-  useEffect(() => {
-    if (!epidemiaData || districtsNeedingDetail.length === 0) {
-      setDistrictDetailLoading(false);
-      return undefined;
-    }
-
-    const requestId = districtDetailRequestRef.current + 1;
-    districtDetailRequestRef.current = requestId;
-    setDistrictDetailLoading(true);
-
-    Promise.all(
-      districtsNeedingDetail.map((district) =>
-        fetchDistrictForecastDetail({
-          outputDir: projectOutputDir,
-          district,
-          species: selectedSpecies,
-          startDate,
-          endDate,
-        }).catch((err) => {
-          console.warn(`Failed to load forecast detail for ${district}:`, err);
-          return null;
-        })
-      )
-    )
-      .then((details) => {
-        if (districtDetailRequestRef.current !== requestId) return;
-        setEpidemiaData((current) => {
-          if (!current) return current;
-          return details.reduce(
-            (report, detail) => (detail ? mergeDistrictForecast(report, detail) : report),
-            current
-          );
-        });
-      })
-      .finally(() => {
-        if (districtDetailRequestRef.current === requestId) {
-          setDistrictDetailLoading(false);
-        }
-      });
-
-    return undefined;
-  }, [
-    districtsNeedingDetail,
-    endDate,
-    projectOutputDir,
-    selectedSpecies,
-    startDate,
-  ]);
 
   useEffect(() => {
     let cancelled = false;
@@ -1035,6 +912,120 @@ function Dashboard({
     setComparisonDistricts(defaultComparisonDistricts);
   }, [defaultComparisonDistricts]);
 
+  const comparisonChartDistricts = useMemo(() => {
+    const topTen = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion)
+      .slice(0, 10)
+      .map((option) => option.value)
+      .filter(Boolean);
+    const selected = comparisonDistricts.filter(Boolean);
+    return [...new Set([...topTen, ...selected])];
+  }, [comparisonDistricts, forecastTableRows, selectedAdminRegion]);
+
+  const districtsNeedingDetail = useMemo(() => {
+    const names = new Set();
+
+    const addIfNeeded = (selectedDistrict) => {
+      const reportDistrict = resolveReportDistrictForSelection(
+        epidemiaData,
+        adm3Lookup,
+        selectedDistrict,
+        selectedSpecies
+      );
+      if (!reportDistrict) return;
+
+      const row = findDistrictForecastRow(
+        epidemiaData,
+        adm3Lookup,
+        selectedDistrict,
+        selectedSpecies
+      );
+      if (forecastHistoryCoversRange(row, startDate, endDate)) return;
+
+      names.add(reportDistrict);
+    };
+
+    if (region && region !== "All Regions") {
+      addIfNeeded(region);
+    }
+    comparisonChartDistricts.forEach(addIfNeeded);
+    return [...names];
+  }, [
+    adm3Lookup,
+    comparisonChartDistricts,
+    endDate,
+    epidemiaData,
+    region,
+    selectedSpecies,
+    startDate,
+  ]);
+
+  const selectedDistrictNeedsDetail = useMemo(() => {
+    if (region === "All Regions") return false;
+    const reportDistrict = resolveReportDistrictForSelection(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies
+    );
+    return Boolean(reportDistrict && districtsNeedingDetail.includes(reportDistrict));
+  }, [
+    adm3Lookup,
+    districtsNeedingDetail,
+    epidemiaData,
+    region,
+    selectedSpecies,
+  ]);
+
+  useEffect(() => {
+    if (!epidemiaData || districtsNeedingDetail.length === 0) {
+      setDistrictDetailLoading(false);
+      return undefined;
+    }
+
+    const requestId = districtDetailRequestRef.current + 1;
+    districtDetailRequestRef.current = requestId;
+    setDistrictDetailLoading(true);
+
+    Promise.all(
+      districtsNeedingDetail.map((district) =>
+        fetchDistrictForecastDetail({
+          outputDir: projectOutputDir,
+          district,
+          species: selectedSpecies,
+          startDate,
+          endDate,
+        }).catch((err) => {
+          console.warn(`Failed to load forecast detail for ${district}:`, err);
+          return null;
+        })
+      )
+    )
+      .then((details) => {
+        if (districtDetailRequestRef.current !== requestId) return;
+        setEpidemiaData((current) => {
+          if (!current) return current;
+          return details.reduce(
+            (report, detail) => (detail ? mergeDistrictForecast(report, detail) : report),
+            current
+          );
+        });
+      })
+      .finally(() => {
+        if (districtDetailRequestRef.current === requestId) {
+          setDistrictDetailLoading(false);
+        }
+      });
+
+    return undefined;
+  }, [
+    districtsNeedingDetail,
+    endDate,
+    epidemiaData,
+    projectOutputDir,
+    selectedSpecies,
+    startDate,
+  ]);
+
   const comparisonSeries = useMemo(() => {
     const uniqueDistricts = [...new Set(comparisonDistricts.filter(Boolean))].slice(0, 3);
     return uniqueDistricts
@@ -1050,6 +1041,34 @@ function Dashboard({
       )
       .filter(Boolean);
   }, [adm3Lookup, comparisonDistricts, epidemiaData, selectedSpecies, startDate, endDate]);
+
+  const comparisonBackgroundSeries = useMemo(() => {
+    const selected = new Set(comparisonDistricts.filter(Boolean));
+    const topDistricts = comparisonChartDistricts.filter(
+      (districtName) => !selected.has(districtName)
+    );
+
+    return topDistricts
+      .map((districtName) =>
+        buildDistrictForecastSeries(
+          epidemiaData,
+          adm3Lookup,
+          districtName,
+          selectedSpecies,
+          startDate,
+          endDate
+        )
+      )
+      .filter(Boolean);
+  }, [
+    adm3Lookup,
+    comparisonChartDistricts,
+    comparisonDistricts,
+    epidemiaData,
+    selectedSpecies,
+    startDate,
+    endDate,
+  ]);
 
   const toggleComparisonDistrict = useCallback(
     (districtName) => {
@@ -1464,12 +1483,14 @@ function Dashboard({
                     <div className="table-view-comparison-intro">
                       <h4>District comparison</h4>
                       <p>
-                        Click table rows to add or remove districts (up to 3). Solid lines =
+                        Top 10 priority districts appear as light transparent lines. Click
+                        table rows to highlight up to 3 districts in solid color. Solid lines =
                         observed, dotted = forecast.
                       </p>
                     </div>
                     <MultiDistrictComparisonChart
                       series={comparisonSeries}
+                      backgroundSeries={comparisonBackgroundSeries}
                       startDate={startDate}
                       endDate={endDate}
                       chartScopeKey={chartScopeKey}

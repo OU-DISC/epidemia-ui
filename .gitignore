@@ -27,6 +27,6 @@ yarn-error.log*
 
 # Generated forecast caches (run backend/scripts/build_forecast_cache.py)
 /public/district_forecasts/
-/public/report_bootstrap.json
-/public/report_map_bootstrap.json
 /public/report_data.json
+/backend/report/report_data.json
+/backend/report/report_data_*.json

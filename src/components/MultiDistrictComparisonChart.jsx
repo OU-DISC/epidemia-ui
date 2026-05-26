@@ -6,9 +6,67 @@ import { chartRangeUiRevision } from "../utils/chartDateRange";
 import { buildPlotlyDateXAxis } from "../utils/plotlyDateAxisSync";
 
 const DISTRICT_COLORS = ["#1f5b9b", "#e04848", "#7356d8"];
+const BACKGROUND_TRACE_ALPHA = 0.28;
+
+function colorWithAlpha(hex, alpha) {
+  const value = hex.replace("#", "");
+  const r = parseInt(value.slice(0, 2), 16);
+  const g = parseInt(value.slice(2, 4), 16);
+  const b = parseInt(value.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+function buildComparisonTraces(seriesItems, { muted = false } = {}) {
+  const out = [];
+
+  seriesItems.forEach((item, index) => {
+    const color = muted
+      ? colorWithAlpha(DISTRICT_COLORS[index % DISTRICT_COLORS.length], BACKGROUND_TRACE_ALPHA)
+      : DISTRICT_COLORS[index % DISTRICT_COLORS.length];
+    const observedPoints = item.rows.filter(
+      (row) => row.observed !== null && row.observed !== undefined
+    );
+    const forecastPoints = item.rows.filter(
+      (row) => row.median !== null && row.median !== undefined
+    );
+
+    if (observedPoints.length > 0) {
+      out.push({
+        x: observedPoints.map((row) => row.date),
+        y: observedPoints.map((row) => row.observed),
+        type: "scatter",
+        mode: "lines+markers",
+        name: `${item.district} · Observed`,
+        legendgroup: item.district,
+        showlegend: !muted,
+        line: { color, width: muted ? 1.4 : 2.2 },
+        marker: { color, size: muted ? 3 : 5 },
+        hovertemplate: `${item.district}<br>Observed: %{y:.1f}<extra></extra>`,
+      });
+    }
+
+    if (forecastPoints.length > 0) {
+      out.push({
+        x: forecastPoints.map((row) => row.date),
+        y: forecastPoints.map((row) => row.median),
+        type: "scatter",
+        mode: "lines+markers",
+        name: `${item.district} · Forecast`,
+        legendgroup: item.district,
+        showlegend: !muted,
+        line: { color, width: muted ? 1.2 : 2, dash: "dot" },
+        marker: { color, size: muted ? 3 : 4, symbol: "diamond-open" },
+        hovertemplate: `${item.district}<br>Forecast: %{y:.1f}<extra></extra>`,
+      });
+    }
+  });
+
+  return out;
+}
 
 export default function MultiDistrictComparisonChart({
   series = [],
+  backgroundSeries = [],
   startDate,
   endDate,
   chartScopeKey = "",
@@ -25,10 +83,11 @@ export default function MultiDistrictComparisonChart({
   const xaxis = useMemo(() => buildPlotlyDateXAxis("Date"), []);
 
   const activeSeries = (series || []).filter((item) => item?.rows?.length);
+  const backgroundActiveSeries = (backgroundSeries || []).filter((item) => item?.rows?.length);
 
   const chartDates = useMemo(() => {
     const dates = new Set();
-    activeSeries.forEach((item) => {
+    [...backgroundActiveSeries, ...activeSeries].forEach((item) => {
       item.rows.forEach((row) => {
         if (row.date) dates.add(row.date);
       });
@@ -54,56 +113,20 @@ export default function MultiDistrictComparisonChart({
     registerHighlightResolver,
   ]);
 
-  const traces = useMemo(() => {
-    const out = [];
-
-    activeSeries.forEach((item, index) => {
-      const color = DISTRICT_COLORS[index % DISTRICT_COLORS.length];
-      const observedPoints = item.rows.filter(
-        (row) => row.observed !== null && row.observed !== undefined
-      );
-      const forecastPoints = item.rows.filter(
-        (row) => row.median !== null && row.median !== undefined
-      );
-
-      if (observedPoints.length > 0) {
-        out.push({
-          x: observedPoints.map((row) => row.date),
-          y: observedPoints.map((row) => row.observed),
-          type: "scatter",
-          mode: "lines+markers",
-          name: `${item.district} · Observed`,
-          legendgroup: item.district,
-          line: { color, width: 2.2 },
-          marker: { color, size: 5 },
-          hovertemplate: `${item.district}<br>Observed: %{y:.1f}<extra></extra>`,
-        });
-      }
-
-      if (forecastPoints.length > 0) {
-        out.push({
-          x: forecastPoints.map((row) => row.date),
-          y: forecastPoints.map((row) => row.median),
-          type: "scatter",
-          mode: "lines+markers",
-          name: `${item.district} · Forecast`,
-          legendgroup: item.district,
-          line: { color, width: 2, dash: "dot" },
-          marker: { color, size: 4, symbol: "diamond-open" },
-          hovertemplate: `${item.district}<br>Forecast: %{y:.1f}<extra></extra>`,
-        });
-      }
-    });
-
-    return out;
-  }, [activeSeries]);
+  const traces = useMemo(
+    () => [
+      ...buildComparisonTraces(backgroundActiveSeries, { muted: true }),
+      ...buildComparisonTraces(activeSeries, { muted: false }),
+    ],
+    [activeSeries, backgroundActiveSeries]
+  );
 
   const layout = useMemo(
     () => ({
       uirevision: chartRangeUiRevision(
         "compare",
         chartScopeKey,
-        `-${activeSeries.map((s) => s.district).join("|")}`
+        `-${backgroundActiveSeries.map((s) => s.district).join("|")}|${activeSeries.map((s) => s.district).join("|")}`
       ),
       autosize: true,
       height,
@@ -127,10 +150,10 @@ export default function MultiDistrictComparisonChart({
         font: { size: 10 },
       },
     }),
-    [activeSeries, chartScopeKey, height, xaxis]
+    [activeSeries, backgroundActiveSeries, chartScopeKey, height, xaxis]
   );
 
-  if (activeSeries.length === 0) {
+  if (activeSeries.length === 0 && backgroundActiveSeries.length === 0) {
     return <div className="chart-state">Select at least one district to compare.</div>;
   }
 

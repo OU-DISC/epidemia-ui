@@ -83,6 +83,27 @@ async function fetchStaticBootstrapReport(historyWeeks = 16) {
   return trimReportClientSide(report, historyWeeks);
 }
 
+export function formatForecastApiError(err, action = "load forecast data") {
+  if (err?.code === "ERR_NETWORK") {
+    const base = FORECAST_API_BASE || "the forecasting API";
+    return `Cannot reach forecasting API at ${base}. Check that the epidemia-forecast-api service is running, then try again.`;
+  }
+
+  const status = err?.response?.status;
+  const detail = err?.response?.data?.detail;
+  if (status === 404) {
+    return (
+      detail ||
+      "No forecast cache found on the server. Deploy report bootstrap files or run the EPIDEMIA pipeline on the forecast API."
+    );
+  }
+  if (status === 502 || status === 503) {
+    return "Forecast API is running but the pipeline failed. Ensure backend data files (including env_data.csv) are on the server, then try Refresh Forecast again.";
+  }
+
+  return detail || err?.message || `Failed to ${action}.`;
+}
+
 export async function fetchForecast(region, horizonWeeks = 8) {
   const response = await axios.post(buildApiUrl(FORECAST_API_BASE, "/forecast"), {
     region: region,
