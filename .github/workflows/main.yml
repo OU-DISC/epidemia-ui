@@ -23,6 +23,24 @@ jobs:
       with:
         length: 6
 
+    - name: Restore district forecast caches
+      uses: actions/cache/restore@v4
+      id: district-cache
+      with:
+        path: |
+          public/district_forecasts
+          backend/report/district_forecasts
+        key: epidemia-district-caches-${{ hashFiles('public/report_bootstrap.json') }}
+        restore-keys: |
+          epidemia-district-caches-
+
+    - name: Download district forecast caches
+      if: steps.district-cache.outputs.cache-hit != 'true'
+      env:
+        GH_TOKEN: ${{ github.token }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+      run: bash .github/scripts/restore-district-caches.sh
+
     - name: Build frontend image
       run: |
         docker build . \
@@ -61,6 +79,24 @@ jobs:
       id: short-sha
       with:
         length: 6
+
+    - name: Restore district forecast caches
+      uses: actions/cache/restore@v4
+      id: district-cache
+      with:
+        path: |
+          public/district_forecasts
+          backend/report/district_forecasts
+        key: epidemia-district-caches-${{ hashFiles('public/report_bootstrap.json') }}
+        restore-keys: |
+          epidemia-district-caches-
+
+    - name: Download district forecast caches
+      if: steps.district-cache.outputs.cache-hit != 'true'
+      env:
+        GH_TOKEN: ${{ github.token }}
+        GITHUB_REPOSITORY: ${{ github.repository }}
+      run: bash .github/scripts/restore-district-caches.sh
 
     - name: Build forecast API image
       run: |

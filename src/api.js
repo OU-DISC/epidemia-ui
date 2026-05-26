@@ -242,16 +242,31 @@ export async function fetchDistrictForecastDetail({
   if (staticDetail) return staticDetail;
 
   if (FORECAST_API_BASE) {
-    const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/district"), {
-      params: {
-        output_dir: outputDir,
+    try {
+      const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/district"), {
+        params: {
+          output_dir: outputDir,
+          district,
+          species,
+          start_date: startDate || undefined,
+          end_date: endDate || undefined,
+        },
+      });
+      return response.data;
+    } catch (err) {
+      const status = err?.response?.status;
+      if (status !== 404 && err?.code !== "ERR_NETWORK") {
+        throw err;
+      }
+
+      const retryStatic = await fetchStaticDistrictForecastDetail(
         district,
         species,
-        start_date: startDate || undefined,
-        end_date: endDate || undefined,
-      },
-    });
-    return response.data;
+        startDate,
+        endDate
+      ).catch(() => null);
+      if (retryStatic) return retryStatic;
+    }
   }
 
   const report = await fetchStaticLatestEpidemiaReport();

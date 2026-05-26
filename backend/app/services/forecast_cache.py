@@ -402,6 +402,45 @@ def district_forecast_cache_paths_public(species: str, district: str) -> list[Pa
     return paths
 
 
+def district_forecast_cache_search_paths(
+    output_dir: str, district: str, species: str
+) -> list[Path]:
+    """All candidate on-disk district cache files for a district/species pair."""
+    species_norm = str(species or "pfm").strip().lower()
+    cache_key = normalize_district_key(district)
+    rel = Path(DISTRICT_CACHE_DIR) / species_norm / f"{cache_key}.json"
+    report_dir = _resolve_runtime_path(output_dir)
+    paths = [
+        report_dir / rel,
+        BACKEND_ROOT / "report" / rel,
+    ]
+    for public_path in district_forecast_cache_paths_public(species, district):
+        if public_path not in paths:
+            paths.append(public_path)
+    return paths
+
+
+def _try_load_district_cache_file(
+    district: str, species: str, output_dir: str = "report"
+) -> dict | None:
+    """Load a per-district cache file without requiring report_data.json."""
+    for cache_path in district_forecast_cache_search_paths(output_dir, district, species):
+        if not cache_path.exists():
+            continue
+        try:
+            cached = json.loads(cache_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if not cached.get("district"):
+            continue
+        cached_name = str(cached.get("district") or "")
+        if cached_name == district.strip():
+            return cached
+        if _normalize_district_label(cached_name) == _normalize_district_label(district):
+            return cached
+    return None
+
+
 def district_forecast_payload_from_row(forecast: dict) -> dict:
     return {
         "district": forecast.get("district"),
@@ -526,8 +565,10 @@ def load_district_forecast_payload(
     if not district.strip():
         raise PipelineInputError("district is required")
 
-    report_json = resolve_best_report_json(output_dir)
-    forecast = _load_district_forecast_row(report_json, district, species)
+    forecast = _try_load_district_cache_file(district, species, output_dir)
+    if forecast is None:
+        report_json = resolve_best_report_json(output_dir)
+        forecast = _load_district_forecast_row(report_json, district, species)
 
     observed_history = forecast.get("observed_history") or []
     if start_date or end_date:
