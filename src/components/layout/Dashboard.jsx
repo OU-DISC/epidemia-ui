@@ -75,7 +75,7 @@ const WEATHER_DATASET_OPTIONS = [
 
 const HEALTH_LAYER_OPTIONS = [
   { label: "Population", value: "population" },
-  { label: "Incident Rate", value: "incident_rate" },
+  { label: "Incidence Rate", value: "incident_rate" },
 ];
 
 function formatPopulation(value) {

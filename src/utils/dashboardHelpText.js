@@ -32,7 +32,7 @@ export const DASHBOARD_HELP = {
   weatherDataset:
     "Environmental variable used in the district time-series chart on the right.",
   healthLayer:
-    "Choropleth shading on the map: population or malaria incident rate.",
+    "Choropleth shading on the map: population or malaria incidence rate.",
 
   envLayers:
     "Overlay rainfall, temperature, or vegetation rasters on the map for context.",

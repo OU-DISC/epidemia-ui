@@ -70,9 +70,17 @@ export default function EnvironmentalTimeSeriesChart({
     fetchTimeseries();
   }, [selectedDistrict, districtGeometry, startDate, endDate, dataset]);
 
-  const chartDates = useMemo(
-    () => (timeseries || []).map((point) => point.date).filter(Boolean),
+  const chartPoints = useMemo(
+    () =>
+      (timeseries || []).filter(
+        (point) => point?.date && point.value != null && !Number.isNaN(Number(point.value))
+      ),
     [timeseries]
+  );
+
+  const chartDates = useMemo(
+    () => chartPoints.map((point) => point.date),
+    [chartPoints]
   );
 
   const datasetLabel = ENV_DATASET_LABELS[dataset] || dataset;
@@ -133,7 +141,7 @@ export default function EnvironmentalTimeSeriesChart({
     return <div className="chart-state chart-state-error">{error}</div>;
   }
 
-  if (timeseries.length === 0) {
+  if (chartPoints.length === 0) {
     return <div className="chart-state">No data available for this period</div>;
   }
 
@@ -145,8 +153,8 @@ export default function EnvironmentalTimeSeriesChart({
       <Plot
         data={[
           {
-            x: timeseries.map((d) => d.date),
-            y: timeseries.map((d) => d.value),
+            x: chartPoints.map((d) => d.date),
+            y: chartPoints.map((d) => d.value),
             type: "scatter",
             mode: "lines+markers",
             name: datasetLabel,

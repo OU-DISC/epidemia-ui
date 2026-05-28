@@ -116,7 +116,7 @@ export function buildAlertExplanation({
   }
 
   if (incidentRate != null) {
-    bullets.push(`Incident rate: ${formatNumber(incidentRate, 1)} per 100,000`);
+    bullets.push(`Incidence rate: ${formatNumber(incidentRate, 1)} per 100,000`);
   }
 
   return { status, summary, bullets };

@@ -905,7 +905,7 @@ export default function EthiopiaMap({
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
     },
     incident_rate: {
-      title: "Incident Rate",
+      title: "Incidence Rate",
       grades: [0, 10, 50, 100],
       unit: "cases per 100,000 people",
       source: `Latest observed cases / WorldPop${populationYear ? ` ${populationYear}` : ""} population`,
