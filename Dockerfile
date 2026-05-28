@@ -10,6 +10,10 @@ ENV REACT_APP_FORECAST_API_BASE=${REACT_APP_FORECAST_API_BASE}
 ENV REACT_APP_ENV_API_BASE=${REACT_APP_ENV_API_BASE}
 ENV PORT=8050
 
+## npm in the Node 22 alpine image can lag behind local npm,
+## causing `npm ci` to fail due to lockfile incompatibilities.
+RUN npm install -g npm@11.16.0
+
 RUN npm ci
 
 RUN npm run build
