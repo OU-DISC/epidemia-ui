@@ -41,6 +41,10 @@ export default function ForecastChart({
   alertAnimationWeek = null,
 
 }) {
+  // Changing the trace set (e.g. removing a line) can cause Plotly to reapply
+  // previous legend visibility to the wrong series under the same uirevision.
+  // Bump this when we change which traces are rendered.
+  const traceSetRevision = "warn-only-thresholds-v1";
 
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
 
@@ -110,19 +114,13 @@ export default function ForecastChart({
 
     const isWarning = Boolean(alert?.early_warning);
 
-    const isDetection = Boolean(!alert?.early_warning && alert?.early_detection);
-
     const alertLabel = isWarning
 
       ? "Early Warning"
 
-      : isDetection
-
-        ? "Early Detection"
-
         : null;
 
-    return { isWarning, isDetection, alertLabel };
+    return { isWarning, alertLabel };
 
   }, [alert]);
 
@@ -138,7 +136,7 @@ export default function ForecastChart({
 
         chartScopeKey,
 
-        districtKey ? `-${districtKey}` : ""
+        `${districtKey ? `-${districtKey}` : ""}-${traceSetRevision}`
 
       ),
 
@@ -234,6 +232,20 @@ export default function ForecastChart({
 
   }
 
+  const forecastPointsCount = data.filter(
+    (d) => d.median !== null && d.median !== undefined
+  ).length;
+  const observedPointsCount = data.filter(
+    (d) => d.observed !== null && d.observed !== undefined
+  ).length;
+  if (forecastPointsCount === 0 && observedPointsCount > 0) {
+    return (
+      <div className="chart-state">
+        No forecast points found for this selection (observations only).
+      </div>
+    );
+  }
+
 
 
   const forecastPoints = data.filter(
@@ -266,14 +278,6 @@ export default function ForecastChart({
 
 
 
-  const detectionThreshold =
-
-    alert?.detection_threshold !== null && alert?.detection_threshold !== undefined
-
-      ? Number(alert.detection_threshold)
-
-      : null;
-
   const warningThreshold =
 
     alert?.warning_threshold !== null && alert?.warning_threshold !== undefined
@@ -281,26 +285,6 @@ export default function ForecastChart({
       ? Number(alert.warning_threshold)
 
       : null;
-
-
-
-  const seasonalThresholdPoints = [...data]
-
-    .filter(
-
-      (point) =>
-
-        point.detection_threshold !== null &&
-
-        point.detection_threshold !== undefined &&
-
-        point.date
-
-    )
-
-    .sort((a, b) => String(a.date).localeCompare(String(b.date)));
-
-  const hasSeasonalThresholds = seasonalThresholdPoints.length > 0;
 
   const { alertLabel } = alertLabelInfo;
 
@@ -342,52 +326,6 @@ export default function ForecastChart({
 
 
 
-  const detectionThresholdTrace =
-
-    hasSeasonalThresholds
-
-      ? {
-
-          x: seasonalThresholdPoints.map((point) => point.date),
-
-          y: seasonalThresholdPoints.map((point) => Number(point.detection_threshold)),
-
-          type: "scatter",
-
-          mode: "lines",
-
-          name: "Detection Threshold",
-
-          line: { color: "#d48806", width: 1.5, dash: "dash" },
-
-          hovertemplate: "Detection Threshold: %{y:.2f}<extra></extra>",
-
-        }
-
-      : detectionThreshold !== null && chartDates.length > 0
-
-        ? {
-
-            x: chartDates,
-
-            y: chartDates.map(() => detectionThreshold),
-
-            type: "scatter",
-
-            mode: "lines",
-
-            name: "Detection Threshold",
-
-            line: { color: "#d48806", width: 1.5, dash: "dash" },
-
-            hovertemplate: "Detection Threshold: %{y:.2f}<extra></extra>",
-
-          }
-
-        : null;
-
-
-
   const warningThresholdPoints = [...data]
 
     .filter(
@@ -403,6 +341,8 @@ export default function ForecastChart({
     )
 
     .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+
+  const hasSeasonalThresholds = warningThresholdPoints.length > 0;
 
 
 
@@ -541,8 +481,6 @@ export default function ForecastChart({
             hovertemplate: "Observed: %{y:.2f}<extra></extra>",
 
           },
-
-          ...(detectionThresholdTrace ? [detectionThresholdTrace] : []),
 
           ...(warningThresholdTrace ? [warningThresholdTrace] : []),
 

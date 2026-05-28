@@ -4,7 +4,15 @@ import { normalizeChartAxisDate } from "./plotlyXAxisSync";
 import { toPlotlyDateRangeMs } from "./chartDateRange";
 
 export function isPlotlyGraphReady(graphDiv) {
-  return Boolean(graphDiv && graphDiv._fullLayout);
+  // Plotly attaches an event emitter API to the graph div (gd.on/gd.emit).
+  // If we attempt relayout on a partially initialized or stale div, Plotly can
+  // throw async errors like "gd.emit is not a function".
+  return Boolean(
+    graphDiv &&
+      graphDiv._fullLayout &&
+      typeof graphDiv.on === "function" &&
+      typeof graphDiv.emit === "function"
+  );
 }
 
 function highlightShapesMatch(graphDiv, highlightDate) {
@@ -29,9 +37,11 @@ export function applyPlotlyHighlightShapes(graphDiv, highlightDate) {
   try {
     return Plotly.relayout(graphDiv, {
       shapes: buildVerticalDateLine(highlightDate),
-    }).finally(() => {
-      graphDiv._epidemiaApplyingHighlight = false;
-    });
+    })
+      .catch(() => {})
+      .finally(() => {
+        graphDiv._epidemiaApplyingHighlight = false;
+      });
   } catch (_err) {
     graphDiv._epidemiaApplyingHighlight = false;
     return Promise.resolve();
@@ -44,12 +54,12 @@ export function applyPlotlyDateRange(graphDiv, startDate, endDate) {
   const msRange = toPlotlyDateRangeMs([startDate, endDate]);
   try {
     if (!msRange) {
-      return Plotly.relayout(graphDiv, { "xaxis.autorange": true });
+      return Plotly.relayout(graphDiv, { "xaxis.autorange": true }).catch(() => {});
     }
     return Plotly.relayout(graphDiv, {
       "xaxis.autorange": false,
       "xaxis.range": msRange,
-    });
+    }).catch(() => {});
   } catch (err) {
     return Promise.resolve();
   }

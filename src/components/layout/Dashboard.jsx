@@ -144,7 +144,6 @@ async function fetchJsonIfAvailable(url) {
 
 function alertStatus(alert) {
   if (alert?.early_warning) return "Early Warning";
-  if (alert?.early_detection) return "Early Detection";
   return "Normal";
 }
 
@@ -256,7 +255,6 @@ function Dashboard({
 
   // Decision layers states
   const [showEarlyWarning, setShowEarlyWarning] = useState(true);
-  const [showEarlyDetection, setShowEarlyDetection] = useState(true);
 
   // Alert history animation (last 4–8 weeks from observed case history)
   const [alertTimeMode, setAlertTimeMode] = useState("current"); // "current" | "animate"
@@ -473,12 +471,8 @@ function Dashboard({
       }
     }
 
-    if (!regionFilter) {
-      setEpidemiaError(
-        "Select a district on the map or a region in the toolbar before refreshing the forecast."
-      );
-      return;
-    }
+    // Allow refreshing for all regions. When no region is selected, run the full pipeline.
+    // (This can take longer than a single-region refresh.)
 
     const requestId = forecastRequestIdRef.current + 1;
     forecastRequestIdRef.current = requestId;
@@ -701,17 +695,33 @@ function Dashboard({
     );
   }, [adm3Lookup, epidemiaData, region, selectedSpecies, selectedAlert, startDate, endDate]);
 
+  // If the selected district forecast extends beyond the current date picker endDate,
+  // automatically extend the visible window so users immediately see the forecast horizon.
+  useEffect(() => {
+    if (!selectedForecast?.length) return;
+    const maxForecastDate = selectedForecast
+      .filter((row) => row?.median !== null && row?.median !== undefined && row?.date)
+      .map((row) => String(row.date))
+      .sort()
+      .slice(-1)[0];
+    if (!maxForecastDate) return;
+
+    const currentEnd = Date.parse(`${endDate}T00:00:00Z`);
+    const nextEnd = Date.parse(`${maxForecastDate}T00:00:00Z`);
+    if (Number.isNaN(currentEnd) || Number.isNaN(nextEnd)) return;
+    if (nextEnd > currentEnd) {
+      setEndDate(maxForecastDate);
+    }
+  }, [selectedForecast, endDate]);
+
   const forecastSummary = useMemo(() => {
     const alerts = epidemiaData?.alerts || [];
     const speciesAlerts = alerts.filter((a) => a.species === selectedSpecies);
     const warningCount = speciesAlerts.filter((a) => a.early_warning).length;
-    const detectionCount = speciesAlerts.filter(
-      (a) => !a.early_warning && a.early_detection
-    ).length;
     return {
       districts: speciesAlerts.length,
       warnings: warningCount,
-      detections: detectionCount,
+      detections: 0,
     };
   }, [epidemiaData, selectedSpecies]);
 
@@ -810,12 +820,11 @@ function Dashboard({
       const feature = findDistrictFromLookup(adm3Lookup, alert.district);
       const mapDistrict = feature?.properties?.adm3_name || alert.district;
       const status = alertStatus(alert);
-      const statusRank = status === "Early Warning" ? 3 : status === "Early Detection" ? 2 : 1;
+      const statusRank = status === "Early Warning" ? 2 : 1;
       const latestForecast = finiteNumber(alert.latest_forecast);
       const detectionThreshold = finiteNumber(alert.detection_threshold);
       const warningThreshold = finiteNumber(alert.warning_threshold);
-      const activeThreshold =
-        status === "Early Warning" ? warningThreshold : detectionThreshold;
+      const activeThreshold = warningThreshold;
       const magnitude =
         latestForecast != null && activeThreshold != null ? latestForecast - activeThreshold : null;
       const magnitudePercent =
@@ -832,7 +841,7 @@ function Dashboard({
       const populationAtRisk = finiteNumber(alert.population_at_risk);
       const positiveMagnitudePercent = Math.max(0, magnitudePercent || 0);
       const priority =
-        (status === "Early Warning" ? 1000 : status === "Early Detection" ? 500 : 0) +
+        (status === "Early Warning" ? 1000 : 0) +
         positiveMagnitudePercent +
         persistenceWeeks * 10 +
         Math.log10(Math.max(populationAtRisk || 1, 1));
@@ -1285,9 +1294,7 @@ function Dashboard({
 
             <DecisionLayers
               showEarlyWarning={showEarlyWarning}
-              showEarlyDetection={showEarlyDetection}
               onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
-              onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
               alertTimeMode={alertTimeMode}
               onChangeAlertTimeMode={setAlertTimeMode}
               alertWeekDates={alertWeekDates}
@@ -1335,7 +1342,6 @@ function Dashboard({
               districtTooltipByDistrict={districtTooltipByDistrict}
               selectedSpecies={selectedSpecies}
               showEarlyWarning={showEarlyWarning}
-              showEarlyDetection={showEarlyDetection}
               alertTimeMode={alertTimeMode}
               alertAnimationWeek={alertAnimationWeek}
               selectedDistrictName={region !== "All Regions" ? region : null}

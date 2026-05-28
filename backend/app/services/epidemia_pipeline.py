@@ -186,6 +186,12 @@ def _read_nonempty_csvs(folder: Path) -> List[Path]:
 
 
 def _corral_environment(report_woredas: pd.DataFrame, data_dir: Path) -> pd.DataFrame:
+    # Some deployments provide a woreda registry without numeric WID (e.g. keyed by pcode).
+    # In that case we can't align the exported environmental CSVs (which are keyed by wid/WID),
+    # so we skip environmental joins and allow the pipeline to fall back to non-env thresholds.
+    if "WID" not in report_woredas.columns:
+        return _empty_like_env()
+
     env_dir = data_dir / "data_environmental"
     if not env_dir.exists():
         raise PipelineInputError(f"Missing environmental folder: {env_dir}")
@@ -623,13 +629,17 @@ def _forecast_one_district(
         [observed_window["week_start"], forecast_weeks], ignore_index=True
     )
 
-    threshold_df = compute_seasonal_thresholds(
-        district_df=district_df.rename(columns={"cases": "cases"}),
-        predict_weeks=predict_weeks,
-        env_clim=env_clim,
-        woreda_name=str(woreda_name),
-        species=str(species.species),
-    )
+    threshold_df = None
+    try:
+        threshold_df = compute_seasonal_thresholds(
+            district_df=district_df.rename(columns={"cases": "cases"}),
+            predict_weeks=predict_weeks,
+            env_clim=env_clim,
+            woreda_name=str(woreda_name),
+            species=str(species.species),
+        )
+    except Exception:
+        threshold_df = None
 
     observed_history: List[DistrictObservedPoint] = []
     for _, row in observed_window.iterrows():

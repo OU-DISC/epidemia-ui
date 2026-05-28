@@ -528,7 +528,7 @@ body {
 
 .forecast-cards {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -791,7 +791,7 @@ body {
 
 .map-layer-controls {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   gap: 8px 12px;
 }
@@ -806,7 +806,7 @@ body {
 }
 
 .map-surface-control .toolbar-select {
-  min-width: 180px;
+  min-width: 150px;
   padding: 6px 9px;
   font-size: 0.84rem;
 }

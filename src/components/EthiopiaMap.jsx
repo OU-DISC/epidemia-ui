@@ -394,7 +394,6 @@ function AlertMarkers({
   alerts,
   alertTooltipByDistrict = {},
   showEarlyWarning,
-  showEarlyDetection,
   adm3Lookup,
   selectedSpecies = "pfm",
   onSelectDistrict,
@@ -424,17 +423,10 @@ function AlertMarkers({
         if (alert?.species && alert.species !== selectedSpecies) return;
 
         const isEarlyWarning = Boolean(alert?.early_warning);
-        // Treat early detection as a separate class from early warning.
-        // Many records may have early_detection=true for warning cases, but the UI
-        // expects the toggles to control the two icons independently.
-        const isEarlyDetectionOnly = Boolean(alert?.early_detection) && !isEarlyWarning;
 
-        // If it doesn't belong to either layer, skip.
-        if (!isEarlyWarning && !isEarlyDetectionOnly) return;
-
-        // Apply layer toggles.
-        if (isEarlyWarning && !showEarlyWarning) return;
-        if (isEarlyDetectionOnly && !showEarlyDetection) return;
+        // Only show Early Warning markers on the map.
+        if (!isEarlyWarning) return;
+        if (!showEarlyWarning) return;
 
         const district = findDistrictFromLookup(adm3Lookup, alert.district);
         if (district && district.geometry) {
@@ -443,9 +435,9 @@ function AlertMarkers({
           const centroid = bounds.getCenter();
           const districtName = district?.properties?.adm3_name || alert.district;
 
-          // Create marker with appropriate icon and color
-          const iconHtml = isEarlyWarning ? '⚠️' : '🔍';
-          const iconColor = isEarlyWarning ? '#dc2626' : '#ea580c';
+          // Create marker with warning icon and color
+          const iconHtml = "⚠️";
+          const iconColor = "#dc2626";
 
           const alertIcon = L.divIcon({
             html: `<div style="
@@ -470,7 +462,7 @@ function AlertMarkers({
             .bindTooltip(
               alertTooltipByDistrict[districtName] ||
                 alertTooltipByDistrict[normalizeDistrictKey(districtName)] ||
-                `${districtName}<br>${isEarlyWarning ? "Early Warning" : "Early Detection"}`,
+                `${districtName}<br>Early Warning`,
               {
                 permanent: false,
                 direction: "top",
@@ -511,7 +503,7 @@ function AlertMarkers({
         }
       });
     };
-  }, [map, alerts, alertTooltipByDistrict, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
+  }, [map, alerts, alertTooltipByDistrict, showEarlyWarning, adm3Lookup, selectedSpecies, onSelectDistrict]);
 
   return null;
 }
@@ -1019,6 +1011,12 @@ export default function EthiopiaMap({
     if (dataset === "population") {
       return alertPopulationLookup[districtName] || alertPopulationLookup[normalizeDistrictKey(districtName)];
     }
+    // If the shapefile includes a district but the epidemiological dataset doesn't
+    // provide values for it (common for admin "town" polygons), treat incident rate
+    // as 0 so the choropleth remains fully colored.
+    if (dataset === "incident_rate") {
+      return 0;
+    }
     return undefined;
   };
 
@@ -1047,6 +1045,52 @@ export default function EthiopiaMap({
       ),
     };
   }, [geoData, filterRegion, filterKey]);
+
+  useEffect(() => {
+    if (!districtDataForView?.features?.length) return;
+    if (!envData) return;
+
+    const shapeNames = [];
+    const shapeKeySet = new Set();
+    for (const f of districtDataForView.features) {
+      const name = f?.properties?.adm3_name;
+      if (!name) continue;
+      shapeNames.push(name);
+      shapeKeySet.add(normalizeDistrictKey(name));
+    }
+
+    const dataKeySet = new Set();
+    Object.keys(envData || {}).forEach((k) => {
+      if (!k) return;
+      dataKeySet.add(normalizeDistrictKey(k));
+    });
+
+    const missingInData = [];
+    for (const name of shapeNames) {
+      const value = getDistrictValue(name);
+      if (value === undefined) missingInData.push(name);
+    }
+
+    const extraInData = [];
+    dataKeySet.forEach((key) => {
+      if (!shapeKeySet.has(key)) extraInData.push(key);
+    });
+
+    if (missingInData.length) {
+      // "In shape, not in dataset" for the current map dataset.
+      console.info(
+        `[EthiopiaMap] In shape but missing '${dataset}' value: ${missingInData.length}/${shapeNames.length} (showing up to 30):`,
+        missingInData.slice(0, 30)
+      );
+    }
+    if (extraInData.length) {
+      // "In dataset, not in shape" (usually name mismatch or different geography cut).
+      console.info(
+        `[EthiopiaMap] In '${dataset}' dataset but not in shape: ${extraInData.length} (showing up to 30, normalized keys):`,
+        extraInData.slice(0, 30)
+      );
+    }
+  }, [districtDataForView, envData, dataset]); // getDistrictValue is stable within render
 
   // Woreda strokes (thin). Regional ring is a separate admin1 layer on top, thicker.
   const style = (feature) => {
