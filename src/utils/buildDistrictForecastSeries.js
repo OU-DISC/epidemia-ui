@@ -91,3 +91,107 @@ export function buildComparisonDistrictOptions(forecastTableRows, adminRegion) {
     status: row.status,
   }));
 }
+
+/** How the comparison chart picks its default highlighted districts. */
+export const COMPARISON_HIGHLIGHT_MODES = [
+  { value: "alert-priority", label: "Alert priority" },
+  { value: "peak-cases", label: "Peak cases (date range)" },
+  { value: "latest-forecast", label: "Latest forecast" },
+];
+
+function filterRowsByAdminRegion(forecastTableRows, adminRegion) {
+  let rows = [...(forecastTableRows || [])];
+  if (adminRegion && adminRegion !== "All Regions" && adminRegion !== "No Selection") {
+    rows = rows.filter((row) => row.region === adminRegion);
+  }
+  return rows;
+}
+
+function peakObservedInRange(epidemiaData, adm3Lookup, districtName, selectedSpecies, startDate, endDate) {
+  const series = buildDistrictForecastSeries(
+    epidemiaData,
+    adm3Lookup,
+    districtName,
+    selectedSpecies,
+    startDate,
+    endDate
+  );
+  const observed = (series?.rows || [])
+    .map((row) => row.observed)
+    .filter((value) => value != null && Number.isFinite(Number(value)))
+    .map(Number);
+  return observed.length ? Math.max(...observed) : -Infinity;
+}
+
+/** Default highlighted districts for the comparison chart (scoped to admin region when set). */
+export function buildRegionalComparisonDistricts(
+  forecastTableRows,
+  adminRegion,
+  mode = "alert-priority",
+  {
+    epidemiaData = null,
+    adm3Lookup = null,
+    selectedSpecies = null,
+    startDate = null,
+    endDate = null,
+    count = 3,
+  } = {}
+) {
+  let rows = filterRowsByAdminRegion(forecastTableRows, adminRegion);
+
+  if (mode === "latest-forecast") {
+    rows.sort(
+      (a, b) =>
+        (Number.isFinite(Number(b.latestForecast)) ? Number(b.latestForecast) : -Infinity) -
+        (Number.isFinite(Number(a.latestForecast)) ? Number(a.latestForecast) : -Infinity)
+    );
+  } else if (mode === "peak-cases") {
+    rows = rows
+      .map((row) => ({
+        ...row,
+        peakObserved: peakObservedInRange(
+          epidemiaData,
+          adm3Lookup,
+          row.mapDistrict,
+          selectedSpecies,
+          startDate,
+          endDate
+        ),
+      }))
+      .sort((a, b) => b.peakObserved - a.peakObserved);
+  } else {
+    rows.sort((a, b) => b.priority - a.priority);
+  }
+
+  return Array.from({ length: count }, (_, index) => rows[index]?.mapDistrict || "");
+}
+
+/** @deprecated Use buildRegionalComparisonDistricts with mode "alert-priority". */
+export function buildRegionalTopPriorityDistricts(forecastTableRows, adminRegion, count = 3) {
+  return buildRegionalComparisonDistricts(forecastTableRows, adminRegion, "alert-priority", {
+    count,
+  });
+}
+
+/** Top priority districts for table badges (national, not region-filtered). */
+export function buildTableTopPriorityDistricts(forecastTableRows, count = 3) {
+  const top = [...(forecastTableRows || [])]
+    .filter((row) => row.statusRank > 1)
+    .sort((a, b) => b.priority - a.priority)
+    .slice(0, count)
+    .map((row) => row.mapDistrict);
+
+  return Array.from({ length: count }, (_, index) => top[index] || "");
+}
+
+export function buildTableTopPriorityRankByKey(forecastTableRows, count = 3) {
+  const rankByKey = new Map();
+  [...(forecastTableRows || [])]
+    .filter((row) => row.statusRank > 1)
+    .sort((a, b) => b.priority - a.priority)
+    .slice(0, count)
+    .forEach((row, index) => {
+      rankByKey.set(`${row.species}-${row.rawDistrict}`, index + 1);
+    });
+  return rankByKey;
+}

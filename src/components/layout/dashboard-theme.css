@@ -720,8 +720,30 @@ body {
   margin-bottom: 8px;
 }
 
+.table-view-comparison-intro-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.comparison-highlight-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.comparison-highlight-mode .toolbar-select {
+  min-width: 168px;
+  font-size: 0.78rem;
+}
+
 .table-view-comparison-intro h4 {
-  margin: 0 0 4px;
+  margin: 0;
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
   font-size: 0.92rem;
 }
@@ -1376,6 +1398,232 @@ body {
 }
 
 @media (max-width: 1100px) {
+  .mobile-view-switcher {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 0 12px;
+    position: sticky;
+    top: 8px;
+    z-index: 30;
+    padding: 6px;
+    border-radius: 14px;
+    border: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 24px rgba(24, 39, 66, 0.08);
+  }
+
+  .mobile-view-tab {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 8px;
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .mobile-view-tab.active {
+    color: var(--ink);
+    border-color: rgba(15, 123, 108, 0.24);
+    background: rgba(15, 123, 108, 0.1);
+  }
+
+  .mobile-summary-view {
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-summary-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-summary-header h3 {
+    margin: 0 0 4px;
+    font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    font-size: 1rem;
+  }
+
+  .mobile-summary-subtitle,
+  .mobile-summary-updated {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .mobile-summary-updated {
+    text-align: right;
+    max-width: 42%;
+  }
+
+  .mobile-summary-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-summary-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .mobile-summary-stat span {
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+  }
+
+  .mobile-summary-stat strong {
+    font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    font-size: 1.15rem;
+  }
+
+  .mobile-summary-stat-warning strong {
+    color: var(--warn);
+  }
+
+  .mobile-summary-selected,
+  .mobile-summary-alert-card {
+    width: 100%;
+    text-align: left;
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  .mobile-summary-selected {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-summary-selected-label,
+  .mobile-summary-alert-region {
+    color: var(--ink-soft);
+    font-size: 0.74rem;
+  }
+
+  .mobile-summary-selected-meta {
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+  }
+
+  .mobile-summary-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-summary-list-header h4 {
+    margin: 0;
+    font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+    font-size: 0.88rem;
+  }
+
+  .mobile-summary-list-header span {
+    color: var(--ink-soft);
+    font-size: 0.74rem;
+  }
+
+  .mobile-summary-alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-summary-alert-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mobile-summary-alert-card.is-selected {
+    border-color: rgba(15, 123, 108, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(15, 123, 108, 0.12);
+  }
+
+  .mobile-summary-alert-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .mobile-summary-alert-rank {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-strong);
+  }
+
+  .summary-alert-status {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+  }
+
+  .summary-alert-status-warning {
+    color: #8f2d2d;
+    background: rgba(201, 62, 62, 0.12);
+  }
+
+  .summary-alert-status-normal {
+    color: var(--ink-soft);
+    background: rgba(76, 90, 112, 0.1);
+  }
+
+  .mobile-summary-alert-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+  }
+
+  .mobile-summary-alert-metrics strong {
+    display: block;
+    color: var(--ink);
+    font-size: 0.82rem;
+  }
+
+  .mobile-summary-empty {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+  }
+
+  .dashboard-shell--compact .dashboard-hero {
+    margin-bottom: 10px;
+  }
+
+  .dashboard-shell--compact .dashboard-title {
+    font-size: clamp(1.15rem, 4vw, 1.45rem);
+  }
+
+  .dashboard-shell--compact .map-layer-controls {
+    flex-wrap: wrap;
+  }
+
   .forecast-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1397,6 +1645,20 @@ body {
 @media (max-width: 640px) {
   .forecast-cards {
     grid-template-columns: 1fr;
+  }
+
+  .mobile-summary-stats,
+  .mobile-summary-alert-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-summary-updated {
+    max-width: none;
+    text-align: left;
+  }
+
+  .mobile-summary-header {
+    flex-direction: column;
   }
 
   .dashboard-shell {

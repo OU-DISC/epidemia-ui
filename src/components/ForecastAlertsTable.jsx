@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { buildTableTopPriorityRankByKey } from "../utils/buildDistrictForecastSeries";
 
 const ROWS_PER_PAGE = 10;
 
@@ -56,17 +57,10 @@ export default function ForecastAlertsTable({
     return copy;
   }, [rows, sortDir, sortKey]);
 
-  const topPriorityRankByKey = useMemo(() => {
-    const rankByKey = new Map();
-    [...rows]
-      .filter((row) => row.statusRank > 1)
-      .sort((a, b) => b.priority - a.priority)
-      .slice(0, 3)
-      .forEach((row, index) => {
-        rankByKey.set(`${row.species}-${row.rawDistrict}`, index + 1);
-      });
-    return rankByKey;
-  }, [rows]);
+  const topPriorityRankByKey = useMemo(
+    () => buildTableTopPriorityRankByKey(rows, 3),
+    [rows]
+  );
 
   const pageCount = Math.max(1, Math.ceil(sortedRows.length / ROWS_PER_PAGE));
   const safePage = Math.min(page, pageCount - 1);

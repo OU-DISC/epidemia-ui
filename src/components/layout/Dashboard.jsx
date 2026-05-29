@@ -6,6 +6,7 @@ import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import ForecastAlertsTable from "../ForecastAlertsTable";
 import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
 import SituationStrip from "../SituationStrip";
+import MobileSummaryView from "../MobileSummaryView";
 import HelpTip from "../HelpTip";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
 import DecisionLayers from "../DecisionLayers";
@@ -33,7 +34,12 @@ import {
   countAlertTypes,
 } from "../../utils/buildAlertHistory";
 import { buildDistrictTooltipLookup } from "../../utils/buildDistrictTooltipLookup";
-import { buildComparisonDistrictOptions, buildDistrictForecastSeries } from "../../utils/buildDistrictForecastSeries";
+import {
+  buildComparisonDistrictOptions,
+  buildDistrictForecastSeries,
+  buildRegionalComparisonDistricts,
+  COMPARISON_HIGHLIGHT_MODES,
+} from "../../utils/buildDistrictForecastSeries";
 import { filterForecastRowsByDateRange } from "../../utils/filterForecastByDateRange";
 import { exportWeeklyReport } from "../../utils/exportWeeklyReport";
 import { speciesToDisease } from "../../utils/projectStorage";
@@ -46,6 +52,7 @@ import {
   parseXAxisRangeFromRelayoutEvent,
 } from "../../utils/plotlyXAxisSync";
 import { useChartPlotRegistry } from "../../utils/useChartPlotRegistry";
+import { useMediaQuery } from "../../utils/useMediaQuery";
 import {
   findDistrictForecastRow,
   forecastHistoryCoversRange,
@@ -252,6 +259,9 @@ function Dashboard({
   }, [chartScopeKey]);
   const [rightPanelView, setRightPanelView] = useState("charts");
   const [comparisonDistricts, setComparisonDistricts] = useState(["", "", ""]);
+  const [comparisonHighlightMode, setComparisonHighlightMode] = useState("alert-priority");
+  const isCompactLayout = useMediaQuery("(max-width: 1100px)");
+  const [mobileMainView, setMobileMainView] = useState("summary");
 
   // Decision layers states
   const [showEarlyWarning, setShowEarlyWarning] = useState(true);
@@ -908,26 +918,74 @@ function Dashboard({
     userPrefersAllDistrictsRef.current = true;
   }, [districts, region, topPriorityDistrict, updateRegion]);
 
-  const defaultComparisonDistricts = useMemo(() => {
-    const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
-    return [
-      options[0]?.value || "",
-      options[1]?.value || "",
-      options[2]?.value || "",
-    ];
-  }, [forecastTableRows, selectedAdminRegion]);
+  const defaultComparisonDistricts = useMemo(
+    () =>
+      buildRegionalComparisonDistricts(
+        forecastTableRows,
+        selectedAdminRegion,
+        comparisonHighlightMode,
+        {
+          epidemiaData,
+          adm3Lookup,
+          selectedSpecies,
+          startDate,
+          endDate,
+          count: 3,
+        }
+      ),
+    [
+      adm3Lookup,
+      comparisonHighlightMode,
+      endDate,
+      epidemiaData,
+      forecastTableRows,
+      selectedAdminRegion,
+      selectedSpecies,
+      startDate,
+    ]
+  );
+
+  const comparisonDefaultsKey = useMemo(
+    () =>
+      [
+        comparisonHighlightMode,
+        selectedAdminRegion,
+        selectedSpecies,
+        startDate,
+        endDate,
+        chartScopeKey,
+        epidemiaData?.generated_at || "",
+      ].join("|"),
+    [
+      chartScopeKey,
+      comparisonHighlightMode,
+      endDate,
+      epidemiaData?.generated_at,
+      selectedAdminRegion,
+      selectedSpecies,
+      startDate,
+    ]
+  );
 
   React.useEffect(() => {
     setComparisonDistricts(defaultComparisonDistricts);
-  }, [defaultComparisonDistricts]);
+    // Reset only when highlight scope changes, not when district detail merges into epidemiaData.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed by comparisonDefaultsKey
+  }, [comparisonDefaultsKey]);
 
-  const comparisonChartDistricts = useMemo(() => {
-    const topTen = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion)
-      .slice(0, 10)
+  const comparisonBackgroundDistricts = useMemo(() => {
+    const selected = new Set(comparisonDistricts.filter(Boolean));
+    const hasRegionalFilter =
+      selectedAdminRegion &&
+      selectedAdminRegion !== "All Regions" &&
+      selectedAdminRegion !== "No Selection";
+
+    const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
+    const candidates = (hasRegionalFilter ? options : options.slice(0, 10))
       .map((option) => option.value)
       .filter(Boolean);
-    const selected = comparisonDistricts.filter(Boolean);
-    return [...new Set([...topTen, ...selected])];
+
+    return candidates.filter((districtName) => !selected.has(districtName));
   }, [comparisonDistricts, forecastTableRows, selectedAdminRegion]);
 
   const districtsNeedingDetail = useMemo(() => {
@@ -956,11 +1014,13 @@ function Dashboard({
     if (region && region !== "All Regions") {
       addIfNeeded(region);
     }
-    comparisonChartDistricts.forEach(addIfNeeded);
+    comparisonDistricts.filter(Boolean).forEach(addIfNeeded);
+    comparisonBackgroundDistricts.forEach(addIfNeeded);
     return [...names];
   }, [
     adm3Lookup,
-    comparisonChartDistricts,
+    comparisonBackgroundDistricts,
+    comparisonDistricts,
     endDate,
     epidemiaData,
     region,
@@ -1052,12 +1112,7 @@ function Dashboard({
   }, [adm3Lookup, comparisonDistricts, epidemiaData, selectedSpecies, startDate, endDate]);
 
   const comparisonBackgroundSeries = useMemo(() => {
-    const selected = new Set(comparisonDistricts.filter(Boolean));
-    const topDistricts = comparisonChartDistricts.filter(
-      (districtName) => !selected.has(districtName)
-    );
-
-    return topDistricts
+    return comparisonBackgroundDistricts
       .map((districtName) =>
         buildDistrictForecastSeries(
           epidemiaData,
@@ -1071,8 +1126,7 @@ function Dashboard({
       .filter(Boolean);
   }, [
     adm3Lookup,
-    comparisonChartDistricts,
-    comparisonDistricts,
+    comparisonBackgroundDistricts,
     epidemiaData,
     selectedSpecies,
     startDate,
@@ -1108,6 +1162,27 @@ function Dashboard({
       });
     },
     [region, topPriorityDistrict, updateRegion]
+  );
+
+  const handleSummaryDistrictSelect = useCallback(
+    (districtName) => {
+      if (!districtName) return;
+      updateRegion(districtName);
+      setMobileMainView("details");
+      setRightPanelView("charts");
+    },
+    [updateRegion]
+  );
+
+  const handleMapDistrictSelect = useCallback(
+    (districtName) => {
+      updateRegion(districtName);
+      if (isCompactLayout) {
+        setMobileMainView("details");
+        setRightPanelView("charts");
+      }
+    },
+    [isCompactLayout, updateRegion]
   );
 
   const pipelineStatus = useMemo(() => {
@@ -1211,7 +1286,10 @@ function Dashboard({
   };
 
   return (
-    <div id="dashboard" className="dashboard-shell">
+    <div
+      id="dashboard"
+      className={`dashboard-shell${isCompactLayout ? " dashboard-shell--compact" : ""}`}
+    >
       <TopToolbar
         disease={disease}
         onChangeDisease={setDisease}
@@ -1242,10 +1320,57 @@ function Dashboard({
             </h1>
           </section>
 
-        <SituationStrip summary={forecastSummary} pipelineStatus={pipelineStatus} />
+        {(!isCompactLayout || mobileMainView !== "summary") && (
+          <SituationStrip summary={forecastSummary} pipelineStatus={pipelineStatus} />
+        )}
 
+        {isCompactLayout ? (
+          <nav className="mobile-view-switcher fade-in-up delay-1" role="tablist" aria-label="Dashboard views">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={mobileMainView === "summary"}
+              className={mobileMainView === "summary" ? "mobile-view-tab active" : "mobile-view-tab"}
+              onClick={() => setMobileMainView("summary")}
+            >
+              Summary
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={mobileMainView === "map"}
+              className={mobileMainView === "map" ? "mobile-view-tab active" : "mobile-view-tab"}
+              onClick={() => setMobileMainView("map")}
+            >
+              Map
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={mobileMainView === "details"}
+              className={mobileMainView === "details" ? "mobile-view-tab active" : "mobile-view-tab"}
+              onClick={() => setMobileMainView("details")}
+            >
+              Details
+            </button>
+          </nav>
+        ) : null}
+
+        {isCompactLayout && mobileMainView === "summary" ? (
+          <MobileSummaryView
+            rows={forecastTableRows}
+            selectedAdminRegion={selectedAdminRegion}
+            selectedDistrict={region}
+            speciesLabel={speciesLabel}
+            startDate={startDate}
+            endDate={endDate}
+            generatedAt={epidemiaData?.generated_at}
+            onSelectDistrict={handleSummaryDistrictSelect}
+          />
+        ) : (
         <section className="dashboard-grid fade-in-up delay-2">
           {/* Map */}
+          {(!isCompactLayout || mobileMainView === "map") && (
           <div className="glass-card map-panel">
             <div className="panel-header">
               <h3>
@@ -1329,7 +1454,7 @@ function Dashboard({
             />
 
             <EthiopiaMap
-              onSelectRegion={updateRegion}
+              onSelectRegion={handleMapDistrictSelect}
               startDate={startDate}
               endDate={endDate}
               dataset={healthLayer}
@@ -1367,8 +1492,10 @@ function Dashboard({
               </div>
             )}
           </div>
+          )}
 
           {/* Charts / table tabs */}
+          {(!isCompactLayout || mobileMainView === "details") && (
           <div className="glass-card insights-panel side-panel">
             <div className="panel-header">
               <h3>{region}</h3>
@@ -1490,11 +1617,29 @@ function Dashboard({
                 {!epidemiaLoading && !epidemiaRefreshing && (
                   <div className="table-view-comparison">
                     <div className="table-view-comparison-intro">
-                      <h4>District comparison</h4>
+                      <div className="table-view-comparison-intro-header">
+                        <h4>District comparison</h4>
+                        <label className="comparison-highlight-mode">
+                          <span>Highlight by</span>
+                          <select
+                            className="toolbar-select"
+                            value={comparisonHighlightMode}
+                            onChange={(event) => setComparisonHighlightMode(event.target.value)}
+                          >
+                            {COMPARISON_HIGHLIGHT_MODES.map((option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                      </div>
                       <p>
-                        Top 10 priority districts appear as light transparent lines. Click
-                        table rows to highlight up to 3 districts in solid color. Solid lines =
-                        observed, dotted = forecast.
+                        When a region is selected, other districts in that region appear as grey
+                        background lines; nationally, the top 10 priority districts are shown.
+                        Use the selector above to compare highlight strategies. Click table rows or
+                        grey chart lines to pick up to 3 districts manually. Solid lines = observed,
+                        dotted = forecast.
                       </p>
                     </div>
                     <MultiDistrictComparisonChart
@@ -1511,13 +1656,16 @@ function Dashboard({
                       registerHighlightResolver={registerHighlightResolver}
                       alertTimeMode={alertTimeMode}
                       alertAnimationWeek={alertAnimationWeek}
+                      onSelectDistrict={toggleComparisonDistrict}
                     />
                   </div>
                 )}
               </div>
             )}
           </div>
+          )}
         </section>
+        )}
         </main>
       </div>
     </div>
