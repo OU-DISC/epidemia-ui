@@ -1620,8 +1620,70 @@ body {
     font-size: clamp(1.15rem, 4vw, 1.45rem);
   }
 
+  .dashboard-shell--compact {
+    overflow-x: clip;
+  }
+
+  .dashboard-shell--compact .main-content,
+  .dashboard-shell--compact .dashboard-grid,
+  .dashboard-shell--compact .map-panel,
+  .dashboard-shell--compact .insights-panel,
+  .dashboard-shell--compact .map-wrap {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .dashboard-shell--compact .map-panel {
+    overflow: hidden;
+  }
+
+  .dashboard-shell--compact .map-panel .panel-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
   .dashboard-shell--compact .map-layer-controls {
     flex-wrap: wrap;
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  .dashboard-shell--compact .map-surface-control {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .dashboard-shell--compact .map-surface-control .toolbar-select {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dashboard-shell--compact .decision-layers-compact,
+  .dashboard-shell--compact .env-layers-compact {
+    align-items: stretch;
+  }
+
+  .dashboard-shell--compact .env-layers-compact .env-layers-date-range {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .dashboard-shell--compact .env-layers-compact .env-layers-date-range .toolbar-field {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .dashboard-shell--compact .env-layers-compact .env-layers-date-range .toolbar-input {
+    width: 100%;
+  }
+
+  .dashboard-shell--compact .map-wrap,
+  .dashboard-shell--compact .district-map {
+    width: 100%;
+    max-width: 100%;
   }
 
   .forecast-cards {

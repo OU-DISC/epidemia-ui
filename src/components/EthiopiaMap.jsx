@@ -144,6 +144,34 @@ function HomeMapControl() {
   return null;
 }
 
+function MapAutoResize() {
+  const map = useMap();
+
+  useEffect(() => {
+    const container = map.getContainer()?.parentElement;
+    if (!container) return undefined;
+
+    const invalidate = () => {
+      map.invalidateSize({ animate: false });
+    };
+
+    invalidate();
+    const frame = window.requestAnimationFrame(invalidate);
+    const timeout = window.setTimeout(invalidate, 250);
+
+    const observer = new ResizeObserver(invalidate);
+    observer.observe(container);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timeout);
+      observer.disconnect();
+    };
+  }, [map]);
+
+  return null;
+}
+
 const GIBS_PREFETCH_MAX_TILES = 48;
 
 /**
@@ -1209,6 +1237,7 @@ export default function EthiopiaMap({
         className="district-map"
       >
         <HomeMapControl />
+        <MapAutoResize />
 
         <TileLayer
           attribution="© OpenStreetMap, © CARTO"
