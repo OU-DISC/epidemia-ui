@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { Plot } from "../utils/plotly";
-import { fetchEnvironmentalTimeseries } from "../api";
+import { fetchEnvironmentalTimeseries, ENV_API_BASE } from "../api";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
 import { chartRangeUiRevision, CHART_PANEL_HEIGHT } from "../utils/chartDateRange";
 import { buildPlotlyDateXAxis } from "../utils/plotlyDateAxisSync";
+import { kelvinToCelsiusValue } from "../utils/temperatureUnits";
 
 const ENV_DATASET_LABELS = {
   totprec: "Precipitation (mm/day)",
@@ -61,7 +62,12 @@ export default function EnvironmentalTimeSeriesChart({
         setTimeseries(data.timeseries || []);
       } catch (err) {
         console.error("Error fetching timeseries:", err);
-        setError(err.response?.data?.error || "Failed to load chart data");
+        const detail =
+          err.response?.data?.error ||
+          (err.code === "ERR_NETWORK"
+            ? `Cannot reach environmental API at ${ENV_API_BASE || "http://localhost:5000"}`
+            : null);
+        setError(detail || err.message || "Failed to load chart data");
       } finally {
         setLoading(false);
       }
@@ -70,9 +76,18 @@ export default function EnvironmentalTimeSeriesChart({
     fetchTimeseries();
   }, [selectedDistrict, districtGeometry, startDate, endDate, dataset]);
 
+  const plotSeries = useMemo(
+    () =>
+      (timeseries || []).map((point) => ({
+        date: point.date,
+        value: kelvinToCelsiusValue(point.value, dataset),
+      })),
+    [timeseries, dataset]
+  );
+
   const chartDates = useMemo(
-    () => (timeseries || []).map((point) => point.date).filter(Boolean),
-    [timeseries]
+    () => plotSeries.map((point) => point.date).filter(Boolean),
+    [plotSeries]
   );
 
   const datasetLabel = ENV_DATASET_LABELS[dataset] || dataset;
@@ -133,7 +148,7 @@ export default function EnvironmentalTimeSeriesChart({
     return <div className="chart-state chart-state-error">{error}</div>;
   }
 
-  if (timeseries.length === 0) {
+  if (plotSeries.length === 0) {
     return <div className="chart-state">No data available for this period</div>;
   }
 
@@ -145,8 +160,8 @@ export default function EnvironmentalTimeSeriesChart({
       <Plot
         data={[
           {
-            x: timeseries.map((d) => d.date),
-            y: timeseries.map((d) => d.value),
+            x: plotSeries.map((d) => d.date),
+            y: plotSeries.map((d) => d.value),
             type: "scatter",
             mode: "lines+markers",
             name: datasetLabel,

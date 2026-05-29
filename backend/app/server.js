@@ -8,6 +8,30 @@ const cors = require('cors'); // <-- import cors
 
 const app = express();
 
+const KELVIN_TO_CELSIUS = 273.15;
+const LST_DN_SCALE = 0.02;
+
+/** VIIRS/ERA5 may return DN (>1000) or physical Kelvin (>=200); always emit Celsius. */
+function postProcessTemperature(value) {
+  if (value === null || value === undefined) return value;
+  const raw = Number(value);
+  if (!Number.isFinite(raw)) return value;
+
+  if (raw > 1000) return raw * LST_DN_SCALE - KELVIN_TO_CELSIUS;
+  if (raw >= 200) return raw - KELVIN_TO_CELSIUS;
+  return raw;
+}
+
+function mapLstBandToCelsius(img, bandName, outputName) {
+  const lst = img.select(bandName);
+  // DN values are >500; physical Kelvin stays as-is when test is false.
+  const physicalKelvin = lst.where(lst.gt(500), lst.multiply(LST_DN_SCALE));
+  return physicalKelvin
+    .subtract(KELVIN_TO_CELSIUS)
+    .rename(outputName)
+    .copyProperties(img, ["system:time_start"]);
+}
+
 function getDatasetConfig(dataset) {
   const key = String(dataset || "").toLowerCase();
   const config = {
@@ -22,15 +46,15 @@ function getDatasetConfig(dataset) {
     },
     lst_day: {
       scale: 1000,
-      postProcess: null,
+      postProcess: postProcessTemperature,
     },
     lst_night: {
       scale: 1000,
-      postProcess: null,
+      postProcess: postProcessTemperature,
     },
     lst_mean: {
       scale: 1000,
-      postProcess: null,
+      postProcess: postProcessTemperature,
     },
 
     // Backward-compatible aliases used by older frontend values.
@@ -44,11 +68,11 @@ function getDatasetConfig(dataset) {
     },
     lst: {
       scale: 1000,
-      postProcess: null,
+      postProcess: postProcessTemperature,
     },
     net: {
       scale: 1000,
-      postProcess: null,
+      postProcess: postProcessTemperature,
     },
   };
 
@@ -99,28 +123,27 @@ function buildDatasetCollection(dataset, startDate, endDate) {
   //     });
   // }
 
-  // VIIRS LST (VNP21A1 Day/Night, 1 km). In Earth Engine this band is exposed
-  // in Kelvin-like values, so convert directly to Celsius.
+  // VIIRS LST (VNP21A1 Day/Night, 1 km). GEE may expose DN or physical Kelvin.
   if (key === "lst_day" || key === "lst") {
     return withFallback(ee.ImageCollection("NASA/VIIRS/002/VNP21A1D"), 32)
       .select("LST_1KM")
-      .map((img) => img.multiply(0.02).subtract(273.15).rename("lst_day").copyProperties(img, ["system:time_start"]));
+      .map((img) => mapLstBandToCelsius(img, "LST_1KM", "lst_day"));
   }
 
   if (key === "lst_night") {
     return withFallback(ee.ImageCollection("NASA/VIIRS/002/VNP21A1N"), 32)
       .select("LST_1KM")
-      .map((img) => img.multiply(0.02).subtract(273.15).rename("lst_night").copyProperties(img, ["system:time_start"]));
+      .map((img) => mapLstBandToCelsius(img, "LST_1KM", "lst_night"));
   }
 
   if (key === "lst_mean") {
     const dayCollection = withFallback(ee.ImageCollection("NASA/VIIRS/002/VNP21A1D"), 32)
       .select("LST_1KM")
-      .map((img) => img.multiply(0.02).subtract(273.15).rename("lst_day").copyProperties(img, ["system:time_start"]));
+      .map((img) => mapLstBandToCelsius(img, "LST_1KM", "lst_day"));
 
     const nightCollection = withFallback(ee.ImageCollection("NASA/VIIRS/002/VNP21A1N"), 32)
       .select("LST_1KM")
-      .map((img) => img.multiply(0.02).subtract(273.15).rename("lst_night").copyProperties(img, ["system:time_start"]));
+      .map((img) => mapLstBandToCelsius(img, "LST_1KM", "lst_night"));
 
     const byDate = ee.Filter.equals({
       leftField: "system:time_start",
@@ -143,7 +166,7 @@ function buildDatasetCollection(dataset, startDate, endDate) {
   if (key === "net") {
     return withFallback(ee.ImageCollection("ECMWF/ERA5/DAILY"), 45)
       .select("mean_2m_air_temperature")
-      .map((img) => img.multiply(0.02).subtract(273.15).rename("net").copyProperties(img, ["system:time_start"]));
+      .map((img) => img.subtract(KELVIN_TO_CELSIUS).rename("net").copyProperties(img, ["system:time_start"]));
   }
 
   if (key === "ndvi" || key === "savi" || key === "evi" || key === "ndwi5" || key === "ndwi6") {

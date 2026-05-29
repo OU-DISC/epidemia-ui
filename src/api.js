@@ -1,6 +1,10 @@
 import axios from "axios";
 import { buildSampleEpiCsvFromReport } from "./utils/buildSampleEpiCsv";
 import { normalizeDistrictKey, districtForecastCacheUrl } from "./utils/districtNameMatch";
+import {
+  normalizeEnvironmentalSummaryValues,
+  normalizeEnvironmentalTimeseries,
+} from "./utils/temperatureUnits";
 
 const isBrowser = typeof window !== "undefined";
 const isLocalhost =
@@ -311,7 +315,7 @@ export async function fetchEnvironmentalDataAll({
       districts,
     }
   );
-  return response.data;
+  return normalizeEnvironmentalSummaryValues(response.data, dataset);
 }
 
 export async function fetchEnvironmentalTimeseries({
@@ -331,7 +335,7 @@ export async function fetchEnvironmentalTimeseries({
       dataset,
     }
   );
-  return response.data;
+  return normalizeEnvironmentalTimeseries(response.data, dataset);
 }
 
 export async function validateEpiUpload(file) {
