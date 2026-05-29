@@ -18,16 +18,12 @@ export const DASHBOARD_HELP = {
     "Shows whether forecast data is loading, ready, running, or encountered an error.",
   earlyWarnings:
     "Districts where the latest forecast exceeds the early warning threshold.",
-  earlyDetections:
-    "Districts where the forecast exceeds the detection threshold but not warning.",
   districtsModeled: "Number of districts included in the current forecast run.",
 
   decisionLayers:
     "Toggle alert markers on the map and replay how warnings and detections changed over time.",
   earlyWarningLayer:
     "Show high-priority warning markers on districts with elevated forecast risk.",
-  earlyDetectionLayer:
-    "Show detection markers for districts above the lower alert threshold.",
   alertHistory:
     "Replay how alerts changed over recent weeks using observed case history.",
 
@@ -36,7 +32,7 @@ export const DASHBOARD_HELP = {
   weatherDataset:
     "Environmental variable used in the district time-series chart on the right.",
   healthLayer:
-    "Choropleth shading on the map: population or malaria incident rate.",
+    "Choropleth shading on the map: population or malaria incidence rate.",
 
   envLayers:
     "Overlay rainfall, temperature, or vegetation rasters on the map for context.",

@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-05-28T07:01:52.201312Z",
+  "data_fingerprint": "e607d755c63f82a6",
+  "horizon_weeks": 4,
+  "env_start_year": 2012,
+  "env_start_week": 1,
+  "district_count": 851,
+  "forecast_count": 1702,
+  "alert_count": 1702,
+  "elapsed_seconds": 40.02,
+  "region_filter": "Amhara",
+  "regional_district_count": 153
+}

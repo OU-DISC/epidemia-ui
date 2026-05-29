@@ -42,6 +42,7 @@ app = FastAPI(
 def health_check():
     return {"status": "ok"}
 
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=get_allowed_origins(),
@@ -49,7 +50,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 @app.post("/forecast", response_model=ForecastResponse)
 def forecast_malaria(request: ForecastRequest):
@@ -65,6 +65,10 @@ def run_epidemia(request: EpidemiaRunRequest):
         return run_epidemia_pipeline(request)
     except PipelineInputError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        # Ensure errors are returned through FastAPI (and CORS middleware)
+        # instead of bubbling up to the ASGI server.
+        raise HTTPException(status_code=500, detail=f"EPIDEMIA pipeline failed: {exc}") from exc
 
 
 @app.get("/epidemia/latest", response_model=EpidemiaRunResponse)

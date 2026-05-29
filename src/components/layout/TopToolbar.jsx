@@ -114,6 +114,7 @@ function TopToolbar({
         </label>
 
         <button
+          type="button"
           onClick={onRefreshForecast}
           className="toolbar-button"
           disabled={refreshingForecast}
@@ -121,7 +122,7 @@ function TopToolbar({
           {refreshingForecast ? "Refreshing..." : "Refresh Forecast"}
         </button>
 
-        <button onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
+        <button type="button" onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
           {exporting ? "Exporting..." : "Export Weekly Report"}
         </button>
       </div>

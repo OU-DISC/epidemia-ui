@@ -85,9 +85,17 @@ export default function EnvironmentalTimeSeriesChart({
     [timeseries, dataset]
   );
 
+  const chartPoints = useMemo(
+    () =>
+      (timeseries || []).filter(
+        (point) => point?.date && point.value != null && !Number.isNaN(Number(point.value))
+      ),
+    [timeseries]
+  );
+
   const chartDates = useMemo(
-    () => plotSeries.map((point) => point.date).filter(Boolean),
-    [plotSeries]
+    () => chartPoints.map((point) => point.date),
+    [chartPoints]
   );
 
   const datasetLabel = ENV_DATASET_LABELS[dataset] || dataset;
@@ -148,7 +156,7 @@ export default function EnvironmentalTimeSeriesChart({
     return <div className="chart-state chart-state-error">{error}</div>;
   }
 
-  if (plotSeries.length === 0) {
+  if (chartPoints.length === 0) {
     return <div className="chart-state">No data available for this period</div>;
   }
 
@@ -160,8 +168,8 @@ export default function EnvironmentalTimeSeriesChart({
       <Plot
         data={[
           {
-            x: plotSeries.map((d) => d.date),
-            y: plotSeries.map((d) => d.value),
+            x: chartPoints.map((d) => d.date),
+            y: chartPoints.map((d) => d.value),
             type: "scatter",
             mode: "lines+markers",
             name: datasetLabel,

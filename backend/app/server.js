@@ -170,7 +170,8 @@ function buildDatasetCollection(dataset, startDate, endDate) {
   }
 
   if (key === "ndvi" || key === "savi" || key === "evi" || key === "ndwi5" || key === "ndwi6") {
-    return withFallback(ee.ImageCollection("MODIS/006/MCD43A4"), 64)
+    // MODIS/006 ended ~2023; use Collection 6.1 for current chart date ranges.
+    return withFallback(ee.ImageCollection("MODIS/061/MCD43A4"), 64)
       .map((img) => {
         const red = img.select("Nadir_Reflectance_Band1").multiply(0.0001);
         const nir = img.select("Nadir_Reflectance_Band2").multiply(0.0001);

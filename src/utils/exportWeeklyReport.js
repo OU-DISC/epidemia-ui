@@ -151,7 +151,6 @@ export async function exportWeeklyReport({
   pdf.setFontSize(11);
   [
     `Early Warnings: ${summary?.warnings ?? 0}`,
-    `Early Detections: ${summary?.detections ?? 0}`,
     `Districts Modeled: ${summary?.districts ?? 0}`,
   ].forEach((line) => {
     pdf.text(line, MARGIN, y);

@@ -73,12 +73,10 @@ export function buildAlertExplanation({
 
   const status = alert.early_warning
     ? "Early Warning"
-    : alert.early_detection
-      ? "Early Detection"
-      : "Normal";
+    : "Normal";
 
   const activeThreshold =
-    status === "Early Warning" ? insight?.warningThreshold : insight?.detectionThreshold;
+    insight?.warningThreshold;
   const latestObserved = insight?.latestObserved ?? alert.latest_observed;
   const latestForecast = insight?.latestForecast ?? alert.latest_forecast;
   const magnitudePercent = insight?.magnitudePercent;
@@ -87,8 +85,6 @@ export function buildAlertExplanation({
   let summary;
   if (status === "Early Warning") {
     summary = "Latest forecast is above the early warning threshold.";
-  } else if (status === "Early Detection") {
-    summary = "Latest forecast is above the early detection threshold.";
   } else {
     summary = "District is within normal transmission levels.";
   }
@@ -120,7 +116,7 @@ export function buildAlertExplanation({
   }
 
   if (incidentRate != null) {
-    bullets.push(`Incident rate: ${formatNumber(incidentRate, 1)} per 100,000`);
+    bullets.push(`Incidence rate: ${formatNumber(incidentRate, 1)} per 100,000`);
   }
 
   return { status, summary, bullets };
@@ -130,9 +126,7 @@ export function formatAlertTooltipHtml(districtName, explanation, insight) {
   const statusClass =
     explanation.status === "Early Warning"
       ? "alert-map-tooltip-status alert-map-tooltip-status-warning"
-      : explanation.status === "Early Detection"
-        ? "alert-map-tooltip-status alert-map-tooltip-status-detection"
-        : "alert-map-tooltip-status";
+      : "alert-map-tooltip-status";
 
   const bullets = explanation.bullets
     .slice(0, 4)

@@ -75,19 +75,13 @@ export function buildAlertsForWeek(forecasts, alerts, selectedSpecies, weekStart
 
       const earlyWarning =
         observed != null && warningThreshold != null && observed > warningThreshold;
-      const earlyDetection =
-        !earlyWarning &&
-        observed != null &&
-        detectionThreshold != null &&
-        observed > detectionThreshold;
-
-      if (!earlyWarning && !earlyDetection) return;
+      if (!earlyWarning) return;
 
       out.push({
         district: fc.district,
         species: selectedSpecies,
         early_warning: earlyWarning,
-        early_detection: earlyDetection,
+        early_detection: false,
         latest_observed: observed,
         latest_forecast: null,
         detection_threshold: detectionThreshold,
@@ -102,14 +96,12 @@ export function buildAlertsForWeek(forecasts, alerts, selectedSpecies, weekStart
 
 export function countAlertTypes(alerts) {
   let warnings = 0;
-  let detections = 0;
 
   (alerts || []).forEach((alert) => {
     if (alert.early_warning) warnings += 1;
-    else if (alert.early_detection) detections += 1;
   });
 
-  return { warnings, detections };
+  return { warnings, detections: 0 };
 }
 
 export function buildAnimatedAlertTooltipLookup(alerts, speciesLabel, weekStart) {
@@ -118,20 +110,16 @@ export function buildAnimatedAlertTooltipLookup(alerts, speciesLabel, weekStart)
   (alerts || []).forEach((alert) => {
     const status = alert.early_warning
       ? "Early Warning"
-      : alert.early_detection
-        ? "Early Detection"
-        : null;
+      : null;
     if (!status) return;
 
-    const threshold = alert.early_warning
-      ? alert.warning_threshold
-      : alert.detection_threshold;
+    const threshold = alert.warning_threshold;
 
     const explanation = {
       status,
       summary: alert.early_warning
         ? "Observed cases exceeded the early warning threshold this week."
-        : "Observed cases exceeded the early detection threshold this week.",
+        : "",
       bullets: [
         `Week of ${weekStart}`,
         `Observed ${formatNumber(alert.latest_observed, 0)} · Threshold ${formatNumber(threshold)}`,

@@ -26,15 +26,6 @@ export default function SituationStrip({ summary, pipelineStatus }) {
       <article className="glass-card forecast-card">
         <h4>
           <span className="forecast-card-label">
-            Early Detections
-            <HelpTip text={DASHBOARD_HELP.earlyDetections} label="Early detections" placement="below" />
-          </span>
-        </h4>
-        <p>{summary?.detections ?? 0}</p>
-      </article>
-      <article className="glass-card forecast-card">
-        <h4>
-          <span className="forecast-card-label">
             Districts Modeled
             <HelpTip text={DASHBOARD_HELP.districtsModeled} label="Districts modeled" placement="below" />
           </span>
