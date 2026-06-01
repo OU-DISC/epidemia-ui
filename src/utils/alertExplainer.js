@@ -73,18 +73,24 @@ export function buildAlertExplanation({
 
   const status = alert.early_warning
     ? "Early Warning"
+    : alert.early_detection
+    ? "Early Detection"
     : "Normal";
 
   const activeThreshold =
-    insight?.warningThreshold;
+    insight?.warningThreshold ?? alert.warning_threshold ?? alert.detection_threshold;
   const latestObserved = insight?.latestObserved ?? alert.latest_observed;
   const latestForecast = insight?.latestForecast ?? alert.latest_forecast;
   const magnitudePercent = insight?.magnitudePercent;
   const persistenceWeeks = insight?.persistenceWeeks ?? 0;
+  const edLevel = alert.ed_level;
+  const ewLevel = alert.ew_level;
 
   let summary;
   if (status === "Early Warning") {
-    summary = "Latest forecast is above the early warning threshold.";
+    summary = `Early warning: ${alert.ew_alert_count ?? 0} forecast week(s) above threshold (${ewLevel || "Low"}).`;
+  } else if (status === "Early Detection") {
+    summary = `Early detection: ${alert.ed_alert_count ?? 0} observed week(s) above threshold in the last 4 weeks (${edLevel || "Low"}).`;
   } else {
     summary = "District is within normal transmission levels.";
   }
@@ -126,6 +132,8 @@ export function formatAlertTooltipHtml(districtName, explanation, insight) {
   const statusClass =
     explanation.status === "Early Warning"
       ? "alert-map-tooltip-status alert-map-tooltip-status-warning"
+      : explanation.status === "Early Detection"
+      ? "alert-map-tooltip-status alert-map-tooltip-status-detection"
       : "alert-map-tooltip-status";
 
   const bullets = explanation.bullets

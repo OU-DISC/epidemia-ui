@@ -1,6 +1,6 @@
 /**
- * Match EPIDEMIA pipeline woreda_name strings to map GeoJSON `adm3_name` values.
- * Admin boundaries and CSVs often differ by spacing, punctuation, or spelling.
+ * Match EPIDEMIA pipeline woreda_name strings to map GeoJSON features.
+ * Name variants are tried first; NewPCODE crosswalk resolves remaining mismatches.
  */
 export function normalizeDistrictKey(s) {
   if (s == null || s === "") return "";
@@ -10,6 +10,11 @@ export function normalizeDistrictKey(s) {
     .replace(/\s*\([^)]*\)\s*/g, " ")
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "");
+}
+
+export function normalizePcode(pcode) {
+  if (pcode == null || pcode === "") return "";
+  return String(pcode).trim().toUpperCase();
 }
 
 /** Static path for a pre-generated per-district forecast cache file. */
@@ -64,18 +69,72 @@ export function getDistrictNameVariants(s) {
   return Array.from(variants).filter(Boolean);
 }
 
-export function buildAdm3Lookup(geoData) {
+export function districtPcodeFromProperties(properties) {
+  if (!properties) return null;
+  const code = properties?.NewPCODE ?? properties?.adm3_pcode;
+  if (code == null || String(code).trim() === "") return null;
+  return String(code).trim();
+}
+
+export function resolveWoredaPcode(crosswalk, districtName) {
+  if (!crosswalk || districtName == null) return null;
+  const raw = String(districtName).trim();
+  if (!raw) return null;
+  const fromName = crosswalk.byName?.[raw];
+  if (fromName) return normalizePcode(fromName);
+  const fromKey = crosswalk.byKey?.[normalizeDistrictKey(raw)];
+  if (fromKey) return normalizePcode(fromKey);
+  for (const variant of getDistrictNameVariants(raw)) {
+    const pcode = crosswalk.byName?.[variant] || crosswalk.byKey?.[normalizeDistrictKey(variant)];
+    if (pcode) return normalizePcode(pcode);
+  }
+  return null;
+}
+
+function assignFeatureKeys(map, feature, keys) {
+  keys.forEach((key) => {
+    if (!key || map.has(key)) return;
+    map.set(key, feature);
+  });
+}
+
+export function buildAdm3Lookup(geoData, woredaPcodeCrosswalk = null) {
   const map = new Map();
   if (!geoData?.features) return map;
+
+  const byPcode = new Map();
   for (const f of geoData.features) {
     const name = f?.properties?.adm3_name;
     if (name == null || name === "") continue;
+
     map.set(name, f);
     getDistrictNameVariants(name).forEach((variant) => {
-      const key = normalizeDistrictKey(variant);
-      if (key && !map.has(key)) map.set(key, f);
+      assignFeatureKeys(map, f, [variant, normalizeDistrictKey(variant)]);
     });
+
+    const pcode = districtPcodeFromProperties(f.properties);
+    if (pcode) {
+      const norm = normalizePcode(pcode);
+      byPcode.set(norm, f);
+      map.set(norm, f);
+      map.set(pcode, f);
+    }
   }
+
+  if (woredaPcodeCrosswalk?.byName) {
+    for (const name of Object.keys(woredaPcodeCrosswalk.byName)) {
+      const pcode = resolveWoredaPcode(woredaPcodeCrosswalk, name);
+      const feature = pcode ? byPcode.get(pcode) : null;
+      if (!feature) continue;
+
+      map.set(name, feature);
+      assignFeatureKeys(map, feature, [normalizeDistrictKey(name)]);
+      getDistrictNameVariants(name).forEach((variant) => {
+        assignFeatureKeys(map, feature, [variant, normalizeDistrictKey(variant)]);
+      });
+    }
+  }
+
   return map;
 }
 
@@ -84,6 +143,12 @@ export function findDistrictFromLookup(lookup, districtName) {
   const raw = String(districtName);
   const exact = lookup.get(raw) || lookup.get(normalizeDistrictKey(raw));
   if (exact) return exact;
+
+  const maybePcode = normalizePcode(raw);
+  if (maybePcode.startsWith("ET") && lookup.has(maybePcode)) {
+    return lookup.get(maybePcode);
+  }
+
   for (const variant of getDistrictNameVariants(raw)) {
     const match = lookup.get(variant) || lookup.get(normalizeDistrictKey(variant));
     if (match) return match;
@@ -107,10 +172,11 @@ export function resolveAdminRegionForDistrict(lookup, districtName, geoData = nu
 /** Resolve admin-1 region from geojson NewPCODE / adm3_pcode (e.g. ET010101). */
 export function resolveAdminRegionByPcode(geoData, pcode) {
   if (!pcode || !geoData?.features) return null;
-  const normalized = String(pcode).trim().toUpperCase();
-  const feature = geoData.features.find(
-    (f) => String(f?.properties?.adm3_pcode || "").trim().toUpperCase() === normalized
-  );
+  const normalized = normalizePcode(pcode);
+  const feature = geoData.features.find((f) => {
+    const candidate = districtPcodeFromProperties(f?.properties);
+    return candidate != null && normalizePcode(candidate) === normalized;
+  });
   const adm1 = feature?.properties?.adm1_name;
   return adm1 && String(adm1).trim() ? String(adm1).trim() : null;
 }

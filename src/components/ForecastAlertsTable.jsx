@@ -27,6 +27,7 @@ function formatPercent(value) {
 
 function statusClass(status) {
   if (status === "Early Warning") return "table-status table-status-warning";
+  if (status === "Early Detection") return "table-status table-status-detection";
   return "table-status table-status-normal";
 }
 

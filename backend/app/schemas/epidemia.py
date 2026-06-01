@@ -47,6 +47,10 @@ class DistrictAlert(BaseModel):
     species: Species
     early_detection: bool
     early_warning: bool
+    ed_alert_count: int = 0
+    ew_alert_count: int = 0
+    ed_level: Literal["Low", "Medium", "High"] = "Low"
+    ew_level: Literal["Low", "Medium", "High"] = "Low"
     latest_observed: Optional[float] = None
     latest_forecast: Optional[float] = None
     detection_threshold: Optional[float] = None

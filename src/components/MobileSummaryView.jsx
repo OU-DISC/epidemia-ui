@@ -42,6 +42,10 @@ export default function MobileSummaryView({
     () => scopedRows.filter((row) => row.status === "Early Warning").length,
     [scopedRows]
   );
+  const detectionCount = useMemo(
+    () => scopedRows.filter((row) => row.status === "Early Detection").length,
+    [scopedRows]
+  );
 
   const selectedRow = useMemo(
     () => scopedRows.find((row) => row.mapDistrict === selectedDistrict) || null,
@@ -69,7 +73,7 @@ export default function MobileSummaryView({
         ) : null}
       </div>
 
-      <div className="mobile-summary-stats">
+      <div className="mobile-summary-stats mobile-summary-stats-four">
         <article className="mobile-summary-stat">
           <span>Districts</span>
           <strong>{scopedRows.length}</strong>
@@ -77,6 +81,10 @@ export default function MobileSummaryView({
         <article className="mobile-summary-stat mobile-summary-stat-warning">
           <span>Early warnings</span>
           <strong>{warningCount}</strong>
+        </article>
+        <article className="mobile-summary-stat mobile-summary-stat-detection">
+          <span>Early detections</span>
+          <strong>{detectionCount}</strong>
         </article>
         <article className="mobile-summary-stat">
           <span>Selected</span>

@@ -151,6 +151,7 @@ async function fetchJsonIfAvailable(url) {
 
 function alertStatus(alert) {
   if (alert?.early_warning) return "Early Warning";
+  if (alert?.early_detection) return "Early Detection";
   return "Normal";
 }
 
@@ -226,6 +227,7 @@ function Dashboard({
   const [dataset, setDataset] = useState("totprec");
   const [healthLayer, setHealthLayer] = useState("incident_rate");
   const [geoData, setGeoData] = useState(null);
+  const [woredaPcodeCrosswalk, setWoredaPcodeCrosswalk] = useState(null);
   const [, setEnvData] = useState({});
   const [populationSurfacesByYear, setPopulationSurfacesByYear] = useState({});
   const [legacyPopulationSurface, setLegacyPopulationSurface] = useState({});
@@ -265,6 +267,7 @@ function Dashboard({
 
   // Decision layers states
   const [showEarlyWarning, setShowEarlyWarning] = useState(true);
+  const [showEarlyDetection, setShowEarlyDetection] = useState(true);
 
   // Alert history animation (last 4–8 weeks from observed case history)
   const [alertTimeMode, setAlertTimeMode] = useState("current"); // "current" | "animate"
@@ -329,7 +332,10 @@ function Dashboard({
 
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
-  const adm3Lookup = useMemo(() => buildAdm3Lookup(geoData), [geoData]);
+  const adm3Lookup = useMemo(
+    () => buildAdm3Lookup(geoData, woredaPcodeCrosswalk),
+    [geoData, woredaPcodeCrosswalk]
+  );
 
   const alertWeekDates = useMemo(
     () =>
@@ -578,6 +584,29 @@ function Dashboard({
     };
   }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+    const loadWoredaPcodeCrosswalk = async () => {
+      try {
+        const crosswalk = await fetchJsonIfAvailable("/ethiopia_woreda_pcode.json");
+        if (!cancelled) {
+          setWoredaPcodeCrosswalk(
+            crosswalk?.byName && crosswalk?.byKey ? crosswalk : null
+          );
+        }
+      } catch (err) {
+        console.error("Failed to load woreda pcode crosswalk", err);
+        if (!cancelled) setWoredaPcodeCrosswalk(null);
+      }
+    };
+
+    loadWoredaPcodeCrosswalk();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   // Extract unique regions from geoData when it loads
   React.useEffect(() => {
     if (geoData && geoData.features) {
@@ -728,10 +757,11 @@ function Dashboard({
     const alerts = epidemiaData?.alerts || [];
     const speciesAlerts = alerts.filter((a) => a.species === selectedSpecies);
     const warningCount = speciesAlerts.filter((a) => a.early_warning).length;
+    const detectionCount = speciesAlerts.filter((a) => a.early_detection).length;
     return {
       districts: speciesAlerts.length,
       warnings: warningCount,
-      detections: 0,
+      detections: detectionCount,
     };
   }, [epidemiaData, selectedSpecies]);
 
@@ -830,7 +860,7 @@ function Dashboard({
       const feature = findDistrictFromLookup(adm3Lookup, alert.district);
       const mapDistrict = feature?.properties?.adm3_name || alert.district;
       const status = alertStatus(alert);
-      const statusRank = status === "Early Warning" ? 2 : 1;
+      const statusRank = status === "Early Warning" ? 3 : status === "Early Detection" ? 2 : 1;
       const latestForecast = finiteNumber(alert.latest_forecast);
       const detectionThreshold = finiteNumber(alert.detection_threshold);
       const warningThreshold = finiteNumber(alert.warning_threshold);
@@ -851,7 +881,7 @@ function Dashboard({
       const populationAtRisk = finiteNumber(alert.population_at_risk);
       const positiveMagnitudePercent = Math.max(0, magnitudePercent || 0);
       const priority =
-        (status === "Early Warning" ? 1000 : 0) +
+        (status === "Early Warning" ? 1000 : status === "Early Detection" ? 500 : 0) +
         positiveMagnitudePercent +
         persistenceWeeks * 10 +
         Math.log10(Math.max(populationAtRisk || 1, 1));
@@ -863,6 +893,10 @@ function Dashboard({
         species: alert.species,
         status,
         statusRank,
+        edLevel: alert.ed_level || "Low",
+        ewLevel: alert.ew_level || "Low",
+        edAlertCount: alert.ed_alert_count ?? 0,
+        ewAlertCount: alert.ew_alert_count ?? 0,
         latestObserved: finiteNumber(alert.latest_observed),
         latestForecast,
         detectionThreshold,
@@ -1420,6 +1454,8 @@ function Dashboard({
             <DecisionLayers
               showEarlyWarning={showEarlyWarning}
               onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
+              showEarlyDetection={showEarlyDetection}
+              onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
               alertTimeMode={alertTimeMode}
               onChangeAlertTimeMode={setAlertTimeMode}
               alertWeekDates={alertWeekDates}
@@ -1461,12 +1497,14 @@ function Dashboard({
               envData={healthLayerData}
               populationYear={populationYear}
               setGeoData={setGeoData}
+              woredaPcodeCrosswalk={woredaPcodeCrosswalk}
               filterRegion={mapFilterRegion}
               alerts={mapAlerts}
               alertTooltipByDistrict={alertTooltipByDistrict}
               districtTooltipByDistrict={districtTooltipByDistrict}
               selectedSpecies={selectedSpecies}
               showEarlyWarning={showEarlyWarning}
+              showEarlyDetection={showEarlyDetection}
               alertTimeMode={alertTimeMode}
               alertAnimationWeek={alertAnimationWeek}
               selectedDistrictName={region !== "All Regions" ? region : null}

@@ -15,15 +15,35 @@ export function isPlotlyGraphReady(graphDiv) {
   );
 }
 
-function highlightShapesMatch(graphDiv, highlightDate) {
-  const current = graphDiv?._fullLayout?.shapes || [];
-  const expected = buildVerticalDateLine(highlightDate);
+function isBaselinePeriodShape(shape) {
+  if (!shape) return false;
+  if (shape.type === "rect" && shape.layer === "below") return true;
+  if (shape.type === "line" && shape.layer === "below" && shape.line?.dash === "dash") {
+    return true;
+  }
+  return false;
+}
 
-  if (!expected.length) return current.length === 0;
-  if (current.length !== expected.length) return false;
+function resolveBaselineShapes(graphDiv) {
+  const fromLayout = (graphDiv?._fullLayout?.shapes || []).filter(isBaselinePeriodShape);
+  if (fromLayout.length) {
+    graphDiv._epidemiaBaselineShapes = fromLayout;
+    return fromLayout;
+  }
+  return graphDiv._epidemiaBaselineShapes || [];
+}
+
+function highlightShapesMatch(graphDiv, highlightDate) {
+  const baseline = resolveBaselineShapes(graphDiv);
+  const current = graphDiv?._fullLayout?.shapes || [];
+  const currentHighlight = current.slice(baseline.length);
+  const expectedHighlight = buildVerticalDateLine(highlightDate);
+
+  if (!expectedHighlight.length) return currentHighlight.length === 0;
+  if (currentHighlight.length !== expectedHighlight.length) return false;
 
   const expectedDay = normalizeChartAxisDate(highlightDate);
-  const currentDay = normalizeChartAxisDate(current[0]?.x0);
+  const currentDay = normalizeChartAxisDate(currentHighlight[0]?.x0);
   return expectedDay === currentDay;
 }
 
@@ -34,9 +54,10 @@ export function applyPlotlyHighlightShapes(graphDiv, highlightDate) {
   if (highlightShapesMatch(graphDiv, highlightDate)) return Promise.resolve();
 
   graphDiv._epidemiaApplyingHighlight = true;
+  const baseline = resolveBaselineShapes(graphDiv);
   try {
     return Plotly.relayout(graphDiv, {
-      shapes: buildVerticalDateLine(highlightDate),
+      shapes: [...baseline, ...buildVerticalDateLine(highlightDate)],
     })
       .catch(() => {})
       .finally(() => {

@@ -17,7 +17,7 @@ import pandas as pd
 import statsmodels.api as sm
 from scipy import stats
 from statsmodels.genmod.families import Poisson
-from statsmodels.genmod.families.links import log as log_link
+from statsmodels.genmod.families.links import Log
 
 try:
     from pygam import PoissonGAM, l, s
@@ -188,7 +188,7 @@ def _fit_poisson_gam(
         glm = sm.GLM(
             y,
             design,
-            family=Poisson(link=log_link()),
+            family=Poisson(link=Log()),
             offset=offset,
         ).fit()
         return None, glm, "glm"

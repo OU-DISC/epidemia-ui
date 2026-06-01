@@ -3,6 +3,8 @@ import React from "react";
 function DecisionLayers({
   showEarlyWarning,
   onToggleEarlyWarning,
+  showEarlyDetection = true,
+  onToggleEarlyDetection,
   alertTimeMode = "current",
   onChangeAlertTimeMode,
   alertWeekDates = [],
@@ -32,6 +34,20 @@ function DecisionLayers({
         <label htmlFor="early-warning" className="layer-label">
           <div className="layer-icon">⚠️</div>
           Early Warning Alerts
+        </label>
+      </div>
+
+      <div className="layer-item">
+        <input
+          type="checkbox"
+          id="early-detection"
+          className="layer-checkbox"
+          checked={showEarlyDetection}
+          onChange={onToggleEarlyDetection}
+        />
+        <label htmlFor="early-detection" className="layer-label">
+          <div className="layer-icon">🔍</div>
+          Early Detection Alerts
         </label>
       </div>
 
@@ -73,6 +89,9 @@ function DecisionLayers({
             <span className="alert-inline-counts">
               {alertWeekCounts.warnings} warning
               {alertWeekCounts.warnings === 1 ? "" : "s"}
+              {" · "}
+              {alertWeekCounts.detections} detection
+              {alertWeekCounts.detections === 1 ? "" : "s"}
             </span>
 
             <input

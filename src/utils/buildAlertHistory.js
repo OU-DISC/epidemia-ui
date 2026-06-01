@@ -44,7 +44,8 @@ export function buildAlertWeekDates(
 }
 
 /**
- * Reconstruct alert markers for a historical week using observed cases vs current thresholds.
+ * Reconstruct early detection markers for a historical week using observed
+ * cases vs the Farrington upper threshold for that week.
  */
 export function buildAlertsForWeek(forecasts, alerts, selectedSpecies, weekStart) {
   if (!weekStart) return [];
@@ -72,16 +73,17 @@ export function buildAlertsForWeek(forecasts, alerts, selectedSpecies, weekStart
       const warningThreshold = finiteNumber(
         point.warning_threshold ?? template.warning_threshold
       );
+      const alertThreshold = warningThreshold ?? detectionThreshold;
 
-      const earlyWarning =
-        observed != null && warningThreshold != null && observed > warningThreshold;
-      if (!earlyWarning) return;
+      const earlyDetection =
+        observed != null && alertThreshold != null && observed > alertThreshold;
+      if (!earlyDetection) return;
 
       out.push({
         district: fc.district,
         species: selectedSpecies,
-        early_warning: earlyWarning,
-        early_detection: false,
+        early_warning: false,
+        early_detection: true,
         latest_observed: observed,
         latest_forecast: null,
         detection_threshold: detectionThreshold,
@@ -96,12 +98,14 @@ export function buildAlertsForWeek(forecasts, alerts, selectedSpecies, weekStart
 
 export function countAlertTypes(alerts) {
   let warnings = 0;
+  let detections = 0;
 
   (alerts || []).forEach((alert) => {
     if (alert.early_warning) warnings += 1;
+    if (alert.early_detection) detections += 1;
   });
 
-  return { warnings, detections: 0 };
+  return { warnings, detections };
 }
 
 export function buildAnimatedAlertTooltipLookup(alerts, speciesLabel, weekStart) {
@@ -110,16 +114,19 @@ export function buildAnimatedAlertTooltipLookup(alerts, speciesLabel, weekStart)
   (alerts || []).forEach((alert) => {
     const status = alert.early_warning
       ? "Early Warning"
+      : alert.early_detection
+      ? "Early Detection"
       : null;
     if (!status) return;
 
-    const threshold = alert.warning_threshold;
+    const threshold = alert.warning_threshold ?? alert.detection_threshold;
 
     const explanation = {
       status,
-      summary: alert.early_warning
-        ? "Observed cases exceeded the early warning threshold this week."
-        : "",
+      summary:
+        status === "Early Warning"
+          ? "Forecast exceeded the Farrington alert threshold this week."
+          : "Observed cases exceeded the Farrington alert threshold this week.",
       bullets: [
         `Week of ${weekStart}`,
         `Observed ${formatNumber(alert.latest_observed, 0)} · Threshold ${formatNumber(threshold)}`,
@@ -129,7 +136,7 @@ export function buildAnimatedAlertTooltipLookup(alerts, speciesLabel, weekStart)
 
     const insight = {
       latestObserved: alert.latest_observed,
-      latestForecast: null,
+      latestForecast: alert.latest_forecast,
       activeThreshold: threshold,
     };
 

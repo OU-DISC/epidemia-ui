@@ -422,6 +422,7 @@ function AlertMarkers({
   alerts,
   alertTooltipByDistrict = {},
   showEarlyWarning,
+  showEarlyDetection = true,
   adm3Lookup,
   selectedSpecies = "pfm",
   onSelectDistrict,
@@ -451,21 +452,24 @@ function AlertMarkers({
         if (alert?.species && alert.species !== selectedSpecies) return;
 
         const isEarlyWarning = Boolean(alert?.early_warning);
+        const isEarlyDetection = Boolean(alert?.early_detection);
 
-        // Only show Early Warning markers on the map.
-        if (!isEarlyWarning) return;
-        if (!showEarlyWarning) return;
+        if (isEarlyWarning) {
+          if (!showEarlyWarning) return;
+        } else if (isEarlyDetection) {
+          if (!showEarlyDetection) return;
+        } else {
+          return;
+        }
 
         const district = findDistrictFromLookup(adm3Lookup, alert.district);
         if (district && district.geometry) {
-          // Calculate centroid of the district
           const bounds = L.geoJSON(district).getBounds();
           const centroid = bounds.getCenter();
           const districtName = district?.properties?.adm3_name || alert.district;
 
-          // Create marker with warning icon and color
-          const iconHtml = "⚠️";
-          const iconColor = "#dc2626";
+          const iconHtml = isEarlyWarning ? "⚠️" : "🔍";
+          const iconColor = isEarlyWarning ? "#dc2626" : "#d97706";
 
           const alertIcon = L.divIcon({
             html: `<div style="
@@ -531,7 +535,7 @@ function AlertMarkers({
         }
       });
     };
-  }, [map, alerts, alertTooltipByDistrict, showEarlyWarning, adm3Lookup, selectedSpecies, onSelectDistrict]);
+  }, [map, alerts, alertTooltipByDistrict, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
 
   return null;
 }
@@ -784,6 +788,7 @@ export default function EthiopiaMap({
   envData = {},
   populationYear = null,
   setGeoData,
+  woredaPcodeCrosswalk = null,
   filterRegion = "All Regions",
   alerts = [],
   alertTooltipByDistrict = {},
@@ -864,7 +869,10 @@ export default function EthiopiaMap({
     };
   }, [geoData]);
 
-  const adm3Lookup = useMemo(() => buildAdm3Lookup(geoData), [geoData]);
+  const adm3Lookup = useMemo(
+    () => buildAdm3Lookup(geoData, woredaPcodeCrosswalk),
+    [geoData, woredaPcodeCrosswalk]
+  );
 
   useEffect(() => {
     if (!selectedDistrictName || selectedDistrictName === "All Regions") {

@@ -17,7 +17,9 @@ export const DASHBOARD_HELP = {
   pipeline:
     "Shows whether forecast data is loading, ready, running, or encountered an error.",
   earlyWarnings:
-    "Districts where the latest forecast exceeds the early warning threshold.",
+    "Districts with one or more forecast weeks above the Farrington alert threshold (early warning period).",
+  earlyDetections:
+    "Districts with one or more observed weeks above the Farrington alert threshold in the last 4 epidemiology weeks.",
   districtsModeled: "Number of districts included in the current forecast run.",
 
   decisionLayers:

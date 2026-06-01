@@ -20,6 +20,7 @@ from app.schemas.epidemia import (
     EpidemiaRunRequest,
     EpidemiaRunResponse,
 )
+from app.services.epidemiar_alerts import compute_epidemiar_alert_summary
 from app.services.farrington_thresholds import farrington_thresholds_for_horizon
 from app.services.seasonal_gam_thresholds import (
     build_env_climatology,
@@ -186,12 +187,6 @@ def _read_nonempty_csvs(folder: Path) -> List[Path]:
 
 
 def _corral_environment(report_woredas: pd.DataFrame, data_dir: Path) -> pd.DataFrame:
-    # Some deployments provide a woreda registry without numeric WID (e.g. keyed by pcode).
-    # In that case we can't align the exported environmental CSVs (which are keyed by wid/WID),
-    # so we skip environmental joins and allow the pipeline to fall back to non-env thresholds.
-    if "WID" not in report_woredas.columns:
-        return _empty_like_env()
-
     env_dir = data_dir / "data_environmental"
     if not env_dir.exists():
         raise PipelineInputError(f"Missing environmental folder: {env_dir}")
@@ -622,34 +617,59 @@ def _forecast_one_district(
     hist_std = max(hist_std, 1.0)
 
     last_week = pd.Timestamp(district_df["week_start"].max())
-    forecast_weeks = pd.Series(
-        [(last_week + timedelta(weeks=i)) for i in range(1, horizon_weeks + 1)]
+
+    pop_series = None
+    if "pop_at_risk" in district_df.columns and district_df["pop_at_risk"].notna().any():
+        pop_series = district_df["pop_at_risk"].to_numpy(dtype=float)
+    latest_population = None
+    if pop_series is not None and len(pop_series):
+        finite_pop = pop_series[np.isfinite(pop_series)]
+        if finite_pop.size:
+            latest_population = float(finite_pop[-1])
+
+    alert_summary = compute_epidemiar_alert_summary(
+        observed_values=history.values.astype(float),
+        forecast_values=preds,
+        pop_observed=pop_series,
+        species=str(species.species),
+    )
+
+    forecast_week_starts = pd.Series(
+        [last_week + pd.Timedelta(weeks=i) for i in range(1, horizon_weeks + 1)]
     )
     predict_weeks = pd.concat(
-        [observed_window["week_start"], forecast_weeks], ignore_index=True
+        [
+            pd.to_datetime(observed_window["week_start"]),
+            forecast_week_starts,
+        ],
+        ignore_index=True,
+    ).drop_duplicates()
+    threshold_df = compute_seasonal_thresholds(
+        district_df,
+        predict_weeks,
+        env_clim,
+        str(woreda_name),
+        str(species.species),
     )
 
-    threshold_df = None
-    try:
-        threshold_df = compute_seasonal_thresholds(
-            district_df=district_df.rename(columns={"cases": "cases"}),
-            predict_weeks=predict_weeks,
-            env_clim=env_clim,
-            woreda_name=str(woreda_name),
-            species=str(species.species),
-        )
-    except Exception:
-        threshold_df = None
+    def _chart_thresholds(week_start, farrington_pair: Tuple[Optional[float], Optional[float]]):
+        gam_detect, gam_warn = thresholds_for_week(threshold_df, week_start)
+        if gam_detect is not None and gam_warn is not None:
+            return gam_detect, gam_warn
+        return farrington_pair
 
     observed_history: List[DistrictObservedPoint] = []
-    for _, row in observed_window.iterrows():
+    for i, (_, row) in enumerate(observed_window.iterrows()):
         if pd.isna(row["cases"]):
             continue
-        detect, warn = thresholds_for_week(threshold_df, row["week_start"])
+        farr_pair = alert_summary.observed_thresholds[i] if i < len(
+            alert_summary.observed_thresholds
+        ) else (None, None)
+        detect, warn = _chart_thresholds(row.week_start, farr_pair)
         observed_history.append(
             DistrictObservedPoint(
-                week_start=pd.Timestamp(row["week_start"]).date(),
-                observed=float(row["cases"]),
+                week_start=pd.Timestamp(row.week_start).date(),
+                observed=float(row.cases),
                 detection_threshold=detect,
                 warning_threshold=warn,
             )
@@ -658,7 +678,11 @@ def _forecast_one_district(
     points: List[DistrictForecastPoint] = []
     for i, pred in enumerate(preds, start=1):
         week_date = (last_week + timedelta(weeks=i)).date()
-        detect, warn = thresholds_for_week(threshold_df, week_date)
+        week_ts = last_week + timedelta(weeks=i)
+        farr_pair = alert_summary.forecast_thresholds[i - 1] if i - 1 < len(
+            alert_summary.forecast_thresholds
+        ) else (None, None)
+        detect, warn = _chart_thresholds(week_ts, farr_pair)
         points.append(
             DistrictForecastPoint(
                 week_start=week_date,
@@ -672,24 +696,11 @@ def _forecast_one_district(
 
     latest_obs = float(history.iloc[-1]) if not history.empty else None
     latest_fc = float(preds[0]) if len(preds) else None
-    baseline_pct = float(np.nanpercentile(history.values, 75)) if len(history) else 0.0
-    warn_pct = baseline_pct * 1.25
-
-    pop_series = None
-    if "pop_at_risk" in district_df.columns and district_df["pop_at_risk"].notna().any():
-        pop_series = district_df["pop_at_risk"].to_numpy(dtype=float)
-    latest_population = None
-    if pop_series is not None and len(pop_series):
-        finite_pop = pop_series[np.isfinite(pop_series)]
-        if finite_pop.size:
-            latest_population = float(finite_pop[-1])
-
-    first_fc_detect, first_fc_warn = thresholds_for_week(
-        threshold_df, points[0].week_start if points else None
+    first_forecast_week = last_week + timedelta(weeks=1)
+    detection_threshold, warning_threshold = thresholds_for_week(
+        threshold_df, first_forecast_week
     )
-    if first_fc_detect is not None and first_fc_warn is not None:
-        detection_threshold, warning_threshold = first_fc_detect, first_fc_warn
-    else:
+    if detection_threshold is None or warning_threshold is None:
         farr = farrington_thresholds_for_horizon(
             history.values.astype(float),
             pop_series,
@@ -697,18 +708,16 @@ def _forecast_one_district(
         )
         if farr is not None:
             detection_threshold, warning_threshold = farr
-        else:
-            detection_threshold, warning_threshold = baseline_pct, warn_pct
 
     alert = DistrictAlert(
         district=str(woreda_name),
         species=species.species,  # type: ignore[arg-type]
-        early_detection=bool(
-            latest_fc is not None and latest_fc > detection_threshold
-        ),
-        early_warning=bool(
-            latest_fc is not None and latest_fc > warning_threshold
-        ),
+        early_detection=alert_summary.early_detection,
+        early_warning=alert_summary.early_warning,
+        ed_alert_count=alert_summary.ed_alert_count,
+        ew_alert_count=alert_summary.ew_alert_count,
+        ed_level=alert_summary.ed_level,
+        ew_level=alert_summary.ew_level,
         latest_observed=latest_obs,
         latest_forecast=latest_fc,
         detection_threshold=detection_threshold,

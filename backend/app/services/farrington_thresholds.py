@@ -18,7 +18,7 @@ import numpy as np
 import statsmodels.api as sm
 from scipy import stats
 from statsmodels.genmod.families import Poisson
-from statsmodels.genmod.families.links import log as log_link
+from statsmodels.genmod.families.links import Log
 
 
 @dataclass(frozen=True)
@@ -69,22 +69,22 @@ def _iterative_poisson_glm(
     if not reweight:
         if offset is not None:
             return sm.GLM(
-                y, X, family=Poisson(link=log_link()), offset=offset
+                y, X, family=Poisson(link=Log()), offset=offset
             ).fit()
-        return sm.GLM(y, X, family=Poisson(link=log_link())).fit()
+        return sm.GLM(y, X, family=Poisson(link=Log())).fit()
 
     for _ in range(12):
         if offset is not None:
             mod = sm.GLM(
                 y,
                 X,
-                family=Poisson(link=log_link()),
+                family=Poisson(link=Log()),
                 offset=offset,
                 var_weights=wts,
             )
         else:
             mod = sm.GLM(
-                y, X, family=Poisson(link=log_link()), var_weights=wts
+                y, X, family=Poisson(link=Log()), var_weights=wts
             )
         try:
             fit = mod.fit()
@@ -104,10 +104,10 @@ def _iterative_poisson_glm(
         wts = np.ones(n, dtype=float)
     if offset is not None:
         mod = sm.GLM(
-            y, X, family=Poisson(link=log_link()), offset=offset, var_weights=wts
+            y, X, family=Poisson(link=Log()), offset=offset, var_weights=wts
         )
     else:
-        mod = sm.GLM(y, X, family=Poisson(link=log_link()), var_weights=wts)
+        mod = sm.GLM(y, X, family=Poisson(link=Log()), var_weights=wts)
     try:
         return mod.fit()
     except Exception:
@@ -126,28 +126,65 @@ def farrington_thresholds_for_horizon(
     """
     y_all = np.asarray(case_history, dtype=float)
     n = y_all.size
-    ctrl = FARRINGTON_PFM if species == "pfm" else FARRINGTON_PV
-    m = int(ctrl.past_weeks_not_included)
-    if n <= m + 2:
+    if n < 3:
+        return None
+    return farrington_bounds_at_index(y_all, pop_history, n, species)
+
+
+def farrington_bounds_at_index(
+    case_history: np.ndarray,
+    pop_history: Optional[np.ndarray],
+    eval_index: int,
+    species: str,
+) -> Optional[Tuple[float, float]]:
+    """
+    Farrington-style expected count (mu) and upper alert bound at week `eval_index`.
+    Matches epidemiar/surveillance intent for per-week alarm evaluation.
+    """
+    y_all = np.asarray(case_history, dtype=float)
+    n = y_all.size
+    if eval_index < 0 or eval_index >= n:
         return None
 
-    # Fit on weeks 0..n-m-1 (drop last m weeks as in R "past not included" for baseline)
-    y_fit = y_all[:-m]
-    n_fit = y_fit.size
+    ctrl = FARRINGTON_PFM if species == "pfm" else FARRINGTON_PV
+    m = int(ctrl.past_weeks_not_included)
+    if eval_index < m + 2:
+        return None
+
+    end_fit = eval_index - m + 1
+    if end_fit < 3:
+        return None
+
+    y_fit = y_all[:end_fit]
+    pop_fit = None
+    if pop_history is not None and len(pop_history) >= end_fit:
+        pop_fit = np.asarray(pop_history[:end_fit], dtype=float)
+
     max_weeks = max(8, int(ctrl.no_periods) * 52)
-    if n_fit > max_weeks:
+    t_global_start = 0
+    if end_fit > max_weeks:
         y_fit = y_fit[-max_weeks:]
+        if pop_fit is not None:
+            pop_fit = pop_fit[-max_weeks:]
+        t_global_start = end_fit - y_fit.size
+
+    t_pred = float(eval_index)
+    return _farrington_mu_upper(y_fit, pop_fit, t_pred, ctrl, t_global_start)
+
+
+def _farrington_mu_upper(
+    y_fit: np.ndarray,
+    pop_fit: Optional[np.ndarray],
+    t_pred: float,
+    ctrl: FarringtonControl,
+    t_global_start: float,
+) -> Optional[Tuple[float, float]]:
     n_fit = y_fit.size
     if n_fit < 3:
         return None
 
-    # Global time index: y_fit[i] is at time i + (n - m - n_fit) if we truncated; align t as global
-    # for trend through the final segment only (last max_weeks of the fit set).
-    t_global_start = n - m - n_fit
-    t_vals = t_global_start + np.arange(n_fit, dtype=float)
-    t_pred = float(n)
-
     if ctrl.trend:
+        t_vals = t_global_start + np.arange(n_fit, dtype=float)
         X = np.column_stack([np.ones(n_fit, dtype=float), t_vals])
         X_pred = np.array([[1.0, t_pred]], dtype=float)
     else:
@@ -156,17 +193,11 @@ def farrington_thresholds_for_horizon(
 
     offset_fit: Optional[np.ndarray] = None
     offset_pred = 0.0
-    if ctrl.population_offset and pop_history is not None and len(pop_history) == n:
-        p = np.asarray(pop_history, dtype=float)
+    if ctrl.population_offset and pop_fit is not None and pop_fit.size == n_fit:
+        p = np.asarray(pop_fit, dtype=float)
         p = np.where(np.isfinite(p) & (p > 0.0), p, 1.0)
-        # Align pop slice to y_fit (same as cases tail)
-        p_all_pre = p[:-m] if m > 0 else p
-        if p_all_pre.size > max_weeks:
-            p_all_pre = p_all_pre[-max_weeks:]
-        if p_all_pre.size != n_fit:
-            return None
-        offset_fit = np.log(p_all_pre)
-        p_last = float(p[n - 1])
+        offset_fit = np.log(p)
+        p_last = float(p[-1])
         offset_pred = float(np.log(max(p_last, 1.0)))
 
     fit = _iterative_poisson_glm(
@@ -179,7 +210,7 @@ def farrington_thresholds_for_horizon(
     if fit is None:
         return None
 
-    lin = float(X_pred @ fit.params + offset_pred)
+    lin = float(np.asarray(X_pred @ fit.params + offset_pred).ravel()[0])
     mu = float(max(np.exp(lin), 0.0))
 
     resid_p = np.asarray(fit.resid_pearson)
