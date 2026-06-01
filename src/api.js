@@ -1,6 +1,7 @@
 import axios from "axios";
 import { buildSampleEpiCsvFromReport } from "./utils/buildSampleEpiCsv";
 import { normalizeDistrictKey, districtForecastCacheUrl } from "./utils/districtNameMatch";
+import { forecastDistrictKey } from "./utils/epidemiaReportMerge";
 import {
   normalizeEnvironmentalSummaryValues,
   normalizeEnvironmentalTimeseries,
@@ -274,12 +275,12 @@ export async function fetchDistrictForecastDetail({
   }
 
   const report = await fetchStaticLatestEpidemiaReport();
-  const targetKey = normalizeDistrictKey(district);
+  const targetKey = forecastDistrictKey(district);
   const match = (report.forecasts || []).find(
     (forecast) =>
       forecast.species === species &&
       (String(forecast.district || "") === String(district) ||
-        normalizeDistrictKey(forecast.district) === targetKey)
+        forecastDistrictKey(forecast.district) === targetKey)
   );
   if (!match) {
     throw new Error(`No forecast found for district '${district}'`);

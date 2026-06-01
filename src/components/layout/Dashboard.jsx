@@ -34,6 +34,7 @@ import {
   countAlertTypes,
 } from "../../utils/buildAlertHistory";
 import { buildDistrictTooltipLookup } from "../../utils/buildDistrictTooltipLookup";
+import { buildIncidentRateData } from "../../utils/buildIncidentRateData";
 import {
   buildComparisonDistrictOptions,
   buildDistrictForecastSeries,
@@ -218,6 +219,7 @@ function Dashboard({
   const districtDetailRequestRef = useRef(0);
   const skipInitialForecastLoadRef = useRef(false);
   const userPrefersAllDistrictsRef = useRef(false);
+  const lastAutoExtendedDistrictRef = useRef(null);
   const projectDataDir = projectConfig?.dataDir || "data";
   const projectOutputDir = projectConfig?.outputDir || "report";
 
@@ -258,6 +260,7 @@ function Dashboard({
   useEffect(() => {
     setStartDate(CHART_DEFAULT_START_DATE);
     setEndDate(CHART_DEFAULT_END_DATE);
+    lastAutoExtendedDistrictRef.current = null;
   }, [chartScopeKey]);
   const [rightPanelView, setRightPanelView] = useState("charts");
   const [comparisonDistricts, setComparisonDistricts] = useState(["", "", ""]);
@@ -734,10 +737,18 @@ function Dashboard({
     );
   }, [adm3Lookup, epidemiaData, region, selectedSpecies, selectedAlert, startDate, endDate]);
 
-  // If the selected district forecast extends beyond the current date picker endDate,
-  // automatically extend the visible window so users immediately see the forecast horizon.
+  // When a district is first selected, extend the end date to include its forecast horizon.
+  // Do not re-run when the user manually changes the date picker afterward.
   useEffect(() => {
+    if (region === "All Regions") {
+      lastAutoExtendedDistrictRef.current = null;
+      return;
+    }
     if (!selectedForecast?.length) return;
+
+    const districtKey = `${region}|${selectedSpecies}`;
+    if (lastAutoExtendedDistrictRef.current === districtKey) return;
+
     const maxForecastDate = selectedForecast
       .filter((row) => row?.median !== null && row?.median !== undefined && row?.date)
       .map((row) => String(row.date))
@@ -745,13 +756,15 @@ function Dashboard({
       .slice(-1)[0];
     if (!maxForecastDate) return;
 
-    const currentEnd = Date.parse(`${endDate}T00:00:00Z`);
+    const { endDate: currentEndDate } = chartDatesRef.current;
+    const currentEnd = Date.parse(`${currentEndDate}T00:00:00Z`);
     const nextEnd = Date.parse(`${maxForecastDate}T00:00:00Z`);
     if (Number.isNaN(currentEnd) || Number.isNaN(nextEnd)) return;
     if (nextEnd > currentEnd) {
       setEndDate(maxForecastDate);
     }
-  }, [selectedForecast, endDate]);
+    lastAutoExtendedDistrictRef.current = districtKey;
+  }, [region, selectedSpecies, selectedForecast]);
 
   const forecastSummary = useMemo(() => {
     const alerts = epidemiaData?.alerts || [];
@@ -816,37 +829,19 @@ function Dashboard({
     return out;
   }, [adm3Lookup, epidemiaData, populationSurface]);
 
-  const incidentRateData = useMemo(() => {
-    const out = {};
-    const assignRate = (name, rate) => {
-      if (!name || !Number.isFinite(rate)) return;
-      const variants = [name, ...getDistrictNameVariants(name)];
-      variants.forEach((variant) => {
-        out[variant] = rate;
-        out[normalizeDistrictKey(variant)] = rate;
-      });
-    };
-
-    (epidemiaData?.alerts || [])
-      .filter((alert) => alert.species === selectedSpecies)
-      .forEach((alert) => {
-        const observed = finiteNumber(alert.latest_observed);
-        if (observed == null) return;
-
-        const district = findDistrictFromLookup(adm3Lookup, alert.district);
-        const mapName = district?.properties?.adm3_name || alert.district;
-        const population =
-          surfaceValueForDistrict(populationData, mapName) ??
-          finiteNumber(alert.population_at_risk);
-        if (population == null || population <= 0) return;
-
-        const rate = (observed / population) * 100000;
-        assignRate(mapName, rate);
-        assignRate(alert.district, rate);
-      });
-
-    return out;
-  }, [adm3Lookup, epidemiaData, populationData, selectedSpecies]);
+  const incidentRateData = useMemo(
+    () =>
+      buildIncidentRateData({
+        epidemiaData,
+        adm3Lookup,
+        populationData,
+        selectedSpecies,
+        startDate,
+        endDate,
+        surfaceValueForDistrict,
+      }),
+    [adm3Lookup, epidemiaData, populationData, selectedSpecies, startDate, endDate]
+  );
 
   const healthLayerData = healthLayer === "incident_rate" ? incidentRateData : populationData;
 
@@ -1255,13 +1250,19 @@ function Dashboard({
     if (alertTimeMode !== "animate" || !alertAnimationWeek) {
       return currentAlertTooltipByDistrict;
     }
-    return buildAnimatedAlertTooltipLookup(mapAlerts, speciesLabel, alertAnimationWeek);
+    return buildAnimatedAlertTooltipLookup(
+      mapAlerts,
+      speciesLabel,
+      alertAnimationWeek,
+      adm3Lookup
+    );
   }, [
     alertTimeMode,
     alertAnimationWeek,
     currentAlertTooltipByDistrict,
     mapAlerts,
     speciesLabel,
+    adm3Lookup,
   ]);
 
   const districtTooltipByDistrict = useMemo(
@@ -1271,8 +1272,20 @@ function Dashboard({
         populationData,
         populationYear,
         surfaceValueForDistrict,
+        epidemiaData,
+        selectedSpecies,
+        startDate,
+        endDate,
       }),
-    [forecastTableRows, populationData, populationYear]
+    [
+      forecastTableRows,
+      populationData,
+      populationYear,
+      epidemiaData,
+      selectedSpecies,
+      startDate,
+      endDate,
+    ]
   );
 
 

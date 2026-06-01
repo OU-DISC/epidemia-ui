@@ -1,4 +1,5 @@
 import { findDistrictFromLookup } from "./districtNameMatch";
+import { findDistrictForecastRow } from "./epidemiaReportMerge";
 import { filterForecastRowsByDateRange } from "./filterForecastByDateRange";
 
 export function buildDistrictForecastSeries(
@@ -11,12 +12,11 @@ export function buildDistrictForecastSeries(
 ) {
   if (!epidemiaData?.forecasts || !districtName) return null;
 
-  const districtFc = epidemiaData.forecasts.find(
-    (forecast) =>
-      forecast.species === selectedSpecies &&
-      (forecast.district === districtName ||
-        findDistrictFromLookup(adm3Lookup, forecast.district)?.properties?.adm3_name ===
-          districtName)
+  const districtFc = findDistrictForecastRow(
+    epidemiaData,
+    adm3Lookup,
+    districtName,
+    selectedSpecies
   );
 
   if (!districtFc) return null;

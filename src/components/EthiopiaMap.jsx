@@ -11,6 +11,7 @@ import {
   normalizeDistrictKey,
 } from "../utils/districtNameMatch";
 import { formatDistrictTooltipHtml } from "../utils/alertExplainer";
+import { resolveLookupEntry } from "../utils/buildAlertTooltipLookup";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -490,17 +491,20 @@ function AlertMarkers({
             iconAnchor: [12, 12]
           });
 
+          const alertTooltipHtml = resolveLookupEntry(
+            alertTooltipByDistrict,
+            districtName,
+            adm3Lookup
+          );
+
           const marker = L.marker([centroid.lat, centroid.lng], { icon: alertIcon, pane: ALERTS_MAP_PANE })
             .bindTooltip(
-              alertTooltipByDistrict[districtName] ||
-                alertTooltipByDistrict[normalizeDistrictKey(districtName)] ||
-                `${districtName}<br>Early Warning`,
+              alertTooltipHtml || `${districtName}<br>Early Warning`,
               {
                 permanent: false,
                 direction: "top",
                 sticky: true,
-                className: alertTooltipByDistrict[districtName] ||
-                  alertTooltipByDistrict[normalizeDistrictKey(districtName)]
+                className: alertTooltipHtml
                   ? "alert-explainer-tooltip"
                   : "district-map-tooltip",
               }
@@ -943,8 +947,8 @@ export default function EthiopiaMap({
     incident_rate: {
       title: "Incidence Rate",
       grades: [0, 10, 50, 100],
-      unit: "cases per 100,000 people",
-      source: `Latest observed cases / WorldPop${populationYear ? ` ${populationYear}` : ""} population`,
+      unit: "cases per 100,000 people (weekly average)",
+      source: `Average weekly cases in selected date range / WorldPop${populationYear ? ` ${populationYear}` : ""} population`,
       colors: ["#fff7ec", "#fee8c8", "#fdbb84", "#e34a33", "#7f0000"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(Number(value)),
@@ -1021,7 +1025,10 @@ export default function EthiopiaMap({
   };
 
   const { grades, unit, colors } = activeScale;
-  const source = activeScale.source;
+  const source =
+    dataset === "incident_rate" && startDate && endDate
+      ? `Average weekly cases ${startDate} → ${endDate} / WorldPop${populationYear ? ` ${populationYear}` : ""} population`
+      : activeScale.source;
   const formatMapValue = activeScale.format || ((value) => Number(value).toFixed(2));
 
   const getColor = (value) => {
@@ -1158,36 +1165,17 @@ export default function EthiopiaMap({
 
   const resolveAlertTooltip = (districtName) => {
     if (!districtName || !alertTooltipByDistrict) return null;
-    const exact = alertTooltipByDistrict[districtName];
-    if (exact) return exact;
-    const normalized = alertTooltipByDistrict[normalizeDistrictKey(districtName)];
-    if (normalized) return normalized;
-    for (const variant of getDistrictNameVariants(districtName)) {
-      const value =
-        alertTooltipByDistrict[variant] ??
-        alertTooltipByDistrict[normalizeDistrictKey(variant)];
-      if (value) return value;
-    }
-    return null;
+    return resolveLookupEntry(alertTooltipByDistrict, districtName, adm3Lookup);
   };
 
   const resolveDistrictTooltip = (districtName, feature) => {
     if (!districtName) return null;
 
-    const fromLookup = (lookup) => {
-      if (!lookup) return null;
-      const exact = lookup[districtName];
-      if (exact) return exact;
-      const normalized = lookup[normalizeDistrictKey(districtName)];
-      if (normalized) return normalized;
-      for (const variant of getDistrictNameVariants(districtName)) {
-        const value = lookup[variant] ?? lookup[normalizeDistrictKey(variant)];
-        if (value) return value;
-      }
-      return null;
-    };
-
-    const districtTooltip = fromLookup(districtTooltipByDistrict);
+    const districtTooltip = resolveLookupEntry(
+      districtTooltipByDistrict,
+      districtName,
+      adm3Lookup
+    );
     if (districtTooltip) return districtTooltip;
 
     if (feature?.properties) {

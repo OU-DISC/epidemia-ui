@@ -1,5 +1,6 @@
 import { assignTooltipKey } from "./buildAlertTooltipLookup";
 import { formatAlertTooltipHtml } from "./alertExplainer";
+import { findDistrictFromLookup } from "./districtNameMatch";
 
 function finiteNumber(value) {
   const n = Number(value);
@@ -108,7 +109,12 @@ export function countAlertTypes(alerts) {
   return { warnings, detections };
 }
 
-export function buildAnimatedAlertTooltipLookup(alerts, speciesLabel, weekStart) {
+export function buildAnimatedAlertTooltipLookup(
+  alerts,
+  speciesLabel,
+  weekStart,
+  adm3Lookup = null
+) {
   const lookup = {};
 
   (alerts || []).forEach((alert) => {
@@ -142,6 +148,10 @@ export function buildAnimatedAlertTooltipLookup(alerts, speciesLabel, weekStart)
 
     const html = formatAlertTooltipHtml(alert.district, explanation, insight);
     assignTooltipKey(lookup, alert.district, html);
+    const feature = findDistrictFromLookup(adm3Lookup, alert.district);
+    if (feature?.properties?.adm3_name) {
+      assignTooltipKey(lookup, feature.properties.adm3_name, html);
+    }
   });
 
   return lookup;

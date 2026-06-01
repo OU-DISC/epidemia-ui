@@ -24,12 +24,13 @@ export function formatDistrictTooltipHtml({
   population,
   cases,
   populationYear,
+  casesLabel = "Avg weekly cases",
 }) {
   const populationLabel =
     population != null
       ? `${formatPopulation(population)}${populationYear ? ` (WorldPop ${populationYear})` : ""}`
       : "—";
-  const casesLabel = cases != null ? formatNumber(cases, 0) : "—";
+  const casesValue = cases != null ? formatNumber(cases, 0) : "—";
 
   return `
     <div class="district-info-tooltip">
@@ -46,8 +47,8 @@ export function formatDistrictTooltipHtml({
         <strong>${escapeHtml(populationLabel)}</strong>
       </div>
       <div class="district-info-tooltip-row">
-        <span>Cases</span>
-        <strong>${escapeHtml(casesLabel)}</strong>
+        <span>${escapeHtml(casesLabel)}</span>
+        <strong>${escapeHtml(casesValue)}</strong>
       </div>
     </div>
   `.trim();
@@ -122,7 +123,7 @@ export function buildAlertExplanation({
   }
 
   if (incidentRate != null) {
-    bullets.push(`Incidence rate: ${formatNumber(incidentRate, 1)} per 100,000`);
+    bullets.push(`Average incidence rate: ${formatNumber(incidentRate, 1)} per 100,000`);
   }
 
   return { status, summary, bullets };

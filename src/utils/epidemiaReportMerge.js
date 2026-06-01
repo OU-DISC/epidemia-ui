@@ -1,8 +1,20 @@
 import { findDistrictFromLookup, normalizeDistrictKey } from "./districtNameMatch";
 
+/** Stable key for forecast rows; keeps (TG)/(AM) suffixes that normalizeDistrictKey drops. */
+export function forecastDistrictKey(district) {
+  if (!district) return "";
+  return String(district)
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/\s*\(([^)]*)\)\s*/g, "_$1_")
+    .replace(/[^a-z0-9_]+/g, "")
+    .replace(/^_+|_+$/g, "");
+}
+
 function forecastKey(forecast) {
   if (!forecast) return "";
-  return `${forecast.species || ""}|${normalizeDistrictKey(forecast.district)}`;
+  return `${forecast.species || ""}|${forecastDistrictKey(forecast.district)}`;
 }
 
 function districtMatchesSelection(forecast, adm3Lookup, selectedDistrict, species) {
@@ -11,12 +23,17 @@ function districtMatchesSelection(forecast, adm3Lookup, selectedDistrict, specie
 
   const selectedFeature = findDistrictFromLookup(adm3Lookup, selectedDistrict);
   const forecastFeature = findDistrictFromLookup(adm3Lookup, forecast.district);
+  if (selectedFeature && forecastFeature && selectedFeature === forecastFeature) {
+    return true;
+  }
+
   const selectedName = selectedFeature?.properties?.adm3_name;
   const forecastName = forecastFeature?.properties?.adm3_name;
 
   return (
     selectedName === forecast.district ||
     forecastName === selectedDistrict ||
+    (selectedName && forecastName && selectedName === forecastName) ||
     normalizeDistrictKey(forecast.district) === normalizeDistrictKey(selectedDistrict)
   );
 }
