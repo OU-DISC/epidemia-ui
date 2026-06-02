@@ -10,7 +10,7 @@ export const DASHBOARD_HELP = {
   refreshForecast:
     "Re-run the EPIDEMIA pipeline for the selected district's region (toolbar region is set automatically when you pick a district), then merge into the cached national report.",
   exportReport:
-    "Download a multi-page PDF with summary, map snapshot, alert table, and charts.",
+    "Download the full EPIDEMIA PDF report: alert summary maps and listings for both species, per-district control charts, incidence maps, and background notes (R demo report structure).",
   newProject:
     "Upload epidemiology CSV data, validate columns, and run your first forecast.",
 

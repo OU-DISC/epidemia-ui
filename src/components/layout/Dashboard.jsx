@@ -35,6 +35,9 @@ import {
 } from "../../utils/buildAlertHistory";
 import { buildDistrictTooltipLookup } from "../../utils/buildDistrictTooltipLookup";
 import { buildIncidentRateData } from "../../utils/buildIncidentRateData";
+import { buildAlertLevelSurface } from "../../utils/buildAlertLevelSurface";
+import { buildEpidemiaReportModel } from "../../utils/buildEpidemiaReportModel";
+import { renderAllDistrictControlChartImages } from "../../utils/buildReportControlChartFigure";
 import {
   buildComparisonDistrictOptions,
   buildDistrictForecastSeries,
@@ -42,7 +45,7 @@ import {
   COMPARISON_HIGHLIGHT_MODES,
 } from "../../utils/buildDistrictForecastSeries";
 import { filterForecastRowsByDateRange } from "../../utils/filterForecastByDateRange";
-import { exportWeeklyReport } from "../../utils/exportWeeklyReport";
+import { captureElement, exportEpidemiaReport } from "../../utils/exportEpidemiaReport";
 import { speciesToDisease } from "../../utils/projectStorage";
 import {
   CHART_DEFAULT_END_DATE,
@@ -185,6 +188,10 @@ function buildWeekDates(startDate, endDate) {
   return out;
 }
 
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function Dashboard({
   projectConfig = null,
   bootstrapEpidemiaData = null,
@@ -207,6 +214,8 @@ function Dashboard({
   const [region, setRegion] = useState(projectConfig?.defaultRegion || "All Regions");
   const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [exporting, setExporting] = useState(false);
+  const [exportProgressMessage, setExportProgressMessage] = useState("");
+  const [reportExportConfig, setReportExportConfig] = useState(null);
   const [regions, setRegions] = useState([]); // List of available regions
   const [districts, setDistricts] = useState(["All Regions"]);
   const [epidemiaData, setEpidemiaData] = useState(null);
@@ -844,6 +853,11 @@ function Dashboard({
   );
 
   const healthLayerData = healthLayer === "incident_rate" ? incidentRateData : populationData;
+  const reportExportActive = Boolean(reportExportConfig);
+  const mapDataset = reportExportConfig?.dataset ?? healthLayer;
+  const mapEnvData = reportExportConfig?.envData ?? healthLayerData;
+  const mapSpecies = reportExportConfig?.species ?? selectedSpecies;
+  const mapFilterForView = reportExportActive ? "All Regions" : mapFilterRegion;
 
   const forecastTableRows = useMemo(() => {
     const alerts = (epidemiaData?.alerts || []).filter((a) => a.species === selectedSpecies);
@@ -1289,45 +1303,93 @@ function Dashboard({
   );
 
 
-  // Weekly report export
+  // R-style EPIDEMIA report export (epidemia_report_demo.Rnw parity)
   const handleExportPDF = async () => {
+    if (!epidemiaData?.alerts?.length || !adm3Lookup?.size) {
+      window.alert("Forecast data is not loaded yet.");
+      return;
+    }
+
     setExporting(true);
-    const previousView = rightPanelView;
+    setExportProgressMessage("Preparing report…");
+
+    const reportModel = buildEpidemiaReportModel({
+      epidemiaData,
+      adm3Lookup,
+      horizonWeeks: forecastWeeks,
+      country,
+    });
+
+    const mapCaptures = {};
+    const captureModes = [
+      { key: "pfm-ed", species: "pfm", dataset: "ed_alert_level", levelField: "ed_level" },
+      { key: "pfm-ew", species: "pfm", dataset: "ew_alert_level", levelField: "ew_level" },
+      { key: "pv-ed", species: "pv", dataset: "ed_alert_level", levelField: "ed_level" },
+      { key: "pv-ew", species: "pv", dataset: "ew_alert_level", levelField: "ew_level" },
+      { key: "pfm-incidence", species: "pfm", dataset: "incident_rate", incidence: true },
+      { key: "pv-incidence", species: "pv", dataset: "incident_rate", incidence: true },
+    ];
 
     try {
-      if (region !== "All Regions") {
-        setRightPanelView("charts");
-        await new Promise((resolve) => setTimeout(resolve, 700));
+      for (const mode of captureModes) {
+        setExportProgressMessage(`Capturing map (${mode.key})…`);
+        const envData = mode.incidence
+          ? buildIncidentRateData({
+              epidemiaData,
+              adm3Lookup,
+              populationData,
+              selectedSpecies: mode.species,
+              startDate,
+              endDate,
+              surfaceValueForDistrict,
+            })
+          : buildAlertLevelSurface(
+              epidemiaData.alerts,
+              adm3Lookup,
+              mode.species,
+              mode.levelField
+            );
+
+        setReportExportConfig({
+          dataset: mode.dataset,
+          envData,
+          species: mode.species,
+        });
+        await wait(900);
+
+        const canvas = await captureElement(document.getElementById("epidemia-report-map"));
+        if (canvas) {
+          mapCaptures[mode.key] = canvas;
+        }
       }
 
-      const topAlerts = [...forecastTableRows]
-        .filter((row) => row.statusRank > 1)
-        .sort((a, b) => b.priority - a.priority)
-        .slice(0, 5);
+      setReportExportConfig(null);
 
-      await exportWeeklyReport({
-        disease,
-        country,
-        speciesLabel,
-        generatedAt: epidemiaData?.generated_at,
-        summary: forecastSummary,
-        topAlerts,
-        tableRows: forecastTableRows,
-        selectedDistrict: region,
-        selectedDistrictInsight:
-          region !== "All Regions"
-            ? forecastTableRows.find((row) => row.mapDistrict === region) || null
-            : null,
-        dateRange: {
-          startDate,
-          endDate,
+      const districtChartImages = await renderAllDistrictControlChartImages({
+        epidemiaData,
+        adm3Lookup,
+        districtRows: reportModel.districtRows,
+        startDate,
+        endDate,
+        onProgress: ({ current, total, district }) => {
+          setExportProgressMessage(`Rendering control charts (${current}/${total}): ${district}`);
         },
       });
+
+      setExportProgressMessage("Writing PDF…");
+      await exportEpidemiaReport({
+        reportModel,
+        mapCaptures,
+        districtChartImages,
+        generatedAt: epidemiaData.generated_at,
+        country,
+      });
     } catch (err) {
-      console.error("Failed to export weekly report:", err);
-      window.alert(err?.message || "Failed to export weekly report.");
+      console.error("Failed to export EPIDEMIA report:", err);
+      window.alert(err?.message || "Failed to export EPIDEMIA report.");
     } finally {
-      setRightPanelView(previousView);
+      setReportExportConfig(null);
+      setExportProgressMessage("");
       setExporting(false);
     }
   };
@@ -1354,6 +1416,7 @@ function Dashboard({
         refreshingForecast={epidemiaRefreshing}
         onExportPDF={handleExportPDF}
         exporting={exporting}
+        exportLabel={exportProgressMessage || (exporting ? "Exporting…" : "Export EPIDEMIA Report")}
         projectName={projectConfig?.projectName}
         onNewProject={onOpenProjectWizard}
       />
@@ -1506,24 +1569,24 @@ function Dashboard({
               onSelectRegion={handleMapDistrictSelect}
               startDate={startDate}
               endDate={endDate}
-              dataset={healthLayer}
-              envData={healthLayerData}
+              dataset={mapDataset}
+              envData={mapEnvData}
               populationYear={populationYear}
               setGeoData={setGeoData}
               woredaPcodeCrosswalk={woredaPcodeCrosswalk}
-              filterRegion={mapFilterRegion}
+              filterRegion={mapFilterForView}
               alerts={mapAlerts}
               alertTooltipByDistrict={alertTooltipByDistrict}
               districtTooltipByDistrict={districtTooltipByDistrict}
-              selectedSpecies={selectedSpecies}
-              showEarlyWarning={showEarlyWarning}
-              showEarlyDetection={showEarlyDetection}
+              selectedSpecies={mapSpecies}
+              showEarlyWarning={reportExportActive ? false : showEarlyWarning}
+              showEarlyDetection={reportExportActive ? false : showEarlyDetection}
               alertTimeMode={alertTimeMode}
               alertAnimationWeek={alertAnimationWeek}
               selectedDistrictName={region !== "All Regions" ? region : null}
-              showRainfallLayer={showRainfallLayer}
-              showTemperatureLayer={showTemperatureLayer}
-              showNdviLayer={showNdviLayer}
+              showRainfallLayer={reportExportActive ? false : showRainfallLayer}
+              showTemperatureLayer={reportExportActive ? false : showTemperatureLayer}
+              showNdviLayer={reportExportActive ? false : showNdviLayer}
               envTimeMode={envTimeMode}
               envTimeDate={weekDates[weekIndex]}
               gibsPrefetchTime={gibsPrefetchTime}

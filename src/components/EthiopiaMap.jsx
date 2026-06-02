@@ -953,6 +953,32 @@ export default function EthiopiaMap({
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(Number(value)),
     },
+    ed_alert_level: {
+      title: "Early Detection Alerts",
+      grades: [0, 1, 2, 3],
+      unit: "summary level",
+      source: "Farrington alarms over the last 4 observed weeks",
+      colors: ["#f5f5f5", "#b8d6fd", "#fc8d59", "#d7301f", "#d7301f"],
+      format: (value) => {
+        if (value >= 3) return "High";
+        if (value >= 2) return "Medium";
+        if (value >= 1) return "Low";
+        return "No Data";
+      },
+    },
+    ew_alert_level: {
+      title: "Early Warning Alerts",
+      grades: [0, 1, 2, 3],
+      unit: "summary level",
+      source: "Farrington alarms over the forecast horizon",
+      colors: ["#f5f5f5", "#b8d6fd", "#fc8d59", "#d7301f", "#d7301f"],
+      format: (value) => {
+        if (value >= 3) return "High";
+        if (value >= 2) return "Medium";
+        if (value >= 1) return "Low";
+        return "No Data";
+      },
+    },
 
     // Rainfall: muted tan -> teal/blue (more rain).
     totprec: {
@@ -1058,6 +1084,9 @@ export default function EthiopiaMap({
     // provide values for it (common for admin "town" polygons), treat incident rate
     // as 0 so the choropleth remains fully colored.
     if (dataset === "incident_rate") {
+      return 0;
+    }
+    if (dataset === "ed_alert_level" || dataset === "ew_alert_level") {
       return 0;
     }
     return undefined;

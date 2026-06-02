@@ -18,6 +18,7 @@ function TopToolbar({
   refreshingForecast,
   onExportPDF,
   exporting,
+  exportLabel = "Export EPIDEMIA Report",
   projectName,
   onNewProject,
 }) {
@@ -123,7 +124,7 @@ function TopToolbar({
         </button>
 
         <button type="button" onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
-          {exporting ? "Exporting..." : "Export Weekly Report"}
+          {exportLabel}
         </button>
       </div>
     </header>
