@@ -24,7 +24,7 @@ const WEIGHT_WOREDA_SELECTED = 2.4;
 const WEIGHT_REGION_OUTLINE = 2.3;
 const DISTRICT_CLICK_MAX_ZOOM = 8;
 const MAP_DEFAULT_CENTER = [9.0, 40.5];
-const MAP_DEFAULT_ZOOM = 7;
+const MAP_DEFAULT_ZOOM = 6;
 
 /** One merged polygon per adm1; outer ring is the true regional boundary. */
 function buildAdmin1Outlines(geo) {

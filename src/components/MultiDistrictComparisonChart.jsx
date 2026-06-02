@@ -116,7 +116,7 @@ export default function MultiDistrictComparisonChart({
       });
     });
     return Array.from(dates).sort();
-  }, [activeSeries]);
+  }, [activeSeries, backgroundActiveSeries]);
 
   useEffect(() => {
     if (!registerHighlightResolver) return undefined;

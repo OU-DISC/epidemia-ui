@@ -1117,9 +1117,11 @@ function Dashboard({
       addIfNeeded(region);
     }
     comparisonDistricts.filter(Boolean).forEach(addIfNeeded);
+    comparisonBackgroundDistricts.forEach(addIfNeeded);
     return [...names];
   }, [
     adm3Lookup,
+    comparisonBackgroundDistricts,
     comparisonDistricts,
     endDate,
     epidemiaData,
