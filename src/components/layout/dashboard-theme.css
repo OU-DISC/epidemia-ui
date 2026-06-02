@@ -1470,7 +1470,7 @@ body {
 
 .alerts-table {
   width: 100%;
-  min-width: 1040px;
+  min-width: 1120px;
   border-collapse: collapse;
   font-size: 0.84rem;
 }
@@ -1489,6 +1489,34 @@ body {
   font-size: 0.76rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+
+.alerts-table-sparkline-cell {
+  width: 92px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.case-sparkline {
+  display: block;
+  color: var(--accent);
+}
+
+.case-sparkline--warning {
+  color: #dc2626;
+}
+
+.case-sparkline--detection {
+  color: #d97706;
+}
+
+.case-sparkline--normal {
+  color: #64748b;
+}
+
+.case-sparkline-empty {
+  color: var(--ink-soft);
+  font-size: 0.82rem;
 }
 
 .alerts-table tbody tr {

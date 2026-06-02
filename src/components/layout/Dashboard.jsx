@@ -72,6 +72,7 @@ import {
 } from "../../utils/plotlyXAxisSync";
 import { useChartPlotRegistry } from "../../utils/useChartPlotRegistry";
 import { useMediaQuery } from "../../utils/useMediaQuery";
+import { buildDistrictCaseSparkline } from "../../utils/buildDistrictCaseSparkline";
 import {
   findDistrictForecastRow,
   forecastHistoryCoversRange,
@@ -946,6 +947,9 @@ function Dashboard({
         positiveMagnitudePercent +
         persistenceWeeks * 10 +
         Math.log10(Math.max(populationAtRisk || 1, 1));
+      const { values: caseSparkline, weeks: caseSparklineWeeks } = buildDistrictCaseSparkline(
+        forecast?.observed_history
+      );
 
       return {
         rawDistrict: alert.district,
@@ -968,6 +972,8 @@ function Dashboard({
         persistenceWeeks,
         populationAtRisk,
         priority,
+        caseSparkline,
+        caseSparklineWeeks,
       };
     });
   }, [adm3Lookup, epidemiaData, selectedSpecies]);

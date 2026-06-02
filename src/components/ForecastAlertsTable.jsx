@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import CaseSparkline from "./CaseSparkline";
 import { buildTableTopPriorityRankByKey } from "../utils/buildDistrictForecastSeries";
 
 const ROWS_PER_PAGE = 10;
@@ -104,8 +105,8 @@ export default function ForecastAlertsTable({
         <div>
           <h3>Tabular Forecast View</h3>
           <p className="panel-subtitle">
-            Alerts and forecasts by district. Click rows to compare up to three districts in the
-            chart below. Top 3 priority alerts are highlighted.
+            Alerts and forecasts by district with an 8-week case trend sparkline. Click rows to
+            compare up to three districts in the chart below. Top 3 priority alerts are highlighted.
           </p>
         </div>
         <span>{rows.length} districts</span>
@@ -131,6 +132,7 @@ export default function ForecastAlertsTable({
             <tr>
               <th>Priority</th>
               <th>District</th>
+              <th>8-wk trend</th>
               <th>Region</th>
               <th>Status</th>
               <th>Observed</th>
@@ -182,6 +184,13 @@ export default function ForecastAlertsTable({
                 </td>
                 <td>
                   <strong>{row.mapDistrict}</strong>
+                </td>
+                <td className="alerts-table-sparkline-cell">
+                  <CaseSparkline
+                    values={row.caseSparkline}
+                    weeks={row.caseSparklineWeeks}
+                    status={row.status}
+                  />
                 </td>
                 <td>{row.region || "-"}</td>
                 <td>

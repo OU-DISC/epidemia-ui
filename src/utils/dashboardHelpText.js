@@ -48,7 +48,7 @@ export const DASHBOARD_HELP = {
   chartsTab:
     "Environmental and transmission charts for the selected district.",
   tableTab:
-    "Sortable district alerts with priority highlighting. Click rows to compare up to three districts in the chart below.",
+    "Sortable district alerts with 8-week case sparklines and priority highlighting. Click rows to compare up to three districts in the chart below.",
   aboutTab:
     "Plain-language overview of EPIDEMIA, how alerts work, and how to use the dashboard.",
 
