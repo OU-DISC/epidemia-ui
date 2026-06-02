@@ -8,6 +8,7 @@ import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
 import SituationStrip from "../SituationStrip";
 import MobileSummaryView from "../MobileSummaryView";
 import HelpTip from "../HelpTip";
+import AboutPanel from "../AboutPanel";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
@@ -1539,11 +1540,34 @@ function Dashboard({
             <button
               type="button"
               role="tab"
-              aria-selected={mobileMainView === "details"}
-              className={mobileMainView === "details" ? "mobile-view-tab active" : "mobile-view-tab"}
-              onClick={() => setMobileMainView("details")}
+              aria-selected={mobileMainView === "details" && rightPanelView !== "about"}
+              className={
+                mobileMainView === "details" && rightPanelView !== "about"
+                  ? "mobile-view-tab active"
+                  : "mobile-view-tab"
+              }
+              onClick={() => {
+                setMobileMainView("details");
+                setRightPanelView("charts");
+              }}
             >
               Details
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={mobileMainView === "details" && rightPanelView === "about"}
+              className={
+                mobileMainView === "details" && rightPanelView === "about"
+                  ? "mobile-view-tab active"
+                  : "mobile-view-tab"
+              }
+              onClick={() => {
+                setMobileMainView("details");
+                setRightPanelView("about");
+              }}
+            >
+              About
             </button>
           </nav>
         ) : null}
@@ -1694,12 +1718,18 @@ function Dashboard({
           {(!isCompactLayout || mobileMainView === "details") && (
           <div className="glass-card insights-panel side-panel">
             <div className="panel-header">
-              <h3>{region}</h3>
+              <h3>{rightPanelView === "about" ? "About EPIDEMIA" : region}</h3>
               <span className="panel-header-meta">
-                {selectedAlert
-                  ? `Population: ${formatPopulation(selectedAlert.population_at_risk)}`
-                  : "District Insight"}
-                <HelpTip text={DASHBOARD_HELP.districtInsight} label="District insight" />
+                {rightPanelView === "about" ? (
+                  "Project overview"
+                ) : selectedAlert ? (
+                  `Population: ${formatPopulation(selectedAlert.population_at_risk)}`
+                ) : (
+                  <>
+                    District Insight
+                    <HelpTip text={DASHBOARD_HELP.districtInsight} label="District insight" />
+                  </>
+                )}
               </span>
             </div>
 
@@ -1726,6 +1756,18 @@ function Dashboard({
                 <span className="side-panel-tab-label">
                   Forecast Table
                   <HelpTip text={DASHBOARD_HELP.tableTab} label="Forecast table tab" />
+                </span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={rightPanelView === "about"}
+                className={rightPanelView === "about" ? "side-panel-tab active" : "side-panel-tab"}
+                onClick={() => setRightPanelView("about")}
+              >
+                <span className="side-panel-tab-label">
+                  About
+                  <HelpTip text={DASHBOARD_HELP.aboutTab} label="About tab" />
                 </span>
               </button>
             </div>
@@ -1856,6 +1898,12 @@ function Dashboard({
                     />
                   </div>
                 )}
+              </div>
+            )}
+
+            {rightPanelView === "about" && (
+              <div className="side-panel-body about-view" role="tabpanel">
+                <AboutPanel />
               </div>
             )}
           </div>
