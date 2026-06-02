@@ -1,5 +1,7 @@
 import jsPDF from "jspdf";
 import { REPORT_SPECIES } from "./buildEpidemiaReportModel";
+import { buildReportFilename } from "./reportScope";
+import { REPORT_EXPORT_CONFIG, waitForPaint } from "./reportExportConfig";
 
 const MARGIN = 40;
 const ROW_HEIGHT = 14;
@@ -24,7 +26,7 @@ function formatCompiledDate() {
   }).format(new Date());
 }
 
-async function captureElement(element, scale = 2) {
+async function captureElement(element, scale = REPORT_EXPORT_CONFIG.mapCaptureScale) {
   if (!element) return null;
   const html2canvas = (await import("html2canvas")).default;
   return html2canvas(element, {
@@ -33,6 +35,12 @@ async function captureElement(element, scale = 2) {
     logging: false,
     backgroundColor: "#ffffff",
   });
+}
+
+/** Wait for map repaint then capture (faster than a fixed long delay). */
+export async function captureReportMap(element) {
+  await waitForPaint(REPORT_EXPORT_CONFIG.mapCaptureDelayMs);
+  return captureElement(element);
 }
 
 function addImageFitWidth(pdf, imageData, x, y, maxWidth, maxHeight) {
@@ -243,7 +251,8 @@ export async function exportEpidemiaReport({
   let y = 130;
   [
     `Country: ${country}`,
-    `Districts modeled: ${reportModel.districtRows.length}`,
+    `Report scope: ${reportModel.scopeDescription || country}`,
+    `Districts in report: ${reportModel.districtRows.length}`,
     `Forecast updated: ${formatReportDate(generatedAt)}`,
     `Early detection period: ${reportModel.periods.earlyDetection.startLabel} – ${reportModel.periods.earlyDetection.endLabel}`,
     `Early warning period: ${reportModel.periods.earlyWarning.startLabel} – ${reportModel.periods.earlyWarning.endLabel}`,
@@ -305,37 +314,46 @@ export async function exportEpidemiaReport({
   }
 
   // Section 2 — Woreda Reports
-  pdf.addPage();
-  writePageHeader(
-    pdf,
-    "Woreda Reports",
-    `${reportModel.districtRows.length} districts · dual-species control charts`,
-    headerLine
-  );
-  pdf.setFont("helvetica", "normal");
-  pdf.setFontSize(10);
-  writeWrappedText(
-    pdf,
-    "Each district page shows P. falciparum (and mixed) and P. vivax control charts with early detection and early warning periods, alert thresholds, and alert markers.",
-    MARGIN,
-    88,
-    contentWidth
-  );
-  writeFooter(pdf);
-
-  for (const row of reportModel.districtRows) {
-    const chartImage = districtChartImages.get(row.mapDistrict);
-    if (!chartImage) continue;
-
+  if (reportModel.woredaPageMode !== "none" && reportModel.districtRows.length > 0) {
     pdf.addPage();
     writePageHeader(
       pdf,
-      `${row.region}: ${row.mapDistrict}`,
-      "Control charts · incidence and forecast",
+      "Woreda Reports",
+      `${reportModel.woredaDistrictCount ?? reportModel.districtRows.length} districts · dual-species control charts`,
       headerLine
     );
-    addImageFitWidth(pdf, chartImage, MARGIN, 82, contentWidth, pageHeight - 110);
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(10);
+    writeWrappedText(
+      pdf,
+      reportModel.woredaPageMode === "alerts"
+        ? "Includes control charts for districts with Medium or High early detection or early warning levels."
+        : "Each district page shows P. falciparum (and mixed) and P. vivax control charts with early detection and early warning periods, alert thresholds, and alert markers.",
+      MARGIN,
+      88,
+      contentWidth
+    );
     writeFooter(pdf);
+
+    const woredaRows =
+      reportModel.woredaDistrictRows?.length > 0
+        ? reportModel.woredaDistrictRows
+        : reportModel.districtRows;
+
+    for (const row of woredaRows) {
+      const chartImage = districtChartImages.get(row.mapDistrict);
+      if (!chartImage) continue;
+
+      pdf.addPage();
+      writePageHeader(
+        pdf,
+        `${row.region}: ${row.mapDistrict}`,
+        "Control charts · incidence and forecast",
+        headerLine
+      );
+      addImageFitWidth(pdf, chartImage, MARGIN, 82, contentWidth, pageHeight - 110);
+      writeFooter(pdf);
+    }
   }
 
   // Section 3 — Maps (incidence by species)
@@ -358,7 +376,11 @@ export async function exportEpidemiaReport({
   writeBackgroundSection(pdf, reportModel);
 
   const fileDate = new Date().toISOString().slice(0, 10);
-  pdf.save(`EPIDEMIA_Report_${fileDate}.pdf`);
+  const filename =
+    reportModel.scopeContext != null
+      ? buildReportFilename(reportModel.scopeContext)
+      : `EPIDEMIA_Report_Ethiopia_${fileDate}.pdf`;
+  pdf.save(filename);
 }
 
 export { captureElement };

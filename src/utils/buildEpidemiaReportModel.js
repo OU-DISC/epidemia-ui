@@ -1,5 +1,13 @@
 import { EARLY_DETECTION_SUMMARY_WEEKS } from "./buildForecastChartLayers";
 import { findDistrictFromLookup } from "./districtNameMatch";
+import {
+  REPORT_SCOPE_COUNTRY,
+  buildReportTitle,
+  filterAlertsByScope,
+  filterDistrictRowsByScope,
+  resolveReportScopeContext,
+  scopeDescription,
+} from "./reportScope";
 
 export const REPORT_SPECIES = [
   { code: "pfm", label: "P. falciparum and mixed malaria" },
@@ -63,7 +71,18 @@ export function buildEpidemiaReportModel({
   adm3Lookup,
   horizonWeeks = 8,
   country = "Ethiopia",
+  scope = REPORT_SCOPE_COUNTRY,
+  selectedDistrict = null,
+  selectedRegion = null,
 }) {
+  const scopeContext = resolveReportScopeContext(scope, {
+    region: selectedDistrict,
+    selectedAdminRegion: selectedRegion,
+    adm3Lookup,
+    country,
+  });
+
+  const scopedAlerts = filterAlertsByScope(epidemiaData?.alerts, adm3Lookup, scopeContext);
   const observedWeeks = collectObservedWeeks(epidemiaData);
   const lastObservedStr = observedWeeks[observedWeeks.length - 1] || null;
   const lastObserved = parseDate(lastObservedStr);
@@ -84,13 +103,13 @@ export function buildEpidemiaReportModel({
 
   const alertsBySpecies = {};
   REPORT_SPECIES.forEach(({ code }) => {
-    alertsBySpecies[code] = (epidemiaData?.alerts || []).filter((alert) => alert.species === code);
+    alertsBySpecies[code] = scopedAlerts.filter((alert) => alert.species === code);
   });
 
   const districtRows = [];
   const districtKeys = new Set();
 
-  (epidemiaData?.alerts || []).forEach((alert) => {
+  scopedAlerts.forEach((alert) => {
     const feature = findDistrictFromLookup(adm3Lookup, alert.district);
     const mapDistrict = feature?.properties?.adm3_name || alert.district;
     const region = feature?.properties?.adm1_name || "";
@@ -146,11 +165,20 @@ export function buildEpidemiaReportModel({
     return acc;
   }, {});
 
+  const scopedDistrictRows = filterDistrictRowsByScope(districtRows, scopeContext);
+  const scopedAlertListings = {};
+  REPORT_SPECIES.forEach(({ code }) => {
+    scopedAlertListings[code] = filterDistrictRowsByScope(alertListings[code] || [], scopeContext);
+  });
+
   return {
-    title: `Malaria Early Detection and Early Warning Report for ${country}`,
+    title: buildReportTitle(scopeContext),
     subtitle: reportWeekDates,
     shortName: "EPIDEMIA Surveillance Report",
-    headerLine: `${isoWeekLabel(lastObserved)} · ${country}`,
+    headerLine: `${isoWeekLabel(lastObserved)} · ${scopeDescription(scopeContext)}`,
+    scope: scopeContext.scope,
+    scopeContext,
+    scopeDescription: scopeDescription(scopeContext),
     generatedAt: epidemiaData?.generated_at || null,
     horizonWeeks,
     periods: {
@@ -171,8 +199,8 @@ export function buildEpidemiaReportModel({
       lastObserved,
       lastObservedLabel: formatLongDate(lastObserved),
     },
-    districtRows,
-    alertListings,
+    districtRows: scopedDistrictRows,
+    alertListings: scopedAlertListings,
     summaryCounts,
     observedWeekCount: observedWeeks.length,
   };

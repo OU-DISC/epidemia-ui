@@ -19,6 +19,11 @@ function TopToolbar({
   onExportPDF,
   exporting,
   exportLabel = "Export EPIDEMIA Report",
+  reportScope = "country",
+  onChangeReportScope,
+  reportScopeAvailability = { canRegion: false, canDistrict: false },
+  woredaPageMode = "alerts",
+  onChangeWoredaPageMode,
   projectName,
   onNewProject,
 }) {
@@ -122,6 +127,40 @@ function TopToolbar({
         >
           {refreshingForecast ? "Refreshing..." : "Refresh Forecast"}
         </button>
+
+        <label className="toolbar-field">
+          Report scope:
+          <select
+            value={reportScope}
+            onChange={(e) => onChangeReportScope?.(e.target.value)}
+            className="toolbar-select"
+            disabled={exporting}
+            title="Limit the PDF to the whole country, selected region, or selected district"
+          >
+            <option value="country">Whole country</option>
+            <option value="region" disabled={!reportScopeAvailability.canRegion}>
+              Selected region
+            </option>
+            <option value="district" disabled={!reportScopeAvailability.canDistrict}>
+              Selected district
+            </option>
+          </select>
+        </label>
+
+        <label className="toolbar-field">
+          Woreda pages:
+          <select
+            value={woredaPageMode}
+            onChange={(e) => onChangeWoredaPageMode?.(e.target.value)}
+            className="toolbar-select"
+            disabled={exporting}
+            title="Control chart pages per district — fewer pages export much faster"
+          >
+            <option value="alerts">Alert districts only</option>
+            <option value="all">All woreda charts</option>
+            <option value="none">Summary only</option>
+          </select>
+        </label>
 
         <button type="button" onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
           {exportLabel}

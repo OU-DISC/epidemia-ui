@@ -45,7 +45,19 @@ import {
   COMPARISON_HIGHLIGHT_MODES,
 } from "../../utils/buildDistrictForecastSeries";
 import { filterForecastRowsByDateRange } from "../../utils/filterForecastByDateRange";
-import { captureElement, exportEpidemiaReport } from "../../utils/exportEpidemiaReport";
+import { captureReportMap, exportEpidemiaReport } from "../../utils/exportEpidemiaReport";
+import {
+  canUseReportScope,
+  filterAlertsByScope,
+  REPORT_SCOPE_COUNTRY,
+  REPORT_SCOPE_DISTRICT,
+  REPORT_SCOPE_REGION,
+} from "../../utils/reportScope";
+import {
+  defaultWoredaPageMode,
+  filterWoredaDistrictRows,
+  WOREDA_PAGE_MODES,
+} from "../../utils/reportExportConfig";
 import { speciesToDisease } from "../../utils/projectStorage";
 import {
   CHART_DEFAULT_END_DATE,
@@ -188,10 +200,6 @@ function buildWeekDates(startDate, endDate) {
   return out;
 }
 
-function wait(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 function Dashboard({
   projectConfig = null,
   bootstrapEpidemiaData = null,
@@ -216,6 +224,8 @@ function Dashboard({
   const [exporting, setExporting] = useState(false);
   const [exportProgressMessage, setExportProgressMessage] = useState("");
   const [reportExportConfig, setReportExportConfig] = useState(null);
+  const [reportScope, setReportScope] = useState(REPORT_SCOPE_COUNTRY);
+  const [woredaPageMode, setWoredaPageMode] = useState(WOREDA_PAGE_MODES.alerts.value);
   const [regions, setRegions] = useState([]); // List of available regions
   const [districts, setDistricts] = useState(["All Regions"]);
   const [epidemiaData, setEpidemiaData] = useState(null);
@@ -857,7 +867,40 @@ function Dashboard({
   const mapDataset = reportExportConfig?.dataset ?? healthLayer;
   const mapEnvData = reportExportConfig?.envData ?? healthLayerData;
   const mapSpecies = reportExportConfig?.species ?? selectedSpecies;
-  const mapFilterForView = reportExportActive ? "All Regions" : mapFilterRegion;
+  const mapFilterForView = reportExportActive
+    ? reportExportConfig?.mapFilter ?? "All Regions"
+    : mapFilterRegion;
+  const mapSelectedDistrict = reportExportActive
+    ? reportExportConfig?.selectedDistrict ?? null
+    : region !== "All Regions"
+      ? region
+      : null;
+
+  const reportScopeAvailability = useMemo(
+    () => ({
+      canRegion: canUseReportScope(REPORT_SCOPE_REGION, {
+        region,
+        selectedAdminRegion,
+      }),
+      canDistrict: canUseReportScope(REPORT_SCOPE_DISTRICT, {
+        region,
+        selectedAdminRegion,
+      }),
+    }),
+    [region, selectedAdminRegion]
+  );
+
+  useEffect(() => {
+    if (reportScope === REPORT_SCOPE_DISTRICT && !reportScopeAvailability.canDistrict) {
+      setReportScope(REPORT_SCOPE_COUNTRY);
+    } else if (reportScope === REPORT_SCOPE_REGION && !reportScopeAvailability.canRegion) {
+      setReportScope(REPORT_SCOPE_COUNTRY);
+    }
+  }, [reportScope, reportScopeAvailability]);
+
+  useEffect(() => {
+    setWoredaPageMode(defaultWoredaPageMode(reportScope));
+  }, [reportScope]);
 
   const forecastTableRows = useMemo(() => {
     const alerts = (epidemiaData?.alerts || []).filter((a) => a.species === selectedSpecies);
@@ -1318,7 +1361,35 @@ function Dashboard({
       adm3Lookup,
       horizonWeeks: forecastWeeks,
       country,
+      scope: reportScope,
+      selectedDistrict: region,
+      selectedRegion: selectedAdminRegion,
     });
+
+    const scopedAlerts = filterAlertsByScope(
+      epidemiaData.alerts,
+      adm3Lookup,
+      reportModel.scopeContext
+    );
+
+    if (reportModel.districtRows.length === 0) {
+      window.alert("No districts match the selected report scope.");
+      setExporting(false);
+      setExportProgressMessage("");
+      return;
+    }
+
+    const woredaDistrictRows = filterWoredaDistrictRows(
+      reportModel.districtRows,
+      scopedAlerts,
+      adm3Lookup,
+      woredaPageMode,
+      findDistrictFromLookup
+    );
+
+    reportModel.woredaPageMode = woredaPageMode;
+    reportModel.woredaDistrictRows = woredaDistrictRows;
+    reportModel.woredaDistrictCount = woredaDistrictRows.length;
 
     const mapCaptures = {};
     const captureModes = [
@@ -1344,7 +1415,7 @@ function Dashboard({
               surfaceValueForDistrict,
             })
           : buildAlertLevelSurface(
-              epidemiaData.alerts,
+              scopedAlerts,
               adm3Lookup,
               mode.species,
               mode.levelField
@@ -1354,10 +1425,11 @@ function Dashboard({
           dataset: mode.dataset,
           envData,
           species: mode.species,
+          mapFilter: reportModel.scopeContext.mapFilter,
+          selectedDistrict: reportModel.scopeContext.selectedDistrict,
         });
-        await wait(900);
 
-        const canvas = await captureElement(document.getElementById("epidemia-report-map"));
+        const canvas = await captureReportMap(document.getElementById("epidemia-report-map"));
         if (canvas) {
           mapCaptures[mode.key] = canvas;
         }
@@ -1365,16 +1437,21 @@ function Dashboard({
 
       setReportExportConfig(null);
 
-      const districtChartImages = await renderAllDistrictControlChartImages({
-        epidemiaData,
-        adm3Lookup,
-        districtRows: reportModel.districtRows,
-        startDate,
-        endDate,
-        onProgress: ({ current, total, district }) => {
-          setExportProgressMessage(`Rendering control charts (${current}/${total}): ${district}`);
-        },
-      });
+      const districtChartImages =
+        woredaPageMode === WOREDA_PAGE_MODES.none.value
+          ? new Map()
+          : await renderAllDistrictControlChartImages({
+              epidemiaData,
+              adm3Lookup,
+              districtRows: woredaDistrictRows,
+              startDate,
+              endDate,
+              onProgress: ({ current, total, district }) => {
+                setExportProgressMessage(
+                  `Rendering control charts (${current}/${total}): ${district}`
+                );
+              },
+            });
 
       setExportProgressMessage("Writing PDF…");
       await exportEpidemiaReport({
@@ -1417,6 +1494,11 @@ function Dashboard({
         onExportPDF={handleExportPDF}
         exporting={exporting}
         exportLabel={exportProgressMessage || (exporting ? "Exporting…" : "Export EPIDEMIA Report")}
+        reportScope={reportScope}
+        onChangeReportScope={setReportScope}
+        reportScopeAvailability={reportScopeAvailability}
+        woredaPageMode={woredaPageMode}
+        onChangeWoredaPageMode={setWoredaPageMode}
         projectName={projectConfig?.projectName}
         onNewProject={onOpenProjectWizard}
       />
@@ -1583,7 +1665,7 @@ function Dashboard({
               showEarlyDetection={reportExportActive ? false : showEarlyDetection}
               alertTimeMode={alertTimeMode}
               alertAnimationWeek={alertAnimationWeek}
-              selectedDistrictName={region !== "All Regions" ? region : null}
+              selectedDistrictName={mapSelectedDistrict}
               showRainfallLayer={reportExportActive ? false : showRainfallLayer}
               showTemperatureLayer={reportExportActive ? false : showTemperatureLayer}
               showNdviLayer={reportExportActive ? false : showNdviLayer}

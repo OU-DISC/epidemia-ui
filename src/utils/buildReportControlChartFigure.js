@@ -1,6 +1,7 @@
 import Plotly from "./plotly";
 import { buildForecastChartLayers } from "./buildForecastChartLayers";
 import { buildDistrictForecastSeries } from "./buildDistrictForecastSeries";
+import { REPORT_EXPORT_CONFIG, runPool } from "./reportExportConfig";
 
 function buildSpeciesPanelTraces(rows, subplotIndex) {
   const chartLayers = buildForecastChartLayers(rows);
@@ -126,8 +127,8 @@ export function buildDistrictControlChartFigure({
   const allShapes = [];
   const allAnnotations = [];
   const layout = {
-    width: 760,
-    height: 620,
+    width: REPORT_EXPORT_CONFIG.chartWidth,
+    height: REPORT_EXPORT_CONFIG.chartHeight,
     margin: { l: 58, r: 24, t: 48, b: 48 },
     paper_bgcolor: "#ffffff",
     plot_bgcolor: "#ffffff",
@@ -190,12 +191,12 @@ export async function renderAllDistrictControlChartImages({
   startDate,
   endDate,
   onProgress,
+  concurrency = REPORT_EXPORT_CONFIG.chartConcurrency,
 }) {
-  const images = new Map();
   const total = districtRows.length;
+  let completed = 0;
 
-  for (let index = 0; index < total; index += 1) {
-    const row = districtRows[index];
+  return runPool(districtRows, concurrency, async (row) => {
     const dataUrl = await renderDistrictControlChartImage({
       epidemiaData,
       adm3Lookup,
@@ -203,16 +204,16 @@ export async function renderAllDistrictControlChartImages({
       startDate,
       endDate,
     });
-    if (dataUrl) {
-      images.set(row.mapDistrict, dataUrl);
-    }
+
+    completed += 1;
     onProgress?.({
       phase: "woreda-charts",
-      current: index + 1,
+      current: completed,
       total,
       district: row.mapDistrict,
     });
-  }
 
-  return images;
+    if (!dataUrl) return null;
+    return { key: row.mapDistrict, value: dataUrl };
+  });
 }
