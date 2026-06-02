@@ -6,6 +6,7 @@ import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import ForecastAlertsTable from "../ForecastAlertsTable";
 import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
 import SituationStrip from "../SituationStrip";
+import RegionalAlertSummaryChart from "../RegionalAlertSummaryChart";
 import MobileSummaryView from "../MobileSummaryView";
 import HelpTip from "../HelpTip";
 import AboutPanel from "../AboutPanel";
@@ -49,6 +50,7 @@ import { filterForecastRowsByDateRange } from "../../utils/filterForecastByDateR
 import { captureReportMap, exportEpidemiaReport } from "../../utils/exportEpidemiaReport";
 import {
   canUseReportScope,
+  filterAlertsByAdminRegion,
   filterAlertsByScope,
   REPORT_SCOPE_COUNTRY,
   REPORT_SCOPE_DISTRICT,
@@ -403,21 +405,27 @@ function Dashboard({
       : null;
 
   const mapAlerts = useMemo(() => {
+    let alerts;
     if (alertTimeMode !== "animate" || !alertAnimationWeek) {
-      return epidemiaData?.alerts || [];
+      alerts = epidemiaData?.alerts || [];
+    } else {
+      alerts = buildAlertsForWeek(
+        epidemiaData?.forecasts,
+        epidemiaData?.alerts,
+        selectedSpecies,
+        alertAnimationWeek
+      );
     }
-    return buildAlertsForWeek(
-      epidemiaData?.forecasts,
-      epidemiaData?.alerts,
-      selectedSpecies,
-      alertAnimationWeek
-    );
+
+    return filterAlertsByAdminRegion(alerts, adm3Lookup, mapFilterRegion);
   }, [
     alertTimeMode,
     alertAnimationWeek,
     epidemiaData?.forecasts,
     epidemiaData?.alerts,
     selectedSpecies,
+    adm3Lookup,
+    mapFilterRegion,
   ]);
 
   const alertWeekCounts = useMemo(() => countAlertTypes(mapAlerts), [mapAlerts]);
@@ -1638,22 +1646,32 @@ function Dashboard({
               </div>
             </div>
 
-            <DecisionLayers
-              showEarlyWarning={showEarlyWarning}
-              onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
-              showEarlyDetection={showEarlyDetection}
-              onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
-              alertTimeMode={alertTimeMode}
-              onChangeAlertTimeMode={setAlertTimeMode}
-              alertWeekDates={alertWeekDates}
-              alertWeekIndex={alertWeekIndex}
-              onChangeAlertWeekIndex={setAlertWeekIndex}
-              alertPlaying={alertPlaying}
-              onToggleAlertPlaying={() => setAlertPlaying((v) => !v)}
-              alertHistoryWeeks={alertHistoryWeeks}
-              onChangeAlertHistoryWeeks={setAlertHistoryWeeks}
-              alertWeekCounts={alertWeekCounts}
-            />
+            <div className="decision-layers-stack">
+              <DecisionLayers
+                showEarlyWarning={showEarlyWarning}
+                onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
+                showEarlyDetection={showEarlyDetection}
+                onToggleEarlyDetection={() => setShowEarlyDetection(!showEarlyDetection)}
+                alertTimeMode={alertTimeMode}
+                onChangeAlertTimeMode={setAlertTimeMode}
+                alertWeekDates={alertWeekDates}
+                alertWeekIndex={alertWeekIndex}
+                onChangeAlertWeekIndex={setAlertWeekIndex}
+                alertPlaying={alertPlaying}
+                onToggleAlertPlaying={() => setAlertPlaying((v) => !v)}
+                alertHistoryWeeks={alertHistoryWeeks}
+                onChangeAlertHistoryWeeks={setAlertHistoryWeeks}
+                alertWeekCounts={alertWeekCounts}
+              />
+
+              <RegionalAlertSummaryChart
+                rows={forecastTableRows}
+                selectedAdminRegion={selectedAdminRegion}
+                speciesLabel={speciesLabel}
+                compact={isCompactLayout}
+                embedded
+              />
+            </div>
 
             <EnvironmentalLayers
               startDate={startDate}

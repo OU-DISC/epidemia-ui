@@ -51,6 +51,30 @@ body {
   height: fit-content;
 }
 
+.decision-layers-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px 12px;
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.decision-layers-stack > .decision-layers {
+  flex: 1 1 420px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  backdrop-filter: none;
+  align-self: center;
+}
+
 .decision-layers-compact {
   display: flex;
   flex-wrap: wrap;
@@ -562,6 +586,146 @@ body {
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
   font-size: 1.34rem;
   font-weight: 700;
+}
+
+.regional-alert-summary {
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.regional-alert-summary--embedded {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  flex: 1 1 260px;
+  min-width: 240px;
+  max-width: 440px;
+  margin: 0;
+  padding: 0 0 0 12px;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  border-left: 1px solid rgba(80, 109, 150, 0.12);
+  background: transparent;
+}
+
+.regional-alert-inline-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.regional-alert-inline-legend {
+  display: flex;
+  gap: 10px;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.regional-alert-inline-legend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.regional-alert-inline-empty {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.regional-alert-inline-chart {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 88px;
+}
+
+.regional-alert-summary--compact {
+  margin-bottom: 12px;
+}
+
+.regional-alert-summary--embedded.regional-alert-summary--compact {
+  margin-bottom: 0;
+  max-width: none;
+  width: 100%;
+  padding-left: 0;
+  border-left: 0;
+  border-top: 1px solid rgba(80, 109, 150, 0.12);
+  padding-top: 8px;
+}
+
+.regional-alert-summary-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.regional-alert-summary-header h3 {
+  margin: 0;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  font-size: 1rem;
+}
+
+.regional-alert-summary-subtitle {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+}
+
+.regional-alert-chart-wrap {
+  width: 100%;
+}
+
+.regional-alert-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.regional-alert-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.regional-alert-tooltip {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.94);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.regional-alert-tooltip strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.regional-alert-empty {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
 }
 
 .dashboard-kicker {
@@ -1736,6 +1900,14 @@ body {
   .dashboard-shell--compact .decision-layers-compact,
   .dashboard-shell--compact .env-layers-compact {
     align-items: stretch;
+  }
+
+  .dashboard-shell--compact .decision-layers-stack {
+    align-items: stretch;
+  }
+
+  .dashboard-shell--compact .decision-layers-stack > .decision-layers {
+    flex-basis: 100%;
   }
 
   .dashboard-shell--compact .env-layers-compact .env-layers-date-range {

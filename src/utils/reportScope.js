@@ -104,6 +104,20 @@ export function filterAlertsByScope(alerts, adm3Lookup, scopeContext) {
   });
 }
 
+/** Filter map/report alerts to a single admin region (or all / none). */
+export function filterAlertsByAdminRegion(alerts, adm3Lookup, adminRegion) {
+  if (!adminRegion || adminRegion === "All Regions") {
+    return alerts || [];
+  }
+  if (adminRegion === "No Selection") {
+    return [];
+  }
+  return filterAlertsByScope(alerts, adm3Lookup, {
+    scope: REPORT_SCOPE_REGION,
+    regionName: adminRegion,
+  });
+}
+
 export function scopeDescription(scopeContext) {
   if (scopeContext.scope === REPORT_SCOPE_DISTRICT) {
     return `${scopeContext.districtName} (${scopeContext.regionName || "district focus"})`;

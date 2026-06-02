@@ -21,6 +21,8 @@ export const DASHBOARD_HELP = {
   earlyDetections:
     "Districts with one or more observed weeks above the Farrington alert threshold in the last 4 epidemiology weeks.",
   districtsModeled: "Number of districts included in the current forecast run.",
+  regionalAlertSummary:
+    "Districts with Medium or High Early Detection or Early Warning levels, grouped by admin region.",
 
   decisionLayers:
     "Toggle alert markers on the map and replay how warnings and detections changed over time.",
