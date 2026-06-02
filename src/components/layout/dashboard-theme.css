@@ -1195,9 +1195,14 @@ body {
 
 .forecast-panel-loading-note {
   margin-left: 8px;
-  color: var(--ink-soft);
   font-size: 0.78rem;
   font-weight: 500;
+  color: var(--accent-strong);
+}
+
+.forecast-panel-loading-note--muted {
+  color: var(--ink-soft);
+  font-weight: 400;
 }
 
 .forecast-chart-wrap {

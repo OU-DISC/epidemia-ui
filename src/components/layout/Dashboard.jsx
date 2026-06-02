@@ -1093,6 +1093,7 @@ function Dashboard({
         selectedDistrict,
         selectedSpecies
       );
+      if (!row) return;
       if (forecastHistoryCoversRange(row, startDate, endDate)) return;
 
       names.add(reportDistrict);
@@ -1102,11 +1103,9 @@ function Dashboard({
       addIfNeeded(region);
     }
     comparisonDistricts.filter(Boolean).forEach(addIfNeeded);
-    comparisonBackgroundDistricts.forEach(addIfNeeded);
     return [...names];
   }, [
     adm3Lookup,
-    comparisonBackgroundDistricts,
     comparisonDistricts,
     endDate,
     epidemiaData,
@@ -1132,9 +1131,15 @@ function Dashboard({
     selectedSpecies,
   ]);
 
+  const districtsNeedingDetailKey = districtsNeedingDetail.join("|");
+  const epidemiaDataReady = Boolean(epidemiaData?.forecasts?.length);
+
   useEffect(() => {
-    if (!epidemiaData || districtsNeedingDetail.length === 0) {
+    if (districtsNeedingDetail.length === 0) {
       setDistrictDetailLoading(false);
+      return undefined;
+    }
+    if (!epidemiaDataReady) {
       return undefined;
     }
 
@@ -1174,9 +1179,9 @@ function Dashboard({
 
     return undefined;
   }, [
-    districtsNeedingDetail,
+    districtsNeedingDetailKey,
     endDate,
-    epidemiaData,
+    epidemiaDataReady,
     projectOutputDir,
     selectedSpecies,
     startDate,
@@ -1809,9 +1814,15 @@ function Dashboard({
                     <section className="forecast-panel">
                       <h4>
                         Transmission Forecast ({selectedSpecies.toUpperCase()})
-                        {(selectedDistrictNeedsDetail || districtDetailLoading) && (
+                        {districtDetailLoading && (
                           <span className="forecast-panel-loading-note">
                             Loading full history…
+                          </span>
+                        )}
+                        {!districtDetailLoading && selectedDistrictNeedsDetail && (
+                          <span className="forecast-panel-loading-note forecast-panel-loading-note--muted">
+                            Showing recent history only. Start the forecast API on port 8000 or run
+                            npm run sync:district-caches for the full chart range.
                           </span>
                         )}
                       </h4>

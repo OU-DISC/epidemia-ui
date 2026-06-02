@@ -256,6 +256,7 @@ export async function fetchDistrictForecastDetail({
           start_date: startDate || undefined,
           end_date: endDate || undefined,
         },
+        timeout: 120000,
       });
       return response.data;
     } catch (err) {

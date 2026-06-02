@@ -31,7 +31,8 @@
     "eject": "react-scripts eject",
     "build:boundaries": "node scripts/build-ethiopia-boundaries.cjs",
     "build:population-crosswalk": "node scripts/build-population-crosswalk.cjs",
-    "build:population-worldpop": "node scripts/build-worldpop-population-surface.mjs"
+    "build:population-worldpop": "node scripts/build-worldpop-population-surface.mjs",
+    "sync:district-caches": "node scripts/sync-district-caches.cjs"
   },
   "eslintConfig": {
     "extends": [
