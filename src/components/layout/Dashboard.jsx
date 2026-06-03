@@ -301,10 +301,16 @@ function Dashboard({
   const [alertWeekIndex, setAlertWeekIndex] = useState(0);
   const [alertPlaying, setAlertPlaying] = useState(false);
 
-  // Environmental raster layers (explanatory variables)
-  const [showRainfallLayer, setShowRainfallLayer] = useState(false);
-  const [showTemperatureLayer, setShowTemperatureLayer] = useState(false);
-  const [showNdviLayer, setShowNdviLayer] = useState(false);
+  // Environmental raster layers (one active at a time — no stacking)
+  const [activeEnvMapLayer, setActiveEnvMapLayer] = useState(null);
+
+  const handleEnvMapLayerSelect = useCallback((layer) => {
+    setActiveEnvMapLayer((current) => (current === layer ? null : layer));
+  }, []);
+
+  const showRainfallLayer = activeEnvMapLayer === "rainfall";
+  const showTemperatureLayer = activeEnvMapLayer === "temperature";
+  const showNdviLayer = activeEnvMapLayer === "ndvi";
 
   // Raster time controls
   const [envTimeMode, setEnvTimeMode] = useState("average"); // "average" | "animate"
@@ -1680,12 +1686,8 @@ function Dashboard({
               endDate={endDate}
               onChangeStartDate={setStartDate}
               onChangeEndDate={setEndDate}
-              showRainfall={showRainfallLayer}
-              showTemperature={showTemperatureLayer}
-              showNdvi={showNdviLayer}
-              onToggleRainfall={() => setShowRainfallLayer((v) => !v)}
-              onToggleTemperature={() => setShowTemperatureLayer((v) => !v)}
-              onToggleNdvi={() => setShowNdviLayer((v) => !v)}
+              activeLayer={activeEnvMapLayer}
+              onSelectLayer={handleEnvMapLayerSelect}
               timeMode={envTimeMode}
               onChangeTimeMode={setEnvTimeMode}
               weekDates={weekDates}

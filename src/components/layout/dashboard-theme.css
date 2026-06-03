@@ -259,6 +259,10 @@ body {
   display: none;
 }
 
+.layer-radio {
+  display: none;
+}
+
 .layer-label {
   display: flex;
   align-items: center;
@@ -308,7 +312,8 @@ body {
   font-size: 11px;
 }
 
-.layer-checkbox:checked + .layer-label .layer-icon {
+.layer-checkbox:checked + .layer-label .layer-icon,
+.layer-radio:checked + .layer-label .layer-icon {
   transform: scale(1.1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -334,31 +339,36 @@ body {
 }
 
 /* Environmental layers - muted palettes */
-.layer-checkbox[id="env-rainfall"]:checked + .layer-label {
+.layer-radio[id="env-rainfall"]:checked + .layer-label {
   color: #2563eb;
 }
 
-.layer-checkbox[id="env-rainfall"] + .layer-label .layer-icon {
+.layer-radio[id="env-rainfall"] + .layer-label .layer-icon {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(14, 165, 233, 0.85));
   color: white;
 }
 
-.layer-checkbox[id="env-temperature"]:checked + .layer-label {
+.layer-radio[id="env-temperature"]:checked + .layer-label {
   color: #b45309;
 }
 
-.layer-checkbox[id="env-temperature"] + .layer-label .layer-icon {
+.layer-radio[id="env-temperature"] + .layer-label .layer-icon {
   background: linear-gradient(135deg, rgba(217, 119, 6, 0.92), rgba(239, 68, 68, 0.86));
   color: white;
 }
 
-.layer-checkbox[id="env-ndvi"]:checked + .layer-label {
+.layer-radio[id="env-ndvi"]:checked + .layer-label {
   color: #15803d;
 }
 
-.layer-checkbox[id="env-ndvi"] + .layer-label .layer-icon {
+.layer-radio[id="env-ndvi"] + .layer-label .layer-icon {
   background: linear-gradient(135deg, rgba(21, 128, 61, 0.92), rgba(34, 197, 94, 0.82));
   color: white;
+}
+
+.layer-radio:not(:checked) + .layer-label .layer-icon {
+  background: #e5e7eb;
+  color: #9ca3af;
 }
 
 .layer-checkbox:not(:checked) + .layer-label .layer-icon {

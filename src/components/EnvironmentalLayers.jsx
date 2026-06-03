@@ -2,17 +2,19 @@ import React from "react";
 import HelpTip from "./HelpTip";
 import { DASHBOARD_HELP } from "../utils/dashboardHelpText";
 
+const ENV_MAP_LAYERS = [
+  { id: "rainfall", icon: "🌧️", label: "Rainfall" },
+  { id: "temperature", icon: "🌡️", label: "Temperature" },
+  { id: "ndvi", icon: "🌿", label: "NDVI / Vegetation" },
+];
+
 function EnvironmentalLayers({
   startDate,
   endDate,
   onChangeStartDate,
   onChangeEndDate,
-  showRainfall,
-  showTemperature,
-  showNdvi,
-  onToggleRainfall,
-  onToggleTemperature,
-  onToggleNdvi,
+  activeLayer = null,
+  onSelectLayer,
   timeMode,
   onChangeTimeMode,
   weekIndex,
@@ -22,7 +24,6 @@ function EnvironmentalLayers({
   onTogglePlaying,
   averageSampleInfo,
 }) {
-  const anyLayer = showRainfall || showTemperature || showNdvi;
   const currentDate = weekDates && weekDates.length ? weekDates[weekIndex] : "";
 
   return (
@@ -59,49 +60,35 @@ function EnvironmentalLayers({
         </label>
       </div>
 
-      <div className="layer-item">
-        <input
-          type="checkbox"
-          id="env-rainfall"
-          className="layer-checkbox"
-          checked={showRainfall}
-          onChange={onToggleRainfall}
-        />
-        <label htmlFor="env-rainfall" className="layer-label">
-          <div className="layer-icon">🌧️</div>
-          Rainfall
-        </label>
+      <div className="env-layer-options" role="radiogroup" aria-label="Environmental map layer">
+        {ENV_MAP_LAYERS.map(({ id, icon, label }) => (
+          <div className="layer-item" key={id}>
+            <input
+              type="radio"
+              id={`env-${id}`}
+              name="env-map-layer"
+              className="layer-radio"
+              checked={activeLayer === id}
+              onChange={() => onSelectLayer?.(id)}
+            />
+            <label
+              htmlFor={`env-${id}`}
+              className="layer-label"
+              onClick={(event) => {
+                if (activeLayer === id) {
+                  event.preventDefault();
+                  onSelectLayer?.(id);
+                }
+              }}
+            >
+              <div className="layer-icon">{icon}</div>
+              {label}
+            </label>
+          </div>
+        ))}
       </div>
 
-      <div className="layer-item">
-        <input
-          type="checkbox"
-          id="env-temperature"
-          className="layer-checkbox"
-          checked={showTemperature}
-          onChange={onToggleTemperature}
-        />
-        <label htmlFor="env-temperature" className="layer-label">
-          <div className="layer-icon">🌡️</div>
-          Temperature
-        </label>
-      </div>
-
-      <div className="layer-item">
-        <input
-          type="checkbox"
-          id="env-ndvi"
-          className="layer-checkbox"
-          checked={showNdvi}
-          onChange={onToggleNdvi}
-        />
-        <label htmlFor="env-ndvi" className="layer-label">
-          <div className="layer-icon">🌿</div>
-          NDVI / Vegetation
-        </label>
-      </div>
-
-      {anyLayer && (
+      {activeLayer && (
         <div className="env-layers-time-controls">
           <div className="toolbar-field env-layers-time-mode">
             <span className="toolbar-field-label">
@@ -134,11 +121,7 @@ function EnvironmentalLayers({
                 className="env-layers-week-slider"
               />
 
-              <button
-                type="button"
-                className="toolbar-button"
-                onClick={onTogglePlaying}
-              >
+              <button type="button" className="toolbar-button" onClick={onTogglePlaying}>
                 {playing ? "Pause" : "Play"}
               </button>
             </>
@@ -156,4 +139,3 @@ function EnvironmentalLayers({
 }
 
 export default EnvironmentalLayers;
-

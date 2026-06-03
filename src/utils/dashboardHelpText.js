@@ -39,7 +39,7 @@ export const DASHBOARD_HELP = {
     "Choropleth shading on the map: population or average weekly malaria incidence over the selected date range.",
 
   envLayers:
-    "Overlay rainfall, temperature, or vegetation rasters on the map for context.",
+    "Choose one environmental raster layer on the map at a time (rainfall, temperature, or vegetation). Layers do not stack.",
   envDateRange:
     "Start and end dates filter map layers, environmental charts, transmission forecast charts, and alert history replay.",
   envTime:
