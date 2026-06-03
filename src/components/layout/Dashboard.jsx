@@ -463,7 +463,10 @@ function Dashboard({
     const requestId = mapRequestIdRef.current + 1;
     mapRequestIdRef.current = requestId;
     try {
-      const data = await fetchMapEpidemiaReport({ outputDir: projectOutputDir });
+      const data = await fetchMapEpidemiaReport({
+        outputDir: projectOutputDir,
+        horizonWeeks: forecastWeeks,
+      });
       if (mapRequestIdRef.current === requestId) {
         setEpidemiaData((current) => mergeForecastBootstrap(current, data));
         setEpidemiaError("");
@@ -474,7 +477,7 @@ function Dashboard({
         setEpidemiaError(formatForecastApiError(err, "load map forecast report"));
       }
     }
-  }, [projectOutputDir]);
+  }, [projectOutputDir, forecastWeeks]);
 
   const loadForecastBootstrap = useCallback(async () => {
     const requestId = forecastRequestIdRef.current + 1;
@@ -482,9 +485,17 @@ function Dashboard({
     setEpidemiaLoading(true);
     setEpidemiaError("");
     try {
-      const data = await fetchLatestEpidemiaReport({ outputDir: projectOutputDir });
+      const data = await fetchLatestEpidemiaReport({
+        outputDir: projectOutputDir,
+        horizonWeeks: forecastWeeks,
+      });
       if (forecastRequestIdRef.current === requestId) {
-        setEpidemiaData((current) => mergeForecastBootstrap(current, data));
+        setEpidemiaData((current) => ({
+          ...(current || {}),
+          ...data,
+          forecasts: data.forecasts || [],
+          alerts: data.alerts || [],
+        }));
       }
     } catch (err) {
       console.error("Failed to load latest EPIDEMIA report:", err);
@@ -496,7 +507,7 @@ function Dashboard({
         setEpidemiaLoading(false);
       }
     }
-  }, [projectOutputDir]);
+  }, [projectOutputDir, forecastWeeks]);
 
   const refreshEpidemia = useCallback(async () => {
     let regionFilter = null;

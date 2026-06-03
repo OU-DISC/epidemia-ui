@@ -6,7 +6,7 @@ export const DASHBOARD_HELP = {
     "Filter the map and district lists to one admin region, or show all of Ethiopia.",
   district:
     "Focus charts and map selection on one district, or view all districts.",
-  forecastWeeks: "Number of future weeks included in the transmission forecast.",
+  forecastWeeks: "Number of future weeks shown in forecasts. After Refresh Forecast, 4-, 8-, and 12-week results are cached; switching here loads instantly without re-running the pipeline.",
   refreshForecast:
     "Re-run the EPIDEMIA pipeline for the selected district's region (toolbar region is set automatically when you pick a district), then merge into the cached national report.",
   exportReport:

@@ -136,7 +136,7 @@ export async function runEpidemiaPipeline({
   return response.data;
 }
 
-export async function fetchMapEpidemiaReport({ outputDir = "report" } = {}) {
+export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeeks = 8 } = {}) {
   if (isBrowser) {
     const staticMapBootstrap = await fetchStaticMapBootstrapReportDirect().catch(() => null);
     if (staticMapBootstrap) return staticMapBootstrap;
@@ -145,7 +145,7 @@ export async function fetchMapEpidemiaReport({ outputDir = "report" } = {}) {
   if (FORECAST_API_BASE) {
     try {
       const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/map"), {
-        params: { output_dir: outputDir },
+        params: { output_dir: outputDir, horizon_weeks: horizonWeeks },
       });
       if (response.data) return response.data;
     } catch (err) {
@@ -170,7 +170,11 @@ export async function fetchMapEpidemiaReport({ outputDir = "report" } = {}) {
   throw new Error("Map forecast report not found");
 }
 
-export async function fetchLatestEpidemiaReport({ outputDir = "report", historyWeeks = 16 } = {}) {
+export async function fetchLatestEpidemiaReport({
+  outputDir = "report",
+  historyWeeks = 16,
+  horizonWeeks = 8,
+} = {}) {
   if (isBrowser) {
     const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
     if (staticBootstrap) return staticBootstrap;
@@ -185,7 +189,11 @@ export async function fetchLatestEpidemiaReport({ outputDir = "report", historyW
       const response = await axios.get(
         buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/bootstrap"),
         {
-          params: { output_dir: outputDir, history_weeks: historyWeeks },
+          params: {
+            output_dir: outputDir,
+            history_weeks: historyWeeks,
+            horizon_weeks: horizonWeeks,
+          },
         }
       );
       if (response.data) {
