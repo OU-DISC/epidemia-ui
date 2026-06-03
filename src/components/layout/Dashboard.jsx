@@ -1632,16 +1632,7 @@ function Dashboard({
           {/* Map */}
           {(!isCompactLayout || mobileMainView === "map") && (
           <div className="glass-card map-panel">
-            <div className="panel-header">
-              <h3>
-                <span className="panel-header-label">
-                  District Layers
-                  <HelpTip text={DASHBOARD_HELP.districtLayers} label="District layers" placement="below" />
-                </span>
-              </h3>
-            </div>
-
-            <div className="decision-layers-stack">
+            <div className="map-panel-controls">
               <DecisionLayers
                 showEarlyWarning={showEarlyWarning}
                 onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
@@ -1659,32 +1650,24 @@ function Dashboard({
                 alertWeekCounts={alertWeekCounts}
               />
 
-              <RegionalAlertSummaryChart
-                rows={forecastTableRows}
-                selectedAdminRegion={selectedAdminRegion}
-                speciesLabel={speciesLabel}
-                compact={isCompactLayout}
-                embedded
+              <EnvironmentalLayers
+                startDate={startDate}
+                endDate={endDate}
+                onChangeStartDate={setStartDate}
+                onChangeEndDate={setEndDate}
+                mapSurfaceLayer={activeMapSurfaceLayer}
+                onChangeMapSurfaceLayer={handleMapSurfaceLayerChange}
+                showEnvTimeControls={envMapLayerActive}
+                timeMode={envTimeMode}
+                onChangeTimeMode={setEnvTimeMode}
+                weekDates={weekDates}
+                weekIndex={weekIndex}
+                onChangeWeekIndex={setWeekIndex}
+                playing={envPlaying}
+                onTogglePlaying={() => setEnvPlaying((v) => !v)}
+                averageSampleInfo={averageSampleInfo}
               />
             </div>
-
-            <EnvironmentalLayers
-              startDate={startDate}
-              endDate={endDate}
-              onChangeStartDate={setStartDate}
-              onChangeEndDate={setEndDate}
-              mapSurfaceLayer={activeMapSurfaceLayer}
-              onChangeMapSurfaceLayer={handleMapSurfaceLayerChange}
-              showEnvTimeControls={envMapLayerActive}
-              timeMode={envTimeMode}
-              onChangeTimeMode={setEnvTimeMode}
-              weekDates={weekDates}
-              weekIndex={weekIndex}
-              onChangeWeekIndex={setWeekIndex}
-              playing={envPlaying}
-              onTogglePlaying={() => setEnvPlaying((v) => !v)}
-              averageSampleInfo={averageSampleInfo}
-            />
 
             <EthiopiaMap
               onSelectRegion={handleMapDistrictSelect}
@@ -1803,6 +1786,14 @@ function Dashboard({
                 )}
 
                 <Suspense fallback={<div className="chart-state">Loading charts...</div>}>
+                  <RegionalAlertSummaryChart
+                    rows={forecastTableRows}
+                    selectedAdminRegion={selectedAdminRegion}
+                    speciesLabel={speciesLabel}
+                    compact={isCompactLayout}
+                    inChartsPanel
+                  />
+
                   {selectedForecast && (
                     <section className="forecast-panel">
                       <div className="forecast-panel-header">

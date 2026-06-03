@@ -31,6 +31,8 @@ export const DASHBOARD_HELP = {
   alertHistory:
     "Replay how alerts changed over recent weeks using observed case history.",
 
+  alertLayers:
+    "Toggle Early Warning and Early Detection overlays on the map. Use alert history to replay how alerts changed week by week.",
   districtLayers:
     "Map controls for choropleth or satellite base layers, plus alert overlays.",
   mapSurfaceLayer:

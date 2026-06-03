@@ -396,7 +396,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   padding: 14px 18px;
   border: 1px solid var(--card-border);
   border-radius: 16px;
@@ -411,11 +411,36 @@ body {
   letter-spacing: 0.08em;
   font-size: 1.02rem;
   font-weight: 700;
-  margin-right: 6px;
+  margin-right: 2px;
+  flex: 0 0 auto;
+}
+
+.toolbar-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.035);
+  border: 1px solid rgba(15, 23, 42, 0.07);
+}
+
+.toolbar-cluster--context {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.toolbar-cluster--project {
+  flex: 0 1 auto;
+}
+
+.toolbar-cluster--output {
+  margin-left: auto;
+  flex: 0 1 auto;
 }
 
 .toolbar-actions {
-  margin-left: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -683,7 +708,7 @@ body {
   margin-bottom: 12px;
 }
 
-.regional-alert-summary--embedded.regional-alert-summary--compact {
+.regional-alert-summary--embedded.regional-alert-summary--compact:not(.regional-alert-summary--below-map) {
   margin-bottom: 0;
   max-width: none;
   width: 100%;
@@ -924,9 +949,44 @@ body {
 }
 
 .side-panel-body.charts-view .chart-panel-slot,
-.side-panel-body.charts-view .forecast-panel {
+.side-panel-body.charts-view .forecast-panel,
+.side-panel-body.charts-view .regional-alert-panel {
   flex: 0 0 auto;
   width: 100%;
+}
+
+.regional-alert-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 2px 4px;
+}
+
+.regional-alert-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+
+.regional-alert-panel-title {
+  margin: 0;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.regional-alert-panel-empty {
+  margin: 0;
+  padding: 8px 0 4px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.regional-alert-panel-chart {
+  min-height: 88px;
 }
 
 .env-chart-panel {
@@ -1076,6 +1136,31 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
+}
+
+.map-panel-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.025);
+}
+
+.map-panel-controls .decision-layers-compact,
+.map-panel-controls .env-layers-compact {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.map-panel-controls .env-layers-compact {
+  padding-top: 6px;
+  border-top: 1px solid rgba(80, 109, 150, 0.1);
 }
 
 .panel-header {
@@ -2098,40 +2183,13 @@ body {
     overflow: hidden;
   }
 
-  .dashboard-shell--compact .map-panel .panel-header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-
-  .dashboard-shell--compact .map-layer-controls {
-    flex-wrap: wrap;
-    justify-content: stretch;
-    width: 100%;
-  }
-
-  .dashboard-shell--compact .map-surface-control {
-    flex: 1 1 100%;
-    min-width: 0;
-  }
-
-  .dashboard-shell--compact .map-surface-control .toolbar-select {
-    flex: 1;
-    width: 100%;
-    min-width: 0;
+  .dashboard-shell--compact .map-panel-controls {
+    padding: 8px 10px;
   }
 
   .dashboard-shell--compact .decision-layers-compact,
   .dashboard-shell--compact .env-layers-compact {
     align-items: stretch;
-  }
-
-  .dashboard-shell--compact .decision-layers-stack {
-    align-items: stretch;
-  }
-
-  .dashboard-shell--compact .decision-layers-stack > .decision-layers {
-    flex-basis: 100%;
   }
 
   .dashboard-shell--compact .env-layers-compact .env-layers-date-range {
@@ -2184,7 +2242,7 @@ body {
     min-height: 460px;
   }
 
-  .toolbar-actions {
+  .toolbar-cluster--output {
     margin-left: 0;
   }
 }
@@ -2221,6 +2279,15 @@ body {
     padding: 10px;
   }
 
+  .toolbar-cluster {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .toolbar-cluster--context {
+    flex-basis: 100%;
+  }
+
   .toolbar-field {
     width: 100%;
     justify-content: space-between;
@@ -2230,10 +2297,6 @@ body {
   .toolbar-input,
   .toolbar-button {
     width: 56%;
-  }
-
-  .toolbar-actions {
-    width: 100%;
   }
 
   .map-wrap,

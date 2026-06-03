@@ -1,4 +1,6 @@
 import React from "react";
+import HelpTip from "./HelpTip";
+import { DASHBOARD_HELP } from "../utils/dashboardHelpText";
 
 function DecisionLayers({
   showEarlyWarning,
@@ -21,7 +23,12 @@ function DecisionLayers({
 
   return (
     <div className="decision-layers decision-layers-compact">
-      <h3>Decision Layers:</h3>
+      <h3>
+        <span className="panel-header-label">
+          Alert layers
+          <HelpTip text={DASHBOARD_HELP.alertLayers} label="Alert layers" />
+        </span>
+      </h3>
 
       <div className="layer-item">
         <input

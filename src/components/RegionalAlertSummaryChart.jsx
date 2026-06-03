@@ -24,19 +24,34 @@ function BarTooltip({ active, payload, label }) {
   );
 }
 
+function RegionalAlertLegend({ className = "regional-alert-inline-legend", short = true }) {
+  return (
+    <div className={className}>
+      <span>
+        <i style={{ background: ED_COLOR }} />
+        {short ? "Detection" : "Early Detection"}
+      </span>
+      <span>
+        <i style={{ background: EW_COLOR }} />
+        {short ? "Warning" : "Early Warning"}
+      </span>
+    </div>
+  );
+}
+
 export default function RegionalAlertSummaryChart({
   rows = [],
   selectedAdminRegion,
   speciesLabel,
   compact = false,
-  embedded = false,
+  inChartsPanel = false,
 }) {
   const barData = useMemo(
     () => buildRegionalAlertSummary(rows, selectedAdminRegion),
     [rows, selectedAdminRegion]
   );
 
-  const embeddedBarData = useMemo(
+  const elevatedBarData = useMemo(
     () => barData.filter((row) => row.anyElevated > 0),
     [barData]
   );
@@ -46,88 +61,87 @@ export default function RegionalAlertSummaryChart({
       ? selectedAdminRegion
       : "All regions";
 
-  const chartHeight = embedded
-    ? Math.min(220, Math.max(88, embeddedBarData.length * 22 + 12))
+  const chartHeight = inChartsPanel
+    ? Math.min(200, Math.max(88, elevatedBarData.length * 22 + 16))
     : compact
       ? Math.max(220, barData.length * 26)
       : Math.max(280, barData.length * 32);
 
-  const elevatedTotal = embedded
-    ? embeddedBarData.reduce((sum, row) => sum + row.anyElevated, 0)
+  const elevatedTotal = inChartsPanel
+    ? elevatedBarData.reduce((sum, row) => sum + row.anyElevated, 0)
     : barData.reduce((sum, row) => sum + row.anyElevated, 0);
 
-  const sectionClassName = [
-    "regional-alert-summary",
-    embedded ? "regional-alert-summary--embedded" : "glass-card fade-in-up delay-1",
-    compact ? "regional-alert-summary--compact" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const chartData = inChartsPanel ? elevatedBarData : barData;
 
-  if (embedded) {
+  const panelChart = elevatedTotal === 0 ? (
+    <p className="regional-alert-panel-empty">No districts with Medium or High alerts in this scope.</p>
+  ) : (
+    <div className="regional-alert-panel-chart" style={{ height: chartHeight }}>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          data={chartData}
+          layout="vertical"
+          margin={{ top: 2, right: 8, left: 4, bottom: 2 }}
+          barGap={2}
+        >
+          <XAxis type="number" allowDecimals={false} tick={{ fontSize: 9 }} height={16} />
+          <YAxis
+            type="category"
+            dataKey="region"
+            width={76}
+            tick={{ fontSize: 9 }}
+            tickFormatter={(value) => {
+              const label = String(value);
+              return label.length > 11 ? `${label.slice(0, 10)}…` : label;
+            }}
+          />
+          <Tooltip content={<BarTooltip />} />
+          <Bar
+            dataKey="edElevated"
+            name="Early Detection (Medium/High)"
+            fill={ED_COLOR}
+            barSize={7}
+            radius={[0, 3, 3, 0]}
+          />
+          <Bar
+            dataKey="ewElevated"
+            name="Early Warning (Medium/High)"
+            fill={EW_COLOR}
+            barSize={7}
+            radius={[0, 3, 3, 0]}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+
+  if (inChartsPanel) {
     return (
-      <section className={sectionClassName} aria-label="Alerts by region">
-        <span className="regional-alert-inline-label">
-          By region
-          <HelpTip text={DASHBOARD_HELP.regionalAlertSummary} label="Regional alert summary" />
-        </span>
-        <div className="regional-alert-inline-legend">
-          <span>
-            <i style={{ background: ED_COLOR }} />
-            Detection
-          </span>
-          <span>
-            <i style={{ background: EW_COLOR }} />
-            Warning
-          </span>
+      <section className="regional-alert-panel" aria-label="Alerts by region">
+        <div className="regional-alert-panel-header">
+          <h4 className="regional-alert-panel-title">
+            <span className="panel-header-label">
+              Alerts by region
+              <HelpTip text={DASHBOARD_HELP.regionalAlertSummary} label="Regional alert summary" />
+            </span>
+          </h4>
+          <RegionalAlertLegend />
         </div>
-        {elevatedTotal === 0 ? (
-          <span className="regional-alert-inline-empty">No Medium/High alerts</span>
-        ) : (
-          <div className="regional-alert-inline-chart" style={{ height: chartHeight }}>
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={embeddedBarData}
-                layout="vertical"
-                margin={{ top: 2, right: 8, left: 4, bottom: 2 }}
-                barGap={2}
-              >
-                <XAxis type="number" allowDecimals={false} tick={{ fontSize: 9 }} height={16} />
-                <YAxis
-                  type="category"
-                  dataKey="region"
-                  width={76}
-                  tick={{ fontSize: 9 }}
-                  tickFormatter={(value) => {
-                    const label = String(value);
-                    return label.length > 11 ? `${label.slice(0, 10)}…` : label;
-                  }}
-                />
-                <Tooltip content={<BarTooltip />} />
-                <Bar
-                  dataKey="edElevated"
-                  name="Early Detection (Medium/High)"
-                  fill={ED_COLOR}
-                  barSize={7}
-                  radius={[0, 3, 3, 0]}
-                />
-                <Bar
-                  dataKey="ewElevated"
-                  name="Early Warning (Medium/High)"
-                  fill={EW_COLOR}
-                  barSize={7}
-                  radius={[0, 3, 3, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        )}
+        {panelChart}
       </section>
     );
   }
 
   return (
-    <section className={sectionClassName}>
+    <section
+      className={[
+        "regional-alert-summary",
+        "glass-card fade-in-up delay-1",
+        compact ? "regional-alert-summary--compact" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="regional-alert-summary-header">
         <div>
           <h3>
@@ -167,14 +181,7 @@ export default function RegionalAlertSummaryChart({
               <Bar dataKey="ewElevated" name="Early Warning (Medium/High)" fill={EW_COLOR} radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
-          <div className="regional-alert-legend">
-            <span>
-              <i style={{ background: ED_COLOR }} /> Early Detection
-            </span>
-            <span>
-              <i style={{ background: EW_COLOR }} /> Early Warning
-            </span>
-          </div>
+          <RegionalAlertLegend className="regional-alert-legend" short={false} />
         </div>
       )}
     </section>
