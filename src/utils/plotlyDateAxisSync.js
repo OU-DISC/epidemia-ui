@@ -109,3 +109,22 @@ export function buildPlotlyDateXAxis(title = "Date") {
     autorange: true,
   };
 }
+
+/** Y-axis locked so trackpad pinch / scroll zoom only changes the date (x) axis. */
+export function buildPlotlyValueYAxis(title = "Value", { nonnegative = false } = {}) {
+  return {
+    title,
+    gridcolor: "#e2e8f1",
+    zeroline: false,
+    fixedrange: true,
+    autorange: true,
+    tickfont: { color: "#495367" },
+    titlefont: { color: "#495367" },
+    ...(nonnegative
+      ? {
+          rangemode: "tozero",
+          autorangeoptions: { minallowed: 0, clipmin: 0, include: "padding" },
+        }
+      : { autorangeoptions: { include: "padding" } }),
+  };
+}

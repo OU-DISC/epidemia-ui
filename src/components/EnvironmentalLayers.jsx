@@ -1,5 +1,6 @@
 import React from "react";
 import HelpTip from "./HelpTip";
+import MapSurfaceLayerPicker from "./MapSurfaceLayerPicker";
 import { DASHBOARD_HELP } from "../utils/dashboardHelpText";
 
 function EnvironmentalLayers({
@@ -7,6 +8,8 @@ function EnvironmentalLayers({
   endDate,
   onChangeStartDate,
   onChangeEndDate,
+  mapSurfaceLayer,
+  onChangeMapSurfaceLayer,
   showEnvTimeControls = false,
   timeMode,
   onChangeTimeMode,
@@ -44,6 +47,12 @@ function EnvironmentalLayers({
             onChange={(e) => onChangeEndDate(e.target.value)}
           />
         </label>
+        {onChangeMapSurfaceLayer ? (
+          <MapSurfaceLayerPicker
+            value={mapSurfaceLayer}
+            onChange={onChangeMapSurfaceLayer}
+          />
+        ) : null}
       </div>
 
       {showEnvTimeControls && (

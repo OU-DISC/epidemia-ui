@@ -4,7 +4,7 @@ import { Plot } from "../utils/plotly";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
 import { chartRangeUiRevision, CHART_PANEL_HEIGHT } from "../utils/chartDateRange";
-import { buildPlotlyDateXAxis } from "../utils/plotlyDateAxisSync";
+import { buildPlotlyDateXAxis, buildPlotlyValueYAxis } from "../utils/plotlyDateAxisSync";
 import { buildForecastChartLayers } from "../utils/buildForecastChartLayers";
 
 export default function ForecastChart({
@@ -22,7 +22,7 @@ export default function ForecastChart({
   alertTimeMode = "current",
   alertAnimationWeek = null,
 }) {
-  const traceSetRevision = "epidemiar-control-chart-v1";
+  const traceSetRevision = "epidemiar-control-chart-v3-yaxis";
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
   const xaxis = useMemo(() => buildPlotlyDateXAxis("Date"), []);
 
@@ -80,14 +80,7 @@ export default function ForecastChart({
       plot_bgcolor: "rgba(255,255,255,0.5)",
       dragmode: "zoom",
       xaxis,
-      yaxis: {
-        title: "Cases",
-        gridcolor: "#e2e8f1",
-        zeroline: false,
-        rangemode: "tozero",
-        tickfont: { color: "#495367" },
-        titlefont: { color: "#495367" },
-      },
+      yaxis: buildPlotlyValueYAxis("Cases"),
       legend: {
         orientation: "h",
         y: 1.16,

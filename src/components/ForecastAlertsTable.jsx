@@ -26,10 +26,25 @@ function formatPercent(value) {
   return `${Number(value).toFixed(1)}%`;
 }
 
-function statusClass(status) {
-  if (status === "Early Warning") return "table-status table-status-warning";
-  if (status === "Early Detection") return "table-status table-status-detection";
-  return "table-status table-status-normal";
+function AlertStatusCell({ earlyWarning, earlyDetection }) {
+  if (!earlyWarning && !earlyDetection) {
+    return <span className="table-status table-status-normal">—</span>;
+  }
+
+  return (
+    <span className="table-status-icons">
+      {earlyWarning ? (
+        <span className="table-alert-icon table-alert-icon--warning" title="Early Warning">
+          ⚠️
+        </span>
+      ) : null}
+      {earlyDetection ? (
+        <span className="table-alert-icon table-alert-icon--detection" title="Early Detection">
+          🔍
+        </span>
+      ) : null}
+    </span>
+  );
 }
 
 export default function ForecastAlertsTable({
@@ -80,6 +95,11 @@ export default function ForecastAlertsTable({
       setPage(Math.floor(index / ROWS_PER_PAGE));
     }
   }, [selectedDistrict, sortedRows]);
+
+  const pageOptions = useMemo(
+    () => Array.from({ length: pageCount }, (_, index) => index + 1),
+    [pageCount]
+  );
 
   const handleSort = (key) => {
     if (key === sortKey) {
@@ -134,7 +154,7 @@ export default function ForecastAlertsTable({
               <th>District</th>
               <th>8-wk trend</th>
               <th>Region</th>
-              <th>Status</th>
+              <th>Alerts</th>
               <th>Observed</th>
               <th>Forecast</th>
               <th>Threshold</th>
@@ -194,7 +214,10 @@ export default function ForecastAlertsTable({
                 </td>
                 <td>{row.region || "-"}</td>
                 <td>
-                  <span className={statusClass(row.status)}>{row.status}</span>
+                  <AlertStatusCell
+                    earlyWarning={row.earlyWarning}
+                    earlyDetection={row.earlyDetection}
+                  />
                 </td>
                 <td>{formatNumber(row.latestObserved)}</td>
                 <td>{formatNumber(row.latestForecast)}</td>
@@ -230,7 +253,23 @@ export default function ForecastAlertsTable({
               Previous
             </button>
             <span className="alerts-table-page-number">
-              Page {safePage + 1} of {pageCount}
+              Page{" "}
+              <label className="alerts-table-page-jump">
+                <span className="sr-only">Go to page</span>
+                <select
+                  className="alerts-table-page-select"
+                  value={safePage + 1}
+                  onChange={(event) => setPage(Number(event.target.value) - 1)}
+                  aria-label={`Go to page, ${pageCount} pages total`}
+                >
+                  {pageOptions.map((pageNumber) => (
+                    <option key={pageNumber} value={pageNumber}>
+                      {pageNumber}
+                    </option>
+                  ))}
+                </select>
+              </label>{" "}
+              of {pageCount}
             </span>
             <button
               type="button"

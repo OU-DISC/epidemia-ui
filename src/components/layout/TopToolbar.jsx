@@ -6,16 +6,12 @@ function TopToolbar({
   onChangeDisease,
   country,
   onChangeCountry,
-  forecastWeeks,
-  onChangeForecastWeeks,
   selectedAdminRegion,
   onChangeAdminRegion,
   availableRegions = [],
   selectedDistrict,
   onChangeDistrict,
   availableDistricts = [],
-  onRefreshForecast,
-  refreshingForecast,
   onExportPDF,
   exporting,
   exportLabel = "Export EPIDEMIA Report",
@@ -105,28 +101,6 @@ function TopToolbar({
             {projectName}
           </span>
         )}
-
-        <label className="toolbar-field">
-          Forecast:
-          <select
-            value={forecastWeeks}
-            onChange={(e) => onChangeForecastWeeks(Number(e.target.value))}
-            className="toolbar-select"
-          >
-            <option value={4}>4 weeks</option>
-            <option value={8}>8 weeks</option>
-            <option value={12}>12 weeks</option>
-          </select>
-        </label>
-
-        <button
-          type="button"
-          onClick={onRefreshForecast}
-          className="toolbar-button"
-          disabled={refreshingForecast}
-        >
-          {refreshingForecast ? "Refreshing..." : "Refresh Forecast"}
-        </button>
 
         <label className="toolbar-field">
           Report scope:

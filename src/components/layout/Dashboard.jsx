@@ -13,7 +13,7 @@ import AboutPanel from "../AboutPanel";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
-import MapSurfaceLayerPicker, {
+import {
   HEALTH_MAP_SURFACE_LAYERS,
   isEnvMapSurfaceLayer,
 } from "../MapSurfaceLayerPicker";
@@ -983,6 +983,8 @@ function Dashboard({
         species: alert.species,
         status,
         statusRank,
+        earlyWarning: Boolean(alert.early_warning),
+        earlyDetection: Boolean(alert.early_detection),
         edLevel: alert.ed_level || "Low",
         ewLevel: alert.ew_level || "Low",
         edAlertCount: alert.ed_alert_count ?? 0,
@@ -1528,16 +1530,12 @@ function Dashboard({
         onChangeDisease={setDisease}
         country={country}
         onChangeCountry={setCountry}
-        forecastWeeks={forecastWeeks}
-        onChangeForecastWeeks={setForecastWeeks}
         selectedAdminRegion={selectedAdminRegion}
         onChangeAdminRegion={handleChangeAdminRegion}
         availableRegions={regions}
         selectedDistrict={region}
         onChangeDistrict={updateRegion}
         availableDistricts={districts}
-        onRefreshForecast={refreshEpidemia}
-        refreshingForecast={epidemiaRefreshing}
         onExportPDF={handleExportPDF}
         exporting={exporting}
         exportLabel={exportProgressMessage || (exporting ? "Exporting…" : "Export EPIDEMIA Report")}
@@ -1641,12 +1639,6 @@ function Dashboard({
                   <HelpTip text={DASHBOARD_HELP.districtLayers} label="District layers" placement="below" />
                 </span>
               </h3>
-              <div className="map-layer-controls">
-                <MapSurfaceLayerPicker
-                  value={activeMapSurfaceLayer}
-                  onChange={handleMapSurfaceLayerChange}
-                />
-              </div>
             </div>
 
             <div className="decision-layers-stack">
@@ -1681,6 +1673,8 @@ function Dashboard({
               endDate={endDate}
               onChangeStartDate={setStartDate}
               onChangeEndDate={setEndDate}
+              mapSurfaceLayer={activeMapSurfaceLayer}
+              onChangeMapSurfaceLayer={handleMapSurfaceLayerChange}
               showEnvTimeControls={envMapLayerActive}
               timeMode={envTimeMode}
               onChangeTimeMode={setEnvTimeMode}
@@ -1811,26 +1805,57 @@ function Dashboard({
                 <Suspense fallback={<div className="chart-state">Loading charts...</div>}>
                   {selectedForecast && (
                     <section className="forecast-panel">
-                      <h4>
-                        Transmission Forecast ({selectedSpecies.toUpperCase()})
-                        {selectedAlert?.early_warning && (
-                          <span className="alert-warning">Early Warning alert</span>
-                        )}
-                        {!selectedAlert?.early_warning && selectedAlert?.early_detection && (
-                          <span className="alert-detection">Early Detection alert</span>
-                        )}
-                        {districtDetailLoading && (
-                          <span className="forecast-panel-loading-note">
-                            Loading full history…
-                          </span>
-                        )}
-                        {!districtDetailLoading && selectedDistrictNeedsDetail && (
-                          <span className="forecast-panel-loading-note forecast-panel-loading-note--muted">
-                            Showing recent history only. Start the forecast API on port 8000 or run
-                            npm run sync:district-caches for the full chart range.
-                          </span>
-                        )}
-                      </h4>
+                      <div className="forecast-panel-header">
+                        <h4 className="forecast-panel-title">
+                          Transmission Forecast ({selectedSpecies.toUpperCase()})
+                          {selectedAlert?.early_warning && (
+                            <span className="alert-warning">Early Warning alert</span>
+                          )}
+                          {!selectedAlert?.early_warning && selectedAlert?.early_detection && (
+                            <span className="alert-detection">Early Detection alert</span>
+                          )}
+                        </h4>
+                        <div className="forecast-panel-controls">
+                          <label className="forecast-panel-horizon-control">
+                            <span className="toolbar-field-label">
+                              Forecast
+                              <HelpTip
+                                text={DASHBOARD_HELP.forecastWeeks}
+                                label="Forecast horizon"
+                              />
+                            </span>
+                            <select
+                              className="toolbar-select"
+                              value={forecastWeeks}
+                              onChange={(e) => setForecastWeeks(Number(e.target.value))}
+                              aria-label="Forecast horizon in weeks"
+                            >
+                              <option value={4}>4 weeks</option>
+                              <option value={8}>8 weeks</option>
+                              <option value={12}>12 weeks</option>
+                            </select>
+                          </label>
+                          <button
+                            type="button"
+                            className="toolbar-button"
+                            onClick={refreshEpidemia}
+                            disabled={epidemiaRefreshing}
+                          >
+                            {epidemiaRefreshing ? "Refreshing..." : "Refresh Forecast"}
+                          </button>
+                        </div>
+                      </div>
+                      {districtDetailLoading && (
+                        <p className="forecast-panel-loading-note">
+                          Loading full history…
+                        </p>
+                      )}
+                      {!districtDetailLoading && selectedDistrictNeedsDetail && (
+                        <p className="forecast-panel-loading-note forecast-panel-loading-note--muted">
+                          Showing recent history only. Start the forecast API on port 8000 or run
+                          npm run sync:district-caches for the full chart range.
+                        </p>
+                      )}
                       <div id="epidemia-report-forecast-chart">
                         <ForecastChart
                           data={selectedForecast}

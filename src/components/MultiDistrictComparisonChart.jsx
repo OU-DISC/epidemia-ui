@@ -3,7 +3,7 @@ import { Plot } from "../utils/plotly";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
 import { chartRangeUiRevision } from "../utils/chartDateRange";
-import { buildPlotlyDateXAxis } from "../utils/plotlyDateAxisSync";
+import { buildPlotlyDateXAxis, buildPlotlyValueYAxis } from "../utils/plotlyDateAxisSync";
 
 const DISTRICT_COLORS = ["#1f5b9b", "#e04848", "#7356d8"];
 const BACKGROUND_TRACE_COLOR = "rgba(107, 114, 128, 0.55)";
@@ -159,13 +159,7 @@ export default function MultiDistrictComparisonChart({
       dragmode: "zoom",
       hovermode: "x unified",
       xaxis,
-      yaxis: {
-        title: "Cases",
-        gridcolor: "#e2e8f1",
-        zeroline: false,
-        tickfont: { color: "#495367" },
-        titlefont: { color: "#495367" },
-      },
+      yaxis: buildPlotlyValueYAxis("Cases", { nonnegative: true }),
       legend: {
         orientation: "h",
         y: 1.14,

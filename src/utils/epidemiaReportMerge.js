@@ -156,20 +156,45 @@ function expectedWeeksInRange(startDate, endDate) {
   return Math.max(1, Math.floor((end - start) / MS_PER_WEEK) + 1);
 }
 
-/** True when observed history already spans the chart date range. */
+function lastAvailableWeek(forecast) {
+  const weeks = [
+    ...(forecast?.observed_history || []).map((point) => point?.week_start),
+    ...(forecast?.forecast || []).map((point) => point?.week_start),
+  ].filter(Boolean);
+  weeks.sort();
+  return weeks[weeks.length - 1] || null;
+}
+
+/** True when observed + forecast points cover most of the chart date range. */
 export function forecastHistoryCoversRange(forecast, startDate, endDate) {
-  const history = forecast?.observed_history || [];
-  if (!history.length || !startDate || !endDate) return false;
+  if (!startDate || !endDate) return false;
 
-  const weeksInRange = history
-    .map((point) => point?.week_start)
-    .filter((week) => week && week >= startDate && week <= endDate);
+  const lastWeek = lastAvailableWeek(forecast);
+  if (!lastWeek || lastWeek < startDate) return false;
 
-  if (weeksInRange.length < 2) return false;
+  // Chart end may be "today" beyond the forecast horizon — only require coverage
+  // for weeks where observed or forecast data actually exist.
+  const effectiveEnd = lastWeek < endDate ? lastWeek : endDate;
 
-  const expected = expectedWeeksInRange(startDate, endDate);
+  const weeksInRange = new Set();
+  for (const point of forecast?.observed_history || []) {
+    const week = point?.week_start;
+    if (week && week >= startDate && week <= effectiveEnd) {
+      weeksInRange.add(week);
+    }
+  }
+  for (const point of forecast?.forecast || []) {
+    const week = point?.week_start;
+    if (week && week >= startDate && week <= effectiveEnd) {
+      weeksInRange.add(week);
+    }
+  }
+
+  if (weeksInRange.size < 2) return false;
+
+  const expected = expectedWeeksInRange(startDate, effectiveEnd);
   if (!expected) return false;
 
   // Require most of the chart span — 16 bootstrap weeks must not satisfy a 2-year range.
-  return weeksInRange.length >= Math.max(8, Math.floor(expected * 0.85));
+  return weeksInRange.size >= Math.max(8, Math.floor(expected * 0.85));
 }

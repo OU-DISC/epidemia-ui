@@ -4,7 +4,7 @@ import { fetchEnvironmentalTimeseries, ENV_API_BASE } from "../api";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
 import { chartRangeUiRevision, CHART_PANEL_HEIGHT } from "../utils/chartDateRange";
-import { buildPlotlyDateXAxis } from "../utils/plotlyDateAxisSync";
+import { buildPlotlyDateXAxis, buildPlotlyValueYAxis } from "../utils/plotlyDateAxisSync";
 import { kelvinToCelsiusValue } from "../utils/temperatureUnits";
 
 const ENV_DATASET_LABELS = {
@@ -133,13 +133,7 @@ export default function EnvironmentalTimeSeriesChart({
       dragmode: "zoom",
       hovermode: "x unified",
       xaxis,
-      yaxis: {
-        title: datasetLabel,
-        gridcolor: "#e2e8f1",
-        zeroline: false,
-        tickfont: { color: "#495367" },
-        titlefont: { color: "#495367" },
-      },
+      yaxis: buildPlotlyValueYAxis(datasetLabel),
     }),
     [chartScopeKey, dataset, datasetLabel, selectedDistrict, xaxis]
   );
