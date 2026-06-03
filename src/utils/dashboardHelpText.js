@@ -32,14 +32,15 @@ export const DASHBOARD_HELP = {
     "Replay how alerts changed over recent weeks using observed case history.",
 
   districtLayers:
-    "Map controls for health choropleth shading and alert overlays.",
+    "Map controls for choropleth or satellite base layers, plus alert overlays.",
+  mapSurfaceLayer:
+    "Choose one map base layer: health data (incidence or population) or satellite imagery (rainfall, temperature, or vegetation). Only one is shown at a time.",
   weatherDataset:
     "Environmental variable for the weather time series chart. Choose precipitation, temperature, vegetation, or moisture indices.",
   healthLayer:
-    "Choropleth shading on the map: population or average weekly malaria incidence over the selected date range.",
-
+    "Population or average weekly malaria incidence over the selected date range.",
   envLayers:
-    "Choose one environmental raster layer on the map at a time (rainfall, temperature, or vegetation). Layers do not stack.",
+    "Satellite time controls when a rainfall, temperature, or vegetation map layer is selected.",
   envDateRange:
     "Start and end dates filter map layers, environmental charts, transmission forecast charts, and alert history replay.",
   envTime:

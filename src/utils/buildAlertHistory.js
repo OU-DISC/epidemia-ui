@@ -74,10 +74,12 @@ export function buildAlertsForWeek(forecasts, alerts, selectedSpecies, weekStart
       const warningThreshold = finiteNumber(
         point.warning_threshold ?? template.warning_threshold
       );
-      const alertThreshold = warningThreshold ?? detectionThreshold;
+      const alarmThreshold = finiteNumber(
+        point.alarm_threshold ?? warningThreshold ?? detectionThreshold
+      );
 
       const earlyDetection =
-        observed != null && alertThreshold != null && observed > alertThreshold;
+        observed != null && alarmThreshold != null && observed > alarmThreshold;
       if (!earlyDetection) return;
 
       out.push({

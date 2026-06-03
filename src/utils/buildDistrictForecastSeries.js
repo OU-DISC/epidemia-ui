@@ -38,6 +38,7 @@ export function buildDistrictForecastSeries(
     observed: point.observed,
     detection_threshold: point.detection_threshold ?? null,
     warning_threshold: point.warning_threshold ?? null,
+    alarm_threshold: point.alarm_threshold ?? null,
   }));
 
   if (
@@ -64,6 +65,7 @@ export function buildDistrictForecastSeries(
     observed: null,
     detection_threshold: point.detection_threshold ?? null,
     warning_threshold: point.warning_threshold ?? null,
+    alarm_threshold: point.alarm_threshold ?? null,
   }));
 
   return {

@@ -2,19 +2,12 @@ import React from "react";
 import HelpTip from "./HelpTip";
 import { DASHBOARD_HELP } from "../utils/dashboardHelpText";
 
-const ENV_MAP_LAYERS = [
-  { id: "rainfall", icon: "🌧️", label: "Rainfall" },
-  { id: "temperature", icon: "🌡️", label: "Temperature" },
-  { id: "ndvi", icon: "🌿", label: "NDVI / Vegetation" },
-];
-
 function EnvironmentalLayers({
   startDate,
   endDate,
   onChangeStartDate,
   onChangeEndDate,
-  activeLayer = null,
-  onSelectLayer,
+  showEnvTimeControls = false,
   timeMode,
   onChangeTimeMode,
   weekIndex,
@@ -28,13 +21,6 @@ function EnvironmentalLayers({
 
   return (
     <div className="decision-layers env-layers env-layers-compact">
-      <h3>
-        <span className="layer-heading-label">
-          Environmental Layers:
-          <HelpTip text={DASHBOARD_HELP.envLayers} label="Environmental layers" placement="below" />
-        </span>
-      </h3>
-
       <div className="env-layers-date-range">
         <span className="toolbar-field-label env-layers-date-heading">
           Chart date range
@@ -60,39 +46,11 @@ function EnvironmentalLayers({
         </label>
       </div>
 
-      <div className="env-layer-options" role="radiogroup" aria-label="Environmental map layer">
-        {ENV_MAP_LAYERS.map(({ id, icon, label }) => (
-          <div className="layer-item" key={id}>
-            <input
-              type="radio"
-              id={`env-${id}`}
-              name="env-map-layer"
-              className="layer-radio"
-              checked={activeLayer === id}
-              onChange={() => onSelectLayer?.(id)}
-            />
-            <label
-              htmlFor={`env-${id}`}
-              className="layer-label"
-              onClick={(event) => {
-                if (activeLayer === id) {
-                  event.preventDefault();
-                  onSelectLayer?.(id);
-                }
-              }}
-            >
-              <div className="layer-icon">{icon}</div>
-              {label}
-            </label>
-          </div>
-        ))}
-      </div>
-
-      {activeLayer && (
+      {showEnvTimeControls && (
         <div className="env-layers-time-controls">
           <div className="toolbar-field env-layers-time-mode">
             <span className="toolbar-field-label">
-              Time
+              Satellite time
               <HelpTip text={DASHBOARD_HELP.envTime} label="Environmental time mode" />
             </span>
             <select

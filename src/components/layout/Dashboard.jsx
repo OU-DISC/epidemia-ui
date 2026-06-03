@@ -13,6 +13,10 @@ import AboutPanel from "../AboutPanel";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
+import MapSurfaceLayerPicker, {
+  HEALTH_MAP_SURFACE_LAYERS,
+  isEnvMapSurfaceLayer,
+} from "../MapSurfaceLayerPicker";
 import {
   fetchDistrictForecastDetail,
   fetchLatestEpidemiaReport,
@@ -63,8 +67,8 @@ import {
 } from "../../utils/reportExportConfig";
 import { speciesToDisease } from "../../utils/projectStorage";
 import {
-  CHART_DEFAULT_END_DATE,
   CHART_DEFAULT_START_DATE,
+  getChartDefaultEndDate,
 } from "../../utils/chartDateRange";
 import {
   normalizeChartAxisDate,
@@ -98,11 +102,6 @@ const WEATHER_DATASET_OPTIONS = [
   { label: "EVI", value: "evi" },
   { label: "NDWI5", value: "ndwi5" },
   { label: "NDWI6", value: "ndwi6" },
-];
-
-const HEALTH_LAYER_OPTIONS = [
-  { label: "Population", value: "population" },
-  { label: "Incidence Rate", value: "incident_rate" },
 ];
 
 function formatPopulation(value) {
@@ -248,16 +247,17 @@ function Dashboard({
 
   //  Environmental data states
   const [startDate, setStartDate] = useState(CHART_DEFAULT_START_DATE);
-  const [endDate, setEndDate] = useState(CHART_DEFAULT_END_DATE);
+  const [endDate, setEndDate] = useState(getChartDefaultEndDate);
   const [dataset, setDataset] = useState("totprec");
-  const [healthLayer, setHealthLayer] = useState("incident_rate");
+  const [activeMapSurfaceLayer, setActiveMapSurfaceLayer] = useState("incident_rate");
+  const [lastHealthMapLayer, setLastHealthMapLayer] = useState("incident_rate");
   const [geoData, setGeoData] = useState(null);
   const [woredaPcodeCrosswalk, setWoredaPcodeCrosswalk] = useState(null);
   const [, setEnvData] = useState({});
   const [populationSurfacesByYear, setPopulationSurfacesByYear] = useState({});
   const [legacyPopulationSurface, setLegacyPopulationSurface] = useState({});
   const [syncedHoverDate, setSyncedHoverDate] = useState(null);
-  const chartScopeKey = `${region}|${dataset}|${healthLayer}|${disease}`;
+  const chartScopeKey = `${region}|${dataset}|${lastHealthMapLayer}|${disease}`;
   const chartDatesRef = useRef({ startDate, endDate });
   chartDatesRef.current = { startDate, endDate };
 
@@ -266,7 +266,7 @@ function Dashboard({
     if (parsed == null) return;
     if (parsed === "autorange") {
       setStartDate(CHART_DEFAULT_START_DATE);
-      setEndDate(CHART_DEFAULT_END_DATE);
+      setEndDate(getChartDefaultEndDate());
       return;
     }
     const nextStart = normalizeChartAxisDate(parsed[0]);
@@ -282,7 +282,7 @@ function Dashboard({
 
   useEffect(() => {
     setStartDate(CHART_DEFAULT_START_DATE);
-    setEndDate(CHART_DEFAULT_END_DATE);
+    setEndDate(getChartDefaultEndDate());
     lastAutoExtendedDistrictRef.current = null;
   }, [chartScopeKey]);
   const [rightPanelView, setRightPanelView] = useState("charts");
@@ -301,16 +301,17 @@ function Dashboard({
   const [alertWeekIndex, setAlertWeekIndex] = useState(0);
   const [alertPlaying, setAlertPlaying] = useState(false);
 
-  // Environmental raster layers (one active at a time — no stacking)
-  const [activeEnvMapLayer, setActiveEnvMapLayer] = useState(null);
-
-  const handleEnvMapLayerSelect = useCallback((layer) => {
-    setActiveEnvMapLayer((current) => (current === layer ? null : layer));
+  const handleMapSurfaceLayerChange = useCallback((layer) => {
+    setActiveMapSurfaceLayer(layer);
+    if (HEALTH_MAP_SURFACE_LAYERS.has(layer)) {
+      setLastHealthMapLayer(layer);
+    }
   }, []);
 
-  const showRainfallLayer = activeEnvMapLayer === "rainfall";
-  const showTemperatureLayer = activeEnvMapLayer === "temperature";
-  const showNdviLayer = activeEnvMapLayer === "ndvi";
+  const envMapLayerActive = isEnvMapSurfaceLayer(activeMapSurfaceLayer);
+  const showRainfallLayer = activeMapSurfaceLayer === "rainfall";
+  const showTemperatureLayer = activeMapSurfaceLayer === "temperature";
+  const showNdviLayer = activeMapSurfaceLayer === "ndvi";
 
   // Raster time controls
   const [envTimeMode, setEnvTimeMode] = useState("average"); // "average" | "animate"
@@ -751,6 +752,7 @@ function Dashboard({
       observed: point.observed,
       detection_threshold: point.detection_threshold ?? null,
       warning_threshold: point.warning_threshold ?? null,
+      alarm_threshold: point.alarm_threshold ?? null,
     }));
 
     // Backward-compatible fallback for responses from older backend processes.
@@ -774,6 +776,7 @@ function Dashboard({
       observed: null,
       detection_threshold: point.detection_threshold ?? null,
       warning_threshold: point.warning_threshold ?? null,
+      alarm_threshold: point.alarm_threshold ?? null,
     }));
 
     return filterForecastRowsByDateRange(
@@ -889,9 +892,14 @@ function Dashboard({
     [adm3Lookup, epidemiaData, populationData, selectedSpecies, startDate, endDate]
   );
 
-  const healthLayerData = healthLayer === "incident_rate" ? incidentRateData : populationData;
+  const mapHealthLayer = HEALTH_MAP_SURFACE_LAYERS.has(activeMapSurfaceLayer)
+    ? activeMapSurfaceLayer
+    : lastHealthMapLayer;
+  const healthLayerData =
+    mapHealthLayer === "incident_rate" ? incidentRateData : populationData;
   const reportExportActive = Boolean(reportExportConfig);
-  const mapDataset = reportExportConfig?.dataset ?? healthLayer;
+  const healthChoroplethEnabled = !envMapLayerActive;
+  const mapDataset = reportExportConfig?.dataset ?? mapHealthLayer;
   const mapEnvData = reportExportConfig?.envData ?? healthLayerData;
   const mapSpecies = reportExportConfig?.species ?? selectedSpecies;
   const mapFilterForView = reportExportActive
@@ -1634,23 +1642,10 @@ function Dashboard({
                 </span>
               </h3>
               <div className="map-layer-controls">
-                <label className="map-surface-control">
-                  <span className="toolbar-field-label">
-                    Health Layer
-                    <HelpTip text={DASHBOARD_HELP.healthLayer} label="Health layer" />
-                  </span>
-                  <select
-                    className="toolbar-select"
-                    value={healthLayer}
-                    onChange={(e) => setHealthLayer(e.target.value)}
-                  >
-                    {HEALTH_LAYER_OPTIONS.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
+                <MapSurfaceLayerPicker
+                  value={activeMapSurfaceLayer}
+                  onChange={handleMapSurfaceLayerChange}
+                />
               </div>
             </div>
 
@@ -1686,8 +1681,7 @@ function Dashboard({
               endDate={endDate}
               onChangeStartDate={setStartDate}
               onChangeEndDate={setEndDate}
-              activeLayer={activeEnvMapLayer}
-              onSelectLayer={handleEnvMapLayerSelect}
+              showEnvTimeControls={envMapLayerActive}
               timeMode={envTimeMode}
               onChangeTimeMode={setEnvTimeMode}
               weekDates={weekDates}
@@ -1724,6 +1718,7 @@ function Dashboard({
               envTimeDate={weekDates[weekIndex]}
               gibsPrefetchTime={gibsPrefetchTime}
               onEnvAverageStats={setEnvAverageStats}
+              healthChoroplethEnabled={reportExportActive ? true : healthChoroplethEnabled}
             />
 
             {SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL && (
@@ -1818,6 +1813,12 @@ function Dashboard({
                     <section className="forecast-panel">
                       <h4>
                         Transmission Forecast ({selectedSpecies.toUpperCase()})
+                        {selectedAlert?.early_warning && (
+                          <span className="alert-warning">Early Warning alert</span>
+                        )}
+                        {!selectedAlert?.early_warning && selectedAlert?.early_detection && (
+                          <span className="alert-detection">Early Detection alert</span>
+                        )}
                         {districtDetailLoading && (
                           <span className="forecast-panel-loading-note">
                             Loading full history…

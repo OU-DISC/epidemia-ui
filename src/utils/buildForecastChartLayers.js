@@ -38,6 +38,11 @@ function weekAlarm(value, threshold) {
   return v != null && t != null && v > t;
 }
 
+/** Farrington upper bound used for map/table alert flags (matches backend). */
+function resolveAlarmThreshold(point) {
+  return finiteNumber(point?.alarm_threshold) ?? finiteNumber(point?.warning_threshold);
+}
+
 function bandShape(x0, x1, fill) {
   return {
     type: "rect",
@@ -117,7 +122,7 @@ export function buildForecastChartLayers(data) {
     shapes.push(bandShape(x0, x1, ED_BAND_FILL));
     annotations.push(
       periodLabel(
-        "Early Detection",
+        "Early Detection period",
         shiftDate(edDates[Math.floor(edDates.length / 2)], 0),
         ED_BAND_LABEL
       )
@@ -130,7 +135,7 @@ export function buildForecastChartLayers(data) {
     shapes.push(bandShape(x0, x1, EW_BAND_FILL));
     annotations.push(
       periodLabel(
-        "Early Warning",
+        "Early Warning period",
         shiftDate(ewDates[Math.floor(ewDates.length / 2)], 0),
         EW_BAND_LABEL
       )
@@ -184,14 +189,14 @@ export function buildForecastChartLayers(data) {
   const edAlertWeeks = new Set(edDates);
   observedPoints.forEach((point) => {
     if (!edAlertWeeks.has(point.date)) return;
-    if (weekAlarm(point.observed, point.warning_threshold)) {
+    if (weekAlarm(point.observed, resolveAlarmThreshold(point))) {
       edAlertDates.push(point.date);
     }
   });
 
   const ewAlertDates = [];
   forecastPoints.forEach((point) => {
-    if (weekAlarm(point.median, point.warning_threshold)) {
+    if (weekAlarm(point.median, resolveAlarmThreshold(point))) {
       ewAlertDates.push(point.date);
     }
   });

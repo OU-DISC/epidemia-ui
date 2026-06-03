@@ -666,12 +666,14 @@ def _forecast_one_district(
             alert_summary.observed_thresholds
         ) else (None, None)
         detect, warn = _chart_thresholds(row.week_start, farr_pair)
+        _, farr_upper = farr_pair
         observed_history.append(
             DistrictObservedPoint(
                 week_start=pd.Timestamp(row.week_start).date(),
                 observed=float(row.cases),
                 detection_threshold=detect,
                 warning_threshold=warn,
+                alarm_threshold=farr_upper,
             )
         )
 
@@ -683,6 +685,7 @@ def _forecast_one_district(
             alert_summary.forecast_thresholds
         ) else (None, None)
         detect, warn = _chart_thresholds(week_ts, farr_pair)
+        _, farr_upper = farr_pair
         points.append(
             DistrictForecastPoint(
                 week_start=week_date,
@@ -691,6 +694,7 @@ def _forecast_one_district(
                 upper=float(pred + 1.28 * hist_std),
                 detection_threshold=detect,
                 warning_threshold=warn,
+                alarm_threshold=farr_upper,
             )
         )
 

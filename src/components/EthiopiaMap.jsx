@@ -812,6 +812,7 @@ export default function EthiopiaMap({
   selectedDistrictName = null,
   alertTimeMode = "current",
   alertAnimationWeek = null,
+  healthChoroplethEnabled = true,
 }) {
   const [geoData, setGeo] = useState(null);
   const [admin1Outlines, setAdmin1Outlines] = useState(null);
@@ -1176,6 +1177,15 @@ export default function EthiopiaMap({
     if (isSelectedDistrict) borderWeight = WEIGHT_WOREDA_SELECTED;
     else if (isInSelectedRegion) borderWeight = WEIGHT_WOREDA_IN_FILTER;
 
+    if (!healthChoroplethEnabled) {
+      return {
+        fillColor: "#f8fafc",
+        weight: borderWeight,
+        color: isSelectedDistrict ? "#f59e0b" : "#64748b",
+        fillOpacity: isSelectedDistrict ? 0.35 : 0.12,
+      };
+    }
+
     return {
       fillColor: value !== undefined ? getColor(value) : "#e5e5e5",
       weight: borderWeight,
@@ -1368,7 +1378,7 @@ export default function EthiopiaMap({
           </Pane>
         )}
 
-        {!hideBoundaries && (
+        {!hideBoundaries && healthChoroplethEnabled && (
           <DistrictChoroplethLegend
             title={activeScale.title || dataset}
             unit={unit}

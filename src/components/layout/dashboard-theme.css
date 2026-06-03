@@ -1118,6 +1118,16 @@ body {
   font-size: 0.84rem;
 }
 
+.map-surface-control .toolbar-select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+.map-surface-layer-select {
+  min-width: 210px;
+}
+
 .map-wrap {
   flex: 1;
   min-height: 520px;
@@ -1412,6 +1422,10 @@ body {
 .forecast-panel h4 {
   margin: 0 0 8px;
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 .forecast-panel-loading-note {

@@ -33,6 +33,7 @@ class DistrictForecastPoint(BaseModel):
     upper: float
     detection_threshold: Optional[float] = None
     warning_threshold: Optional[float] = None
+    alarm_threshold: Optional[float] = None
 
 
 class DistrictObservedPoint(BaseModel):
@@ -40,6 +41,7 @@ class DistrictObservedPoint(BaseModel):
     observed: float
     detection_threshold: Optional[float] = None
     warning_threshold: Optional[float] = None
+    alarm_threshold: Optional[float] = None
 
 
 class DistrictAlert(BaseModel):

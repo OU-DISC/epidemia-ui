@@ -1,7 +1,15 @@
 import { normalizeChartAxisDate } from "./plotlyXAxisSync";
 
-export const CHART_DEFAULT_START_DATE = "2024-01-01";
-export const CHART_DEFAULT_END_DATE = "2025-12-29";
+export const CHART_DEFAULT_START_DATE = "2025-10-31";
+
+/** Today's date as YYYY-MM-DD (local calendar day). */
+export function getChartDefaultEndDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
 export const CHART_PANEL_HEIGHT = 330;
 
 /** Default x-axis span: chart date pickers, then optional override, then data extent. */
