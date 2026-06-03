@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { normalizeChartAxisDate } from "./plotlyXAxisSync";
 
 export const CHART_DEFAULT_START_DATE = "2025-10-31";
@@ -10,7 +11,37 @@ export function getChartDefaultEndDate() {
   const day = String(now.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
-export const CHART_PANEL_HEIGHT = 330;
+export const CHART_PANEL_MIN_HEIGHT = 150;
+export const CHART_PANEL_MAX_HEIGHT = 255;
+/** Non-chart chrome (toolbar, hero, panel headers, regional summary, gaps). */
+export const CHART_VIEWPORT_CHROME = 520;
+
+/** Match `--dash-chart-height` in dashboard-theme.css. */
+export function getChartPanelHeight(
+  viewportHeight = typeof window !== "undefined" ? window.innerHeight : 900
+) {
+  const raw = (viewportHeight - CHART_VIEWPORT_CHROME) / 2;
+  return Math.min(
+    CHART_PANEL_MAX_HEIGHT,
+    Math.max(CHART_PANEL_MIN_HEIGHT, Math.round(raw))
+  );
+}
+
+export function useChartPanelHeight() {
+  const [height, setHeight] = useState(() => getChartPanelHeight());
+
+  useEffect(() => {
+    const onResize = () => setHeight(getChartPanelHeight());
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return height;
+}
+
+/** Static fallback for exports and tests. */
+export const CHART_PANEL_HEIGHT = CHART_PANEL_MAX_HEIGHT;
 
 /** Default x-axis span: chart date pickers, then optional override, then data extent. */
 export function resolveChartXAxisRange({

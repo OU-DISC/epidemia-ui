@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Plot } from "../utils/plotly";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
-import { chartRangeUiRevision, CHART_PANEL_HEIGHT } from "../utils/chartDateRange";
+import { chartRangeUiRevision, useChartPanelHeight } from "../utils/chartDateRange";
 import { buildPlotlyDateXAxis, buildPlotlyValueYAxis } from "../utils/plotlyDateAxisSync";
 import { buildForecastChartLayers } from "../utils/buildForecastChartLayers";
 
@@ -22,6 +22,7 @@ export default function ForecastChart({
   alertTimeMode = "current",
   alertAnimationWeek = null,
 }) {
+  const chartPanelHeight = useChartPanelHeight();
   const traceSetRevision = "epidemiar-control-chart-v3-yaxis";
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
   const xaxis = useMemo(() => buildPlotlyDateXAxis("Date"), []);
@@ -74,7 +75,7 @@ export default function ForecastChart({
         `${districtKey ? `-${districtKey}` : ""}-${traceSetRevision}`
       ),
       autosize: true,
-      height: CHART_PANEL_HEIGHT,
+      height: chartPanelHeight,
       margin: { l: 58, r: 24, t: 42, b: 60 },
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(255,255,255,0.5)",
@@ -91,7 +92,7 @@ export default function ForecastChart({
       annotations: chartLayers.annotations,
       hovermode: "x unified",
     }),
-    [chartLayers.annotations, chartLayers.shapes, chartScopeKey, districtKey, xaxis]
+    [chartLayers.annotations, chartLayers.shapes, chartPanelHeight, chartScopeKey, districtKey, xaxis]
   );
 
   const plotData = useMemo(() => {
@@ -189,7 +190,7 @@ export default function ForecastChart({
           scrollZoom: true,
           modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"],
         }}
-        style={{ width: "100%", height: `${CHART_PANEL_HEIGHT}px` }}
+        style={{ width: "100%", height: `${chartPanelHeight}px` }}
         useResizeHandler
         onInitialized={handlePlotReady}
         onPurge={onPlotPurge}

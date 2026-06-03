@@ -7,6 +7,8 @@ export const DASHBOARD_HELP = {
   district:
     "Focus charts and map selection on one district, or view all districts.",
   forecastWeeks: "Number of future weeks shown in forecasts. After Refresh Forecast, 4-, 8-, and 12-week results are cached; switching here loads instantly without re-running the pipeline.",
+  seasonalContext:
+    "Shows where the latest observed week sits in the district's seasonal cycle. The ring colors typical transmission by epidemiological week (1–52). Center text compares observed cases to the seasonal GAM expectation for this week.",
   refreshForecast:
     "Re-run the EPIDEMIA pipeline for the selected district's region (toolbar region is set automatically when you pick a district), then merge into the cached national report.",
   exportReport:
@@ -15,7 +17,7 @@ export const DASHBOARD_HELP = {
     "Upload epidemiology CSV data, validate columns, and run your first forecast.",
 
   pipeline:
-    "Shows whether forecast data is loading, ready, running, or encountered an error.",
+    "Forecast data status: loading, ready, running, or error. Shows when the cache was last generated, district count, and background pipeline progress when a refresh is running on the server.",
   earlyWarnings:
     "Districts with one or more forecast weeks above the Farrington alert threshold (early warning period).",
   earlyDetections:

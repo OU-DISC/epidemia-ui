@@ -117,6 +117,33 @@ export async function fetchForecast(region, horizonWeeks = 8) {
   return response.data;
 }
 
+export async function fetchEpidemiaCacheStatus({
+  dataDir = "data",
+  outputDir = "report",
+  horizonWeeks = 8,
+} = {}) {
+  if (!FORECAST_API_BASE) {
+    return null;
+  }
+
+  try {
+    const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/cache/status"), {
+      params: {
+        data_dir: dataDir,
+        output_dir: outputDir,
+        horizon_weeks: horizonWeeks,
+      },
+      timeout: 15000,
+    });
+    return response.data;
+  } catch (err) {
+    if (err?.code === "ERR_NETWORK") {
+      return null;
+    }
+    throw err;
+  }
+}
+
 export async function runEpidemiaPipeline({
   dataDir = "data",
   outputDir = "report",

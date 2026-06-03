@@ -3,7 +3,7 @@ import { Plot } from "../utils/plotly";
 import { fetchEnvironmentalTimeseries, ENV_API_BASE } from "../api";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
-import { chartRangeUiRevision, CHART_PANEL_HEIGHT } from "../utils/chartDateRange";
+import { chartRangeUiRevision, useChartPanelHeight } from "../utils/chartDateRange";
 import { buildPlotlyDateXAxis, buildPlotlyValueYAxis } from "../utils/plotlyDateAxisSync";
 import { kelvinToCelsiusValue } from "../utils/temperatureUnits";
 
@@ -35,6 +35,7 @@ export default function EnvironmentalTimeSeriesChart({
   alertTimeMode = "current",
   alertAnimationWeek = null,
 }) {
+  const chartPanelHeight = useChartPanelHeight();
   const [timeseries, setTimeseries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -126,7 +127,7 @@ export default function EnvironmentalTimeSeriesChart({
         `-${dataset}-${selectedDistrict || "none"}`
       ),
       autosize: true,
-      height: CHART_PANEL_HEIGHT,
+      height: chartPanelHeight,
       margin: { l: 58, r: 24, t: 16, b: 60 },
       paper_bgcolor: "rgba(0,0,0,0)",
       plot_bgcolor: "rgba(255,255,255,0.5)",
@@ -135,7 +136,7 @@ export default function EnvironmentalTimeSeriesChart({
       xaxis,
       yaxis: buildPlotlyValueYAxis(datasetLabel),
     }),
-    [chartScopeKey, dataset, datasetLabel, selectedDistrict, xaxis]
+    [chartScopeKey, chartPanelHeight, dataset, datasetLabel, selectedDistrict, xaxis]
   );
 
   if (!selectedDistrict) {
@@ -178,7 +179,7 @@ export default function EnvironmentalTimeSeriesChart({
           displaylogo: false,
           scrollZoom: true,
         }}
-        style={{ width: "100%", height: `${CHART_PANEL_HEIGHT}px` }}
+        style={{ width: "100%", height: `${chartPanelHeight}px` }}
         useResizeHandler
         onInitialized={onPlotReady}
         onPurge={onPlotPurge}

@@ -87,7 +87,7 @@ export default function MultiDistrictComparisonChart({
   onHoverDateChange,
   alertTimeMode = "current",
   alertAnimationWeek = null,
-  height = 380,
+  height = 345,
   onSelectDistrict,
 }) {
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);

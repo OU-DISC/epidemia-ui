@@ -12,6 +12,12 @@
   --accent-strong: #0d6156;
   --warn: #c93e3e;
   --detect: #d17f22;
+  --dash-shell-padding: 14px;
+  --dash-panel-gap: 12px;
+  --dash-viewport-chrome: 520px;
+  --dash-chart-height: clamp(150px, calc((100vh - var(--dash-viewport-chrome)) / 2), 255px);
+  --dash-map-min-height: 0;
+  --dash-compare-min-height: 345px;
 }
 
 * {
@@ -29,12 +35,12 @@ body {
 
 .dashboard-shell {
   min-height: 100vh;
-  padding: 18px;
+  padding: var(--dash-shell-padding);
 }
 
 .dashboard-layout {
-  min-height: calc(100vh - 116px);
-  margin-top: 18px;
+  min-height: calc(100vh - 96px);
+  margin-top: var(--dash-shell-padding);
 }
 
 .main-content {
@@ -42,9 +48,9 @@ body {
 }
 
 .decision-layers {
-  padding: 20px;
+  padding: 16px;
   border: 1px solid var(--card-border);
-  border-radius: 16px;
+  border-radius: 14px;
   background: var(--card);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
@@ -396,14 +402,58 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
+  gap: 6px;
+  padding: 8px 12px;
   border: 1px solid var(--card-border);
-  border-radius: 16px;
+  border-radius: 12px;
   background: var(--card);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
   width: 100%;
+}
+
+.top-toolbar .brand-mark {
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+}
+
+.top-toolbar .toolbar-cluster {
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.top-toolbar .toolbar-actions {
+  gap: 6px;
+}
+
+.top-toolbar .toolbar-field {
+  gap: 6px;
+  font-size: 0.84rem;
+}
+
+.top-toolbar .toolbar-select,
+.top-toolbar .toolbar-input {
+  padding: 4px 8px;
+  font-size: 0.84rem;
+  border-radius: 8px;
+}
+
+.top-toolbar .toolbar-button {
+  padding: 5px 10px;
+  font-size: 0.84rem;
+  border-radius: 8px;
+}
+
+.top-toolbar .toolbar-project-name {
+  font-size: 0.76rem;
+  max-width: 160px;
+}
+
+.top-toolbar .help-tip-icon {
+  width: 13px;
+  height: 13px;
+  font-size: 9px;
 }
 
 .brand-mark {
@@ -419,8 +469,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  padding: 6px 12px;
+  gap: 8px;
+  padding: 5px 10px;
   border-radius: 12px;
   background: rgba(15, 23, 42, 0.035);
   border: 1px solid rgba(15, 23, 42, 0.07);
@@ -460,7 +510,7 @@ body {
 .toolbar-input {
   border: 1px solid #c9d6e5;
   border-radius: 10px;
-  padding: 8px 10px;
+  padding: 6px 9px;
   background: rgba(255, 255, 255, 0.88);
   color: var(--ink);
   font-size: 0.92rem;
@@ -475,7 +525,7 @@ body {
 .toolbar-button {
   border: none;
   border-radius: 10px;
-  padding: 9px 14px;
+  padding: 7px 12px;
   font-weight: 600;
   color: #fff;
   background: linear-gradient(135deg, var(--accent), #1a9d88);
@@ -592,13 +642,211 @@ body {
 }
 
 .dashboard-content {
-  margin-top: 16px;
+  margin-top: var(--dash-panel-gap);
   display: grid;
-  gap: 14px;
+  gap: var(--dash-panel-gap);
 }
 
 .dashboard-hero {
-  padding: 4px 2px;
+  padding: 0 2px 4px;
+}
+
+.dashboard-hero-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px 18px;
+}
+
+.dashboard-hero-row .dashboard-title {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+}
+
+.dashboard-hero-row .situation-strip {
+  flex: 0 0 auto;
+  margin-left: 0;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  gap: 10px 14px;
+}
+
+.dashboard-hero .situation-stat {
+  gap: 0;
+}
+
+.dashboard-hero .situation-stat-label,
+.dashboard-hero .situation-stat-caption {
+  display: none;
+}
+
+.dashboard-hero .situation-stat-ring {
+  width: 66px;
+  height: 66px;
+}
+
+.dashboard-hero .situation-stat--pipeline .situation-stat-ring {
+  width: 72px;
+  height: 72px;
+}
+
+.dashboard-hero .situation-stat-value--number {
+  font-size: 1.12rem;
+}
+
+.dashboard-hero .situation-stat-value {
+  font-size: 0.78rem;
+}
+
+.situation-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px 18px;
+  padding: 2px 2px 6px;
+}
+
+.situation-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.situation-stat-ring {
+  position: relative;
+  width: 77px;
+  height: 77px;
+  flex-shrink: 0;
+}
+
+.situation-stat--pipeline .situation-stat-ring {
+  width: 85px;
+  height: 85px;
+}
+
+.situation-stat-core {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  text-align: center;
+  background: var(--card);
+  border: 2px solid rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.situation-stat-ring--ready .situation-stat-core {
+  border-color: rgba(15, 123, 108, 0.35);
+}
+
+.situation-stat-ring--running .situation-stat-core,
+.situation-stat-ring--loading .situation-stat-core {
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.situation-stat-ring--error .situation-stat-core {
+  border-color: rgba(217, 119, 6, 0.42);
+}
+
+.situation-stat--warnings .situation-stat-core {
+  border-color: rgba(153, 50, 204, 0.28);
+}
+
+.situation-stat--detections .situation-stat-core {
+  border-color: rgba(70, 130, 180, 0.32);
+}
+
+.situation-stat--districts .situation-stat-core {
+  border-color: rgba(15, 123, 108, 0.22);
+}
+
+.situation-stat-progress {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.situation-stat-progress-track,
+.situation-stat-progress-fill {
+  fill: none;
+  stroke-width: 4;
+}
+
+.situation-stat-progress-track {
+  stroke: rgba(15, 23, 42, 0.08);
+}
+
+.situation-stat-progress-fill {
+  stroke: #2563eb;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.35s ease;
+}
+
+.situation-stat-value {
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.situation-stat-value--number {
+  font-size: 1.28rem;
+}
+
+.situation-stat-core.situation-pipeline-ready .situation-stat-value {
+  color: var(--accent-strong);
+}
+
+.situation-stat-core.situation-pipeline-running .situation-stat-value,
+.situation-stat-core.situation-pipeline-loading .situation-stat-value {
+  color: #2563eb;
+}
+
+.situation-stat-core.situation-pipeline-error .situation-stat-value {
+  color: var(--warn);
+}
+
+.situation-stat-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  max-width: 96px;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink-soft);
+  line-height: 1.2;
+}
+
+.situation-stat-caption {
+  max-width: 112px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .forecast-cards {
@@ -618,6 +866,29 @@ body {
 
 .forecast-card p.situation-pipeline-error {
   color: var(--warn);
+}
+
+.forecast-card-pipeline .situation-pipeline-detail {
+  margin: 4px 0 0;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.situation-pipeline-progress {
+  margin-top: 8px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.situation-pipeline-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent), #1a9d88);
+  transition: width 0.35s ease;
 }
 
 .forecast-card {
@@ -701,7 +972,7 @@ body {
 .regional-alert-inline-chart {
   flex: 1 1 auto;
   min-width: 0;
-  min-height: 88px;
+  min-height: 80px;
 }
 
 .regional-alert-summary--compact {
@@ -780,7 +1051,7 @@ body {
 }
 
 .dashboard-kicker {
-  margin: 0;
+  margin: 0 0 4px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.72rem;
@@ -788,15 +1059,15 @@ body {
 }
 
 .dashboard-title {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
-  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-size: clamp(1.25rem, 2vw, 1.85rem);
   letter-spacing: 0.01em;
 }
 
 .glass-card {
   border: 1px solid var(--card-border);
-  border-radius: 16px;
+  border-radius: 14px;
   background: var(--card);
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow);
@@ -814,20 +1085,20 @@ body {
   width: 100%;
   margin: 0 0 4px;
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
-  font-size: 1rem;
+  font-size: 0.92rem;
 }
 
 .dashboard-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 14px;
+  gap: var(--dash-panel-gap);
   align-items: stretch;
-  min-height: calc(100vh - 300px);
+  min-height: 0;
 }
 
 .map-panel,
 .insights-panel {
-  padding: 12px;
+  padding: 10px;
 }
 
 .side-panel {
@@ -838,9 +1109,9 @@ body {
 
 .side-panel-tabs {
   display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-  padding: 4px;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 3px;
   border-radius: 12px;
   background: rgba(239, 243, 248, 0.72);
   border: 1px solid #d8e1ec;
@@ -850,7 +1121,7 @@ body {
   flex: 1;
   border: 0;
   border-radius: 9px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   background: transparent;
   color: var(--ink-soft);
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
@@ -881,7 +1152,7 @@ body {
 
 .side-panel-body.charts-view {
   overflow: auto;
-  gap: 12px;
+  gap: 8px;
 }
 
 .side-panel-body.about-view {
@@ -986,7 +1257,8 @@ body {
 }
 
 .regional-alert-panel-chart {
-  min-height: 88px;
+  min-height: 48px;
+  max-height: 64px;
 }
 
 .env-chart-panel {
@@ -1042,9 +1314,9 @@ body {
 
 .chart-panel-slot .js-plotly-plot,
 .chart-panel-slot .plot-container.plotly {
-  height: 330px !important;
-  min-height: 330px;
-  max-height: 330px;
+  height: var(--dash-chart-height) !important;
+  min-height: var(--dash-chart-height);
+  max-height: var(--dash-chart-height);
 }
 
 .side-panel-body.table-view {
@@ -1129,7 +1401,7 @@ body {
 }
 
 .comparison-chart-wrap {
-  min-height: 380px;
+  min-height: var(--dash-compare-min-height);
 }
 
 .map-panel {
@@ -1141,9 +1413,9 @@ body {
 .map-panel-controls {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 8px;
-  padding: 8px 12px;
+  gap: 5px;
+  margin-bottom: 6px;
+  padding: 6px 10px;
   border: 1px solid var(--card-border);
   border-radius: 12px;
   background: rgba(15, 23, 42, 0.025);
@@ -1231,7 +1503,7 @@ body {
 
 .map-wrap {
   flex: 1;
-  min-height: 520px;
+  min-height: var(--dash-map-min-height);
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #d0d9e6;
@@ -1309,7 +1581,7 @@ body {
 
 .district-map {
   height: 100%;
-  min-height: 520px;
+  min-height: var(--dash-map-min-height);
   width: 100%;
 }
 
@@ -1536,9 +1808,42 @@ body {
   align-items: center;
   gap: 8px;
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--ink);
+}
+
+.seasonal-context-ring-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.seasonal-context-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  cursor: help;
+}
+
+.seasonal-context-ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.seasonal-context-ring-center {
+  font-size: 9px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.seasonal-context-ring-week {
+  font-size: 7.5px;
+  font-weight: 600;
+  fill: var(--ink-soft);
 }
 
 .forecast-panel-controls {
@@ -1557,6 +1862,25 @@ body {
   color: var(--ink-soft);
   font-size: 0.82rem;
   font-weight: 600;
+}
+
+.forecast-panel-horizon-control .situation-stat--compact {
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+}
+
+.forecast-panel-horizon-control .situation-stat--compact .situation-stat-ring {
+  width: 42px;
+  height: 42px;
+}
+
+.forecast-panel-horizon-control .situation-stat--compact .situation-stat-value {
+  font-size: 0.72rem;
+}
+
+.forecast-panel-horizon-control .situation-stat--compact .situation-stat-value--number {
+  font-size: 0.82rem;
 }
 
 .forecast-panel-horizon-control .toolbar-select {
@@ -2159,7 +2483,16 @@ body {
   }
 
   .dashboard-shell--compact .dashboard-hero {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+  }
+
+  .dashboard-shell--compact .dashboard-hero-row {
+    align-items: center;
+  }
+
+  .dashboard-shell--compact .dashboard-hero-row .situation-strip {
+    margin-left: 0;
+    justify-content: flex-start;
   }
 
   .dashboard-shell--compact .dashboard-title {
@@ -2225,6 +2558,11 @@ body {
     max-width: 100%;
   }
 
+  .situation-strip {
+    justify-content: flex-start;
+    gap: 12px 16px;
+  }
+
   .forecast-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2239,7 +2577,7 @@ body {
 
   .map-wrap,
   .district-map {
-    min-height: 460px;
+    min-height: 420px;
   }
 
   .toolbar-cluster--output {
@@ -2248,6 +2586,34 @@ body {
 }
 
 @media (max-width: 640px) {
+  .dashboard-hero-row {
+    gap: 10px 12px;
+  }
+
+  .dashboard-hero-row .situation-strip {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .dashboard-hero .situation-stat-label {
+    display: inline-flex;
+  }
+
+  .dashboard-hero .situation-stat {
+    gap: 5px;
+  }
+
+  .situation-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px 14px;
+  }
+
+  .situation-stat-caption {
+    max-width: 92px;
+  }
+
   .forecast-cards {
     grid-template-columns: 1fr;
   }
@@ -2275,13 +2641,13 @@ body {
   }
 
   .top-toolbar {
-    border-radius: 12px;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 8px;
   }
 
   .toolbar-cluster {
     width: 100%;
-    padding: 8px 10px;
+    padding: 6px 8px;
   }
 
   .toolbar-cluster--context {
@@ -2301,6 +2667,99 @@ body {
 
   .map-wrap,
   .district-map {
-    min-height: 380px;
+    min-height: 350px;
+  }
+}
+
+/* Fit the full desktop dashboard in one viewport without page scroll. */
+@media (min-width: 1101px) {
+  .dashboard-shell:not(.dashboard-shell--compact) {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .dashboard-layout {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .main-content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .dashboard-hero {
+    flex-shrink: 0;
+    padding: 0 2px;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .dashboard-kicker {
+    margin-bottom: 2px;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .dashboard-title {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .dashboard-grid {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .map-panel,
+  .dashboard-shell:not(.dashboard-shell--compact) .insights-panel {
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .map-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .map-wrap,
+  .dashboard-shell:not(.dashboard-shell--compact) .district-map {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .panel-header {
+    margin-bottom: 6px;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .panel-header h3 {
+    font-size: 0.92rem;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .side-panel-tabs {
+    margin-bottom: 6px;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .side-panel-body.charts-view {
+    overflow: hidden;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .side-panel-body.table-view,
+  .dashboard-shell:not(.dashboard-shell--compact) .side-panel-body.about-view {
+    overflow: auto;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .forecast-panel-header {
+    margin-bottom: 4px;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .regional-alert-panel {
+    flex-shrink: 0;
   }
 }

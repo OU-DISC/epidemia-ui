@@ -62,7 +62,7 @@ export default function RegionalAlertSummaryChart({
       : "All regions";
 
   const chartHeight = inChartsPanel
-    ? Math.min(200, Math.max(88, elevatedBarData.length * 22 + 16))
+    ? Math.min(64, Math.max(48, elevatedBarData.length * 16 + 12))
     : compact
       ? Math.max(220, barData.length * 26)
       : Math.max(280, barData.length * 32);

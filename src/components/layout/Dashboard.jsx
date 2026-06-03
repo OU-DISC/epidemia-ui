@@ -5,8 +5,9 @@ import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import ForecastAlertsTable from "../ForecastAlertsTable";
 import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
-import SituationStrip from "../SituationStrip";
+import SituationStatCircle from "../SituationStatCircle";
 import RegionalAlertSummaryChart from "../RegionalAlertSummaryChart";
+import SeasonalContextRing from "../SeasonalContextRing";
 import MobileSummaryView from "../MobileSummaryView";
 import HelpTip from "../HelpTip";
 import AboutPanel from "../AboutPanel";
@@ -19,6 +20,7 @@ import {
 } from "../MapSurfaceLayerPicker";
 import {
   fetchDistrictForecastDetail,
+  fetchEpidemiaCacheStatus,
   fetchLatestEpidemiaReport,
   fetchMapEpidemiaReport,
   formatForecastApiError,
@@ -76,6 +78,8 @@ import {
 } from "../../utils/plotlyXAxisSync";
 import { useChartPlotRegistry } from "../../utils/useChartPlotRegistry";
 import { useMediaQuery } from "../../utils/useMediaQuery";
+import { buildSeasonalContext } from "../../utils/buildSeasonalContext";
+import { buildPipelineStatus } from "../../utils/buildPipelineStatus";
 import { buildDistrictCaseSparkline } from "../../utils/buildDistrictCaseSparkline";
 import {
   findDistrictForecastRow,
@@ -235,6 +239,7 @@ function Dashboard({
   const [epidemiaLoading, setEpidemiaLoading] = useState(false);
   const [epidemiaRefreshing, setEpidemiaRefreshing] = useState(false);
   const [epidemiaError, setEpidemiaError] = useState("");
+  const [cacheStatus, setCacheStatus] = useState(null);
   const [districtDetailLoading, setDistrictDetailLoading] = useState(false);
   const forecastRequestIdRef = useRef(0);
   const mapRequestIdRef = useRef(0);
@@ -486,6 +491,21 @@ function Dashboard({
     }
   }, [projectOutputDir, forecastWeeks]);
 
+  const loadCacheStatus = useCallback(async () => {
+    try {
+      const status = await fetchEpidemiaCacheStatus({
+        dataDir: projectDataDir,
+        outputDir: projectOutputDir,
+        horizonWeeks: forecastWeeks,
+      });
+      if (status) {
+        setCacheStatus(status);
+      }
+    } catch (err) {
+      console.warn("Failed to load forecast cache status:", err);
+    }
+  }, [projectDataDir, projectOutputDir, forecastWeeks]);
+
   const loadForecastBootstrap = useCallback(async () => {
     const requestId = forecastRequestIdRef.current + 1;
     forecastRequestIdRef.current = requestId;
@@ -556,6 +576,7 @@ function Dashboard({
       if (forecastRequestIdRef.current === requestId) {
         setEpidemiaData(data);
       }
+      await loadCacheStatus();
     } catch (err) {
       console.error("Failed to run EPIDEMIA pipeline:", err);
       if (forecastRequestIdRef.current === requestId) {
@@ -563,6 +584,7 @@ function Dashboard({
       }
     } finally {
       setEpidemiaRefreshing(false);
+      await loadCacheStatus();
     }
   }, [
     forecastWeeks,
@@ -572,7 +594,20 @@ function Dashboard({
     region,
     adm3Lookup,
     geoData,
+    loadCacheStatus,
   ]);
+
+  useEffect(() => {
+    loadCacheStatus();
+  }, [loadCacheStatus]);
+
+  useEffect(() => {
+    const pipelineState = cacheStatus?.pipeline?.status;
+    const intervalMs =
+      epidemiaRefreshing || pipelineState === "running" ? 5000 : 30000;
+    const timer = window.setInterval(loadCacheStatus, intervalMs);
+    return () => window.clearInterval(timer);
+  }, [cacheStatus?.pipeline?.status, epidemiaRefreshing, loadCacheStatus]);
 
   useEffect(() => {
     if (!bootstrapEpidemiaData) return;
@@ -786,6 +821,25 @@ function Dashboard({
     );
   }, [adm3Lookup, epidemiaData, region, selectedSpecies, selectedAlert, startDate, endDate]);
 
+  const seasonalContext = useMemo(() => {
+    if (!epidemiaData?.forecasts || region === "All Regions") return null;
+    const districtFc = findDistrictForecastRow(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies
+    );
+    if (!districtFc?.observed_history?.length) return null;
+
+    return buildSeasonalContext(
+      districtFc.observed_history.map((point) => ({
+        date: point.week_start,
+        observed: point.observed,
+        detection_threshold: point.detection_threshold ?? null,
+      }))
+    );
+  }, [adm3Lookup, epidemiaData, region, selectedSpecies]);
+
   // When a district is first selected, extend the end date to include its forecast horizon.
   // Do not re-run when the user manually changes the date picker afterward.
   useEffect(() => {
@@ -814,18 +868,6 @@ function Dashboard({
     }
     lastAutoExtendedDistrictRef.current = districtKey;
   }, [region, selectedSpecies, selectedForecast]);
-
-  const forecastSummary = useMemo(() => {
-    const alerts = epidemiaData?.alerts || [];
-    const speciesAlerts = alerts.filter((a) => a.species === selectedSpecies);
-    const warningCount = speciesAlerts.filter((a) => a.early_warning).length;
-    const detectionCount = speciesAlerts.filter((a) => a.early_detection).length;
-    return {
-      districts: speciesAlerts.length,
-      warnings: warningCount,
-      detections: detectionCount,
-    };
-  }, [epidemiaData, selectedSpecies]);
 
   const populationSurfaceYears = useMemo(
     () =>
@@ -1320,12 +1362,25 @@ function Dashboard({
     [isCompactLayout, updateRegion]
   );
 
-  const pipelineStatus = useMemo(() => {
-    if (epidemiaRefreshing) return { kind: "running", label: "Running" };
-    if (epidemiaLoading) return { kind: "loading", label: "Loading latest" };
-    if (epidemiaError) return { kind: "error", label: "Error" };
-    return { kind: "ready", label: "Ready" };
-  }, [epidemiaLoading, epidemiaRefreshing, epidemiaError]);
+  const pipelineStatus = useMemo(
+    () =>
+      buildPipelineStatus({
+        epidemiaLoading,
+        epidemiaRefreshing,
+        epidemiaError,
+        generatedAt: epidemiaData?.generated_at,
+        cacheStatus,
+        forecastWeeks,
+      }),
+    [
+      epidemiaLoading,
+      epidemiaRefreshing,
+      epidemiaError,
+      epidemiaData?.generated_at,
+      cacheStatus,
+      forecastWeeks,
+    ]
+  );
 
   const speciesLabel = selectedSpecies === "pv" ? "P. vivax" : "P. falciparum";
 
@@ -1556,10 +1611,6 @@ function Dashboard({
               <DiseaseTitle disease={disease} country={country} />
             </h1>
           </section>
-
-        {(!isCompactLayout || mobileMainView !== "summary") && (
-          <SituationStrip summary={forecastSummary} pipelineStatus={pipelineStatus} />
-        )}
 
         {isCompactLayout ? (
           <nav className="mobile-view-switcher fade-in-up delay-1" role="tablist" aria-label="Dashboard views">
@@ -1799,6 +1850,7 @@ function Dashboard({
                       <div className="forecast-panel-header">
                         <h4 className="forecast-panel-title">
                           Transmission Forecast ({selectedSpecies.toUpperCase()})
+                          {seasonalContext ? <SeasonalContextRing context={seasonalContext} /> : null}
                           {selectedAlert?.early_warning && (
                             <span className="alert-warning">Early Warning alert</span>
                           )}
@@ -1808,23 +1860,34 @@ function Dashboard({
                         </h4>
                         <div className="forecast-panel-controls">
                           <label className="forecast-panel-horizon-control">
-                            <span className="toolbar-field-label">
-                              Forecast
-                              <HelpTip
-                                text={DASHBOARD_HELP.forecastWeeks}
-                                label="Forecast horizon"
-                              />
-                            </span>
+                            <SituationStatCircle
+                              kind="pipeline"
+                              label="Pipeline"
+                              helpText={DASHBOARD_HELP.pipeline}
+                              helpLabel="Pipeline status"
+                              value={pipelineStatus.label}
+                              pipelineKind={pipelineStatus.kind}
+                              detail={pipelineStatus.detail}
+                              progressPercent={pipelineStatus.progress?.percent}
+                              showLabel={false}
+                              showCaption={false}
+                              compact
+                            />
                             <select
                               className="toolbar-select"
                               value={forecastWeeks}
                               onChange={(e) => setForecastWeeks(Number(e.target.value))}
                               aria-label="Forecast horizon in weeks"
+                              title={DASHBOARD_HELP.forecastWeeks}
                             >
                               <option value={4}>4 weeks</option>
                               <option value={8}>8 weeks</option>
                               <option value={12}>12 weeks</option>
                             </select>
+                            <HelpTip
+                              text={DASHBOARD_HELP.forecastWeeks}
+                              label="Forecast horizon"
+                            />
                           </label>
                           <button
                             type="button"
