@@ -32,9 +32,9 @@ export const DASHBOARD_HELP = {
     "Replay how alerts changed over recent weeks using observed case history.",
 
   districtLayers:
-    "Map controls for health choropleth shading, weather context, and alert overlays.",
+    "Map controls for health choropleth shading and alert overlays.",
   weatherDataset:
-    "Environmental variable used in the district time-series chart on the right.",
+    "Environmental variable for the weather time series chart. Choose precipitation, temperature, vegetation, or moisture indices.",
   healthLayer:
     "Choropleth shading on the map: population or average weekly malaria incidence over the selected date range.",
 

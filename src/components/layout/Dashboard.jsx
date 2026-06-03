@@ -214,7 +214,7 @@ function Dashboard({
     () => speciesToDisease(projectConfig?.defaultSpecies) || "Plasmodium falciparum malaria"
   );
   const [country, setCountry] = useState("Ethiopia");
-  const [forecastWeeks, setForecastWeeks] = useState(projectConfig?.horizonWeeks || 4);
+  const [forecastWeeks, setForecastWeeks] = useState(projectConfig?.horizonWeeks || 12);
   const [selectedAdminRegion, setSelectedAdminRegion] = useState(
     projectConfig?.defaultRegion || "All Regions"
   );
@@ -1630,23 +1630,6 @@ function Dashboard({
               <div className="map-layer-controls">
                 <label className="map-surface-control">
                   <span className="toolbar-field-label">
-                    Weather Dataset
-                    <HelpTip text={DASHBOARD_HELP.weatherDataset} label="Weather dataset" />
-                  </span>
-                  <select
-                    className="toolbar-select"
-                    value={dataset}
-                    onChange={(e) => setDataset(e.target.value)}
-                  >
-                    {WEATHER_DATASET_OPTIONS.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="map-surface-control">
-                  <span className="toolbar-field-label">
                     Health Layer
                     <HelpTip text={DASHBOARD_HELP.healthLayer} label="Health layer" />
                   </span>
@@ -1829,24 +1812,6 @@ function Dashboard({
                 )}
 
                 <Suspense fallback={<div className="chart-state">Loading charts...</div>}>
-                  <div id="epidemia-report-env-chart">
-                    <EnvironmentalTimeSeriesChart
-                      selectedDistrict={region !== "All Regions" ? region : null}
-                      districtGeometry={selectedGeometry}
-                      startDate={startDate}
-                      endDate={endDate}
-                      dataset={dataset}
-                      onPlotReady={makePlotReadyHandler("env")}
-                      onPlotPurge={makePlotPurgeHandler("env")}
-                      registerHighlightResolver={registerHighlightResolver}
-                      chartScopeKey={chartScopeKey}
-                      syncedHoverDate={syncedHoverDate}
-                      onHoverDateChange={setSyncedHoverDate}
-                      alertTimeMode={alertTimeMode}
-                      alertAnimationWeek={alertAnimationWeek}
-                    />
-                  </div>
-
                   {selectedForecast && (
                     <section className="forecast-panel">
                       <h4>
@@ -1882,11 +1847,55 @@ function Dashboard({
                       </div>
                     </section>
                   )}
-                </Suspense>
 
-                {!epidemiaLoading && !epidemiaRefreshing && !selectedForecast && region !== "All Regions" && (
-                  <div className="chart-state">No district forecast available for this selection.</div>
-                )}
+                  {!epidemiaLoading && !epidemiaRefreshing && !selectedForecast && region !== "All Regions" && (
+                    <div className="chart-state">No district forecast available for this selection.</div>
+                  )}
+
+                  <section className="env-chart-panel">
+                    <div className="env-chart-panel-header">
+                      <h4 className="env-chart-panel-title">
+                        Weather time series
+                        <HelpTip
+                          text={DASHBOARD_HELP.weatherDataset}
+                          label="Weather dataset"
+                        />
+                      </h4>
+                      <label className="env-chart-dataset-control">
+                        <span className="toolbar-field-label">Dataset</span>
+                        <select
+                          className="toolbar-select"
+                          value={dataset}
+                          onChange={(e) => setDataset(e.target.value)}
+                          aria-label="Weather dataset for time series chart"
+                        >
+                          {WEATHER_DATASET_OPTIONS.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
+                    <div id="epidemia-report-env-chart">
+                      <EnvironmentalTimeSeriesChart
+                        selectedDistrict={region !== "All Regions" ? region : null}
+                        districtGeometry={selectedGeometry}
+                        startDate={startDate}
+                        endDate={endDate}
+                        dataset={dataset}
+                        onPlotReady={makePlotReadyHandler("env")}
+                        onPlotPurge={makePlotPurgeHandler("env")}
+                        registerHighlightResolver={registerHighlightResolver}
+                        chartScopeKey={chartScopeKey}
+                        syncedHoverDate={syncedHoverDate}
+                        onHoverDateChange={setSyncedHoverDate}
+                        alertTimeMode={alertTimeMode}
+                        alertAnimationWeek={alertAnimationWeek}
+                      />
+                    </div>
+                  </section>
+                </Suspense>
               </div>
             )}
 

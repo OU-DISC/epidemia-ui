@@ -903,6 +903,53 @@ body {
   width: 100%;
 }
 
+.env-chart-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.env-chart-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  padding: 0 2px;
+}
+
+.env-chart-panel-title {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.env-chart-dataset-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.env-chart-dataset-control .toolbar-select {
+  min-width: 168px;
+  padding: 6px 9px;
+  font-size: 0.84rem;
+}
+
+.env-chart-panel .time-series-wrap .panel-title {
+  display: none;
+}
+
 .chart-panel-slot {
   position: relative;
 }
