@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import AlertStatusIcons from "./AlertStatusIcons";
 import CaseSparkline from "./CaseSparkline";
 import { buildTableTopPriorityRankByKey } from "../utils/buildDistrictForecastSeries";
 import {
@@ -35,18 +36,7 @@ function AlertStatusCell({ earlyWarning, earlyDetection }) {
   }
 
   return (
-    <span className="table-status-icons">
-      {earlyWarning ? (
-        <span className="table-alert-icon table-alert-icon--warning" title="Early Warning">
-          ⚠️
-        </span>
-      ) : null}
-      {earlyDetection ? (
-        <span className="table-alert-icon table-alert-icon--detection" title="Early Detection">
-          🔍
-        </span>
-      ) : null}
-    </span>
+    <AlertStatusIcons earlyWarning={earlyWarning} earlyDetection={earlyDetection} />
   );
 }
 

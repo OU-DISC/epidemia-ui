@@ -418,6 +418,43 @@ function TimedGibsLayer({ layerId, tileMatrixSet, time, opacity = 0.4, pane }) {
   );
 }
 
+const ALERT_MARKER_KINDS = {
+  ew: { icon: "⚠️", color: "#dc2626", label: "Early Warning" },
+  ed: { icon: "🔍", color: "#d97706", label: "Early Detection" },
+};
+
+/** Shift marker lat/lng so two alert pins on the same district do not stack. */
+function offsetAlertLatLng(lat, lng, metersEast) {
+  const latRad = (lat * Math.PI) / 180;
+  const metersPerDegreeLat = 111320;
+  const metersPerDegreeLng = Math.max(Math.cos(latRad) * metersPerDegreeLat, 1);
+  return {
+    lat: lat,
+    lng: lng + metersEast / metersPerDegreeLng,
+  };
+}
+
+function buildAlertMarkerIcon({ icon, color }) {
+  return L.divIcon({
+    html: `<div style="
+      background: ${color};
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: white;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    ">${icon}</div>`,
+    className: "custom-alert-marker",
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+  });
+}
+
 // Alert Markers component
 function AlertMarkers({
   alerts,
@@ -452,44 +489,18 @@ function AlertMarkers({
       alerts.forEach(alert => {
         if (alert?.species && alert.species !== selectedSpecies) return;
 
-        const isEarlyWarning = Boolean(alert?.early_warning);
-        const isEarlyDetection = Boolean(alert?.early_detection);
-
-        if (isEarlyWarning) {
-          if (!showEarlyWarning) return;
-        } else if (isEarlyDetection) {
-          if (!showEarlyDetection) return;
-        } else {
-          return;
-        }
+        const kinds = [];
+        if (Boolean(alert?.early_warning) && showEarlyWarning) kinds.push("ew");
+        if (Boolean(alert?.early_detection) && showEarlyDetection) kinds.push("ed");
+        if (!kinds.length) return;
 
         const district = findDistrictFromLookup(adm3Lookup, alert.district);
         if (district && district.geometry) {
           const bounds = L.geoJSON(district).getBounds();
           const centroid = bounds.getCenter();
           const districtName = district?.properties?.adm3_name || alert.district;
-
-          const iconHtml = isEarlyWarning ? "⚠️" : "🔍";
-          const iconColor = isEarlyWarning ? "#dc2626" : "#d97706";
-
-          const alertIcon = L.divIcon({
-            html: `<div style="
-              background: ${iconColor};
-              border-radius: 50%;
-              width: 24px;
-              height: 24px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 12px;
-              color: white;
-              border: 2px solid white;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            ">${iconHtml}</div>`,
-            className: 'custom-alert-marker',
-            iconSize: [24, 24],
-            iconAnchor: [12, 12]
-          });
+          const dualMarkers = kinds.length === 2;
+          const lateralOffsetMeters = 3500;
 
           const alertTooltipHtml = resolveLookupEntry(
             alertTooltipByDistrict,
@@ -497,9 +508,22 @@ function AlertMarkers({
             adm3Lookup
           );
 
-          const marker = L.marker([centroid.lat, centroid.lng], { icon: alertIcon, pane: ALERTS_MAP_PANE })
-            .bindTooltip(
-              alertTooltipHtml || `${districtName}<br>Early Warning`,
+          kinds.forEach((kindKey, index) => {
+            const kind = ALERT_MARKER_KINDS[kindKey];
+            const offsetMeters = dualMarkers
+              ? (index === 0 ? -lateralOffsetMeters : lateralOffsetMeters)
+              : 0;
+            const position = offsetAlertLatLng(
+              centroid.lat,
+              centroid.lng,
+              offsetMeters
+            );
+
+            const marker = L.marker([position.lat, position.lng], {
+              icon: buildAlertMarkerIcon(kind),
+              pane: ALERTS_MAP_PANE,
+            }).bindTooltip(
+              alertTooltipHtml || `${districtName}<br>${kind.label}`,
               {
                 permanent: false,
                 direction: "top",
@@ -510,17 +534,18 @@ function AlertMarkers({
               }
             );
 
-          marker.on("click", () => {
-            onSelectDistrict?.(districtName);
-            if (bounds?.isValid?.()) {
-              map.flyTo(centroid, Math.max(map.getZoom(), DISTRICT_CLICK_MAX_ZOOM), {
-                animate: true,
-                duration: 0.65,
-              });
-            }
-          });
+            marker.on("click", () => {
+              onSelectDistrict?.(districtName);
+              if (bounds?.isValid?.()) {
+                map.flyTo(centroid, Math.max(map.getZoom(), DISTRICT_CLICK_MAX_ZOOM), {
+                  animate: true,
+                  duration: 0.65,
+                });
+              }
+            });
 
-          markers.push(marker);
+            markers.push(marker);
+          });
         }
       });
     }

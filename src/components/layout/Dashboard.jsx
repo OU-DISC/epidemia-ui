@@ -3,6 +3,7 @@ import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useStat
 import TopToolbar from "./TopToolbar";
 import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
+import AlertStatusIcons from "../AlertStatusIcons";
 import ForecastAlertsTable from "../ForecastAlertsTable";
 import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
 import SituationStatCircle from "../SituationStatCircle";
@@ -1897,24 +1898,10 @@ function Dashboard({
                             {seasonalContext ? (
                               <SeasonalContextRing context={seasonalContext} />
                             ) : null}
-                            {selectedAlert?.early_warning && (
-                              <span
-                                className="table-alert-icon table-alert-icon--warning"
-                                title="Early Warning alert"
-                                aria-label="Early Warning alert"
-                              >
-                                ⚠️
-                              </span>
-                            )}
-                            {!selectedAlert?.early_warning && selectedAlert?.early_detection && (
-                              <span
-                                className="table-alert-icon table-alert-icon--detection"
-                                title="Early Detection alert"
-                                aria-label="Early Detection alert"
-                              >
-                                🔍
-                              </span>
-                            )}
+                            <AlertStatusIcons
+                              earlyWarning={Boolean(selectedAlert?.early_warning)}
+                              earlyDetection={Boolean(selectedAlert?.early_detection)}
+                            />
                           </h4>
                           <label className="forecast-panel-horizon-control">
                             <SituationStatCircle
