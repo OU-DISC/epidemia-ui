@@ -1,6 +1,7 @@
 import Plotly from "./plotly";
 import { buildForecastChartLayers } from "./buildForecastChartLayers";
 import { buildDistrictForecastSeries } from "./buildDistrictForecastSeries";
+import { FORECAST_VALUE_MODE, getForecastYAxisTitle } from "./forecastValueMode";
 import { REPORT_EXPORT_CONFIG, runPool } from "./reportExportConfig";
 
 function buildSpeciesPanelTraces(rows, subplotIndex) {
@@ -118,6 +119,9 @@ export function buildDistrictControlChartFigure({
   districtName,
   startDate,
   endDate,
+  valueMode = FORECAST_VALUE_MODE.CASES,
+  populationData = null,
+  surfaceValueForDistrict = null,
   speciesPanels = [
     { code: "pfm", title: "P. falciparum and mixed" },
     { code: "pv", title: "P. vivax" },
@@ -144,7 +148,8 @@ export function buildDistrictControlChartFigure({
       districtName,
       panel.code,
       startDate,
-      endDate
+      endDate,
+      { valueMode, populationData, surfaceValueForDistrict }
     );
     const rows = series?.rows || [];
     const { traces, shapes, annotations, yAxis } = buildSpeciesPanelTraces(rows, index + 1);
@@ -154,7 +159,10 @@ export function buildDistrictControlChartFigure({
     allAnnotations.push(...annotations);
 
     layout[yAxis] = {
-      title: { text: panel.title, font: { size: 11 } },
+      title: {
+        text: `${panel.title} · ${getForecastYAxisTitle(valueMode)}`,
+        font: { size: 11 },
+      },
       rangemode: "tozero",
       gridcolor: "#e5e7eb",
       zeroline: false,
@@ -190,6 +198,9 @@ export async function renderAllDistrictControlChartImages({
   districtRows,
   startDate,
   endDate,
+  valueMode = FORECAST_VALUE_MODE.CASES,
+  populationData = null,
+  surfaceValueForDistrict = null,
   onProgress,
   concurrency = REPORT_EXPORT_CONFIG.chartConcurrency,
 }) {
@@ -203,6 +214,9 @@ export async function renderAllDistrictControlChartImages({
       districtName: row.mapDistrict,
       startDate,
       endDate,
+      valueMode,
+      populationData,
+      surfaceValueForDistrict,
     });
 
     completed += 1;

@@ -3,8 +3,19 @@ import { Plot } from "../utils/plotly";
 import { fetchEnvironmentalTimeseries, ENV_API_BASE } from "../api";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
-import { chartRangeUiRevision, useChartPanelHeight } from "../utils/chartDateRange";
-import { buildPlotlyDateXAxis, buildPlotlyValueYAxis } from "../utils/plotlyDateAxisSync";
+import {
+  chartRangeUiRevision,
+  resolvePlotlyChartXRange,
+  toPlotlyDateMs,
+  useChartSlotHeight,
+} from "../utils/chartDateRange";
+import {
+  buildChartPlotMargin,
+  buildPlotlyDateXAxis,
+  buildPlotlyValueYAxis,
+  CHART_PLOT_CONFIG,
+  CHART_PLOT_SURFACE,
+} from "../utils/plotlyDateAxisSync";
 import { kelvinToCelsiusValue } from "../utils/temperatureUnits";
 
 const ENV_DATASET_LABELS = {
@@ -35,12 +46,11 @@ export default function EnvironmentalTimeSeriesChart({
   alertTimeMode = "current",
   alertAnimationWeek = null,
 }) {
-  const chartPanelHeight = useChartPanelHeight();
+  const { height: chartPanelHeight, slotRef: chartSlotRef } = useChartSlotHeight();
   const [timeseries, setTimeseries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
-  const xaxis = useMemo(() => buildPlotlyDateXAxis("Date"), []);
 
   useEffect(() => {
     if (!selectedDistrict || !districtGeometry || !startDate || !endDate || !dataset) {
@@ -99,6 +109,16 @@ export default function EnvironmentalTimeSeriesChart({
     [chartPoints]
   );
 
+  const plotlyXRange = useMemo(
+    () => resolvePlotlyChartXRange({ startDate, endDate, dataDates: chartDates }),
+    [chartDates, endDate, startDate]
+  );
+
+  const xaxis = useMemo(
+    () => buildPlotlyDateXAxis("", plotlyXRange),
+    [plotlyXRange]
+  );
+
   const datasetLabel = ENV_DATASET_LABELS[dataset] || dataset;
 
   useEffect(() => {
@@ -124,19 +144,18 @@ export default function EnvironmentalTimeSeriesChart({
       uirevision: chartRangeUiRevision(
         "env",
         chartScopeKey,
-        `-${dataset}-${selectedDistrict || "none"}`
+        `-${dataset}-${selectedDistrict || "none"}-${startDate}-${endDate}`
       ),
       autosize: true,
       height: chartPanelHeight,
-      margin: { l: 58, r: 24, t: 16, b: 60 },
-      paper_bgcolor: "rgba(0,0,0,0)",
-      plot_bgcolor: "rgba(255,255,255,0.5)",
+      margin: buildChartPlotMargin(),
+      ...CHART_PLOT_SURFACE,
       dragmode: "zoom",
       hovermode: "x unified",
       xaxis,
-      yaxis: buildPlotlyValueYAxis(datasetLabel),
+      yaxis: buildPlotlyValueYAxis(),
     }),
-    [chartScopeKey, chartPanelHeight, dataset, datasetLabel, selectedDistrict, xaxis]
+    [chartScopeKey, chartPanelHeight, dataset, endDate, selectedDistrict, startDate, xaxis]
   );
 
   if (!selectedDistrict) {
@@ -156,14 +175,11 @@ export default function EnvironmentalTimeSeriesChart({
   }
 
   return (
-    <div className="time-series-wrap chart-panel-slot">
-      <h4 className="panel-title">
-        {selectedDistrict} - {datasetLabel}
-      </h4>
+    <div ref={chartSlotRef} className="time-series-wrap chart-panel-slot">
       <Plot
         data={[
           {
-            x: chartPoints.map((d) => d.date),
+            x: chartPoints.map((d) => toPlotlyDateMs(d.date)),
             y: chartPoints.map((d) => d.value),
             type: "scatter",
             mode: "lines+markers",
@@ -174,12 +190,8 @@ export default function EnvironmentalTimeSeriesChart({
           },
         ]}
         layout={layout}
-        config={{
-          responsive: true,
-          displaylogo: false,
-          scrollZoom: true,
-        }}
-        style={{ width: "100%", height: `${chartPanelHeight}px` }}
+        config={CHART_PLOT_CONFIG}
+        style={{ width: "100%", height: "100%" }}
         useResizeHandler
         onInitialized={onPlotReady}
         onPurge={onPlotPurge}

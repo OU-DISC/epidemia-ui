@@ -51,12 +51,12 @@ export const ABOUT_EPIDEMIA = {
         {
           term: "Charts tab",
           detail:
-            "For the selected district: environmental conditions over time and a transmission chart showing observed cases, the forecast, and alert thresholds.",
+            "For the selected district: environmental conditions over time and a transmission chart showing observed cases or incidence per 100,000 (your choice), the forecast, and matching alert thresholds.",
         },
         {
           term: "Forecast table tab",
           detail:
-            "A sortable list of all districts with status, recent cases, forecast values, and population. Click rows to compare districts on the chart.",
+            "A sortable list of all districts with status, cases or incidence, forecast values, and population. Click rows to compare districts on the chart.",
         },
         {
           term: "Export EPIDEMIA Report",

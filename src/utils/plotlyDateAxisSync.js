@@ -1,7 +1,7 @@
 import Plotly from "./plotly";
 import { buildVerticalDateLine } from "./chartHighlightDate";
 import { normalizeChartAxisDate } from "./plotlyXAxisSync";
-import { toPlotlyDateRangeMs } from "./chartDateRange";
+import { buildSyncedDateXAxis, toPlotlyDateRangeMs } from "./chartDateRange";
 
 export function isPlotlyGraphReady(graphDiv) {
   // Plotly attaches an event emitter API to the graph div (gd.on/gd.emit).
@@ -96,35 +96,51 @@ export function syncPlotlyDateRange(registry, startDate, endDate) {
   return Promise.all(jobs);
 }
 
-export function buildPlotlyDateXAxis(title = "Date") {
-  return {
+export function buildPlotlyDateXAxis(title = "", range = null) {
+  return buildSyncedDateXAxis({
     title,
-    type: "date",
-    tickangle: -35,
-    gridcolor: "#e2e8f1",
-    zeroline: false,
-    tickfont: { size: 11, color: "#495367" },
-    titlefont: { color: "#495367" },
-    fixedrange: false,
-    autorange: true,
+    range: range?.length === 2 ? range : null,
+  });
+}
+
+/** Shared Plotly margins — tight layout; extra top when a horizontal legend is shown. */
+export function buildChartPlotMargin({ withLegend = false } = {}) {
+  return {
+    l: 34,
+    r: 4,
+    b: 38,
+    t: withLegend ? 18 : 2,
   };
 }
 
+export const CHART_PLOT_SURFACE = {
+  paper_bgcolor: "rgba(0,0,0,0)",
+  plot_bgcolor: "rgba(0,0,0,0)",
+};
+
+export const CHART_PLOT_CONFIG = {
+  responsive: true,
+  displaylogo: false,
+  scrollZoom: true,
+  displayModeBar: "hover",
+};
+
 /** Y-axis locked so trackpad pinch / scroll zoom only changes the date (x) axis. */
-export function buildPlotlyValueYAxis(title = "Value", { nonnegative = false } = {}) {
+export function buildPlotlyValueYAxis(title = "", { nonnegative = false } = {}) {
   return {
     title,
     gridcolor: "#e2e8f1",
     zeroline: false,
     fixedrange: true,
     autorange: true,
-    tickfont: { color: "#495367" },
-    titlefont: { color: "#495367" },
+    tickfont: { size: 9, color: "#495367" },
+    titlefont: { size: 9, color: "#495367" },
+    automargin: false,
     ...(nonnegative
       ? {
           rangemode: "tozero",
-          autorangeoptions: { minallowed: 0, clipmin: 0, include: "padding" },
+          autorangeoptions: { minallowed: 0, clipmin: 0, include: "tick" },
         }
-      : { autorangeoptions: { include: "padding" } }),
+      : { autorangeoptions: { include: "tick" } }),
   };
 }

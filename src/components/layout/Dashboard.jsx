@@ -50,9 +50,13 @@ import {
   buildComparisonDistrictOptions,
   buildDistrictForecastSeries,
   buildRegionalComparisonDistricts,
-  COMPARISON_HIGHLIGHT_MODES,
 } from "../../utils/buildDistrictForecastSeries";
-import { filterForecastRowsByDateRange } from "../../utils/filterForecastByDateRange";
+import {
+  buildComparisonHighlightModes,
+  FORECAST_VALUE_MODE,
+  FORECAST_VALUE_MODE_OPTIONS,
+  transformForecastTableRow,
+} from "../../utils/forecastValueMode";
 import { captureReportMap, exportEpidemiaReport } from "../../utils/exportEpidemiaReport";
 import {
   canUseReportScope,
@@ -71,6 +75,7 @@ import { speciesToDisease } from "../../utils/projectStorage";
 import {
   CHART_DEFAULT_START_DATE,
   getChartDefaultEndDate,
+  resolveChartDateRange,
 } from "../../utils/chartDateRange";
 import {
   normalizeChartAxisDate,
@@ -218,6 +223,7 @@ function Dashboard({
   );
   const [country, setCountry] = useState("Ethiopia");
   const [forecastWeeks, setForecastWeeks] = useState(projectConfig?.horizonWeeks || 12);
+  const [forecastValueMode, setForecastValueMode] = useState(FORECAST_VALUE_MODE.CASES);
   const [selectedAdminRegion, setSelectedAdminRegion] = useState(
     projectConfig?.defaultRegion || "All Regions"
   );
@@ -250,7 +256,7 @@ function Dashboard({
   const projectDataDir = projectConfig?.dataDir || "data";
   const projectOutputDir = projectConfig?.outputDir || "report";
 
-  //  Environmental data states
+  // Environmental data states — one year ending at latest report week once data loads.
   const [startDate, setStartDate] = useState(CHART_DEFAULT_START_DATE);
   const [endDate, setEndDate] = useState(getChartDefaultEndDate);
   const [dataset, setDataset] = useState("totprec");
@@ -265,15 +271,29 @@ function Dashboard({
   const chartScopeKey = `${region}|${dataset}|${lastHealthMapLayer}|${disease}`;
   const chartDatesRef = useRef({ startDate, endDate });
   chartDatesRef.current = { startDate, endDate };
+  const chartDateResetKeyRef = useRef("");
+
+  const applyDefaultChartDateRange = useCallback(() => {
+    const range = resolveChartDateRange(epidemiaData);
+    setStartDate(range.startDate);
+    setEndDate(range.endDate);
+    lastAutoExtendedDistrictRef.current = null;
+  }, [epidemiaData]);
+
+  const handleStartDateChange = useCallback((value) => {
+    setStartDate(value);
+  }, []);
+
+  const handleEndDateChange = useCallback((value) => {
+    setEndDate(value);
+  }, []);
 
   const handleChartDateRelayout = useCallback((ev) => {
     const parsed = parseXAxisRangeFromRelayoutEvent(ev);
     if (parsed == null) return;
-    if (parsed === "autorange") {
-      setStartDate(CHART_DEFAULT_START_DATE);
-      setEndDate(getChartDefaultEndDate());
-      return;
-    }
+    // Chart redraws often emit autorange; keep the picker range instead of resetting.
+    if (parsed === "autorange") return;
+
     const nextStart = normalizeChartAxisDate(parsed[0]);
     const nextEnd = normalizeChartAxisDate(parsed[1]);
     const { startDate: curStart, endDate: curEnd } = chartDatesRef.current;
@@ -285,11 +305,6 @@ function Dashboard({
   const { makePlotReadyHandler, makePlotPurgeHandler, registerHighlightResolver } =
     useChartPlotRegistry(startDate, endDate, handleChartDateRelayout, syncedHoverDate);
 
-  useEffect(() => {
-    setStartDate(CHART_DEFAULT_START_DATE);
-    setEndDate(getChartDefaultEndDate());
-    lastAutoExtendedDistrictRef.current = null;
-  }, [chartScopeKey]);
   const [rightPanelView, setRightPanelView] = useState("charts");
   const [comparisonDistricts, setComparisonDistricts] = useState(["", "", ""]);
   const [comparisonHighlightMode, setComparisonHighlightMode] = useState("alert-priority");
@@ -370,6 +385,14 @@ function Dashboard({
 
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
+
+  const chartDateResetKey = `${region}|${selectedSpecies}|${epidemiaData?.generated_at || ""}`;
+
+  useEffect(() => {
+    if (chartDateResetKeyRef.current === chartDateResetKey) return;
+    chartDateResetKeyRef.current = chartDateResetKey;
+    applyDefaultChartDateRange();
+  }, [chartDateResetKey, applyDefaultChartDateRange]);
   const adm3Lookup = useMemo(
     () => buildAdm3Lookup(geoData, woredaPcodeCrosswalk),
     [geoData, woredaPcodeCrosswalk]
@@ -769,58 +792,6 @@ function Dashboard({
     );
   }, [adm3Lookup, epidemiaData, region, selectedSpecies]);
 
-  const selectedForecast = useMemo(() => {
-    if (!epidemiaData?.forecasts || region === "All Regions") return null;
-    const districtFc = findDistrictForecastRow(
-      epidemiaData,
-      adm3Lookup,
-      region,
-      selectedSpecies
-    );
-    if (!districtFc) return null;
-
-    let observedRows = (districtFc.observed_history || []).map((point) => ({
-      date: point.week_start,
-      median: null,
-      lower: null,
-      upper: null,
-      observed: point.observed,
-      detection_threshold: point.detection_threshold ?? null,
-      warning_threshold: point.warning_threshold ?? null,
-      alarm_threshold: point.alarm_threshold ?? null,
-    }));
-
-    // Backward-compatible fallback for responses from older backend processes.
-    if (observedRows.length === 0 && selectedAlert?.latest_observed != null && districtFc.forecast?.length) {
-      observedRows = [
-        {
-          date: districtFc.forecast[0].week_start,
-          median: null,
-          lower: null,
-          upper: null,
-          observed: selectedAlert.latest_observed,
-        },
-      ];
-    }
-
-    const forecastRows = districtFc.forecast.map((point) => ({
-      date: point.week_start,
-      median: point.median,
-      lower: point.lower,
-      upper: point.upper,
-      observed: null,
-      detection_threshold: point.detection_threshold ?? null,
-      warning_threshold: point.warning_threshold ?? null,
-      alarm_threshold: point.alarm_threshold ?? null,
-    }));
-
-    return filterForecastRowsByDateRange(
-      [...observedRows, ...forecastRows],
-      startDate,
-      endDate
-    );
-  }, [adm3Lookup, epidemiaData, region, selectedSpecies, selectedAlert, startDate, endDate]);
-
   const seasonalContext = useMemo(() => {
     if (!epidemiaData?.forecasts || region === "All Regions") return null;
     const districtFc = findDistrictForecastRow(
@@ -839,35 +810,6 @@ function Dashboard({
       }))
     );
   }, [adm3Lookup, epidemiaData, region, selectedSpecies]);
-
-  // When a district is first selected, extend the end date to include its forecast horizon.
-  // Do not re-run when the user manually changes the date picker afterward.
-  useEffect(() => {
-    if (region === "All Regions") {
-      lastAutoExtendedDistrictRef.current = null;
-      return;
-    }
-    if (!selectedForecast?.length) return;
-
-    const districtKey = `${region}|${selectedSpecies}`;
-    if (lastAutoExtendedDistrictRef.current === districtKey) return;
-
-    const maxForecastDate = selectedForecast
-      .filter((row) => row?.median !== null && row?.median !== undefined && row?.date)
-      .map((row) => String(row.date))
-      .sort()
-      .slice(-1)[0];
-    if (!maxForecastDate) return;
-
-    const { endDate: currentEndDate } = chartDatesRef.current;
-    const currentEnd = Date.parse(`${currentEndDate}T00:00:00Z`);
-    const nextEnd = Date.parse(`${maxForecastDate}T00:00:00Z`);
-    if (Number.isNaN(currentEnd) || Number.isNaN(nextEnd)) return;
-    if (nextEnd > currentEnd) {
-      setEndDate(maxForecastDate);
-    }
-    lastAutoExtendedDistrictRef.current = districtKey;
-  }, [region, selectedSpecies, selectedForecast]);
 
   const populationSurfaceYears = useMemo(
     () =>
@@ -933,6 +875,65 @@ function Dashboard({
       }),
     [adm3Lookup, epidemiaData, populationData, selectedSpecies, startDate, endDate]
   );
+
+  const forecastSeriesOptions = useMemo(
+    () => ({
+      valueMode: forecastValueMode,
+      populationData,
+      surfaceValueForDistrict,
+    }),
+    [forecastValueMode, populationData]
+  );
+
+  const selectedForecast = useMemo(() => {
+    if (!epidemiaData?.forecasts || region === "All Regions") return null;
+    const series = buildDistrictForecastSeries(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies,
+      startDate,
+      endDate,
+      forecastSeriesOptions
+    );
+    return series?.rows?.length ? series.rows : null;
+  }, [
+    adm3Lookup,
+    endDate,
+    epidemiaData,
+    forecastSeriesOptions,
+    region,
+    selectedSpecies,
+    startDate,
+  ]);
+
+  // When a district is first selected, extend the end date to include its forecast horizon.
+  useEffect(() => {
+    if (region === "All Regions") {
+      lastAutoExtendedDistrictRef.current = null;
+      return;
+    }
+    if (!selectedForecast?.length) return;
+
+    const districtKey = `${region}|${selectedSpecies}`;
+    if (lastAutoExtendedDistrictRef.current === districtKey) return;
+
+    const maxForecastDate = selectedForecast
+      .filter((row) => row?.median !== null && row?.median !== undefined && row?.date)
+      .map((row) => String(row.date))
+      .sort()
+      .slice(-1)[0];
+    if (!maxForecastDate) return;
+
+    const { endDate: currentEndDate } = chartDatesRef.current;
+    const currentEnd = Date.parse(`${currentEndDate}T00:00:00Z`);
+    const nextEnd = Date.parse(`${maxForecastDate}T00:00:00Z`);
+    if (Number.isNaN(currentEnd) || Number.isNaN(nextEnd)) return;
+    if (nextEnd > currentEnd) {
+      setEndDate(maxForecastDate);
+    }
+    lastAutoExtendedDistrictRef.current = districtKey;
+  }, [region, selectedSpecies, selectedForecast]);
 
   const mapHealthLayer = HEALTH_MAP_SURFACE_LAYERS.has(activeMapSurfaceLayer)
     ? activeMapSurfaceLayer
@@ -1044,8 +1045,11 @@ function Dashboard({
         caseSparkline,
         caseSparklineWeeks,
       };
-    });
-  }, [adm3Lookup, epidemiaData, selectedSpecies]);
+    })
+      .map((row) =>
+        transformForecastTableRow(row, forecastValueMode, row.populationAtRisk)
+      );
+  }, [adm3Lookup, epidemiaData, forecastValueMode, selectedSpecies]);
 
   const topPriorityDistrict = useMemo(() => {
     const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
@@ -1101,6 +1105,7 @@ function Dashboard({
           startDate,
           endDate,
           count: 3,
+          ...forecastSeriesOptions,
         }
       ),
     [
@@ -1108,11 +1113,17 @@ function Dashboard({
       comparisonHighlightMode,
       endDate,
       epidemiaData,
+      forecastSeriesOptions,
       forecastTableRows,
       selectedAdminRegion,
       selectedSpecies,
       startDate,
     ]
+  );
+
+  const comparisonHighlightModeOptions = useMemo(
+    () => buildComparisonHighlightModes(forecastValueMode),
+    [forecastValueMode]
   );
 
   const comparisonDefaultsKey = useMemo(
@@ -1124,6 +1135,7 @@ function Dashboard({
         startDate,
         endDate,
         chartScopeKey,
+        forecastValueMode,
         epidemiaData?.generated_at || "",
       ].join("|"),
     [
@@ -1131,6 +1143,7 @@ function Dashboard({
       comparisonHighlightMode,
       endDate,
       epidemiaData?.generated_at,
+      forecastValueMode,
       selectedAdminRegion,
       selectedSpecies,
       startDate,
@@ -1282,11 +1295,20 @@ function Dashboard({
           districtName,
           selectedSpecies,
           startDate,
-          endDate
+          endDate,
+          forecastSeriesOptions
         )
       )
       .filter(Boolean);
-  }, [adm3Lookup, comparisonDistricts, epidemiaData, selectedSpecies, startDate, endDate]);
+  }, [
+    adm3Lookup,
+    comparisonDistricts,
+    epidemiaData,
+    forecastSeriesOptions,
+    selectedSpecies,
+    startDate,
+    endDate,
+  ]);
 
   const comparisonBackgroundSeries = useMemo(() => {
     return comparisonBackgroundDistricts
@@ -1297,7 +1319,8 @@ function Dashboard({
           districtName,
           selectedSpecies,
           startDate,
-          endDate
+          endDate,
+          forecastSeriesOptions
         )
       )
       .filter(Boolean);
@@ -1305,6 +1328,7 @@ function Dashboard({
     adm3Lookup,
     comparisonBackgroundDistricts,
     epidemiaData,
+    forecastSeriesOptions,
     selectedSpecies,
     startDate,
     endDate,
@@ -1468,6 +1492,7 @@ function Dashboard({
       scope: reportScope,
       selectedDistrict: region,
       selectedRegion: selectedAdminRegion,
+      forecastValueMode,
     });
 
     const scopedAlerts = filterAlertsByScope(
@@ -1550,6 +1575,7 @@ function Dashboard({
               districtRows: woredaDistrictRows,
               startDate,
               endDate,
+              ...forecastSeriesOptions,
               onProgress: ({ current, total, district }) => {
                 setExportProgressMessage(
                   `Rendering control charts (${current}/${total}): ${district}`
@@ -1670,6 +1696,7 @@ function Dashboard({
         {isCompactLayout && mobileMainView === "summary" ? (
           <MobileSummaryView
             rows={forecastTableRows}
+            valueMode={forecastValueMode}
             selectedAdminRegion={selectedAdminRegion}
             selectedDistrict={region}
             speciesLabel={speciesLabel}
@@ -1704,8 +1731,8 @@ function Dashboard({
               <EnvironmentalLayers
                 startDate={startDate}
                 endDate={endDate}
-                onChangeStartDate={setStartDate}
-                onChangeEndDate={setEndDate}
+                onChangeStartDate={handleStartDateChange}
+                onChangeEndDate={handleEndDateChange}
                 mapSurfaceLayer={activeMapSurfaceLayer}
                 onChangeMapSurfaceLayer={handleMapSurfaceLayerChange}
                 showEnvTimeControls={envMapLayerActive}
@@ -1848,17 +1875,33 @@ function Dashboard({
                   {selectedForecast && (
                     <section className="forecast-panel">
                       <div className="forecast-panel-header">
-                        <h4 className="forecast-panel-title">
-                          Transmission Forecast ({selectedSpecies.toUpperCase()})
-                          {seasonalContext ? <SeasonalContextRing context={seasonalContext} /> : null}
-                          {selectedAlert?.early_warning && (
-                            <span className="alert-warning">Early Warning alert</span>
-                          )}
-                          {!selectedAlert?.early_warning && selectedAlert?.early_detection && (
-                            <span className="alert-detection">Early Detection alert</span>
-                          )}
-                        </h4>
-                        <div className="forecast-panel-controls">
+                        <div className="forecast-panel-toolbar">
+                          <h4 className="forecast-panel-title">
+                            <span className="forecast-panel-title-text">
+                              Forecast ({selectedSpecies.toUpperCase()})
+                            </span>
+                            {seasonalContext ? (
+                              <SeasonalContextRing context={seasonalContext} />
+                            ) : null}
+                            {selectedAlert?.early_warning && (
+                              <span
+                                className="table-alert-icon table-alert-icon--warning"
+                                title="Early Warning alert"
+                                aria-label="Early Warning alert"
+                              >
+                                ⚠️
+                              </span>
+                            )}
+                            {!selectedAlert?.early_warning && selectedAlert?.early_detection && (
+                              <span
+                                className="table-alert-icon table-alert-icon--detection"
+                                title="Early Detection alert"
+                                aria-label="Early Detection alert"
+                              >
+                                🔍
+                              </span>
+                            )}
+                          </h4>
                           <label className="forecast-panel-horizon-control">
                             <SituationStatCircle
                               kind="pipeline"
@@ -1880,22 +1923,42 @@ function Dashboard({
                               aria-label="Forecast horizon in weeks"
                               title={DASHBOARD_HELP.forecastWeeks}
                             >
-                              <option value={4}>4 weeks</option>
-                              <option value={8}>8 weeks</option>
-                              <option value={12}>12 weeks</option>
+                              <option value={4}>4 wk</option>
+                              <option value={8}>8 wk</option>
+                              <option value={12}>12 wk</option>
                             </select>
                             <HelpTip
                               text={DASHBOARD_HELP.forecastWeeks}
                               label="Forecast horizon"
                             />
                           </label>
+                          <label className="forecast-panel-value-mode-control">
+                            <select
+                              className="toolbar-select"
+                              value={forecastValueMode}
+                              onChange={(e) => setForecastValueMode(e.target.value)}
+                              aria-label="Chart value mode"
+                              title={DASHBOARD_HELP.forecastValueMode}
+                            >
+                              {FORECAST_VALUE_MODE_OPTIONS.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                  {option.label}
+                                </option>
+                              ))}
+                            </select>
+                            <HelpTip
+                              text={DASHBOARD_HELP.forecastValueMode}
+                              label="Chart value mode"
+                            />
+                          </label>
                           <button
                             type="button"
-                            className="toolbar-button"
+                            className="toolbar-button forecast-panel-refresh-btn"
                             onClick={refreshEpidemia}
                             disabled={epidemiaRefreshing}
+                            title="Refresh district forecast"
                           >
-                            {epidemiaRefreshing ? "Refreshing..." : "Refresh Forecast"}
+                            {epidemiaRefreshing ? "…" : "Refresh"}
                           </button>
                         </div>
                       </div>
@@ -1914,6 +1977,7 @@ function Dashboard({
                         <ForecastChart
                           data={selectedForecast}
                           alert={selectedAlert}
+                          valueMode={forecastValueMode}
                           startDate={startDate}
                           endDate={endDate}
                           onPlotReady={makePlotReadyHandler("forecast")}
@@ -1986,6 +2050,7 @@ function Dashboard({
                 <ForecastAlertsTable
                   embedded
                   rows={forecastTableRows}
+                  valueMode={forecastValueMode}
                   selectedDistrict={region}
                   comparisonDistricts={comparisonDistricts}
                   onToggleComparisonDistrict={toggleComparisonDistrict}
@@ -2003,7 +2068,7 @@ function Dashboard({
                             value={comparisonHighlightMode}
                             onChange={(event) => setComparisonHighlightMode(event.target.value)}
                           >
-                            {COMPARISON_HIGHLIGHT_MODES.map((option) => (
+                            {comparisonHighlightModeOptions.map((option) => (
                               <option key={option.value} value={option.value}>
                                 {option.label}
                               </option>
@@ -2022,6 +2087,7 @@ function Dashboard({
                     <MultiDistrictComparisonChart
                       series={comparisonSeries}
                       backgroundSeries={comparisonBackgroundSeries}
+                      valueMode={forecastValueMode}
                       startDate={startDate}
                       endDate={endDate}
                       chartScopeKey={chartScopeKey}

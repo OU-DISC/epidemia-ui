@@ -28,7 +28,7 @@ Use this script for live demos, stakeholder briefings, training workshops, or re
 >
 > Forecasts refresh **by region**, custom projects can be uploaded through the **Project Wizard**, and a **PDF report** exports the current view for briefings.
 >
-> Under the hood: seasonal GAM thresholds, autoregressive forecasting, Google Earth Engine environmental layers, and a production stack deployed on OU DISC cloud infrastructure.
+> Under the hood: seasonal Poisson GAM forecasts and thresholds, Google Earth Engine environmental layers, and a production stack deployed on OU DISC cloud infrastructure.
 
 ---
 
@@ -152,7 +152,7 @@ Use this script for live demos, stakeholder briefings, training workshops, or re
 > | Layer | Role |
 > |-------|------|
 > | **React dashboard** | Map, charts, tables, PDF export |
-> | **Forecast API** | Seasonal GAM thresholds + AutoReg forecasts, regional cache |
+> | **Forecast API** | Seasonal GAM forecasts/thresholds (epidemiar-aligned), regional cache |
 > | **Environmental API** | Google Earth Engine time series and map overlays |
 >
 > **Alert logic** uses seasonal Poisson GAM thresholds with rainfall and temperature covariates. When GAM fitting is unavailable, Farrington-style surveillance baselines provide a fallback.
@@ -181,8 +181,8 @@ Use this script for live demos, stakeholder briefings, training workshops, or re
 |---------|---------------------|
 | National scope | ~851 woredas, admin-1 region filter |
 | Dual species | *P. falciparum* and *P. vivax* |
-| 8-week forecast | AutoReg with uncertainty bands |
-| Seasonal thresholds | GAM-based detection & warning lines |
+| 8-week forecast | Seasonal GAM expected cases with detection/warning bands |
+| Seasonal thresholds | Same GAM model (mu + quasi-Poisson upper bound) |
 | Early Warning / Early Detection | Map markers + table priority ranking |
 | Alert history animation | Weekly replay on map + charts |
 | Environmental chart | GEE: rain, LST, NDVI, etc. (°C for temperature) |

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { normalizeChartAxisDate } from "./plotlyXAxisSync";
 
-export const CHART_DEFAULT_START_DATE = "2025-10-31";
+/** Fallback start when no epidemiological report is loaded yet. */
+export const CHART_DEFAULT_START_DATE = "2025-01-01";
 
 /** Today's date as YYYY-MM-DD (local calendar day). */
 export function getChartDefaultEndDate() {
@@ -11,12 +12,68 @@ export function getChartDefaultEndDate() {
   const day = String(now.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
-export const CHART_PANEL_MIN_HEIGHT = 150;
-export const CHART_PANEL_MAX_HEIGHT = 255;
-/** Non-chart chrome (toolbar, hero, panel headers, regional summary, gaps). */
-export const CHART_VIEWPORT_CHROME = 520;
 
-/** Match `--dash-chart-height` in dashboard-theme.css. */
+/** YYYY-MM-DD one calendar year before the given day (UTC). */
+export function subtractOneCalendarYear(day) {
+  const text = String(day || "").slice(0, 10);
+  const parsed = Date.parse(`${text}T12:00:00Z`);
+  if (!text || Number.isNaN(parsed)) return null;
+
+  const date = new Date(parsed);
+  date.setUTCFullYear(date.getUTCFullYear() - 1);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const dayOfMonth = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}-${month}-${dayOfMonth}`;
+}
+
+export function getFallbackChartDateRange() {
+  const endDate = getChartDefaultEndDate();
+  return {
+    startDate: subtractOneCalendarYear(endDate) || CHART_DEFAULT_START_DATE,
+    endDate,
+  };
+}
+
+/** All observed and forecast week_start values from the loaded report. */
+export function collectEpidemiaDataDates(epidemiaData) {
+  const dates = new Set();
+  (epidemiaData?.forecasts || []).forEach((forecast) => {
+    (forecast.observed_history || []).forEach((point) => {
+      if (point?.week_start) dates.add(String(point.week_start).slice(0, 10));
+    });
+    (forecast.forecast || []).forEach((point) => {
+      if (point?.week_start) dates.add(String(point.week_start).slice(0, 10));
+    });
+  });
+  return Array.from(dates).filter(Boolean).sort();
+}
+
+/**
+ * Default chart span: one calendar year ending on the latest week in the report.
+ */
+export function resolveLatestDataYearRange(epidemiaData) {
+  const sorted = collectEpidemiaDataDates(epidemiaData);
+  if (!sorted.length) return null;
+
+  const endDate = sorted[sorted.length - 1];
+  const startDate = subtractOneCalendarYear(endDate);
+  if (!startDate) return null;
+
+  return { startDate, endDate };
+}
+
+export function resolveChartDateRange(epidemiaData) {
+  return resolveLatestDataYearRange(epidemiaData) || getFallbackChartDateRange();
+}
+export const CHART_PANEL_MIN_HEIGHT = 150;
+export const CHART_PANEL_MAX_HEIGHT = 520;
+/** Non-chart chrome (toolbar, hero, panel headers, regional summary, gaps). */
+export const CHART_VIEWPORT_CHROME = 450;
+
+export const CHARTS_VIEW_SELECTOR = ".side-panel-body.charts-view";
+
+/** Fallback when the charts panel is not mounted or not yet laid out. */
 export function getChartPanelHeight(
   viewportHeight = typeof window !== "undefined" ? window.innerHeight : 900
 ) {
@@ -27,21 +84,148 @@ export function getChartPanelHeight(
   );
 }
 
-export function useChartPanelHeight() {
+function clampChartHeight(value) {
+  return Math.min(
+    CHART_PANEL_MAX_HEIGHT,
+    Math.max(CHART_PANEL_MIN_HEIGHT, Math.round(value))
+  );
+}
+
+/**
+ * Divide the charts panel height between Plotly slots after subtracting headers
+ * and the regional summary bar.
+ */
+export function measureChartHeightFromChartsView(panelEl) {
+  if (!panelEl?.clientHeight || panelEl.clientHeight < 80) {
+    return getChartPanelHeight();
+  }
+
+  const style = getComputedStyle(panelEl);
+  const gap = parseFloat(style.rowGap) || parseFloat(style.gap) || 4;
+  const children = [...panelEl.children].filter((node) => node.nodeType === 1);
+
+  let overhead = 0;
+  let chartSlotCount = 0;
+
+  for (const child of children) {
+    const chartSlots = child.querySelectorAll(".chart-panel-slot");
+    const childHeight = child.offsetHeight || child.getBoundingClientRect().height;
+
+    if (chartSlots.length > 0) {
+      chartSlotCount += chartSlots.length;
+      let slotsHeight = 0;
+      chartSlots.forEach((slot) => {
+        slotsHeight += slot.offsetHeight || slot.getBoundingClientRect().height;
+      });
+      overhead += Math.max(0, childHeight - slotsHeight);
+    } else if (childHeight > 0) {
+      overhead += childHeight;
+    }
+  }
+
+  overhead += gap * Math.max(0, children.length - 1);
+
+  const divisor = chartSlotCount > 0 ? chartSlotCount : 2;
+  const available = panelEl.clientHeight - overhead;
+
+  if (available <= CHART_PANEL_MIN_HEIGHT) {
+    return CHART_PANEL_MIN_HEIGHT;
+  }
+
+  return clampChartHeight(available / divisor);
+}
+
+/**
+ * Plot height from the chart slot's laid-out size (fills flex panel — no gap below plot).
+ * Returns { height, slotRef } — attach slotRef to the chart-panel-slot wrapper.
+ */
+export function useChartSlotHeight() {
+  const resizeObserverRef = useRef(null);
   const [height, setHeight] = useState(() => getChartPanelHeight());
 
-  useEffect(() => {
-    const onResize = () => setHeight(getChartPanelHeight());
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+  const slotRef = useCallback((node) => {
+    if (resizeObserverRef.current) {
+      resizeObserverRef.current.disconnect();
+      resizeObserverRef.current = null;
+    }
+
+    if (!node || typeof window === "undefined") return;
+
+    const measure = () => {
+      const measured = Math.round(node.getBoundingClientRect().height);
+      if (measured < 40) return;
+      const next = clampChartHeight(measured);
+      setHeight((prev) => (prev === next ? prev : next));
+    };
+
+    measure();
+
+    const resizeObserver = new ResizeObserver(() => {
+      window.requestAnimationFrame(measure);
+    });
+    resizeObserver.observe(node);
+    if (node.parentElement) resizeObserver.observe(node.parentElement);
+    resizeObserverRef.current = resizeObserver;
   }, []);
 
-  return height;
+  useEffect(() => {
+    return () => resizeObserverRef.current?.disconnect();
+  }, []);
+
+  return { height, slotRef };
 }
 
 /** Static fallback for exports and tests. */
 export const CHART_PANEL_HEIGHT = CHART_PANEL_MAX_HEIGHT;
+
+function shiftChartDay(day, days) {
+  const text = String(day || "").slice(0, 10);
+  const parsed = Date.parse(`${text}T12:00:00Z`);
+  if (!text || Number.isNaN(parsed)) return text;
+  const date = new Date(parsed);
+  date.setUTCDate(date.getUTCDate() + days);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const dayOfMonth = String(date.getUTCDate()).padStart(2, "0");
+  return `${year}-${month}-${dayOfMonth}`;
+}
+
+/**
+ * Plotly x-axis span: union of picker dates and plotted series so data is never
+ * drawn outside a 2000–today style default when pickers and data disagree.
+ */
+export function resolvePlotlyChartXRange({ startDate, endDate, dataDates = [] }) {
+  const sorted = [...new Set(dataDates.map((d) => String(d).slice(0, 10)))]
+    .filter(Boolean)
+    .sort();
+
+  let rangeStart = startDate ? normalizeChartAxisDate(startDate) : null;
+  let rangeEnd = endDate ? normalizeChartAxisDate(endDate) : null;
+
+  if (sorted.length) {
+    const dataMin = sorted[0];
+    const dataMax = sorted[sorted.length - 1];
+    if (!rangeStart && !rangeEnd) {
+      return [shiftChartDay(dataMin, -7), shiftChartDay(dataMax, 7)];
+    }
+    const toMs = (day) => Date.parse(`${day}T00:00:00Z`);
+    const msValues = [rangeStart, rangeEnd, dataMin, dataMax]
+      .filter(Boolean)
+      .map(toMs)
+      .filter((ms) => !Number.isNaN(ms));
+    if (msValues.length) {
+      const minMs = Math.min(...msValues);
+      const maxMs = Math.max(...msValues);
+      rangeStart = new Date(minMs).toISOString().slice(0, 10);
+      rangeEnd = new Date(maxMs).toISOString().slice(0, 10);
+    }
+  }
+
+  if (rangeStart && rangeEnd) {
+    return [shiftChartDay(rangeStart, -7), shiftChartDay(rangeEnd, 7)];
+  }
+  return null;
+}
 
 /** Default x-axis span: chart date pickers, then optional override, then data extent. */
 export function resolveChartXAxisRange({
@@ -98,7 +282,7 @@ export function buildSyncedDateXAxis({ title = "Date", range }) {
     tickangle: -35,
     gridcolor: "#e2e8f1",
     zeroline: false,
-    tickfont: { size: 11, color: "#495367" },
+    tickfont: { size: 9, color: "#495367" },
     titlefont: { color: "#495367" },
     ...(plotlyRange
       ? { range: plotlyRange, autorange: false, fixedrange: false }

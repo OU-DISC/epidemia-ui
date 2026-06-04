@@ -1,6 +1,11 @@
 import { findDistrictFromLookup } from "./districtNameMatch";
 import { findDistrictForecastRow } from "./epidemiaReportMerge";
 import { filterForecastRowsByDateRange } from "./filterForecastByDateRange";
+import {
+  FORECAST_VALUE_MODE,
+  applyForecastValueModeToRows,
+  resolveDistrictPopulation,
+} from "./forecastValueMode";
 
 export function buildDistrictForecastSeries(
   epidemiaData,
@@ -8,7 +13,12 @@ export function buildDistrictForecastSeries(
   districtName,
   selectedSpecies,
   startDate = null,
-  endDate = null
+  endDate = null,
+  {
+    valueMode = FORECAST_VALUE_MODE.CASES,
+    populationData = null,
+    surfaceValueForDistrict = null,
+  } = {}
 ) {
   if (!epidemiaData?.forecasts || !districtName) return null;
 
@@ -68,14 +78,30 @@ export function buildDistrictForecastSeries(
     alarm_threshold: point.alarm_threshold ?? null,
   }));
 
+  const population = resolveDistrictPopulation({
+    populationData,
+    adm3Lookup,
+    districtName,
+    alertPopulation: alert?.population_at_risk,
+    surfaceValueForDistrict,
+  });
+
+  let rows = filterForecastRowsByDateRange(
+    [...observedRows, ...forecastRows],
+    startDate,
+    endDate
+  );
+
+  if (valueMode === FORECAST_VALUE_MODE.INCIDENCE) {
+    rows = applyForecastValueModeToRows(rows, population);
+  }
+
   return {
     district: districtName,
     alert,
-    rows: filterForecastRowsByDateRange(
-      [...observedRows, ...forecastRows],
-      startDate,
-      endDate
-    ),
+    population,
+    valueMode,
+    rows,
   };
 }
 
@@ -94,13 +120,6 @@ export function buildComparisonDistrictOptions(forecastTableRows, adminRegion) {
   }));
 }
 
-/** How the comparison chart picks its default highlighted districts. */
-export const COMPARISON_HIGHLIGHT_MODES = [
-  { value: "alert-priority", label: "Alert priority" },
-  { value: "peak-cases", label: "Peak cases (date range)" },
-  { value: "latest-forecast", label: "Latest forecast" },
-];
-
 function filterRowsByAdminRegion(forecastTableRows, adminRegion) {
   let rows = [...(forecastTableRows || [])];
   if (adminRegion && adminRegion !== "All Regions" && adminRegion !== "No Selection") {
@@ -109,14 +128,23 @@ function filterRowsByAdminRegion(forecastTableRows, adminRegion) {
   return rows;
 }
 
-function peakObservedInRange(epidemiaData, adm3Lookup, districtName, selectedSpecies, startDate, endDate) {
+function peakObservedInRange(
+  epidemiaData,
+  adm3Lookup,
+  districtName,
+  selectedSpecies,
+  startDate,
+  endDate,
+  seriesOptions = {}
+) {
   const series = buildDistrictForecastSeries(
     epidemiaData,
     adm3Lookup,
     districtName,
     selectedSpecies,
     startDate,
-    endDate
+    endDate,
+    seriesOptions
   );
   const observed = (series?.rows || [])
     .map((row) => row.observed)
@@ -137,8 +165,12 @@ export function buildRegionalComparisonDistricts(
     startDate = null,
     endDate = null,
     count = 3,
+    valueMode = FORECAST_VALUE_MODE.CASES,
+    populationData = null,
+    surfaceValueForDistrict = null,
   } = {}
 ) {
+  const seriesOptions = { valueMode, populationData, surfaceValueForDistrict };
   let rows = filterRowsByAdminRegion(forecastTableRows, adminRegion);
 
   if (mode === "latest-forecast") {
@@ -157,7 +189,8 @@ export function buildRegionalComparisonDistricts(
           row.mapDistrict,
           selectedSpecies,
           startDate,
-          endDate
+          endDate,
+          seriesOptions
         ),
       }))
       .sort((a, b) => b.peakObserved - a.peakObserved);
