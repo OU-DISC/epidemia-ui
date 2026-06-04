@@ -69,7 +69,7 @@ export const ABOUT_EPIDEMIA = {
       heading: "Where does the information come from?",
       body: [
         "Case counts come from uploaded or cached malaria surveillance data by district and week.",
-        "Population estimates use WorldPop gridded population data.",
+        "Population at risk comes from the weekly surveillance file used in the forecast report (same value shown in the alerts table).",
         "Rainfall, temperature, and vegetation layers use publicly available satellite products (for example NASA GIBS overlays on the map).",
         "Forecasts and alert thresholds are produced by automated statistical models in the EPIDEMIA pipeline.",
       ],

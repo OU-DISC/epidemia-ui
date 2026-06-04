@@ -26,10 +26,7 @@ export function formatDistrictTooltipHtml({
   populationYear,
   casesLabel = "Avg weekly cases",
 }) {
-  const populationLabel =
-    population != null
-      ? `${formatPopulation(population)}${populationYear ? ` (WorldPop ${populationYear})` : ""}`
-      : "—";
+  const populationLabel = population != null ? formatPopulation(population) : "—";
   const casesValue = cases != null ? formatNumber(cases, 0) : "—";
 
   return `
@@ -117,9 +114,7 @@ export function buildAlertExplanation({
   }
 
   if (population != null) {
-    bullets.push(
-      `Population at risk: ${formatPopulation(population)}${populationYear ? ` (WorldPop ${populationYear})` : ""}`
-    );
+    bullets.push(`Population at risk: ${formatPopulation(population)}`);
   }
 
   if (incidentRate != null) {

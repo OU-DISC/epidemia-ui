@@ -833,7 +833,17 @@ function Dashboard({
   }, [legacyPopulationSurface, populationSurfacesByYear, populationYear]);
 
   const populationData = useMemo(() => {
-    const out = { ...populationSurface };
+    const out = {};
+
+    const assign = (name, population) => {
+      if (!name || !Number.isFinite(population)) return;
+      const variants = [name, ...getDistrictNameVariants(name)];
+      variants.forEach((variant) => {
+        const normalized = normalizeDistrictKey(variant);
+        out[variant] = population;
+        out[normalized] = population;
+      });
+    };
 
     const assignIfMissing = (name, population) => {
       if (!name || !Number.isFinite(population)) return;
@@ -847,16 +857,20 @@ function Dashboard({
       });
     };
 
-    // WorldPop is the primary population source for the map. Only fill gaps when a
-    // district is missing from the WorldPop surface (legacy name mismatches).
+    // Match forecast table and models: surveillance population_at_risk from alerts.
     (epidemiaData?.alerts || []).forEach((alert) => {
       const population = Number(alert.population_at_risk);
       if (!Number.isFinite(population)) return;
 
       const district = findDistrictFromLookup(adm3Lookup, alert.district);
       const mapName = district?.properties?.adm3_name || alert.district;
-      assignIfMissing(mapName, population);
-      assignIfMissing(alert.district, population);
+      assign(mapName, population);
+      assign(alert.district, population);
+    });
+
+    // WorldPop only fills districts missing from the forecast report.
+    Object.entries(populationSurface).forEach(([name, population]) => {
+      assignIfMissing(name, Number(population));
     });
 
     return out;

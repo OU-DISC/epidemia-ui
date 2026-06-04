@@ -31,6 +31,9 @@ export function resolveDistrictPopulation({
   alertPopulation,
   surfaceValueForDistrict,
 }) {
+  const fromAlert = finiteNumber(alertPopulation);
+  if (fromAlert != null && fromAlert > 0) return fromAlert;
+
   const feature = findDistrictFromLookup(adm3Lookup, districtName);
   const mapName = feature?.properties?.adm3_name || districtName;
 
@@ -40,9 +43,6 @@ export function resolveDistrictPopulation({
     const fromRaw = finiteNumber(surfaceValueForDistrict(populationData, districtName));
     if (fromRaw != null && fromRaw > 0) return fromRaw;
   }
-
-  const fromAlert = finiteNumber(alertPopulation);
-  if (fromAlert != null && fromAlert > 0) return fromAlert;
 
   return null;
 }

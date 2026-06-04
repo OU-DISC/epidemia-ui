@@ -937,10 +937,10 @@ export default function EthiopiaMap({
   // Legend swatches use the same getColor() so the map and legend stay aligned.
   const gradeConfig = {
     population: {
-      title: `Population (WorldPop${populationYear ? ` ${populationYear}` : ""})`,
+      title: "Population at risk",
       grades: [0, 50000, 100000, 250000],
       unit: "people per district",
-      source: `WorldPop R2025A v1, 100m WGS84${populationYear ? `, ${populationYear}` : ""}`,
+      source: "Weekly surveillance population from the forecast report",
       colors: ["#f7fcf5", "#c7e9c0", "#74c476", "#238b45", "#005a32"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
@@ -949,7 +949,7 @@ export default function EthiopiaMap({
       title: "Incidence Rate",
       grades: [0, 10, 50, 100],
       unit: "cases per 100,000 people (weekly average)",
-      source: `Average weekly cases in selected date range / WorldPop${populationYear ? ` ${populationYear}` : ""} population`,
+      source: "Average weekly cases in selected date range / population at risk",
       colors: ["#fff7ec", "#fee8c8", "#fdbb84", "#e34a33", "#7f0000"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(Number(value)),
@@ -1054,7 +1054,7 @@ export default function EthiopiaMap({
   const { grades, unit, colors } = activeScale;
   const source =
     dataset === "incident_rate" && startDate && endDate
-      ? `Average weekly cases ${startDate} → ${endDate} / WorldPop${populationYear ? ` ${populationYear}` : ""} population`
+      ? `Average weekly cases ${startDate} → ${endDate} / population at risk`
       : activeScale.source;
   const formatMapValue = activeScale.format || ((value) => Number(value).toFixed(2));
 
