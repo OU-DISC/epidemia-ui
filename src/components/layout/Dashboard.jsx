@@ -26,6 +26,7 @@ import {
   fetchMapEpidemiaReport,
   formatForecastApiError,
   runEpidemiaPipeline,
+  waitForPipelineIdle,
 } from "../../api";
 import {
   buildAdm3Lookup,
@@ -218,6 +219,9 @@ function Dashboard({
   bootstrapEpidemiaData = null,
   onBootstrapConsumed,
   onOpenProjectWizard,
+  onUseDefaultDataset,
+  usingCustomProject = false,
+  showDefaultDatasetButton = false,
 }) {
   const [disease, setDisease] = useState(
     () => speciesToDisease(projectConfig?.defaultSpecies) || "Plasmodium falciparum malaria"
@@ -233,7 +237,7 @@ function Dashboard({
     projectConfig?.defaultRegion || "All Regions"
   );
   const mapRegionStepTimerRef = useRef(null);
-  const [region, setRegion] = useState(projectConfig?.defaultRegion || "All Regions");
+  const [region, setRegion] = useState(projectConfig?.defaultDistrict || "All Regions");
   const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [exporting, setExporting] = useState(false);
   const [exportProgressMessage, setExportProgressMessage] = useState("");
@@ -252,6 +256,8 @@ function Dashboard({
   const mapRequestIdRef = useRef(0);
   const districtDetailRequestRef = useRef(0);
   const skipInitialForecastLoadRef = useRef(false);
+  const onBootstrapConsumedRef = useRef(onBootstrapConsumed);
+  onBootstrapConsumedRef.current = onBootstrapConsumed;
   const userPrefersAllDistrictsRef = useRef(false);
   const lastAutoExtendedDistrictRef = useRef(null);
   const projectDataDir = projectConfig?.dataDir || "data";
@@ -387,13 +393,14 @@ function Dashboard({
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
 
-  const chartDateResetKey = `${region}|${selectedSpecies}|${epidemiaData?.generated_at || ""}`;
+  const chartDateResetKey = `${region}|${selectedSpecies}|${epidemiaData?.generated_at || ""}|${epidemiaData?.forecasts?.length || 0}`;
 
   useEffect(() => {
     if (chartDateResetKeyRef.current === chartDateResetKey) return;
     chartDateResetKeyRef.current = chartDateResetKey;
     applyDefaultChartDateRange();
   }, [chartDateResetKey, applyDefaultChartDateRange]);
+
   const adm3Lookup = useMemo(
     () => buildAdm3Lookup(geoData, woredaPcodeCrosswalk),
     [geoData, woredaPcodeCrosswalk]
@@ -581,33 +588,55 @@ function Dashboard({
       }
     }
 
-    // Allow refreshing for all regions. When no region is selected, run the full pipeline.
-    // (This can take longer than a single-region refresh.)
-
     const requestId = forecastRequestIdRef.current + 1;
     forecastRequestIdRef.current = requestId;
     setEpidemiaRefreshing(true);
     setEpidemiaError("");
     try {
-      const data = await runEpidemiaPipeline({
+      await runEpidemiaPipeline({
         horizonWeeks: forecastWeeks,
         dataDir: projectDataDir,
         outputDir: projectOutputDir,
         createReport: false,
         forceRefresh: true,
         regionFilter,
+        runInBackground: true,
       });
-      if (forecastRequestIdRef.current === requestId) {
-        setEpidemiaData(data);
+    } catch (err) {
+      const detail = String(err?.response?.data?.detail || "");
+      if (!detail.includes("already running")) {
+        throw err;
       }
+    }
+
+    try {
+      await waitForPipelineIdle({
+        dataDir: projectDataDir,
+        outputDir: projectOutputDir,
+        horizonWeeks: forecastWeeks,
+        onProgress: (status) => {
+          if (status) setCacheStatus(status);
+        },
+      });
+
+      if (forecastRequestIdRef.current !== requestId) return;
+
+      await loadMapEpidemia();
+      await loadForecastBootstrap();
       await loadCacheStatus();
     } catch (err) {
       console.error("Failed to run EPIDEMIA pipeline:", err);
       if (forecastRequestIdRef.current === requestId) {
-        setEpidemiaError(formatForecastApiError(err, "refresh forecast"));
+        const detail = err?.response?.data?.detail;
+        setEpidemiaError(
+          formatForecastApiError(err, "refresh forecast") +
+            (detail ? ` ${detail}` : "")
+        );
       }
     } finally {
-      setEpidemiaRefreshing(false);
+      if (forecastRequestIdRef.current === requestId) {
+        setEpidemiaRefreshing(false);
+      }
       await loadCacheStatus();
     }
   }, [
@@ -619,6 +648,8 @@ function Dashboard({
     adm3Lookup,
     geoData,
     loadCacheStatus,
+    loadForecastBootstrap,
+    loadMapEpidemia,
   ]);
 
   useEffect(() => {
@@ -638,8 +669,8 @@ function Dashboard({
     setEpidemiaData(bootstrapEpidemiaData);
     setEpidemiaError("");
     skipInitialForecastLoadRef.current = true;
-    onBootstrapConsumed?.();
-  }, [bootstrapEpidemiaData, onBootstrapConsumed]);
+    onBootstrapConsumedRef.current?.();
+  }, [bootstrapEpidemiaData]);
 
   useEffect(() => {
     if (skipInitialForecastLoadRef.current) {
@@ -781,6 +812,31 @@ function Dashboard({
     }
   }, [geoData, adm3Lookup, selectedAdminRegion]);
 
+  const projectForecastDistricts = useMemo(() => {
+    const names = (epidemiaData?.forecasts || [])
+      .map((row) => row?.district)
+      .filter(Boolean);
+    return [...new Set(names)].sort();
+  }, [epidemiaData]);
+
+  // Single-district projects (e.g. Bichena/Enemay): select the woreda, not the admin region.
+  useEffect(() => {
+    if (projectForecastDistricts.length !== 1) return;
+    if (userPrefersAllDistrictsRef.current) return;
+
+    const onlyDistrict = projectForecastDistricts[0];
+    if (region === onlyDistrict) return;
+
+    const inDropdown = districts.includes(onlyDistrict);
+    const inLookup = Boolean(findDistrictFromLookup(adm3Lookup, onlyDistrict));
+    if (!inDropdown && !inLookup) return;
+
+    const selectionHasForecast = projectForecastDistricts.includes(region);
+    if (selectionHasForecast) return;
+
+    updateRegion(onlyDistrict);
+  }, [adm3Lookup, districts, projectForecastDistricts, region, updateRegion]);
+
   const selectedAlert = useMemo(() => {
     if (!epidemiaData?.alerts || region === "All Regions") return null;
     return (
@@ -920,6 +976,42 @@ function Dashboard({
     region,
     selectedSpecies,
     startDate,
+  ]);
+
+  // If the picker range excludes all points, snap to the report's data span.
+  useEffect(() => {
+    if (region === "All Regions" || !epidemiaData?.forecasts?.length) return;
+
+    const reportDistrict = resolveReportDistrictForSelection(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies
+    );
+    if (!reportDistrict) return;
+
+    if (selectedForecast?.length) return;
+
+    const fullSeries = buildDistrictForecastSeries(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies,
+      null,
+      null,
+      forecastSeriesOptions
+    );
+    if (!fullSeries?.rows?.length) return;
+
+    applyDefaultChartDateRange();
+  }, [
+    adm3Lookup,
+    applyDefaultChartDateRange,
+    epidemiaData,
+    forecastSeriesOptions,
+    region,
+    selectedForecast,
+    selectedSpecies,
   ]);
 
   // When a district is first selected, extend the end date to include its forecast horizon.
@@ -1094,6 +1186,13 @@ function Dashboard({
   React.useEffect(() => {
     if (districts.includes(region)) return;
 
+    if (
+      projectForecastDistricts.length === 1 &&
+      projectForecastDistricts[0] === region
+    ) {
+      return;
+    }
+
     userPrefersAllDistrictsRef.current = false;
     if (topPriorityDistrict && districts.includes(topPriorityDistrict)) {
       updateRegion(topPriorityDistrict);
@@ -1105,7 +1204,7 @@ function Dashboard({
     // Stop auto-select from fighting this fallback when the priority district
     // is not present in the dropdown (name mismatch before geo loads, etc.).
     userPrefersAllDistrictsRef.current = true;
-  }, [districts, region, topPriorityDistrict, updateRegion]);
+  }, [districts, projectForecastDistricts, region, topPriorityDistrict, updateRegion]);
 
   const defaultComparisonDistricts = useMemo(
     () =>
@@ -1642,6 +1741,9 @@ function Dashboard({
         onChangeWoredaPageMode={setWoredaPageMode}
         projectName={projectConfig?.projectName}
         onNewProject={onOpenProjectWizard}
+        onUseDefaultDataset={onUseDefaultDataset}
+        usingCustomProject={usingCustomProject}
+        showDefaultDatasetButton={showDefaultDatasetButton}
       />
 
       <div className="dashboard-layout">
@@ -1875,7 +1977,9 @@ function Dashboard({
                 )}
 
                 {epidemiaRefreshing && (
-                  <div className="chart-state">Updating district forecast...</div>
+                  <div className="chart-state">
+                    {pipelineStatus.detail || "Updating district forecast…"}
+                  </div>
                 )}
 
                 <Suspense fallback={<div className="chart-state">Loading charts...</div>}>
@@ -1996,7 +2100,19 @@ function Dashboard({
                   )}
 
                   {!epidemiaLoading && !epidemiaRefreshing && !selectedForecast && region !== "All Regions" && (
-                    <div className="chart-state">No district forecast available for this selection.</div>
+                    <div className="chart-state">
+                      No district forecast available for this selection.
+                      {projectForecastDistricts.length > 0 &&
+                        !projectForecastDistricts.includes(region) && (
+                        <>
+                          {" "}
+                          This project includes: {projectForecastDistricts.join(", ")}.
+                          {projectForecastDistricts.length === 1
+                            ? " Select that district on the map."
+                            : " Pick one of those districts on the map."}
+                        </>
+                      )}
+                    </div>
                   )}
 
                   <section className="env-chart-panel">

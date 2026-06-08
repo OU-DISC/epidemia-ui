@@ -124,31 +124,53 @@ export function buildAlertExplanation({
   return { status, summary, bullets };
 }
 
-export function formatAlertTooltipHtml(districtName, explanation, insight) {
-  const statusClass =
-    explanation.status === "Early Warning"
-      ? "alert-map-tooltip-status alert-map-tooltip-status-warning"
-      : explanation.status === "Early Detection"
-      ? "alert-map-tooltip-status alert-map-tooltip-status-detection"
-      : "alert-map-tooltip-status";
-
-  const bullets = explanation.bullets
-    .slice(0, 4)
-    .map((item) => `<li>${escapeHtml(item)}</li>`)
-    .join("");
-
+function tooltipRow(label, value) {
+  if (value == null || value === "" || value === "—") return "";
   return `
-    <div class="alert-map-tooltip">
-      <div class="alert-map-tooltip-kicker">Why this alert?</div>
-      <strong>${escapeHtml(districtName)}</strong>
-      ${explanation.status ? `<span class="${statusClass}">${escapeHtml(explanation.status)}</span>` : ""}
-      <p>${escapeHtml(explanation.summary)}</p>
-      ${
-        insight
-          ? `<div class="alert-map-tooltip-metrics">Obs ${formatNumber(insight.latestObserved)} · Fc ${formatNumber(insight.latestForecast)} · Thr ${formatNumber(insight.activeThreshold)}</div>`
-          : ""
-      }
-      ${bullets ? `<ul>${bullets}</ul>` : ""}
+    <div class="district-info-tooltip-row">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(value)}</strong>
     </div>
-  `.trim();
+  `;
+}
+
+export function formatAlertTooltipHtml(districtName, explanation) {
+  const rows = [];
+
+  const regionBullet = explanation.bullets?.find((item) => item.startsWith("Region:"));
+  if (regionBullet) {
+    rows.push(tooltipRow("Region", regionBullet.replace(/^Region:\s*/, "")));
+  }
+
+  rows.push(tooltipRow("District", districtName));
+
+  if (explanation.status) {
+    rows.push(tooltipRow("Status", explanation.status));
+  }
+
+  const weekBullet = explanation.bullets?.find((item) => item.startsWith("Week of "));
+  if (weekBullet) {
+    rows.push(tooltipRow("Week", weekBullet.replace(/^Week of\s*/, "")));
+  }
+
+  const populationBullet = explanation.bullets?.find((item) =>
+    item.startsWith("Population at risk:")
+  );
+  if (populationBullet) {
+    rows.push(tooltipRow("Population", populationBullet.replace(/^Population at risk:\s*/, "")));
+  }
+
+  const incidenceBullet = explanation.bullets?.find((item) =>
+    item.startsWith("Average incidence rate:")
+  );
+  if (incidenceBullet) {
+    rows.push(tooltipRow("Incidence", incidenceBullet.replace(/^Average incidence rate:\s*/, "")));
+  }
+
+  const magnitudeBullet = explanation.bullets?.find((item) => item.includes("% above threshold"));
+  if (magnitudeBullet) {
+    rows.push(tooltipRow("Above threshold", magnitudeBullet));
+  }
+
+  return `<div class="district-info-tooltip">${rows.join("")}</div>`.trim();
 }

@@ -14,7 +14,7 @@ export const EPI_COLUMN_HELP = {
   test_pv_only: "P. vivax-only cases",
 };
 
-function parseCsvLine(line) {
+export function parseCsvLine(line) {
   const cells = [];
   let current = "";
   let inQuotes = false;
@@ -75,4 +75,25 @@ export function readFileAsText(file) {
     reader.onerror = () => reject(new Error("Could not read the selected file"));
     reader.readAsText(file);
   });
+}
+
+/** Unique woreda_name values from an epidemiology CSV (for single-site projects). */
+export function parseCsvWoredaNames(text) {
+  const headers = parseCsvHeaders(text);
+  const columnIndex = headers.indexOf("woreda_name");
+  if (columnIndex < 0) return [];
+
+  const lines = String(text || "")
+    .replace(/^\uFEFF/, "")
+    .split(/\r?\n/)
+    .slice(1)
+    .filter((line) => line.trim().length > 0);
+
+  const names = new Set();
+  for (const line of lines) {
+    const cells = parseCsvLine(line);
+    const name = cells[columnIndex]?.replace(/^"|"$/g, "").trim();
+    if (name) names.add(name);
+  }
+  return [...names].sort();
 }

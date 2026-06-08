@@ -5,8 +5,15 @@ import {
   validateEpiUpload,
 } from "../api";
 import {
+  applyColumnMapping,
+  needsColumnMapping,
+  suggestColumnMapping,
+  validateColumnMapping,
+} from "../utils/mapEpiCsvColumns";
+import {
   EPI_COLUMN_HELP,
   readFileAsText,
+  parseCsvWoredaNames,
   REQUIRED_EPI_COLUMNS,
   validateEpiCsvClient,
 } from "../utils/validateEpiCsv";
@@ -14,10 +21,13 @@ import "./ProjectSetupWizard.css";
 
 const STEPS = [
   { id: "upload", label: "Upload CSV" },
+  { id: "map", label: "Map columns" },
   { id: "validate", label: "Validate" },
   { id: "configure", label: "Configure" },
   { id: "run", label: "Run Forecast" },
 ];
+
+const STEP_INDEX = Object.fromEntries(STEPS.map((step, index) => [step.id, index]));
 
 const REGIONS = [
   "All Regions",
@@ -38,6 +48,9 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [rawCsvText, setRawCsvText] = useState("");
+  const [columnMapping, setColumnMapping] = useState({});
+  const [mappingWasUsed, setMappingWasUsed] = useState(false);
   const [clientValidation, setClientValidation] = useState(null);
   const [serverValidation, setServerValidation] = useState(null);
   const [validating, setValidating] = useState(false);
@@ -52,6 +65,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
   const [geography, setGeography] = useState("ethiopia");
 
   const currentStep = STEPS[stepIndex]?.id;
+  const sourceHeaders = clientValidation?.headers || [];
 
   const validationReady = Boolean(serverValidation?.ok);
 
@@ -64,17 +78,37 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
     }));
   }, [clientValidation]);
 
+  const mappingValidation = useMemo(
+    () => validateColumnMapping(columnMapping, sourceHeaders),
+    [columnMapping, sourceHeaders]
+  );
+
+  const loadCsvText = (text, selectedName) => {
+    const validation = validateEpiCsvClient(text);
+    setRawCsvText(text);
+    setFileName(selectedName);
+    setClientValidation(validation);
+    setServerValidation(null);
+    setMappingWasUsed(false);
+    setColumnMapping(suggestColumnMapping(validation.headers));
+
+    if (needsColumnMapping(validation)) {
+      setStepIndex(STEP_INDEX.map);
+      return;
+    }
+
+    const blob = new Blob([text], { type: "text/csv" });
+    setFile(new File([blob], selectedName, { type: "text/csv" }));
+    setStepIndex(STEP_INDEX.validate);
+  };
+
   const handleSelectFile = async (selectedFile) => {
     if (!selectedFile) return;
     setError("");
-    setServerValidation(null);
 
     try {
       const text = await readFileAsText(selectedFile);
-      setFile(selectedFile);
-      setFileName(selectedFile.name);
-      setClientValidation(validateEpiCsvClient(text));
-      setStepIndex(1);
+      loadCsvText(text, selectedFile.name);
     } catch (err) {
       setError(err.message || "Could not read CSV file");
     }
@@ -83,17 +117,9 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
   const handleUseSample = async () => {
     setError("");
     setLoadingSample(true);
-    setServerValidation(null);
     try {
       const sample = await fetchSampleEpiCsv();
-      const blob = new Blob([sample.content], { type: "text/csv" });
-      const sampleFile = new File([blob], sample.filename || "sample_epi_data.csv", {
-        type: "text/csv",
-      });
-      setFile(sampleFile);
-      setFileName(sampleFile.name);
-      setClientValidation(validateEpiCsvClient(sample.content));
-      setStepIndex(1);
+      loadCsvText(sample.content, sample.filename || "sample_epi_data.csv");
     } catch (err) {
       setError(
         err.response?.data?.detail ||
@@ -105,6 +131,35 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
     }
   };
 
+  const handleApplyMapping = () => {
+    setError("");
+    if (!mappingValidation.ok) {
+      setError(mappingValidation.errors[0]);
+      return;
+    }
+
+    try {
+      const mappedText = applyColumnMapping(rawCsvText, columnMapping);
+      const validation = validateEpiCsvClient(mappedText);
+      if (!validation.ok) {
+        setError("Mapped CSV is still missing required columns. Check your mapping.");
+        return;
+      }
+
+      const mappedName = fileName.endsWith(".csv")
+        ? fileName.replace(/\.csv$/i, "_mapped.csv")
+        : `${fileName || "upload"}_mapped.csv`;
+      const blob = new Blob([mappedText], { type: "text/csv" });
+      setFile(new File([blob], mappedName, { type: "text/csv" }));
+      setClientValidation(validation);
+      setMappingWasUsed(true);
+      setServerValidation(null);
+      setStepIndex(STEP_INDEX.validate);
+    } catch (err) {
+      setError(err.message || "Could not apply column mapping");
+    }
+  };
+
   const handleValidate = async () => {
     if (!file) return;
     setValidating(true);
@@ -113,7 +168,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
       const result = await validateEpiUpload(file);
       setServerValidation(result);
       if (result.ok) {
-        setStepIndex(2);
+        setStepIndex(STEP_INDEX.configure);
       }
     } catch (err) {
       setError(err.response?.data?.detail || err.message || "Validation failed");
@@ -126,7 +181,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
     if (!file || !validationReady) return;
     setRunning(true);
     setError("");
-    setStepIndex(3);
+    setStepIndex(STEP_INDEX.run);
     try {
       const result = await setupEpidemiaProject({
         file,
@@ -136,6 +191,8 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
         defaultRegion,
         geography,
       });
+      const csvText = await readFileAsText(file);
+      const woredaNames = parseCsvWoredaNames(csvText);
       onComplete?.({
         projectId: result.project_id,
         projectName: result.project_name,
@@ -144,11 +201,12 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
         horizonWeeks: result.horizon_weeks,
         defaultSpecies: result.default_species,
         defaultRegion: result.default_region,
+        defaultDistrict: woredaNames.length === 1 ? woredaNames[0] : null,
         geography: geography,
       }, result.run);
     } catch (err) {
       setError(err.response?.data?.detail || err.message || "Project setup failed");
-      setStepIndex(2);
+      setStepIndex(STEP_INDEX.configure);
     } finally {
       setRunning(false);
     }
@@ -174,7 +232,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
           <div>
             <h2 id="project-wizard-title">Create an EPIDEMIA Project</h2>
             <p className="project-wizard-subtitle">
-              Upload epidemiology CSV data, validate columns, choose geography and species, then run your first forecast.
+              Upload epidemiology CSV data, map columns if needed, validate woreda names, then run your first forecast.
             </p>
           </div>
           <button type="button" className="project-wizard-skip" onClick={onSkip}>
@@ -214,7 +272,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
                 <strong>Drop epidemiology CSV here</strong>
                 <span>or click to browse</span>
                 <span className="project-wizard-dropzone-note">
-                  Required columns: {REQUIRED_EPI_COLUMNS.join(", ")}
+                  Expected data: date, district, population, Pf cases, Pv cases. Different column names are OK — you can map them in the next step.
                 </span>
               </label>
 
@@ -235,12 +293,82 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
           </section>
         )}
 
-        {currentStep === "validate" && (
+        {currentStep === "map" && (
           <section className="project-wizard-panel">
             <div className="project-wizard-file-summary">
               <strong>{fileName || "Selected CSV"}</strong>
+              <span>{clientValidation?.row_count ?? 0} rows · {sourceHeaders.length} columns detected</span>
+            </div>
+
+            <p className="project-wizard-note">
+              Match each EPIDEMIA field to a column in your file. Common names like <code>date</code> or <code>pf_cases</code> are suggested automatically.
+            </p>
+
+            <div className="project-wizard-mapping-grid">
+              {REQUIRED_EPI_COLUMNS.map((targetColumn) => (
+                <label key={targetColumn} className="project-wizard-mapping-row">
+                  <div className="project-wizard-mapping-target">
+                    <strong>{targetColumn}</strong>
+                    <span>{EPI_COLUMN_HELP[targetColumn]}</span>
+                  </div>
+                  <select
+                    className="toolbar-select"
+                    value={columnMapping[targetColumn] || ""}
+                    onChange={(e) =>
+                      setColumnMapping((current) => ({
+                        ...current,
+                        [targetColumn]: e.target.value,
+                      }))
+                    }
+                    aria-label={`Source column for ${targetColumn}`}
+                  >
+                    <option value="">Select column…</option>
+                    {sourceHeaders.map((header) => (
+                      <option key={header} value={header}>
+                        {header}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ))}
+            </div>
+
+            {!mappingValidation.ok && (
+              <div className="project-wizard-mapping-errors">
+                {mappingValidation.errors.map((message) => (
+                  <p key={message}>{message}</p>
+                ))}
+              </div>
+            )}
+
+            <div className="project-wizard-actions">
+              <button type="button" className="toolbar-button ghost" onClick={() => setStepIndex(STEP_INDEX.upload)}>
+                Back
+              </button>
+              <button
+                type="button"
+                className="toolbar-button"
+                onClick={handleApplyMapping}
+                disabled={!mappingValidation.ok}
+              >
+                Continue to validation
+              </button>
+            </div>
+          </section>
+        )}
+
+        {currentStep === "validate" && (
+          <section className="project-wizard-panel">
+            <div className="project-wizard-file-summary">
+              <strong>{file?.name || fileName || "Selected CSV"}</strong>
               <span>{clientValidation?.row_count ?? 0} rows detected</span>
             </div>
+
+            {mappingWasUsed && (
+              <p className="project-wizard-note">
+                Column mapping applied. The uploaded file uses standard EPIDEMIA column names.
+              </p>
+            )}
 
             <ul className="project-wizard-checklist">
               {columnChecks.map((item) => (
@@ -273,7 +401,17 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
             )}
 
             <div className="project-wizard-actions">
-              <button type="button" className="toolbar-button ghost" onClick={() => setStepIndex(0)}>
+              <button
+                type="button"
+                className="toolbar-button ghost"
+                onClick={() =>
+                  setStepIndex(
+                    needsColumnMapping(validateEpiCsvClient(rawCsvText))
+                      ? STEP_INDEX.map
+                      : STEP_INDEX.upload
+                  )
+                }
+              >
                 Back
               </button>
               <button
@@ -325,6 +463,10 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
                     </option>
                   ))}
                 </select>
+                <span className="project-wizard-field-hint">
+                  Zooms the map to this admin region. Your CSV woreda (e.g. Enemay) is selected
+                  automatically when the project has one district.
+                </span>
               </label>
 
               <label className="project-wizard-field">
@@ -358,7 +500,7 @@ function ProjectSetupWizard({ onComplete, onSkip }) {
             </p>
 
             <div className="project-wizard-actions">
-              <button type="button" className="toolbar-button ghost" onClick={() => setStepIndex(1)}>
+              <button type="button" className="toolbar-button ghost" onClick={() => setStepIndex(STEP_INDEX.validate)}>
                 Back
               </button>
               <button type="button" className="toolbar-button" onClick={handleRun}>

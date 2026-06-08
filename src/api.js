@@ -30,6 +30,33 @@ export const ENV_API_BASE = normalizeBase(
 
 const buildApiUrl = (base, path) => `${base}${path}`;
 
+function isDefaultReportOutputDir(outputDir) {
+  const normalized = String(outputDir || "report")
+    .replace(/\\/g, "/")
+    .replace(/\/+$/, "");
+  return normalized === "report";
+}
+
+function nationalBootstrapDistrictCount(payload) {
+  const districts = new Set();
+  for (const alert of payload?.alerts || []) {
+    if (alert?.district) districts.add(String(alert.district));
+  }
+  for (const forecast of payload?.forecasts || []) {
+    if (forecast?.district) districts.add(String(forecast.district));
+  }
+  return districts.size;
+}
+
+function isLikelyNationalBootstrap(payload) {
+  return nationalBootstrapDistrictCount(payload) >= 50;
+}
+
+function acceptStaticNationalBootstrap(payload) {
+  if (!payload) return null;
+  return isLikelyNationalBootstrap(payload) ? payload : null;
+}
+
 async function fetchStaticLatestEpidemiaReport() {
   if (!isBrowser) {
     throw new Error("Static latest report is only available in the browser");
@@ -65,7 +92,7 @@ async function fetchStaticMapBootstrapReportDirect() {
   if (!response.ok) return null;
 
   const data = await response.json();
-  if (data?.alerts) return data;
+  if (data?.alerts) return acceptStaticNationalBootstrap(data);
   return null;
 }
 
@@ -76,7 +103,7 @@ async function fetchStaticBootstrapReportDirect() {
   if (!response.ok) return null;
 
   const data = await response.json();
-  if (data?.forecasts?.length) return data;
+  if (data?.forecasts?.length) return acceptStaticNationalBootstrap(data);
   return null;
 }
 
@@ -151,6 +178,7 @@ export async function runEpidemiaPipeline({
   createReport = false,
   forceRefresh = false,
   regionFilter = null,
+  runInBackground = false,
 } = {}) {
   const response = await axios.post(buildApiUrl(FORECAST_API_BASE, "/epidemia/run"), {
     data_dir: dataDir,
@@ -159,15 +187,42 @@ export async function runEpidemiaPipeline({
     create_report: createReport,
     force_refresh: forceRefresh,
     region_filter: regionFilter,
+    run_in_background: runInBackground,
   });
   return response.data;
 }
 
-export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeeks = 8 } = {}) {
-  if (isBrowser) {
-    const staticMapBootstrap = await fetchStaticMapBootstrapReportDirect().catch(() => null);
-    if (staticMapBootstrap) return staticMapBootstrap;
+const PIPELINE_POLL_INTERVAL_MS = 3000;
+const PIPELINE_MAX_WAIT_MS = 3 * 60 * 60 * 1000;
+
+export async function waitForPipelineIdle(
+  {
+    dataDir = "data",
+    outputDir = "report",
+    horizonWeeks = 8,
+    onProgress = null,
+  } = {},
+  { maxWaitMs = PIPELINE_MAX_WAIT_MS, pollIntervalMs = PIPELINE_POLL_INTERVAL_MS } = {}
+) {
+  const started = Date.now();
+
+  while (Date.now() - started < maxWaitMs) {
+    const status = await fetchEpidemiaCacheStatus({ dataDir, outputDir, horizonWeeks });
+    onProgress?.(status);
+
+    const pipelineStatus = status?.pipeline?.status;
+    if (pipelineStatus !== "running") {
+      return status;
+    }
+
+    await new Promise((resolve) => window.setTimeout(resolve, pollIntervalMs));
   }
+
+  throw new Error("Forecast refresh timed out before the pipeline finished.");
+}
+
+export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeeks = 8 } = {}) {
+  const useStaticFallback = isBrowser && isDefaultReportOutputDir(outputDir);
 
   if (FORECAST_API_BASE) {
     try {
@@ -176,7 +231,9 @@ export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeek
       });
       if (response.data) return response.data;
     } catch (err) {
-      if (isBrowser) {
+      if (useStaticFallback) {
+        const staticMapBootstrap = await fetchStaticMapBootstrapReportDirect().catch(() => null);
+        if (staticMapBootstrap) return staticMapBootstrap;
         const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
         if (staticBootstrap?.alerts) {
           return {
@@ -187,6 +244,11 @@ export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeek
       }
       throw err;
     }
+  }
+
+  if (useStaticFallback) {
+    const staticMapBootstrap = await fetchStaticMapBootstrapReportDirect().catch(() => null);
+    if (staticMapBootstrap) return staticMapBootstrap;
   }
 
   const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
@@ -202,14 +264,7 @@ export async function fetchLatestEpidemiaReport({
   historyWeeks = 16,
   horizonWeeks = 8,
 } = {}) {
-  if (isBrowser) {
-    const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
-    if (staticBootstrap) return staticBootstrap;
-  }
-
-  if (!isLocalhost && !FORECAST_API_BASE) {
-    return fetchStaticBootstrapReport(historyWeeks);
-  }
+  const useStaticFallback = isBrowser && isDefaultReportOutputDir(outputDir);
 
   if (FORECAST_API_BASE) {
     try {
@@ -227,12 +282,23 @@ export async function fetchLatestEpidemiaReport({
         return response.data;
       }
     } catch (err) {
-      if (isBrowser) {
-        const staticData = await fetchStaticBootstrapReport(historyWeeks).catch(() => null);
+      if (useStaticFallback) {
+        const staticData = await fetchStaticBootstrapReportDirect().catch(() => null);
         if (staticData) return staticData;
+        const staticDataLegacy = await fetchStaticBootstrapReport(historyWeeks).catch(() => null);
+        if (staticDataLegacy) return staticDataLegacy;
       }
       throw err;
     }
+  }
+
+  if (!isLocalhost && !FORECAST_API_BASE) {
+    return fetchStaticBootstrapReport(historyWeeks);
+  }
+
+  if (useStaticFallback) {
+    const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
+    if (staticBootstrap) return staticBootstrap;
   }
 
   return fetchStaticBootstrapReport(historyWeeks);
@@ -273,13 +339,17 @@ export async function fetchDistrictForecastDetail({
     throw new Error("district is required");
   }
 
-  const staticDetail = await fetchStaticDistrictForecastDetail(
-    district,
-    species,
-    startDate,
-    endDate
-  ).catch(() => null);
-  if (staticDetail) return staticDetail;
+  const useStaticDetail = isBrowser && isDefaultReportOutputDir(outputDir);
+
+  if (useStaticDetail) {
+    const staticDetail = await fetchStaticDistrictForecastDetail(
+      district,
+      species,
+      startDate,
+      endDate
+    ).catch(() => null);
+    if (staticDetail) return staticDetail;
+  }
 
   if (FORECAST_API_BASE) {
     try {
@@ -300,13 +370,15 @@ export async function fetchDistrictForecastDetail({
         throw err;
       }
 
-      const retryStatic = await fetchStaticDistrictForecastDetail(
-        district,
-        species,
-        startDate,
-        endDate
-      ).catch(() => null);
-      if (retryStatic) return retryStatic;
+      if (useStaticDetail) {
+        const retryStatic = await fetchStaticDistrictForecastDetail(
+          district,
+          species,
+          startDate,
+          endDate
+        ).catch(() => null);
+        if (retryStatic) return retryStatic;
+      }
     }
   }
 

@@ -22,6 +22,9 @@ function TopToolbar({
   onChangeWoredaPageMode,
   projectName,
   onNewProject,
+  onUseDefaultDataset,
+  usingCustomProject = false,
+  showDefaultDatasetButton = false,
 }) {
   const diseases = ["Plasmodium falciparum malaria", "Plasmodium vivax malaria"];
   const countries = ["Ethiopia", "USA"];
@@ -89,6 +92,17 @@ function TopToolbar({
       </div>
 
       <div className="toolbar-cluster toolbar-cluster--project" role="group" aria-label="Project">
+        {showDefaultDatasetButton && (
+          <button
+            type="button"
+            className="toolbar-button ghost"
+            onClick={onUseDefaultDataset}
+            title="Return to the national Ethiopia dataset (backend/data and backend/report)"
+          >
+            Default dataset
+          </button>
+        )}
+
         <button
           type="button"
           className="toolbar-button"

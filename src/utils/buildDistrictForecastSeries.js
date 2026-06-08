@@ -86,11 +86,14 @@ export function buildDistrictForecastSeries(
     surfaceValueForDistrict,
   });
 
-  let rows = filterForecastRowsByDateRange(
-    [...observedRows, ...forecastRows],
-    startDate,
-    endDate
-  );
+  const allRows = [...observedRows, ...forecastRows];
+
+  let rows = filterForecastRowsByDateRange(allRows, startDate, endDate);
+
+  // Monthly / case-study series can fall entirely outside the default calendar-year picker.
+  if (rows.length === 0 && allRows.length > 0) {
+    rows = allRows;
+  }
 
   if (valueMode === FORECAST_VALUE_MODE.INCIDENCE) {
     rows = applyForecastValueModeToRows(rows, population);

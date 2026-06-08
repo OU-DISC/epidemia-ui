@@ -103,7 +103,10 @@ export function mergeDistrictForecast(report, detail) {
       ? {
           ...forecast,
           ...detail,
-          observed_history: detail.observed_history || forecast.observed_history || [],
+          observed_history:
+            detail.observed_history?.length > 0
+              ? detail.observed_history
+              : forecast.observed_history || [],
           forecast: detail.forecast?.length ? detail.forecast : forecast.forecast || [],
         }
       : forecast
