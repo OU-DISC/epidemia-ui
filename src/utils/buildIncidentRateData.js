@@ -84,8 +84,8 @@ export function buildIncidentRateData({
     const mapName = district?.properties?.adm3_name || forecast.district;
     const alert = alertsByDistrict.get(forecast.district);
     const population =
-      surfaceValueForDistrict(populationData, mapName) ??
-      finiteNumber(alert?.population_at_risk);
+      finiteNumber(alert?.population_at_risk) ??
+      surfaceValueForDistrict(populationData, mapName);
     if (population == null || population <= 0) return;
 
     const rate = (averageCases / population) * 100000;

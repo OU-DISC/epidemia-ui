@@ -1,8 +1,12 @@
 import { useMemo } from "react";
+import {
+  FORECAST_VALUE_MODE,
+  formatForecastMetric,
+  getForecastMetricLabel,
+} from "../utils/forecastValueMode";
 
-function formatNumber(value, digits = 1) {
-  if (value == null || Number.isNaN(Number(value))) return "-";
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: digits }).format(Number(value));
+function formatNumber(value, digits = 1, valueMode = FORECAST_VALUE_MODE.CASES) {
+  return formatForecastMetric(value, valueMode, digits);
 }
 
 function formatPercent(value) {
@@ -17,6 +21,7 @@ function statusClass(status) {
 
 export default function MobileSummaryView({
   rows = [],
+  valueMode = FORECAST_VALUE_MODE.CASES,
   selectedAdminRegion,
   selectedDistrict,
   speciesLabel,
@@ -56,6 +61,7 @@ export default function MobileSummaryView({
     selectedAdminRegion && selectedAdminRegion !== "All Regions"
       ? selectedAdminRegion
       : "All regions";
+  const metricLabel = getForecastMetricLabel(valueMode);
 
   return (
     <section className="mobile-summary-view glass-card fade-in-up delay-2">
@@ -102,8 +108,8 @@ export default function MobileSummaryView({
           <strong>{selectedRow.mapDistrict}</strong>
           <span className={statusClass(selectedRow.status)}>{selectedRow.status}</span>
           <span className="mobile-summary-selected-meta">
-            Forecast {formatNumber(selectedRow.latestForecast)} · Observed{" "}
-            {formatNumber(selectedRow.latestObserved)}
+            Forecast {formatNumber(selectedRow.latestForecast, 1, valueMode)} ({metricLabel}) ·
+            Observed {formatNumber(selectedRow.latestObserved, 1, valueMode)}
           </span>
         </button>
       ) : null}
@@ -134,10 +140,10 @@ export default function MobileSummaryView({
                 <span className="mobile-summary-alert-region">{row.region || "Unknown region"}</span>
                 <div className="mobile-summary-alert-metrics">
                   <span>
-                    Observed <strong>{formatNumber(row.latestObserved)}</strong>
+                    Observed <strong>{formatNumber(row.latestObserved, 1, valueMode)}</strong>
                   </span>
                   <span>
-                    Forecast <strong>{formatNumber(row.latestForecast)}</strong>
+                    Forecast <strong>{formatNumber(row.latestForecast, 1, valueMode)}</strong>
                   </span>
                   <span>
                     Magnitude <strong>{formatPercent(row.magnitudePercent)}</strong>

@@ -14,8 +14,8 @@
   --detect: #d17f22;
   --dash-shell-padding: 14px;
   --dash-panel-gap: 12px;
-  --dash-viewport-chrome: 520px;
-  --dash-chart-height: clamp(150px, calc((100vh - var(--dash-viewport-chrome)) / 2), 255px);
+  --dash-viewport-chrome: 450px;
+  --dash-chart-height: clamp(150px, calc((100vh - var(--dash-viewport-chrome)) / 2), 320px);
   --dash-map-min-height: 0;
   --dash-compare-min-height: 345px;
 }
@@ -1151,8 +1151,11 @@ body {
 }
 
 .side-panel-body.charts-view {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
   overflow: auto;
-  gap: 8px;
 }
 
 .side-panel-body.about-view {
@@ -1219,11 +1222,34 @@ body {
   color: var(--ink-soft);
 }
 
-.side-panel-body.charts-view .chart-panel-slot,
-.side-panel-body.charts-view .forecast-panel,
 .side-panel-body.charts-view .regional-alert-panel {
   flex: 0 0 auto;
   width: 100%;
+}
+
+.side-panel-body.charts-view .forecast-panel,
+.side-panel-body.charts-view .env-chart-panel {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel-body.charts-view #epidemia-report-forecast-chart,
+.side-panel-body.charts-view #epidemia-report-env-chart {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel-body.charts-view #epidemia-report-forecast-chart .chart-panel-slot,
+.side-panel-body.charts-view #epidemia-report-env-chart .chart-panel-slot {
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
 }
 
 .regional-alert-panel {
@@ -1264,8 +1290,7 @@ body {
 .env-chart-panel {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  flex: 0 0 auto;
+  gap: 4px;
   width: 100%;
 }
 
@@ -1310,13 +1335,21 @@ body {
 
 .chart-panel-slot {
   position: relative;
+  overflow: hidden;
 }
 
 .chart-panel-slot .js-plotly-plot,
-.chart-panel-slot .plot-container.plotly {
-  height: var(--dash-chart-height) !important;
-  min-height: var(--dash-chart-height);
-  max-height: var(--dash-chart-height);
+.chart-panel-slot .plot-container.plotly,
+.chart-panel-slot .svg-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none;
+}
+
+.chart-panel-slot .modebar {
+  top: 0 !important;
+  right: 0 !important;
 }
 
 .side-panel-body.table-view {
@@ -1778,8 +1811,9 @@ body {
 .time-series-wrap {
   background: rgba(255, 255, 255, 0.54);
   border: 1px solid #d5deea;
-  border-radius: 12px;
-  padding: 8px;
+  border-radius: 6px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .time-series-wrap .panel-title {
@@ -1787,36 +1821,81 @@ body {
 }
 
 .forecast-panel {
-  margin-top: 12px;
+  margin-top: 6px;
   padding-top: 0;
   border-top: 0;
 }
 
 .forecast-panel-header {
+  margin-bottom: 4px;
+  min-width: 0;
+}
+
+.forecast-panel-toolbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px 12px;
-  margin-bottom: 8px;
+  gap: 5px;
+  min-width: 0;
+  width: 100%;
 }
 
 .forecast-panel-title {
   margin: 0;
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--ink);
+}
+
+.forecast-panel-title-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.forecast-panel-title .table-alert-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 9px;
+  border-width: 1px;
+}
+
+.forecast-panel-header .help-tip {
+  margin-left: 2px;
+}
+
+.forecast-panel-header .help-tip-icon {
+  width: 13px;
+  height: 13px;
+  font-size: 8px;
 }
 
 .seasonal-context-ring-wrap {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 1px;
+  flex-shrink: 0;
+}
+
+.forecast-panel-title .seasonal-context-ring {
+  width: 34px;
+  height: 34px;
+}
+
+.forecast-panel-title .seasonal-context-ring-center {
+  font-size: 6.5px;
+}
+
+.forecast-panel-title .seasonal-context-ring-week {
+  font-size: 5.5px;
 }
 
 .seasonal-context-ring {
@@ -1846,52 +1925,71 @@ body {
   fill: var(--ink-soft);
 }
 
-.forecast-panel-controls {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-left: auto;
-}
-
 .forecast-panel-horizon-control {
   display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  flex: 0 0 auto;
   color: var(--ink-soft);
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 600;
 }
 
 .forecast-panel-horizon-control .situation-stat--compact {
   flex-direction: row;
   align-items: center;
-  gap: 0;
+  gap: 2px;
 }
 
 .forecast-panel-horizon-control .situation-stat--compact .situation-stat-ring {
-  width: 42px;
-  height: 42px;
+  width: 30px;
+  height: 30px;
+}
+
+.forecast-panel-horizon-control .situation-stat--compact .situation-stat-core {
+  padding: 3px;
+  border-width: 1px;
+  box-shadow: none;
 }
 
 .forecast-panel-horizon-control .situation-stat--compact .situation-stat-value {
-  font-size: 0.72rem;
+  font-size: 0.58rem;
+  line-height: 1.1;
 }
 
 .forecast-panel-horizon-control .situation-stat--compact .situation-stat-value--number {
-  font-size: 0.82rem;
+  font-size: 0.68rem;
 }
 
 .forecast-panel-horizon-control .toolbar-select {
-  min-width: 108px;
-  padding: 5px 8px;
-  font-size: 0.82rem;
+  min-width: 62px;
+  padding: 3px 5px;
+  font-size: 0.74rem;
 }
 
-.forecast-panel-controls .toolbar-button {
-  padding: 6px 12px;
-  font-size: 0.82rem;
+.forecast-panel-value-mode-control {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  color: var(--ink-soft);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.forecast-panel-value-mode-control .toolbar-select {
+  min-width: 118px;
+  padding: 3px 5px;
+  font-size: 0.74rem;
+}
+
+.forecast-panel-refresh-btn {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  font-size: 0.74rem;
+  white-space: nowrap;
 }
 
 .forecast-panel-loading-note {
@@ -1909,8 +2007,9 @@ body {
 .forecast-chart-wrap {
   background: rgba(255, 255, 255, 0.54);
   border: 1px solid #d5deea;
-  border-radius: 12px;
-  padding: 8px;
+  border-radius: 6px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .alerts-table-panel {
@@ -2746,7 +2845,13 @@ body {
     margin-bottom: 6px;
   }
 
+  .dashboard-shell:not(.dashboard-shell--compact) .side-panel {
+    flex: 1;
+    min-height: 0;
+  }
+
   .dashboard-shell:not(.dashboard-shell--compact) .side-panel-body.charts-view {
+    flex: 1;
     overflow: hidden;
   }
 

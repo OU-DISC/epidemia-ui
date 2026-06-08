@@ -7,6 +7,8 @@ export const DASHBOARD_HELP = {
   district:
     "Focus charts and map selection on one district, or view all districts.",
   forecastWeeks: "Number of future weeks shown in forecasts. After Refresh Forecast, 4-, 8-, and 12-week results are cached; switching here loads instantly without re-running the pipeline.",
+  forecastValueMode:
+    "Show weekly case counts or incidence per 100,000 population on the forecast chart, table, comparison chart, and PDF control charts. Alerts still use the underlying count-based pipeline.",
   seasonalContext:
     "Shows where the latest observed week sits in the district's seasonal cycle. The ring colors typical transmission by epidemiological week (1–52). Center text compares observed cases to the seasonal GAM expectation for this week.",
   refreshForecast:

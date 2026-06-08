@@ -25,6 +25,7 @@ from app.services.farrington_thresholds import farrington_thresholds_for_horizon
 from app.services.seasonal_gam_thresholds import (
     build_env_climatology,
     compute_seasonal_thresholds,
+    seasonal_gam_forecast_mu,
     thresholds_for_week,
     weekly_env_features,
 )
@@ -169,8 +170,12 @@ def _ensure_datetime(df: pd.DataFrame, col: str) -> pd.DataFrame:
     return df
 
 
+def _registry_has_wid(report_woredas: pd.DataFrame) -> bool:
+    return "WID" in report_woredas.columns and report_woredas["WID"].notna().any()
+
+
 def _empty_like_env() -> pd.DataFrame:
-    return pd.DataFrame(columns=["WID", "woreda_name", "environ_var_code", "obs_date", "obs_value"])
+    return pd.DataFrame(columns=list(REQUIRED_ENV_COLUMNS))
 
 
 def _read_nonempty_csvs(folder: Path) -> List[Path]:
@@ -187,6 +192,10 @@ def _read_nonempty_csvs(folder: Path) -> List[Path]:
 
 
 def _corral_environment(report_woredas: pd.DataFrame, data_dir: Path) -> pd.DataFrame:
+    if not _registry_has_wid(report_woredas):
+        # National registry (pcode) has no WID; weekly env joins use climatology only.
+        return _empty_like_env()
+
     env_dir = data_dir / "data_environmental"
     if not env_dir.exists():
         raise PipelineInputError(f"Missing environmental folder: {env_dir}")
@@ -429,11 +438,13 @@ def _corral_epidemiological(report_woredas: pd.DataFrame, data_dir: Path) -> pd.
     else:
         epi_data["pop_at_risk"] = np.nan
 
-    if "WID" not in epi_data.columns:
+    if "WID" not in epi_data.columns and _registry_has_wid(report_woredas):
         epi_data = epi_data.merge(report_woredas[["WID", "woreda_name"]], on="woreda_name", how="left")
 
     epi_data = epi_data[epi_data["woreda_name"].isin(report_woreda_names)]
-    front_cols = ["WID", "woreda_name"]
+    front_cols = ["woreda_name"]
+    if "WID" in epi_data.columns:
+        front_cols = ["WID", "woreda_name"]
     rest_cols = [c for c in epi_data.columns if c not in front_cols]
     epi_data = epi_data[front_cols + rest_cols]
 
@@ -464,8 +475,10 @@ def _load_inputs(req: EpidemiaRunRequest) -> Tuple[pd.DataFrame, pd.DataFrame, p
 
     if env_path.exists():
         env_data = pd.read_csv(env_path)
-    else:
+    elif _registry_has_wid(report_woredas):
         env_data = _corral_environment(report_woredas=report_woredas, data_dir=data_dir)
+    else:
+        env_data = _empty_like_env()
     env_ref_data = pd.read_csv(env_ref_path)
     env_info = pd.read_excel(env_info_path)
 
@@ -573,6 +586,7 @@ def _weekly_env_signal(env_data: pd.DataFrame) -> pd.DataFrame:
 
 
 def _fit_and_forecast(series: pd.Series, horizon: int) -> np.ndarray:
+    """Fallback forecast when the seasonal GAM cannot be fit for a district."""
     clean = series.dropna().astype(float)
     if clean.empty:
         return np.zeros(horizon)
@@ -581,8 +595,6 @@ def _fit_and_forecast(series: pd.Series, horizon: int) -> np.ndarray:
     if y.size < 3:
         return np.repeat(y[-1], horizon)
 
-    # Prefer an autoregressive forecast so the horizon can evolve over time
-    # rather than collapsing to a near-flat linear fit.
     try:
         max_lags = min(8, max(1, y.size // 3))
         model = AutoReg(y, lags=max_lags, trend="c", old_names=False)
@@ -612,7 +624,6 @@ def _forecast_one_district(
         ["week_start", "cases", "pop_at_risk", "rainfall", "temperature"]
     ]
 
-    preds = _fit_and_forecast(history, horizon=horizon_weeks)
     hist_std = float(np.nanstd(history.values)) if len(history) > 1 else 0.0
     hist_std = max(hist_std, 1.0)
 
@@ -626,13 +637,6 @@ def _forecast_one_district(
         finite_pop = pop_series[np.isfinite(pop_series)]
         if finite_pop.size:
             latest_population = float(finite_pop[-1])
-
-    alert_summary = compute_epidemiar_alert_summary(
-        observed_values=history.values.astype(float),
-        forecast_values=preds,
-        pop_observed=pop_series,
-        species=str(species.species),
-    )
 
     forecast_week_starts = pd.Series(
         [last_week + pd.Timedelta(weeks=i) for i in range(1, horizon_weeks + 1)]
@@ -650,6 +654,22 @@ def _forecast_one_district(
         env_clim,
         str(woreda_name),
         str(species.species),
+    )
+
+    gam_preds = seasonal_gam_forecast_mu(threshold_df, forecast_week_starts)
+    use_gam_forecast = (
+        gam_preds is not None and int(gam_preds.size) == int(horizon_weeks)
+    )
+    if use_gam_forecast:
+        preds = gam_preds
+    else:
+        preds = _fit_and_forecast(history, horizon=horizon_weeks)
+
+    alert_summary = compute_epidemiar_alert_summary(
+        observed_values=history.values.astype(float),
+        forecast_values=preds,
+        pop_observed=pop_series,
+        species=str(species.species),
     )
 
     def _chart_thresholds(week_start, farrington_pair: Tuple[Optional[float], Optional[float]]):
@@ -686,12 +706,18 @@ def _forecast_one_district(
         ) else (None, None)
         detect, warn = _chart_thresholds(week_ts, farr_pair)
         _, farr_upper = farr_pair
+        if use_gam_forecast and detect is not None and warn is not None:
+            lower = float(max(detect, 0.0))
+            upper = float(max(warn, lower))
+        else:
+            lower = float(max(pred - 1.28 * hist_std, 0.0))
+            upper = float(pred + 1.28 * hist_std)
         points.append(
             DistrictForecastPoint(
                 week_start=week_date,
                 median=float(pred),
-                lower=float(max(pred - 1.28 * hist_std, 0.0)),
-                upper=float(pred + 1.28 * hist_std),
+                lower=lower,
+                upper=upper,
                 detection_threshold=detect,
                 warning_threshold=warn,
                 alarm_threshold=farr_upper,
@@ -905,8 +931,7 @@ def run_epidemia_pipeline(req: EpidemiaRunRequest) -> EpidemiaRunResponse:
             report_woredas, epi_data, env_data, region_filter
         )
 
-    # Variables are loaded for parity with the original R orchestration, even if not
-    # all are consumed in this first Python implementation pass.
+    # Variables are loaded for parity with the original R orchestration.
     _ = report_woredas, env_info
 
     env_weekly = _weekly_env_signal(env_data)

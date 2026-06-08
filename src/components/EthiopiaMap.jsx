@@ -418,6 +418,43 @@ function TimedGibsLayer({ layerId, tileMatrixSet, time, opacity = 0.4, pane }) {
   );
 }
 
+const ALERT_MARKER_KINDS = {
+  ew: { icon: "⚠️", color: "#dc2626", label: "Early Warning" },
+  ed: { icon: "🔍", color: "#d97706", label: "Early Detection" },
+};
+
+/** Shift marker lat/lng so two alert pins on the same district do not stack. */
+function offsetAlertLatLng(lat, lng, metersEast) {
+  const latRad = (lat * Math.PI) / 180;
+  const metersPerDegreeLat = 111320;
+  const metersPerDegreeLng = Math.max(Math.cos(latRad) * metersPerDegreeLat, 1);
+  return {
+    lat: lat,
+    lng: lng + metersEast / metersPerDegreeLng,
+  };
+}
+
+function buildAlertMarkerIcon({ icon, color }) {
+  return L.divIcon({
+    html: `<div style="
+      background: ${color};
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: white;
+      border: 2px solid white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    ">${icon}</div>`,
+    className: "custom-alert-marker",
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+  });
+}
+
 // Alert Markers component
 function AlertMarkers({
   alerts,
@@ -452,44 +489,18 @@ function AlertMarkers({
       alerts.forEach(alert => {
         if (alert?.species && alert.species !== selectedSpecies) return;
 
-        const isEarlyWarning = Boolean(alert?.early_warning);
-        const isEarlyDetection = Boolean(alert?.early_detection);
-
-        if (isEarlyWarning) {
-          if (!showEarlyWarning) return;
-        } else if (isEarlyDetection) {
-          if (!showEarlyDetection) return;
-        } else {
-          return;
-        }
+        const kinds = [];
+        if (Boolean(alert?.early_warning) && showEarlyWarning) kinds.push("ew");
+        if (Boolean(alert?.early_detection) && showEarlyDetection) kinds.push("ed");
+        if (!kinds.length) return;
 
         const district = findDistrictFromLookup(adm3Lookup, alert.district);
         if (district && district.geometry) {
           const bounds = L.geoJSON(district).getBounds();
           const centroid = bounds.getCenter();
           const districtName = district?.properties?.adm3_name || alert.district;
-
-          const iconHtml = isEarlyWarning ? "⚠️" : "🔍";
-          const iconColor = isEarlyWarning ? "#dc2626" : "#d97706";
-
-          const alertIcon = L.divIcon({
-            html: `<div style="
-              background: ${iconColor};
-              border-radius: 50%;
-              width: 24px;
-              height: 24px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 12px;
-              color: white;
-              border: 2px solid white;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            ">${iconHtml}</div>`,
-            className: 'custom-alert-marker',
-            iconSize: [24, 24],
-            iconAnchor: [12, 12]
-          });
+          const dualMarkers = kinds.length === 2;
+          const lateralOffsetMeters = 3500;
 
           const alertTooltipHtml = resolveLookupEntry(
             alertTooltipByDistrict,
@@ -497,9 +508,22 @@ function AlertMarkers({
             adm3Lookup
           );
 
-          const marker = L.marker([centroid.lat, centroid.lng], { icon: alertIcon, pane: ALERTS_MAP_PANE })
-            .bindTooltip(
-              alertTooltipHtml || `${districtName}<br>Early Warning`,
+          kinds.forEach((kindKey, index) => {
+            const kind = ALERT_MARKER_KINDS[kindKey];
+            const offsetMeters = dualMarkers
+              ? (index === 0 ? -lateralOffsetMeters : lateralOffsetMeters)
+              : 0;
+            const position = offsetAlertLatLng(
+              centroid.lat,
+              centroid.lng,
+              offsetMeters
+            );
+
+            const marker = L.marker([position.lat, position.lng], {
+              icon: buildAlertMarkerIcon(kind),
+              pane: ALERTS_MAP_PANE,
+            }).bindTooltip(
+              alertTooltipHtml || `${districtName}<br>${kind.label}`,
               {
                 permanent: false,
                 direction: "top",
@@ -510,17 +534,18 @@ function AlertMarkers({
               }
             );
 
-          marker.on("click", () => {
-            onSelectDistrict?.(districtName);
-            if (bounds?.isValid?.()) {
-              map.flyTo(centroid, Math.max(map.getZoom(), DISTRICT_CLICK_MAX_ZOOM), {
-                animate: true,
-                duration: 0.65,
-              });
-            }
-          });
+            marker.on("click", () => {
+              onSelectDistrict?.(districtName);
+              if (bounds?.isValid?.()) {
+                map.flyTo(centroid, Math.max(map.getZoom(), DISTRICT_CLICK_MAX_ZOOM), {
+                  animate: true,
+                  duration: 0.65,
+                });
+              }
+            });
 
-          markers.push(marker);
+            markers.push(marker);
+          });
         }
       });
     }
@@ -937,10 +962,10 @@ export default function EthiopiaMap({
   // Legend swatches use the same getColor() so the map and legend stay aligned.
   const gradeConfig = {
     population: {
-      title: `Population (WorldPop${populationYear ? ` ${populationYear}` : ""})`,
+      title: "Population at risk",
       grades: [0, 50000, 100000, 250000],
       unit: "people per district",
-      source: `WorldPop R2025A v1, 100m WGS84${populationYear ? `, ${populationYear}` : ""}`,
+      source: "Weekly surveillance population from the forecast report",
       colors: ["#f7fcf5", "#c7e9c0", "#74c476", "#238b45", "#005a32"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
@@ -949,7 +974,7 @@ export default function EthiopiaMap({
       title: "Incidence Rate",
       grades: [0, 10, 50, 100],
       unit: "cases per 100,000 people (weekly average)",
-      source: `Average weekly cases in selected date range / WorldPop${populationYear ? ` ${populationYear}` : ""} population`,
+      source: "Average weekly cases in selected date range / population at risk",
       colors: ["#fff7ec", "#fee8c8", "#fdbb84", "#e34a33", "#7f0000"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(Number(value)),
@@ -1054,7 +1079,7 @@ export default function EthiopiaMap({
   const { grades, unit, colors } = activeScale;
   const source =
     dataset === "incident_rate" && startDate && endDate
-      ? `Average weekly cases ${startDate} → ${endDate} / WorldPop${populationYear ? ` ${populationYear}` : ""} population`
+      ? `Average weekly cases ${startDate} → ${endDate} / population at risk`
       : activeScale.source;
   const formatMapValue = activeScale.format || ((value) => Number(value).toFixed(2));
 

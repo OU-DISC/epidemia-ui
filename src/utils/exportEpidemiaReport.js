@@ -254,6 +254,7 @@ export async function exportEpidemiaReport({
     `Report scope: ${reportModel.scopeDescription || country}`,
     `Districts in report: ${reportModel.districtRows.length}`,
     `Forecast updated: ${formatReportDate(generatedAt)}`,
+    `Control chart values: ${reportModel.chartValueModeLabel || "Cases"}`,
     `Early detection period: ${reportModel.periods.earlyDetection.startLabel} – ${reportModel.periods.earlyDetection.endLabel}`,
     `Early warning period: ${reportModel.periods.earlyWarning.startLabel} – ${reportModel.periods.earlyWarning.endLabel}`,
   ].forEach((line) => {

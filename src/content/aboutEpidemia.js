@@ -51,12 +51,12 @@ export const ABOUT_EPIDEMIA = {
         {
           term: "Charts tab",
           detail:
-            "For the selected district: environmental conditions over time and a transmission chart showing observed cases, the forecast, and alert thresholds.",
+            "For the selected district: environmental conditions over time and a transmission chart showing observed cases or incidence per 100,000 (your choice), the forecast, and matching alert thresholds.",
         },
         {
           term: "Forecast table tab",
           detail:
-            "A sortable list of all districts with status, recent cases, forecast values, and population. Click rows to compare districts on the chart.",
+            "A sortable list of all districts with status, cases or incidence, forecast values, and population. Click rows to compare districts on the chart.",
         },
         {
           term: "Export EPIDEMIA Report",
@@ -69,7 +69,7 @@ export const ABOUT_EPIDEMIA = {
       heading: "Where does the information come from?",
       body: [
         "Case counts come from uploaded or cached malaria surveillance data by district and week.",
-        "Population estimates use WorldPop gridded population data.",
+        "Population at risk comes from the weekly surveillance file used in the forecast report (same value shown in the alerts table).",
         "Rainfall, temperature, and vegetation layers use publicly available satellite products (for example NASA GIBS overlays on the map).",
         "Forecasts and alert thresholds are produced by automated statistical models in the EPIDEMIA pipeline.",
       ],

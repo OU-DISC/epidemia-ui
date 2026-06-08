@@ -2,13 +2,25 @@ import { useCallback, useEffect, useMemo } from "react";
 import { Plot } from "../utils/plotly";
 import { resolveChartHighlightDate } from "../utils/chartHighlightDate";
 import { useSyncedChartHover } from "../utils/useSyncedChartHover";
-import { chartRangeUiRevision } from "../utils/chartDateRange";
-import { buildPlotlyDateXAxis, buildPlotlyValueYAxis } from "../utils/plotlyDateAxisSync";
+import {
+  chartRangeUiRevision,
+  resolvePlotlyChartXRange,
+  toPlotlyDateMs,
+} from "../utils/chartDateRange";
+import {
+  buildChartPlotMargin,
+  buildPlotlyDateXAxis,
+  buildPlotlyValueYAxis,
+  CHART_PLOT_CONFIG,
+  CHART_PLOT_SURFACE,
+} from "../utils/plotlyDateAxisSync";
+import { FORECAST_VALUE_MODE, getForecastYAxisTitle } from "../utils/forecastValueMode";
 
 const DISTRICT_COLORS = ["#1f5b9b", "#e04848", "#7356d8"];
 const BACKGROUND_TRACE_COLOR = "rgba(107, 114, 128, 0.55)";
 
-function buildComparisonTraces(seriesItems, { muted = false } = {}) {
+function buildComparisonTraces(seriesItems, { muted = false, valueMode = FORECAST_VALUE_MODE.CASES } = {}) {
+  const yFormat = valueMode === FORECAST_VALUE_MODE.INCIDENCE ? ".1f" : ".0f";
   const out = [];
 
   seriesItems.forEach((item, index) => {
@@ -24,7 +36,7 @@ function buildComparisonTraces(seriesItems, { muted = false } = {}) {
 
     if (observedPoints.length > 0) {
       out.push({
-        x: observedPoints.map((row) => row.date),
+        x: observedPoints.map((row) => toPlotlyDateMs(row.date)),
         y: observedPoints.map((row) => row.observed),
         type: "scatter",
         mode: "lines+markers",
@@ -42,13 +54,13 @@ function buildComparisonTraces(seriesItems, { muted = false } = {}) {
         marker: muted
           ? { color: BACKGROUND_TRACE_COLOR, size: 10, opacity: 0 }
           : { color, size: 5 },
-        hovertemplate: `${item.district}<br>Observed: %{y:.1f}<extra></extra>`,
+        hovertemplate: `${item.district}<br>Observed: %{y:${yFormat}}<extra></extra>`,
       });
     }
 
     if (forecastPoints.length > 0) {
       out.push({
-        x: forecastPoints.map((row) => row.date),
+        x: forecastPoints.map((row) => toPlotlyDateMs(row.date)),
         y: forecastPoints.map((row) => row.median),
         type: "scatter",
         mode: "lines+markers",
@@ -66,7 +78,7 @@ function buildComparisonTraces(seriesItems, { muted = false } = {}) {
         marker: muted
           ? { color: BACKGROUND_TRACE_COLOR, size: 10, opacity: 0, symbol: "diamond-open" }
           : { color, size: 4, symbol: "diamond-open" },
-        hovertemplate: `${item.district}<br>Forecast: %{y:.1f}<extra></extra>`,
+        hovertemplate: `${item.district}<br>Forecast: %{y:${yFormat}}<extra></extra>`,
       });
     }
   });
@@ -77,6 +89,7 @@ function buildComparisonTraces(seriesItems, { muted = false } = {}) {
 export default function MultiDistrictComparisonChart({
   series = [],
   backgroundSeries = [],
+  valueMode = FORECAST_VALUE_MODE.CASES,
   startDate,
   endDate,
   chartScopeKey = "",
@@ -91,7 +104,21 @@ export default function MultiDistrictComparisonChart({
   onSelectDistrict,
 }) {
   const { syncHoverDate, clearHoverDate } = useSyncedChartHover(onHoverDateChange);
-  const xaxis = useMemo(() => buildPlotlyDateXAxis("Date"), []);
+
+  const plotlyXRange = useMemo(() => {
+    const dataDates = [];
+    [...(backgroundSeries || []), ...(series || [])].forEach((item) => {
+      (item?.rows || []).forEach((row) => {
+        if (row?.date) dataDates.push(row.date);
+      });
+    });
+    return resolvePlotlyChartXRange({ startDate, endDate, dataDates });
+  }, [backgroundSeries, endDate, series, startDate]);
+
+  const xaxis = useMemo(
+    () => buildPlotlyDateXAxis("", plotlyXRange),
+    [plotlyXRange]
+  );
 
   const handleClick = useCallback(
     (event) => {
@@ -138,10 +165,10 @@ export default function MultiDistrictComparisonChart({
 
   const traces = useMemo(
     () => [
-      ...buildComparisonTraces(backgroundActiveSeries, { muted: true }),
-      ...buildComparisonTraces(activeSeries, { muted: false }),
+      ...buildComparisonTraces(backgroundActiveSeries, { muted: true, valueMode }),
+      ...buildComparisonTraces(activeSeries, { muted: false, valueMode }),
     ],
-    [activeSeries, backgroundActiveSeries]
+    [activeSeries, backgroundActiveSeries, valueMode]
   );
 
   const layout = useMemo(
@@ -149,25 +176,27 @@ export default function MultiDistrictComparisonChart({
       uirevision: chartRangeUiRevision(
         "compare",
         chartScopeKey,
-        `-${backgroundActiveSeries.map((s) => s.district).join("|")}|${activeSeries.map((s) => s.district).join("|")}`
+        `-${backgroundActiveSeries.map((s) => s.district).join("|")}|${activeSeries.map((s) => s.district).join("|")}-${startDate}-${endDate}`
       ),
       autosize: true,
       height,
-      margin: { l: 58, r: 24, t: 24, b: 60 },
-      paper_bgcolor: "rgba(0,0,0,0)",
-      plot_bgcolor: "rgba(255,255,255,0.5)",
+      margin: buildChartPlotMargin({ withLegend: true }),
+      ...CHART_PLOT_SURFACE,
       dragmode: "zoom",
       hovermode: "x unified",
       xaxis,
-      yaxis: buildPlotlyValueYAxis("Cases", { nonnegative: true }),
+      yaxis: buildPlotlyValueYAxis(getForecastYAxisTitle(valueMode), { nonnegative: true }),
       legend: {
         orientation: "h",
-        y: 1.14,
+        y: 1,
+        yanchor: "bottom",
         x: 0,
-        font: { size: 10 },
+        xanchor: "left",
+        font: { size: 9 },
+        bgcolor: "rgba(0,0,0,0)",
       },
     }),
-    [activeSeries, backgroundActiveSeries, chartScopeKey, height, xaxis]
+    [activeSeries, backgroundActiveSeries, chartScopeKey, height, valueMode, xaxis]
   );
 
   if (activeSeries.length === 0 && backgroundActiveSeries.length === 0) {
@@ -180,9 +209,7 @@ export default function MultiDistrictComparisonChart({
         data={traces}
         layout={layout}
         config={{
-          responsive: true,
-          displaylogo: false,
-          scrollZoom: true,
+          ...CHART_PLOT_CONFIG,
           modeBarButtonsToRemove: ["select2d", "lasso2d", "autoScale2d"],
         }}
         style={{ width: "100%", height: `${height}px` }}

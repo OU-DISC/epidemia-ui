@@ -1,5 +1,6 @@
 import { EARLY_DETECTION_SUMMARY_WEEKS } from "./buildForecastChartLayers";
 import { findDistrictFromLookup } from "./districtNameMatch";
+import { getForecastMetricLabel } from "./forecastValueMode";
 import {
   REPORT_SCOPE_COUNTRY,
   buildReportTitle,
@@ -74,6 +75,7 @@ export function buildEpidemiaReportModel({
   scope = REPORT_SCOPE_COUNTRY,
   selectedDistrict = null,
   selectedRegion = null,
+  forecastValueMode = "cases",
 }) {
   const scopeContext = resolveReportScopeContext(scope, {
     region: selectedDistrict,
@@ -181,6 +183,8 @@ export function buildEpidemiaReportModel({
     scopeDescription: scopeDescription(scopeContext),
     generatedAt: epidemiaData?.generated_at || null,
     horizonWeeks,
+    chartValueMode: forecastValueMode,
+    chartValueModeLabel: getForecastMetricLabel(forecastValueMode),
     periods: {
       earlyDetection: {
         weeks: EARLY_DETECTION_SUMMARY_WEEKS,

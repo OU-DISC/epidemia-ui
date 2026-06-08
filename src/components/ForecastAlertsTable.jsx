@@ -1,6 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
+import AlertStatusIcons from "./AlertStatusIcons";
 import CaseSparkline from "./CaseSparkline";
 import { buildTableTopPriorityRankByKey } from "../utils/buildDistrictForecastSeries";
+import {
+  FORECAST_VALUE_MODE,
+  formatForecastMetric,
+  getForecastMetricLabel,
+} from "../utils/forecastValueMode";
 
 const ROWS_PER_PAGE = 10;
 
@@ -12,13 +18,11 @@ const SORT_LABELS = {
   populationAtRisk: "Population",
   latestForecast: "Forecast",
   district: "District",
+  region: "Region",
 };
 
-function formatNumber(value, digits = 1) {
-  if (value == null || Number.isNaN(Number(value))) return "-";
-  return new Intl.NumberFormat("en-US", {
-    maximumFractionDigits: digits,
-  }).format(Number(value));
+function formatNumber(value, digits = 1, valueMode = FORECAST_VALUE_MODE.CASES) {
+  return formatForecastMetric(value, valueMode, digits);
 }
 
 function formatPercent(value) {
@@ -32,28 +36,19 @@ function AlertStatusCell({ earlyWarning, earlyDetection }) {
   }
 
   return (
-    <span className="table-status-icons">
-      {earlyWarning ? (
-        <span className="table-alert-icon table-alert-icon--warning" title="Early Warning">
-          ⚠️
-        </span>
-      ) : null}
-      {earlyDetection ? (
-        <span className="table-alert-icon table-alert-icon--detection" title="Early Detection">
-          🔍
-        </span>
-      ) : null}
-    </span>
+    <AlertStatusIcons earlyWarning={earlyWarning} earlyDetection={earlyDetection} />
   );
 }
 
 export default function ForecastAlertsTable({
   rows,
+  valueMode = FORECAST_VALUE_MODE.CASES,
   selectedDistrict,
   comparisonDistricts = [],
   onToggleComparisonDistrict,
   embedded = false,
 }) {
+  const metricLabel = getForecastMetricLabel(valueMode);
   const [sortKey, setSortKey] = useState("priority");
   const [sortDir, setSortDir] = useState("desc");
   const [page, setPage] = useState(0);
@@ -107,7 +102,7 @@ export default function ForecastAlertsTable({
       return;
     }
     setSortKey(key);
-    setSortDir(key === "district" ? "asc" : "desc");
+    setSortDir(key === "district" || key === "region" ? "asc" : "desc");
   };
 
   const sortMark = (key) => {
@@ -155,10 +150,10 @@ export default function ForecastAlertsTable({
               <th>8-wk trend</th>
               <th>Region</th>
               <th>Alerts</th>
-              <th>Observed</th>
-              <th>Forecast</th>
-              <th>Threshold</th>
-              <th>Magnitude</th>
+              <th>Observed ({metricLabel})</th>
+              <th>Forecast ({metricLabel})</th>
+              <th>Threshold ({metricLabel})</th>
+              <th>Magnitude ({metricLabel})</th>
               <th>Magnitude %</th>
               <th>Persistence</th>
               <th>Population</th>
@@ -219,11 +214,11 @@ export default function ForecastAlertsTable({
                     earlyDetection={row.earlyDetection}
                   />
                 </td>
-                <td>{formatNumber(row.latestObserved)}</td>
-                <td>{formatNumber(row.latestForecast)}</td>
-                <td>{formatNumber(row.activeThreshold)}</td>
+                <td>{formatNumber(row.latestObserved, 1, valueMode)}</td>
+                <td>{formatNumber(row.latestForecast, 1, valueMode)}</td>
+                <td>{formatNumber(row.activeThreshold, 1, valueMode)}</td>
                 <td className={row.magnitude > 0 ? "positive-magnitude" : ""}>
-                  {formatNumber(row.magnitude)}
+                  {formatNumber(row.magnitude, 1, valueMode)}
                 </td>
                 <td className={row.magnitudePercent > 0 ? "positive-magnitude" : ""}>
                   {formatPercent(row.magnitudePercent)}

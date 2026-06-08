@@ -10,7 +10,7 @@ Warning threshold at week t:     T_warn(t)  = mu(t) + z * sqrt(phi * mu(t))
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 import pandas as pd
@@ -366,3 +366,26 @@ def thresholds_for_week(
         return None, None
     item = row.iloc[0]
     return float(item["detection_threshold"]), float(item["warning_threshold"])
+
+
+def seasonal_gam_forecast_mu(
+    threshold_df: Optional[pd.DataFrame],
+    forecast_week_starts: Sequence,
+) -> Optional[np.ndarray]:
+    """
+    Expected weekly case counts (mu) from the seasonal GAM for each forecast week.
+
+    In the epidemiar R workflow this mu is the transmission forecast; detection and
+    warning thresholds are derived from the same fitted model.
+    """
+    if threshold_df is None or threshold_df.empty or len(forecast_week_starts) == 0:
+        return None
+
+    mus: List[float] = []
+    for week_start in forecast_week_starts:
+        mu, _ = thresholds_for_week(threshold_df, week_start)
+        if mu is None or not np.isfinite(mu):
+            return None
+        mus.append(float(mu))
+
+    return np.asarray(mus, dtype=float)
