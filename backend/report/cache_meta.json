@@ -1,13 +1,25 @@
 {
-  "generated_at": "2026-06-04T17:35:25.561715Z",
-  "data_fingerprint": "ff0255b1668b9b88",
+  "generated_at": "2026-06-08T23:24:50.917342Z",
+  "data_fingerprint": "25bbd1887406d9d4",
+  "horizons": {
+    "4": {
+      "forecast_count": 1702,
+      "alert_count": 1702
+    },
+    "8": {
+      "forecast_count": 1702,
+      "alert_count": 1702
+    },
+    "12": {
+      "forecast_count": 1702,
+      "alert_count": 1702
+    }
+  },
   "horizon_weeks": 12,
   "env_start_year": 2012,
   "env_start_week": 1,
   "district_count": 851,
   "forecast_count": 1702,
   "alert_count": 1702,
-  "elapsed_seconds": 42.68,
-  "region_filter": "Harari",
-  "regional_district_count": 9
+  "elapsed_seconds": 30024.07
 }
