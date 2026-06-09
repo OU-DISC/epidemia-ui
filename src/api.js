@@ -334,6 +334,7 @@ export async function fetchDistrictForecastDetail({
   species = "pfm",
   startDate,
   endDate,
+  horizonWeeks = 8,
 } = {}) {
   if (!district) {
     throw new Error("district is required");
@@ -360,6 +361,7 @@ export async function fetchDistrictForecastDetail({
           species,
           start_date: startDate || undefined,
           end_date: endDate || undefined,
+          horizon_weeks: horizonWeeks,
         },
         timeout: 120000,
       });

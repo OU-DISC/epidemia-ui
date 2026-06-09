@@ -1014,7 +1014,7 @@ function Dashboard({
     selectedSpecies,
   ]);
 
-  // When a district is first selected, extend the end date to include its forecast horizon.
+  // When a district is first selected (or horizon changes), align the end date to its forecast span.
   useEffect(() => {
     if (region === "All Regions") {
       lastAutoExtendedDistrictRef.current = null;
@@ -1022,7 +1022,7 @@ function Dashboard({
     }
     if (!selectedForecast?.length) return;
 
-    const districtKey = `${region}|${selectedSpecies}`;
+    const districtKey = `${region}|${selectedSpecies}|${forecastWeeks}`;
     if (lastAutoExtendedDistrictRef.current === districtKey) return;
 
     const maxForecastDate = selectedForecast
@@ -1032,15 +1032,9 @@ function Dashboard({
       .slice(-1)[0];
     if (!maxForecastDate) return;
 
-    const { endDate: currentEndDate } = chartDatesRef.current;
-    const currentEnd = Date.parse(`${currentEndDate}T00:00:00Z`);
-    const nextEnd = Date.parse(`${maxForecastDate}T00:00:00Z`);
-    if (Number.isNaN(currentEnd) || Number.isNaN(nextEnd)) return;
-    if (nextEnd > currentEnd) {
-      setEndDate(maxForecastDate);
-    }
+    setEndDate(maxForecastDate);
     lastAutoExtendedDistrictRef.current = districtKey;
-  }, [region, selectedSpecies, selectedForecast]);
+  }, [forecastWeeks, region, selectedSpecies, selectedForecast]);
 
   const mapHealthLayer = HEALTH_MAP_SURFACE_LAYERS.has(activeMapSurfaceLayer)
     ? activeMapSurfaceLayer
@@ -1367,6 +1361,7 @@ function Dashboard({
           species: selectedSpecies,
           startDate,
           endDate,
+          horizonWeeks: forecastWeeks,
         }).catch((err) => {
           console.warn(`Failed to load forecast detail for ${district}:`, err);
           return null;
@@ -1394,6 +1389,7 @@ function Dashboard({
     districtsNeedingDetailKey,
     endDate,
     epidemiaDataReady,
+    forecastWeeks,
     projectOutputDir,
     selectedSpecies,
     startDate,

@@ -64,11 +64,21 @@ export function mergeForecastRows(existing = [], incoming = []) {
     const keepPrevious = forecastHistoryCount(previous) >= forecastHistoryCount(row);
     const richer = keepPrevious ? previous : row;
     const other = keepPrevious ? row : previous;
+    const incomingForecast = row.forecast || [];
+    const previousForecast = previous.forecast || [];
+    const forecast =
+      incomingForecast.length && previousForecast.length
+        ? incomingForecast.length <= previousForecast.length
+          ? incomingForecast
+          : previousForecast
+        : incomingForecast.length
+          ? incomingForecast
+          : previousForecast;
     byKey.set(key, {
       ...other,
       ...richer,
       observed_history: richer.observed_history || [],
-      forecast: richer.forecast?.length ? richer.forecast : other.forecast || [],
+      forecast,
     });
   }
 
@@ -107,7 +117,15 @@ export function mergeDistrictForecast(report, detail) {
             detail.observed_history?.length > 0
               ? detail.observed_history
               : forecast.observed_history || [],
-          forecast: detail.forecast?.length ? detail.forecast : forecast.forecast || [],
+          forecast: (() => {
+            const detailForecast = detail.forecast || [];
+            const existingForecast = forecast.forecast || [];
+            if (!detailForecast.length) return existingForecast;
+            if (!existingForecast.length) return detailForecast;
+            return detailForecast.length <= existingForecast.length
+              ? detailForecast
+              : existingForecast;
+          })(),
         }
       : forecast
   );
