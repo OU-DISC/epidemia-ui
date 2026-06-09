@@ -88,6 +88,7 @@ import { useMediaQuery } from "../../utils/useMediaQuery";
 import { buildSeasonalContext } from "../../utils/buildSeasonalContext";
 import { buildPipelineStatus } from "../../utils/buildPipelineStatus";
 import { buildDistrictCaseSparkline } from "../../utils/buildDistrictCaseSparkline";
+import { enrichAlertsWithForecastWarnings } from "../../utils/enrichAlertWarnings";
 import {
   findDistrictForecastRow,
   forecastHistoryCoversRange,
@@ -448,10 +449,20 @@ function Dashboard({
       ? alertWeekDates[alertWeekIndex]
       : null;
 
+  const speciesAlerts = useMemo(
+    () =>
+      enrichAlertsWithForecastWarnings(
+        epidemiaData?.alerts,
+        epidemiaData?.forecasts,
+        selectedSpecies
+      ),
+    [epidemiaData?.alerts, epidemiaData?.forecasts, selectedSpecies]
+  );
+
   const mapAlerts = useMemo(() => {
     let alerts;
     if (alertTimeMode !== "animate" || !alertAnimationWeek) {
-      alerts = epidemiaData?.alerts || [];
+      alerts = speciesAlerts;
     } else {
       alerts = buildAlertsForWeek(
         epidemiaData?.forecasts,
@@ -467,6 +478,7 @@ function Dashboard({
     alertAnimationWeek,
     epidemiaData?.forecasts,
     epidemiaData?.alerts,
+    speciesAlerts,
     selectedSpecies,
     adm3Lookup,
     mapFilterRegion,
@@ -838,16 +850,15 @@ function Dashboard({
   }, [adm3Lookup, districts, projectForecastDistricts, region, updateRegion]);
 
   const selectedAlert = useMemo(() => {
-    if (!epidemiaData?.alerts || region === "All Regions") return null;
+    if (!speciesAlerts.length || region === "All Regions") return null;
     return (
-      epidemiaData.alerts.find(
+      speciesAlerts.find(
         (a) =>
-          a.species === selectedSpecies &&
-          (a.district === region ||
-            findDistrictFromLookup(adm3Lookup, a.district)?.properties?.adm3_name === region)
+          a.district === region ||
+          findDistrictFromLookup(adm3Lookup, a.district)?.properties?.adm3_name === region
       ) || null
     );
-  }, [adm3Lookup, epidemiaData, region, selectedSpecies]);
+  }, [adm3Lookup, region, selectedSpecies, speciesAlerts]);
 
   const seasonalContext = useMemo(() => {
     if (!epidemiaData?.forecasts || region === "All Regions") return null;
@@ -1082,7 +1093,7 @@ function Dashboard({
   }, [reportScope]);
 
   const forecastTableRows = useMemo(() => {
-    const alerts = (epidemiaData?.alerts || []).filter((a) => a.species === selectedSpecies);
+    const alerts = speciesAlerts;
     const forecasts = (epidemiaData?.forecasts || []).filter((f) => f.species === selectedSpecies);
     const forecastByDistrict = new Map(forecasts.map((f) => [f.district, f]));
 
@@ -1150,7 +1161,7 @@ function Dashboard({
       .map((row) =>
         transformForecastTableRow(row, forecastValueMode, row.populationAtRisk)
       );
-  }, [adm3Lookup, epidemiaData, forecastValueMode, selectedSpecies]);
+  }, [adm3Lookup, epidemiaData, forecastValueMode, selectedSpecies, speciesAlerts]);
 
   const topPriorityDistrict = useMemo(() => {
     const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
@@ -1522,22 +1533,26 @@ function Dashboard({
     () =>
       buildAlertTooltipLookup({
         forecastTableRows,
-        alerts: epidemiaData?.alerts || [],
+        alerts: speciesAlerts,
         selectedSpecies,
-        speciesLabel,
         populationData,
-        incidentRateData,
         populationYear,
         surfaceValueForDistrict,
+        epidemiaData,
+        adm3Lookup,
+        startDate,
+        endDate,
       }),
     [
       forecastTableRows,
-      epidemiaData?.alerts,
+      speciesAlerts,
       selectedSpecies,
-      speciesLabel,
       populationData,
-      incidentRateData,
       populationYear,
+      epidemiaData,
+      adm3Lookup,
+      startDate,
+      endDate,
     ]
   );
 
@@ -1568,6 +1583,8 @@ function Dashboard({
         populationYear,
         surfaceValueForDistrict,
         epidemiaData,
+        adm3Lookup,
+        speciesAlerts,
         selectedSpecies,
         startDate,
         endDate,
@@ -1577,6 +1594,8 @@ function Dashboard({
       populationData,
       populationYear,
       epidemiaData,
+      adm3Lookup,
+      speciesAlerts,
       selectedSpecies,
       startDate,
       endDate,

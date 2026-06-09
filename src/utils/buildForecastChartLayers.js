@@ -38,9 +38,14 @@ function weekAlarm(value, threshold) {
   return v != null && t != null && v > t;
 }
 
-/** Farrington upper bound used for map/table alert flags (matches backend). */
+/** Farrington upper bound used for observed early-detection markers. */
 function resolveAlarmThreshold(point) {
   return finiteNumber(point?.alarm_threshold) ?? finiteNumber(point?.warning_threshold);
+}
+
+/** Seasonal expected level used for forecast early-warning markers. */
+function resolveExpectedThreshold(point) {
+  return finiteNumber(point?.detection_threshold);
 }
 
 function bandShape(x0, x1, fill) {
@@ -196,7 +201,7 @@ export function buildForecastChartLayers(data) {
 
   const ewAlertDates = [];
   forecastPoints.forEach((point) => {
-    if (weekAlarm(point.median, resolveAlarmThreshold(point))) {
+    if (weekAlarm(point.median, resolveExpectedThreshold(point))) {
       ewAlertDates.push(point.date);
     }
   });

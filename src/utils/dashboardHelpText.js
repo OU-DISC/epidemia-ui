@@ -21,7 +21,7 @@ export const DASHBOARD_HELP = {
   pipeline:
     "Forecast data status: loading, ready, running, or error. Shows when the cache was last generated, district count, and background pipeline progress when a refresh is running on the server.",
   earlyWarnings:
-    "Districts with one or more forecast weeks above the Farrington alert threshold (early warning period).",
+    "Districts with one or more forecast weeks above the seasonal expected level (early warning period).",
   earlyDetections:
     "Districts with one or more observed weeks above the Farrington alert threshold in the last 4 epidemiology weeks.",
   districtsModeled: "Number of districts included in the current forecast run.",

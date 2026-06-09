@@ -459,6 +459,7 @@ function buildAlertMarkerIcon({ icon, color }) {
 function AlertMarkers({
   alerts,
   alertTooltipByDistrict = {},
+  districtTooltipByDistrict = {},
   showEarlyWarning,
   showEarlyDetection = true,
   adm3Lookup,
@@ -502,11 +503,9 @@ function AlertMarkers({
           const dualMarkers = kinds.length === 2;
           const lateralOffsetMeters = 3500;
 
-          const alertTooltipHtml = resolveLookupEntry(
-            alertTooltipByDistrict,
-            districtName,
-            adm3Lookup
-          );
+          const alertTooltipHtml =
+            resolveLookupEntry(districtTooltipByDistrict, districtName, adm3Lookup) ||
+            resolveLookupEntry(alertTooltipByDistrict, districtName, adm3Lookup);
 
           kinds.forEach((kindKey, index) => {
             const kind = ALERT_MARKER_KINDS[kindKey];
@@ -564,7 +563,7 @@ function AlertMarkers({
         }
       });
     };
-  }, [map, alerts, alertTooltipByDistrict, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
+  }, [map, alerts, alertTooltipByDistrict, districtTooltipByDistrict, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
 
   return null;
 }
@@ -1227,11 +1226,6 @@ export default function EthiopiaMap({
     interactive: false,
   });
 
-  const resolveAlertTooltip = (districtName) => {
-    if (!districtName || !alertTooltipByDistrict) return null;
-    return resolveLookupEntry(alertTooltipByDistrict, districtName, adm3Lookup);
-  };
-
   const resolveDistrictTooltip = (districtName, feature) => {
     if (!districtName) return null;
 
@@ -1257,9 +1251,6 @@ export default function EthiopiaMap({
 
   const districtTooltip = (feature) => {
     const districtName = feature?.properties?.adm3_name;
-    const alertTooltip = resolveAlertTooltip(districtName);
-    if (alertTooltip) return alertTooltip;
-
     const districtInfoTooltip = resolveDistrictTooltip(districtName, feature);
     if (districtInfoTooltip) return districtInfoTooltip;
 
@@ -1272,12 +1263,7 @@ export default function EthiopiaMap({
     });
   };
 
-  const districtTooltipClassName = (feature) => {
-    const districtName = feature?.properties?.adm3_name;
-    return resolveAlertTooltip(districtName)
-      ? "alert-explainer-tooltip"
-      : "district-info-tooltip-wrap";
-  };
+  const districtTooltipClassName = () => "district-info-tooltip-wrap";
 
   const handleSelectDistrict = (districtName) => {
     setSelectedDistrict(districtName);
@@ -1426,6 +1412,7 @@ export default function EthiopiaMap({
         <AlertMarkers
           alerts={alerts}
           alertTooltipByDistrict={alertTooltipByDistrict}
+          districtTooltipByDistrict={districtTooltipByDistrict}
           showEarlyWarning={showEarlyWarning}
           showEarlyDetection={showEarlyDetection}
           adm3Lookup={adm3Lookup}

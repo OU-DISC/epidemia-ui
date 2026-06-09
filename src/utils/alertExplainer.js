@@ -25,9 +25,18 @@ export function formatDistrictTooltipHtml({
   cases,
   populationYear,
   casesLabel = "Avg weekly cases",
+  status = null,
 }) {
   const populationLabel = population != null ? formatPopulation(population) : "—";
   const casesValue = cases != null ? formatNumber(cases, 0) : "—";
+
+  const statusRow = status
+    ? `
+      <div class="district-info-tooltip-row">
+        <span>Status</span>
+        <strong>${escapeHtml(status)}</strong>
+      </div>`
+    : "";
 
   return `
     <div class="district-info-tooltip">
@@ -39,6 +48,7 @@ export function formatDistrictTooltipHtml({
         <span>District</span>
         <strong>${escapeHtml(district || "—")}</strong>
       </div>
+      ${statusRow}
       <div class="district-info-tooltip-row">
         <span>Population</span>
         <strong>${escapeHtml(populationLabel)}</strong>
@@ -86,7 +96,7 @@ export function buildAlertExplanation({
 
   let summary;
   if (status === "Early Warning") {
-    summary = `Early warning: ${alert.ew_alert_count ?? 0} forecast week(s) above threshold (${ewLevel || "Low"}).`;
+    summary = `Early warning: ${alert.ew_alert_count ?? 0} forecast week(s) above the expected level (${ewLevel || "Low"}).`;
   } else if (status === "Early Detection") {
     summary = `Early detection: ${alert.ed_alert_count ?? 0} observed week(s) above threshold in the last 4 weeks (${edLevel || "Low"}).`;
   } else {

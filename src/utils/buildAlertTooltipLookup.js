@@ -3,7 +3,12 @@ import {
   getDistrictNameVariants,
   normalizeDistrictKey,
 } from "./districtNameMatch";
-import { buildAlertExplanation, formatAlertTooltipHtml } from "./alertExplainer";
+import { formatDistrictTooltipHtml } from "./alertExplainer";
+import {
+  resolveForecastForDistrict,
+  resolveTooltipAverageCases,
+  resolveTooltipPopulation,
+} from "./buildDistrictTooltipLookup";
 
 export function assignTooltipKey(lookup, key, html) {
   if (!key || !html) return;
@@ -57,11 +62,13 @@ export function buildAlertTooltipLookup({
   forecastTableRows,
   alerts,
   selectedSpecies,
-  speciesLabel,
   populationData,
-  incidentRateData,
   populationYear,
   surfaceValueForDistrict,
+  epidemiaData,
+  adm3Lookup,
+  startDate,
+  endDate,
 }) {
   const lookup = {};
 
@@ -75,20 +82,29 @@ export function buildAlertTooltipLookup({
       );
       if (!alert) return;
 
-      const population =
-        row.populationAtRisk ?? surfaceValueForDistrict(populationData, row.mapDistrict);
-      const incidentRate = surfaceValueForDistrict(incidentRateData, row.mapDistrict);
-      const explanation = buildAlertExplanation({
-        districtName: row.mapDistrict,
-        regionName: row.region,
-        speciesLabel,
+      const forecast = resolveForecastForDistrict(
+        epidemiaData,
+        adm3Lookup,
+        row.mapDistrict,
+        row.rawDistrict,
+        selectedSpecies
+      );
+      const population = resolveTooltipPopulation(
+        row,
         alert,
-        insight: row,
+        populationData,
+        surfaceValueForDistrict
+      );
+      const averageCases = resolveTooltipAverageCases(forecast, alert, startDate, endDate);
+      const html = formatDistrictTooltipHtml({
+        region: row.region,
+        district: row.mapDistrict,
         population,
+        cases: averageCases,
         populationYear,
-        incidentRate,
+        casesLabel: "Avg weekly cases",
+        status: row.status,
       });
-      const html = formatAlertTooltipHtml(row.mapDistrict, explanation, row);
 
       assignTooltipKey(lookup, row.mapDistrict, html);
       assignTooltipKey(lookup, row.rawDistrict, html);
