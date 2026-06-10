@@ -763,7 +763,7 @@ function MapLegend({ showRainfallLayer, showTemperatureLayer, showNdviLayer }) {
       return undefined;
     }
 
-    const legend = L.control({ position: "topright" });
+    const legend = L.control({ position: "bottomright" });
 
     legend.onAdd = function () {
       const div = L.DomUtil.create("div", "info legend map-legend-stack");
