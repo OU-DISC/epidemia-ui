@@ -83,12 +83,12 @@ function periodLabel(text, x, color) {
     xref: "x",
     yref: "paper",
     x: toPlotlyDate(x),
-    y: 1.04,
+    y: 1.03,
     xanchor: "center",
     yanchor: "bottom",
     text,
     showarrow: false,
-    font: { size: 11, color },
+    font: { size: 10, color },
   };
 }
 
@@ -127,7 +127,7 @@ export function buildForecastChartLayers(data) {
     shapes.push(bandShape(x0, x1, ED_BAND_FILL));
     annotations.push(
       periodLabel(
-        "Early Detection period",
+        "Early Detection",
         shiftDate(edDates[Math.floor(edDates.length / 2)], 0),
         ED_BAND_LABEL
       )
@@ -140,7 +140,7 @@ export function buildForecastChartLayers(data) {
     shapes.push(bandShape(x0, x1, EW_BAND_FILL));
     annotations.push(
       periodLabel(
-        "Early Warning period",
+        "Early Warning",
         shiftDate(ewDates[Math.floor(ewDates.length / 2)], 0),
         EW_BAND_LABEL
       )
@@ -172,7 +172,7 @@ export function buildForecastChartLayers(data) {
           y: thresholdPoints.map((point) => Number(point.warning_threshold)),
           type: "scatter",
           mode: "lines",
-          name: "Alert Threshold",
+          name: "Threshold",
           line: { color: THRESHOLD_COLOR, width: 1.5, dash: "dot" },
           hovertemplate: "Alert Threshold: %{y:.2f}<extra></extra>",
         }
@@ -213,7 +213,7 @@ export function buildForecastChartLayers(data) {
           y: edAlertDates.map(() => markerY),
           type: "scatter",
           mode: "markers",
-          name: "Early Detection Alert",
+          name: "ED alert",
           marker: {
             symbol: "triangle-up",
             size: 11,
@@ -232,7 +232,7 @@ export function buildForecastChartLayers(data) {
           y: ewAlertDates.map(() => markerY),
           type: "scatter",
           mode: "markers",
-          name: "Early Warning Alert",
+          name: "EW alert",
           marker: {
             symbol: "triangle-up-open",
             size: 12,

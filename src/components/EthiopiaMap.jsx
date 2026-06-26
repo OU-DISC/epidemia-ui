@@ -687,7 +687,7 @@ function DistrictChoroplethLegend({ title, unit, source, grades, colors, formatV
       grades,
       formatValue
     );
-    const legend = L.control({ position: "bottomright" });
+    const legend = L.control({ position: "topright" });
 
     legend.onAdd = function () {
       const div = L.DomUtil.create("div", "info legend");
@@ -763,7 +763,7 @@ function MapLegend({ showRainfallLayer, showTemperatureLayer, showNdviLayer }) {
       return undefined;
     }
 
-    const legend = L.control({ position: "bottomright" });
+    const legend = L.control({ position: "topright" });
 
     legend.onAdd = function () {
       const div = L.DomUtil.create("div", "info legend map-legend-stack");
