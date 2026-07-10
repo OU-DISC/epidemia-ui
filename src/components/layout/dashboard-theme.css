@@ -2868,3 +2868,115 @@ body {
     flex-shrink: 0;
   }
 }
+
+/* —— Interactive dashboard tour (highlight walkthrough) —— */
+.dashboard-tour {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.dashboard-tour-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 28, 44, 0.28);
+  pointer-events: auto;
+  z-index: 10000;
+}
+
+.dashboard-tour-spotlight {
+  position: fixed;
+  border-radius: 12px;
+  box-shadow: 0 0 0 9999px rgba(16, 28, 44, 0.58);
+  border: 2px solid rgba(15, 123, 108, 0.95);
+  background: transparent;
+  pointer-events: none;
+  z-index: 10001;
+  transition: top 0.22s ease, left 0.22s ease, width 0.22s ease, height 0.22s ease;
+}
+
+.dashboard-tour-tooltip {
+  width: min(360px, calc(100vw - 32px));
+  padding: 16px 16px 14px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 16px 40px rgba(24, 39, 66, 0.22);
+  pointer-events: auto;
+  color: var(--ink);
+}
+
+.dashboard-tour-progress {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.dashboard-tour-title {
+  margin: 0 0 8px;
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.dashboard-tour-body {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.dashboard-tour-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dashboard-tour-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-tour-btn {
+  appearance: none;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 7px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.dashboard-tour-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dashboard-tour-btn.ghost {
+  background: transparent;
+  border-color: rgba(80, 109, 150, 0.28);
+  color: var(--ink-soft);
+}
+
+.dashboard-tour-btn.ghost:hover:not(:disabled) {
+  border-color: rgba(80, 109, 150, 0.5);
+  color: var(--ink);
+}
+
+.dashboard-tour-btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.dashboard-tour-btn.primary:hover {
+  background: var(--accent-strong);
+}

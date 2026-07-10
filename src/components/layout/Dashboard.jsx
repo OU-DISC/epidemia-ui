@@ -12,6 +12,7 @@ import SeasonalContextRing from "../SeasonalContextRing";
 import MobileSummaryView from "../MobileSummaryView";
 import HelpTip from "../HelpTip";
 import AboutPanel from "../AboutPanel";
+import DashboardTour, { shouldAutoStartDashboardTour } from "../DashboardTour";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
@@ -318,6 +319,40 @@ function Dashboard({
   const [comparisonHighlightMode, setComparisonHighlightMode] = useState("alert-priority");
   const isCompactLayout = useMediaQuery("(max-width: 1100px)");
   const [mobileMainView, setMobileMainView] = useState("summary");
+  const [tourOpen, setTourOpen] = useState(false);
+  const [tourNonce, setTourNonce] = useState(0);
+
+  const prepareTourStep = useCallback(
+    (step) => {
+      if (!step) return;
+      if (step.panel) {
+        setRightPanelView(step.panel);
+      }
+      if (isCompactLayout && step.mobileView) {
+        setMobileMainView(step.mobileView);
+      }
+    },
+    [isCompactLayout]
+  );
+
+  const startTour = useCallback(() => {
+    if (isCompactLayout) {
+      setMobileMainView("map");
+    }
+    setRightPanelView("charts");
+    setTourNonce((n) => n + 1);
+    setTourOpen(true);
+  }, [isCompactLayout]);
+
+  useEffect(() => {
+    if (!shouldAutoStartDashboardTour()) return undefined;
+    const timer = window.setTimeout(() => {
+      if (shouldAutoStartDashboardTour()) {
+        startTour();
+      }
+    }, 1400);
+    return () => window.clearTimeout(timer);
+  }, [startTour]);
 
   // Decision layers states
   const [showEarlyWarning, setShowEarlyWarning] = useState(true);
@@ -1759,6 +1794,7 @@ function Dashboard({
         onUseDefaultDataset={onUseDefaultDataset}
         usingCustomProject={usingCustomProject}
         showDefaultDatasetButton={showDefaultDatasetButton}
+        onStartTour={startTour}
       />
 
       <div className="dashboard-layout">
@@ -1841,8 +1877,9 @@ function Dashboard({
         <section className="dashboard-grid fade-in-up delay-2">
           {/* Map */}
           {(!isCompactLayout || mobileMainView === "map") && (
-          <div className="glass-card map-panel">
+          <div className="glass-card map-panel" data-tour="map-panel">
             <div className="map-panel-controls">
+              <div data-tour="decision-layers">
               <DecisionLayers
                 showEarlyWarning={showEarlyWarning}
                 onToggleEarlyWarning={() => setShowEarlyWarning(!showEarlyWarning)}
@@ -1859,7 +1896,9 @@ function Dashboard({
                 onChangeAlertHistoryWeeks={setAlertHistoryWeeks}
                 alertWeekCounts={alertWeekCounts}
               />
+              </div>
 
+              <div data-tour="env-layers">
               <EnvironmentalLayers
                 startDate={startDate}
                 endDate={endDate}
@@ -1877,6 +1916,7 @@ function Dashboard({
                 onTogglePlaying={() => setEnvPlaying((v) => !v)}
                 averageSampleInfo={averageSampleInfo}
               />
+              </div>
             </div>
 
             <EthiopiaMap
@@ -1949,6 +1989,7 @@ function Dashboard({
                 aria-selected={rightPanelView === "charts"}
                 className={rightPanelView === "charts" ? "side-panel-tab active" : "side-panel-tab"}
                 onClick={() => setRightPanelView("charts")}
+                data-tour="tab-charts"
               >
                 <span className="side-panel-tab-label">
                   Charts
@@ -1961,6 +2002,7 @@ function Dashboard({
                 aria-selected={rightPanelView === "table"}
                 className={rightPanelView === "table" ? "side-panel-tab active" : "side-panel-tab"}
                 onClick={() => setRightPanelView("table")}
+                data-tour="tab-table"
               >
                 <span className="side-panel-tab-label">
                   Forecast Table
@@ -2007,7 +2049,7 @@ function Dashboard({
                   />
 
                   {selectedForecast && (
-                    <section className="forecast-panel">
+                    <section className="forecast-panel" data-tour="forecast-panel">
                       <div className="forecast-panel-header">
                         <div className="forecast-panel-toolbar">
                           <h4 className="forecast-panel-title">
@@ -2130,7 +2172,7 @@ function Dashboard({
                     </div>
                   )}
 
-                  <section className="env-chart-panel">
+                  <section className="env-chart-panel" data-tour="env-chart-panel">
                     <div className="env-chart-panel-header">
                       <h4 className="env-chart-panel-title">
                         Weather time series
@@ -2249,6 +2291,13 @@ function Dashboard({
         )}
         </main>
       </div>
+
+      <DashboardTour
+        key={tourNonce}
+        open={tourOpen}
+        onClose={() => setTourOpen(false)}
+        onPrepareStep={prepareTourStep}
+      />
     </div>
   );
 }

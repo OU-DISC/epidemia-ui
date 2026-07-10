@@ -25,15 +25,21 @@ function TopToolbar({
   onUseDefaultDataset,
   usingCustomProject = false,
   showDefaultDatasetButton = false,
+  onStartTour,
 }) {
   const diseases = ["Plasmodium falciparum malaria", "Plasmodium vivax malaria"];
   const countries = ["Ethiopia", "USA"];
 
   return (
-    <header className="top-toolbar fade-in-up">
+    <header className="top-toolbar fade-in-up" data-tour="toolbar">
       <strong className="brand-mark">EPIDEMIA</strong>
 
-      <div className="toolbar-cluster toolbar-cluster--context" role="group" aria-label="Analysis context">
+      <div
+        className="toolbar-cluster toolbar-cluster--context"
+        role="group"
+        aria-label="Analysis context"
+        data-tour="toolbar-context"
+      >
         <label className="toolbar-field">
           Disease:
           <select
@@ -123,6 +129,7 @@ function TopToolbar({
         className="toolbar-cluster toolbar-cluster--output toolbar-actions"
         role="group"
         aria-label="Report export"
+        data-tour="toolbar-actions"
       >
         <label className="toolbar-field">
           Report scope:
@@ -161,6 +168,17 @@ function TopToolbar({
         <button type="button" onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
           {exportLabel}
         </button>
+
+        {typeof onStartTour === "function" && (
+          <button
+            type="button"
+            className="toolbar-button ghost"
+            onClick={onStartTour}
+            title="Highlight each part of the dashboard with a short explanation"
+          >
+            Take a tour
+          </button>
+        )}
       </div>
     </header>
   );
