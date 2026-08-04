@@ -25,6 +25,13 @@ yarn-error.log*
 # Downloaded source rasters are large; derived JSON surfaces live in public/.
 /data/worldpop/*.tif
 
+# Local ML venv for synthetic generation
+.venv-synthetic/
+
+# Large synthetic generation artifacts (keep docs/scripts; regenerate locally)
+/data/synthetic_v2/outputs/*.csv
+/data/synthetic_v2/models/
+
 # Generated forecast caches (run backend/scripts/build_forecast_cache.py)
 /public/district_forecasts/
 /public/report_data.json

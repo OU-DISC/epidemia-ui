@@ -1,0 +1,42 @@
+{
+  "gap_woreda_count": 97,
+  "gap_features_with_geometry": 97,
+  "worldpop_dir": "C:\\Users\\bash0006\\EPIDEMIA\\frontend\\epidemia-ui\\data\\worldpop",
+  "worldpop_years": [
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "gap_pop_mean": 20385.47492244119,
+  "gap_pop_zero_count": 0,
+  "env_assign_methods": {
+    "centroid_in_old_polygon": 95,
+    "nearest_old_centroid": 2
+  },
+  "gap_env_rows": 182166,
+  "gap_panel_rows": 60722,
+  "train_rows_after": 354942,
+  "predict_rows_after": 359324,
+  "train_pcodes_after": 1134,
+  "predict_pcodes_after": 1148,
+  "env_method": "Proxy from containing/nearest OLD woreda env series (GEE Python API not installed; use Node/GEE later for direct zonal extract).",
+  "population_method": "WorldPop constrained 100m zonal sum via rasterio.mask",
+  "outputs": [
+    "gap_woredas_cod_ab_v04.csv",
+    "gap_worldpop_population_by_year.csv",
+    "gap_env_parent_assignments.csv",
+    "gap_env_long_from_parent.csv",
+    "gap_weekly_panel_filled.csv",
+    "train_panel_2014_2019_draft.csv",
+    "predict_drivers_2020_2025_draft.csv"
+  ]
+}

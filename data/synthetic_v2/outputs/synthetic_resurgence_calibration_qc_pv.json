@@ -1,0 +1,95 @@
+{
+  "species": "pv",
+  "method": {
+    "2020_2023": "scale synthetic national annual totals to remapped",
+    "2024": "target_2023 * 1.268",
+    "2025": "target_2024 * 1.1",
+    "within_year": "uniform scale per calendar year"
+  },
+  "scales": {
+    "2020": 1.5759440243671257,
+    "2021": 1.360265151773117,
+    "2022": 1.4166651475940473,
+    "2023": 1.4818996505736246,
+    "2024": 1.7899893455955518,
+    "2025": 1.86851064229119
+  },
+  "annual": [
+    {
+      "year": 2020,
+      "species": "pv",
+      "remapped": 422967.248659,
+      "synthetic_before": 268389.76646322,
+      "target": 422967.248659,
+      "scale": 1.5759440243671257,
+      "synthetic_after": 422967.2486589999,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2021,
+      "species": "pv",
+      "remapped": 393927.875262,
+      "synthetic_before": 289596.38843097,
+      "target": 393927.875262,
+      "scale": 1.360265151773117,
+      "synthetic_after": 393927.87526199996,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2022,
+      "species": "pv",
+      "remapped": 404589.072873,
+      "synthetic_before": 285592.59297098,
+      "target": 404589.072873,
+      "scale": 1.4166651475940473,
+      "synthetic_after": 404589.07287300006,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2023,
+      "species": "pv",
+      "remapped": 451772.506445,
+      "synthetic_before": 304860.39069523,
+      "target": 451772.506445,
+      "scale": 1.4818996505736246,
+      "synthetic_after": 451772.506445,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2024,
+      "species": "pv",
+      "remapped": 478556.278694,
+      "synthetic_before": 320028.46250555,
+      "target": 572847.53817226,
+      "scale": 1.7899893455955518,
+      "synthetic_after": 572847.53817226,
+      "method": "target_2023*1.268"
+    },
+    {
+      "year": 2025,
+      "species": "pv",
+      "remapped": 528747.415299,
+      "synthetic_before": 337237.7324096,
+      "target": 630132.2919894861,
+      "scale": 1.86851064229119,
+      "synthetic_after": 630132.2919894861,
+      "method": "target_2024*1.1"
+    }
+  ],
+  "yoy_calibrated": {
+    "2021": -0.06865631674572459,
+    "2022": 0.027063831428302487,
+    "2023": 0.11662063247766152,
+    "2024": 0.268,
+    "2025": 0.10000000000000009
+  },
+  "outputs": [
+    "synthetic_malaria_2020_2025_cod_ab_v04_pv.csv",
+    "synthetic_malaria_2020_2025_cod_ab_v04_pv_uncalibrated.csv",
+    "epi_data_synthetic_2020_2025_cod_ab_v04_pv.csv",
+    "epi_data_synthetic_2020_2025_cod_ab_v04_pv_uncalibrated.csv",
+    "synthetic_resurgence_calibration_annual_pv.csv",
+    "synthetic_resurgence_calibration_qc_pv.json",
+    "national_pv_annual_u_shape_series.csv"
+  ]
+}

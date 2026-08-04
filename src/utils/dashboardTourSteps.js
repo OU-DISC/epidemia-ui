@@ -74,7 +74,7 @@ export const DASHBOARD_TOUR_STEPS = [
     id: "forecast-chart",
     title: "Transmission forecast",
     body:
-      "Observed cases, the forecast line and uncertainty band, and seasonal thresholds appear here. Change the horizon (4 / 8 / 12 weeks) or switch between counts and incidence.",
+      "Observed cases, the forecast line and uncertainty band, and seasonal thresholds appear here. Change the horizon (4–26 weeks) or switch between counts and incidence.",
     target: '[data-tour="forecast-panel"]',
     panel: "charts",
     placement: "auto",

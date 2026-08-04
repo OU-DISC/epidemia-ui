@@ -1,0 +1,1394 @@
+status,adm3_pcode,old_adm3_name,new_adm3_name,name_changed,old_adm2_name,new_adm2_name,old_adm1_name,new_adm1_name,region_changed,old_area_km2,new_area_km2,area_delta_km2,area_pct_change,old_coord_points,new_coord_points,coord_points_delta,other_pcodes_same_name,in_old,in_new
+matched_pcode_name_changed,ET010103,Medebay Zana,Zana,yes,North Western,North Western,Tigray,Tigray,no,1041.96128,571.105537,-470.855742,-45.1894,1595,562,-1033,,yes,yes
+matched_pcode_name_changed,ET010105,Asgede Tsimbila,Asgede,yes,North Western,North Western,Tigray,Tigray,no,2368.154614,1605.738057,-762.416557,-32.1945,1568,2355,787,,yes,yes
+matched_pcode_name_changed,ET010107,Sheraro Town,Sheraro town,yes,North Western,North Western,Tigray,Tigray,no,26.568925,72.347913,45.778988,172.3027,54,548,494,,yes,yes
+matched_pcode_name_changed,ET010108,Shire,Shire Endaslasie town,yes,North Western,North Western,Tigray,Tigray,no,6.961398,14.630754,7.669356,110.1698,71,144,73,,yes,yes
+matched_pcode_name_changed,ET010201,Mereb Lehe,Chila,yes,Central,Central,Tigray,Tigray,no,1232.202369,590.527622,-641.674747,-52.0754,1629,1414,-215,,yes,yes
+matched_pcode_name_changed,ET010203,Werei Leke,Endaba Tsahma,yes,Central,Central,Tigray,Tigray,no,1268.55953,405.810042,-862.749489,-68.0102,1880,2000,120,,yes,yes
+matched_pcode_name_changed,ET010206,Tahtay Mayechew,Tahtay Maychew,yes,Central,Central,Tigray,Tigray,no,589.631031,333.037755,-256.593276,-43.5176,1642,1726,84,,yes,yes
+matched_pcode_name_changed,ET010207,Naeder Adet,Adet,yes,Central,Central,Tigray,Tigray,no,938.986507,644.664358,-294.322149,-31.3447,1327,1371,44,,yes,yes
+matched_pcode_name_changed,ET010208,Kola Temben,Kola Tembien,yes,Central,Central,Tigray,Tigray,no,1366.912533,718.018069,-648.894464,-47.4715,1884,2061,177,,yes,yes
+matched_pcode_name_changed,ET010210,Tanqua Abergele,Abergele (TG),yes,Central,Central,Tigray,Tigray,no,1445.808304,1126.832813,-318.975491,-22.0621,1384,1733,349,,yes,yes
+matched_pcode_name_changed,ET010211,Abi Adi Town,Abiy Adi town,yes,Central,Central,Tigray,Tigray,no,24.057481,19.713678,-4.343803,-18.0559,114,272,158,,yes,yes
+matched_pcode_name_changed,ET010212,Adwa Town,Adwa town,yes,Central,Central,Tigray,Tigray,no,11.483225,27.304569,15.821345,137.7779,137,220,83,,yes,yes
+matched_pcode_name_changed,ET010213,Axum Town,Axum town,yes,Central,Central,Tigray,Tigray,no,17.195787,18.132819,0.937033,5.4492,41,131,90,,yes,yes
+matched_pcode_name_changed,ET010303,Saesie Tsaedamba,Sebuha Saesie,yes,Eastern,Eastern,Tigray,Tigray,no,1050.931654,606.298465,-444.633189,-42.3085,1672,1723,51,,yes,yes
+matched_pcode_name_changed,ET010306,Kelete Awelallo,Kilte Awulaelo,yes,Eastern,Eastern,Tigray,Tigray,no,967.035196,494.161617,-472.873579,-48.8993,1450,2389,939,,yes,yes
+matched_pcode_name_changed,ET010307,Atsbi Wenberta,Atsbi,yes,Eastern,Eastern,Tigray,Tigray,no,1149.151492,603.528739,-545.622753,-47.4805,739,599,-140,,yes,yes
+matched_pcode_name_changed,ET010308,Adigrat Town,Adigrat town,yes,Eastern,Eastern,Tigray,Tigray,no,14.821464,19.325883,4.504419,30.3912,82,215,133,,yes,yes
+matched_pcode_name_changed,ET010309,Wukro Town,Wukro town,yes,Eastern,Eastern,Tigray,Tigray,no,8.033304,20.397876,12.364573,153.9164,65,162,97,,yes,yes
+matched_pcode_name_changed,ET010404,Alage,Emba Alaje,yes,Southern,Southern,Tigray,Tigray,no,792.182564,344.10256,-448.080004,-56.5627,1269,432,-837,,yes,yes
+matched_pcode_name_changed,ET010409,Maychew Town,Maichew town,yes,Southern,Southern,Tigray,Tigray,no,8.717766,16.208211,7.490445,85.9216,99,186,87,,yes,yes
+matched_pcode_name_changed,ET010601,Saharti Samre,Saharti,yes,South Eastern,South Eastern,Tigray,Tigray,no,1741.307675,627.446263,-1113.861412,-63.967,1743,2125,382,,yes,yes
+matched_pcode_name_changed,ET010603,Hintalo Wajirat,Hintalo,yes,South Eastern,South Eastern,Tigray,Tigray,no,1981.145322,935.777776,-1045.367546,-52.7658,2018,2686,668,,yes,yes
+matched_pcode_name_changed,ET010604,Dega Temben,Degua Temben,yes,South Eastern,South Eastern,Tigray,Tigray,no,1040.63851,437.128887,-603.509623,-57.9942,1285,2887,1602,,yes,yes
+matched_pcode_name_changed,ET020198,Logiya-Semera,Samera Logiya town,yes,Zone 1 (Awsi Rasu),Awsi /Zone 1,Afar,Afar,no,75.806469,75.80647,0.000001,0,105,109,4,,yes,yes
+matched_pcode_name_changed,ET020203,Aba 'Ala,Abaala,yes,Zone 2 (Kilbet Rasu),Kilbati /Zone 2,Afar,Afar,no,1152.062576,458.144265,-693.918311,-60.2327,548,280,-268,,yes,yes
+matched_pcode_name_changed,ET020302,Awash Fentale,Awash Fantale,yes,Zone 3 (Gabi Rasu),Gabi /Zone 3,Afar,Afar,no,1014.907567,957.430131,-57.477435,-5.6633,436,454,18,,yes,yes
+matched_pcode_name_changed,ET020305,Gelealo,Gala'alu,yes,Zone 3 (Gabi Rasu),Gabi /Zone 3,Afar,Afar,no,792.470277,1825.838878,1033.368601,130.3984,1020,557,-463,,yes,yes
+matched_pcode_name_changed,ET020306,Arguba Special,Arguba,yes,Zone 3 (Gabi Rasu),Gabi /Zone 3,Afar,Afar,no,365.064153,365.064174,0.000021,0,373,378,5,,yes,yes
+matched_pcode_name_changed,ET020396,Awash City,Awash town,yes,Zone 3 (Gabi Rasu),Gabi /Zone 3,Afar,Afar,no,11.778126,69.255637,57.477511,488.0022,56,57,1,,yes,yes
+matched_pcode_name_changed,ET020401,Awra,Awra (AF),yes,Zone 4  (Fantana Rasu),Fanti /Zone 4,Afar,Afar,no,2292.717158,2292.717158,0,0,1155,1155,0,,yes,yes
+matched_pcode_name_changed,ET020402,Ewa,Euwa,yes,Zone 4  (Fantana Rasu),Fanti /Zone 4,Afar,Afar,no,1444.344995,1444.344995,0,0,624,624,0,,yes,yes
+matched_pcode_name_changed,ET020501,Telalak,Telalek,yes,Zone 5 (Hari Rasu),Hari /Zone 5,Afar,Afar,no,1105.008397,1104.959724,-0.048673,-0.0044,755,774,19,,yes,yes
+matched_pcode_name_changed,ET020502,Samurobi Gele'alo,Samurobi,yes,Zone 5 (Hari Rasu),Hari /Zone 5,Afar,Afar,no,1444.975201,1444.975208,0.000007,0,1144,1258,114,,yes,yes
+matched_pcode_name_changed,ET020503,Dewe,Dawe,yes,Zone 5 (Hari Rasu),Hari /Zone 5,Afar,Afar,no,749.564834,749.564839,0.000006,0,546,564,18,,yes,yes
+matched_pcode_name_changed,ET020504,Dalifage,Dalefage,yes,Zone 5 (Hari Rasu),Hari /Zone 5,Afar,Afar,no,978.327292,978.313192,-0.0141,-0.0014,1085,1141,56,,yes,yes
+matched_pcode_name_changed,ET030198,Debark Town,Debark town,yes,North Gondar,North Gondar,Amhara,Amhara,no,5.658017,5.658017,0,0,86,86,0,,yes,yes
+matched_pcode_name_changed,ET030209,Dera (Amhara),Dera (AM),yes,South Gondar,South Gondar,Amhara,Amhara,no,1525.670512,1721.294651,195.624139,12.8222,1851,1572,-279,,yes,yes
+matched_pcode_name_changed,ET030210,Debre Tabor Town,Debre Tabor town,yes,South Gondar,South Gondar,Amhara,Amhara,no,110.934414,110.934414,0,0,487,487,0,,yes,yes
+matched_pcode_name_changed,ET030211,West Esite,Andabet /West Esite,yes,South Gondar,South Gondar,Amhara,Amhara,no,810.017161,810.017161,0,0,963,963,0,,yes,yes
+matched_pcode_name_changed,ET030293,Woreta Town,Woreta town,yes,South Gondar,South Gondar,Amhara,Amhara,no,5.841161,5.841161,0,0,50,50,0,,yes,yes
+matched_pcode_name_changed,ET030309,Woldiya Town,Woldiya town,yes,North Wello,North Wello,Amhara,Amhara,no,78.911401,78.911401,0,0,289,289,0,,yes,yes
+matched_pcode_name_changed,ET030398,Lalibela Town,Lalibela town,yes,North Wello,North Wello,Amhara,Amhara,no,7.823159,7.823159,0,0,99,99,0,,yes,yes
+matched_pcode_name_changed,ET030399,Kobo Town,Kobo town,yes,North Wello,North Wello,Amhara,Amhara,no,5.908738,5.908738,0,0,48,48,0,,yes,yes
+matched_pcode_name_changed,ET030417,Kombolcha Town,Kombolcha town,yes,South Wello,South Wello,Amhara,Amhara,no,132.239683,132.239683,0,0,386,386,0,,yes,yes
+matched_pcode_name_changed,ET030418,Dessie City Adm.,Dessie town,yes,South Wello,South Wello,Amhara,Amhara,no,199.040488,199.040488,0,0,623,623,0,,yes,yes
+matched_pcode_name_changed,ET030520,Debre Berhan Town,Debre Berhan town,yes,North Shewa,North Shewa (AM),Amhara,Amhara,no,146.378072,146.378072,0,0,522,522,0,,yes,yes
+matched_pcode_name_changed,ET030615,Debre Markos Town,Debre Markos town,yes,East Gojam,East Gojam,Amhara,Amhara,no,65.842098,65.842098,0,0,220,220,0,,yes,yes
+matched_pcode_name_changed,ET030694,Mota Town,Mota town,yes,East Gojam,East Gojam,Amhara,Amhara,no,6.595652,6.595652,0,0,93,93,0,,yes,yes
+matched_pcode_name_changed,ET030710,Bure (Amhara),Bure (AM),yes,West Gojam,West Gojam,Amhara,Amhara,no,796.747949,800.794377,4.046427,0.5079,1824,1803,-21,,yes,yes
+matched_pcode_name_changed,ET030714,Finote Selam Town,Finote Selam town,yes,West Gojam,West Gojam,Amhara,Amhara,no,42.698227,42.649033,-0.049195,-0.1152,205,189,-16,,yes,yes
+matched_pcode_name_changed,ET030798,Bure Town,Bure town,yes,West Gojam,West Gojam,Amhara,Amhara,no,12.445935,12.445935,0,0,113,113,0,,yes,yes
+matched_pcode_name_changed,ET030805,Abergele,Abergele (AM),yes,Wag Hamra,Wag Hamra,Amhara,Amhara,no,1575.208647,1575.208611,-0.000036,0,953,955,2,,yes,yes
+matched_pcode_name_changed,ET030807,Sekota Town,Sekota town,yes,Wag Hamra,Wag Hamra,Amhara,Amhara,no,100.911815,100.911815,0,0,339,339,0,,yes,yes
+matched_pcode_name_changed,ET030996,Injibara Town,Injibara town,yes,Awi,Awi,Amhara,Amhara,no,27.889247,27.889247,0,0,140,140,0,,yes,yes
+matched_pcode_name_changed,ET030997,Zigem,Zigem town,yes,Awi,Awi,Amhara,Amhara,no,2.796361,2.796361,0,0,53,53,0,,yes,yes
+matched_pcode_name_changed,ET030998,Dangila Town,Dangila town,yes,Awi,Awi,Amhara,Amhara,no,9.061182,9.061182,0,0,54,54,0,,yes,yes
+matched_pcode_name_changed,ET030999,Chagni Town,Chagni town,yes,Awi,Awi,Amhara,Amhara,no,17.320029,17.320029,0,0,150,150,0,,yes,yes
+matched_pcode_name_changed,ET031006,Kemisie Town,Kemisie town,yes,Oromia,Oromo Nationality Administration,Amhara,Amhara,no,3.753911,3.753911,0,0,47,47,0,,yes,yes
+matched_pcode_name_changed,ET031099,Bati Town,Bati town,yes,Oromia,Oromo Nationality Administration,Amhara,Amhara,no,3.636154,3.636154,0,0,61,61,0,,yes,yes
+matched_pcode_name_changed,ET031107,Tsegede (Amhara),Tegede,yes,Central Gondar,Central Gondar,Amhara,Amhara,no,1879.397547,1879.397542,-0.000005,0,931,933,2,,yes,yes
+matched_pcode_name_changed,ET031115,Alfa,Alefa,yes,Central Gondar,Central Gondar,Amhara,Amhara,no,1960.277341,2112.933232,152.655891,7.7875,1357,1325,-32,,yes,yes
+matched_pcode_name_changed,ET031118,Gonder City Adm.,Gondar town,yes,Central Gondar,Central Gondar,Amhara,Amhara,no,292.830073,292.397327,-0.432746,-0.1478,573,557,-16,,yes,yes
+matched_pcode_name_changed,ET031292,Gendawuha Town,Gendawuha town,yes,West Gondar,West Gondar,Amhara,Amhara,no,11.379054,11.379054,0,0,63,63,0,,yes,yes
+matched_pcode_name_changed,ET040193,Gimbi Town,Gimbi town,yes,West Wellega,West Wellega,Oromia,Oromia,no,30.025926,49.426056,19.400129,64.6113,205,344,139,,yes,yes
+matched_pcode_name_changed,ET040201,Limu (Oromia),Limu (OR),yes,East Wellega,East Wellega,Oromia,Oromia,no,1101.114552,1101.114552,0,0,1259,1259,0,,yes,yes
+matched_pcode_name_changed,ET040297,Nekemte Town,Nekemte town,yes,East Wellega,East Wellega,Oromia,Oromia,no,58.256114,81.900303,23.644189,40.5866,322,120,-202,,yes,yes
+matched_pcode_name_changed,ET040312,Bure (Oromia),Bure (OR),yes,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,1088.877144,1088.877144,0,0,654,654,0,,yes,yes
+matched_pcode_name_changed,ET040319,Halu (Huka),Halu /Huka,yes,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,376.599378,376.599378,0,0,647,647,0,,yes,yes
+matched_pcode_name_changed,ET040320,Metu Town,Metu town,yes,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,16.218055,59.427461,43.209407,266.4278,169,160,-9,,yes,yes
+matched_pcode_name_changed,ET040417,Agaro Town,Agaro town,yes,Jimma,Jimma,Oromia,Oromia,no,8.176467,30.871129,22.694663,277.5608,103,412,309,,yes,yes
+matched_pcode_name_changed,ET040511,Ejere (Addis Alem),Ejere /Addis Alem,yes,West Shewa,West Shewa,Oromia,Oromia,no,581.397276,582.643543,1.246267,0.2144,1525,1496,-29,,yes,yes
+matched_pcode_name_changed,ET040515,Ambo Town,Ambo town,yes,West Shewa,West Shewa,Oromia,Oromia,no,40.193693,87.379705,47.186012,117.3966,287,170,-117,,yes,yes
+matched_pcode_name_changed,ET040516,Abuna G/Beret,Abuna Ginde Beret,yes,West Shewa,West Shewa,Oromia,Oromia,no,1119.540093,1119.540093,0,0,1180,1180,0,,yes,yes
+matched_pcode_name_changed,ET040602,Dera (Oromia),Dera (OR),yes,North Shewa,North Shewa (OR),Oromia,Oromia,no,1539.384474,1539.384478,0.000004,0,683,683,0,,yes,yes
+matched_pcode_name_changed,ET040613,Fiche Town,Fiche town,yes,North Shewa,North Shewa (OR),Oromia,Oromia,no,13.322524,13.322524,0,0,102,102,0,,yes,yes
+matched_pcode_name_changed,ET040709,Bishoftu Town,Bishoftu town,yes,East Shewa,East Shewa,Oromia,Oromia,no,177.810913,511.97877,334.167857,187.9344,676,2095,1419,,yes,yes
+matched_pcode_name_changed,ET040710,Bora,Bora (OR),yes,East Shewa,East Shewa,Oromia,Oromia,no,494.453079,475.297208,-19.155871,-3.8742,652,640,-12,,yes,yes
+matched_pcode_name_changed,ET040714,Adama Town,Adama town,yes,East Shewa,East Shewa,Oromia,Oromia,no,109.608725,645.178475,535.569749,488.6196,357,15263,14906,,yes,yes
+matched_pcode_name_changed,ET040825,Asela Town,Asela town,yes,Arsi,Arsi,Oromia,Oromia,no,16.992478,16.992478,0,0,189,189,0,,yes,yes
+matched_pcode_name_changed,ET040903,Tulo (Oromia),Tulo (OR),yes,West Hararge,West Hararge,Oromia,Oromia,no,429.740988,429.740988,0,0,837,837,0,,yes,yes
+matched_pcode_name_changed,ET040904,Mesela,Mesela /Shen Duggoo,yes,West Hararge,West Hararge,Oromia,Oromia,no,653.958205,653.958205,0,0,857,857,0,,yes,yes
+matched_pcode_name_changed,ET040905,Chiro Town,Chiro town,yes,West Hararge,West Hararge,Oromia,Oromia,no,5.902821,5.902821,0,0,123,123,0,,yes,yes
+matched_pcode_name_changed,ET040911,Kuni,Kuni /Oda Bultum,yes,West Hararge,West Hararge,Oromia,Oromia,no,1373.563913,1373.563913,0,0,2792,2792,0,,yes,yes
+matched_pcode_name_changed,ET040914,Bedesa,Bedesa town,yes,West Hararge,West Hararge,Oromia,Oromia,no,3.019942,3.019942,0,0,79,79,0,,yes,yes
+matched_pcode_name_changed,ET041002,Jarso (East Hararghe),Jarso (East Hararge),yes,East Hararge,East Hararge,Oromia,Oromia,no,576.902881,566.759866,-10.143014,-1.7582,992,1026,34,,yes,yes
+matched_pcode_name_changed,ET041003,Gursum (Oromia),Gursum (OR),yes,East Hararge,East Hararge,Oromia,Oromia,no,907.554791,907.554793,0.000002,0,891,892,1,,yes,yes
+matched_pcode_name_changed,ET041097,Deder Town,Deder town,yes,East Hararge,East Hararge,Oromia,Oromia,no,3.017983,3.017983,0,0,54,54,0,,yes,yes
+matched_pcode_name_changed,ET041110,Goba,Goba (OR),yes,Bale,Bale,Oromia,Oromia,no,1468.725156,1468.725156,0,0,1545,1545,0,,yes,yes
+matched_pcode_name_changed,ET041119,Robe Town,Robe town,yes,Bale,Bale,Oromia,Oromia,no,54.935126,54.935126,0,0,146,146,0,,yes,yes
+matched_pcode_name_changed,ET041120,Goba Town,Goba town,yes,Bale,Bale,Oromia,Oromia,no,42.801788,42.801788,0,0,197,197,0,,yes,yes
+matched_pcode_name_changed,ET041210,Moyale (Oromia),Moyale (OR),yes,Borena,Borena,Oromia,Oromia,no,2677.968284,1722.854062,-955.114222,-35.6656,493,152,-341,,yes,yes
+matched_pcode_name_changed,ET041311,Woliso Town,Woliso town,yes,South West Shewa,South West Shewa,Oromia,Oromia,no,12.933976,25.260339,12.326363,95.3022,112,36,-76,,yes,yes
+matched_pcode_name_changed,ET041408,Afele Kola (Dima),Dama,yes,Guji,Guji,Oromia,Oromia,no,357.117549,357.117549,0,0,610,610,0,,yes,yes
+matched_pcode_name_changed,ET041410,Girja (Harenfema),Girja /Harenfema,yes,Guji,Guji,Oromia,Oromia,no,904.381705,904.381705,0,0,1236,1237,1,,yes,yes
+matched_pcode_name_changed,ET041492,Adola Town,Adola town,yes,Guji,Guji,Oromia,Oromia,no,27.392678,27.392678,0,0,106,106,0,,yes,yes
+matched_pcode_name_changed,ET041499,Shakiso Town,Shakiso town,yes,Guji,Guji,Oromia,Oromia,no,15.599568,15.599568,0,0,91,91,0,,yes,yes
+matched_pcode_name_changed,ET041587,Bule Hora Town,Bule Hora town,yes,West Guji,West Guji,Oromia,Oromia,no,12.529234,48.334629,35.805395,285.7748,94,71,-23,,yes,yes
+matched_pcode_name_changed,ET041621,Bedele Town,Bedele town,yes,Buno Bedele,Buno Bedele,Oromia,Oromia,no,8.511124,8.511124,0,0,96,96,0,,yes,yes
+matched_pcode_name_changed,ET041622,Badele Zuria,Bedele Zuria,yes,Buno Bedele,Buno Bedele,Oromia,Oromia,no,743.985662,743.985662,0,0,949,949,0,,yes,yes
+matched_pcode_name_changed,ET041709,Nenesebo (Wereka),Nenesebo,yes,West Arsi,West Arsi,Oromia,Oromia,no,1638.620844,1638.620858,0.000014,0,1395,1397,2,,yes,yes
+matched_pcode_name_changed,ET041711,Shashemene Town,Shashemene town,yes,West Arsi,West Arsi,Oromia,Oromia,no,10.750927,473.249512,462.498585,4301.9414,92,1063,971,,yes,yes
+matched_pcode_name_changed,ET041712,Shashemene Zuria,Shashemene,yes,West Arsi,West Arsi,Oromia,Oromia,no,702.413271,379.936813,-322.476458,-45.9098,1686,1949,263,,yes,yes
+matched_pcode_name_changed,ET041806,Denbi Dollo Town,Denbi Dollo town,yes,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,16.751201,16.751201,0,0,125,125,0,,yes,yes
+matched_pcode_name_changed,ET041902,Shambu Town,Shambu town,yes,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,5.131269,5.131269,0,0,61,61,0,,yes,yes
+matched_pcode_name_changed,ET042006,Sebeta Hawas,Gefersa Guje,yes,Finfine Special,Shager City,Oromia,Oromia,no,750.19518,171.441408,-578.753772,-77.1471,1762,447,-1315,,yes,yes
+matched_pcode_name_changed,ET042011,Bereh,Sebeta,yes,Finfine Special,Shager City,Oromia,Oromia,no,705.215039,215.176663,-490.038376,-69.4878,1359,563,-796,,yes,yes
+matched_pcode_name_changed,ET042012,Akaki,Sululta,yes,Finfine Special,Shager City,Oromia,Oromia,no,543.975945,148.087828,-395.888116,-72.7768,1540,776,-764,,yes,yes
+matched_pcode_name_changed,ET050104,Erer (Somali),Erer (SM),yes,Siti,Siti,Somali,Somali,no,3055.499384,4134.560988,1079.061603,35.3154,177,83,-94,,yes,yes
+matched_pcode_name_changed,ET050198,Gota-biki,Gota-Biki,yes,Siti,Siti,Somali,Somali,no,1052.517559,1134.780572,82.263013,7.8158,38,69,31,,yes,yes
+matched_pcode_name_changed,ET050202,Gursum (Somali),Gursum (SM),yes,Fafan,Fafan,Somali,Somali,no,326.764645,200.536951,-126.227694,-38.6295,33,35,2,,yes,yes
+matched_pcode_name_changed,ET050293,Jigjiga City,Jigjiga town,yes,Fafan,Fafan,Somali,Somali,no,80.411692,250.406218,169.994526,211.4052,460,74,-386,,yes,yes
+matched_pcode_name_changed,ET050307,Degahabur City,Degahabur town,yes,Jarar,Jarar,Somali,Somali,no,7.766677,242.251741,234.485064,3019.117,19,28,9,,yes,yes
+matched_pcode_name_changed,ET050501,Shekosh,Shaygosh,yes,Korahe,Korahe,Somali,Somali,no,1441.128713,1731.605716,290.477003,20.1562,33,31,-2,,yes,yes
+matched_pcode_name_changed,ET050592,Kebridehar City,Kebridehar town,yes,Korahe,Korahe,Somali,Somali,no,11.255066,115.271432,104.016365,924.1737,159,24,-135,,yes,yes
+matched_pcode_name_changed,ET050696,Godey City,Godey town,yes,Shabelle,Shabelle,Somali,Somali,no,29.089077,78.177302,49.088225,168.7514,68,31,-37,,yes,yes
+matched_pcode_name_changed,ET050699,Aba-korow,Aba-Korow,yes,Shabelle,Shabelle,Somali,Somali,no,1172.446515,2163.178543,990.732029,84.5013,79,142,63,,yes,yes
+matched_pcode_name_changed,ET050802,Charati/Weyib,Charati,yes,Afder,Afder,Somali,Somali,no,9046.011248,8480.244215,-565.767033,-6.2543,114,241,127,,yes,yes
+matched_pcode_name_changed,ET050804,Elkare/Serer,Elkare /Serer,yes,Afder,Afder,Somali,Somali,no,8418.301099,6714.242495,-1704.058604,-20.2423,206,57,-149,,yes,yes
+matched_pcode_name_changed,ET050898,Kohle/Qoxle,Kohle /Qoxle,yes,Afder,Afder,Somali,Somali,no,2592.503363,2821.737028,229.233665,8.8422,19,50,31,,yes,yes
+matched_pcode_name_changed,ET050899,God-god,God-God,yes,Afder,Afder,Somali,Somali,no,2341.312044,1592.413076,-748.898968,-31.9863,31,33,2,,yes,yes
+matched_pcode_name_changed,ET050991,Deka suftu,Deka Suftu,yes,Liban,Liban,Somali,Somali,no,3666.315175,4092.216922,425.901747,11.6166,153,140,-13,,yes,yes
+matched_pcode_name_changed,ET051103,Moyale (Somali),Moyale (SM),yes,Daawa,Daawa,Somali,Somali,no,1767.72781,1399.936649,-367.791161,-20.8059,29,59,30,,yes,yes
+matched_pcode_name_changed,ET060201,Dangura,Dangur,yes,Metekel,Metekel,Benishangul Gumz,Benishangul-Gumuz,yes,4757.773693,4757.77369,-0.000003,0,1823,1823,0,,yes,yes
+matched_pcode_name_changed,ET060203,Wenbera,Wembera,yes,Metekel,Metekel,Benishangul Gumz,Benishangul-Gumuz,yes,7154.637914,7154.637914,0,0,2214,2214,0,,yes,yes
+matched_pcode_name_changed,ET060205,Debati,Dibate,yes,Metekel,Metekel,Benishangul Gumz,Benishangul-Gumuz,yes,2164.663967,2164.663959,-0.000008,0,1389,1389,0,,yes,yes
+matched_pcode_name_changed,ET060303,Assosa,Abrahmo,yes,Asosa,Assosa,Benishangul Gumz,Benishangul-Gumuz,yes,2920.824276,2069.775976,-851.0483,-29.1373,2049,1898,-151,,yes,yes
+matched_pcode_name_changed,ET060306,Oda Bilidigilu,Bilidigilu,yes,Asosa,Assosa,Benishangul Gumz,Benishangul-Gumuz,yes,1705.048266,1705.048266,0,0,1066,1069,3,,yes,yes
+matched_pcode_name_changed,ET060401,Yaso,Zayi,yes,Kemashi,Kamashi,Benishangul Gumz,Benishangul-Gumuz,yes,2628.488074,2628.488072,-0.000002,0,1032,1034,2,,yes,yes
+matched_pcode_name_changed,ET060402,Sodal/Sirba Abay,Sedal,yes,Kemashi,Kamashi,Benishangul Gumz,Benishangul-Gumuz,yes,2455.781535,2455.781535,0,0,1583,1583,0,,yes,yes
+matched_pcode_name_changed,ET060404,Agalometi,Dembe,yes,Kemashi,Kamashi,Benishangul Gumz,Benishangul-Gumuz,yes,1800.173276,1800.173276,0,0,1059,1059,0,,yes,yes
+matched_pcode_name_changed,ET060405,Belojiganfo,Mezniga,yes,Kemashi,Kamashi,Benishangul Gumz,Benishangul-Gumuz,yes,1702.720225,1683.608401,-19.111824,-1.1224,649,638,-11,,yes,yes
+matched_pcode_name_changed,ET060508,Maokomo Special,Mao-komo Special,yes,Mao Komo Special,Mao-komo Special,Benishangul Gumz,Benishangul-Gumuz,yes,3181.382611,3181.382611,0,0,374,374,0,,yes,yes
+matched_pcode_name_changed,ET070104,Kokir Gedbano,Gedebano Gutazer Welene,yes,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,483.519823,483.519822,-0.000001,0,435,436,1,,yes,yes
+matched_pcode_name_changed,ET070111,Enemorina Eaner,Enemor Ener,yes,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,908.586022,574.321098,-334.264923,-36.7896,1474,1284,-190,,yes,yes
+matched_pcode_name_changed,ET070114,Welkite Town,Welkite town,yes,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,10.299545,10.299545,0,0,172,172,0,,yes,yes
+matched_pcode_name_changed,ET070202,Gibe,Gombora,yes,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,462.667896,462.667896,0,0,350,351,1,,yes,yes
+matched_pcode_name_changed,ET070203,Limu (SNNP),Lemmo,yes,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,354.513682,354.513682,0,0,607,607,0,,yes,yes
+matched_pcode_name_changed,ET070207,Dune,Duna,yes,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,222.530518,222.530518,0,0,459,460,1,,yes,yes
+matched_pcode_name_changed,ET070210,Gembora,Gibe,yes,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,447.951916,447.951916,0,0,347,350,3,,yes,yes
+matched_pcode_name_changed,ET070211,Hosaena Town,Hosaena town,yes,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,40.485836,40.485836,0,0,64,64,0,,yes,yes
+matched_pcode_name_changed,ET070302,Anigacha,Angacha,yes,Kembata Tibaro,Kembata,SNNP,Central Ethiopia,yes,153.138687,153.138687,0,0,417,417,0,,yes,yes
+matched_pcode_name_changed,ET070306,Doya Gena,Doyogena,yes,Kembata Tibaro,Kembata,SNNP,Central Ethiopia,yes,130.620521,130.620521,0,0,497,497,0,,yes,yes
+matched_pcode_name_changed,ET070308,Durame Town,Durame town,yes,Kembata Tibaro,Kembata,SNNP,Central Ethiopia,yes,13.588839,13.588839,0,0,147,147,0,,yes,yes
+matched_pcode_name_changed,ET070401,Shebe Dino,Butajira town,yes,Sidama,East Guraghe,SNNP,Central Ethiopia,yes,197.211421,16.137438,-181.073983,-91.8172,871,153,-718,,yes,yes
+matched_pcode_name_changed,ET070402,Hawassa Zuria,Bui town,yes,Sidama,East Guraghe,SNNP,Central Ethiopia,yes,544.219777,3.512667,-540.70711,-99.3545,1364,47,-1317,,yes,yes
+matched_pcode_name_changed,ET070403,Arbe Gonna,Sodo,yes,Sidama,East Guraghe,SNNP,Central Ethiopia,yes,326.537614,553.542254,227.00464,69.5187,764,191,-573,,yes,yes
+matched_pcode_name_changed,ET070404,Dale,Meskan,yes,Sidama,East Guraghe,SNNP,Central Ethiopia,yes,263.400862,331.058912,67.65805,25.6863,1247,1145,-102,,yes,yes
+matched_pcode_name_changed,ET070405,Aleta Wendo,Misrak Meskan,yes,Sidama,East Guraghe,SNNP,Central Ethiopia,yes,225.414071,108.322712,-117.09136,-51.945,759,657,-102,,yes,yes
+matched_pcode_name_changed,ET070406,Dara,Debub Sodo,yes,Sidama,East Guraghe,SNNP,Central Ethiopia,yes,247.740865,277.257583,29.516718,11.9144,752,678,-74,,yes,yes
+matched_pcode_name_changed,ET072002,Silti,Siltie,yes,Siltie,Siltie,SNNP,Central Ethiopia,yes,499.477695,337.111757,-162.365938,-32.5071,1070,1042,-28,,yes,yes
+matched_pcode_name_changed,ET072008,Wilbareg,Wulbareg,yes,Siltie,Siltie,SNNP,Central Ethiopia,yes,448.000088,397.995283,-50.004805,-11.1618,965,750,-215,,yes,yes
+matched_pcode_name_changed,ET120205,Dima,Dima (GM),yes,Agnewak,Agnewak,Gambela,Gambela,no,8524.965402,8524.968323,0.002921,0,569,570,1,,yes,yes
+matched_pcode_name_changed,ET120206,Gambella Town,Gambela town,yes,Agnewak,Agnewak,Gambela,Gambela,no,15.497291,15.497291,0,0,74,74,0,,yes,yes
+matched_pcode_name_changed,ET130105,Erer (Harari),Erer (HR),yes,Harari,Harari,Harari,Harari,no,98.831136,98.831136,0,0,214,214,0,,yes,yes
+matched_pcode_name_changed,ET140101,Akaki - Kalit,Akaki Kality Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,126.911669,125.924477,-0.987192,-0.7779,624,1053,429,,yes,yes
+matched_pcode_name_changed,ET140102,Nefas Silk,Nifas Silk Lafto Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,60.426056,51.308283,-9.117773,-15.0891,1230,2546,1316,,yes,yes
+matched_pcode_name_changed,ET140103,Kolfe - Keran,Kolfe Keraniyo Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,68.48795,51.120912,-17.367037,-25.3578,1208,899,-309,,yes,yes
+matched_pcode_name_changed,ET140104,Bole,Bole Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,126.730325,65.604193,-61.126132,-48.2332,1189,3132,1943,,yes,yes
+matched_pcode_name_changed,ET140105,Lideta,Lideta Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,9.18232,15.020711,5.838391,63.583,1043,3464,2421,,yes,yes
+matched_pcode_name_changed,ET140106,Kirkos,Kirkos Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,14.632915,14.770972,0.138057,0.9435,853,1246,393,,yes,yes
+matched_pcode_name_changed,ET140107,Yeka,Yeka Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,85.404974,58.353559,-27.051415,-31.6743,1151,4524,3373,,yes,yes
+matched_pcode_name_changed,ET140108,Addis Ketema,Addis Ketema Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,7.413569,21.129307,13.715738,185.0086,882,2338,1456,,yes,yes
+matched_pcode_name_changed,ET140109,Arada,Arada Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,9.921982,9.935322,0.013341,0.1345,989,2525,1536,,yes,yes
+matched_pcode_name_changed,ET140110,Gulele,Gulele Sub City,yes,Region 14,Region 14,Addis Ababa,Addis Ababa,no,30.514619,37.130686,6.616067,21.6816,897,2905,2008,,yes,yes
+matched_pcode_name_changed,ET150104,Malka Jabti (M/jebdu),Malka Jabti /M.Jebdu,yes,Dire Dawa urban,Dire Dawa urban,Dire Dawa,Dire Dawa,no,22.002607,22.002607,0,0,80,80,0,,yes,yes
+matched_pcode_name_changed,ET150109,Addis Ketema (Dire Dawa),Addis Ketema (DD),yes,Dire Dawa urban,Dire Dawa urban,Dire Dawa,Dire Dawa,no,11.035522,11.035522,0,0,77,77,0,,yes,yes
+matched_name_same_admin_changed,ET020102,Elidar,Elidar,no,Zone 1 (Awsi Rasu),Awsi /Zone 1,Afar,Afar,no,10900.34352,11440.48423,540.140705,4.9553,452,287,-165,,yes,yes
+matched_name_same_admin_changed,ET020103,Asayita,Asayita,no,Zone 1 (Awsi Rasu),Awsi /Zone 1,Afar,Afar,no,1677.244506,1068.323746,-608.920759,-36.3048,939,563,-376,,yes,yes
+matched_name_same_admin_changed,ET020104,Afambo,Afambo,no,Zone 1 (Awsi Rasu),Awsi /Zone 1,Afar,Afar,no,1709.915374,2037.359537,327.444162,19.1497,461,107,-354,,yes,yes
+matched_name_same_admin_changed,ET020105,Mile,Mile,no,Zone 1 (Awsi Rasu),Awsi /Zone 1,Afar,Afar,no,4067.774325,2221.207308,-1846.567017,-45.395,569,881,312,,yes,yes
+matched_name_same_admin_changed,ET020106,Chifra,Chifra,no,Zone 1 (Awsi Rasu),Awsi /Zone 1,Afar,Afar,no,1486.317013,1484.026734,-2.290279,-0.1541,665,693,28,,yes,yes
+matched_name_same_admin_changed,ET020201,Erebti,Erebti,no,Zone 2 (Kilbet Rasu),Kilbati /Zone 2,Afar,Afar,no,2613.390715,2613.390715,0,0,829,832,3,,yes,yes
+matched_name_same_admin_changed,ET020202,Kunneba,Kunneba,no,Zone 2 (Kilbet Rasu),Kilbati /Zone 2,Afar,Afar,no,349.3703,349.3703,0,0,221,222,1,,yes,yes
+matched_name_same_admin_changed,ET020204,Megale,Megale,no,Zone 2 (Kilbet Rasu),Kilbati /Zone 2,Afar,Afar,no,1128.594047,1128.59405,0.000002,0,314,318,4,,yes,yes
+matched_name_same_admin_changed,ET020205,Berahile,Berahile,no,Zone 2 (Kilbet Rasu),Kilbati /Zone 2,Afar,Afar,no,2915.758636,2915.758637,0.000001,0,829,830,1,,yes,yes
+matched_name_same_admin_changed,ET020206,Dalol,Dalol,no,Zone 2 (Kilbet Rasu),Kilbati /Zone 2,Afar,Afar,no,2232.234348,2232.234337,-0.000012,0,353,357,4,,yes,yes
+matched_name_same_admin_changed,ET020207,Afdera,Afdera,no,Zone 2 (Kilbet Rasu),Kilbati /Zone 2,Afar,Afar,no,12493.85756,12493.85756,0,0,591,591,0,,yes,yes
+matched_name_same_admin_changed,ET020301,Amibara,Amibara,no,Zone 3 (Gabi Rasu),Gabi /Zone 3,Afar,Afar,no,3469.547354,824.275328,-2645.272026,-76.2426,1417,752,-665,,yes,yes
+matched_name_same_admin_changed,ET020303,Gewane,Gewane,no,Zone 3 (Gabi Rasu),Gabi /Zone 3,Afar,Afar,no,8659.701639,455.711003,-8203.990637,-94.7376,2236,758,-1478,,yes,yes
+matched_name_same_admin_changed,ET020304,Dulecha,Dulecha,no,Zone 3 (Gabi Rasu),Gabi /Zone 3,Afar,Afar,no,1485.106275,1485.201532,0.095257,0.0064,1231,1362,131,,yes,yes
+matched_name_same_admin_changed,ET020403,Teru,Teru,no,Zone 4  (Fantana Rasu),Fanti /Zone 4,Afar,Afar,no,5793.83494,3015.221177,-2778.613763,-47.9581,899,729,-170,,yes,yes
+matched_name_same_admin_changed,ET020404,Yalo,Yalo,no,Zone 4  (Fantana Rasu),Fanti /Zone 4,Afar,Afar,no,764.175372,764.175372,0,0,247,247,0,,yes,yes
+matched_name_same_admin_changed,ET020405,Gulina,Gulina,no,Zone 4  (Fantana Rasu),Fanti /Zone 4,Afar,Afar,no,846.917941,846.917946,0.000004,0,511,513,2,,yes,yes
+matched_name_same_admin_changed,ET020505,Hadelela,Hadelela,no,Zone 5 (Hari Rasu),Hari /Zone 5,Afar,Afar,no,1257.344061,1257.344068,0.000007,0,760,789,29,,yes,yes
+matched_name_same_admin_changed,ET030501,Mida Woremo,Mida Woremo,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,848.024759,848.024761,0.000001,0,840,840,0,,yes,yes
+matched_name_same_admin_changed,ET030503,Ensaro,Ensaro,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,451.672263,451.672264,0.000001,0,458,458,0,,yes,yes
+matched_name_same_admin_changed,ET030504,Moretna Jiru,Moretna Jiru,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,662.449918,660.891771,-1.558147,-0.2352,840,922,82,,yes,yes
+matched_name_same_admin_changed,ET030506,Gishe Rabel,Gishe Rabel,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,659.235547,659.235547,0,0,1041,1041,0,,yes,yes
+matched_name_same_admin_changed,ET030507,Antsokiya,Antsokiya,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,372.404346,372.404346,0,0,860,860,0,,yes,yes
+matched_name_same_admin_changed,ET030509,Menze Mama Midir,Menze Mama Midir,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,650.859581,649.463211,-1.396369,-0.2145,812,848,36,,yes,yes
+matched_name_same_admin_changed,ET030510,Tarema Ber,Tarema Ber,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,565.595474,560.645962,-4.949512,-0.8751,1204,1281,77,,yes,yes
+matched_name_same_admin_changed,ET030511,Mojan Wedera,Mojan Wedera,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,618.653035,618.653035,0,0,945,945,0,,yes,yes
+matched_name_same_admin_changed,ET030512,Kewet,Kewet,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,756.625971,756.625981,0.00001,0,1012,1008,-4,,yes,yes
+matched_name_same_admin_changed,ET030513,Angolelana Tera,Angolelana Tera,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,807.536558,807.536556,-0.000003,0,1708,1711,3,,yes,yes
+matched_name_same_admin_changed,ET030514,Assagirt,Assagirt,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,499.936871,499.936871,0,0,1201,1201,0,,yes,yes
+matched_name_same_admin_changed,ET030515,Ankober,Ankober,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,707.998514,707.998498,-0.000016,0,829,835,6,,yes,yes
+matched_name_same_admin_changed,ET030516,Hagere Mariam,Hagere Mariam,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,714.943723,646.91787,-68.025853,-9.5149,732,783,51,,yes,yes
+matched_name_same_admin_changed,ET030517,Berehet,Berehet,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,772.294236,772.294247,0.00001,0,655,657,2,,yes,yes
+matched_name_same_admin_changed,ET030518,Minjar Shenkora,Minjar Shenkora,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,1726.299249,1724.38377,-1.915479,-0.111,483,543,60,,yes,yes
+matched_name_same_admin_changed,ET030519,Basona Worena,Basona Worena,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,1215.284262,1215.284264,0.000002,0,2584,2584,0,,yes,yes
+matched_name_same_admin_changed,ET030521,Menze Keya Gabriel,Menze Keya Gabriel,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,544.814592,544.814592,0,0,685,685,0,,yes,yes
+matched_name_same_admin_changed,ET030522,Menze Lalo Midir,Menze Lalo Midir,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,381.923293,381.923293,0,0,481,481,0,,yes,yes
+matched_name_same_admin_changed,ET030523,Siya Debirna Wayu,Siya Debirna Wayu,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,463.718702,463.718702,0,0,719,719,0,,yes,yes
+matched_name_same_admin_changed,ET030595,Shoa Robit,Shoa Robit,no,North Shewa,North Shewa (AM),Amhara,Amhara,no,9.930581,9.93058,-0.000001,0,99,99,0,,yes,yes
+matched_name_same_admin_changed,ET031001,Dewa Cheffa,Dewa Cheffa,no,Oromia,Oromo Nationality Administration,Amhara,Amhara,no,652.772904,652.772904,0,0,1201,1201,0,,yes,yes
+matched_name_same_admin_changed,ET031002,Bati,Bati,no,Oromia,Oromo Nationality Administration,Amhara,Amhara,no,1212.116096,1212.11609,-0.000006,0,928,928,0,,yes,yes
+matched_name_same_admin_changed,ET031003,Jilye Tumuga,Jilye Tumuga,no,Oromia,Oromo Nationality Administration,Amhara,Amhara,no,890.279543,889.117499,-1.162044,-0.1305,407,437,30,,yes,yes
+matched_name_same_admin_changed,ET031004,Artuma Fursi,Artuma Fursi,no,Oromia,Oromo Nationality Administration,Amhara,Amhara,no,613.148243,611.550505,-1.597738,-0.2606,789,851,62,,yes,yes
+matched_name_same_admin_changed,ET031005,Dewa Harewa,Dewa Harewa,no,Oromia,Oromo Nationality Administration,Amhara,Amhara,no,439.024832,439.024826,-0.000006,0,566,566,0,,yes,yes
+matched_name_same_admin_changed,ET040601,Wara Jarso,Wara Jarso,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,1175.172319,1175.172318,-0.000002,0,925,925,0,,yes,yes
+matched_name_same_admin_changed,ET040603,Hidabu Abote,Hidabu Abote,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,503.692239,508.384134,4.691895,0.9315,1837,1766,-71,,yes,yes
+matched_name_same_admin_changed,ET040604,Kuyu,Kuyu,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,947.278896,923.915578,-23.363319,-2.4664,1271,1218,-53,,yes,yes
+matched_name_same_admin_changed,ET040605,Degem,Degem,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,642.581424,642.581424,0,0,1485,1485,0,,yes,yes
+matched_name_same_admin_changed,ET040606,Gerar Jarso,Gerar Jarso,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,473.150519,473.150517,-0.000002,0,860,860,0,,yes,yes
+matched_name_same_admin_changed,ET040607,Debre Libanos,Debre Libanos,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,283.15909,283.15909,0,0,673,673,0,,yes,yes
+matched_name_same_admin_changed,ET040608,Wuchale,Wuchale,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,893.478411,893.816668,0.338257,0.0379,1679,1645,-34,,yes,yes
+matched_name_same_admin_changed,ET040609,Abichugna Gne'a,Abichugna Gne'a,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,676.481926,676.481925,-0.000002,0,989,989,0,,yes,yes
+matched_name_same_admin_changed,ET040610,Kimbibit,Kimbibit,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,634.414786,616.229107,-18.185679,-2.8665,1243,1262,19,,yes,yes
+matched_name_same_admin_changed,ET040614,Yaya Gulele,Yaya Gulele,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,340.82687,340.82687,0,0,745,745,0,,yes,yes
+matched_name_same_admin_changed,ET040615,Jida,Jida,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,487.719448,487.38119,-0.338258,-0.0694,1370,1336,-34,,yes,yes
+matched_name_same_admin_changed,ET040617,Aleltu,Aleltu,no,North Shewa,North Shewa (OR),Oromia,Oromia,no,492.581012,424.954411,-67.626601,-13.729,895,1231,336,,yes,yes
+matched_name_same_admin_changed,ET042001,Burayu,Burayu,no,Finfine Special,Shager City,Oromia,Oromia,no,84.344326,24.903151,-59.441174,-70.4744,263,268,5,,yes,yes
+matched_name_same_admin_changed,ET060202,Guba,Guba,no,Metekel,Metekel,Benishangul Gumz,Benishangul-Gumuz,yes,6762.224873,6762.224859,-0.000014,0,1267,1267,0,,yes,yes
+matched_name_same_admin_changed,ET060204,Mandura,Mandura,no,Metekel,Metekel,Benishangul Gumz,Benishangul-Gumuz,yes,1028.037495,1023.990201,-4.047295,-0.3937,1200,1225,25,,yes,yes
+matched_name_same_admin_changed,ET060206,Pawe,Pawe,no,Metekel,Metekel,Benishangul Gumz,Benishangul-Gumuz,yes,653.886197,653.886197,0,0,763,767,4,,yes,yes
+matched_name_same_admin_changed,ET060207,Bulen,Bulen,no,Metekel,Metekel,Benishangul Gumz,Benishangul-Gumuz,yes,2957.721259,2957.721259,0,0,2153,2153,0,,yes,yes
+matched_name_same_admin_changed,ET060301,Menge,Menge,no,Asosa,Assosa,Benishangul Gumz,Benishangul-Gumuz,yes,1541.133461,1078.966511,-462.166949,-29.9888,1478,1177,-301,,yes,yes
+matched_name_same_admin_changed,ET060302,Kurmuk,Kurmuk,no,Asosa,Assosa,Benishangul Gumz,Benishangul-Gumuz,yes,1256.697098,1256.697098,0,0,522,522,0,,yes,yes
+matched_name_same_admin_changed,ET060304,Sherkole,Sherkole,no,Asosa,Assosa,Benishangul Gumz,Benishangul-Gumuz,yes,1860.258258,1860.258258,0,0,772,772,0,,yes,yes
+matched_name_same_admin_changed,ET060305,Bambasi,Bambasi,no,Asosa,Assosa,Benishangul Gumz,Benishangul-Gumuz,yes,1488.263071,1483.555272,-4.707799,-0.3163,1250,1329,79,,yes,yes
+matched_name_same_admin_changed,ET060307,Homosha,Homosha,no,Asosa,Assosa,Benishangul Gumz,Benishangul-Gumuz,yes,704.875821,704.875821,0,0,876,878,2,,yes,yes
+matched_name_same_admin_changed,ET060403,Kamashi,Kamashi,no,Kemashi,Kamashi,Benishangul Gumz,Benishangul-Gumuz,yes,1512.458202,1484.52025,-27.937952,-1.8472,989,1090,101,,yes,yes
+matched_name_same_admin_changed,ET070102,Abeshege,Abeshege,no,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,522.211365,522.211353,-0.000012,0,963,964,1,,yes,yes
+matched_name_same_admin_changed,ET070103,Ezha,Ezha,no,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,334.610822,334.610822,0,0,1048,1048,0,,yes,yes
+matched_name_same_admin_changed,ET070108,Endiguagn,Endiguagn,no,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,151.21744,151.217482,0.000042,0,859,855,-4,,yes,yes
+matched_name_same_admin_changed,ET070110,Cheha,Cheha,no,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,567.141767,559.840249,-7.301517,-1.2874,1797,1933,136,,yes,yes
+matched_name_same_admin_changed,ET070112,Muhur Na Aklil,Muhur Na Aklil,no,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,473.174169,473.174169,0,0,964,964,0,,yes,yes
+matched_name_same_admin_changed,ET070113,Geta,Geta,no,Guraghe,Guraghe,SNNP,Central Ethiopia,yes,202.103411,200.234398,-1.869013,-0.9248,899,733,-166,,yes,yes
+matched_name_same_admin_changed,ET070201,Misha,Misha,no,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,363.104171,175.045806,-188.058365,-51.7918,756,259,-497,,yes,yes
+matched_name_same_admin_changed,ET070204,Shashogo,Shashogo,no,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,355.808851,355.808851,0,0,391,391,0,,yes,yes
+matched_name_same_admin_changed,ET070206,Soro,Soro,no,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,731.062702,499.340514,-231.722188,-31.6966,470,415,-55,,yes,yes
+matched_name_same_admin_changed,ET070208,Analemmo,Analemmo,no,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,224.252499,224.252499,0,0,464,464,0,,yes,yes
+matched_name_same_admin_changed,ET070209,Mirab Badowach,Mirab Badowach,no,Hadiya,Hadiya,SNNP,Central Ethiopia,yes,150.518249,150.518249,0,0,408,408,0,,yes,yes
+matched_name_same_admin_changed,ET070303,Kediada Gambela,Kediada Gambela,no,Kembata Tibaro,Kembata,SNNP,Central Ethiopia,yes,176.504238,97.302835,-79.201404,-44.8722,668,473,-195,,yes,yes
+matched_name_same_admin_changed,ET070307,Damboya,Damboya,no,Kembata Tibaro,Kembata,SNNP,Central Ethiopia,yes,163.1966,163.1966,0,0,468,469,1,,yes,yes
+matched_name_same_admin_changed,ET072001,Alicho Woriro,Alicho Woriro,no,Siltie,Siltie,SNNP,Central Ethiopia,yes,262.662171,262.662171,0,0,952,954,2,,yes,yes
+matched_name_same_admin_changed,ET072003,Lanfero,Lanfero,no,Siltie,Siltie,SNNP,Central Ethiopia,yes,461.560828,229.52695,-232.033878,-50.2716,1197,702,-495,,yes,yes
+matched_name_same_admin_changed,ET072004,Mierab Azenet Berbere,Mierab Azenet Berbere,no,Siltie,Siltie,SNNP,Central Ethiopia,yes,151.299908,153.168939,1.869031,1.2353,970,1006,36,,yes,yes
+matched_name_same_admin_changed,ET072005,Dalocha,Dalocha,no,Siltie,Siltie,SNNP,Central Ethiopia,yes,351.365833,301.277294,-50.08854,-14.2554,830,886,56,,yes,yes
+matched_name_same_admin_changed,ET072006,Sankura,Sankura,no,Siltie,Siltie,SNNP,Central Ethiopia,yes,277.183986,277.183986,0,0,564,566,2,,yes,yes
+matched_name_same_admin_changed,ET072007,Misrak Azenet Berbere,Misrak Azenet Berbere,no,Siltie,Siltie,SNNP,Central Ethiopia,yes,167.980641,167.980623,-0.000018,0,659,655,-4,,yes,yes
+matched_name_same_admin_changed,ET120301,Godere,Godere,no,Mejenger,Majang,Gambela,Gambela,no,653.96695,653.96695,0,0,225,225,0,,yes,yes
+matched_name_same_admin_changed,ET120308,Mengesh,Mengesh,no,Mejenger,Majang,Gambela,Gambela,no,1672.15328,1672.15328,0,0,352,352,0,,yes,yes
+matched_name_same_admin_changed,ET120407,Itang,Itang,no,Etang Special,Itang Special,Gambela,Gambela,no,2198.87953,2198.87953,0,0,653,653,0,,yes,yes
+only_in_old_name_exists_under_other_pcode,ET010408,Ofla,,,Southern,,Tigray,,,1108.714582,,,,1282,,,ET990302,yes,no
+only_in_old_name_exists_under_other_pcode,ET010410,Korem Town,,,Southern,,Tigray,,,7.59938,,,,71,,,ET990303,yes,no
+only_in_old_name_exists_under_other_pcode,ET010411,Alamata Town,,,Southern,,Tigray,,,5.541973,,,,110,,,ET990304,yes,no
+only_in_old_name_exists_under_other_pcode,ET010501,Kafta Humera,,,Western,,Tigray,,,6202.61548,,,,1206,,,ET990103,yes,no
+only_in_old_name_exists_under_other_pcode,ET010502,Welkait,,,Western,,Tigray,,,3799.030065,,,,1616,,,ET990104,yes,no
+only_in_old_name_exists_under_other_pcode,ET020101OU001,Dubti,,,Zone 1 (Awsi Rasu),,Afar,,,7415.610751,,,,1249,,,ET020101,yes,no
+only_in_old_name_exists_under_other_pcode,ET0202071,Bidu,,,Zone 2 (Kilbet Rasu),,Afar,,,6986.107366,,,,330,,,ET020208,yes,no
+only_in_old_name_exists_under_other_pcode,ET030105OU008,Dabat,,,North Gondar,,Amhara,,,1094.499904,,,,1295,,,ET030105,yes,no
+only_in_old_name_exists_under_other_pcode,ET030201OU015,Ebenat,,,South Gondar,,Amhara,,,2362.289838,,,,1794,,,ET030201,yes,no
+only_in_old_name_exists_under_other_pcode,ET030202OU013,Libokemekem,,,South Gondar,,Amhara,,,1000.073869,,,,1625,,,ET030202,yes,no
+only_in_old_name_exists_under_other_pcode,ET030204OU014,Farta,,,South Gondar,,Amhara,,,1220.253419,,,,2276,,,ET030204,yes,no
+only_in_old_name_exists_under_other_pcode,ET030205OU016,Lay Gayint,,,South Gondar,,Amhara,,,1523.495461,,,,1782,,,ET030205,yes,no
+only_in_old_name_exists_under_other_pcode,ET030207OU017,Semada,,,South Gondar,,Amhara,,,2246.486017,,,,1419,,,ET030207,yes,no
+only_in_old_name_exists_under_other_pcode,ET030208OU063,East Esite,,,South Gondar,,Amhara,,,1365.929923,,,,1644,,,ET030208,yes,no
+only_in_old_name_exists_under_other_pcode,ET030304OU010,Meket,,,North Wello,,Amhara,,,1910.747149,,,,1887,,,ET030304,yes,no
+only_in_old_name_exists_under_other_pcode,ET030307OU011,Guba Lafto,,,North Wello,,Amhara,,,901.146906,,,,1874,,,ET030307,yes,no
+only_in_old_name_exists_under_other_pcode,ET030308OU012,Habru,,,North Wello,,Amhara,,,1322.490832,,,,1053,,,ET030308,yes,no
+only_in_old_name_exists_under_other_pcode,ET030405OU018,Thehulederie,,,South Wello,,Amhara,,,443.933076,,,,813,,,ET030405,yes,no
+only_in_old_name_exists_under_other_pcode,ET030412OU019,Borena / Debresina,,,South Wello,,Amhara,,,1028.401287,,,,612,,,ET030412,yes,no
+only_in_old_name_exists_under_other_pcode,ET030415OU020,Were Ilu,,,South Wello,,Amhara,,,741.510193,,,,1452,,,ET030415,yes,no
+only_in_old_name_exists_under_other_pcode,ET030502OU009,Merhabete,,,North Shewa,,Amhara,,,1049.492658,,,,840,,,ET030502,yes,no
+only_in_old_name_exists_under_other_pcode,ET030505OU067,Menze Gera Midir,,,North Shewa,,Amhara,,,1113.035645,,,,1227,,,ET030505,yes,no
+only_in_old_name_exists_under_other_pcode,ET030508OU066,Eferatana Gidem,,,North Shewa,,Amhara,,,517.147323,,,,784,,,ET030508,yes,no
+only_in_old_name_exists_under_other_pcode,ET030603OU007,Goncha Siso Enebse,,,East Gojam,,Amhara,,,1038.79032,,,,1155,,,ET030603,yes,no
+only_in_old_name_exists_under_other_pcode,ET030606OU005,Enemay,,,East Gojam,,Amhara,,,733.457206,,,,1365,,,ET030606,yes,no
+only_in_old_name_exists_under_other_pcode,ET030613OU006,Dejen,,,East Gojam,,Amhara,,,627.411688,,,,851,,,ET030613,yes,no
+only_in_old_name_exists_under_other_pcode,ET030701,Semen Achefer,,,West Gojam,,Amhara,,,1151.933361,,,,1641,,,ET031301,yes,no
+only_in_old_name_exists_under_other_pcode,ET030702,Bahirdar Zuria,,,West Gojam,,Amhara,,,1443.367788,,,,2728,,,ET031310,yes,no
+only_in_old_name_exists_under_other_pcode,ET030703OU021,Yilmana Densa,,,West Gojam,,Amhara,,,926.703467,,,,1538,,,ET031303,yes,no
+only_in_old_name_exists_under_other_pcode,ET030704OU022,Mecha,,,West Gojam,,Amhara,,,1484.758254,,,,2062,,,ET031304,yes,no
+only_in_old_name_exists_under_other_pcode,ET030708OU023,Dembecha,,,West Gojam,,Amhara,,,971.291015,,,,1576,,,ET030708,yes,no
+only_in_old_name_exists_under_other_pcode,ET030712,Bahir Dar Town,,,West Gojam,,Amhara,,,213.439382,,,,547,,,ET031401,yes,no
+only_in_old_name_exists_under_other_pcode,ET030713,Debub Achefer,,,West Gojam,,Amhara,,,1102.109529,,,,1700,,,ET031305,yes,no
+only_in_old_name_exists_under_other_pcode,ET030718,Gonje,,,West Gojam,,Amhara,,,633.914835,,,,1284,,,ET031307,yes,no
+only_in_old_name_exists_under_other_pcode,ET030903OU002,Ankasha,,,Awi,,Amhara,,,1043.539334,,,,1143,,,ET030903,yes,no
+only_in_old_name_exists_under_other_pcode,ET031206OU024,Mirab Armacho,,,West Gondar,,Amhara,,,1498.38356,,,,661,,,ET031206,yes,no
+only_in_old_name_exists_under_other_pcode,ET031213OU025,Metema,,,West Gondar,,Amhara,,,5335.221651,,,,1771,,,ET031213,yes,no
+only_in_old_name_exists_under_other_pcode,ET040101OU048,Mana Sibu,,,West Wellega,,Oromia,,,1841.024866,,,,1189,,,ET040101,yes,no
+only_in_old_name_exists_under_other_pcode,ET040102OU047,Nejo,,,West Wellega,,Oromia,,,935.788302,,,,1590,,,ET040102,yes,no
+only_in_old_name_exists_under_other_pcode,ET040199O,Nejo Town,,,West Wellega,,Oromia,,,26.962369,,,,145,,,ET040199,yes,no
+only_in_old_name_exists_under_other_pcode,ET040401O,Jimma/Town/,,,Jimma,,Oromia,,,91.592977,,,,381,,,ET040418,yes,no
+only_in_old_name_exists_under_other_pcode,ET040410OU039,Dedo,,,Jimma,,Oromia,,,1542.350825,,,,1358,,,ET040410,yes,no
+only_in_old_name_exists_under_other_pcode,ET040411OU040,Omo Nada,,,Jimma,,Oromia,,,1581.111246,,,,1556,,,ET040411,yes,no
+only_in_old_name_exists_under_other_pcode,ET040415OU038,Chora (Jimma),,,Jimma,,Oromia,,,1792.733336,,,,1552,,,ET040415,yes,no
+only_in_old_name_exists_under_other_pcode,ET040502OU044,Jeldu,,,West Shewa,,Oromia,,,1312.917565,,,,1641,,,ET040502,yes,no
+only_in_old_name_exists_under_other_pcode,ET040510OU045,Dendi,,,West Shewa,,Oromia,,,1070.210109,,,,2111,,,ET040510,yes,no
+only_in_old_name_exists_under_other_pcode,ET040514OU046,Meta Robi,,,West Shewa,,Oromia,,,959.231273,,,,2032,,,ET040514,yes,no
+only_in_old_name_exists_under_other_pcode,ET040799O,Metehara Town,,,East Shewa,,Oromia,,,5.69629,,,,46,,,ET040799,yes,no
+only_in_old_name_exists_under_other_pcode,ET040803OU026,Golocha,,,Arsi,,Oromia,,,1698.474322,,,,1595,,,ET040803,yes,no
+only_in_old_name_exists_under_other_pcode,ET040901OU043,Mieso,,,West Hararge,,Oromia,,,2895.913438,,,,1806,,,ET040901,yes,no
+only_in_old_name_exists_under_other_pcode,ET041009OU032,Meta,,,East Hararge,,Oromia,,,679.23298,,,,1314,,,ET041009,yes,no
+only_in_old_name_exists_under_other_pcode,ET041105,Gololcha Bale,,,Bale,,Oromia,,,2222.199176,,,,2632,,,ET042101,yes,no
+only_in_old_name_exists_under_other_pcode,ET041107,Lege Hida,,,Bale,,Oromia,,,4777.462719,,,,2759,,,ET030420;ET042102,yes,no
+only_in_old_name_exists_under_other_pcode,ET041108,Ginir,,,Bale,,Oromia,,,2329.510249,,,,3105,,,ET042103,yes,no
+only_in_old_name_exists_under_other_pcode,ET041113,Meda Welabu,,,Bale,,Oromia,,,8804.253326,,,,2909,,,ET042203,yes,no
+only_in_old_name_exists_under_other_pcode,ET041117,Rayitu,,,Bale,,Oromia,,,5039.44783,,,,1346,,,ET042104,yes,no
+only_in_old_name_exists_under_other_pcode,ET041118,Seweyna,,,Bale,,Oromia,,,9199.430886,,,,2725,,,ET042105,yes,no
+only_in_old_name_exists_under_other_pcode,ET041121,Dawe Ketchen,,,Bale,,Oromia,,,1689.571822,,,,1282,,,ET042106,yes,no
+only_in_old_name_exists_under_other_pcode,ET041198,Ginir Town,,,Bale,,Oromia,,,34.831491,,,,99,,,ET042107,yes,no
+only_in_old_name_exists_under_other_pcode,ET041207OU029,Yabelo,,,Borena,,Oromia,,,4023.063719,,,,1719,,,ET041207,yes,no
+only_in_old_name_exists_under_other_pcode,ET041208OU030,Arero,,,Borena,,Oromia,,,9565.709636,,,,1677,,,ET042207,yes,no
+only_in_old_name_exists_under_other_pcode,ET041211OU027,Dire,,,Borena,,Oromia,,,5078.83268,,,,289,,,ET041211,yes,no
+only_in_old_name_exists_under_other_pcode,ET041212OU028,Teltale,,,Borena,,Oromia,,,11765.47534,,,,1176,,,ET041212,yes,no
+only_in_old_name_exists_under_other_pcode,ET041220,Dhas,,,Borena,,Oromia,,,3172.941713,,,,335,,,ET042209,yes,no
+only_in_old_name_exists_under_other_pcode,ET041401OU035,Uraga,,,Guji,,Oromia,,,871.868867,,,,1103,,,ET041401,yes,no
+only_in_old_name_exists_under_other_pcode,ET041407OU034,Liben,,,Guji,,Oromia,,,5166.254724,,,,994,,,ET042202,yes,no
+only_in_old_name_exists_under_other_pcode,ET041412OU033,Saba Boru,,,Guji,,Oromia,,,2897.501841,,,,1939,,,ET041412,yes,no
+only_in_old_name_exists_under_other_pcode,ET041413,Gora Dola,,,Guji,,Oromia,,,2361.249437,,,,1304,,,ET042205,yes,no
+only_in_old_name_exists_under_other_pcode,ET041414O,Negele /Town/,,,Guji,,Oromia,,,8.930025,,,,47,,,ET042201,yes,no
+only_in_old_name_exists_under_other_pcode,ET041502OU064,Kercha,,,West Guji,,Oromia,,,766.079972,,,,1273,,,ET041502,yes,no
+only_in_old_name_exists_under_other_pcode,ET041700O,Dodola Town,,,West Arsi,,Oromia,,,8.248082,,,,67,,,ET041700,yes,no
+only_in_old_name_exists_under_other_pcode,ET041703OU042,Arsi Negele,,,West Arsi,,Oromia,,,1838.917032,,,,1545,,,ET041703,yes,no
+only_in_old_name_exists_under_other_pcode,ET041799O,Arsi Negele Town,,,West Arsi,,Oromia,,,31.38108,,,,173,,,ET041799,yes,no
+only_in_old_name_exists_under_other_pcode,ET041803OU041,Dale Wabera,,,Kelem Wellega,,Oromia,,,828.117242,,,,1627,,,ET041803,yes,no
+only_in_old_name_exists_under_other_pcode,ET041901OU037,Horo,,,Horo Gudru Wellega,,Oromia,,,901.175429,,,,1405,,,ET041901,yes,no
+only_in_old_name_exists_under_other_pcode,ET041903OU036,Guduru,,,Horo Gudru Wellega,,Oromia,,,1312.049208,,,,1366,,,ET041903,yes,no
+only_in_old_name_exists_under_other_pcode,ET042013,Sululta,,,Finfine Special,,Oromia,,,1140.639781,,,,1637,,,ET042012,yes,no
+only_in_old_name_exists_under_other_pcode,ET042014OU069,Welmera,,,Finfine Special,,Oromia,,,674.332806,,,,1293,,,ET040520,yes,no
+only_in_old_name_exists_under_other_pcode,ET042016,Mulo,,,Finfine Special,,Oromia,,,343.823033,,,,724,,,ET040622,yes,no
+only_in_old_name_exists_under_other_pcode,ET042018,Sendafa Town,,,Finfine Special,,Oromia,,,4.197919,,,,65,,,ET040623,yes,no
+only_in_old_name_exists_under_other_pcode,ET050205OU058,Aw-bare,,,Fafan,,Somali,,,3345.06231,,,,116,,,ET050205,yes,no
+only_in_old_name_exists_under_other_pcode,ET050206OU059,Kebribeyah,,,Fafan,,Somali,,,4001.688473,,,,111,,,ET050206,yes,no
+only_in_old_name_exists_under_other_pcode,ET050302OU060,Degehabur,,,Jarar,,Somali,,,6582.486509,,,,80,,,ET050302,yes,no
+only_in_old_name_exists_under_other_pcode,ET050402OU057,Fik,,,Erer,,Somali,,,4098.733437,,,,213,,,ET050402,yes,no
+only_in_old_name_exists_under_other_pcode,ET050404OU056,Hamero,,,Erer,,Somali,,,3281.28242,,,,239,,,ET050404,yes,no
+only_in_old_name_exists_under_other_pcode,ET050502OU070,Kebridehar,,,Korahe,,Somali,,,8941.702613,,,,199,,,ET050502,yes,no
+only_in_old_name_exists_under_other_pcode,ET050601OU071,East Imi,,,Shabelle,,Somali,,,5510.121341,,,,101,,,ET050601,yes,no
+only_in_old_name_exists_under_other_pcode,ET050604OU062,Gode,,,Shabelle,,Somali,,,4135.768665,,,,174,,,ET050604,yes,no
+only_in_old_name_exists_under_other_pcode,ET050702OU054,Bokh,,,Doolo,,Somali,,,13653.29292,,,,54,,,ET050702,yes,no
+only_in_old_name_exists_under_other_pcode,ET050704OU055,Warder,,,Doolo,,Somali,,,10516.59367,,,,59,,,ET050704,yes,no
+only_in_old_name_exists_under_other_pcode,ET070105,Sodo,,,Guraghe,,SNNP,,,834.312508,,,,675,,,ET070403,yes,no
+only_in_old_name_exists_under_other_pcode,ET070106,Meskan,,,Guraghe,,SNNP,,,439.381135,,,,1306,,,ET070404,yes,no
+only_in_old_name_exists_under_other_pcode,ET070109OU049,Gumer,,,Guraghe,,SNNP,,,233.163284,,,,801,,,ET070109,yes,no
+only_in_old_name_exists_under_other_pcode,ET070115,Butajira Town,,,Guraghe,,SNNP,,,16.137438,,,,153,,,ET070401,yes,no
+only_in_old_name_exists_under_other_pcode,ET070205OU065,Misrak Badawacho,,,Hadiya,,SNNP,,,297.773682,,,,357,,,ET070205,yes,no
+only_in_old_name_exists_under_other_pcode,ET070304OU052,Kacha Bira,,,Kembata Tibaro,,SNNP,,,189.266219,,,,486,,,ET070304,yes,no
+only_in_old_name_exists_under_other_pcode,ET070305OU051,Hadero Tunto,,,Kembata Tibaro,,SNNP,,,190.355124,,,,454,,,ET070305,yes,no
+only_in_old_name_exists_under_other_pcode,ET070407,Hulla,,,Sidama,,SNNP,,,289.55281,,,,1023,,,ET160409,yes,no
+only_in_old_name_exists_under_other_pcode,ET070408,Bensa,,,Sidama,,SNNP,,,546.270688,,,,896,,,ET160503,yes,no
+only_in_old_name_exists_under_other_pcode,ET070409,Aroresa,,,Sidama,,SNNP,,,754.109816,,,,872,,,ET160507,yes,no
+only_in_old_name_exists_under_other_pcode,ET070410,Boricha,,,Sidama,,SNNP,,,589.190763,,,,919,,,ET160208,yes,no
+only_in_old_name_exists_under_other_pcode,ET070411,Gorche,,,Sidama,,SNNP,,,213.412131,,,,751,,,ET160204,yes,no
+only_in_old_name_exists_under_other_pcode,ET070412,Malga,,,Sidama,,SNNP,,,179.162124,,,,753,,,ET160203,yes,no
+only_in_old_name_exists_under_other_pcode,ET070413,Wonosho,,,Sidama,,SNNP,,,179.623446,,,,728,,,ET160303,yes,no
+only_in_old_name_exists_under_other_pcode,ET070414,Loka Abaya,,,Sidama,,SNNP,,,878.387504,,,,895,,,ET160307,yes,no
+only_in_old_name_exists_under_other_pcode,ET070415,Chire,,,Sidama,,SNNP,,,339.720227,,,,830,,,ET160506,yes,no
+only_in_old_name_exists_under_other_pcode,ET070416,Bursa,,,Sidama,,SNNP,,,222.168074,,,,1121,,,ET160401,yes,no
+only_in_old_name_exists_under_other_pcode,ET070418,Bona Zuria,,,Sidama,,SNNP,,,220.833759,,,,934,,,ET160502,yes,no
+only_in_old_name_exists_under_other_pcode,ET070420,Wondo-Genet,,,Sidama,,SNNP,,,205.770512,,,,648,,,ET160202,yes,no
+only_in_old_name_exists_under_other_pcode,ET070487,Aleta Wondo Town,,,Sidama,,SNNP,,,5.247563,,,,63,,,ET160404,yes,no
+only_in_old_name_exists_under_other_pcode,ET070501,Wenago,,,Gedeo,,SNNP,,,147.128858,,,,506,,,ET081101,yes,no
+only_in_old_name_exists_under_other_pcode,ET070502,Yirgachefe,,,Gedeo,,SNNP,,,286.294014,,,,1162,,,ET081102,yes,no
+only_in_old_name_exists_under_other_pcode,ET070503,Kochere,,,Gedeo,,SNNP,,,194.159559,,,,627,,,ET081103,yes,no
+only_in_old_name_exists_under_other_pcode,ET070504,Bule,,,Gedeo,,SNNP,,,274.605211,,,,803,,,ET081104,yes,no
+only_in_old_name_exists_under_other_pcode,ET070505,Dila Zuria,,,Gedeo,,SNNP,,,125.06265,,,,634,,,ET081105,yes,no
+only_in_old_name_exists_under_other_pcode,ET070587,Yirgachefe Town,,,Gedeo,,SNNP,,,2.205947,,,,72,,,ET081111,yes,no
+only_in_old_name_exists_under_other_pcode,ET070601,Boloso sore,,,Wolayita,,SNNP,,,288.287597,,,,1148,,,ET080101,yes,no
+only_in_old_name_exists_under_other_pcode,ET070602,Damot Gale,,,Wolayita,,SNNP,,,241.962995,,,,970,,,ET080102,yes,no
+only_in_old_name_exists_under_other_pcode,ET070604OU053,Humbo,,,Wolayita,,SNNP,,,867.529698,,,,1043,,,ET080104,yes,no
+only_in_old_name_exists_under_other_pcode,ET070605,Sodo Zuria,,,Wolayita,,SNNP,,,404.473776,,,,1639,,,ET080105,yes,no
+only_in_old_name_exists_under_other_pcode,ET070606,Kindo Koyesha,,,Wolayita,,SNNP,,,526.378728,,,,1124,,,ET080106,yes,no
+only_in_old_name_exists_under_other_pcode,ET070607,Ofa,,,Wolayita,,SNNP,,,385.434512,,,,1176,,,ET080107,yes,no
+only_in_old_name_exists_under_other_pcode,ET070608,Boloso Bombe,,,Wolayita,,SNNP,,,272.265926,,,,688,,,ET080108,yes,no
+only_in_old_name_exists_under_other_pcode,ET070609,Damot Sore,,,Wolayita,,SNNP,,,180.964959,,,,996,,,ET080109,yes,no
+only_in_old_name_exists_under_other_pcode,ET070613,Sodo Town,,,Wolayita,,SNNP,,,25.624978,,,,205,,,ET080113,yes,no
+only_in_old_name_exists_under_other_pcode,ET070614O,Areka Town,,,Wolayita,,SNNP,,,14.870532,,,,238,,,ET080114,yes,no
+only_in_old_name_exists_under_other_pcode,ET070615O,Boditi Town,,,Wolayita,,SNNP,,,13.686772,,,,136,,,ET080115,yes,no
+only_in_old_name_exists_under_other_pcode,ET070704,Hamer,,,South Omo,,SNNP,,,5895.640188,,,,1248,,,ET081203,yes,no
+only_in_old_name_exists_under_other_pcode,ET070705,Bena Tsemay,,,South Omo,,SNNP,,,3603.640481,,,,1799,,,ET081201,yes,no
+only_in_old_name_exists_under_other_pcode,ET070706,Dasenech (Kuraz),,,South Omo,,SNNP,,,2584.619074,,,,299,,,ET081202,yes,no
+only_in_old_name_exists_under_other_pcode,ET070801,Masha,,,Sheka,,SNNP,,,755.682346,,,,849,,,ET110102,yes,no
+only_in_old_name_exists_under_other_pcode,ET070802,Anderacha,,,Sheka,,SNNP,,,1008.420329,,,,819,,,ET110101,yes,no
+only_in_old_name_exists_under_other_pcode,ET070803,Yeki,,,Sheka,,SNNP,,,562.293286,,,,1169,,,ET110103,yes,no
+only_in_old_name_exists_under_other_pcode,ET070805O,Masha Town,,,Sheka,,SNNP,,,1.0031,,,,37,,,ET110105,yes,no
+only_in_old_name_exists_under_other_pcode,ET070904,Gimbo,,,Kefa,,SNNP,,,780.366601,,,,673,,,ET110204,yes,no
+only_in_old_name_exists_under_other_pcode,ET070907,Cheta,,,Kefa,,SNNP,,,685.140312,,,,554,,,ET110207,yes,no
+only_in_old_name_exists_under_other_pcode,ET070908,Decha,,,Kefa,,SNNP,,,2953.708882,,,,1741,,,ET110208,yes,no
+only_in_old_name_exists_under_other_pcode,ET070909,Chena,,,Kefa,,SNNP,,,1056.186227,,,,1101,,,ET110209,yes,no
+only_in_old_name_exists_under_other_pcode,ET070911,Bonga Town,,,Kefa,,SNNP,,,13.672155,,,,93,,,ET110211,yes,no
+only_in_old_name_exists_under_other_pcode,ET071001,Melekoza,,,Gamo Gofa,,SNNP,,,1551.161525,,,,1128,,,ET080306,yes,no
+only_in_old_name_exists_under_other_pcode,ET071003,Kucha,,,Gamo Gofa,,SNNP,,,1391.879147,,,,1457,,,ET080217,yes,no
+only_in_old_name_exists_under_other_pcode,ET071004,Boreda,,,Gamo Gofa,,SNNP,,,464.231794,,,,881,,,ET080205,yes,no
+only_in_old_name_exists_under_other_pcode,ET071005,Mirab Abaya,,,Gamo Gofa,,SNNP,,,801.398719,,,,744,,,ET080219,yes,no
+only_in_old_name_exists_under_other_pcode,ET071008,Dita,,,Gamo Gofa,,SNNP,,,283.273453,,,,784,,,ET080209,yes,no
+only_in_old_name_exists_under_other_pcode,ET071009,Daramalo,,,Gamo Gofa,,SNNP,,,361.954252,,,,795,,,ET080208,yes,no
+only_in_old_name_exists_under_other_pcode,ET071010,Zala,,,Gamo Gofa,,SNNP,,,730.212265,,,,1162,,,ET080311,yes,no
+only_in_old_name_exists_under_other_pcode,ET071013,Bonke,,,Gamo Gofa,,SNNP,,,792.281838,,,,1788,,,ET080204,yes,no
+only_in_old_name_exists_under_other_pcode,ET071016,Arba Minch Zuria,,,Gamo Gofa,,SNNP,,,1752.900143,,,,1616,,,ET080202,yes,no
+only_in_old_name_exists_under_other_pcode,ET071096,Arba Minch Town,,,Gamo Gofa,,SNNP,,,33.369805,,,,60,,,ET080201,yes,no
+only_in_old_name_exists_under_other_pcode,ET071097,Sawla Town,,,Gamo Gofa,,SNNP,,,16.729195,,,,126,,,ET080309,yes,no
+only_in_old_name_exists_under_other_pcode,ET071102,Gurafereda,,,Bench Maji,,SNNP,,,2529.50307,,,,533,,,ET110302,yes,no
+only_in_old_name_exists_under_other_pcode,ET071103,Debub Bench,,,Bench Maji,,SNNP,,,623.490009,,,,674,,,ET110303,yes,no
+only_in_old_name_exists_under_other_pcode,ET071104,Shay Bench,,,Bench Maji,,SNNP,,,560.097965,,,,674,,,ET110304,yes,no
+only_in_old_name_exists_under_other_pcode,ET071105,Menit Goldiye,,,Bench Maji,,SNNP,,,1683.693275,,,,1283,,,ET110502,yes,no
+only_in_old_name_exists_under_other_pcode,ET071106,Menit Shasha,,,Bench Maji,,SNNP,,,2923.7016,,,,1486,,,ET110504,yes,no
+only_in_old_name_exists_under_other_pcode,ET071107,Maji,,,Bench Maji,,SNNP,,,4658.361854,,,,1384,,,ET110507,yes,no
+only_in_old_name_exists_under_other_pcode,ET071108,Bero,,,Bench Maji,,SNNP,,,594.443422,,,,411,,,ET110505,yes,no
+only_in_old_name_exists_under_other_pcode,ET071109,Surma,,,Bench Maji,,SNNP,,,4960.802458,,,,821,,,ET110506,yes,no
+only_in_old_name_exists_under_other_pcode,ET071110,Semen Bench,,,Bench Maji,,SNNP,,,391.628991,,,,597,,,ET110305,yes,no
+only_in_old_name_exists_under_other_pcode,ET071111,Mizan Aman Town,,,Bench Maji,,SNNP,,,24.379573,,,,150,,,ET110307,yes,no
+only_in_old_name_exists_under_other_pcode,ET071302,Amaro,,,Segen Area P.,,SNNP,,,1625.154983,,,,578,,,ET080801,yes,no
+only_in_old_name_exists_under_other_pcode,ET071303,Burji,,,Segen Area P.,,SNNP,,,1377.010266,,,,740,,,ET081001,yes,no
+only_in_old_name_exists_under_other_pcode,ET071304,Derashe,,,Segen Area P.,,SNNP,,,699.383406,,,,1038,,,ET080701,yes,no
+only_in_old_name_exists_under_other_pcode,ET071701,Tocha,,,Dawuro,,SNNP,,,744.89694,,,,958,,,ET110401,yes,no
+only_in_old_name_exists_under_other_pcode,ET071702,Mareka,,,Dawuro,,SNNP,,,462.091185,,,,1160,,,ET110402,yes,no
+only_in_old_name_exists_under_other_pcode,ET071790,Tercha Town,,,Dawuro,,SNNP,,,5.066498,,,,65,,,ET110411,yes,no
+only_in_old_name_exists_under_other_pcode,ET072098,Worabe Town,,,Siltie,,SNNP,,,25.481431,,,,179,,,ET072010,yes,no
+only_in_old_name_exists_under_other_pcode,ET150111O,Dechatu,,,Dire Dawa urban,,Dire Dawa,,,1.338396,,,,40,,,ET150111,yes,no
+only_in_old_name_exists_under_other_pcode,ET150112O,Hafat Issa,,,Dire Dawa urban,,Dire Dawa,,,0.379421,,,,21,,,ET150112,yes,no
+only_in_old_name_exists_under_other_pcode,ET150113O,Kazira,,,Dire Dawa urban,,Dire Dawa,,,12.81549,,,,79,,,ET150113,yes,no
+only_in_old_name_exists_under_other_pcode,ET150114O,Police Maret,,,Dire Dawa urban,,Dire Dawa,,,8.893289,,,,49,,,ET150114,yes,no
+only_in_old_name_exists_under_other_pcode,ET150201O,Aseliso,,,Dire Dawa rural,,Dire Dawa,,,102.553132,,,,171,,,ET150201,yes,no
+only_in_new_name_existed_under_other_pcode,ET020101,,Dubti,,,Awsi /Zone 1,,Afar,,,6011.190107,,,,1216,,ET020101OU001,no,yes
+only_in_new_name_existed_under_other_pcode,ET020208,,Bidu,,,Kilbati /Zone 2,,Afar,,,6986.107366,,,,330,,ET0202071,no,yes
+only_in_new_name_existed_under_other_pcode,ET030105,,Dabat,,,North Gondar,,Amhara,,,1089.731045,,,,1398,,ET030105OU008,no,yes
+only_in_new_name_existed_under_other_pcode,ET030201,,Ebenat,,,South Gondar,,Amhara,,,1614.939928,,,,1828,,ET030201OU015,no,yes
+only_in_new_name_existed_under_other_pcode,ET030202,,Libokemekem,,,South Gondar,,Amhara,,,1155.072888,,,,1500,,ET030202OU013,no,yes
+only_in_new_name_existed_under_other_pcode,ET030204,,Farta,,,South Gondar,,Amhara,,,755.083314,,,,1961,,ET030204OU014,no,yes
+only_in_new_name_existed_under_other_pcode,ET030205,,Lay Gayint,,,South Gondar,,Amhara,,,1515.782869,,,,1895,,ET030205OU016,no,yes
+only_in_new_name_existed_under_other_pcode,ET030207,,Semada,,,South Gondar,,Amhara,,,1335.03633,,,,1140,,ET030207OU017,no,yes
+only_in_new_name_existed_under_other_pcode,ET030208,,East Esite,,,South Gondar,,Amhara,,,1332.313564,,,,1929,,ET030208OU063,no,yes
+only_in_new_name_existed_under_other_pcode,ET030304,,Meket,,,North Wello,,Amhara,,,1320.259843,,,,1177,,ET030304OU010,no,yes
+only_in_new_name_existed_under_other_pcode,ET030307,,Guba Lafto,,,North Wello,,Amhara,,,791.342468,,,,1501,,ET030307OU011,no,yes
+only_in_new_name_existed_under_other_pcode,ET030308,,Habru,,,North Wello,,Amhara,,,1317.630683,,,,1127,,ET030308OU012,no,yes
+only_in_new_name_existed_under_other_pcode,ET030405,,Thehulederie,,,South Wello,,Amhara,,,441.966285,,,,876,,ET030405OU018,no,yes
+only_in_new_name_existed_under_other_pcode,ET030412,,Borena /Debresina,,,South Wello,,Amhara,,,1017.611661,,,,732,,ET030412OU019,no,yes
+only_in_new_name_existed_under_other_pcode,ET030415,,Were Ilu,,,South Wello,,Amhara,,,737.765806,,,,1480,,ET030415OU020,no,yes
+only_in_new_name_existed_under_other_pcode,ET030502,,Merhabete,,,North Shewa (AM),,Amhara,,,1045.210318,,,,899,,ET030502OU009,no,yes
+only_in_new_name_existed_under_other_pcode,ET030505,,Menze Gera Midir,,,North Shewa (AM),,Amhara,,,1109.02227,,,,1290,,ET030505OU067,no,yes
+only_in_new_name_existed_under_other_pcode,ET030508,,Eferatana Gidem,,,North Shewa (AM),,Amhara,,,511.116103,,,,780,,ET030508OU066,no,yes
+only_in_new_name_existed_under_other_pcode,ET030603,,Goncha Siso Enebse,,,East Gojam,,Amhara,,,429.041692,,,,851,,ET030603OU007,no,yes
+only_in_new_name_existed_under_other_pcode,ET030606,,Enemay,,,East Gojam,,Amhara,,,729.931114,,,,1456,,ET030606OU005,no,yes
+only_in_new_name_existed_under_other_pcode,ET030613,,Dejen,,,East Gojam,,Amhara,,,624.823794,,,,912,,ET030613OU006,no,yes
+only_in_new_name_existed_under_other_pcode,ET030708,,Dembecha,,,West Gojam,,Amhara,,,964.366222,,,,1654,,ET030708OU023,no,yes
+only_in_new_name_existed_under_other_pcode,ET030903,,Ankasha,,,Awi,,Amhara,,,497.341001,,,,621,,ET030903OU002,no,yes
+only_in_new_name_existed_under_other_pcode,ET031206,,Mirab Armacho,,,West Gondar,,Amhara,,,1488.798182,,,,699,,ET031206OU024,no,yes
+only_in_new_name_existed_under_other_pcode,ET031213,,Metema,,,West Gondar,,Amhara,,,5326.18613,,,,1800,,ET031213OU025,no,yes
+only_in_new_name_existed_under_other_pcode,ET031301,,Semen Achefer,,,North Gojam,,Amhara,,,1252.404812,,,,1373,,ET030701,no,yes
+only_in_new_name_existed_under_other_pcode,ET031303,,Yilmana Densa,,,North Gojam,,Amhara,,,922.781613,,,,1659,,ET030703OU021,no,yes
+only_in_new_name_existed_under_other_pcode,ET031304,,Mecha,,,North Gojam,,Amhara,,,546.503418,,,,862,,ET030704OU022,no,yes
+only_in_new_name_existed_under_other_pcode,ET031305,,Debub Achefer,,,North Gojam,,Amhara,,,1100.111104,,,,1775,,ET030713,no,yes
+only_in_new_name_existed_under_other_pcode,ET031307,,Gonje,,,North Gojam,,Amhara,,,633.914835,,,,1299,,ET030718,no,yes
+only_in_new_name_existed_under_other_pcode,ET031310,,Bahir Dar Zuria,,,North Gojam,,Amhara,,,1580.298154,,,,2296,,ET030702,no,yes
+only_in_new_name_existed_under_other_pcode,ET031401,,Bahir Dar town,,,Bahir Dar town Admin,,Amhara,,,263.381847,,,,396,,ET030712,no,yes
+only_in_new_name_existed_under_other_pcode,ET040101,,Mana Sibu,,,West Wellega,,Oromia,,,1806.887544,,,,1378,,ET040101OU048,no,yes
+only_in_new_name_existed_under_other_pcode,ET040102,,Nejo,,,West Wellega,,Oromia,,,645.35064,,,,1207,,ET040102OU047,no,yes
+only_in_new_name_existed_under_other_pcode,ET040199,,Nejo town,,,West Wellega,,Oromia,,,26.962369,,,,145,,ET040199O,no,yes
+only_in_new_name_existed_under_other_pcode,ET040410,,Dedo,,,Jimma,,Oromia,,,784.821963,,,,1088,,ET040410OU039,no,yes
+only_in_new_name_existed_under_other_pcode,ET040411,,Omo Nada,,,Jimma,,Oromia,,,781.414007,,,,1758,,ET040411OU040,no,yes
+only_in_new_name_existed_under_other_pcode,ET040415,,Chora (Jimma),,,Jimma,,Oromia,,,834.723311,,,,1316,,ET040415OU038,no,yes
+only_in_new_name_existed_under_other_pcode,ET040418,,Jimma town,,,Jimma,,Oromia,,,91.592977,,,,381,,ET040401O,no,yes
+only_in_new_name_existed_under_other_pcode,ET040502,,Jeldu,,,West Shewa,,Oromia,,,749.007174,,,,1330,,ET040502OU044,no,yes
+only_in_new_name_existed_under_other_pcode,ET040510,,Dendi,,,West Shewa,,Oromia,,,734.519089,,,,1751,,ET040510OU045,no,yes
+only_in_new_name_existed_under_other_pcode,ET040514,,Meta Robi,,,West Shewa,,Oromia,,,452.908389,,,,1304,,ET040514OU046,no,yes
+only_in_new_name_existed_under_other_pcode,ET040520,,Welmera,,,West Shewa,,Oromia,,,437.270515,,,,1195,,ET042014OU069,no,yes
+only_in_new_name_existed_under_other_pcode,ET040619,,Bereh,,,North Shewa (OR),,Oromia,,,318.550837,,,,1278,,ET042011,no,yes
+only_in_new_name_existed_under_other_pcode,ET040622,,Mulo,,,North Shewa (OR),,Oromia,,,343.823033,,,,725,,ET042016,no,yes
+only_in_new_name_existed_under_other_pcode,ET040623,,Sendafa town,,,North Shewa (OR),,Oromia,,,143.447611,,,,830,,ET042018,no,yes
+only_in_new_name_existed_under_other_pcode,ET040712,,Akaki,,,East Shewa,,Oromia,,,242.417586,,,,914,,ET042012,no,yes
+only_in_new_name_existed_under_other_pcode,ET040799,,Metehara town,,,East Shewa,,Oromia,,,5.69629,,,,46,,ET040799O,no,yes
+only_in_new_name_existed_under_other_pcode,ET040803,,Golocha,,,Arsi,,Oromia,,,1111.356335,,,,1164,,ET040803OU026,no,yes
+only_in_new_name_existed_under_other_pcode,ET040901,,Mieso,,,West Hararge,,Oromia,,,1507.261667,,,,990,,ET040901OU043,no,yes
+only_in_new_name_existed_under_other_pcode,ET041009,,Meta,,,East Hararge,,Oromia,,,462.14667,,,,850,,ET041009OU032,no,yes
+only_in_new_name_existed_under_other_pcode,ET041207,,Yabelo,,,Borena,,Oromia,,,2661.269205,,,,1207,,ET041207OU029,no,yes
+only_in_new_name_existed_under_other_pcode,ET041211,,Dire,,,Borena,,Oromia,,,2744.699087,,,,199,,ET041211OU027,no,yes
+only_in_new_name_existed_under_other_pcode,ET041212,,Teltale,,,Borena,,Oromia,,,7817.480822,,,,541,,ET041212OU028,no,yes
+only_in_new_name_existed_under_other_pcode,ET041306,,Sebeta Hawas,,,South West Shewa,,Oromia,,,475.49854,,,,1129,,ET042006,no,yes
+only_in_new_name_existed_under_other_pcode,ET041401,,Uraga,,,Guji,,Oromia,,,612.65589,,,,890,,ET041401OU035,no,yes
+only_in_new_name_existed_under_other_pcode,ET041412,,Saba Boru,,,Guji,,Oromia,,,2263.895151,,,,1395,,ET041412OU033,no,yes
+only_in_new_name_existed_under_other_pcode,ET041502,,Kercha,,,West Guji,,Oromia,,,552.938253,,,,1266,,ET041502OU064,no,yes
+only_in_new_name_existed_under_other_pcode,ET041700,,Dodola town,,,West Arsi,,Oromia,,,8.248082,,,,67,,ET041700O,no,yes
+only_in_new_name_existed_under_other_pcode,ET041703,,Arsi Negele,,,West Arsi,,Oromia,,,1267.071876,,,,1152,,ET041703OU042,no,yes
+only_in_new_name_existed_under_other_pcode,ET041799,,Arsi Negele town,,,West Arsi,,Oromia,,,51.144162,,,,104,,ET041799O,no,yes
+only_in_new_name_existed_under_other_pcode,ET041803,,Dale Wabera,,,Kelem Wellega,,Oromia,,,529.466668,,,,1296,,ET041803OU041,no,yes
+only_in_new_name_existed_under_other_pcode,ET041901,,Horo,,,Horo Gudru Wellega,,Oromia,,,355.970721,,,,929,,ET041901OU037,no,yes
+only_in_new_name_existed_under_other_pcode,ET041903,,Guduru,,,Horo Gudru Wellega,,Oromia,,,850.18364,,,,1102,,ET041903OU036,no,yes
+only_in_new_name_existed_under_other_pcode,ET042101,,Gololcha Bale,,,East Bale,,Oromia,,,2209.529327,,,,2407,,ET041105,no,yes
+only_in_new_name_existed_under_other_pcode,ET042102,,Lege Hida,,,East Bale,,Oromia,,,4777.46271,,,,2761,,ET030420;ET041107,no,yes
+only_in_new_name_existed_under_other_pcode,ET042103,,Ginir,,,East Bale,,Oromia,,,2342.180098,,,,2942,,ET041108,no,yes
+only_in_new_name_existed_under_other_pcode,ET042104,,Rayitu,,,East Bale,,Oromia,,,5183.388986,,,,1525,,ET041117,no,yes
+only_in_new_name_existed_under_other_pcode,ET042105,,Seweyna,,,East Bale,,Oromia,,,9055.489868,,,,2905,,ET041118,no,yes
+only_in_new_name_existed_under_other_pcode,ET042106,,Dawe Ketchen,,,East Bale,,Oromia,,,1689.571849,,,,1287,,ET041121,no,yes
+only_in_new_name_existed_under_other_pcode,ET042107,,Ginir town,,,East Bale,,Oromia,,,34.831491,,,,99,,ET041198,no,yes
+only_in_new_name_existed_under_other_pcode,ET042201,,Negele town,,,East Borena,,Oromia,,,8.930025,,,,47,,ET041414O,no,yes
+only_in_new_name_existed_under_other_pcode,ET042202,,Liben,,,East Borena,,Oromia,,,2645.117496,,,,908,,ET041407OU034,no,yes
+only_in_new_name_existed_under_other_pcode,ET042203,,Meda Welabu,,,East Borena,,Oromia,,,7294.208143,,,,2725,,ET041113,no,yes
+only_in_new_name_existed_under_other_pcode,ET042205,,Gora Dola,,,East Borena,,Oromia,,,2361.249437,,,,1305,,ET041413,no,yes
+only_in_new_name_existed_under_other_pcode,ET042207,,Arero,,,East Borena,,Oromia,,,4499.270376,,,,1806,,ET041208OU030,no,yes
+only_in_new_name_existed_under_other_pcode,ET042209,,Dhas,,,East Borena,,Oromia,,,3176.675826,,,,336,,ET041220,no,yes
+only_in_new_name_existed_under_other_pcode,ET050205,,Aw-Bare,,,Fafan,,Somali,,,1764.980368,,,,142,,ET050205OU058,no,yes
+only_in_new_name_existed_under_other_pcode,ET050206,,Kebribeyah,,,Fafan,,Somali,,,2832.889005,,,,121,,ET050206OU059,no,yes
+only_in_new_name_existed_under_other_pcode,ET050302,,Degehabur,,,Jarar,,Somali,,,3603.849414,,,,77,,ET050302OU060,no,yes
+only_in_new_name_existed_under_other_pcode,ET050402,,Fik,,,Erer,,Somali,,,3059.459917,,,,656,,ET050402OU057,no,yes
+only_in_new_name_existed_under_other_pcode,ET050404,,Hamero,,,Erer,,Somali,,,2281.33191,,,,439,,ET050404OU056,no,yes
+only_in_new_name_existed_under_other_pcode,ET050502,,Kebridehar,,,Korahe,,Somali,,,2342.515474,,,,60,,ET050502OU070,no,yes
+only_in_new_name_existed_under_other_pcode,ET050601,,East Imi,,,Shabelle,,Somali,,,2992.519376,,,,247,,ET050601OU071,no,yes
+only_in_new_name_existed_under_other_pcode,ET050604,,Gode,,,Shabelle,,Somali,,,2078.85906,,,,96,,ET050604OU062,no,yes
+only_in_new_name_existed_under_other_pcode,ET050702,,Bokh,,,Doolo,,Somali,,,8073.716804,,,,46,,ET050702OU054,no,yes
+only_in_new_name_existed_under_other_pcode,ET050704,,Warder,,,Doolo,,Somali,,,10861.04175,,,,84,,ET050704OU055,no,yes
+only_in_new_name_existed_under_other_pcode,ET070109,,Gumer,,,Guraghe,,Central Ethiopia,,,233.163284,,,,801,,ET070109OU049,no,yes
+only_in_new_name_existed_under_other_pcode,ET070205,,Misrak Badawacho,,,Hadiya,,Central Ethiopia,,,239.178557,,,,407,,ET070205OU065,no,yes
+only_in_new_name_existed_under_other_pcode,ET070304,,Kacha Bira,,,Kembata,,Central Ethiopia,,,183.31284,,,,594,,ET070304OU052,no,yes
+only_in_new_name_existed_under_other_pcode,ET070305,,Hadero Tunto,,,Kembata,,Central Ethiopia,,,175.706953,,,,446,,ET070305OU051,no,yes
+only_in_new_name_existed_under_other_pcode,ET072010,,Worabe town,,,Siltie,,Central Ethiopia,,,126.267773,,,,464,,ET072098,no,yes
+only_in_new_name_existed_under_other_pcode,ET080101,,Boloso Sore,,,Wolayita,,South Ethiopia,,,288.287597,,,,1150,,ET070601,no,yes
+only_in_new_name_existed_under_other_pcode,ET080102,,Damot Gale,,,Wolayita,,South Ethiopia,,,241.962995,,,,970,,ET070602,no,yes
+only_in_new_name_existed_under_other_pcode,ET080104,,Humbo,,,Wolayita,,South Ethiopia,,,323.302218,,,,982,,ET070604OU053,no,yes
+only_in_new_name_existed_under_other_pcode,ET080105,,Sodo Zuria,,,Wolayita,,South Ethiopia,,,366.315395,,,,1570,,ET070605,no,yes
+only_in_new_name_existed_under_other_pcode,ET080106,,Kindo Koyesha,,,Wolayita,,South Ethiopia,,,502.85579,,,,1284,,ET070606,no,yes
+only_in_new_name_existed_under_other_pcode,ET080107,,Ofa,,,Wolayita,,South Ethiopia,,,310.505154,,,,1447,,ET070607,no,yes
+only_in_new_name_existed_under_other_pcode,ET080108,,Boloso Bombe,,,Wolayita,,South Ethiopia,,,272.265926,,,,689,,ET070608,no,yes
+only_in_new_name_existed_under_other_pcode,ET080109,,Damot Sore,,,Wolayita,,South Ethiopia,,,176.306775,,,,1068,,ET070609,no,yes
+only_in_new_name_existed_under_other_pcode,ET080113,,Sodo town,,,Wolayita,,South Ethiopia,,,25.624978,,,,205,,ET070613,no,yes
+only_in_new_name_existed_under_other_pcode,ET080114,,Areka town,,,Wolayita,,South Ethiopia,,,14.870532,,,,238,,ET070614O,no,yes
+only_in_new_name_existed_under_other_pcode,ET080115,,Boditi town,,,Wolayita,,South Ethiopia,,,13.686772,,,,136,,ET070615O,no,yes
+only_in_new_name_existed_under_other_pcode,ET080201,,Arba Minch town,,,Gamo,,South Ethiopia,,,33.369805,,,,60,,ET071096,no,yes
+only_in_new_name_existed_under_other_pcode,ET080202,,Arba Minch Zuria,,,Gamo,,South Ethiopia,,,1490.135732,,,,1304,,ET071016,no,yes
+only_in_new_name_existed_under_other_pcode,ET080204,,Bonke,,,Gamo,,South Ethiopia,,,126.209407,,,,591,,ET071013,no,yes
+only_in_new_name_existed_under_other_pcode,ET080205,,Boreda,,,Gamo,,South Ethiopia,,,464.231794,,,,881,,ET071004,no,yes
+only_in_new_name_existed_under_other_pcode,ET080208,,Daramalo,,,Gamo,,South Ethiopia,,,361.954252,,,,795,,ET071009,no,yes
+only_in_new_name_existed_under_other_pcode,ET080209,,Dita,,,Gamo,,South Ethiopia,,,283.273453,,,,785,,ET071008,no,yes
+only_in_new_name_existed_under_other_pcode,ET080217,,Kucha,,,Gamo,,South Ethiopia,,,987.184923,,,,1368,,ET071003,no,yes
+only_in_new_name_existed_under_other_pcode,ET080219,,Mirab Abaya,,,Gamo,,South Ethiopia,,,798.101295,,,,770,,ET071005,no,yes
+only_in_new_name_existed_under_other_pcode,ET080306,,Melekoza,,,Gofa,,South Ethiopia,,,941.466955,,,,863,,ET071001,no,yes
+only_in_new_name_existed_under_other_pcode,ET080309,,Sawla town,,,Gofa,,South Ethiopia,,,16.729195,,,,126,,ET071097,no,yes
+only_in_new_name_existed_under_other_pcode,ET080311,,Zala,,,Gofa,,South Ethiopia,,,730.212265,,,,1163,,ET071010,no,yes
+only_in_new_name_existed_under_other_pcode,ET080701,,Derashe,,,Derashe,,South Ethiopia,,,693.276213,,,,1165,,ET071304,no,yes
+only_in_new_name_existed_under_other_pcode,ET080801,,Amaro,,,Kore,,South Ethiopia,,,1623.514195,,,,607,,ET071302,no,yes
+only_in_new_name_existed_under_other_pcode,ET081001,,Burji,,,Burji,,South Ethiopia,,,1377.010266,,,,741,,ET071303,no,yes
+only_in_new_name_existed_under_other_pcode,ET081101,,Wenago,,,Gedeo,,South Ethiopia,,,136.242171,,,,476,,ET070501,no,yes
+only_in_new_name_existed_under_other_pcode,ET081102,,Yirgachefe,,,Gedeo,,South Ethiopia,,,245.47824,,,,903,,ET070502,no,yes
+only_in_new_name_existed_under_other_pcode,ET081103,,Kochere,,,Gedeo,,South Ethiopia,,,153.876988,,,,606,,ET070503,no,yes
+only_in_new_name_existed_under_other_pcode,ET081104,,Bule,,,Gedeo,,South Ethiopia,,,126.310516,,,,521,,ET070504,no,yes
+only_in_new_name_existed_under_other_pcode,ET081105,,Dila Zuria,,,Gedeo,,South Ethiopia,,,125.06265,,,,636,,ET070505,no,yes
+only_in_new_name_existed_under_other_pcode,ET081111,,Yirgachefe town,,,Gedeo,,South Ethiopia,,,2.205947,,,,72,,ET070587,no,yes
+only_in_new_name_existed_under_other_pcode,ET081201,,Bena Tsemay,,,South Omo,,South Ethiopia,,,3603.639918,,,,1799,,ET070705,no,yes
+only_in_new_name_existed_under_other_pcode,ET081202,,Dasenech /Kuraz,,,South Omo,,South Ethiopia,,,2584.619074,,,,299,,ET070706,no,yes
+only_in_new_name_existed_under_other_pcode,ET081203,,Hamer,,,South Omo,,South Ethiopia,,,5890.326196,,,,1293,,ET070704,no,yes
+only_in_new_name_existed_under_other_pcode,ET110101,,Anderacha,,,Sheka,,South West Ethiopia,,,755.682346,,,,849,,ET070802,no,yes
+only_in_new_name_existed_under_other_pcode,ET110102,,Masha,,,Sheka,,South West Ethiopia,,,1008.420329,,,,819,,ET070801,no,yes
+only_in_new_name_existed_under_other_pcode,ET110103,,Yeki,,,Sheka,,South West Ethiopia,,,562.293286,,,,1169,,ET070803,no,yes
+only_in_new_name_existed_under_other_pcode,ET110105,,Masha town,,,Sheka,,South West Ethiopia,,,1.0031,,,,37,,ET070805O,no,yes
+only_in_new_name_existed_under_other_pcode,ET110204,,Gimbo,,,Kefa,,South West Ethiopia,,,780.366601,,,,675,,ET070904,no,yes
+only_in_new_name_existed_under_other_pcode,ET110207,,Cheta,,,Kefa,,South West Ethiopia,,,685.140312,,,,557,,ET070907,no,yes
+only_in_new_name_existed_under_other_pcode,ET110208,,Decha,,,Kefa,,South West Ethiopia,,,1046.73039,,,,710,,ET070908,no,yes
+only_in_new_name_existed_under_other_pcode,ET110209,,Chena,,,Kefa,,South West Ethiopia,,,432.036352,,,,765,,ET070909,no,yes
+only_in_new_name_existed_under_other_pcode,ET110211,,Bonga town,,,Kefa,,South West Ethiopia,,,13.672155,,,,93,,ET070911,no,yes
+only_in_new_name_existed_under_other_pcode,ET110302,,Gurafereda,,,Bench Sheko,,South West Ethiopia,,,2516.549955,,,,627,,ET071102,no,yes
+only_in_new_name_existed_under_other_pcode,ET110303,,Debub Bench,,,Bench Sheko,,South West Ethiopia,,,623.490009,,,,674,,ET071103,no,yes
+only_in_new_name_existed_under_other_pcode,ET110304,,Shay Bench,,,Bench Sheko,,South West Ethiopia,,,553.640419,,,,733,,ET071104,no,yes
+only_in_new_name_existed_under_other_pcode,ET110305,,Semen Bench,,,Bench Sheko,,South West Ethiopia,,,269.44477,,,,419,,ET071110,no,yes
+only_in_new_name_existed_under_other_pcode,ET110307,,Mizan Aman town,,,Bench Sheko,,South West Ethiopia,,,24.379573,,,,150,,ET071111,no,yes
+only_in_new_name_existed_under_other_pcode,ET110401,,Tocha,,,Dawuro,,South West Ethiopia,,,529.156249,,,,929,,ET071701,no,yes
+only_in_new_name_existed_under_other_pcode,ET110402,,Mareka,,,Dawuro,,South West Ethiopia,,,182.584559,,,,574,,ET071702,no,yes
+only_in_new_name_existed_under_other_pcode,ET110411,,Tercha town,,,Dawuro,,South West Ethiopia,,,5.066498,,,,65,,ET071790,no,yes
+only_in_new_name_existed_under_other_pcode,ET110502,,Menit Goldiye,,,West Omo,,South West Ethiopia,,,1111.759552,,,,972,,ET071105,no,yes
+only_in_new_name_existed_under_other_pcode,ET110504,,Menit Shasha,,,West Omo,,South West Ethiopia,,,1585.765868,,,,1214,,ET071106,no,yes
+only_in_new_name_existed_under_other_pcode,ET110505,,Bero,,,West Omo,,South West Ethiopia,,,594.443422,,,,411,,ET071108,no,yes
+only_in_new_name_existed_under_other_pcode,ET110506,,Surma,,,West Omo,,South West Ethiopia,,,4960.802458,,,,821,,ET071109,no,yes
+only_in_new_name_existed_under_other_pcode,ET110507,,Maji,,,West Omo,,South West Ethiopia,,,4541.243809,,,,1711,,ET071107,no,yes
+only_in_new_name_existed_under_other_pcode,ET150111,,Dechatu,,,Dire Dawa urban,,Dire Dawa,,,1.338396,,,,40,,ET150111O,no,yes
+only_in_new_name_existed_under_other_pcode,ET150112,,Hafat Issa,,,Dire Dawa urban,,Dire Dawa,,,0.379421,,,,21,,ET150112O,no,yes
+only_in_new_name_existed_under_other_pcode,ET150113,,Kazira,,,Dire Dawa urban,,Dire Dawa,,,12.81549,,,,79,,ET150113O,no,yes
+only_in_new_name_existed_under_other_pcode,ET150114,,Police Maret,,,Dire Dawa urban,,Dire Dawa,,,8.893289,,,,49,,ET150114O,no,yes
+only_in_new_name_existed_under_other_pcode,ET150201,,Aseliso,,,Dire Dawa rural,,Dire Dawa,,,102.553148,,,,172,,ET150201O,no,yes
+only_in_new_name_existed_under_other_pcode,ET160202,,Wondo-Genet,,,Northern,,Sidama,,,205.054735,,,,711,,ET070420,no,yes
+only_in_new_name_existed_under_other_pcode,ET160203,,Malga,,,Northern,,Sidama,,,179.162124,,,,755,,ET070412,no,yes
+only_in_new_name_existed_under_other_pcode,ET160204,,Gorche,,,Northern,,Sidama,,,169.66938,,,,745,,ET070411,no,yes
+only_in_new_name_existed_under_other_pcode,ET160207,,Shebe Dino,,,Northern,,Sidama,,,165.631442,,,,926,,ET070401,no,yes
+only_in_new_name_existed_under_other_pcode,ET160208,,Boricha,,,Northern,,Sidama,,,110.651589,,,,626,,ET070410,no,yes
+only_in_new_name_existed_under_other_pcode,ET160210,,Hawassa Zuria,,,Northern,,Sidama,,,339.110286,,,,308,,ET070402,no,yes
+only_in_new_name_existed_under_other_pcode,ET160303,,Wonosho,,,Central,,Sidama,,,143.816124,,,,562,,ET070413,no,yes
+only_in_new_name_existed_under_other_pcode,ET160305,,Dale,,,Central,,Sidama,,,287.567632,,,,1191,,ET070404,no,yes
+only_in_new_name_existed_under_other_pcode,ET160307,,Loka Abaya,,,Central,,Sidama,,,848.009958,,,,870,,ET070414,no,yes
+only_in_new_name_existed_under_other_pcode,ET160401,,Bursa,,,Southern,,Sidama,,,159.63964,,,,1059,,ET070416,no,yes
+only_in_new_name_existed_under_other_pcode,ET160403,,Aleta Wendo,,,Southern,,Sidama,,,197.402028,,,,680,,ET070405,no,yes
+only_in_new_name_existed_under_other_pcode,ET160404,,Aleta Wondo town,,,Southern,,Sidama,,,5.247563,,,,63,,ET070487,no,yes
+only_in_new_name_existed_under_other_pcode,ET160407,,Dara,,,Southern,,Sidama,,,147.966597,,,,631,,ET070406,no,yes
+only_in_new_name_existed_under_other_pcode,ET160409,,Hulla,,,Southern,,Sidama,,,161.755435,,,,747,,ET070407,no,yes
+only_in_new_name_existed_under_other_pcode,ET160502,,Bona Zuria,,,Eastern,,Sidama,,,200.778033,,,,1023,,ET070418,no,yes
+only_in_new_name_existed_under_other_pcode,ET160503,,Bensa,,,Eastern,,Sidama,,,335.799057,,,,1254,,ET070408,no,yes
+only_in_new_name_existed_under_other_pcode,ET160506,,Chire,,,Eastern,,Sidama,,,165.031836,,,,469,,ET070415,no,yes
+only_in_new_name_existed_under_other_pcode,ET160507,,Aroresa,,,Eastern,,Sidama,,,407.054294,,,,1079,,ET070409,no,yes
+only_in_new_name_existed_under_other_pcode,ET990103,,Kafta Humera,,,Area 1,,Contested,,,5002.432966,,,,3383,,ET010501,no,yes
+only_in_new_name_existed_under_other_pcode,ET990104,,Welkait,,,Area 1,,Contested,,,2459.832146,,,,4012,,ET010502,no,yes
+only_in_new_name_existed_under_other_pcode,ET990108,,Awra,,,Area 1,,Contested,,,852.02178,,,,1859,,ET020401,no,yes
+only_in_new_name_existed_under_other_pcode,ET990302,,Ofla,,,Area 3,,Contested,,,778.977759,,,,1014,,ET010408,no,yes
+only_in_new_name_existed_under_other_pcode,ET990303,,Korem town,,,Area 3,,Contested,,,11.21491,,,,74,,ET010410,no,yes
+only_in_new_name_existed_under_other_pcode,ET990304,,Alamata town,,,Area 3,,Contested,,,12.641609,,,,200,,ET010411,no,yes
+only_in_old,ET010102,Laelay Adiabo,,,North Western,,Tigray,,,1791.920675,,,,1314,,,,yes,no
+only_in_old,ET010106,Tselemti,,,North Western,,Tigray,,,2824.29242,,,,1105,,,,yes,no
+only_in_old,ET010407,Alamata,,,Southern,,Tigray,,,751.982171,,,,1221,,,,yes,no
+only_in_old,ET010503,Tsegede (Tigray),,,Western,,Tigray,,,3287.022046,,,,1250,,,,yes,no
+only_in_old,ET010504,Setit Humera,,,Western,,Tigray,,,14.462282,,,,33,,,,yes,no
+only_in_old,ET011062,Debub & Semen Mekele,,,Mekele Special,,Tigray,,,34.173968,,,,216,,,,yes,no
+only_in_old,ET011063,Kuha,,,Mekele Special,,Tigray,,,5.535343,,,,103,,,,yes,no
+only_in_old,ET011064,Kedamay Weyane,,,Mekele Special,,Tigray,,,4.698831,,,,31,,,,yes,no
+only_in_old,ET011065,Hawelti,,,Mekele Special,,Tigray,,,12.222052,,,,82,,,,yes,no
+only_in_old,ET011066,Hadnet,,,Mekele Special,,Tigray,,,21.340348,,,,114,,,,yes,no
+only_in_old,ET011067,Ayder,,,Mekele Special,,Tigray,,,8.971552,,,,91,,,,yes,no
+only_in_old,ET011068,Adhaki,,,Mekele Special,,Tigray,,,5.457747,,,,31,,,,yes,no
+only_in_old,ET0201011,Kurri,,,Zone 1 (Awsi Rasu),,Afar,,,2868.540901,,,,602,,,,yes,no
+only_in_old,ET0201051,Adaa'r,,,Zone 1 (Awsi Rasu),,Afar,,,2340.72911,,,,887,,,,yes,no
+only_in_old,ET031111OU004,Dembia,,,Central Gondar,,Amhara,,,1295.814589,,,,1997,,,,yes,no
+only_in_old,ET031112OU003,Chilga,,,Central Gondar,,Amhara,,,3036.247899,,,,2288,,,,yes,no
+only_in_old,ET031122O,Kinfaz,,,Central Gondar,,Amhara,,,1782.44869,,,,1745,,,,yes,no
+only_in_old,ET040704OU068,Lome (Oromia),,,East Shewa,,Oromia,,,743.233822,,,,1087,,,,yes,no
+only_in_old,ET040894O,Bekoji Town,,,Arsi,,Oromia,,,4.405847,,,,74,,,,yes,no
+only_in_old,ET041001O,Haromaya Town,,,East Hararge,,Oromia,,,5.630867,,,,87,,,,yes,no
+only_in_old,ET041004OU031,Babile (Oromia),,,East Hararge,,Oromia,,,4882.748291,,,,1013,,,,yes,no
+only_in_old,ET041099O,Aweday Town,,,East Hararge,,Oromia,,,59.124416,,,,281,,,,yes,no
+only_in_old,ET041798,Bishan Guracha,,,West Arsi,,Oromia,,,45.322141,,,,539,,,,yes,no
+only_in_old,ET042004O,Lege tafo-Lege Dadi Town,,,Finfine Special,,Oromia,,,32.387155,,,,29,,,,yes,no
+only_in_old,ET042005O,Sululta Town,,,Finfine Special,,Oromia,,,8.46131,,,,22,,,,yes,no
+only_in_old,ET042008O,Dukem,,,Finfine Special,,Oromia,,,0.578486,,,,75,,,,yes,no
+only_in_old,ET042009O,Sebeta /Town/,,,Finfine Special,,Oromia,,,130.372935,,,,565,,,,yes,no
+only_in_old,ET042098,Gelana (Finfine),,,Finfine Special,,Oromia,,,30.404369,,,,190,,,,yes,no
+only_in_old,ET050201,Babile (Somali),,,Fafan,,Somali,,,406.496277,,,,34,,,,yes,no
+only_in_old,ET050902OU061,Dolo Odo,,,Liban,,Somali,,,9481.072236,,,,158,,,,yes,no
+only_in_old,ET070101,Kebena,,,Guraghe,,SNNP,,,235.983602,,,,950,,,,yes,no
+only_in_old,ET070107,Mareko,,,Guraghe,,SNNP,,,300.454616,,,,366,,,,yes,no
+only_in_old,ET070301,Tembaro,,,Kembata Tibaro,,SNNP,,,339.645454,,,,458,,,,yes,no
+only_in_old,ET070417,Chuko,,,Sidama,,SNNP,,,305.957757,,,,723,,,,yes,no
+only_in_old,ET070419,Hawasa Town,,,Sidama,,SNNP,,,27.77707,,,,434,,,,yes,no
+only_in_old,ET070421O,Tula Town,,,Sidama,,SNNP,,,1.329886,,,,66,,,,yes,no
+only_in_old,ET070486,Yirgalem Town Adm.,,,Sidama,,SNNP,,,13.673183,,,,185,,,,yes,no
+only_in_old,ET070506,Kochere Gedeb,,,Gedeo,,SNNP,,,317.685965,,,,499,,,,yes,no
+only_in_old,ET070507,Dila City Admin,,,Gedeo,,SNNP,,,14.244283,,,,229,,,,yes,no
+only_in_old,ET070603,Damot Weydie,,,Wolayita,,SNNP,,,352.128622,,,,776,,,,yes,no
+only_in_old,ET070610,Kindo Dida,,,Wolayita,,SNNP,,,380.45031,,,,857,,,,yes,no
+only_in_old,ET070611,Damot Pulasa,,,Wolayita,,SNNP,,,165.099525,,,,439,,,,yes,no
+only_in_old,ET070612,Diguna Fango,,,Wolayita,,SNNP,,,391.275154,,,,523,,,,yes,no
+only_in_old,ET070701,Basketo SP Woreda,,,South Omo,,SNNP,,,410.676853,,,,817,,,,yes,no
+only_in_old,ET070702,South Ari (Bako Gazer),,,South Omo,,SNNP,,,2032.839593,,,,1205,,,,yes,no
+only_in_old,ET070703,Gelila / North Ari,,,South Omo,,SNNP,,,280.988191,,,,600,,,,yes,no
+only_in_old,ET070707,Male,,,South Omo,,SNNP,,,1431.239856,,,,1245,,,,yes,no
+only_in_old,ET070708,Gnangatom,,,South Omo,,SNNP,,,2807.67228,,,,1268,,,,yes,no
+only_in_old,ET070709,Selamgo,,,South Omo,,SNNP,,,4571.868981,,,,2050,,,,yes,no
+only_in_old,ET070793,Jinka Town Admin,,,South Omo,,SNNP,,,8.885814,,,,91,,,,yes,no
+only_in_old,ET070804O,Tepi Town,,,Sheka,,SNNP,,,13.71144,,,,157,,,,yes,no
+only_in_old,ET070901,Sayilem,,,Kefa,,SNNP,,,781.247816,,,,301,,,,yes,no
+only_in_old,ET070902,Gesha (Deka),,,Kefa,,SNNP,,,727.831558,,,,794,,,,yes,no
+only_in_old,ET070903,Getawa,,,Kefa,,SNNP,,,953.559379,,,,579,,,,yes,no
+only_in_old,ET070905,Menjiwo,,,Kefa,,SNNP,,,1011.243991,,,,591,,,,yes,no
+only_in_old,ET070906,Tulo (SNNP),,,Kefa,,SNNP,,,481.837034,,,,506,,,,yes,no
+only_in_old,ET070910,Bita (Big),,,Kefa,,SNNP,,,1086.694587,,,,700,,,,yes,no
+only_in_old,ET071002,Denibu Gofa,,,Gamo Gofa,,SNNP,,,795.233137,,,,1272,,,,yes,no
+only_in_old,ET071007,Chencha,,,Gamo Gofa,,SNNP,,,373.584642,,,,955,,,,yes,no
+only_in_old,ET071011,Ouba Debretsehaye,,,Gamo Gofa,,SNNP,,,753.892339,,,,1155,,,,yes,no
+only_in_old,ET071012,Kemba,,,Gamo Gofa,,SNNP,,,1161.2596,,,,1857,,,,yes,no
+only_in_old,ET071015,Ayida,,,Gamo Gofa,,SNNP,,,174.750284,,,,448,,,,yes,no
+only_in_old,ET071017,Geze Gofa,,,Gamo Gofa,,SNNP,,,526.180992,,,,825,,,,yes,no
+only_in_old,ET071101,Sheka,,,Bench Maji,,SNNP,,,489.190863,,,,882,,,,yes,no
+only_in_old,ET071201,Yem SP Woreda,,,Yem Special,,SNNP,,,764.149214,,,,408,,,,yes,no
+only_in_old,ET071301,Alle,,,Segen Area P.,,SNNP,,,787.819135,,,,1509,,,,yes,no
+only_in_old,ET071305,Konso,,,Segen Area P.,,SNNP,,,2333.883642,,,,1116,,,,yes,no
+only_in_old,ET071306,Segen town,,,Segen Area P.,,SNNP,,,3.880999,,,,45,,,,yes,no
+only_in_old,ET071703,Lome (SNNP),,,Dawuro,,SNNP,,,1171.465961,,,,1523,,,,yes,no
+only_in_old,ET071704,Gena Bosa,,,Dawuro,,SNNP,,,909.289176,,,,960,,,,yes,no
+only_in_old,ET071705,Esira,,,Dawuro,,SNNP,,,1077.533191,,,,1414,,,,yes,no
+only_in_old,ET071901,Ela (Konta) SP Woreda,,,Konta Special,,SNNP,,,2353.527729,,,,1850,,,,yes,no
+only_in_old,ET072101OU050,Halaba SP Woreda,,,Halaba Special,,SNNP,,,977.606674,,,,1118,,,,yes,no
+only_in_new,ET010109,,Laelay Koraro,,,North Western,,Tigray,,,399.449991,,,,1453,,,no,yes
+only_in_new,ET010110,,Seyemti Adyabo,,,North Western,,Tigray,,,708.99113,,,,1318,,,no,yes
+only_in_new,ET010111,,Adi Daero,,,North Western,,Tigray,,,669.885175,,,,2110,,,no,yes
+only_in_new,ET010112,,Maekel Adiyabo,,,North Western,,Tigray,,,908.643063,,,,1669,,,no,yes
+only_in_new,ET010113,,Tsimbla,,,North Western,,Tigray,,,1003.409163,,,,679,,,no,yes
+only_in_new,ET010114,,Endabaguna town,,,North Western,,Tigray,,,3.144867,,,,34,,,no,yes
+only_in_new,ET010209,,Naeder,,,Central,,Tigray,,,489.624439,,,,1385,,,no,yes
+only_in_new,ET010214,,Rama Adi Arbaete,,,Central,,Tigray,,,478.518243,,,,1152,,,no,yes
+only_in_new,ET010215,,Ahsea,,,Central,,Tigray,,,361.915867,,,,1103,,,no,yes
+only_in_new,ET010216,,Egela,,,Central,,Tigray,,,671.082292,,,,910,,,no,yes
+only_in_new,ET010217,,Hahayle,,,Central,,Tigray,,,205.00797,,,,1212,,,no,yes
+only_in_new,ET010218,,Endafelasi,,,Central,,Tigray,,,461.269433,,,,1953,,,no,yes
+only_in_new,ET010219,,Emba Sieneti,,,Central,,Tigray,,,320.540271,,,,2073,,,no,yes
+only_in_new,ET010220,,Enticho town,,,Central,,Tigray,,,3.851707,,,,120,,,no,yes
+only_in_new,ET010221,,Keyhe tekli,,,Central,,Tigray,,,715.341003,,,,2773,,,no,yes
+only_in_new,ET010222,,Tanqua Melashe,,,Central,,Tigray,,,371.398266,,,,1754,,,no,yes
+only_in_new,ET010310,,Bizet,,,Eastern,,Tigray,,,159.908992,,,,1257,,,no,yes
+only_in_new,ET010311,,Edaga Hamus town,,,Eastern,,Tigray,,,2.897692,,,,104,,,no,yes
+only_in_new,ET010312,,Hawzen town,,,Eastern,,Tigray,,,4.091803,,,,136,,,no,yes
+only_in_new,ET010313,,Freweyni town,,,Eastern,,Tigray,,,3.08478,,,,112,,,no,yes
+only_in_new,ET010314,,Tsaeda Emba,,,Eastern,,Tigray,,,508.799596,,,,1676,,,no,yes
+only_in_new,ET010315,,Atsbi town,,,Eastern,,Tigray,,,1.010482,,,,15,,,no,yes
+only_in_new,ET010316,,Agulae,,,Eastern,,Tigray,,,938.872286,,,,1460,,,no,yes
+only_in_new,ET010317,,Geraleta,,,Eastern,,Tigray,,,346.876697,,,,1767,,,no,yes
+only_in_new,ET010318,,Zala Anbesa town,,,Eastern,,Tigray,,,3.097376,,,,85,,,no,yes
+only_in_new,ET010401,,Selewa,,,Southern,,Tigray,,,275.463508,,,,578,,,no,yes
+only_in_new,ET010402,,Bora (TG),,,Southern,,Tigray,,,186.681149,,,,217,,,no,yes
+only_in_new,ET010403,,Neqsege,,,Southern,,Tigray,,,168.573241,,,,189,,,no,yes
+only_in_new,ET010412,,Mekhoni town,,,Southern,,Tigray,,,3.891838,,,,31,,,no,yes
+only_in_new,ET010605,,Hagere Selam town,,,South Eastern,,Tigray,,,5.230905,,,,205,,,no,yes
+only_in_new,ET010606,,Samre,,,South Eastern,,Tigray,,,1036.900205,,,,1645,,,no,yes
+only_in_new,ET010607,,Adigudom,,,South Eastern,,Tigray,,,16.23194,,,,237,,,no,yes
+only_in_new,ET010608,,Wajirat,,,South Eastern,,Tigray,,,878.254262,,,,1441,,,no,yes
+only_in_new,ET010701,,Kuiha Sub City,,,Mekelle,,Tigray,,,146.502446,,,,931,,,no,yes
+only_in_new,ET010702,,Hadnet Sub City,,,Mekelle,,Tigray,,,64.923395,,,,449,,,no,yes
+only_in_new,ET010703,,Ayder Sub City,,,Mekelle,,Tigray,,,41.645154,,,,316,,,no,yes
+only_in_new,ET010704,,Hawelti Sub City,,,Mekelle,,Tigray,,,15.845385,,,,112,,,no,yes
+only_in_new,ET010705,,Adihaki Sub City,,,Mekelle,,Tigray,,,3.80312,,,,48,,,no,yes
+only_in_new,ET010706,,Qedamay Weyane Sub City,,,Mekelle,,Tigray,,,6.327569,,,,96,,,no,yes
+only_in_new,ET010707,,Semen Sub City,,,Mekelle,,Tigray,,,36.165967,,,,338,,,no,yes
+only_in_new,ET020107,,Dubti town,,,Awsi /Zone 1,,Afar,,,6.761425,,,,55,,,no,yes
+only_in_new,ET020108,,Kori,,,Awsi /Zone 1,,Afar,,,2868.540901,,,,603,,,no,yes
+only_in_new,ET020109,,Adar,,,Awsi /Zone 1,,Afar,,,2313.472371,,,,854,,,no,yes
+only_in_new,ET020111,,Asayita town,,,Awsi /Zone 1,,Afar,,,50.216878,,,,201,,,no,yes
+only_in_new,ET020112,,Mile town,,,Awsi /Zone 1,,Afar,,,1.945577,,,,22,,,no,yes
+only_in_new,ET020113,,Chifra town,,,Awsi /Zone 1,,Afar,,,2.29029,,,,28,,,no,yes
+only_in_new,ET020209,,Abaala town,,,Kilbati /Zone 2,,Afar,,,189.229929,,,,192,,,no,yes
+only_in_new,ET020210,,Wasama,,,Kilbati /Zone 2,,Afar,,,504.688383,,,,406,,,no,yes
+only_in_new,ET020307,,Hanruka,,,Gabi /Zone 3,,Afar,,,2104.080937,,,,802,,,no,yes
+only_in_new,ET020308,,Abida,,,Gabi /Zone 3,,Afar,,,1119.292499,,,,61,,,no,yes
+only_in_new,ET020309,,Borimodaytu,,,Gabi /Zone 3,,Afar,,,792.470278,,,,1101,,,no,yes
+only_in_new,ET020310,,Werer,,,Gabi /Zone 3,,Afar,,,73.437371,,,,88,,,no,yes
+only_in_new,ET020406,,Mabay,,,Fanti /Zone 4,,Afar,,,2778.613763,,,,483,,,no,yes
+only_in_new,ET020601,,Gerani,,,Mahi /Zone 6,,Afar,,,2092.20291,,,,324,,,no,yes
+only_in_new,ET020602,,Kilalu,,,Mahi /Zone 6,,Afar,,,2330.82651,,,,220,,,no,yes
+only_in_new,ET020603,,Yangudi,,,Mahi /Zone 6,,Afar,,,2088.511122,,,,511,,,no,yes
+only_in_new,ET020604,,Sibaybi,,,Mahi /Zone 6,,Afar,,,2175.711901,,,,481,,,no,yes
+only_in_new,ET030106,,Dabat town,,,North Gondar,,Amhara,,,4.768859,,,,103,,,no,yes
+only_in_new,ET030212,,Guna Begemider,,,South Gondar,,Amhara,,,465.170105,,,,1200,,,no,yes
+only_in_new,ET030213,,Mena Meketewa,,,South Gondar,,Amhara,,,745.197042,,,,939,,,no,yes
+only_in_new,ET030214,,Sede Muja,,,South Gondar,,Amhara,,,906.62743,,,,1053,,,no,yes
+only_in_new,ET030215,,Nefas Mewicha town,,,South Gondar,,Amhara,,,7.712592,,,,113,,,no,yes
+only_in_new,ET030216,,Wegeda town,,,South Gondar,,Amhara,,,4.822256,,,,43,,,no,yes
+only_in_new,ET030217,,Ebenat town,,,South Gondar,,Amhara,,,2.152868,,,,48,,,no,yes
+only_in_new,ET030218,,Hamusit town,,,South Gondar,,Amhara,,,3.360863,,,,46,,,no,yes
+only_in_new,ET030298,,Mekan Eyesuse,,,South Gondar,,Amhara,,,33.616359,,,,285,,,no,yes
+only_in_new,ET030299,,Adiss Zemen town,,,South Gondar,,Amhara,,,3.641099,,,,64,,,no,yes
+only_in_new,ET030306,,Hara town,,,North Wello,,Amhara,,,6.588058,,,,88,,,no,yes
+only_in_new,ET030312,,Gazo,,,North Wello,,Amhara,,,578.968616,,,,784,,,no,yes
+only_in_new,ET030313,,Angot,,,North Wello,,Amhara,,,103.216372,,,,387,,,no,yes
+only_in_new,ET030314,,Filakit town,,,North Wello,,Amhara,,,11.518689,,,,51,,,no,yes
+only_in_new,ET030315,,Gashena town,,,North Wello,,Amhara,,,29.385943,,,,240,,,no,yes
+only_in_new,ET030397,,Mersa town,,,North Wello,,Amhara,,,4.860147,,,,71,,,no,yes
+only_in_new,ET030423,,Wereilu town,,,South Wello,,Amhara,,,3.353998,,,,52,,,no,yes
+only_in_new,ET030424,,Wegel tena town,,,South Wello,,Amhara,,,5.429162,,,,97,,,no,yes
+only_in_new,ET030425,,Degolo town,,,South Wello,,Amhara,,,3.825346,,,,85,,,no,yes
+only_in_new,ET030426,,Kelala town,,,South Wello,,Amhara,,,2.03285,,,,47,,,no,yes
+only_in_new,ET030427,,Akeseta town,,,South Wello,,Amhara,,,10.417004,,,,105,,,no,yes
+only_in_new,ET030428,,Gimeba town,,,South Wello,,Amhara,,,1.874901,,,,32,,,no,yes
+only_in_new,ET030429,,Harbu town,,,South Wello,,Amhara,,,2.475874,,,,65,,,no,yes
+only_in_new,ET030430,,Wegedi town,,,South Wello,,Amhara,,,1.221376,,,,36,,,no,yes
+only_in_new,ET030498,,Mekane Selam town,,,South Wello,,Amhara,,,10.789625,,,,120,,,no,yes
+only_in_new,ET030499,,Hike town,,,South Wello,,Amhara,,,1.966791,,,,63,,,no,yes
+only_in_new,ET030524,,Tulefa town,,,North Shewa (AM),,Amhara,,,68.02583,,,,119,,,no,yes
+only_in_new,ET030525,,Arerti town,,,North Shewa (AM),,Amhara,,,1.91549,,,,56,,,no,yes
+only_in_new,ET030526,,Molale town,,,North Shewa (AM),,Amhara,,,1.396369,,,,36,,,no,yes
+only_in_new,ET030527,,Debre Sina town,,,North Shewa (AM),,Amhara,,,4.949497,,,,81,,,no,yes
+only_in_new,ET030528,,Enewari town,,,North Shewa (AM),,Amhara,,,1.558147,,,,82,,,no,yes
+only_in_new,ET030597,,Mehal Meda town,,,North Shewa (AM),,Amhara,,,4.013375,,,,63,,,no,yes
+only_in_new,ET030598,,Ataye town,,,North Shewa (AM),,Amhara,,,6.031221,,,,37,,,no,yes
+only_in_new,ET030599,,Aleme Ketma town,,,North Shewa (AM),,Amhara,,,4.282333,,,,59,,,no,yes
+only_in_new,ET030618,,Amanuel town,,,East Gojam,,Amhara,,,2.246661,,,,116,,,no,yes
+only_in_new,ET030619,,Sedae,,,East Gojam,,Amhara,,,605.879733,,,,696,,,no,yes
+only_in_new,ET030620,,Gundwoin town,,,East Gojam,,Amhara,,,3.869064,,,,44,,,no,yes
+only_in_new,ET030621,,Debrework town,,,East Gojam,,Amhara,,,3.328443,,,,99,,,no,yes
+only_in_new,ET030622,,Lumame town,,,East Gojam,,Amhara,,,1.529405,,,,37,,,no,yes
+only_in_new,ET030623,,Merto Lemariyam town,,,East Gojam,,Amhara,,,13.941718,,,,79,,,no,yes
+only_in_new,ET030698,,Dejen town,,,East Gojam,,Amhara,,,2.587817,,,,66,,,no,yes
+only_in_new,ET030699,,Bechena town,,,East Gojam,,Amhara,,,3.526092,,,,91,,,no,yes
+only_in_new,ET030716,,Shendi town,,,West Gojam,,Amhara,,,1.8049,,,,45,,,no,yes
+only_in_new,ET030717,,Denbecha town,,,West Gojam,,Amhara,,,6.924792,,,,78,,,no,yes
+only_in_new,ET030720,,Jiga town,,,West Gojam,,Amhara,,,3.40989,,,,49,,,no,yes
+only_in_new,ET030808,,Tsagbeji,,,Wag Hamra,,Amhara,,,443.994836,,,,521,,,no,yes
+only_in_new,ET030809,,Amde Work town,,,Wag Hamra,,Amhara,,,0.888816,,,,45,,,no,yes
+only_in_new,ET030908,,Ayehu Guwagusa,,,Awi,,Amhara,,,537.983148,,,,642,,,no,yes
+only_in_new,ET030909,,Agew Gimija Bet town,,,Awi,,Amhara,,,8.215185,,,,107,,,no,yes
+only_in_new,ET030910,,Adiss Kidame town,,,Awi,,Amhara,,,2.051751,,,,69,,,no,yes
+only_in_new,ET030911,,Tilili town,,,Awi,,Amhara,,,3.341667,,,,56,,,no,yes
+only_in_new,ET030912,,Fendika town,,,Awi,,Amhara,,,1.452431,,,,42,,,no,yes
+only_in_new,ET031007,,Chef Robit town,,,Oromo Nationality Administration,,Amhara,,,1.59772,,,,56,,,no,yes
+only_in_new,ET031008,,Senbete town,,,Oromo Nationality Administration,,Amhara,,,1.162038,,,,30,,,no,yes
+only_in_new,ET031103,,Amba Giorgis town,,,Central Gondar,,Amhara,,,8.21401,,,,113,,,no,yes
+only_in_new,ET031104,,Shawra town,,,Central Gondar,,Amhara,,,2.801172,,,,45,,,no,yes
+only_in_new,ET031105,,Kolla Debba town,,,Central Gondar,,Amhara,,,3.197588,,,,82,,,no,yes
+only_in_new,ET031106,,Chilga 1,,,Central Gondar,,Amhara,,,719.004092,,,,1321,,,no,yes
+only_in_new,ET031111,,East Dembia,,,Central Gondar,,Amhara,,,697.076562,,,,944,,,no,yes
+only_in_new,ET031112,,Chilga 2,,,Central Gondar,,Amhara,,,748.108125,,,,1576,,,no,yes
+only_in_new,ET031119,,Masero Denb /Central Armacho,,,Central Gondar,,Amhara,,,1485.255249,,,,1137,,,no,yes
+only_in_new,ET031122,,Kinfaz Begela,,,Central Gondar,,Amhara,,,1782.44869,,,,1745,,,no,yes
+only_in_new,ET031125,,West Dembiya,,,Central Gondar,,Amhara,,,1257.538065,,,,1320,,,no,yes
+only_in_new,ET031199,,Aykel town,,,Central Gondar,,Amhara,,,2.988667,,,,55,,,no,yes
+only_in_new,ET031205,,Adagn Ager Chaqo,,,West Gondar,,Amhara,,,1482.082696,,,,1580,,,no,yes
+only_in_new,ET031223,,Midre Genet,,,West Gondar,,Amhara,,,9.585413,,,,39,,,no,yes
+only_in_new,ET031224,,Metema Yohanes town,,,West Gondar,,Amhara,,,9.03555,,,,29,,,no,yes
+only_in_new,ET031302,,Merawi town,,,North Gojam,,Amhara,,,2.882954,,,,68,,,no,yes
+only_in_new,ET031306,,Debub Mecha,,,North Gojam,,Amhara,,,935.371883,,,,1281,,,no,yes
+only_in_new,ET031308,,Dure Bete,,,North Gojam,,Amhara,,,1.998425,,,,75,,,no,yes
+only_in_new,ET031309,,Adete town,,,North Gojam,,Amhara,,,3.921855,,,,112,,,no,yes
+only_in_new,ET031403,,Zege town,,,Bahir Dar town Admin,,Amhara,,,68.90937,,,,43,,,no,yes
+only_in_new,ET031404,,Deq,,,Bahir Dar town Admin,,Amhara,,,612.095623,,,,11,,,no,yes
+only_in_new,ET031405,,Meshenti town,,,Bahir Dar town Admin,,Amhara,,,30.719803,,,,195,,,no,yes
+only_in_new,ET031406,,Tis Abay town,,,Bahir Dar town Admin,,Amhara,,,112.447747,,,,266,,,no,yes
+only_in_new,ET040197,,Leta Sibu,,,West Wellega,,Oromia,,,290.437663,,,,922,,,no,yes
+only_in_new,ET040198,,Mendi town,,,West Wellega,,Oromia,,,34.137322,,,,189,,,no,yes
+only_in_new,ET040490,,Mancho,,,Jimma,,Oromia,,,757.528862,,,,1031,,,no,yes
+only_in_new,ET040491,,Omo Beyam,,,Jimma,,Oromia,,,799.697238,,,,703,,,no,yes
+only_in_new,ET040495,,Botor Tolay,,,Jimma,,Oromia,,,958.010025,,,,715,,,no,yes
+only_in_new,ET040512,,Holeta town,,,West Shewa,,Oromia,,,57.341794,,,,246,,,no,yes
+only_in_new,ET040590,,Ejersa Lafo,,,West Shewa,,Oromia,,,343.394458,,,,910,,,no,yes
+only_in_new,ET040592,,Cobi,,,West Shewa,,Oromia,,,563.910392,,,,888,,,no,yes
+only_in_new,ET040594,,Meta Walkite,,,West Shewa,,Oromia,,,506.322884,,,,957,,,no,yes
+only_in_new,ET040611,,Sheno town,,,North Shewa (OR),,Oromia,,,18.185694,,,,31,,,no,yes
+only_in_new,ET040616,,Garba Guracha,,,North Shewa (OR),,Oromia,,,18.671422,,,,73,,,no,yes
+only_in_new,ET040620,,Sululta (OR),,,North Shewa (OR),,Oromia,,,883.990424,,,,2519,,,no,yes
+only_in_new,ET040621,,Chancho town,,,North Shewa (OR),,Oromia,,,35.350391,,,,831,,,no,yes
+only_in_new,ET040704,,Lome (OR),,,East Shewa,,Oromia,,,637.347333,,,,12071,,,no,yes
+only_in_new,ET040797,,Mojo town,,,East Shewa,,Oromia,,,51.695321,,,,176,,,no,yes
+only_in_new,ET040798,,Batu town,,,East Shewa,,Oromia,,,216.750192,,,,309,,,no,yes
+only_in_new,ET040893,,Shanan Kolu,,,Arsi,,Oromia,,,587.117987,,,,1184,,,no,yes
+only_in_new,ET040894,,Bokoji town,,,Arsi,,Oromia,,,34.712788,,,,118,,,no,yes
+only_in_new,ET040895,,Dera town,,,Arsi,,Oromia,,,30.02522,,,,141,,,no,yes
+only_in_new,ET040991,,Gumbi Bordede,,,West Hararge,,Oromia,,,1383.247461,,,,1605,,,no,yes
+only_in_new,ET041000,,Babile town,,,East Hararge,,Oromia,,,3.39484,,,,38,,,no,yes
+only_in_new,ET041004,,Babile (OR),,,East Hararge,,Oromia,,,4879.354965,,,,1060,,,no,yes
+only_in_new,ET041019,,Maya town,,,East Hararge,,Oromia,,,356.080736,,,,520,,,no,yes
+only_in_new,ET041020,,Mekanisa Oromo,,,East Hararge,,Oromia,,,314.914429,,,,52,,,no,yes
+only_in_new,ET041089,,Goro Muti,,,East Hararge,,Oromia,,,217.08631,,,,777,,,no,yes
+only_in_new,ET041223,,Gomole,,,Borena,,Oromia,,,1345.744143,,,,1438,,,no,yes
+only_in_new,ET041291,,Dubluk,,,Borena,,Oromia,,,2334.134544,,,,228,,,no,yes
+only_in_new,ET041295,,Elwaya,,,Borena,,Oromia,,,3947.994514,,,,1161,,,no,yes
+only_in_new,ET041296,,Yabelo town,,,Borena,,Oromia,,,16.050351,,,,126,,,no,yes
+only_in_new,ET041409,,Arda Jila,,,Guji,,Oromia,,,294.667619,,,,439,,,no,yes
+only_in_new,ET041482,,Aga Wayu,,,Guji,,Oromia,,,634.251845,,,,1019,,,no,yes
+only_in_new,ET041490,,Haro Walabu,,,Guji,,Oromia,,,259.212976,,,,508,,,no,yes
+only_in_new,ET041503,,Kercha town,,,West Guji,,Oromia,,,8.402638,,,,50,,,no,yes
+only_in_new,ET041596,,Birbirsa Kojowa,,,West Guji,,Oromia,,,204.739081,,,,634,,,no,yes
+only_in_new,ET041713,,Kofele town,,,West Arsi,,Oromia,,,21.330055,,,,68,,,no,yes
+only_in_new,ET041783,,Heban Arsi,,,West Arsi,,Oromia,,,552.082074,,,,801,,,no,yes
+only_in_new,ET041812,,Sedi Chenka,,,Kelem Wellega,,Oromia,,,298.650574,,,,630,,,no,yes
+only_in_new,ET041911,,Choman Guduru,,,Horo Gudru Wellega,,Oromia,,,455.252281,,,,818,,,no,yes
+only_in_new,ET041912,,Horo Buluk,,,Horo Gudru Wellega,,Oromia,,,440.983944,,,,689,,,no,yes
+only_in_new,ET041913,,Sulula Finca'a,,,Horo Gudru Wellega,,Oromia,,,1263.736456,,,,571,,,no,yes
+only_in_new,ET042002,,Eka Tafo,,,Shager City,,Oromia,,,98.008501,,,,900,,,no,yes
+only_in_new,ET042003,,Furi,,,Shager City,,Oromia,,,47.420001,,,,316,,,no,yes
+only_in_new,ET042004,,Galan,,,Shager City,,Oromia,,,123.76395,,,,627,,,no,yes
+only_in_new,ET042005,,Galan Gudo,,,Shager City,,Oromia,,,151.277873,,,,567,,,no,yes
+only_in_new,ET042007,,Koye,,,Shager City,,Oromia,,,139.843042,,,,642,,,no,yes
+only_in_new,ET042008,,Kura Jida,,,Shager City,,Oromia,,,245.395797,,,,1475,,,no,yes
+only_in_new,ET042009,,Mana Abichu,,,Shager City,,Oromia,,,94.825279,,,,517,,,no,yes
+only_in_new,ET042010,,Melka Nonno,,,Shager City,,Oromia,,,40.012447,,,,331,,,no,yes
+only_in_new,ET042204,,West Welabu,,,East Borena,,Oromia,,,1482.844764,,,,1825,,,no,yes
+only_in_new,ET042206,,Gumi Idalo,,,East Borena,,Oromia,,,2521.137227,,,,760,,,no,yes
+only_in_new,ET042208,,Wachile,,,East Borena,,Oromia,,,5066.43927,,,,1022,,,no,yes
+only_in_new,ET050108,,Daymeed,,,Siti,,Somali,,,316.382945,,,,28,,,no,yes
+only_in_new,ET050109,,Dhunyar,,,Siti,,Somali,,,2254.131712,,,,59,,,no,yes
+only_in_new,ET050203,,Babile (SM),,,Fafan,,Somali,,,347.439544,,,,34,,,no,yes
+only_in_new,ET050295,,Wajale town,,,Fafan,,Somali,,,115.127964,,,,33,,,no,yes
+only_in_new,ET050296,,Kebribayah town,,,Fafan,,Somali,,,29.062858,,,,28,,,no,yes
+only_in_new,ET050297,,Koran /Mulla,,,Fafan,,Somali,,,1469.292802,,,,35,,,no,yes
+only_in_new,ET050299,,Harawo,,,Fafan,,Somali,,,1535.321428,,,,60,,,no,yes
+only_in_new,ET050306,,Bilcil-Bur,,,Jarar,,Somali,,,1378.501324,,,,61,,,no,yes
+only_in_new,ET050382,,Yocale,,,Jarar,,Somali,,,1509.914197,,,,51,,,no,yes
+only_in_new,ET050403,,Salahad,,,Erer,,Somali,,,148.747801,,,,25,,,no,yes
+only_in_new,ET050498,,Yahob,,,Erer,,Somali,,,1706.027541,,,,108,,,no,yes
+only_in_new,ET050499,,Wangey,,,Erer,,Somali,,,490.836014,,,,260,,,no,yes
+only_in_new,ET050595,,Goglo,,,Korahe,,Somali,,,2357.937418,,,,25,,,no,yes
+only_in_new,ET050698,,Elale,,,Shabelle,,Somali,,,2729.921218,,,,54,,,no,yes
+only_in_new,ET050798,,Lehel-Yucub,,,Doolo,,Somali,,,2863.014331,,,,26,,,no,yes
+only_in_new,ET050799,,Galhamur,,,Doolo,,Somali,,,5367.711532,,,,41,,,no,yes
+only_in_new,ET050809,,Raso,,,Afder,,Somali,,,297.394947,,,,54,,,no,yes
+only_in_new,ET050902,,Dolo Ado,,,Liban,,Somali,,,3444.580688,,,,282,,,no,yes
+only_in_new,ET050999,,Bokolmayo,,,Liban,,Somali,,,4681.355258,,,,248,,,no,yes
+only_in_new,ET051001,,Ayun,,,Nogob,,Somali,,,1941.737277,,,,64,,,no,yes
+only_in_new,ET051096,,Hararey,,,Nogob,,Somali,,,1413.588661,,,,35,,,no,yes
+only_in_new,ET060200,,Gilgel Beles town,,,Metekel,,Benishangul-Gumuz,,,4.047293,,,,66,,,no,yes
+only_in_new,ET060308,,Undulu,,,Assosa,,Benishangul-Gumuz,,,462.166949,,,,740,,,no,yes
+only_in_new,ET060309,,Assosa town Admin,,,Assosa,,Benishangul-Gumuz,,,14.510746,,,,160,,,no,yes
+only_in_new,ET060310,,Bambasi town,,,Assosa,,Benishangul-Gumuz,,,4.707799,,,,78,,,no,yes
+only_in_new,ET060311,,Ura,,,Assosa,,Benishangul-Gumuz,,,836.537554,,,,1911,,,no,yes
+only_in_new,ET060400,,Kamashi town,,,Kamashi,,Benishangul-Gumuz,,,27.937952,,,,101,,,no,yes
+only_in_new,ET070001,,Kebena Special,,,Kebena Special,,Central Ethiopia,,,235.983602,,,,950,,,no,yes
+only_in_new,ET070116,,Emdebir town,,,Guraghe,,Central Ethiopia,,,7.301517,,,,136,,,no,yes
+only_in_new,ET070120,,Enor Ener,,,Guraghe,,Central Ethiopia,,,334.264923,,,,1026,,,no,yes
+only_in_new,ET070212,,Shone town,,,Hadiya,,Central Ethiopia,,,8.169017,,,,30,,,no,yes
+only_in_new,ET070213,,Gimbichu town,,,Hadiya,,Central Ethiopia,,,2.280849,,,,16,,,no,yes
+only_in_new,ET070214,,Jajura town,,,Hadiya,,Central Ethiopia,,,3.284802,,,,17,,,no,yes
+only_in_new,ET070215,,Ameka,,,Hadiya,,Central Ethiopia,,,188.058324,,,,558,,,no,yes
+only_in_new,ET070216,,Siraro Badawacho,,,Hadiya,,Central Ethiopia,,,50.426115,,,,96,,,no,yes
+only_in_new,ET070217,,Mirab Soro,,,Hadiya,,Central Ethiopia,,,226.156535,,,,227,,,no,yes
+only_in_new,ET070309,,Adilo,,,Kembata,,Central Ethiopia,,,79.201404,,,,334,,,no,yes
+only_in_new,ET070310,,Shinshincho town,,,Kembata,,Central Ethiopia,,,5.953378,,,,108,,,no,yes
+only_in_new,ET070312,,Hadero town,,,Kembata,,Central Ethiopia,,,14.648171,,,,73,,,no,yes
+only_in_new,ET071401,,Kulito town,,,Halaba,,Central Ethiopia,,,9.84093,,,,141,,,no,yes
+only_in_new,ET071402,,Wera,,,Halaba,,Central Ethiopia,,,318.668056,,,,850,,,no,yes
+only_in_new,ET071403,,Atote Ulo,,,Halaba,,Central Ethiopia,,,148.017036,,,,476,,,no,yes
+only_in_new,ET071404,,Wera Djo,,,Halaba,,Central Ethiopia,,,501.080657,,,,842,,,no,yes
+only_in_new,ET072009,,Tora town,,,Siltie,,Central Ethiopia,,,25.468396,,,,204,,,no,yes
+only_in_new,ET072011,,Kibet town,,,Siltie,,Central Ethiopia,,,48.149375,,,,222,,,no,yes
+only_in_new,ET072012,,Mito,,,Siltie,,Central Ethiopia,,,205.872485,,,,872,,,no,yes
+only_in_new,ET072013,,Misrak Siltie,,,Siltie,,Central Ethiopia,,,114.216563,,,,443,,,no,yes
+only_in_new,ET072401,,Saja town,,,Yem,,Central Ethiopia,,,5.366332,,,,78,,,no,yes
+only_in_new,ET072402,,Fofa,,,Yem,,Central Ethiopia,,,3.451627,,,,122,,,no,yes
+only_in_new,ET072403,,Deri Saja zuria,,,Yem,,Central Ethiopia,,,87.102714,,,,266,,,no,yes
+only_in_new,ET072404,,Toba,,,Yem,,Central Ethiopia,,,668.228505,,,,661,,,no,yes
+only_in_new,ET072501,,Mareko Special,,,Mareko Special,,Central Ethiopia,,,300.454128,,,,378,,,no,yes
+only_in_new,ET072601,,Tembaro Special,,,Tembaro Special,,Central Ethiopia,,,339.645454,,,,458,,,no,yes
+only_in_new,ET080103,,Damot Woide,,,Wolayita,,South Ethiopia,,,215.779291,,,,532,,,no,yes
+only_in_new,ET080110,,Kindo Daddaye,,,Wolayita,,South Ethiopia,,,271.679426,,,,688,,,no,yes
+only_in_new,ET080111,,Damot Pullasa,,,Wolayita,,South Ethiopia,,,165.099525,,,,439,,,no,yes
+only_in_new,ET080112,,Duguna Fango,,,Wolayita,,South Ethiopia,,,420.046097,,,,676,,,no,yes
+only_in_new,ET080116,,Tebela town,,,Wolayita,,South Ethiopia,,,3.428792,,,,49,,,no,yes
+only_in_new,ET080117,,Gesuba town,,,Wolayita,,South Ethiopia,,,6.272086,,,,158,,,no,yes
+only_in_new,ET080118,,Gununo Hamus town,,,Wolayita,,South Ethiopia,,,4.658184,,,,71,,,no,yes
+only_in_new,ET080119,,Hobicha Abaya,,,Wolayita,,South Ethiopia,,,446.225037,,,,512,,,no,yes
+only_in_new,ET080120,,Kawo Koyesha,,,Wolayita,,South Ethiopia,,,163.417669,,,,782,,,no,yes
+only_in_new,ET080121,,Abela Abaya,,,Wolayita,,South Ethiopia,,,204.88144,,,,361,,,no,yes
+only_in_new,ET080122,,Bayera Koyesha,,,Wolayita,,South Ethiopia,,,61.720624,,,,609,,,no,yes
+only_in_new,ET080123,,Bale Awassa town,,,Wolayita,,South Ethiopia,,,13.971183,,,,165,,,no,yes
+only_in_new,ET080203,,Birbir town,,,Gamo,,South Ethiopia,,,3.297424,,,,25,,,no,yes
+only_in_new,ET080206,,Chencha town,,,Gamo,,South Ethiopia,,,4.873825,,,,67,,,no,yes
+only_in_new,ET080207,,Chencha Zuriya,,,Gamo,,South Ethiopia,,,290.226162,,,,806,,,no,yes
+only_in_new,ET080210,,Gacho Baba,,,Gamo,,South Ethiopia,,,261.299278,,,,815,,,no,yes
+only_in_new,ET080211,,Garda Marta,,,Gamo,,South Ethiopia,,,485.244384,,,,1191,,,no,yes
+only_in_new,ET080212,,Geressie,,,Gamo,,South Ethiopia,,,662.930727,,,,1493,,,no,yes
+only_in_new,ET080213,,Geressie town,,,Gamo,,South Ethiopia,,,3.141704,,,,75,,,no,yes
+only_in_new,ET080214,,Kemba town,,,Gamo,,South Ethiopia,,,2.412835,,,,75,,,no,yes
+only_in_new,ET080215,,Kemba Zuria,,,Gamo,,South Ethiopia,,,673.602381,,,,1202,,,no,yes
+only_in_new,ET080216,,Kogota /Ezo,,,Gamo,,South Ethiopia,,,78.484655,,,,390,,,no,yes
+only_in_new,ET080218,,Kucha Alpha,,,Gamo,,South Ethiopia,,,401.26642,,,,781,,,no,yes
+only_in_new,ET080220,,Selamber town,,,Gamo,,South Ethiopia,,,3.427805,,,,50,,,no,yes
+only_in_new,ET080301,,Beto town,,,Gofa,,South Ethiopia,,,2.127196,,,,45,,,no,yes
+only_in_new,ET080302,,Buleqi town,,,Gofa,,South Ethiopia,,,7.435741,,,,76,,,no,yes
+only_in_new,ET080303,,Denba Gofa,,,Gofa,,South Ethiopia,,,795.233137,,,,1273,,,no,yes
+only_in_new,ET080304,,Gezei Gofa,,,Gofa,,South Ethiopia,,,518.745251,,,,902,,,no,yes
+only_in_new,ET080305,,Laha town,,,Gofa,,South Ethiopia,,,1.427303,,,,30,,,no,yes
+only_in_new,ET080307,,Melo Gada,,,Gofa,,South Ethiopia,,,608.267267,,,,544,,,no,yes
+only_in_new,ET080308,,O'yida,,,Gofa,,South Ethiopia,,,174.750284,,,,448,,,no,yes
+only_in_new,ET080310,,Uba Debre Tsehay,,,Gofa,,South Ethiopia,,,751.765143,,,,1202,,,no,yes
+only_in_new,ET080401,,Basketo Special,,,Basketo,,South Ethiopia,,,407.588167,,,,893,,,no,yes
+only_in_new,ET080402,,Laska town,,,Basketo,,South Ethiopia,,,3.088686,,,,76,,,no,yes
+only_in_new,ET080501,,Baka Dawula,,,Ari,,South Ethiopia,,,246.853321,,,,808,,,no,yes
+only_in_new,ET080504,,Gelila town,,,Ari,,South Ethiopia,,,1.591924,,,,71,,,no,yes
+only_in_new,ET080506,,Jinka town,,,Ari,,South Ethiopia,,,8.885814,,,,93,,,no,yes
+only_in_new,ET080508,,North Ari,,,Ari,,South Ethiopia,,,279.396267,,,,672,,,no,yes
+only_in_new,ET080511,,South Ari,,,Ari,,South Ethiopia,,,1637.964088,,,,1706,,,no,yes
+only_in_new,ET080513,,Wub Ari,,,Ari,,South Ethiopia,,,148.022185,,,,473,,,no,yes
+only_in_new,ET080601,,Alle Special,,,Alle Special,,South Ethiopia,,,832.613501,,,,1434,,,no,yes
+only_in_new,ET080702,,Gidole town,,,Derashe,,South Ethiopia,,,6.107192,,,,125,,,no,yes
+only_in_new,ET080802,,Kele town,,,Kore,,South Ethiopia,,,1.640788,,,,29,,,no,yes
+only_in_new,ET080901,,Kena,,,Konso,,South Ethiopia,,,281.627771,,,,421,,,no,yes
+only_in_new,ET080902,,Karat Zuria,,,Konso,,South Ethiopia,,,953.274088,,,,1044,,,no,yes
+only_in_new,ET080903,,Karat town,,,Konso,,South Ethiopia,,,2.865515,,,,54,,,no,yes
+only_in_new,ET080904,,Segen Zuria,,,Konso,,South Ethiopia,,,374.636691,,,,582,,,no,yes
+only_in_new,ET080905,,Kolme,,,Konso,,South Ethiopia,,,680.566229,,,,652,,,no,yes
+only_in_new,ET081106,,Gedeb,,,Gedeo,,South Ethiopia,,,189.969181,,,,310,,,no,yes
+only_in_new,ET081107,,Rape,,,Gedeo,,South Ethiopia,,,167.305357,,,,632,,,no,yes
+only_in_new,ET081108,,Churso,,,Gedeo,,South Ethiopia,,,178.575436,,,,511,,,no,yes
+only_in_new,ET081109,,Dila town,,,Gedeo,,South Ethiopia,,,14.244283,,,,229,,,no,yes
+only_in_new,ET081110,,Gedeb town,,,Gedeo,,South Ethiopia,,,18.386673,,,,171,,,no,yes
+only_in_new,ET081112,,Chelelektu town,,,Gedeo,,South Ethiopia,,,1.598288,,,,55,,,no,yes
+only_in_new,ET081113,,Wonago town,,,Gedeo,,South Ethiopia,,,2.130751,,,,75,,,no,yes
+only_in_new,ET081204,,Malie,,,South Omo,,South Ethiopia,,,1431.239856,,,,1245,,,no,yes
+only_in_new,ET081205,,Nyngatom,,,South Omo,,South Ethiopia,,,2807.67228,,,,1268,,,no,yes
+only_in_new,ET081206,,Salamago,,,South Omo,,South Ethiopia,,,4571.868981,,,,2060,,,no,yes
+only_in_new,ET081207,,Turmi town,,,South Omo,,South Ethiopia,,,5.314553,,,,49,,,no,yes
+only_in_new,ET110104,,Tepi,,,Sheka,,South West Ethiopia,,,13.71144,,,,157,,,no,yes
+only_in_new,ET110201,,Saylem,,,Kefa,,South West Ethiopia,,,781.247816,,,,301,,,no,yes
+only_in_new,ET110202,,Gesha,,,Kefa,,South West Ethiopia,,,725.19916,,,,826,,,no,yes
+only_in_new,ET110203,,Gewata,,,Kefa,,South West Ethiopia,,,953.559379,,,,579,,,no,yes
+only_in_new,ET110205,,Adiyio,,,Kefa,,South West Ethiopia,,,1011.243991,,,,593,,,no,yes
+only_in_new,ET110206,,Tullo,,,Kefa,,South West Ethiopia,,,481.837034,,,,506,,,no,yes
+only_in_new,ET110210,,Bita,,,Kefa,,South West Ethiopia,,,1086.694587,,,,701,,,no,yes
+only_in_new,ET110212,,Goba (SW),,,Kefa,,South West Ethiopia,,,1879.096221,,,,1297,,,no,yes
+only_in_new,ET110213,,Shisho Ande,,,Kefa,,South West Ethiopia,,,549.477751,,,,623,,,no,yes
+only_in_new,ET110214,,Wacha town,,,Kefa,,South West Ethiopia,,,6.368731,,,,66,,,no,yes
+only_in_new,ET110215,,Deka town,,,Kefa,,South West Ethiopia,,,2.632398,,,,32,,,no,yes
+only_in_new,ET110216,,Awurada town,,,Kefa,,South West Ethiopia,,,27.882271,,,,81,,,no,yes
+only_in_new,ET110217,,Shishinda town,,,Kefa,,South West Ethiopia,,,68.303392,,,,210,,,no,yes
+only_in_new,ET110301,,Sheko,,,Bench Sheko,,South West Ethiopia,,,468.909944,,,,974,,,no,yes
+only_in_new,ET110306,,Gidi Bench,,,Bench Sheko,,South West Ethiopia,,,122.184222,,,,330,,,no,yes
+only_in_new,ET110308,,Size town,,,Bench Sheko,,South West Ethiopia,,,6.457547,,,,55,,,no,yes
+only_in_new,ET110309,,Biftu town,,,Bench Sheko,,South West Ethiopia,,,12.953116,,,,94,,,no,yes
+only_in_new,ET110310,,Sheko town,,,Bench Sheko,,South West Ethiopia,,,20.280919,,,,91,,,no,yes
+only_in_new,ET110403,,Loma,,,Dawuro,,South West Ethiopia,,,424.357576,,,,1076,,,no,yes
+only_in_new,ET110404,,Gena,,,Dawuro,,South West Ethiopia,,,396.350055,,,,470,,,no,yes
+only_in_new,ET110405,,Esara,,,Dawuro,,South West Ethiopia,,,1077.533191,,,,1419,,,no,yes
+only_in_new,ET110406,,Kachi,,,Dawuro,,South West Ethiopia,,,215.740691,,,,436,,,no,yes
+only_in_new,ET110407,,Tercha Zuriya,,,Dawuro,,South West Ethiopia,,,98.129085,,,,475,,,no,yes
+only_in_new,ET110408,,Mari Mansa,,,Dawuro,,South West Ethiopia,,,181.37754,,,,525,,,no,yes
+only_in_new,ET110409,,Disa,,,Dawuro,,South West Ethiopia,,,745.791971,,,,1040,,,no,yes
+only_in_new,ET110410,,Zabagazo,,,Dawuro,,South West Ethiopia,,,512.939121,,,,750,,,no,yes
+only_in_new,ET110412,,Gesa town,,,Dawuro,,South West Ethiopia,,,1.316415,,,,64,,,no,yes
+only_in_new,ET110501,,Gachit,,,West Omo,,South West Ethiopia,,,521.447197,,,,610,,,no,yes
+only_in_new,ET110503,,Gori Gesha,,,West Omo,,South West Ethiopia,,,1321.856692,,,,883,,,no,yes
+only_in_new,ET110509,,Bachuma town,,,West Omo,,South West Ethiopia,,,50.486526,,,,130,,,no,yes
+only_in_new,ET110510,,Jemu town,,,West Omo,,South West Ethiopia,,,16.079041,,,,62,,,no,yes
+only_in_new,ET110511,,Maji Tum town,,,West Omo,,South West Ethiopia,,,117.118062,,,,319,,,no,yes
+only_in_new,ET110601,,Konta Koysha,,,Konta,,South West Ethiopia,,,1193.361017,,,,930,,,no,yes
+only_in_new,ET110602,,Chida town,,,Konta,,South West Ethiopia,,,51.812968,,,,277,,,no,yes
+only_in_new,ET110603,,Amaya town,,,Konta,,South West Ethiopia,,,62.042162,,,,207,,,no,yes
+only_in_new,ET110604,,Elahanchano,,,Konta,,South West Ethiopia,,,201.933092,,,,299,,,no,yes
+only_in_new,ET110605,,Ameya Zuria,,,Konta,,South West Ethiopia,,,844.37849,,,,1275,,,no,yes
+only_in_new,ET120200,,Gambela National Park,,,Agnewak,,Gambela,,,471.869061,,,,542,,,no,yes
+only_in_new,ET140111,,Lemi Kura Sub City,,,Region 14,,Addis Ababa,,,89.327955,,,,805,,,no,yes
+only_in_new,ET160101,,Hawassa town,,,Hawassa town Admin,,Sidama,,,207.633817,,,,488,,,no,yes
+only_in_new,ET160201,,Wondo-Genet town,,,Northern,,Sidama,,,0.715765,,,,57,,,no,yes
+only_in_new,ET160205,,Hawela,,,Northern,,Sidama,,,94.331098,,,,619,,,no,yes
+only_in_new,ET160206,,Leku town,,,Northern,,Sidama,,,2.692702,,,,61,,,no,yes
+only_in_new,ET160209,,Bilate Zuria,,,Northern,,Sidama,,,271.833816,,,,527,,,no,yes
+only_in_new,ET160301,,Arbegona,,,Central,,Sidama,,,227.109574,,,,652,,,no,yes
+only_in_new,ET160302,,Shafamo,,,Central,,Sidama,,,115.981748,,,,852,,,no,yes
+only_in_new,ET160304,,Yirgalem town,,,Central,,Sidama,,,13.673183,,,,185,,,no,yes
+only_in_new,ET160306,,Darara,,,Central,,Sidama,,,275.726389,,,,723,,,no,yes
+only_in_new,ET160402,,Teticha,,,Southern,,Sidama,,,127.314205,,,,895,,,no,yes
+only_in_new,ET160405,,Aleta Chuko,,,Southern,,Sidama,,,288.864449,,,,694,,,no,yes
+only_in_new,ET160406,,Chuko town,,,Southern,,Sidama,,,1.975515,,,,49,,,no,yes
+only_in_new,ET160408,,Dara Otilicho,,,Southern,,Sidama,,,114.89206,,,,497,,,no,yes
+only_in_new,ET160410,,Chirone,,,Southern,,Sidama,,,72.404326,,,,453,,,no,yes
+only_in_new,ET160501,,Bura,,,Eastern,,Sidama,,,102.177279,,,,454,,,no,yes
+only_in_new,ET160504,,Daye town,,,Eastern,,Sidama,,,2.569186,,,,91,,,no,yes
+only_in_new,ET160505,,Daella,,,Eastern,,Sidama,,,154.395548,,,,691,,,no,yes
+only_in_new,ET160508,,Hokko,,,Eastern,,Sidama,,,350.046321,,,,584,,,no,yes
+only_in_new,ET160509,,Chabe Gambeltu,,,Eastern,,Sidama,,,123.027195,,,,578,,,no,yes
+only_in_new,ET990101,,Setit Humera town,,,Area 1,,Contested,,,103.848167,,,,518,,,no,yes
+only_in_new,ET990102,,Korarit,,,Area 1,,Contested,,,483.974676,,,,898,,,no,yes
+only_in_new,ET990105,,Tsegede,,,Area 1,,Contested,,,2184.610166,,,,2590,,,no,yes
+only_in_new,ET990106,,May Kadra,,,Area 1,,Contested,,,1124.94434,,,,490,,,no,yes
+only_in_new,ET990107,,Dansha town,,,Area 1,,Contested,,,1086.883126,,,,1096,,,no,yes
+only_in_new,ET990109,,May Gaba,,,Area 1,,Contested,,,14.717275,,,,94,,,no,yes
+only_in_new,ET990201,,Tselemti /West Telemt,,,Area 2,,Contested,,,1836.846788,,,,826,,,no,yes
+only_in_new,ET990202,,Laelay Tselemti,,,Area 2,,Contested,,,943.589111,,,,763,,,no,yes
+only_in_new,ET990203,,May Tsebri town,,,Area 2,,Contested,,,4.345901,,,,40,,,no,yes
+only_in_new,ET990301,,Raya Alamata,,,Area 3,,Contested,,,770.775789,,,,906,,,no,yes
+only_in_new,ET990305,,Zata,,,Area 3,,Contested,,,278.739777,,,,480,,,no,yes
+only_in_new,ET990306,,Chercher,,,Area 3,,Contested,,,748.385464,,,,621,,,no,yes
+matched_same_attributes,ET010101,Tahtay Adiyabo,Tahtay Adiyabo,no,North Western,North Western,Tigray,Tigray,no,3849.343453,2909.33755,-940.005903,-24.4199,1022,3137,2115,,yes,yes
+matched_same_attributes,ET010104,Tahtay Koraro,Tahtay Koraro,no,North Western,North Western,Tigray,Tigray,no,668.378372,822.569762,154.19139,23.0695,1115,1942,827,,yes,yes
+matched_same_attributes,ET010202,Aheferom,Aheferom,no,Central,Central,Tigray,Tigray,no,1263.634196,459.774151,-803.860045,-63.6149,1222,2168,946,,yes,yes
+matched_same_attributes,ET010204,Adwa,Adwa,no,Central,Central,Tigray,Tigray,no,652.669542,658.323,5.653458,0.8662,1755,1092,-663,,yes,yes
+matched_same_attributes,ET010205,Laelay Maychew,Laelay Maychew,no,Central,Central,Tigray,Tigray,no,535.73935,473.173709,-62.56564,-11.6784,1619,2698,1079,,yes,yes
+matched_same_attributes,ET010301,Gulo Mekeda,Gulo Mekeda,no,Eastern,Eastern,Tigray,Tigray,no,596.007478,506.081599,-89.92588,-15.088,719,1671,952,,yes,yes
+matched_same_attributes,ET010302,Erob,Erob,no,Eastern,Eastern,Tigray,Tigray,no,979.616278,919.025063,-60.591215,-6.1852,509,738,229,,yes,yes
+matched_same_attributes,ET010304,Ganta Afeshum,Ganta Afeshum,no,Eastern,Eastern,Tigray,Tigray,no,524.912274,465.288042,-59.624232,-11.3589,1182,2682,1500,,yes,yes
+matched_same_attributes,ET010305,Hawzen,Hawzen,no,Eastern,Eastern,Tigray,Tigray,no,870.400918,758.787867,-111.613051,-12.8232,1539,3110,1571,,yes,yes
+matched_same_attributes,ET010405,Endamehoni,Endamehoni,no,Southern,Southern,Tigray,Tigray,no,642.017297,452.564406,-189.452891,-29.509,1253,688,-565,,yes,yes
+matched_same_attributes,ET010406,Raya Azebo,Raya Azebo,no,Southern,Southern,Tigray,Tigray,no,1739.796572,1017.188626,-722.607947,-41.534,1170,1151,-19,,yes,yes
+matched_same_attributes,ET010602,Enderta,Enderta,no,South Eastern,South Eastern,Tigray,Tigray,no,1328.48581,1608.745261,280.259451,21.0962,2351,4412,2061,,yes,yes
+matched_same_attributes,ET030101,Addi Arekay,Addi Arekay,no,North Gondar,North Gondar,Amhara,Amhara,no,1467.388883,1467.38833,-0.000553,0,1576,1577,1,,yes,yes
+matched_same_attributes,ET030102,Beyeda,Beyeda,no,North Gondar,North Gondar,Amhara,Amhara,no,968.37585,968.37585,0,0,927,927,0,,yes,yes
+matched_same_attributes,ET030103,Janamora,Janamora,no,North Gondar,North Gondar,Amhara,Amhara,no,1296.696022,1296.699245,0.003222,0.0002,1522,1513,-9,,yes,yes
+matched_same_attributes,ET030104,Debark,Debark,no,North Gondar,North Gondar,Amhara,Amhara,no,1246.399217,1246.399489,0.000273,0,2051,2047,-4,,yes,yes
+matched_same_attributes,ET030119,Telemt,Telemt,no,North Gondar,North Gondar,Amhara,Amhara,no,776.056207,776.056201,-0.000006,0,710,715,5,,yes,yes
+matched_same_attributes,ET030203,Fogera,Fogera,no,South Gondar,South Gondar,Amhara,Amhara,no,1105.974609,1335.364878,229.390269,20.741,1658,1584,-74,,yes,yes
+matched_same_attributes,ET030206,Tach Gayint,Tach Gayint,no,South Gondar,South Gondar,Amhara,Amhara,no,825.915756,825.915756,0,0,1346,1346,0,,yes,yes
+matched_same_attributes,ET030301,Bugna,Bugna,no,North Wello,North Wello,Amhara,Amhara,no,1303.954592,1303.954592,0,0,1273,1273,0,,yes,yes
+matched_same_attributes,ET030302,Raya Kobo,Raya Kobo,no,North Wello,North Wello,Amhara,Amhara,no,1922.359528,1922.359464,-0.000063,0,989,999,10,,yes,yes
+matched_same_attributes,ET030303,Gidan,Gidan,no,North Wello,North Wello,Amhara,Amhara,no,1087.319336,1087.319336,0,0,1286,1286,0,,yes,yes
+matched_same_attributes,ET030305,Wadla,Wadla,no,North Wello,North Wello,Amhara,Amhara,no,855.966118,826.580175,-29.385943,-3.4331,1478,1469,-9,,yes,yes
+matched_same_attributes,ET030310,Lasta,Lasta,no,North Wello,North Wello,Amhara,Amhara,no,1115.935958,1115.935957,-0.000001,0,1603,1604,1,,yes,yes
+matched_same_attributes,ET030311,Dawunt,Dawunt,no,North Wello,North Wello,Amhara,Amhara,no,618.683828,618.683828,0,0,917,917,0,,yes,yes
+matched_same_attributes,ET030401,Argoba,Argoba,no,South Wello,South Wello,Amhara,Amhara,no,315.140031,315.140031,0,0,633,633,0,,yes,yes
+matched_same_attributes,ET030402,Tenta,Tenta,no,South Wello,South Wello,Amhara,Amhara,no,1317.373949,1317.373949,0,0,1564,1564,0,,yes,yes
+matched_same_attributes,ET030403,Kutaber,Kutaber,no,South Wello,South Wello,Amhara,Amhara,no,720.447939,720.447939,0,0,1028,1028,0,,yes,yes
+matched_same_attributes,ET030404,Ambasel,Ambasel,no,South Wello,South Wello,Amhara,Amhara,no,882.88275,882.88275,0,0,1021,1021,0,,yes,yes
+matched_same_attributes,ET030406,Delanta,Delanta,no,South Wello,South Wello,Amhara,Amhara,no,1057.774858,1052.345704,-5.429154,-0.5133,1385,1478,93,,yes,yes
+matched_same_attributes,ET030407,Kalu,Kalu,no,South Wello,South Wello,Amhara,Amhara,no,852.046832,849.570958,-2.475874,-0.2906,1620,1685,65,,yes,yes
+matched_same_attributes,ET030408,Albuko,Albuko,no,South Wello,South Wello,Amhara,Amhara,no,477.012043,477.012043,0,0,1017,1017,0,,yes,yes
+matched_same_attributes,ET030409,Dessie Zuria,Dessie Zuria,no,South Wello,South Wello,Amhara,Amhara,no,937.997328,938.387717,0.390389,0.0416,1996,1972,-24,,yes,yes
+matched_same_attributes,ET030410,Legambo,Legambo,no,South Wello,South Wello,Amhara,Amhara,no,1010.328623,998.036718,-12.291906,-1.2166,1941,2023,82,,yes,yes
+matched_same_attributes,ET030411,Sayint,Sayint,no,South Wello,South Wello,Amhara,Amhara,no,1438.419933,1438.419933,0,0,1250,1250,0,,yes,yes
+matched_same_attributes,ET030413,Kelela,Kelela,no,South Wello,South Wello,Amhara,Amhara,no,1428.889277,1426.856427,-2.03285,-0.1423,1299,1346,47,,yes,yes
+matched_same_attributes,ET030414,Jama,Jama,no,South Wello,South Wello,Amhara,Amhara,no,1052.747934,1048.922587,-3.825346,-0.3634,1174,1259,85,,yes,yes
+matched_same_attributes,ET030416,Wegde,Wegde,no,South Wello,South Wello,Amhara,Amhara,no,1121.750388,1120.529012,-1.221375,-0.1089,879,915,36,,yes,yes
+matched_same_attributes,ET030419,Mehal Sayint,Mehal Sayint,no,South Wello,South Wello,Amhara,Amhara,no,600.563711,600.563711,0,0,553,553,0,,yes,yes
+matched_same_attributes,ET030420,Legehida,Legehida,no,South Wello,South Wello,Amhara,Amhara,no,533.621177,533.621177,0,0,1102,1102,0,,yes,yes
+matched_same_attributes,ET030421,Mekdela,Mekdela,no,South Wello,South Wello,Amhara,Amhara,no,1492.564726,1492.564726,0,0,1569,1569,0,,yes,yes
+matched_same_attributes,ET030422,Worebabu,Worebabu,no,South Wello,South Wello,Amhara,Amhara,no,751.007871,751.007862,-0.000009,0,923,924,1,,yes,yes
+matched_same_attributes,ET030601,Bibugn,Bibugn,no,East Gojam,East Gojam,Amhara,Amhara,no,399.92581,399.92581,0,0,1367,1367,0,,yes,yes
+matched_same_attributes,ET030602,Hulet Ej Enese,Hulet Ej Enese,no,East Gojam,East Gojam,Amhara,Amhara,no,1490.757351,1490.757351,0,0,1850,1851,1,,yes,yes
+matched_same_attributes,ET030604,Enebse Sarmder,Enebse Sarmder,no,East Gojam,East Gojam,Amhara,Amhara,no,1075.909547,1061.96766,-13.941887,-1.2958,757,834,77,,yes,yes
+matched_same_attributes,ET030605,Enarj Enawga,Enarj Enawga,no,East Gojam,East Gojam,Amhara,Amhara,no,933.443295,930.114852,-3.328443,-0.3566,908,1007,99,,yes,yes
+matched_same_attributes,ET030607,Debay Telatgen,Debay Telatgen,no,East Gojam,East Gojam,Amhara,Amhara,no,626.455257,626.455257,0,0,1025,1025,0,,yes,yes
+matched_same_attributes,ET030608,Debre Elias,Debre Elias,no,East Gojam,East Gojam,Amhara,Amhara,no,1192.757346,1192.757348,0.000001,0,691,693,2,,yes,yes
+matched_same_attributes,ET030609,Michakel,Michakel,no,East Gojam,East Gojam,Amhara,Amhara,no,736.828771,734.58211,-2.246661,-0.3049,1683,1799,116,,yes,yes
+matched_same_attributes,ET030610,Guzamn,Guzamn,no,East Gojam,East Gojam,Amhara,Amhara,no,1177.500274,1177.500274,0,0,1755,1755,0,,yes,yes
+matched_same_attributes,ET030611,Baso Liben,Baso Liben,no,East Gojam,East Gojam,Amhara,Amhara,no,1145.519689,1145.51969,0.000001,0,780,780,0,,yes,yes
+matched_same_attributes,ET030612,Awabel,Awabel,no,East Gojam,East Gojam,Amhara,Amhara,no,810.673925,809.144598,-1.529327,-0.1886,1160,1192,32,,yes,yes
+matched_same_attributes,ET030614,Shebel Bernta,Shebel Bernta,no,East Gojam,East Gojam,Amhara,Amhara,no,900.437036,900.437036,0.000001,0,828,828,0,,yes,yes
+matched_same_attributes,ET030616,Senan,Senan,no,East Gojam,East Gojam,Amhara,Amhara,no,436.603832,436.603832,0,0,956,956,0,,yes,yes
+matched_same_attributes,ET030617,Aneded,Aneded,no,East Gojam,East Gojam,Amhara,Amhara,no,682.399552,682.399553,0.000001,0,1173,1173,0,,yes,yes
+matched_same_attributes,ET030705,Sekela,Sekela,no,West Gojam,West Gojam,Amhara,Amhara,no,769.974907,765.928479,-4.046427,-0.5255,1965,1869,-96,,yes,yes
+matched_same_attributes,ET030706,Quarit,Quarit,no,West Gojam,West Gojam,Amhara,Amhara,no,603.035535,603.035534,0,0,1671,1684,13,,yes,yes
+matched_same_attributes,ET030707,Dega Damot,Dega Damot,no,West Gojam,West Gojam,Amhara,Amhara,no,831.424034,831.424034,0,0,1565,1576,11,,yes,yes
+matched_same_attributes,ET030709,Jabi Tehnan,Jabi Tehnan,no,West Gojam,West Gojam,Amhara,Amhara,no,1200.40109,1197.040395,-3.360695,-0.28,2497,2530,33,,yes,yes
+matched_same_attributes,ET030711,Wemberma,Wemberma,no,West Gojam,West Gojam,Amhara,Amhara,no,1378.841158,1377.036261,-1.804898,-0.1309,828,875,47,,yes,yes
+matched_same_attributes,ET030801,Zequala,Zequala,no,Wag Hamra,Wag Hamra,Amhara,Amhara,no,1727.453614,1727.453628,0.000014,0,1129,1124,-5,,yes,yes
+matched_same_attributes,ET030802,Sekota,Sekota,no,Wag Hamra,Wag Hamra,Amhara,Amhara,no,1693.62687,1249.632035,-443.994834,-26.2156,1405,1334,-71,,yes,yes
+matched_same_attributes,ET030803,Dehana,Dehana,no,Wag Hamra,Wag Hamra,Amhara,Amhara,no,1644.326861,1643.438046,-0.888816,-0.0541,1060,1105,45,,yes,yes
+matched_same_attributes,ET030804,Gaz Gibla,Gaz Gibla,no,Wag Hamra,Wag Hamra,Amhara,Amhara,no,1031.829192,1031.829192,0,0,1064,1064,0,,yes,yes
+matched_same_attributes,ET030806,Sahila,Sahila,no,Wag Hamra,Wag Hamra,Amhara,Amhara,no,1145.216153,1145.213188,-0.002965,-0.0003,924,912,-12,,yes,yes
+matched_same_attributes,ET030901,Dangila,Dangila,no,Awi,Awi,Amhara,Amhara,no,909.875447,909.875447,0,0,1204,1204,0,,yes,yes
+matched_same_attributes,ET030902,Banja,Banja,no,Awi,Awi,Amhara,Amhara,no,479.911103,479.911103,0,0,1248,1248,0,,yes,yes
+matched_same_attributes,ET030904,Guangua,Guangua,no,Awi,Awi,Amhara,Amhara,no,2341.561552,2341.561562,0.000009,0,1200,1200,0,,yes,yes
+matched_same_attributes,ET030905,Fagta Lakoma,Fagta Lakoma,no,Awi,Awi,Amhara,Amhara,no,653.060344,651.008593,-2.051751,-0.3142,1207,1276,69,,yes,yes
+matched_same_attributes,ET030906,Jawi,Jawi,no,Awi,Awi,Amhara,Amhara,no,3289.540302,3288.087881,-1.45242,-0.0442,1523,1565,42,,yes,yes
+matched_same_attributes,ET030907,Guagusa Shikudad,Guagusa Shikudad,no,Awi,Awi,Amhara,Amhara,no,295.934535,292.592867,-3.341667,-1.1292,972,1028,56,,yes,yes
+matched_same_attributes,ET031108,Lay Armacho,Lay Armacho,no,Central Gondar,Central Gondar,Amhara,Amhara,no,1059.351258,1059.351275,0.000016,0,1213,1218,5,,yes,yes
+matched_same_attributes,ET031109,Wegera,Wegera,no,Central Gondar,Central Gondar,Amhara,Amhara,no,1238.47832,1230.26431,-8.21401,-0.6632,1418,1531,113,,yes,yes
+matched_same_attributes,ET031110,Gonder Zuria,Gonder Zuria,no,Central Gondar,Central Gondar,Amhara,Amhara,no,1108.767588,1361.566668,252.79908,22.8,1489,1237,-252,,yes,yes
+matched_same_attributes,ET031116,West Belesa,West Belesa,no,Central Gondar,Central Gondar,Amhara,Amhara,no,1258.305056,1258.305056,0,0,1786,1786,0,,yes,yes
+matched_same_attributes,ET031117,East Belesa,East Belesa,no,Central Gondar,Central Gondar,Amhara,Amhara,no,1421.424407,1421.424407,0,0,1574,1574,0,,yes,yes
+matched_same_attributes,ET031120,Tach Armacho,Tach Armacho,no,Central Gondar,Central Gondar,Amhara,Amhara,no,2709.64563,1342.411101,-1367.234529,-50.4581,1108,812,-296,,yes,yes
+matched_same_attributes,ET031121,Takusa,Takusa,no,Central Gondar,Central Gondar,Amhara,Amhara,no,1947.668882,2178.038277,230.369394,11.828,1716,1540,-176,,yes,yes
+matched_same_attributes,ET031214,Quara,Quara,no,West Gondar,West Gondar,Amhara,Amhara,no,8441.699864,8441.699892,0.000028,0,1562,1562,0,,yes,yes
+matched_same_attributes,ET040103,Gimbi,Gimbi,no,West Wellega,West Wellega,Oromia,Oromia,no,899.803445,902.503584,2.700139,0.3001,1264,1444,180,,yes,yes
+matched_same_attributes,ET040104,Lalo Asabi,Lalo Asabi,no,West Wellega,West Wellega,Oromia,Oromia,no,378.506823,378.506823,0,0,1347,1347,0,,yes,yes
+matched_same_attributes,ET040105,Kiltu Kara,Kiltu Kara,no,West Wellega,West Wellega,Oromia,Oromia,no,419.23268,419.23268,0,0,888,888,0,,yes,yes
+matched_same_attributes,ET040106,Boji Dirmeji,Boji Dirmeji,no,West Wellega,West Wellega,Oromia,Oromia,no,498.734447,498.734447,0,0,954,954,0,,yes,yes
+matched_same_attributes,ET040107,Ayira,Ayira,no,West Wellega,West Wellega,Oromia,Oromia,no,514.231388,514.231388,0,0,1230,1230,0,,yes,yes
+matched_same_attributes,ET040108,Jarso (West Wellega),Jarso (West Wellega),no,West Wellega,West Wellega,Oromia,Oromia,no,469.640255,469.640255,0,0,999,999,0,,yes,yes
+matched_same_attributes,ET040109,Gudetu Kondole,Gudetu Kondole,no,West Wellega,West Wellega,Oromia,Oromia,no,1262.870917,1262.870917,0,0,1301,1301,0,,yes,yes
+matched_same_attributes,ET040110,Boji Chekorsa,Boji Chekorsa,no,West Wellega,West Wellega,Oromia,Oromia,no,343.285769,343.285769,0,0,1236,1236,0,,yes,yes
+matched_same_attributes,ET040111,Babo,Babo,no,West Wellega,West Wellega,Oromia,Oromia,no,898.119484,898.119484,0,0,1354,1354,0,,yes,yes
+matched_same_attributes,ET040112,Yubdo,Yubdo,no,West Wellega,West Wellega,Oromia,Oromia,no,307.946552,307.946552,0,0,1040,1040,0,,yes,yes
+matched_same_attributes,ET040113,Gaji,Gaji,no,West Wellega,West Wellega,Oromia,Oromia,no,302.194441,302.194441,0,0,1064,1064,0,,yes,yes
+matched_same_attributes,ET040114,Haru,Haru,no,West Wellega,West Wellega,Oromia,Oromia,no,463.485265,463.485265,0,0,1337,1337,0,,yes,yes
+matched_same_attributes,ET040115,Nole Kaba,Nole Kaba,no,West Wellega,West Wellega,Oromia,Oromia,no,631.312447,631.312447,0,0,1765,1765,0,,yes,yes
+matched_same_attributes,ET040116,Begi,Begi,no,West Wellega,West Wellega,Oromia,Oromia,no,866.111114,866.111114,0,0,783,783,0,,yes,yes
+matched_same_attributes,ET040117,Homa,Homa,no,West Wellega,West Wellega,Oromia,Oromia,no,90.664359,90.664359,0,0,545,545,0,,yes,yes
+matched_same_attributes,ET040118,Sayo Nole,Sayo Nole,no,West Wellega,West Wellega,Oromia,Oromia,no,613.166641,613.166641,0,0,2245,2245,0,,yes,yes
+matched_same_attributes,ET040119,Guliso,Guliso,no,West Wellega,West Wellega,Oromia,Oromia,no,577.289234,577.289234,0,0,1768,1768,0,,yes,yes
+matched_same_attributes,ET040202,Ibantu,Ibantu,no,East Wellega,East Wellega,Oromia,Oromia,no,826.825436,826.825436,0,0,844,844,0,,yes,yes
+matched_same_attributes,ET040203,Gida Ayana,Gida Ayana,no,East Wellega,East Wellega,Oromia,Oromia,no,1604.461078,1604.461078,0,0,2213,2213,0,,yes,yes
+matched_same_attributes,ET040204,Haro Limu,Haro Limu,no,East Wellega,East Wellega,Oromia,Oromia,no,1171.579659,1171.579659,0,0,757,757,0,,yes,yes
+matched_same_attributes,ET040205,Boneya Boshe,Boneya Boshe,no,East Wellega,East Wellega,Oromia,Oromia,no,474.199611,474.199611,0,0,682,682,0,,yes,yes
+matched_same_attributes,ET040206,Wayu Tuka,Wayu Tuka,no,East Wellega,East Wellega,Oromia,Oromia,no,403.922601,397.579638,-6.342963,-1.5703,1230,1163,-67,,yes,yes
+matched_same_attributes,ET040207,Bila Seyo,Bila Seyo,no,East Wellega,East Wellega,Oromia,Oromia,no,670.070706,670.070706,0,0,1367,1367,0,,yes,yes
+matched_same_attributes,ET040208,Gobu Seyo,Gobu Seyo,no,East Wellega,East Wellega,Oromia,Oromia,no,341.241942,341.241942,0,0,879,879,0,,yes,yes
+matched_same_attributes,ET040209,Sibu Sire,Sibu Sire,no,East Wellega,East Wellega,Oromia,Oromia,no,1046.714412,1047.631071,0.916659,0.0876,1915,1876,-39,,yes,yes
+matched_same_attributes,ET040210,Diga,Diga,no,East Wellega,East Wellega,Oromia,Oromia,no,564.309511,578.253625,13.944114,2.471,796,858,62,,yes,yes
+matched_same_attributes,ET040211,Sasiga,Sasiga,no,East Wellega,East Wellega,Oromia,Oromia,no,783.298984,783.298984,0,0,816,816,0,,yes,yes
+matched_same_attributes,ET040212,Leka Dulecha,Leka Dulecha,no,East Wellega,East Wellega,Oromia,Oromia,no,616.858787,616.692968,-0.165819,-0.0269,1266,1278,12,,yes,yes
+matched_same_attributes,ET040213,Guto Gida,Guto Gida,no,East Wellega,East Wellega,Oromia,Oromia,no,941.673972,923.563933,-18.110039,-1.9232,2094,1897,-197,,yes,yes
+matched_same_attributes,ET040214,Jimma Arjo,Jimma Arjo,no,East Wellega,East Wellega,Oromia,Oromia,no,756.546538,764.37188,7.825342,1.0344,2070,1834,-236,,yes,yes
+matched_same_attributes,ET040215,Nunu Kumba,Nunu Kumba,no,East Wellega,East Wellega,Oromia,Oromia,no,612.268887,604.443545,-7.825342,-1.2781,1866,1630,-236,,yes,yes
+matched_same_attributes,ET040216,Wama Hagalo,Wama Hagalo,no,East Wellega,East Wellega,Oromia,Oromia,no,620.668809,620.668809,0,0,819,819,0,,yes,yes
+matched_same_attributes,ET040217,Kiremu,Kiremu,no,East Wellega,East Wellega,Oromia,Oromia,no,1060.150177,1060.150177,0,0,1899,1901,2,,yes,yes
+matched_same_attributes,ET040301,Darimu,Darimu,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,1377.171552,1377.171552,0,0,1330,1330,0,,yes,yes
+matched_same_attributes,ET040302,Alge Sachi,Alge Sachi,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,873.083058,873.083058,0,0,1226,1226,0,,yes,yes
+matched_same_attributes,ET040309,Yayu,Yayu,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,911.93447,807.889333,-104.045137,-11.4093,697,747,50,,yes,yes
+matched_same_attributes,ET040310,Metu Zuria,Metu Zuria,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,750.414525,707.205119,-43.209407,-5.7581,1360,1351,-9,,yes,yes
+matched_same_attributes,ET040311,Ale,Ale,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,562.560773,562.560773,0,0,801,801,0,,yes,yes
+matched_same_attributes,ET040313,Sale Nono,Sale Nono,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,1708.37059,1708.37059,0,0,380,380,0,,yes,yes
+matched_same_attributes,ET040314,Becho (Ilu Aba Bora),Becho (Ilu Aba Bora),no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,585.240095,585.240095,0,0,627,627,0,,yes,yes
+matched_same_attributes,ET040315,Bilo Nopha,Bilo Nopha,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,395.771181,395.771181,0,0,556,556,0,,yes,yes
+matched_same_attributes,ET040316,Hurumu,Hurumu,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,443.75032,443.75032,-0.000001,0,712,714,2,,yes,yes
+matched_same_attributes,ET040317,Didu,Didu,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,610.79336,610.79336,0,0,545,545,0,,yes,yes
+matched_same_attributes,ET040324,Dorani,Dorani,no,Ilu Aba Bora,Ilu Aba Bora,Oromia,Oromia,no,422.469282,422.469282,0,0,798,798,0,,yes,yes
+matched_same_attributes,ET040401,Limu Seka,Limu Seka,no,Jimma,Jimma,Oromia,Oromia,no,1677.074336,1677.074336,0,0,2233,2233,0,,yes,yes
+matched_same_attributes,ET040402,Limu Kosa,Limu Kosa,no,Jimma,Jimma,Oromia,Oromia,no,1315.348913,1315.348913,0,0,1472,1472,0,,yes,yes
+matched_same_attributes,ET040403,Sekoru,Sekoru,no,Jimma,Jimma,Oromia,Oromia,no,923.732474,923.732513,0.000039,0,1335,1344,9,,yes,yes
+matched_same_attributes,ET040404,Tiro Afeta,Tiro Afeta,no,Jimma,Jimma,Oromia,Oromia,no,743.73959,743.73959,0,0,963,963,0,,yes,yes
+matched_same_attributes,ET040405,Kersa (Jimma),Kersa (Jimma),no,Jimma,Jimma,Oromia,Oromia,no,970.236285,970.236285,0,0,1629,1629,0,,yes,yes
+matched_same_attributes,ET040406,Mena (Jimma),Mena (Jimma),no,Jimma,Jimma,Oromia,Oromia,no,494.410395,494.410395,0,0,961,961,0,,yes,yes
+matched_same_attributes,ET040407,Goma,Goma,no,Jimma,Jimma,Oromia,Oromia,no,863.806294,841.112284,-22.694011,-2.6272,1348,1653,305,,yes,yes
+matched_same_attributes,ET040408,Gera,Gera,no,Jimma,Jimma,Oromia,Oromia,no,1402.745898,1402.745898,0,0,1342,1342,0,,yes,yes
+matched_same_attributes,ET040409,Seka Chekorsa,Seka Chekorsa,no,Jimma,Jimma,Oromia,Oromia,no,824.335948,824.335298,-0.00065,-0.0001,1633,1629,-4,,yes,yes
+matched_same_attributes,ET040412,Sigmo,Sigmo,no,Jimma,Jimma,Oromia,Oromia,no,890.958084,995.003222,104.045138,11.6779,916,1002,86,,yes,yes
+matched_same_attributes,ET040413,Setema,Setema,no,Jimma,Jimma,Oromia,Oromia,no,1031.943622,1031.943622,0,0,1688,1688,0,,yes,yes
+matched_same_attributes,ET040414,Shebe Sambo,Shebe Sambo,no,Jimma,Jimma,Oromia,Oromia,no,812.806508,812.806508,0,0,939,939,0,,yes,yes
+matched_same_attributes,ET040416,Gumay,Gumay,no,Jimma,Jimma,Oromia,Oromia,no,407.462462,407.462462,0,0,946,946,0,,yes,yes
+matched_same_attributes,ET040499,Nono Benja,Nono Benja,no,Jimma,Jimma,Oromia,Oromia,no,828.639105,828.639105,0,0,1254,1254,0,,yes,yes
+matched_same_attributes,ET040500,Illu Galan,Illu Galan,no,West Shewa,West Shewa,Oromia,Oromia,no,423.821555,423.821555,0,0,1045,1045,0,,yes,yes
+matched_same_attributes,ET040501,Ginde Beret,Ginde Beret,no,West Shewa,West Shewa,Oromia,Oromia,no,1287.162398,1287.162397,-0.000001,0,1019,1019,0,,yes,yes
+matched_same_attributes,ET040503,Ambo Zuria,Ambo Zuria,no,West Shewa,West Shewa,Oromia,Oromia,no,935.596183,888.410171,-47.186012,-5.0434,2121,1969,-152,,yes,yes
+matched_same_attributes,ET040504,Mida Kegn,Mida Kegn,no,West Shewa,West Shewa,Oromia,Oromia,no,910.683096,910.683096,0,0,1231,1231,0,,yes,yes
+matched_same_attributes,ET040505,Cheliya,Cheliya,no,West Shewa,West Shewa,Oromia,Oromia,no,389.19267,389.19267,0,0,1198,1198,0,,yes,yes
+matched_same_attributes,ET040506,Bako Tibe,Bako Tibe,no,West Shewa,West Shewa,Oromia,Oromia,no,639.10805,639.10805,0,0,1038,1038,0,,yes,yes
+matched_same_attributes,ET040507,Dano,Dano,no,West Shewa,West Shewa,Oromia,Oromia,no,659.824151,659.824151,0,0,910,910,0,,yes,yes
+matched_same_attributes,ET040508,Nono,Nono,no,West Shewa,West Shewa,Oromia,Oromia,no,693.535762,693.535762,0,0,660,660,0,,yes,yes
+matched_same_attributes,ET040509,Tikur Enchini,Tikur Enchini,no,West Shewa,West Shewa,Oromia,Oromia,no,437.561153,437.561153,0,0,1019,1019,0,,yes,yes
+matched_same_attributes,ET040513,Adda Berga,Adda Berga,no,West Shewa,West Shewa,Oromia,Oromia,no,945.576776,945.576776,0,0,1661,1661,0,,yes,yes
+matched_same_attributes,ET040517,Toke Kutaye,Toke Kutaye,no,West Shewa,West Shewa,Oromia,Oromia,no,550.161773,550.161773,0,0,1116,1117,1,,yes,yes
+matched_same_attributes,ET040518,Jibat,Jibat,no,West Shewa,West Shewa,Oromia,Oromia,no,483.381292,483.381292,0,0,952,952,0,,yes,yes
+matched_same_attributes,ET040519,Ifata,Ifata,no,West Shewa,West Shewa,Oromia,Oromia,no,445.349317,445.349317,0,0,969,969,0,,yes,yes
+matched_same_attributes,ET040597,Liban Jawi,Liban Jawi,no,West Shewa,West Shewa,Oromia,Oromia,no,317.731645,317.731645,0,0,885,885,0,,yes,yes
+matched_same_attributes,ET040701,Fentale,Fentale,no,East Shewa,East Shewa,Oromia,Oromia,no,1463.525954,1463.525947,-0.000007,0,1115,1116,1,,yes,yes
+matched_same_attributes,ET040702,Boset,Boset,no,East Shewa,East Shewa,Oromia,Oromia,no,1332.083371,1300.857442,-31.225929,-2.3441,2034,2642,608,,yes,yes
+matched_same_attributes,ET040703,Adama,Adama,no,East Shewa,East Shewa,Oromia,Oromia,no,821.980909,368.19703,-453.783879,-55.2061,1681,3655,1974,,yes,yes
+matched_same_attributes,ET040705,Gimbichu,Gimbichu,no,East Shewa,East Shewa,Oromia,Oromia,no,664.750165,665.670763,0.920598,0.1385,1284,1306,22,,yes,yes
+matched_same_attributes,ET040706,Ada'a,Ada'a,no,East Shewa,East Shewa,Oromia,Oromia,no,759.416811,507.310298,-252.106514,-33.1974,2387,2686,299,,yes,yes
+matched_same_attributes,ET040707,Dugda,Dugda,no,East Shewa,East Shewa,Oromia,Oromia,no,999.187823,999.187854,0.000031,0,517,523,6,,yes,yes
+matched_same_attributes,ET040708,Adama Tulu Jido Kombolcha,Adama Tulu Jido Kombolcha,no,East Shewa,East Shewa,Oromia,Oromia,no,1527.982041,1300.269181,-227.71286,-14.9028,974,1102,128,,yes,yes
+matched_same_attributes,ET040711,Liben Chukala,Liben Chukala,no,East Shewa,East Shewa,Oromia,Oromia,no,704.170454,704.497295,0.326842,0.0464,998,1033,35,,yes,yes
+matched_same_attributes,ET040801,Merti,Merti,no,Arsi,Arsi,Oromia,Oromia,no,872.192939,872.192939,0,0,873,873,0,,yes,yes
+matched_same_attributes,ET040802,Aseko,Aseko,no,Arsi,Arsi,Oromia,Oromia,no,542.266282,542.266282,0,0,795,795,0,,yes,yes
+matched_same_attributes,ET040804,Jeju,Jeju,no,Arsi,Arsi,Oromia,Oromia,no,806.347587,806.347587,0,0,2468,2468,0,,yes,yes
+matched_same_attributes,ET040805,Dodota,Dodota,no,Arsi,Arsi,Oromia,Oromia,no,516.772446,503.687487,-13.084959,-2.5321,1099,1242,143,,yes,yes
+matched_same_attributes,ET040806,Ziway Dugda,Ziway Dugda,no,Arsi,Arsi,Oromia,Oromia,no,1012.083797,1012.08378,-0.000017,0,878,880,2,,yes,yes
+matched_same_attributes,ET040807,Hitosa,Hitosa,no,Arsi,Arsi,Oromia,Oromia,no,690.793159,690.793159,0,0,815,815,0,,yes,yes
+matched_same_attributes,ET040808,Sude,Sude,no,Arsi,Arsi,Oromia,Oromia,no,1168.113919,1168.113919,0,0,1506,1506,0,,yes,yes
+matched_same_attributes,ET040809,Chole,Chole,no,Arsi,Arsi,Oromia,Oromia,no,585.143901,585.143901,0,0,757,757,0,,yes,yes
+matched_same_attributes,ET040810,Amigna,Amigna,no,Arsi,Arsi,Oromia,Oromia,no,1288.208052,1288.208052,0,0,1688,1688,0,,yes,yes
+matched_same_attributes,ET040811,Seru,Seru,no,Arsi,Arsi,Oromia,Oromia,no,1763.714501,1763.714501,0,0,1867,1867,0,,yes,yes
+matched_same_attributes,ET040812,Robe,Robe,no,Arsi,Arsi,Oromia,Oromia,no,1339.305482,1339.305482,0,0,2259,2259,0,,yes,yes
+matched_same_attributes,ET040813,Tena,Tena,no,Arsi,Arsi,Oromia,Oromia,no,448.76014,448.76014,0,0,718,718,0,,yes,yes
+matched_same_attributes,ET040814,Shirka,Shirka,no,Arsi,Arsi,Oromia,Oromia,no,1167.52086,1167.52086,0,0,1703,1703,0,,yes,yes
+matched_same_attributes,ET040815,Degeluna Tijo,Degeluna Tijo,no,Arsi,Arsi,Oromia,Oromia,no,925.738778,925.738778,0,0,871,871,0,,yes,yes
+matched_same_attributes,ET040816,Tiyo,Tiyo,no,Arsi,Arsi,Oromia,Oromia,no,605.007918,605.007918,0,0,926,926,0,,yes,yes
+matched_same_attributes,ET040817,Munessa,Munessa,no,Arsi,Arsi,Oromia,Oromia,no,1072.371577,1083.33423,10.962652,1.0223,1288,1208,-80,,yes,yes
+matched_same_attributes,ET040818,Limu Bilbilo,Limu Bilbilo,no,Arsi,Arsi,Oromia,Oromia,no,1180.765995,1150.459054,-30.306941,-2.5667,1537,1581,44,,yes,yes
+matched_same_attributes,ET040819,Guna,Guna,no,Arsi,Arsi,Oromia,Oromia,no,469.989188,469.989188,0,0,803,803,0,,yes,yes
+matched_same_attributes,ET040820,Sire,Sire,no,Arsi,Arsi,Oromia,Oromia,no,528.559866,528.559866,0,0,1516,1516,0,,yes,yes
+matched_same_attributes,ET040821,Lude Hitosa,Lude Hitosa,no,Arsi,Arsi,Oromia,Oromia,no,541.739347,541.739347,0,0,916,916,0,,yes,yes
+matched_same_attributes,ET040822,Diksis,Diksis,no,Arsi,Arsi,Oromia,Oromia,no,398.862568,398.862568,0,0,717,717,0,,yes,yes
+matched_same_attributes,ET040823,Bele Gesgar,Bele Gesgar,no,Arsi,Arsi,Oromia,Oromia,no,638.485562,638.485562,0,0,1246,1246,0,,yes,yes
+matched_same_attributes,ET040824,Inkolo Wabe,Inkolo Wabe,no,Arsi,Arsi,Oromia,Oromia,no,318.082566,318.082566,0,0,775,775,0,,yes,yes
+matched_same_attributes,ET040902,Doba,Doba,no,West Hararge,West Hararge,Oromia,Oromia,no,616.762513,622.166701,5.404187,0.8762,721,711,-10,,yes,yes
+matched_same_attributes,ET040906,Anchar,Anchar,no,West Hararge,West Hararge,Oromia,Oromia,no,756.588,756.588,0,0,1137,1137,0,,yes,yes
+matched_same_attributes,ET040907,Goba Koricha,Goba Koricha,no,West Hararge,West Hararge,Oromia,Oromia,no,405.46352,405.46352,0,0,1158,1158,0,,yes,yes
+matched_same_attributes,ET040908,Habro,Habro,no,West Hararge,West Hararge,Oromia,Oromia,no,743.130201,743.130201,0,0,1294,1294,0,,yes,yes
+matched_same_attributes,ET040909,Daro Lebu,Daro Lebu,no,West Hararge,West Hararge,Oromia,Oromia,no,1326.385121,1326.385121,0,0,1442,1442,0,,yes,yes
+matched_same_attributes,ET040910,Boke,Boke,no,West Hararge,West Hararge,Oromia,Oromia,no,1034.32988,1034.32988,0,0,1491,1491,0,,yes,yes
+matched_same_attributes,ET040912,Gemechis,Gemechis,no,West Hararge,West Hararge,Oromia,Oromia,no,1041.314531,1041.314531,0,0,1461,1461,0,,yes,yes
+matched_same_attributes,ET040913,Chiro Zuria,Chiro Zuria,no,West Hararge,West Hararge,Oromia,Oromia,no,688.477947,688.477947,0,0,1906,1906,0,,yes,yes
+matched_same_attributes,ET040915,Hawi Gudina,Hawi Gudina,no,West Hararge,West Hararge,Oromia,Oromia,no,3081.823584,3081.823584,0,0,2100,2100,0,,yes,yes
+matched_same_attributes,ET040998,Burqua Dhintu,Burqua Dhintu,no,West Hararge,West Hararge,Oromia,Oromia,no,2462.920526,2462.920526,0,0,2270,2270,0,,yes,yes
+matched_same_attributes,ET041001,Kombolcha,Kombolcha,no,East Hararge,East Hararge,Oromia,Oromia,no,299.721406,311.577223,11.855817,3.9556,486,526,40,,yes,yes
+matched_same_attributes,ET041005,Fedis,Fedis,no,East Hararge,East Hararge,Oromia,Oromia,no,700.21694,700.21694,0,0,977,977,0,,yes,yes
+matched_same_attributes,ET041006,Haro Maya,Haro Maya,no,East Hararge,East Hararge,Oromia,Oromia,no,509.151151,247.140149,-262.011002,-51.4604,1172,620,-552,,yes,yes
+matched_same_attributes,ET041007,Kurfa Chele,Kurfa Chele,no,East Hararge,East Hararge,Oromia,Oromia,no,243.01743,243.01743,0,0,983,983,0,,yes,yes
+matched_same_attributes,ET041008,Kersa (East Hararge),Kersa (East Hararge),no,East Hararge,East Hararge,Oromia,Oromia,no,477.541897,446.514641,-31.027256,-6.4973,1116,1049,-67,,yes,yes
+matched_same_attributes,ET041010,Goro Gutu,Goro Gutu,no,East Hararge,East Hararge,Oromia,Oromia,no,533.94915,533.949149,-0.000002,0,681,682,1,,yes,yes
+matched_same_attributes,ET041011,Deder,Deder,no,East Hararge,East Hararge,Oromia,Oromia,no,643.291312,643.291312,0,0,1312,1312,0,,yes,yes
+matched_same_attributes,ET041012,Melka Balo,Melka Balo,no,East Hararge,East Hararge,Oromia,Oromia,no,1390.509856,1390.509856,0,0,1776,1776,0,,yes,yes
+matched_same_attributes,ET041013,Bedeno,Bedeno,no,East Hararge,East Hararge,Oromia,Oromia,no,820.619429,820.619429,0,0,1411,1411,0,,yes,yes
+matched_same_attributes,ET041014,Midhaga Tola,Midhaga Tola,no,East Hararge,East Hararge,Oromia,Oromia,no,1550.6125,1550.612565,0.000065,0,951,954,3,,yes,yes
+matched_same_attributes,ET041015,Chinaksen,Chinaksen,no,East Hararge,East Hararge,Oromia,Oromia,no,1558.515762,1243.601309,-314.914454,-20.206,545,537,-8,,yes,yes
+matched_same_attributes,ET041016,Girawa,Girawa,no,East Hararge,East Hararge,Oromia,Oromia,no,1107.493068,1107.493068,0,0,1614,1614,0,,yes,yes
+matched_same_attributes,ET041017,Golo Oda,Golo Oda,no,East Hararge,East Hararge,Oromia,Oromia,no,2047.936412,2047.936412,0,0,1922,1922,0,,yes,yes
+matched_same_attributes,ET041018,Meyu Muleke,Meyu Muleke,no,East Hararge,East Hararge,Oromia,Oromia,no,2654.807425,2654.80742,-0.000004,0,1600,1602,2,,yes,yes
+matched_same_attributes,ET041098,Kumbi,Kumbi,no,East Hararge,East Hararge,Oromia,Oromia,no,3281.1703,3281.170299,-0.000002,0,1572,1573,1,,yes,yes
+matched_same_attributes,ET041104,Agarfa,Agarfa,no,Bale,Bale,Oromia,Oromia,no,1222.4919,1222.4919,0,0,1461,1461,0,,yes,yes
+matched_same_attributes,ET041106,Gasera,Gasera,no,Bale,Bale,Oromia,Oromia,no,1129.355514,1129.355514,0,0,1475,1478,3,,yes,yes
+matched_same_attributes,ET041109,Sinana,Sinana,no,Bale,Bale,Oromia,Oromia,no,1033.270514,1033.270514,0,0,1791,1791,0,,yes,yes
+matched_same_attributes,ET041111,Harena Buluk,Harena Buluk,no,Bale,Bale,Oromia,Oromia,no,1924.888486,1924.888486,0,0,1462,1465,3,,yes,yes
+matched_same_attributes,ET041112,Mena (Bale),Mena (Bale),no,Bale,Bale,Oromia,Oromia,no,4891.429664,4891.429664,0,0,2873,2873,0,,yes,yes
+matched_same_attributes,ET041114,Berbere,Berbere,no,Bale,Bale,Oromia,Oromia,no,1569.155644,1569.155644,0,0,2036,2036,0,,yes,yes
+matched_same_attributes,ET041115,Gura Damole,Gura Damole,no,Bale,Bale,Oromia,Oromia,no,5111.321337,5138.521696,27.200359,0.5322,2340,3089,749,,yes,yes
+matched_same_attributes,ET041116,Goro (Bale),Goro (Bale),no,Bale,Bale,Oromia,Oromia,no,1515.095458,1515.095458,0,0,1490,1490,0,,yes,yes
+matched_same_attributes,ET041122,Dinsho,Dinsho,no,Bale,Bale,Oromia,Oromia,no,650.101063,650.101063,0,0,1258,1258,0,,yes,yes
+matched_same_attributes,ET041216,Miyo,Miyo,no,Borena,Borena,Oromia,Oromia,no,2573.60446,2573.609112,0.004652,0.0002,238,237,-1,,yes,yes
+matched_same_attributes,ET041219,Dilo,Dilo,no,Borena,Borena,Oromia,Oromia,no,3912.527778,3912.527778,0,0,309,309,0,,yes,yes
+matched_same_attributes,ET041290,Guchi,Guchi,no,Borena,Borena,Oromia,Oromia,no,1454.368123,2405.748222,951.380099,65.4154,567,173,-394,,yes,yes
+matched_same_attributes,ET041301,Ameya,Ameya,no,South West Shewa,South West Shewa,Oromia,Oromia,no,950.836087,950.836087,0,0,1135,1135,0,,yes,yes
+matched_same_attributes,ET041302,Wenchi,Wenchi,no,South West Shewa,South West Shewa,Oromia,Oromia,no,461.275978,465.644403,4.368425,0.947,1058,851,-207,,yes,yes
+matched_same_attributes,ET041303,Waliso,Waliso,no,South West Shewa,South West Shewa,Oromia,Oromia,no,740.448886,728.122524,-12.326362,-1.6647,1088,1013,-75,,yes,yes
+matched_same_attributes,ET041304,Dawo,Dawo,no,South West Shewa,South West Shewa,Oromia,Oromia,no,461.631175,461.631175,0,0,1137,1137,0,,yes,yes
+matched_same_attributes,ET041305,Ilu,Ilu,no,South West Shewa,South West Shewa,Oromia,Oromia,no,243.601582,243.601582,0,0,639,639,0,,yes,yes
+matched_same_attributes,ET041307,Kersana Malima,Kersana Malima,no,South West Shewa,South West Shewa,Oromia,Oromia,no,610.288254,610.288257,0.000003,0,1334,1337,3,,yes,yes
+matched_same_attributes,ET041308,Tole,Tole,no,South West Shewa,South West Shewa,Oromia,Oromia,no,420.967601,420.967601,0,0,975,975,0,,yes,yes
+matched_same_attributes,ET041309,Becho (SW Shewa),Becho (SW Shewa),no,South West Shewa,South West Shewa,Oromia,Oromia,no,436.720827,436.720827,0,0,806,806,0,,yes,yes
+matched_same_attributes,ET041310,Seden Sodo,Seden Sodo,no,South West Shewa,South West Shewa,Oromia,Oromia,no,559.721535,559.721535,0,0,528,530,2,,yes,yes
+matched_same_attributes,ET041312,Goro (SW Shewa),Goro (SW Shewa),no,South West Shewa,South West Shewa,Oromia,Oromia,no,430.184725,430.184737,0.000012,0,523,524,1,,yes,yes
+matched_same_attributes,ET041314,Sodo Daci,Sodo Daci,no,South West Shewa,South West Shewa,Oromia,Oromia,no,429.698244,429.698244,0,0,643,643,0,,yes,yes
+matched_same_attributes,ET041402,Bore,Bore,no,Guji,Guji,Oromia,Oromia,no,453.394533,453.394501,-0.000032,0,618,624,6,,yes,yes
+matched_same_attributes,ET041403,Adola,Adola,no,Guji,Guji,Oromia,Oromia,no,1213.226693,1213.226693,0,0,1365,1366,1,,yes,yes
+matched_same_attributes,ET041404,Wadera,Wadera,no,Guji,Guji,Oromia,Oromia,no,953.359765,953.359765,0,0,846,846,0,,yes,yes
+matched_same_attributes,ET041405,Odo Shakiso,Odo Shakiso,no,Guji,Guji,Oromia,Oromia,no,1255.486498,1254.841343,-0.645155,-0.0514,1683,1658,-25,,yes,yes
+matched_same_attributes,ET041411,Ana Sora,Ana Sora,no,Guji,Guji,Oromia,Oromia,no,761.499612,466.831993,-294.667619,-38.6957,640,562,-78,,yes,yes
+matched_same_attributes,ET041501,Bule Hora,Bule Hora,no,West Guji,West Guji,Oromia,Oromia,no,967.761219,931.955824,-35.805395,-3.6998,1575,1487,-88,,yes,yes
+matched_same_attributes,ET041509,Hambela Wamena,Hambela Wamena,no,West Guji,West Guji,Oromia,Oromia,no,603.29164,603.291642,0.000002,0,902,904,2,,yes,yes
+matched_same_attributes,ET041513,Abaya,Abaya,no,West Guji,West Guji,Oromia,Oromia,no,1837.81141,1835.082002,-2.729408,-0.1485,420,438,18,,yes,yes
+matched_same_attributes,ET041515,Dugda Dawa,Dugda Dawa,no,West Guji,West Guji,Oromia,Oromia,no,1827.198358,1827.198358,0,0,2384,2384,0,,yes,yes
+matched_same_attributes,ET041517,Gelana (West Guji),Gelana (West Guji),no,West Guji,West Guji,Oromia,Oromia,no,1209.939937,1209.939941,0.000005,0,655,661,6,,yes,yes
+matched_same_attributes,ET041518,Melka Soda,Melka Soda,no,West Guji,West Guji,Oromia,Oromia,no,1600.726069,1600.726069,0,0,1720,1720,0,,yes,yes
+matched_same_attributes,ET041594,Suro Berguda,Suro Berguda,no,West Guji,West Guji,Oromia,Oromia,no,784.780668,784.780668,0,0,587,591,4,,yes,yes
+matched_same_attributes,ET041603,Chora (Buno Bedele),Chora (Buno Bedele),no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,823.803098,823.803098,0,0,1007,1007,0,,yes,yes
+matched_same_attributes,ET041604,Dega,Dega,no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,353.531097,353.531097,0,0,633,633,0,,yes,yes
+matched_same_attributes,ET041605,Dabo Hana,Dabo Hana,no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,746.159252,746.159252,0,0,984,984,0,,yes,yes
+matched_same_attributes,ET041606,Gechi,Gechi,no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,633.283229,633.283229,0,0,1043,1043,0,,yes,yes
+matched_same_attributes,ET041607,Borecha,Borecha,no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,738.781444,738.781444,0,0,1007,1007,0,,yes,yes
+matched_same_attributes,ET041608,Dedesa,Dedesa,no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,841.207088,841.207088,0,0,1323,1323,0,,yes,yes
+matched_same_attributes,ET041618,Meko,Meko,no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,570.628638,570.628638,0,0,695,695,0,,yes,yes
+matched_same_attributes,ET041623,Chwaka,Chwaka,no,Buno Bedele,Buno Bedele,Oromia,Oromia,no,623.598512,606.723926,-16.874586,-2.706,557,613,56,,yes,yes
+matched_same_attributes,ET041701,Siraro,Siraro,no,West Arsi,West Arsi,Oromia,Oromia,no,631.366524,631.366513,-0.000011,0,277,282,5,,yes,yes
+matched_same_attributes,ET041702,Shala,Shala,no,West Arsi,West Arsi,Oromia,Oromia,no,829.059968,769.901113,-59.158856,-7.1357,770,543,-227,,yes,yes
+matched_same_attributes,ET041704,Kofele,Kofele,no,West Arsi,West Arsi,Oromia,Oromia,no,670.770527,649.440473,-21.330055,-3.1799,1183,1251,68,,yes,yes
+matched_same_attributes,ET041705,Kore,Kore,no,West Arsi,West Arsi,Oromia,Oromia,no,502.213618,502.213618,0,0,1207,1207,0,,yes,yes
+matched_same_attributes,ET041706,Gedeb Asasa,Gedeb Asasa,no,West Arsi,West Arsi,Oromia,Oromia,no,1148.412401,1148.412401,0,0,1450,1450,0,,yes,yes
+matched_same_attributes,ET041707,Dodola,Dodola,no,West Arsi,West Arsi,Oromia,Oromia,no,1648.614098,1648.614098,0,0,1943,1943,0,,yes,yes
+matched_same_attributes,ET041708,Kokosa,Kokosa,no,West Arsi,West Arsi,Oromia,Oromia,no,633.247585,633.247587,0.000002,0,1005,1007,2,,yes,yes
+matched_same_attributes,ET041710,Adaba,Adaba,no,West Arsi,West Arsi,Oromia,Oromia,no,2163.636635,2163.636635,0,0,2047,2047,0,,yes,yes
+matched_same_attributes,ET041797,Wondo,Wondo,no,West Arsi,West Arsi,Oromia,Oromia,no,75.309162,39.768049,-35.541112,-47.1936,330,230,-100,,yes,yes
+matched_same_attributes,ET041801,Hawa Galan,Hawa Galan,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,792.236348,792.236348,0,0,818,818,0,,yes,yes
+matched_same_attributes,ET041802,Yama Logi Welel,Yama Logi Welel,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,566.708286,566.708286,0,0,870,870,0,,yes,yes
+matched_same_attributes,ET041804,Gawo Kebe,Gawo Kebe,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,1139.877146,1139.877146,0,0,1747,1747,0,,yes,yes
+matched_same_attributes,ET041805,Sayo,Sayo,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,1123.112786,1123.112786,0,0,1058,1058,0,,yes,yes
+matched_same_attributes,ET041807,Anfilo,Anfilo,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,1570.785939,1570.785939,0,0,1263,1263,0,,yes,yes
+matched_same_attributes,ET041808,Dale Sadi,Dale Sadi,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,577.055836,577.055836,0,0,1135,1135,0,,yes,yes
+matched_same_attributes,ET041809,Gidami,Gidami,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,2159.05943,2159.05943,0,0,1280,1280,0,,yes,yes
+matched_same_attributes,ET041810,Jimma Horo,Jimma Horo,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,418.135973,418.135973,0,0,713,713,0,,yes,yes
+matched_same_attributes,ET041811,Lalo Kile,Lalo Kile,no,Kelem Wellega,Kelem Wellega,Oromia,Oromia,no,473.29935,473.29935,0,0,1352,1352,0,,yes,yes
+matched_same_attributes,ET041904,Ababo,Ababo,no,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,954.433411,616.340901,-338.09251,-35.4234,863,543,-320,,yes,yes
+matched_same_attributes,ET041905,Abay Chomen,Abay Chomen,no,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,847.726528,302.16467,-545.561858,-64.3559,1252,469,-783,,yes,yes
+matched_same_attributes,ET041906,Jimma Genete,Jimma Genete,no,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,423.480404,410.719743,-12.760661,-3.0133,786,909,123,,yes,yes
+matched_same_attributes,ET041907,Jimma Rare,Jimma Rare,no,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,344.107348,344.107348,0,0,707,707,0,,yes,yes
+matched_same_attributes,ET041908,Jarte Jardega,Jarte Jardega,no,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,1025.392799,768.905429,-256.48737,-25.0136,1097,1020,-77,,yes,yes
+matched_same_attributes,ET041909,Amuru,Amuru,no,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,1257.719933,1257.719932,-0.000002,0,1504,1504,0,,yes,yes
+matched_same_attributes,ET041910,Abe Dongoro,Abe Dongoro,no,Horo Gudru Wellega,Horo Gudru Wellega,Oromia,Oromia,no,1095.566997,1095.566997,0,0,1251,1251,0,,yes,yes
+matched_same_attributes,ET050101,Ayisha,Ayisha,no,Siti,Siti,Somali,Somali,no,5880.225314,5373.958347,-506.266967,-8.6097,88,91,3,,yes,yes
+matched_same_attributes,ET050102,Dembel,Dembel,no,Siti,Siti,Somali,Somali,no,2863.475024,2697.982067,-165.492957,-5.7794,68,64,-4,,yes,yes
+matched_same_attributes,ET050103,Shinile,Shinile,no,Siti,Siti,Somali,Somali,no,3695.670987,3576.993667,-118.67732,-3.2113,189,58,-131,,yes,yes
+matched_same_attributes,ET050105,Afdem,Afdem,no,Siti,Siti,Somali,Somali,no,1972.488193,1467.730321,-504.757871,-25.5899,62,77,15,,yes,yes
+matched_same_attributes,ET050106,Hadhagala,Hadhagala,no,Siti,Siti,Somali,Somali,no,10205.80617,3924.494383,-6281.311792,-61.5465,72,33,-39,,yes,yes
+matched_same_attributes,ET050107,Miesso,Miesso,no,Siti,Siti,Somali,Somali,no,863.589727,561.503872,-302.085855,-34.9803,68,57,-11,,yes,yes
+matched_same_attributes,ET050199,Gablalu,Gablalu,no,Siti,Siti,Somali,Somali,no,1035.970734,5019.737275,3983.766541,384.5443,49,71,22,,yes,yes
+matched_same_attributes,ET050204,Shabeeley,Shabeeley,no,Fafan,Fafan,Somali,Somali,no,490.574286,1621.484872,1130.910586,230.5279,218,100,-118,,yes,yes
+matched_same_attributes,ET050207,Harshin,Harshin,no,Fafan,Fafan,Somali,Somali,no,4518.165563,4533.72384,15.558277,0.3443,34,48,14,,yes,yes
+matched_same_attributes,ET050283,Tuliguled,Tuliguled,no,Fafan,Fafan,Somali,Somali,no,389.781729,428.259677,38.477947,9.8717,69,74,5,,yes,yes
+matched_same_attributes,ET050290,Goljano,Goljano,no,Fafan,Fafan,Somali,Somali,no,732.613332,687.625669,-44.987662,-6.1407,27,61,34,,yes,yes
+matched_same_attributes,ET050298,Haroreys,Haroreys,no,Fafan,Fafan,Somali,Somali,no,1080.879533,830.930283,-249.94925,-23.1246,320,89,-231,,yes,yes
+matched_same_attributes,ET050301,Degehamedo,Degehamedo,no,Jarar,Jarar,Somali,Somali,no,4734.167695,3524.737488,-1209.430207,-25.5468,64,80,16,,yes,yes
+matched_same_attributes,ET050303,Aware,Aware,no,Jarar,Jarar,Somali,Somali,no,3115.880428,2587.163056,-528.717372,-16.9685,49,41,-8,,yes,yes
+matched_same_attributes,ET050304,Gashamo,Gashamo,no,Jarar,Jarar,Somali,Somali,no,11535.95817,11538.29592,2.337756,0.0203,45,63,18,,yes,yes
+matched_same_attributes,ET050305,Gunagado,Gunagado,no,Jarar,Jarar,Somali,Somali,no,2664.332094,2436.774981,-227.557113,-8.5409,52,39,-13,,yes,yes
+matched_same_attributes,ET050392,Daror,Daror,no,Jarar,Jarar,Somali,Somali,no,6873.217491,7131.614315,258.396824,3.7595,40,69,29,,yes,yes
+matched_same_attributes,ET050394,Burqod,Burqod,no,Jarar,Jarar,Somali,Somali,no,2629.768336,2627.599569,-2.168767,-0.0825,39,30,-9,,yes,yes
+matched_same_attributes,ET050395,Ararso,Ararso,no,Jarar,Jarar,Somali,Somali,no,1269.508415,972.970698,-296.537718,-23.3585,32,41,9,,yes,yes
+matched_same_attributes,ET050399,Dig,Dig,no,Jarar,Jarar,Somali,Somali,no,670.685348,1622.239027,951.553678,141.8778,14,45,31,,yes,yes
+matched_same_attributes,ET050407,Lagahida,Lagahida,no,Erer,Erer,Somali,Somali,no,541.053551,562.981541,21.92799,4.0528,34,425,391,,yes,yes
+matched_same_attributes,ET050408,Meyumuluka,Meyumuluka,no,Erer,Erer,Somali,Somali,no,1039.332597,978.078156,-61.25444,-5.8936,223,820,597,,yes,yes
+matched_same_attributes,ET050497,Qubi,Qubi,no,Erer,Erer,Somali,Somali,no,536.555176,562.96146,26.406284,4.9214,239,783,544,,yes,yes
+matched_same_attributes,ET050503,Shilabo,Shilabo,no,Korahe,Korahe,Somali,Somali,no,12355.69295,11448.48965,-907.203301,-7.3424,40,57,17,,yes,yes
+matched_same_attributes,ET050504,Debeweyin,Debeweyin,no,Korahe,Korahe,Somali,Somali,no,2012.974489,2231.909234,218.934744,10.8762,14,37,23,,yes,yes
+matched_same_attributes,ET050586,Marsin,Marsin,no,Korahe,Korahe,Somali,Somali,no,1900.864901,3344.995692,1444.130792,75.9723,32,71,39,,yes,yes
+matched_same_attributes,ET050596,Lasdhankayre,Lasdhankayre,no,Korahe,Korahe,Somali,Somali,no,1125.124442,1551.771292,426.646851,37.92,38,52,14,,yes,yes
+matched_same_attributes,ET050597,Higloley,Higloley,no,Korahe,Korahe,Somali,Somali,no,1536.188486,2605.583729,1069.395244,69.6135,20,33,13,,yes,yes
+matched_same_attributes,ET050598,El-Ogaden,El-Ogaden,no,Korahe,Korahe,Somali,Somali,no,2182.129929,1639.633625,-542.496305,-24.8609,30,28,-2,,yes,yes
+matched_same_attributes,ET050599,Bodaley,Bodaley,no,Korahe,Korahe,Somali,Somali,no,1725.578019,3237.093339,1511.515319,87.5947,27,40,13,,yes,yes
+matched_same_attributes,ET050602,Adadle,Adadle,no,Shabelle,Shabelle,Somali,Somali,no,9040.423044,8669.012925,-371.41012,-4.1083,183,213,30,,yes,yes
+matched_same_attributes,ET050603,Danan,Danan,no,Shabelle,Shabelle,Somali,Somali,no,2911.445815,2152.815853,-758.629962,-26.0568,38,40,2,,yes,yes
+matched_same_attributes,ET050605,Kelafo,Kelafo,no,Shabelle,Shabelle,Somali,Somali,no,6042.323433,5635.027088,-407.296345,-6.7407,40,41,1,,yes,yes
+matched_same_attributes,ET050606,Mustahil,Mustahil,no,Shabelle,Shabelle,Somali,Somali,no,3266.668924,2955.945797,-310.723127,-9.5119,21,37,16,,yes,yes
+matched_same_attributes,ET050607,Ferfer,Ferfer,no,Shabelle,Shabelle,Somali,Somali,no,2089.742607,2195.792562,106.049955,5.0748,23,31,8,,yes,yes
+matched_same_attributes,ET050608,Berocano,Berocano,no,Shabelle,Shabelle,Somali,Somali,no,1476.665733,2571.724925,1095.059192,74.1576,87,252,165,,yes,yes
+matched_same_attributes,ET050701,Danod,Danod,no,Doolo,Doolo,Somali,Somali,no,8065.601219,7258.133532,-807.467687,-10.0113,64,99,35,,yes,yes
+matched_same_attributes,ET050703,Galadi,Galadi,no,Doolo,Doolo,Somali,Somali,no,12551.77691,10303.87125,-2247.90566,-17.9091,34,31,-3,,yes,yes
+matched_same_attributes,ET050788,Daratole,Daratole,no,Doolo,Doolo,Somali,Somali,no,993.956872,1171.64798,177.691109,17.8771,17,31,14,,yes,yes
+matched_same_attributes,ET050805,West Imi,West Imi,no,Afder,Afder,Somali,Somali,no,3060.9243,3932.268055,871.343755,28.4667,150,412,262,,yes,yes
+matched_same_attributes,ET050806,Hargele,Hargele,no,Afder,Afder,Somali,Somali,no,10724.08147,8413.202089,-2310.879379,-21.5485,103,80,-23,,yes,yes
+matched_same_attributes,ET050807,Barey,Barey,no,Afder,Afder,Somali,Somali,no,3722.298702,6145.642626,2423.343925,65.1034,27,70,43,,yes,yes
+matched_same_attributes,ET050808,Dolobay,Dolobay,no,Afder,Afder,Somali,Somali,no,2311.809822,4006.57506,1694.765238,73.309,53,196,143,,yes,yes
+matched_same_attributes,ET050901,Filtu,Filtu,no,Liban,Liban,Somali,Somali,no,10840.8699,11947.27239,1106.402492,10.2058,155,323,168,,yes,yes
+matched_same_attributes,ET050903,Goro Baqaqsa,Goro Baqaqsa,no,Liban,Liban,Somali,Somali,no,4589.835144,4633.596533,43.76139,0.9534,501,64,-437,,yes,yes
+matched_same_attributes,ET050904,Guradamole,Guradamole,no,Liban,Liban,Somali,Somali,no,2466.472909,2827.113541,360.640632,14.6217,404,101,-303,,yes,yes
+matched_same_attributes,ET051002,Elwayne,Elwayne,no,Nogob,Nogob,Somali,Somali,no,3755.643782,2150.202669,-1605.441113,-42.7474,25,31,6,,yes,yes
+matched_same_attributes,ET051003,Garbo,Garbo,no,Nogob,Nogob,Somali,Somali,no,4539.053696,3467.781409,-1071.272288,-23.6012,73,36,-37,,yes,yes
+matched_same_attributes,ET051005,Sagag,Sagag,no,Nogob,Nogob,Somali,Somali,no,2493.000756,2550.635792,57.635036,2.3119,83,75,-8,,yes,yes
+matched_same_attributes,ET051006,Dihun,Dihun,no,Nogob,Nogob,Somali,Somali,no,2966.39178,2265.236408,-701.155371,-23.6366,58,46,-12,,yes,yes
+matched_same_attributes,ET051095,Horshagah,Horshagah,no,Nogob,Nogob,Somali,Somali,no,1174.818274,2227.287335,1052.469061,89.5857,25,43,18,,yes,yes
+matched_same_attributes,ET051104,Hudet,Hudet,no,Daawa,Daawa,Somali,Somali,no,3067.730035,1259.214887,-1808.515148,-58.9529,118,27,-91,,yes,yes
+matched_same_attributes,ET051187,Mubarek,Mubarek,no,Daawa,Daawa,Somali,Somali,no,5739.17047,7424.361384,1685.190914,29.363,47,201,154,,yes,yes
+matched_same_attributes,ET051198,Qada Duma,Qada Duma,no,Daawa,Daawa,Somali,Somali,no,1677.102445,2172.268377,495.165932,29.5251,38,43,5,,yes,yes
+matched_same_attributes,ET120101,Akobo,Akobo,no,Nuwer,Nuwer,Gambela,Gambela,no,2141.187147,2141.187147,0,0,424,424,0,,yes,yes
+matched_same_attributes,ET120102,Lare,Lare,no,Nuwer,Nuwer,Gambela,Gambela,no,568.375752,568.375752,0,0,481,481,0,,yes,yes
+matched_same_attributes,ET120103,Jikawo,Jikawo,no,Nuwer,Nuwer,Gambela,Gambela,no,662.648165,662.647026,-0.001138,-0.0002,383,329,-54,,yes,yes
+matched_same_attributes,ET120104,Wantawo,Wantawo,no,Nuwer,Nuwer,Gambela,Gambela,no,941.650387,941.650387,0,0,346,346,0,,yes,yes
+matched_same_attributes,ET120105,Makuey,Makuey,no,Nuwer,Nuwer,Gambela,Gambela,no,409.165855,409.166993,0.001138,0.0003,218,219,1,,yes,yes
+matched_same_attributes,ET120201,Abobo,Abobo,no,Agnewak,Agnewak,Gambela,Gambela,no,3141.130116,3141.13026,0.000144,0,1615,1616,1,,yes,yes
+matched_same_attributes,ET120202,Gambela Zuria,Gambela Zuria,no,Agnewak,Agnewak,Gambela,Gambela,no,3286.774772,3286.774772,0,0,844,844,0,,yes,yes
+matched_same_attributes,ET120203,Gog,Gog,no,Agnewak,Agnewak,Gambela,Gambela,no,3236.764515,3236.764371,-0.000144,0,1195,1189,-6,,yes,yes
+matched_same_attributes,ET120204,Jore,Jore,no,Agnewak,Agnewak,Gambela,Gambela,no,3320.495924,3320.495924,0,0,1286,1286,0,,yes,yes
+matched_same_attributes,ET130101,Sofi,Sofi,no,Harari,Harari,Harari,Harari,no,131.45522,131.45522,0,0,266,266,0,,yes,yes
+matched_same_attributes,ET130102,Shenkor,Shenkor,no,Harari,Harari,Harari,Harari,no,27.139132,27.139132,0,0,233,233,0,,yes,yes
+matched_same_attributes,ET130103,Jinela,Jinela,no,Harari,Harari,Harari,Harari,no,19.054525,19.054527,0.000001,0,220,221,1,,yes,yes
+matched_same_attributes,ET130104,Hakim,Hakim,no,Harari,Harari,Harari,Harari,no,41.658507,41.658507,0,0,145,145,0,,yes,yes
+matched_same_attributes,ET130106,Dire Teyara,Dire Teyara,no,Harari,Harari,Harari,Harari,no,11.362464,11.362464,0,0,115,116,1,,yes,yes
+matched_same_attributes,ET130107,Amir Nur,Amir Nur,no,Harari,Harari,Harari,Harari,no,11.851369,11.851369,0,0,165,165,0,,yes,yes
+matched_same_attributes,ET130108,Aboker,Aboker,no,Harari,Harari,Harari,Harari,no,10.219788,10.219788,0,0,206,206,0,,yes,yes
+matched_same_attributes,ET130109,Abadir,Abadir,no,Harari,Harari,Harari,Harari,no,19.203796,19.203796,0,0,438,438,0,,yes,yes
+matched_same_attributes,ET150103,Sabian,Sabian,no,Dire Dawa urban,Dire Dawa urban,Dire Dawa,Dire Dawa,no,19.726786,19.726786,0,0,75,75,0,,yes,yes
+matched_same_attributes,ET150105,Legehare,Legehare,no,Dire Dawa urban,Dire Dawa urban,Dire Dawa,Dire Dawa,no,0.720995,0.720995,0,0,29,29,0,,yes,yes
+matched_same_attributes,ET150110,Gende Kore,Gende Kore,no,Dire Dawa urban,Dire Dawa urban,Dire Dawa,Dire Dawa,no,0.734364,0.734364,0,0,26,26,0,,yes,yes
+matched_same_attributes,ET150206,Jeldessa,Jeldessa,no,Dire Dawa rural,Dire Dawa rural,Dire Dawa,Dire Dawa,no,339.946123,339.946151,0.000028,0,98,100,2,,yes,yes
+matched_same_attributes,ET150207,Wahil,Wahil,no,Dire Dawa rural,Dire Dawa rural,Dire Dawa,Dire Dawa,no,183.167191,183.167192,0.000001,0,258,259,1,,yes,yes
+matched_same_attributes,ET150208,Biyoawale,Biyoawale,no,Dire Dawa rural,Dire Dawa rural,Dire Dawa,Dire Dawa,no,350.015243,350.015243,0,0,276,276,0,,yes,yes

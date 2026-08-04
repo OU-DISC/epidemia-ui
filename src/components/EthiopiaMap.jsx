@@ -423,18 +423,13 @@ const ALERT_MARKER_KINDS = {
   ed: { icon: "🔍", color: "#d97706", label: "Early Detection" },
 };
 
-/** Shift marker lat/lng so two alert pins on the same district do not stack. */
-function offsetAlertLatLng(lat, lng, metersEast) {
-  const latRad = (lat * Math.PI) / 180;
-  const metersPerDegreeLat = 111320;
-  const metersPerDegreeLng = Math.max(Math.cos(latRad) * metersPerDegreeLat, 1);
-  return {
-    lat: lat,
-    lng: lng + metersEast / metersPerDegreeLng,
-  };
-}
-
-function buildAlertMarkerIcon({ icon, color }) {
+/**
+ * Build an alert pin. When EW and ED both fire for one district, offset them in
+ * *screen pixels* (not meters) so small urban polygons (e.g. Mekelle sub-cities)
+ * do not push icons into a neighboring woreda.
+ */
+function buildAlertMarkerIcon({ icon, color }, side = "center") {
+  const shiftX = side === "left" ? -13 : side === "right" ? 13 : 0;
   return L.divIcon({
     html: `<div style="
       background: ${color};
@@ -448,9 +443,11 @@ function buildAlertMarkerIcon({ icon, color }) {
       color: white;
       border: 2px solid white;
       box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      transform: translateX(${shiftX}px);
     ">${icon}</div>`,
     className: "custom-alert-marker",
     iconSize: [24, 24],
+    // Keep the geographic anchor on the district centroid for both pins.
     iconAnchor: [12, 12],
   });
 }
@@ -501,7 +498,6 @@ function AlertMarkers({
           const centroid = bounds.getCenter();
           const districtName = district?.properties?.adm3_name || alert.district;
           const dualMarkers = kinds.length === 2;
-          const lateralOffsetMeters = 3500;
 
           const alertTooltipHtml =
             resolveLookupEntry(districtTooltipByDistrict, districtName, adm3Lookup) ||
@@ -509,17 +505,11 @@ function AlertMarkers({
 
           kinds.forEach((kindKey, index) => {
             const kind = ALERT_MARKER_KINDS[kindKey];
-            const offsetMeters = dualMarkers
-              ? (index === 0 ? -lateralOffsetMeters : lateralOffsetMeters)
-              : 0;
-            const position = offsetAlertLatLng(
-              centroid.lat,
-              centroid.lng,
-              offsetMeters
-            );
+            // Pixel offset only — both markers stay on this district's centroid.
+            const side = dualMarkers ? (index === 0 ? "left" : "right") : "center";
 
-            const marker = L.marker([position.lat, position.lng], {
-              icon: buildAlertMarkerIcon(kind),
+            const marker = L.marker([centroid.lat, centroid.lng], {
+              icon: buildAlertMarkerIcon(kind, side),
               pane: ALERTS_MAP_PANE,
             }).bindTooltip(
               alertTooltipHtml || `${districtName}<br>${kind.label}`,

@@ -1,0 +1,46 @@
+{
+  "method": {
+    "env": "area-weighted average using intersection_km2 weights",
+    "population": "area-weighted sum using normalized share_of_old",
+    "cases": "from remapped_cases_weekly_cod_ab_v04.csv"
+  },
+  "new_pcodes_master": 1148,
+  "env_long_rows": 1957815,
+  "env_pcodes": 1050,
+  "pop_rows": 103064,
+  "pop_pcodes": 104,
+  "train_panel": {
+    "rows": 324581,
+    "pcodes": 1037,
+    "non_null_rainfall_mm": 323955,
+    "pct_non_null_rainfall_mm": 99.81,
+    "non_null_temperature_c": 323955,
+    "pct_non_null_temperature_c": 99.81,
+    "non_null_ndvi": 323955,
+    "pct_non_null_ndvi": 99.81,
+    "non_null_population": 324581,
+    "pct_non_null_population": 100.0,
+    "non_null_cases": 324581,
+    "pct_non_null_cases": 100.0
+  },
+  "predict_drivers": {
+    "rows": 328963,
+    "pcodes": 1051,
+    "non_null_rainfall_mm": 328650,
+    "pct_non_null_rainfall_mm": 99.9,
+    "non_null_temperature_c": 328650,
+    "pct_non_null_temperature_c": 99.9,
+    "non_null_ndvi": 328650,
+    "pct_non_null_ndvi": 99.9,
+    "non_null_population": 328963,
+    "pct_non_null_population": 100.0
+  },
+  "pcodes_missing_all_env_in_train": 2,
+  "outputs": [
+    "remapped_env_long_cod_ab_v04.csv",
+    "remapped_population_weekly_cod_ab_v04.csv",
+    "train_panel_2014_2019_draft.csv",
+    "predict_drivers_2020_2025_draft.csv"
+  ],
+  "note": "Draft panels for XGBoost re-training/generation on COD-AB v04. 97+ new polygons with no old overlap may still lack env/cases until raster extraction."
+}

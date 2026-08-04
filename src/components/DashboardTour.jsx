@@ -7,6 +7,8 @@ import {
 const PAD = 8;
 const TOOLTIP_GAP = 12;
 
+const TOUR_ATTEMPTED_SESSION_KEY = "epidemia.dashboardTour.attempted.v1";
+
 function readTourCompleted() {
   try {
     return window.localStorage.getItem(DASHBOARD_TOUR_STORAGE_KEY) === "1";
@@ -20,6 +22,22 @@ function writeTourCompleted() {
     window.localStorage.setItem(DASHBOARD_TOUR_STORAGE_KEY, "1");
   } catch {
     /* ignore quota / private mode */
+  }
+}
+
+function readTourAttemptedThisSession() {
+  try {
+    return window.sessionStorage.getItem(TOUR_ATTEMPTED_SESSION_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function writeTourAttemptedThisSession() {
+  try {
+    window.sessionStorage.setItem(TOUR_ATTEMPTED_SESSION_KEY, "1");
+  } catch {
+    /* ignore */
   }
 }
 
@@ -220,7 +238,15 @@ function DashboardTour({ open, onClose, onPrepareStep }) {
 }
 
 export function shouldAutoStartDashboardTour() {
-  return !readTourCompleted();
+  // Completed tours never auto-start again. Also skip if we already tried this
+  // browser session (prevents remount / media-query loops from reopening it).
+  if (readTourCompleted() || readTourAttemptedThisSession()) return false;
+  return true;
+}
+
+/** Call when auto-start is about to open the tour. */
+export function markDashboardTourAutoStartAttempted() {
+  writeTourAttemptedThisSession();
 }
 
 export default DashboardTour;

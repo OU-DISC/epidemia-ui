@@ -1,0 +1,52 @@
+{
+  "species": "pv",
+  "case_source_column": "cases_pv",
+  "train_rows": 319815,
+  "train_pcodes": 1035,
+  "predict_rows": 354423,
+  "predict_pcodes": 1147,
+  "gap_pcodes_in_predict": 97,
+  "metrics": {
+    "val_mae_log_incidence": 1.1080186367034912,
+    "val_r2_log_incidence": 0.594504177570343,
+    "val_mae_incidence": 7.598644879180938e-05,
+    "val_r2_incidence": 0.12498146295547485
+  },
+  "global_beta_spatial": 0.0013569117290899158,
+  "feature_columns": [
+    "rainfall_mm",
+    "temperature_c",
+    "ndvi",
+    "log_population",
+    "week_of_year",
+    "month",
+    "pcode_id",
+    "rainfall_mm_lag1",
+    "rainfall_mm_lag2",
+    "rainfall_mm_lag3",
+    "rainfall_mm_lag4",
+    "temperature_c_lag1",
+    "temperature_c_lag2",
+    "temperature_c_lag3",
+    "temperature_c_lag4",
+    "ndvi_lag1",
+    "ndvi_lag2",
+    "ndvi_lag3",
+    "ndvi_lag4"
+  ],
+  "lags": 4,
+  "eps": 1e-06,
+  "shap_sample_rows": 40000,
+  "outputs": [
+    "synthetic_malaria_2020_2025_cod_ab_v04_pv.csv",
+    "beta_spatial_by_pcode_pv.csv",
+    "epi_data_synthetic_2020_2025_cod_ab_v04_pv.csv",
+    "xgb_synthetic_cod_ab_v04_pv.json",
+    "pcode_encoder_categories_pv.json",
+    "synthetic_generation_qc_summary_pv.json"
+  ],
+  "notes": [
+    "Target = log(incidence + eps); cases = incidence * population",
+    "Gap districts excluded from training; predicted using env/pop + region/global beta adjustment"
+  ]
+}

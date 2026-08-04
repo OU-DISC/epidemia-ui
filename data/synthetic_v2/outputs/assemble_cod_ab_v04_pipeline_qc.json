@@ -1,0 +1,20 @@
+{
+  "generated_at": "20260728T175159Z",
+  "backup_dir": "C:\\Users\\bash0006\\EPIDEMIA\\frontend\\epidemia-ui\\backend\\data\\_bak_pre_cod_ab_v04_20260728T175159Z",
+  "registry_rows": 1148,
+  "epi_rows": 709365,
+  "epi_woredas": 1148,
+  "epi_date_min": "2014-01-06",
+  "epi_date_max": "2025-12-29",
+  "env_rows": 2141859,
+  "env_woredas": 1148,
+  "env_ref_rows": 179088,
+  "missing_epi_vs_registry": [],
+  "missing_env_vs_registry": [],
+  "extra_epi_not_in_registry": [],
+  "notes": [
+    "Pf 2020-2025 from calibrated synthetic",
+    "Pv 2020-2025 from remapped where available else 0",
+    "Bui town (ET070402) env/pop proxied from Butajira; cases set to 0"
+  ]
+}

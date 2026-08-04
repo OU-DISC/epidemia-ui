@@ -1,0 +1,1396 @@
+old_adm3_pcode,new_adm3_pcode,share_of_old,share_of_new,intersection_km2,old_adm3_name,new_adm3_name,likely_change_type
+ET010504,ET990101,1,0.139265,14.462336,Setit Humera,Setit Humera town,likely_merge_many_old_to_new
+ET011063,ET010701,1,0.037783,5.535343,Kuha,Kuiha Sub City,likely_merge_many_old_to_new
+ET0201011,ET020108,1,1,2868.541625,Kurri,Kori,one_to_one_redraw_or_recode
+ET0202071,ET020208,1,1,6985.8938,Bidu,Bidu,one_to_one_redraw_or_recode
+ET020305,ET020309,1,1,792.470187,Gelealo,Borimodaytu,one_to_one_redraw_or_recode
+ET030701,ET031301,1,0.919781,1151.933333,Semen Achefer,Semen Achefer,one_to_one_redraw_or_recode
+ET030712,ET031401,1,0.810383,213.439371,Bahir Dar Town,Bahir Dar town,one_to_one_redraw_or_recode
+ET030718,ET031307,1,1,633.914834,Gonje,Gonje,one_to_one_redraw_or_recode
+ET031122O,ET031122,1,1,1782.448683,Kinfaz,Kinfaz Begela,one_to_one_redraw_or_recode
+ET040199O,ET040199,1,1,26.962371,Nejo Town,Nejo town,one_to_one_redraw_or_recode
+ET040401O,ET040418,1,1,91.592975,Jimma/Town/,Jimma town,one_to_one_redraw_or_recode
+ET040799O,ET040799,1,1,5.696294,Metehara Town,Metehara town,one_to_one_redraw_or_recode
+ET040894O,ET040894,1,0.126923,4.405847,Bekoji Town,Bokoji town,likely_merge_many_old_to_new
+ET041001O,ET041019,1,0.015813,5.630867,Haromaya Town,Maya town,likely_merge_many_old_to_new
+ET041107,ET042102,1,1,4777.453156,Lege Hida,Lege Hida,one_to_one_redraw_or_recode
+ET041108,ET042103,1,0.994591,2329.510192,Ginir,Ginir,one_to_one_redraw_or_recode
+ET041117,ET042104,1,0.97223,5039.453293,Rayitu,Rayitu,one_to_one_redraw_or_recode
+ET041121,ET042106,1,1,1689.574946,Dawe Ketchen,Dawe Ketchen,one_to_one_redraw_or_recode
+ET041198,ET042107,1,1,34.831495,Ginir Town,Ginir town,one_to_one_redraw_or_recode
+ET041220,ET042209,1,0.998825,3172.94842,Dhas,Dhas,one_to_one_redraw_or_recode
+ET041413,ET042205,1,1,2361.2496,Gora Dola,Gora Dola,one_to_one_redraw_or_recode
+ET041414O,ET042201,1,1,8.930036,Negele /Town/,Negele town,one_to_one_redraw_or_recode
+ET041700O,ET041700,1,1,8.248082,Dodola Town,Dodola town,one_to_one_redraw_or_recode
+ET041798,ET041711,1,0.095768,45.322218,Bishan Guracha,Shashemene town,likely_merge_many_old_to_new
+ET042005O,ET042012,1,0.057137,8.461312,Sululta Town,Sululta,likely_merge_many_old_to_new
+ET042008O,ET040709,1,0.00113,0.578486,Dukem,Bishoftu town,likely_merge_many_old_to_new
+ET042016,ET040622,1,1,343.823033,Mulo,Mulo,one_to_one_redraw_or_recode
+ET042018,ET040623,1,0.029264,4.197919,Sendafa Town,Sendafa town,likely_merge_many_old_to_new
+ET070101,ET070001,1,1,235.983063,Kebena,Kebena Special,one_to_one_redraw_or_recode
+ET070109OU049,ET070109,1,1,233.163288,Gumer,Gumer,one_to_one_redraw_or_recode
+ET070115,ET070401,1,1,16.137437,Butajira Town,Butajira town,one_to_one_redraw_or_recode
+ET070301,ET072601,1,1,339.645453,Tembaro,Tembaro Special,one_to_one_redraw_or_recode
+ET070412,ET160203,1,1,179.16209,Malga,Malga,one_to_one_redraw_or_recode
+ET070419,ET160101,1,0.133783,27.77707,Hawasa Town,Hawassa town,likely_merge_many_old_to_new
+ET070421O,ET160101,1,0.006405,1.329886,Tula Town,Hawassa town,likely_merge_many_old_to_new
+ET070486,ET160304,1,1,13.673183,Yirgalem Town Adm.,Yirgalem town,one_to_one_redraw_or_recode
+ET070487,ET160404,1,1,5.247563,Aleta Wondo Town,Aleta Wondo town,one_to_one_redraw_or_recode
+ET070505,ET081105,1,1,125.062726,Dila Zuria,Dila Zuria,one_to_one_redraw_or_recode
+ET070507,ET081109,1,1,14.244283,Dila City Admin,Dila town,one_to_one_redraw_or_recode
+ET070587,ET081111,1,1,2.205947,Yirgachefe Town,Yirgachefe town,one_to_one_redraw_or_recode
+ET070601,ET080101,1,1,288.287596,Boloso sore,Boloso Sore,one_to_one_redraw_or_recode
+ET070602,ET080102,1,1,241.962993,Damot Gale,Damot Gale,one_to_one_redraw_or_recode
+ET070608,ET080108,1,1,272.265924,Boloso Bombe,Boloso Bombe,one_to_one_redraw_or_recode
+ET070611,ET080111,1,1,165.099524,Damot Pulasa,Damot Pullasa,one_to_one_redraw_or_recode
+ET070612,ET080112,1,0.931505,391.275059,Diguna Fango,Duguna Fango,likely_merge_many_old_to_new
+ET070613,ET080113,1,1,25.624979,Sodo Town,Sodo town,one_to_one_redraw_or_recode
+ET070614O,ET080114,1,1,14.870532,Areka Town,Areka town,one_to_one_redraw_or_recode
+ET070615O,ET080115,1,1,13.686772,Boditi Town,Boditi town,one_to_one_redraw_or_recode
+ET070705,ET081201,1,1,3603.64075,Bena Tsemay,Bena Tsemay,one_to_one_redraw_or_recode
+ET070706,ET081202,1,1,2584.642146,Dasenech (Kuraz),Dasenech /Kuraz,one_to_one_redraw_or_recode
+ET070707,ET081204,1,1,1431.239865,Male,Malie,one_to_one_redraw_or_recode
+ET070708,ET081205,1,1,2807.671867,Gnangatom,Nyngatom,one_to_one_redraw_or_recode
+ET070709,ET081206,1,1,4571.868854,Selamgo,Salamago,one_to_one_redraw_or_recode
+ET070793,ET080506,1,1,8.885813,Jinka Town Admin,Jinka town,one_to_one_redraw_or_recode
+ET070801,ET110101,1,1,755.682019,Masha,Anderacha,one_to_one_redraw_or_recode
+ET070802,ET110102,1,1,1008.420294,Anderacha,Masha,one_to_one_redraw_or_recode
+ET070803,ET110103,1,1,562.292837,Yeki,Yeki,one_to_one_redraw_or_recode
+ET070804O,ET110104,1,1,13.71144,Tepi Town,Tepi,one_to_one_redraw_or_recode
+ET070805O,ET110105,1,1,1.0031,Masha Town,Masha town,one_to_one_redraw_or_recode
+ET070901,ET110201,1,1,781.247709,Sayilem,Saylem,one_to_one_redraw_or_recode
+ET070903,ET110203,1,1,953.558596,Getawa,Gewata,one_to_one_redraw_or_recode
+ET070904,ET110204,1,1,780.366212,Gimbo,Gimbo,one_to_one_redraw_or_recode
+ET070905,ET110205,1,1,1011.243175,Menjiwo,Adiyio,one_to_one_redraw_or_recode
+ET070906,ET110206,1,1,481.837031,Tulo (SNNP),Tullo,one_to_one_redraw_or_recode
+ET070907,ET110207,1,1,685.140292,Cheta,Cheta,one_to_one_redraw_or_recode
+ET070910,ET110210,1,1,1086.694459,Bita (Big),Bita,one_to_one_redraw_or_recode
+ET070911,ET110211,1,1,13.672155,Bonga Town,Bonga town,one_to_one_redraw_or_recode
+ET071002,ET080303,1,1,795.233133,Denibu Gofa,Denba Gofa,one_to_one_redraw_or_recode
+ET071004,ET080205,1,1,464.231793,Boreda,Boreda,one_to_one_redraw_or_recode
+ET071008,ET080209,1,1,283.273454,Dita,Dita,one_to_one_redraw_or_recode
+ET071009,ET080208,1,1,361.954252,Daramalo,Daramalo,one_to_one_redraw_or_recode
+ET071010,ET080311,1,1,730.212264,Zala,Zala,one_to_one_redraw_or_recode
+ET071015,ET080308,1,1,174.750286,Ayida,O'yida,one_to_one_redraw_or_recode
+ET071096,ET080201,1,1,33.369811,Arba Minch Town,Arba Minch town,one_to_one_redraw_or_recode
+ET071097,ET080309,1,1,16.729192,Sawla Town,Sawla town,one_to_one_redraw_or_recode
+ET071103,ET110303,1,1,623.490002,Debub Bench,Debub Bench,one_to_one_redraw_or_recode
+ET071108,ET110505,1,1,594.443187,Bero,Bero,one_to_one_redraw_or_recode
+ET071109,ET110506,1,1,4960.852134,Surma,Surma,one_to_one_redraw_or_recode
+ET071111,ET110307,1,1,24.379574,Mizan Aman Town,Mizan Aman town,one_to_one_redraw_or_recode
+ET071301,ET080601,1,0.9462,787.819138,Alle,Alle Special,likely_merge_many_old_to_new
+ET071303,ET081001,1,1,1377.010736,Burji,Burji,one_to_one_redraw_or_recode
+ET071306,ET080904,1,0.010359,3.880999,Segen town,Segen Zuria,likely_merge_many_old_to_new
+ET071705,ET110405,1,1,1077.533191,Esira,Esara,one_to_one_redraw_or_recode
+ET071790,ET110411,1,1,5.066498,Tercha Town,Tercha town,one_to_one_redraw_or_recode
+ET072098,ET072010,1,0.201805,25.481431,Worabe Town,Worabe town,likely_merge_many_old_to_new
+ET150111O,ET150111,1,1,1.338396,Dechatu,Dechatu,one_to_one_redraw_or_recode
+ET150112O,ET150112,1,1,0.379421,Hafat Issa,Hafat Issa,one_to_one_redraw_or_recode
+ET150113O,ET150113,1,1,12.815284,Kazira,Kazira,one_to_one_redraw_or_recode
+ET150114O,ET150114,1,1,8.893232,Police Maret,Police Maret,one_to_one_redraw_or_recode
+ET150201O,ET150201,1,1,102.551602,Aseliso,Aseliso,one_to_one_redraw_or_recode
+ET070107,ET072501,0.999998,1,300.454246,Mareko,Mareko Special,one_to_one_redraw_or_recode
+ET041004OU031,ET041004,0.999305,1,4879.355714,Babile (Oromia),Babile (OR),likely_split_old_to_many_new
+ET070704,ET081203,0.999099,1,5890.341501,Hamer,Hamer,likely_split_old_to_many_new
+ET071302,ET080801,0.99899,1,1623.514083,Amaro,Amaro,likely_split_old_to_many_new
+ET031213OU025,ET031213,0.998306,1,5325.991162,Metema,Metema,likely_split_old_to_many_new
+ET030713,ET031305,0.998187,1,1100.111108,Debub Achefer,Debub Achefer,likely_split_old_to_many_new
+ET071011,ET080310,0.997178,1,751.765143,Ouba Debretsehaye,Uba Debre Tsehay,likely_split_old_to_many_new
+ET070420,ET160202,0.996522,1,205.054549,Wondo-Genet,Wondo-Genet,likely_split_old_to_many_new
+ET030505OU067,ET030505,0.996394,1,1109.022262,Menze Gera Midir,Menze Gera Midir,likely_split_old_to_many_new
+ET070902,ET110202,0.996383,1,725.199107,Gesha (Deka),Gesha,likely_split_old_to_many_new
+ET030202OU013,ET030202,0.996359,0.862645,996.432785,Libokemekem,Libokemekem,likely_split_old_to_many_new
+ET030308OU012,ET030308,0.996325,1,1317.630561,Habru,Habru,likely_split_old_to_many_new
+ET030502OU009,ET030502,0.99592,1,1045.210311,Merhabete,Merhabete,likely_split_old_to_many_new
+ET071005,ET080219,0.995885,1,798.101654,Mirab Abaya,Mirab Abaya,likely_split_old_to_many_new
+ET030613OU006,ET030613,0.995875,1,624.823834,Dejen,Dejen,likely_split_old_to_many_new
+ET030703OU021,ET031303,0.995768,1,922.781593,Yilmana Densa,Yilmana Densa,likely_split_old_to_many_new
+ET030105OU008,ET030105,0.995643,1,1089.731049,Dabat,Dabat,likely_split_old_to_many_new
+ET030405OU018,ET030405,0.99557,1,441.966289,Thehulederie,Thehulederie,likely_split_old_to_many_new
+ET030606OU005,ET030606,0.995193,1,729.93111,Enemay,Enemay,likely_split_old_to_many_new
+ET030415OU020,ET030415,0.99495,1,737.765809,Were Ilu,Were Ilu,likely_split_old_to_many_new
+ET030205OU016,ET030205,0.994938,1,1515.782874,Lay Gayint,Lay Gayint,likely_split_old_to_many_new
+ET071102,ET110302,0.994879,1,2516.550305,Gurafereda,Gurafereda,likely_split_old_to_many_new
+ET070703,ET080508,0.994335,1,279.396266,Gelila / North Ari,North Ari,likely_split_old_to_many_new
+ET041105,ET042101,0.994299,1,2209.529326,Gololcha Bale,Gololcha Bale,one_to_one_redraw_or_recode
+ET031206OU024,ET031206,0.993603,1,1488.777579,Mirab Armacho,Mirab Armacho,likely_split_old_to_many_new
+ET030708OU023,ET030708,0.992871,1,964.366231,Dembecha,Dembecha,likely_split_old_to_many_new
+ET070701,ET080401,0.992479,1,407.588168,Basketo SP Woreda,Basketo Special,likely_split_old_to_many_new
+ET042098,ET042004,0.992335,0.243781,30.171315,Gelana (Finfine),Galan,likely_merge_many_old_to_new
+ET071304,ET080701,0.991268,1,693.276201,Derashe,Derashe,likely_split_old_to_many_new
+ET010411,ET990304,0.991246,0.434554,5.493457,Alamata Town,Alamata town,likely_merge_many_old_to_new
+ET030412OU019,ET030412,0.989508,1,1017.611648,Borena / Debresina,Borena /Debresina,likely_split_old_to_many_new
+ET071104,ET110304,0.988471,1,553.640416,Shay Bench,Shay Bench,likely_split_old_to_many_new
+ET030508OU066,ET030508,0.988338,1,511.116117,Eferatana Gidem,Eferatana Gidem,likely_split_old_to_many_new
+ET071017,ET080304,0.985868,1,518.745255,Geze Gofa,Gezei Gofa,likely_split_old_to_many_new
+ET050201,ET050204,0.985716,0.247097,400.663815,Babile (Somali),Shabeeley,likely_merge_many_old_to_new
+ET041118,ET042105,0.984353,1,9055.491225,Seweyna,Seweyna,one_to_one_redraw_or_recode
+ET040101OU048,ET040101,0.981457,1,1806.88483,Mana Sibu,Mana Sibu,likely_split_old_to_many_new
+ET011067,ET010703,0.98132,0.211404,8.803972,Ayder,Ayder Sub City,likely_merge_many_old_to_new
+ET030208OU063,ET030208,0.975389,1,1332.313568,East Esite,East Esite,likely_split_old_to_many_new
+ET071107,ET110507,0.974859,1,4541.244617,Maji,Maji,likely_split_old_to_many_new
+ET070609,ET080109,0.974259,1,176.306775,Damot Sore,Damot Sore,likely_split_old_to_many_new
+ET041099O,ET041019,0.97103,0.161232,57.411613,Aweday Town,Maya town,likely_merge_many_old_to_new
+ET010410,ET990303,0.969396,0.656876,7.366806,Korem Town,Korem town,likely_merge_many_old_to_new
+ET070304OU052,ET070304,0.968545,1,183.312842,Kacha Bira,Kacha Bira,likely_split_old_to_many_new
+ET070414,ET160307,0.965417,1,848.010207,Loka Abaya,Loka Abaya,likely_split_old_to_many_new
+ET071101,ET110301,0.958542,1,468.909855,Sheka,Sheko,likely_split_old_to_many_new
+ET070606,ET080106,0.955312,1,502.85579,Kindo Koyesha,Kindo Koyesha,likely_split_old_to_many_new
+ET070404,ET160305,0.954211,0.874021,251.34001,Dale,Dale,likely_merge_many_old_to_new
+ET010407,ET990301,0.953118,0.929878,716.727968,Alamata,Raya Alamata,complex_many_to_many
+ET0201051,ET020109,0.944346,0.955472,2210.45825,Adaa'r,Adar,likely_split_old_to_many_new
+ET070417,ET160405,0.944132,1,288.86448,Chuko,Aleta Chuko,likely_split_old_to_many_new
+ET070501,ET081101,0.926006,1,136.242022,Wenago,Wenago,likely_split_old_to_many_new
+ET070305OU051,ET070305,0.923048,1,175.706949,Hadero Tunto,Hadero Tunto,likely_split_old_to_many_new
+ET042004O,ET042002,0.918516,0.303526,29.74813,Lege tafo-Lege Dadi Town,Eka Tafo,complex_many_to_many
+ET070418,ET160502,0.909182,1,200.778119,Bona Zuria,Bona Zuria,likely_split_old_to_many_new
+ET070605,ET080105,0.905659,1,366.315398,Sodo Zuria,Sodo Zuria,likely_split_old_to_many_new
+ET041799O,ET041799,0.895047,0.549182,28.087548,Arsi Negele Town,Arsi Negele town,complex_many_to_many
+ET011062,ET010707,0.887142,0.838279,30.317174,Debub & Semen Mekele,Semen Sub City,complex_many_to_many
+ET030307OU011,ET030307,0.87815,1,791.342459,Guba Lafto,Guba Lafto,likely_split_old_to_many_new
+ET011068,ET010704,0.877906,0.302384,4.791392,Adhaki,Hawelti Sub City,complex_many_to_many
+ET070405,ET160403,0.875731,1,197.402028,Aleta Wendo,Aleta Wendo,likely_split_old_to_many_new
+ET071201,ET072404,0.874474,1,668.228501,Yem SP Woreda,Toba,likely_split_old_to_many_new
+ET030702,ET031310,0.867012,0.791905,1251.417115,Bahirdar Zuria,Bahir Dar Zuria,likely_split_old_to_many_new
+ET070502,ET081102,0.857434,1,245.478147,Yirgachefe,Yirgachefe,likely_split_old_to_many_new
+ET071016,ET080202,0.84994,0.999815,1489.860319,Arba Minch Zuria,Arba Minch Zuria,likely_split_old_to_many_new
+ET040704OU068,ET040704,0.848265,0.989192,630.459614,Lome (Oromia),Lome (OR),likely_split_old_to_many_new
+ET071013,ET080212,0.836736,1,662.930726,Bonke,Geressie,likely_split_old_to_many_new
+ET041113,ET042203,0.828132,0.999571,7291.082591,Meda Welabu,Meda Welabu,likely_split_old_to_many_new
+ET070702,ET080511,0.805752,1,1637.964333,South Ari (Bako Gazer),South Ari,likely_split_old_to_many_new
+ET070607,ET080107,0.805003,0.999262,310.276078,Ofa,Ofa,likely_split_old_to_many_new
+ET070205OU065,ET070205,0.803222,1,239.178612,Misrak Badawacho,Misrak Badawacho,likely_split_old_to_many_new
+ET070413,ET160303,0.800653,1,143.816125,Wonosho,Wonosho,likely_split_old_to_many_new
+ET070503,ET081103,0.792529,1,153.877091,Kochere,Kochere,likely_split_old_to_many_new
+ET010501,ET990103,0.792473,0.982591,4915.343082,Kafta Humera,Kafta Humera,likely_split_old_to_many_new
+ET041412OU033,ET041412,0.781327,1,2263.895145,Saba Boru,Saba Boru,likely_split_old_to_many_new
+ET071007,ET080207,0.776869,1,290.226161,Chencha,Chencha Zuriya,likely_split_old_to_many_new
+ET042013,ET040620,0.774995,1,883.990394,Sululta,Sululta (OR),likely_split_old_to_many_new
+ET050704OU055,ET050704,0.770989,0.746544,8108.204522,Warder,Warder,complex_many_to_many
+ET070106,ET070404,0.753466,1,331.058868,Meskan,Meskan,likely_split_old_to_many_new
+ET050598,ET050586,0.736032,0.480183,1606.211801,El-Ogaden,Marsin,likely_split_old_to_many_new
+ET020101OU001,ET020101,0.731776,0.902747,5426.572005,Dubti,Dubti,complex_many_to_many
+ET041502OU064,ET041502,0.721776,1,552.938177,Kercha,Kercha,likely_split_old_to_many_new
+ET070416,ET160401,0.717515,0.998555,159.40897,Bursa,Bursa,likely_split_old_to_many_new
+ET070610,ET080110,0.7141,1,271.679425,Kindo Dida,Kindo Daddaye,likely_split_old_to_many_new
+ET071701,ET110401,0.710375,1,529.155852,Tocha,Tocha,likely_split_old_to_many_new
+ET071003,ET080217,0.709246,1,987.184924,Kucha,Kucha,likely_split_old_to_many_new
+ET011065,ET010704,0.704162,0.543143,8.606308,Hawelti,Hawelti Sub City,complex_many_to_many
+ET041401OU035,ET041401,0.702693,1,612.655885,Uraga,Uraga,likely_split_old_to_many_new
+ET070403,ET160301,0.695508,1,227.109356,Arbe Gonna,Arbegona,likely_split_old_to_many_new
+ET050198,ET050104,0.692796,0.17636,729.165996,Gota-biki,Erer (SM),complex_many_to_many
+ET050199,ET050109,0.691784,0.317938,716.670027,Gablalu,Dhunyar,complex_many_to_many
+ET030304OU010,ET030304,0.690965,1,1320.260072,Meket,Meket,likely_split_old_to_many_new
+ET070411,ET160204,0.690295,0.868261,147.317351,Gorche,Gorche,complex_many_to_many
+ET040102OU047,ET040102,0.689633,1,645.35018,Nejo,Nejo,likely_split_old_to_many_new
+ET071110,ET110305,0.68801,1,269.444784,Semen Bench,Semen Bench,likely_split_old_to_many_new
+ET041703OU042,ET041703,0.687241,0.997401,1263.778752,Arsi Negele,Arsi Negele,complex_many_to_many
+ET010408,ET990302,0.687134,0.977993,761.835019,Ofla,Ofla,likely_split_old_to_many_new
+ET050206OU059,ET050206,0.686196,0.969305,2745.948735,Kebribeyah,Kebribeyah,likely_split_old_to_many_new
+ET030201OU015,ET030201,0.683633,1,1614.939921,Ebenat,Ebenat,likely_split_old_to_many_new
+ET041009OU032,ET041009,0.680395,1,462.146014,Meta,Meta,likely_split_old_to_many_new
+ET050402OU057,ET050402,0.680004,0.910996,2787.154785,Fik,Fik,complex_many_to_many
+ET040510OU045,ET040510,0.679134,0.989512,726.815657,Dendi,Dendi,likely_split_old_to_many_new
+ET041905,ET041913,0.664887,0.446013,563.642439,Abay Chomen,Sulula Finca'a,likely_merge_many_old_to_new
+ET041212OU028,ET041212,0.664444,1,7817.541837,Teltale,Teltale,likely_split_old_to_many_new
+ET070105,ET070403,0.663471,1,553.542285,Sodo,Sodo,likely_split_old_to_many_new
+ET041207OU029,ET041207,0.661503,1,2661.269537,Yabelo,Yabelo,likely_split_old_to_many_new
+ET071105,ET110502,0.66031,1,1111.759768,Menit Goldiye,Menit Goldiye,likely_split_old_to_many_new
+ET040803OU026,ET040803,0.654326,1,1111.356341,Golocha,Golocha,likely_split_old_to_many_new
+ET010503,ET990105,0.653662,0.983517,2148.600859,Tsegede (Tigray),Tsegede,likely_split_old_to_many_new
+ET042014OU069,ET040520,0.648449,1,437.270577,Welmera,Welmera,likely_split_old_to_many_new
+ET010106,ET990201,0.647991,0.996336,1830.116451,Tselemti,Tselemti /West Telemt,likely_split_old_to_many_new
+ET041803OU041,ET041803,0.639362,1,529.466673,Dale Wabera,Dale Wabera,likely_split_old_to_many_new
+ET071703,ET110409,0.636631,1,745.791974,Lome (SNNP),Disa,likely_split_old_to_many_new
+ET070908,ET110212,0.636182,1,1879.096219,Decha,Goba (SW),likely_split_old_to_many_new
+ET042006,ET041306,0.633833,1,475.498522,Sebeta Hawas,Sebeta Hawas,likely_split_old_to_many_new
+ET041903OU036,ET041903,0.632194,0.975636,829.469675,Guduru,Guduru,likely_split_old_to_many_new
+ET030704OU022,ET031306,0.629979,1,935.36605,Mecha,Debub Mecha,likely_split_old_to_many_new
+ET070401,ET160207,0.629007,0.748936,124.047351,Shebe Dino,Shebe Dino,complex_many_to_many
+ET010502,ET990104,0.62513,0.965468,2374.888953,Welkait,Welkait,likely_split_old_to_many_new
+ET041210,ET041290,0.623517,0.694063,1669.761825,Moyale (Oromia),Guchi,one_to_one_redraw_or_recode
+ET070402,ET160210,0.623124,1,339.116069,Hawassa Zuria,Hawassa Zuria,likely_split_old_to_many_new
+ET030204OU014,ET030204,0.618792,1,755.083314,Farta,Farta,likely_split_old_to_many_new
+ET070408,ET160503,0.614712,1,335.799016,Bensa,Bensa,likely_split_old_to_many_new
+ET070603,ET080103,0.612785,1,215.779292,Damot Weydie,Damot Woide,likely_split_old_to_many_new
+ET071001,ET080306,0.606943,1,941.466947,Melekoza,Melekoza,likely_split_old_to_many_new
+ET020301,ET020307,0.606434,0.999993,2104.052455,Amibara,Hanruka,likely_split_old_to_many_new
+ET011066,ET010702,0.604323,0.198641,12.896458,Hadnet,Hadnet Sub City,complex_many_to_many
+ET031111OU004,ET031125,0.60091,0.619194,778.667513,Dembia,West Dembiya,likely_split_old_to_many_new
+ET070506,ET081106,0.597978,1,189.969271,Kochere Gedeb,Gedeb,likely_split_old_to_many_new
+ET070406,ET160407,0.597264,1,147.966661,Dara,Dara,likely_split_old_to_many_new
+ET030207OU017,ET030207,0.594278,1,1335.036323,Semada,Semada,likely_split_old_to_many_new
+ET050702OU054,ET050702,0.589031,0.996179,8043.158795,Bokh,Bokh,likely_split_old_to_many_new
+ET010601,ET010606,0.587273,0.986231,1022.623143,Saharti Samre,Samre,likely_split_old_to_many_new
+ET051103,ET051198,0.586067,0.47692,1035.99967,Moyale (Somali),Qada Duma,one_to_one_redraw_or_recode
+ET030603OU007,ET030619,0.583255,1,605.879738,Goncha Siso Enebse,Sedae,likely_split_old_to_many_new
+ET071012,ET080215,0.580062,1,673.602379,Kemba,Kemba Zuria,likely_split_old_to_many_new
+ET050898,ET050807,0.572056,0.241322,1483.082589,Kohle/Qoxle,Barey,complex_many_to_many
+ET040703,ET040714,0.570719,0.727117,469.119976,Adama,Adama town,likely_merge_many_old_to_new
+ET040502OU044,ET040502,0.570491,1,749.007165,Jeldu,Jeldu,likely_split_old_to_many_new
+ET051104,ET051187,0.566496,0.234079,1737.900492,Hudet,Mubarek,one_to_one_redraw_or_recode
+ET071704,ET110410,0.56411,1,512.9391,Gena Bosa,Zabagazo,likely_split_old_to_many_new
+ET070407,ET160409,0.558639,1,161.755514,Hulla,Hulla,likely_split_old_to_many_new
+ET071106,ET110504,0.542383,1,1585.765873,Menit Shasha,Menit Shasha,likely_split_old_to_many_new
+ET041211OU027,ET041211,0.54042,1,2744.705488,Dire,Dire,likely_split_old_to_many_new
+ET070504,ET081107,0.540029,0.886372,148.29479,Bule,Rape,complex_many_to_many
+ET050404OU056,ET050404,0.53905,0.775329,1768.772353,Hamero,Hamero,complex_many_to_many
+ET050601OU071,ET050601,0.538126,0.990855,2965.140625,East Imi,East Imi,likely_split_old_to_many_new
+ET040415OU038,ET040495,0.534385,1,958.01,Chora (Jimma),Botor Tolay,likely_split_old_to_many_new
+ET041208OU030,ET042208,0.529646,1,5066.440433,Arero,Wachile,likely_split_old_to_many_new
+ET040514OU046,ET040594,0.527842,1,506.322894,Meta Robi,Meta Walkite,likely_split_old_to_many_new
+ET050205OU058,ET050205,0.527544,0.999824,1764.665731,Aw-bare,Aw-Bare,likely_split_old_to_many_new
+ET040901OU043,ET040901,0.520479,1,1507.25945,Mieso,Mieso,likely_split_old_to_many_new
+ET070909,ET110213,0.520247,1,549.477752,Chena,Shisho Ande,likely_split_old_to_many_new
+ET050302OU060,ET050302,0.519238,0.948391,3417.867321,Degehabur,Degehabur,likely_split_old_to_many_new
+ET070201,ET070215,0.517918,1,188.058338,Misha,Ameka,one_to_one_redraw_or_recode
+ET030903OU002,ET030908,0.515534,1,537.979899,Ankasha,Ayehu Guwagusa,likely_split_old_to_many_new
+ET041006,ET041019,0.514603,0.735819,262.010742,Haro Maya,Maya town,likely_merge_many_old_to_new
+ET010202,ET010216,0.513934,0.967728,649.425071,Aheferom,Egela,likely_split_old_to_many_new
+ET010208,ET010221,0.512777,0.979842,700.921035,Kola Temben,Keyhe tekli,complex_many_to_many
+ET072101OU050,ET071404,0.512558,1,501.080826,Halaba SP Woreda,Wera Djo,likely_split_old_to_many_new
+ET041407OU034,ET042202,0.511999,1,2645.120142,Liben,Liben,likely_split_old_to_many_new
+ET040410OU039,ET040410,0.508848,1,784.823094,Dedo,Dedo,likely_split_old_to_many_new
+ET071901,ET110601,0.507052,1,1193.361014,Ela (Konta) SP Woreda,Konta Koysha,likely_split_old_to_many_new
+ET040411OU040,ET040491,0.505782,1,799.698153,Omo Nada,Omo Beyam,likely_split_old_to_many_new
+ET031120,ET031119,0.504581,0.920538,1367.234566,Tach Armacho,Masero Denb /Central Armacho,likely_merge_many_old_to_new
+ET050290,ET050301,0.497281,0.103357,364.309038,Goljano,Degehamedo,likely_merge_many_old_to_new
+ET040411OU040,ET040411,0.494218,1,781.413981,Omo Nada,Omo Nada,likely_split_old_to_many_new
+ET041290,ET041210,0.493438,0.416549,717.642142,Guchi,Moyale (OR),one_to_one_redraw_or_recode
+ET040410OU039,ET040490,0.491152,1,757.529559,Dedo,Mancho,likely_split_old_to_many_new
+ET041901OU037,ET041912,0.489343,1,440.983927,Horo,Horo Buluk,likely_split_old_to_many_new
+ET070409,ET160507,0.48921,0.906311,368.917918,Aroresa,Aroresa,complex_many_to_many
+ET031112OU003,ET031205,0.48813,1,1482.082706,Chilga,Adagn Ager Chaqo,likely_split_old_to_many_new
+ET041407OU034,ET042206,0.488001,1,2521.137962,Liben,Gumi Idalo,likely_split_old_to_many_new
+ET070415,ET160506,0.485787,1,165.031662,Chire,Chire,likely_split_old_to_many_new
+ET140104,ET140111,0.483881,0.686485,61.322347,Bole,Lemi Kura Sub City,likely_merge_many_old_to_new
+ET050899,ET050807,0.482974,0.183994,1130.761636,God-god,Barey,likely_merge_many_old_to_new
+ET020403,ET020406,0.479581,1,2778.613629,Teru,Mabay,one_to_one_redraw_or_recode
+ET040901OU043,ET040991,0.477655,1,1383.245563,Mieso,Gumbi Bordede,likely_split_old_to_many_new
+ET050604OU062,ET050604,0.476684,0.94835,1971.4402,Gode,Gode,likely_split_old_to_many_new
+ET030903OU002,ET030903,0.476594,1,497.344268,Ankasha,Ankasha,likely_split_old_to_many_new
+ET040514OU046,ET040514,0.472158,1,452.908379,Meta Robi,Meta Robi,likely_split_old_to_many_new
+ET050604OU062,ET050698,0.471541,0.71437,1950.17228,Gode,Elale,complex_many_to_many
+ET050902OU061,ET050999,0.470637,0.9532,4462.153598,Dolo Odo,Bokolmayo,likely_split_old_to_many_new
+ET041208OU030,ET042207,0.470354,1,4499.272132,Arero,Arero,likely_split_old_to_many_new
+ET040415OU038,ET040415,0.465615,1,834.723398,Chora (Jimma),Chora (Jimma),likely_split_old_to_many_new
+ET070409,ET160508,0.464185,1,350.046754,Aroresa,Hokko,likely_split_old_to_many_new
+ET041797,ET041711,0.462704,0.073631,34.845782,Wondo,Shashemene town,complex_many_to_many
+ET041712,ET041711,0.460088,0.682878,323.171892,Shashemene Zuria,Shashemene town,complex_many_to_many
+ET070504,ET081104,0.459971,1,126.310482,Bule,Bule,likely_split_old_to_many_new
+ET041211OU027,ET041291,0.45958,1,2334.135217,Dire,Dubluk,likely_split_old_to_many_new
+ET050106,ET050199,0.456551,0.928231,4659.492938,Hadhagala,Gablalu,likely_split_old_to_many_new
+ET071106,ET110503,0.452118,1,1321.856693,Menit Shasha,Gori Gesha,likely_split_old_to_many_new
+ET042011,ET040619,0.451246,0.998979,318.225514,Bereh,Bereh,likely_split_old_to_many_new
+ET010307,ET010316,0.450778,0.551739,518.012431,Atsbi Wenberta,Agulae,complex_many_to_many
+ET050105,ET050198,0.449191,0.780791,886.019347,Afdem,Gota-Biki,one_to_one_redraw_or_recode
+ET070303,ET070309,0.448722,1,79.201408,Kediada Gambela,Adilo,one_to_one_redraw_or_recode
+ET072003,ET072012,0.446035,1,205.872603,Lanfero,Mito,likely_split_old_to_many_new
+ET042012,ET040712,0.44564,0.999999,242.417375,Akaki,Akaki,likely_split_old_to_many_new
+ET010603,ET010608,0.438287,0.988678,868.310564,Hintalo Wajirat,Wajirat,likely_split_old_to_many_new
+ET020203,ET020210,0.438074,1,504.688415,Aba 'Ala,Wasama,likely_split_old_to_many_new
+ET071704,ET110404,0.43589,1,396.349301,Gena Bosa,Gena,likely_split_old_to_many_new
+ET040502OU044,ET040592,0.429509,1,563.91039,Jeldu,Cobi,likely_split_old_to_many_new
+ET042009O,ET042011,0.428879,0.259852,55.914171,Sebeta /Town/,Sebeta,complex_many_to_many
+ET010303,ET010314,0.42839,0.884845,450.208559,Saesie Tsaedamba,Tsaeda Emba,complex_many_to_many
+ET010406,ET990306,0.426,0.990335,741.152388,Raya Azebo,Chercher,likely_split_old_to_many_new
+ET042001,ET042006,0.425942,0.209551,35.925792,Burayu,Gefersa Guje,complex_many_to_many
+ET071012,ET080211,0.41786,1,485.244384,Kemba,Garda Marta,likely_split_old_to_many_new
+ET070410,ET160209,0.416251,0.90221,245.251116,Boricha,Bilate Zuria,complex_many_to_many
+ET051006,ET051001,0.414554,0.633304,1229.715154,Dihun,Ayun,complex_many_to_many
+ET030603OU007,ET030603,0.41302,1,429.041521,Goncha Siso Enebse,Goncha Siso Enebse,likely_split_old_to_many_new
+ET010105,ET010113,0.411608,0.971439,974.750671,Asgede Tsimbila,Tsimbla,likely_split_old_to_many_new
+ET010306,ET010316,0.410931,0.423257,397.384266,Kelete Awelallo,Agulae,complex_many_to_many
+ET011064,ET010707,0.410656,0.053354,1.929601,Kedamay Weyane,Semen Sub City,complex_many_to_many
+ET010207,ET010209,0.409652,0.785617,384.65737,Naeder Adet,Naeder,likely_merge_many_old_to_new
+ET070909,ET110209,0.409053,1,432.036352,Chena,Chena,likely_split_old_to_many_new
+ET071305,ET080902,0.40845,1,953.274331,Konso,Karat Zuria,likely_split_old_to_many_new
+ET030207OU017,ET030214,0.403576,1,906.627435,Semada,Sede Muja,likely_split_old_to_many_new
+ET070406,ET160408,0.402736,0.868417,99.774267,Dara,Dara Otilicho,complex_many_to_many
+ET070415,ET160505,0.401954,0.884429,136.551949,Chire,Daella,complex_many_to_many
+ET050205OU058,ET050299,0.39894,0.869187,1334.476238,Aw-bare,Harawo,complex_many_to_many
+ET070410,ET160306,0.395946,0.846085,233.287983,Boricha,Darara,complex_many_to_many
+ET071702,ET110402,0.395127,1,182.584557,Mareka,Mareka,likely_split_old_to_many_new
+ET041901OU037,ET041901,0.395007,1,355.97072,Horo,Horo,likely_split_old_to_many_new
+ET010102,ET010110,0.394289,0.996535,706.534649,Laelay Adiabo,Seyemti Adyabo,likely_split_old_to_many_new
+ET050702OU054,ET050799,0.393105,1,5367.810042,Bokh,Galhamur,likely_split_old_to_many_new
+ET071702,ET110408,0.392515,1,181.377539,Mareka,Mari Mansa,likely_split_old_to_many_new
+ET071001,ET080307,0.392137,1,608.267272,Melekoza,Melo Gada,likely_split_old_to_many_new
+ET070604OU053,ET080119,0.387188,0.752753,335.897202,Humbo,Hobicha Abaya,complex_many_to_many
+ET041411,ET041409,0.386957,1,294.66762,Ana Sora,Arda Jila,one_to_one_redraw_or_recode
+ET030204OU014,ET030212,0.381208,1,465.170104,Farta,Guna Begemider,likely_split_old_to_many_new
+ET010201,ET010214,0.380582,0.980014,468.954407,Mereb Lehe,Rama Adi Arbaete,likely_split_old_to_many_new
+ET050699,ET050608,0.375591,0.171205,440.298708,Aba-korow,Berocano,complex_many_to_many
+ET070604OU053,ET080104,0.37267,1,323.302219,Humbo,Humbo,likely_split_old_to_many_new
+ET010102,ET010111,0.371078,0.992622,664.942996,Laelay Adiabo,Adi Daero,likely_split_old_to_many_new
+ET031111OU004,ET031111,0.370418,0.688562,479.993067,Dembia,East Dembia,likely_split_old_to_many_new
+ET010103,ET010109,0.36839,0.960941,383.847968,Medebay Zana,Laelay Koraro,likely_split_old_to_many_new
+ET030704OU022,ET031304,0.36808,1,546.509248,Mecha,Mecha,likely_split_old_to_many_new
+ET070111,ET070120,0.367896,1,334.264922,Enemorina Eaner,Enor Ener,one_to_one_redraw_or_recode
+ET050202,ET050204,0.367531,0.074065,120.095323,Gursum (Somali),Shabeeley,likely_merge_many_old_to_new
+ET071703,ET110403,0.362245,1,424.357577,Lome (SNNP),Loma,likely_split_old_to_many_new
+ET041803OU041,ET041812,0.360638,1,298.650573,Dale Wabera,Sedi Chenka,likely_split_old_to_many_new
+ET010203,ET010218,0.358823,0.986816,455.188155,Werei Leke,Endafelasi,likely_split_old_to_many_new
+ET071901,ET110605,0.358772,1,844.37851,Ela (Konta) SP Woreda,Ameya Zuria,likely_split_old_to_many_new
+ET070908,ET110208,0.354378,1,1046.730397,Decha,Decha,likely_split_old_to_many_new
+ET041904,ET041913,0.354234,0.267534,338.092394,Ababo,Sulula Finca'a,likely_merge_many_old_to_new
+ET070401,ET160205,0.354038,0.740163,69.820398,Shebe Dino,Hawela,complex_many_to_many
+ET050107,ET050108,0.349781,0.95477,302.067451,Miesso,Daymeed,one_to_one_redraw_or_recode
+ET051198,ET051103,0.348361,0.417337,584.236721,Qada Duma,Moyale (SM),one_to_one_redraw_or_recode
+ET050902OU061,ET050902,0.347705,0.957048,3296.624927,Dolo Odo,Dolo Ado,likely_split_old_to_many_new
+ET040803OU026,ET040893,0.345674,1,587.117984,Golocha,Shanan Kolu,likely_split_old_to_many_new
+ET070506,ET081108,0.344145,0.612235,109.330146,Kochere Gedeb,Churso,complex_many_to_many
+ET040706,ET040709,0.343825,0.509995,261.106824,Ada'a,Bishoftu town,likely_merge_many_old_to_new
+ET042011,ET042008,0.340969,0.979873,240.456728,Bereh,Kura Jida,complex_many_to_many
+ET041903OU036,ET041911,0.339525,0.978522,445.474095,Guduru,Choman Guduru,likely_split_old_to_many_new
+ET042009O,ET042005,0.336417,0.289928,43.85962,Sebeta /Town/,Galan Gudo,complex_many_to_many
+ET041212OU028,ET041295,0.335556,1,3947.99444,Teltale,Elwaya,likely_split_old_to_many_new
+ET041207OU029,ET041223,0.334507,1,1345.744147,Yabelo,Gomole,likely_split_old_to_many_new
+ET010106,ET990202,0.334021,0.99977,943.372451,Tselemti,Laelay Tselemti,likely_split_old_to_many_new
+ET070105,ET070406,0.332318,1,277.257356,Sodo,Debub Sodo,likely_split_old_to_many_new
+ET010503,ET990107,0.330282,0.998861,1085.645124,Tsegede (Tigray),Dansha town,likely_split_old_to_many_new
+ET070402,ET160101,0.328031,0.859812,178.520631,Hawassa Zuria,Hawassa town,complex_many_to_many
+ET072101OU050,ET071402,0.325968,1,318.668214,Halaba SP Woreda,Wera,likely_split_old_to_many_new
+ET140107,ET140111,0.325787,0.311479,27.823811,Yeka,Lemi Kura Sub City,likely_merge_many_old_to_new
+ET040510OU045,ET040590,0.320866,1,343.394461,Dendi,Ejersa Lafo,likely_split_old_to_many_new
+ET041009OU032,ET041089,0.319605,1,217.086308,Meta,Goro Muti,likely_split_old_to_many_new
+ET030201OU015,ET030213,0.315455,1,745.19705,Ebenat,Mena Meketewa,likely_split_old_to_many_new
+ET010604,ET010602,0.314256,0.203281,327.026563,Dega Temben,Enderta,complex_many_to_many
+ET071110,ET110306,0.31199,1,122.184222,Semen Bench,Gidi Bench,likely_split_old_to_many_new
+ET040102OU047,ET040197,0.310367,1,290.437492,Nejo,Leta Sibu,likely_split_old_to_many_new
+ET071105,ET110501,0.309704,1,521.447193,Menit Goldiye,Gachit,likely_split_old_to_many_new
+ET070206,ET070217,0.309353,1,226.156364,Soro,Mirab Soro,likely_split_old_to_many_new
+ET050199,ET050105,0.306691,0.216474,317.723742,Gablalu,Afdem,complex_many_to_many
+ET070603,ET080119,0.305509,0.241086,107.578406,Damot Weydie,Hobicha Abaya,complex_many_to_many
+ET030304OU010,ET030312,0.303006,1,578.96838,Meket,Gazo,likely_split_old_to_many_new
+ET041703OU042,ET041783,0.300221,1,552.082059,Arsi Negele,Heban Arsi,likely_split_old_to_many_new
+ET060301,ET060308,0.299888,1,462.166937,Menge,Undulu,one_to_one_redraw_or_recode
+ET041401OU035,ET041490,0.297307,1,259.212883,Uraga,Haro Walabu,likely_split_old_to_many_new
+ET011065,ET010703,0.292566,0.085863,3.575761,Hawelti,Ayder Sub City,complex_many_to_many
+ET071305,ET080905,0.291602,1,680.566616,Konso,Kolme,likely_split_old_to_many_new
+ET071701,ET110406,0.289625,1,215.740683,Tocha,Kachi,likely_split_old_to_many_new
+ET042001,ET042010,0.289425,0.610094,24.411354,Burayu,Melka Nonno,complex_many_to_many
+ET071003,ET080218,0.288291,1,401.266419,Kucha,Kucha Alpha,likely_split_old_to_many_new
+ET010201,ET010215,0.2868,0.976457,353.395286,Mereb Lehe,Ahsea,likely_split_old_to_many_new
+ET060303,ET060311,0.286407,1,836.53752,Assosa,Ura,likely_split_old_to_many_new
+ET070610,ET080120,0.285298,0.664199,108.541807,Kindo Dida,Kawo Koyesha,complex_many_to_many
+ET010304,ET010310,0.282246,0.926492,148.154439,Ganta Afeshum,Bizet,likely_split_old_to_many_new
+ET010404,ET010401,0.268899,0.773304,213.017064,Alage,Selewa,complex_many_to_many
+ET041502OU064,ET041596,0.267256,1,204.739081,Kercha,Birbirsa Kojowa,likely_split_old_to_many_new
+ET030802,ET030808,0.262156,1,443.994804,Sekota,Tsagbeji,one_to_one_redraw_or_recode
+ET050502OU070,ET050502,0.261722,0.999074,2340.347691,Kebridehar,Kebridehar,likely_split_old_to_many_new
+ET010405,ET010403,0.256336,0.976267,164.572479,Endamehoni,Neqsege,likely_split_old_to_many_new
+ET042012,ET042007,0.256283,0.996916,139.411737,Akaki,Koye,likely_split_old_to_many_new
+ET020303,ET020604,0.251244,0.999994,2175.693753,Gewane,Sibaybi,likely_split_old_to_many_new
+ET041908,ET041913,0.250136,0.20296,256.487361,Jarte Jardega,Sulula Finca'a,likely_merge_many_old_to_new
+ET010408,ET990305,0.249129,0.990934,276.21265,Ofla,Zata,likely_split_old_to_many_new
+ET070106,ET070405,0.246534,0.999995,108.322231,Meskan,Misrak Meskan,likely_split_old_to_many_new
+ET010203,ET010219,0.24614,0.974114,312.24275,Werei Leke,Emba Sieneti,likely_split_old_to_many_new
+ET050404OU056,ET050498,0.245267,0.471733,804.788644,Hamero,Yahob,complex_many_to_many
+ET020103,ET020104,0.236855,0.19499,397.263198,Asayita,Afambo,likely_split_old_to_many_new
+ET031112OU003,ET031106,0.236807,1,719.004087,Chilga,Chilga 1,likely_split_old_to_many_new
+ET011066,ET010706,0.236434,0.797397,5.045581,Hadnet,Qedamay Weyane Sub City,complex_many_to_many
+ET070604OU053,ET080121,0.236167,1,204.881693,Humbo,Abela Abaya,likely_split_old_to_many_new
+ET070403,ET160302,0.23604,0.664553,77.075982,Arbe Gonna,Shafamo,complex_many_to_many
+ET031112OU003,ET031112,0.235209,0.95461,714.151719,Chilga,Chilga 2,likely_split_old_to_many_new
+ET042009O,ET042003,0.234705,0.645279,30.599114,Sebeta /Town/,Furi,complex_many_to_many
+ET050598,ET050595,0.234262,0.216809,511.221365,El-Ogaden,Goglo,complex_many_to_many
+ET010101,ET010112,0.23154,0.980887,891.276437,Tahtay Adiyabo,Maekel Adiyabo,likely_split_old_to_many_new
+ET010404,ET010402,0.230964,0.980098,182.965955,Alage,Bora (TG),likely_split_old_to_many_new
+ET072002,ET072013,0.228672,1,114.216555,Silti,Misrak Siltie,likely_split_old_to_many_new
+ET070407,ET160410,0.226607,0.906225,65.614673,Hulla,Chirone,complex_many_to_many
+ET011064,ET010701,0.22648,0.007264,1.064189,Kedamay Weyane,Kuiha Sub City,complex_many_to_many
+ET020303,ET020603,0.226133,0.937625,1958.242713,Gewane,Yangudi,complex_many_to_many
+ET011064,ET010706,0.225761,0.167649,1.060813,Kedamay Weyane,Qedamay Weyane Sub City,complex_many_to_many
+ET020101OU001,ET020601,0.225614,0.799667,1673.067315,Dubti,Gerani,complex_many_to_many
+ET050704OU055,ET050798,0.22444,0.824426,2360.352958,Warder,Lehel-Yucub,complex_many_to_many
+ET050395,ET050297,0.219052,0.189265,278.089078,Ararso,Koran /Mulla,likely_merge_many_old_to_new
+ET041412OU033,ET041482,0.218673,0.998983,633.606685,Saba Boru,Aga Wayu,likely_split_old_to_many_new
+ET050603,ET051095,0.216482,0.28298,630.27958,Danan,Horshagah,likely_merge_many_old_to_new
+ET051003,ET051096,0.214962,0.690247,975.721951,Garbo,Hararey,complex_many_to_many
+ET070407,ET160402,0.214754,0.48842,62.182787,Hulla,Teticha,complex_many_to_many
+ET050597,ET050504,0.213347,0.146855,327.749278,Higloley,Debeweyin,likely_merge_many_old_to_new
+ET010502,ET990108,0.213302,0.951081,810.341583,Welkait,Awra,likely_split_old_to_many_new
+ET050904,ET050903,0.212665,0.113204,524.545254,Guradamole,Goro Baqaqsa,likely_merge_many_old_to_new
+ET071702,ET110407,0.212359,1,98.12909,Mareka,Tercha Zuriya,likely_split_old_to_many_new
+ET071007,ET080216,0.210085,1,78.484655,Chencha,Kogota /Ezo,likely_split_old_to_many_new
+ET050504,ET050698,0.207032,0.15263,416.66881,Debeweyin,Elale,likely_merge_many_old_to_new
+ET020105,ET020602,0.206188,0.359841,838.727376,Mile,Kilalu,complex_many_to_many
+ET140103,ET140108,0.205542,0.666238,14.077149,Kolfe - Keran,Addis Ketema Sub City,likely_split_old_to_many_new
+ET050502OU070,ET050595,0.205472,0.779221,1837.348774,Kebridehar,Goglo,complex_many_to_many
+ET010206,ET010201,0.202147,0.201841,119.192413,Tahtay Mayechew,Chila,complex_many_to_many
+ET041015,ET041020,0.20206,1,314.913909,Chinaksen,Mekanisa Oromo,one_to_one_redraw_or_recode
+ET070503,ET081108,0.19924,0.216627,38.684286,Kochere,Churso,complex_many_to_many
+ET042014OU069,ET042006,0.198126,0.77929,133.602541,Welmera,Gefersa Guje,complex_many_to_many
+ET070413,ET160305,0.198062,0.123716,35.576653,Wonosho,Dale,complex_many_to_many
+ET050402OU057,ET050498,0.197842,0.475315,810.900909,Fik,Yahob,complex_many_to_many
+ET070411,ET160207,0.194853,0.251064,41.58409,Gorche,Shebe Dino,complex_many_to_many
+ET070408,ET160509,0.19354,0.859364,105.725249,Bensa,Chabe Gambeltu,complex_many_to_many
+ET050903,ET050904,0.192383,0.312341,882.999484,Goro Baqaqsa,Guradamole,likely_split_old_to_many_new
+ET070410,ET160208,0.187803,1,110.651589,Boricha,Boricha,likely_split_old_to_many_new
+ET070408,ET160501,0.187045,1,102.177194,Bensa,Bura,likely_split_old_to_many_new
+ET010205,ET010209,0.184699,0.202095,98.950612,Laelay Maychew,Naeder,complex_many_to_many
+ET050298,ET050204,0.183497,0.12232,198.33915,Haroreys,Shabeeley,complex_many_to_many
+ET050502OU070,ET050598,0.183378,1,1639.784207,Kebridehar,El-Ogaden,likely_split_old_to_many_new
+ET010210,ET010222,0.183002,0.712405,264.586113,Tanqua Abergele,Tanqua Melashe,complex_many_to_many
+ET010211,ET010221,0.18186,0.006116,4.375081,Abi Adi Town,Keyhe tekli,likely_merge_many_old_to_new
+ET010501,ET990106,0.180505,0.995236,1119.589827,Kafta Humera,May Kadra,likely_split_old_to_many_new
+ET050703,ET050704,0.178429,0.206217,2239.716206,Galadi,Warder,likely_merge_many_old_to_new
+ET140105,ET140103,0.176154,0.031641,1.617499,Lideta,Kolfe Keraniyo Sub City,one_to_one_redraw_or_recode
+ET020303,ET020602,0.172304,0.640159,1492.099647,Gewane,Kilalu,complex_many_to_many
+ET050502OU070,ET050599,0.1723,0.475963,1540.723038,Kebridehar,Bodaley,complex_many_to_many
+ET051002,ET050608,0.171056,0.249809,642.448936,Elwayne,Berocano,complex_many_to_many
+ET050601OU071,ET050699,0.171051,0.435708,942.513037,East Imi,Aba-Korow,complex_many_to_many
+ET050902OU061,ET050901,0.170264,0.135116,1614.286221,Dolo Odo,Filtu,likely_split_old_to_many_new
+ET050302OU060,ET050382,0.170198,0.741988,1120.322409,Degehabur,Yocale,complex_many_to_many
+ET070205OU065,ET070216,0.169344,1,50.426148,Misrak Badawacho,Siraro Badawacho,likely_split_old_to_many_new
+ET041113,ET042204,0.168424,1,1482.844761,Meda Welabu,West Welabu,likely_split_old_to_many_new
+ET070416,ET160402,0.167078,0.291557,37.119374,Bursa,Teticha,complex_many_to_many
+ET042006,ET042011,0.166337,0.579919,124.785023,Sebeta Hawas,Sebeta,complex_many_to_many
+ET050586,ET050399,0.164515,0.192773,312.723499,Marsin,Dig,likely_merge_many_old_to_new
+ET020203,ET020209,0.164253,1,189.230229,Aba 'Ala,Abaala town,likely_split_old_to_many_new
+ET051002,ET050699,0.162569,0.282257,610.571976,Elwayne,Aba-Korow,complex_many_to_many
+ET010604,ET010317,0.161155,0.483468,167.703932,Dega Temben,Geraleta,complex_many_to_many
+ET010206,ET010207,0.159618,0.145992,94.11591,Tahtay Mayechew,Adet,likely_split_old_to_many_new
+ET071013,ET080204,0.159299,1,126.209408,Bonke,Bonke,likely_split_old_to_many_new
+ET071305,ET080904,0.158858,0.989641,370.755744,Konso,Segen Zuria,complex_many_to_many
+ET050301,ET050297,0.157836,0.508553,747.222928,Degehamedo,Koran /Mulla,complex_many_to_many
+ET020303,ET020305,0.156838,0.743852,1358.16841,Gewane,Gala'alu,complex_many_to_many
+ET042012,ET042004,0.156027,0.68578,84.874884,Akaki,Galan,complex_many_to_many
+ET050806,ET050898,0.154364,0.58667,1655.408741,Hargele,Kohle /Qoxle,complex_many_to_many
+ET050807,ET050808,0.152555,0.141731,567.851307,Barey,Dolobay,likely_merge_many_old_to_new
+ET050302OU060,ET050306,0.152412,0.727776,1003.243853,Degehabur,Bilcil-Bur,complex_many_to_many
+ET050305,ET050399,0.151461,0.248756,403.541453,Gunagado,Dig,complex_many_to_many
+ET072101OU050,ET071403,0.151408,1,148.017116,Halaba SP Woreda,Atote Ulo,likely_split_old_to_many_new
+ET050204,ET050293,0.149669,0.293235,73.427887,Shabeeley,Jigjiga town,likely_merge_many_old_to_new
+ET071016,ET080210,0.149067,1,261.299278,Arba Minch Zuria,Gacho Baba,likely_split_old_to_many_new
+ET072005,ET072010,0.144526,0.402173,50.781536,Dalocha,Worabe town,likely_merge_many_old_to_new
+ET020105,ET020101,0.143716,0.097253,584.602978,Mile,Dubti,complex_many_to_many
+ET042006,ET042005,0.143187,0.710072,107.418246,Sebeta Hawas,Galan Gudo,complex_many_to_many
+ET050601OU071,ET051006,0.142921,0.347653,787.514095,East Imi,Dihun,likely_split_old_to_many_new
+ET040708,ET040798,0.141854,1,216.750216,Adama Tulu Jido Kombolcha,Batu town,one_to_one_redraw_or_recode
+ET042012,ET040709,0.138356,0.147002,75.262073,Akaki,Bishoftu town,complex_many_to_many
+ET040617,ET040623,0.13718,0.471058,67.572071,Aleltu,Sendafa town,likely_merge_many_old_to_new
+ET011064,ET010703,0.137104,0.015469,0.644227,Kedamay Weyane,Ayder Sub City,complex_many_to_many
+ET050804,ET050805,0.137007,0.293299,1153.365381,Elkare/Serer,West Imi,complex_many_to_many
+ET010102,ET010104,0.136195,0.296693,244.050476,Laelay Adiabo,Tahtay Koraro,likely_split_old_to_many_new
+ET050898,ET050899,0.136021,0.221457,352.6409,Kohle/Qoxle,God-God,likely_split_old_to_many_new
+ET020301,ET020305,0.134798,0.256148,467.689735,Amibara,Gala'alu,complex_many_to_many
+ET050596,ET050599,0.133422,0.046364,150.082533,Lasdhankayre,Bodaley,complex_many_to_many
+ET020103,ET020102,0.133268,0.019538,223.522313,Asayita,Elidar,complex_many_to_many
+ET050404OU056,ET050499,0.132326,0.884614,434.199875,Hamero,Wangey,complex_many_to_many
+ET010301,ET010304,0.13144,0.168367,78.339359,Gulo Mekeda,Ganta Afeshum,likely_split_old_to_many_new
+ET050106,ET050109,0.130183,0.589421,1328.625957,Hadhagala,Dhunyar,complex_many_to_many
+ET020303,ET020308,0.129253,1,1119.291189,Gewane,Abida,likely_split_old_to_many_new
+ET050601OU071,ET051001,0.129222,0.366696,712.03038,East Imi,Ayun,complex_many_to_many
+ET010502,ET990102,0.127066,0.997423,482.727347,Welkait,Korarit,likely_split_old_to_many_new
+ET051005,ET050404,0.125702,0.137368,313.380625,Sagag,Hamero,complex_many_to_many
+ET070405,ET160402,0.124269,0.220023,28.012044,Aleta Wendo,Teticha,complex_many_to_many
+ET010306,ET010317,0.122654,0.341939,118.610517,Kelete Awelallo,Geraleta,complex_many_to_many
+ET042013,ET042012,0.121574,0.936415,138.671726,Sululta,Sululta,complex_many_to_many
+ET070702,ET080501,0.121433,1,246.853327,South Ari (Bako Gazer),Baka Dawula,likely_split_old_to_many_new
+ET071305,ET080901,0.120669,1,281.628309,Konso,Kena,likely_split_old_to_many_new
+ET050206OU059,ET050204,0.119414,0.294705,477.85931,Kebribeyah,Shabeeley,complex_many_to_many
+ET140102,ET140105,0.11864,0.47727,7.168934,Nefas Silk,Lideta Sub City,one_to_one_redraw_or_recode
+ET070607,ET080120,0.117592,0.277351,45.324106,Ofa,Kawo Koyesha,complex_many_to_many
+ET070416,ET160302,0.115407,0.221067,25.639729,Bursa,Shafamo,complex_many_to_many
+ET070411,ET160205,0.114851,0.259837,24.5107,Gorche,Hawela,complex_many_to_many
+ET051002,ET051096,0.114648,0.304611,430.59235,Elwayne,Hararey,complex_many_to_many
+ET030307OU011,ET030313,0.114539,1,103.216374,Guba Lafto,Angot,likely_split_old_to_many_new
+ET010202,ET010217,0.114328,0.704699,144.468922,Aheferom,Hahayle,complex_many_to_many
+ET040309,ET040412,0.114094,0.104569,104.046702,Yayu,Sigmo,one_to_one_redraw_or_recode
+ET071201,ET072403,0.113987,1,87.102706,Yem SP Woreda,Deri Saja zuria,likely_split_old_to_many_new
+ET041797,ET041712,0.113091,0.022416,8.516806,Wondo,Shashemene,likely_split_old_to_many_new
+ET050699,ET050805,0.11275,0.033612,132.17503,Aba-korow,West Imi,complex_many_to_many
+ET070415,ET160507,0.112258,0.093689,38.136409,Chire,Aroresa,complex_many_to_many
+ET072008,ET072010,0.111618,0.396022,50.004804,Wilbareg,Worabe town,likely_merge_many_old_to_new
+ET050206OU059,ET050297,0.110863,0.301938,443.641126,Kebribeyah,Koran /Mulla,complex_many_to_many
+ET010104,ET010105,0.110303,0.045913,73.724097,Tahtay Koraro,Asgede,complex_many_to_many
+ET050606,ET050597,0.108774,0.136365,355.307734,Mustahil,Higloley,likely_merge_many_old_to_new
+ET050802,ET050808,0.108657,0.245326,982.910214,Charati/Weyib,Dolobay,complex_many_to_many
+ET040297,ET040213,0.107225,0.006763,6.246519,Nekemte Town,Guto Gida,one_to_one_redraw_or_recode
+ET070502,ET081108,0.106747,0.171138,30.561049,Yirgachefe,Churso,complex_many_to_many
+ET041799O,ET041703,0.104953,0.002599,3.293531,Arsi Negele Town,Arsi Negele,complex_many_to_many
+ET010602,ET010701,0.103814,0.941384,137.915006,Enderta,Kuiha Sub City,complex_many_to_many
+ET020105,ET020601,0.103039,0.200333,419.138107,Mile,Gerani,complex_many_to_many
+ET042011,ET040623,0.101639,0.499678,71.677591,Bereh,Sendafa town,complex_many_to_many
+ET010603,ET010602,0.10038,0.123616,198.867251,Hintalo Wajirat,Enderta,complex_many_to_many
+ET050103,ET050104,0.098911,0.088412,365.541203,Shinile,Erer (SM),likely_merge_many_old_to_new
+ET050596,ET050698,0.097162,0.040036,109.294754,Lasdhankayre,Elale,complex_many_to_many
+ET042011,ET042002,0.096794,0.696474,68.260388,Bereh,Eka Tafo,complex_many_to_many
+ET072002,ET072011,0.096399,1,48.149375,Silti,Kibet town,likely_split_old_to_many_new
+ET030516,ET030524,0.095149,1,68.025981,Hagere Mariam,Tulefa town,one_to_one_redraw_or_recode
+ET070605,ET080122,0.094341,0.618244,38.158381,Sodo Zuria,Bayera Koyesha,complex_many_to_many
+ET010213,ET010205,0.093619,0.003402,1.609859,Axum Town,Laelay Maychew,likely_merge_many_old_to_new
+ET010604,ET010222,0.093543,0.262102,97.344104,Dega Temben,Tanqua Melashe,complex_many_to_many
+ET050303,ET050305,0.090303,0.115472,281.375057,Aware,Gunagado,likely_split_old_to_many_new
+ET011066,ET010705,0.089041,0.499635,1.900174,Hadnet,Adihaki Sub City,complex_many_to_many
+ET050599,ET050501,0.088996,0.088691,153.579428,Bodaley,Shaygosh,likely_merge_many_old_to_new
+ET050805,ET050809,0.088876,0.914744,272.044144,West Imi,Raso,likely_merge_many_old_to_new
+ET071901,ET110604,0.0858,1,201.932183,Ela (Konta) SP Woreda,Elahanchano,likely_split_old_to_many_new
+ET050402OU057,ET050203,0.084771,0.999999,347.453055,Fik,Babile (SM),likely_split_old_to_many_new
+ET042014OU069,ET040512,0.084568,0.99451,57.026982,Welmera,Holeta town,likely_split_old_to_many_new
+ET010102,ET010105,0.084514,0.094313,151.442224,Laelay Adiabo,Asgede,complex_many_to_many
+ET050298,ET050293,0.08398,0.362503,90.773045,Haroreys,Jigjiga town,complex_many_to_many
+ET010103,ET010201,0.0825,0.145569,85.962321,Medebay Zana,Chila,complex_many_to_many
+ET050502OU070,ET050596,0.081941,0.472174,732.728307,Kebridehar,Lasdhankayre,likely_split_old_to_many_new
+ET070603,ET080112,0.081706,0.068495,28.770942,Damot Weydie,Duguna Fango,complex_many_to_many
+ET042004O,ET042008,0.081483,0.010754,2.639017,Lege tafo-Lege Dadi Town,Kura Jida,complex_many_to_many
+ET051095,ET051003,0.080768,0.027364,94.888249,Horshagah,Garbo,likely_merge_many_old_to_new
+ET050804,ET050903,0.080534,0.146313,677.960837,Elkare/Serer,Goro Baqaqsa,complex_many_to_many
+ET010206,ET010205,0.080466,0.10027,47.445163,Tahtay Mayechew,Laelay Maychew,complex_many_to_many
+ET051005,ET051003,0.079628,0.057249,198.51653,Sagag,Garbo,complex_many_to_many
+ET010302,ET010303,0.078028,0.126072,76.437541,Erob,Sebuha Saesie,one_to_one_redraw_or_recode
+ET030702,ET031406,0.077907,1,112.447734,Bahirdar Zuria,Tis Abay town,likely_split_old_to_many_new
+ET070305OU051,ET070312,0.076952,1,14.648169,Hadero Tunto,Hadero town,likely_split_old_to_many_new
+ET041901OU037,ET041913,0.076608,0.05463,69.037408,Horo,Sulula Finca'a,complex_many_to_many
+ET051003,ET051095,0.076587,0.156079,347.633442,Garbo,Horshagah,complex_many_to_many
+ET050301,ET051005,0.074038,0.137414,350.509078,Degehamedo,Sagag,complex_many_to_many
+ET140103,ET140110,0.073557,0.135677,5.037773,Kolfe - Keran,Gulele Sub City,likely_split_old_to_many_new
+ET050198,ET050105,0.073485,0.052696,77.342582,Gota-biki,Afdem,complex_many_to_many
+ET050408,ET050402,0.073462,0.024956,76.351518,Meyumuluka,Fik,likely_merge_many_old_to_new
+ET011062,ET010602,0.072942,0.001549,2.492734,Debub & Semen Mekele,Enderta,complex_many_to_many
+ET070702,ET080513,0.072815,1,148.022189,South Ari (Bako Gazer),Wub Ari,likely_split_old_to_many_new
+ET050605,ET050597,0.071937,0.166821,434.663387,Kelafo,Higloley,complex_many_to_many
+ET050596,ET050603,0.071708,0.03747,80.662256,Lasdhankayre,Danan,likely_split_old_to_many_new
+ET041702,ET041711,0.071357,0.125006,59.158935,Shala,Shashemene town,likely_merge_many_old_to_new
+ET042013,ET042009,0.070735,0.850867,80.683683,Sululta,Mana Abichu,complex_many_to_many
+ET010305,ET010317,0.06958,0.174593,60.562245,Hawzen,Geraleta,complex_many_to_many
+ET040704OU068,ET040797,0.069555,1,51.695382,Lome (Oromia),Mojo town,likely_split_old_to_many_new
+ET050301,ET050306,0.069407,0.238364,328.586366,Degehamedo,Bilcil-Bur,complex_many_to_many
+ET070403,ET160204,0.068452,0.131739,22.352039,Arbe Gonna,Gorche,complex_many_to_many
+ET050104,ET050109,0.068345,0.092642,208.825875,Erer (Somali),Dhunyar,likely_merge_many_old_to_new
+ET050903,ET050802,0.06723,0.036387,308.574182,Goro Baqaqsa,Charati,complex_many_to_many
+ET011068,ET010705,0.065495,0.093991,0.357457,Adhaki,Adihaki Sub City,complex_many_to_many
+ET050303,ET050382,0.065083,0.13431,202.793284,Aware,Yocale,complex_many_to_many
+ET041008,ET041019,0.064973,0.087135,31.027241,Kersa (East Hararge),Maya town,likely_merge_many_old_to_new
+ET070909,ET110217,0.06467,1,68.303392,Chena,Shishinda town,likely_split_old_to_many_new
+ET050301,ET050290,0.063885,0.439833,302.443402,Degehamedo,Goljano,likely_split_old_to_many_new
+ET050394,ET051003,0.062427,0.047344,164.168732,Burqod,Garbo,likely_merge_many_old_to_new
+ET050302OU060,ET050394,0.062072,0.155496,408.587604,Degehabur,Burqod,likely_split_old_to_many_new
+ET050788,ET050704,0.062058,0.005679,61.683595,Daratole,Warder,likely_merge_many_old_to_new
+ET070607,ET080122,0.061132,0.381756,23.562242,Ofa,Bayera Koyesha,complex_many_to_many
+ET070418,ET160302,0.060072,0.11438,13.266019,Bona Zuria,Shafamo,complex_many_to_many
+ET050101,ET050106,0.059863,0.089703,352.012503,Ayisha,Hadhagala,likely_split_old_to_many_new
+ET050404OU056,ET050402,0.059719,0.064048,195.953332,Hamero,Fik,complex_many_to_many
+ET010404,ET010603,0.059594,0.050449,47.209343,Alage,Hintalo,likely_split_old_to_many_new
+ET070501,ET081107,0.059512,0.052335,8.755936,Wenago,Rape,complex_many_to_many
+ET051003,ET051005,0.058318,0.103776,264.708913,Garbo,Sagag,complex_many_to_many
+ET040805,ET040895,0.058102,1,30.025296,Dodota,Dera town,one_to_one_redraw_or_recode
+ET070506,ET081110,0.057877,1,18.386664,Kochere Gedeb,Gedeb town,likely_split_old_to_many_new
+ET040310,ET040320,0.057582,0.727098,43.210012,Metu Zuria,Metu town,one_to_one_redraw_or_recode
+ET020104,ET020102,0.057385,0.008577,98.123935,Afambo,Elidar,complex_many_to_many
+ET020302,ET020396,0.056633,0.829933,57.477471,Awash Fentale,Awash town,one_to_one_redraw_or_recode
+ET0201051,ET020603,0.055654,0.062375,130.27101,Adaa'r,Yangudi,complex_many_to_many
+ET050701,ET050304,0.055455,0.038772,447.269585,Danod,Gashamo,likely_split_old_to_many_new
+ET072003,ET072009,0.055179,1,25.468396,Lanfero,Tora town,likely_split_old_to_many_new
+ET050206OU059,ET050207,0.055031,0.048572,220.218704,Kebribeyah,Harshin,likely_split_old_to_many_new
+ET010210,ET010208,0.053383,0.107493,77.182097,Tanqua Abergele,Kola Tembien,likely_split_old_to_many_new
+ET050806,ET050802,0.051559,0.065202,552.924869,Hargele,Charati,complex_many_to_many
+ET042014OU069,ET042011,0.051128,0.160229,34.47748,Welmera,Sebeta,complex_many_to_many
+ET040503,ET040515,0.051052,0.546627,47.764135,Ambo Zuria,Ambo town,one_to_one_redraw_or_recode
+ET040193,ET040103,0.05086,0.001692,1.527118,Gimbi Town,Gimbi,one_to_one_redraw_or_recode
+ET070417,ET160408,0.049411,0.131583,15.117791,Chuko,Dara Otilicho,complex_many_to_many
+ET070402,ET160209,0.048845,0.09779,26.582583,Hawassa Zuria,Bilate Zuria,complex_many_to_many
+ET040704OU068,ET040714,0.047393,0.054596,35.223848,Lome (Oromia),Adama town,complex_many_to_many
+ET050305,ET050501,0.04658,0.07167,124.105398,Gunagado,Shaygosh,complex_many_to_many
+ET010408,ET990301,0.045588,0.065575,50.543536,Ofla,Raya Alamata,complex_many_to_many
+ET050602,ET050898,0.045401,0.145464,410.456878,Adadle,Kohle /Qoxle,likely_merge_many_old_to_new
+ET050802,ET050804,0.045168,0.060853,408.589808,Charati/Weyib,Elkare /Serer,likely_split_old_to_many_new
+ET010203,ET010217,0.045035,0.27867,57.129605,Werei Leke,Hahayle,complex_many_to_many
+ET050503,ET050597,0.04284,0.20315,529.321224,Shilabo,Higloley,complex_many_to_many
+ET050806,ET050807,0.041697,0.07276,447.159419,Hargele,Barey,complex_many_to_many
+ET071101,ET110310,0.041458,1,20.280918,Sheka,Sheko town,likely_split_old_to_many_new
+ET050102,ET050299,0.041338,0.077098,118.369114,Dembel,Harawo,likely_merge_many_old_to_new
+ET050503,ET050798,0.039844,0.171952,492.302568,Shilabo,Lehel-Yucub,complex_many_to_many
+ET010602,ET010702,0.039163,0.801359,52.026937,Enderta,Hadnet Sub City,complex_many_to_many
+ET010303,ET010306,0.039038,0.083022,41.02615,Saesie Tsaedamba,Kilte Awulaelo,complex_many_to_many
+ET031112OU003,ET031119,0.038871,0.079462,118.020703,Chilga,Masero Denb /Central Armacho,complex_many_to_many
+ET050901,ET050991,0.038302,0.101469,415.230783,Filtu,Deka Suftu,one_to_one_redraw_or_recode
+ET041501,ET041587,0.036998,0.740782,35.805422,Bule Hora,Bule Hora town,one_to_one_redraw_or_recode
+ET050207,ET050382,0.036899,0.110413,166.711766,Harshin,Yocale,complex_many_to_many
+ET020104,ET020103,0.036305,0.058108,62.078323,Afambo,Asayita,likely_split_old_to_many_new
+ET050502OU070,ET050504,0.035995,0.14422,321.868132,Kebridehar,Debeweyin,complex_many_to_many
+ET010601,ET010401,0.035862,0.226696,62.446459,Saharti Samre,Selewa,complex_many_to_many
+ET070502,ET081107,0.035819,0.061293,10.254725,Yirgachefe,Rape,complex_many_to_many
+ET050302OU060,ET050307,0.035623,0.96794,234.484317,Degehabur,Degahabur town,likely_split_old_to_many_new
+ET070414,ET160306,0.034583,0.110173,30.377554,Loka Abaya,Darara,complex_many_to_many
+ET050205OU058,ET050295,0.034417,0.999997,115.12847,Aw-bare,Wajale town,likely_split_old_to_many_new
+ET030305,ET030315,0.034331,1,29.385944,Wadla,Gashena town,one_to_one_redraw_or_recode
+ET010305,ET010306,0.033023,0.058165,28.743114,Hawzen,Kilte Awulaelo,complex_many_to_many
+ET050106,ET050103,0.032703,0.093308,333.766134,Hadhagala,Shinile,likely_split_old_to_many_new
+ET041704,ET041713,0.031799,1,21.330063,Kofele,Kofele town,one_to_one_redraw_or_recode
+ET070304OU052,ET070310,0.031455,1,5.953379,Kacha Bira,Shinshincho town,likely_split_old_to_many_new
+ET042013,ET040621,0.030992,1,35.350434,Sululta,Chancho town,likely_split_old_to_many_new
+ET070418,ET160410,0.030746,0.093775,6.789706,Bona Zuria,Chirone,complex_many_to_many
+ET051006,ET050403,0.030346,0.605167,90.017353,Dihun,Salahad,complex_many_to_many
+ET071105,ET110509,0.029985,1,50.486309,Menit Goldiye,Bachuma town,likely_split_old_to_many_new
+ET020103,ET020111,0.02994,1,50.216873,Asayita,Asayita town,likely_split_old_to_many_new
+ET041901OU037,ET041905,0.029347,0.087525,26.447091,Horo,Abay Chomen,likely_split_old_to_many_new
+ET050701,ET050788,0.028903,0.19896,233.117797,Danod,Daratole,likely_split_old_to_many_new
+ET040610,ET040611,0.028665,1,18.18564,Kimbibit,Sheno town,one_to_one_redraw_or_recode
+ET050298,ET050283,0.027489,0.069378,29.711927,Haroreys,Tuliguled,likely_split_old_to_many_new
+ET070205OU065,ET070212,0.027434,1,8.169016,Misrak Badawacho,Shone town,likely_split_old_to_many_new
+ET050302OU060,ET050301,0.027368,0.05111,180.151785,Degehabur,Degehamedo,complex_many_to_many
+ET040704OU068,ET040703,0.026921,0.054341,20.008327,Lome (Oromia),Adama,likely_split_old_to_many_new
+ET070606,ET080123,0.026542,1,13.971183,Kindo Koyesha,Bale Awassa town,likely_split_old_to_many_new
+ET010307,ET010314,0.026479,0.059805,30.428589,Atsbi Wenberta,Tsaeda Emba,complex_many_to_many
+ET071901,ET110603,0.026361,1,62.042166,Ela (Konta) SP Woreda,Amaya town,likely_split_old_to_many_new
+ET040407,ET040417,0.026273,0.735142,22.694661,Goma,Agaro town,one_to_one_redraw_or_recode
+ET040213,ET040297,0.025963,0.298515,24.448461,Guto Gida,Nekemte town,likely_merge_many_old_to_new
+ET070609,ET080118,0.025741,1,4.658184,Damot Sore,Gununo Hamus town,likely_split_old_to_many_new
+ET040818,ET040894,0.025667,0.873077,30.306937,Limu Bilbilo,Bokoji town,likely_merge_many_old_to_new
+ET071107,ET110511,0.025141,1,117.118062,Maji,Maji Tum town,likely_split_old_to_many_new
+ET010204,ET010212,0.025035,0.59841,16.339317,Adwa,Adwa town,one_to_one_redraw_or_recode
+ET030208OU063,ET030298,0.024611,1,33.616358,East Esite,Mekan Eyesuse,likely_split_old_to_many_new
+ET070409,ET160505,0.023662,0.115571,17.843581,Aroresa,Daella,complex_many_to_many
+ET050605,ET050504,0.023481,0.063573,141.881054,Kelafo,Debeweyin,complex_many_to_many
+ET040103,ET040193,0.023258,0.423405,20.927226,Gimbi,Gimbi town,one_to_one_redraw_or_recode
+ET070409,ET160509,0.022944,0.140636,17.30203,Aroresa,Chabe Gambeltu,complex_many_to_many
+ET042006,ET042003,0.022422,0.354721,16.82088,Sebeta Hawas,Furi,complex_many_to_many
+ET071901,ET110602,0.022015,1,51.812968,Ela (Konta) SP Woreda,Chida town,likely_split_old_to_many_new
+ET050502OU070,ET050698,0.021905,0.071752,195.877839,Kebridehar,Elale,complex_many_to_many
+ET010602,ET010703,0.021286,0.679028,28.278239,Enderta,Ayder Sub City,complex_many_to_many
+ET030702,ET031405,0.021283,1,30.719803,Bahirdar Zuria,Meshenti town,likely_split_old_to_many_new
+ET020301,ET020310,0.021166,1,73.437637,Amibara,Werer,likely_split_old_to_many_new
+ET042006,ET042010,0.020699,0.388095,15.528616,Sebeta Hawas,Melka Nonno,complex_many_to_many
+ET040604,ET040616,0.019711,1,18.671402,Kuyu,Garba Guracha,one_to_one_redraw_or_recode
+ET071305,ET080601,0.019193,0.0538,44.794368,Konso,Alle Special,complex_many_to_many
+ET050392,ET050303,0.019015,0.050512,130.685385,Daror,Aware,one_to_one_redraw_or_recode
+ET040101OU048,ET040198,0.018543,1,34.137323,Mana Sibu,Mendi town,likely_split_old_to_many_new
+ET060403,ET060400,0.018472,1,27.937952,Kamashi,Kamashi town,one_to_one_redraw_or_recode
+ET070606,ET080120,0.018146,0.05845,9.551755,Kindo Koyesha,Kawo Koyesha,complex_many_to_many
+ET041303,ET041311,0.016647,0.487973,12.326373,Waliso,Woliso town,one_to_one_redraw_or_recode
+ET070607,ET080117,0.016273,1,6.272086,Ofa,Gesuba town,likely_split_old_to_many_new
+ET050207,ET050395,0.015374,0.071391,69.460938,Harshin,Ararso,likely_split_old_to_many_new
+ET030702,ET031403,0.014483,0.303354,20.903631,Bahirdar Zuria,Zege town,likely_split_old_to_many_new
+ET070501,ET081113,0.014482,1,2.130751,Wenago,Wonago town,likely_split_old_to_many_new
+ET010501,ET990101,0.014411,0.860718,89.383681,Kafta Humera,Setit Humera town,complex_many_to_many
+ET042014OU069,ET042009,0.014284,0.101577,9.632043,Welmera,Mana Abichu,complex_many_to_many
+ET071017,ET080302,0.014132,1,7.43574,Geze Gofa,Buleqi town,likely_split_old_to_many_new
+ET050101,ET050299,0.014025,0.053716,82.470508,Ayisha,Harawo,complex_many_to_many
+ET070401,ET160206,0.013654,1,2.692702,Shebe Dino,Leku town,likely_split_old_to_many_new
+ET040206,ET040297,0.013473,0.066449,5.442228,Wayu Tuka,Nekemte town,likely_merge_many_old_to_new
+ET010306,ET010309,0.013054,0.618891,12.624066,Kelete Awelallo,Wukro town,likely_split_old_to_many_new
+ET071007,ET080206,0.013046,1,4.873825,Chencha,Chencha town,likely_split_old_to_many_new
+ET030604,ET030623,0.012958,1,13.941717,Enebse Sarmder,Merto Lemariyam town,one_to_one_redraw_or_recode
+ET070110,ET070116,0.012874,1,7.301517,Cheha,Emdebir town,one_to_one_redraw_or_recode
+ET041703OU042,ET041799,0.012538,0.450818,23.05674,Arsi Negele,Arsi Negele town,complex_many_to_many
+ET010101,ET010107,0.012023,0.639708,46.281529,Tahtay Adiyabo,Sheraro town,likely_split_old_to_many_new
+ET051006,ET050499,0.011892,0.07187,35.276526,Dihun,Wangey,complex_many_to_many
+ET010405,ET010409,0.011667,0.462139,7.490445,Endamehoni,Maichew town,likely_split_old_to_many_new
+ET030508OU066,ET030598,0.011662,1,6.031218,Eferatana Gidem,Ataye town,likely_split_old_to_many_new
+ET050502OU070,ET050592,0.011632,0.90236,104.016051,Kebridehar,Kebridehar town,likely_split_old_to_many_new
+ET042006,ET042004,0.011621,0.070438,8.717741,Sebeta Hawas,Galan,complex_many_to_many
+ET071104,ET110308,0.011529,1,6.457546,Shay Bench,Size town,likely_split_old_to_many_new
+ET010104,ET010108,0.011513,0.525945,7.694973,Tahtay Koraro,Shire Endaslasie town,likely_split_old_to_many_new
+ET030907,ET030911,0.011292,1,3.341668,Guagusa Shikudad,Tilili town,one_to_one_redraw_or_recode
+ET050604OU062,ET050696,0.011287,0.597088,46.67878,Gode,Godey town,likely_split_old_to_many_new
+ET041712,ET041797,0.011135,0.196682,7.821667,Shashemene Zuria,Wondo,likely_split_old_to_many_new
+ET041502OU064,ET041503,0.010968,1,8.402638,Kercha,Kercha town,likely_split_old_to_many_new
+ET050206OU059,ET050298,0.010736,0.051704,42.962459,Kebribeyah,Haroreys,likely_split_old_to_many_new
+ET050601OU071,ET050403,0.010659,0.394833,58.73056,East Imi,Salahad,complex_many_to_many
+ET030412OU019,ET030498,0.010492,1,10.789626,Borena / Debresina,Mekane Selam town,likely_split_old_to_many_new
+ET030410,ET030427,0.010311,1,10.417005,Legambo,Akeseta town,likely_split_old_to_many_new
+ET072101OU050,ET071401,0.010066,1,9.840931,Halaba SP Woreda,Kulito town,likely_split_old_to_many_new
+ET010304,ET010308,0.009515,0.258433,4.994454,Ganta Afeshum,Adigrat town,likely_split_old_to_many_new
+ET010407,ET990304,0.009506,0.565446,7.148154,Alamata,Alamata town,complex_many_to_many
+ET070908,ET110216,0.00944,1,27.882274,Decha,Awurada town,likely_split_old_to_many_new
+ET050304,ET050399,0.00929,0.066048,107.14513,Gashamo,Dig,likely_merge_many_old_to_new
+ET050404OU056,ET050497,0.009129,0.053211,29.955832,Hamero,Qubi,likely_split_old_to_many_new
+ET030510,ET030527,0.008751,1,4.949497,Tarema Ber,Debre Sina town,one_to_one_redraw_or_recode
+ET071304,ET080702,0.008732,1,6.107192,Derashe,Gidole town,likely_split_old_to_many_new
+ET070503,ET081112,0.008232,1,1.598288,Kochere,Chelelektu town,likely_split_old_to_many_new
+ET010603,ET010607,0.008112,0.990106,16.071345,Hintalo Wajirat,Adigudom,likely_split_old_to_many_new
+ET030903OU002,ET030909,0.007872,1,8.215186,Ankasha,Agew Gimija Bet town,likely_split_old_to_many_new
+ET070701,ET080402,0.007521,1,3.088686,Basketo SP Woreda,Laska town,likely_split_old_to_many_new
+ET030307OU011,ET030306,0.007311,1,6.588058,Guba Lafto,Hara town,likely_split_old_to_many_new
+ET050206OU059,ET050296,0.007263,1,29.062821,Kebribeyah,Kebribayah town,likely_split_old_to_many_new
+ET030708OU023,ET030717,0.007129,1,6.924792,Dembecha,Denbecha town,likely_split_old_to_many_new
+ET071201,ET072401,0.007023,1,5.366332,Yem SP Woreda,Saja town,likely_split_old_to_many_new
+ET031109,ET031103,0.006632,1,8.214009,Wegera,Amba Giorgis town,one_to_one_redraw_or_recode
+ET070417,ET160406,0.006457,1,1.975514,Chuko,Chuko town,likely_split_old_to_many_new
+ET031206OU024,ET031223,0.006397,1,9.585415,Mirab Armacho,Midre Genet,likely_split_old_to_many_new
+ET070909,ET110214,0.00603,1,6.368731,Chena,Wacha town,likely_split_old_to_many_new
+ET030304OU010,ET030314,0.006028,1,11.518685,Meket,Filakit town,likely_split_old_to_many_new
+ET070703,ET080504,0.005665,1,1.591924,Gelila / North Ari,Gelila town,likely_split_old_to_many_new
+ET071106,ET110510,0.0055,1,16.079041,Menit Shasha,Jemu town,likely_split_old_to_many_new
+ET010301,ET010318,0.005197,1,3.097375,Gulo Mekeda,Zala Anbesa town,likely_split_old_to_many_new
+ET030406,ET030424,0.005133,1,5.429162,Delanta,Wegel tena town,one_to_one_redraw_or_recode
+ET071102,ET110309,0.005121,1,12.953118,Gurafereda,Biftu town,likely_split_old_to_many_new
+ET030205OU016,ET030215,0.005062,1,7.712592,Lay Gayint,Nefas Mewicha town,likely_split_old_to_many_new
+ET010604,ET010605,0.005027,1,5.230905,Dega Temben,Hagere Selam town,likely_split_old_to_many_new
+ET060303,ET060309,0.004968,1,14.510746,Assosa,Assosa town Admin,likely_split_old_to_many_new
+ET030606OU005,ET030699,0.004807,1,3.526092,Enemay,Bechena town,likely_split_old_to_many_new
+ET010205,ET010213,0.004754,0.140458,2.546892,Laelay Maychew,Axum town,likely_split_old_to_many_new
+ET070408,ET160504,0.004703,1,2.569186,Bensa,Daye town,likely_split_old_to_many_new
+ET010305,ET010312,0.004701,1,4.091803,Hawzen,Hawzen town,likely_split_old_to_many_new
+ET050601OU071,ET050809,0.004602,0.085255,25.354864,East Imi,Raso,complex_many_to_many
+ET030415OU020,ET030423,0.004523,1,3.353998,Were Ilu,Wereilu town,likely_split_old_to_many_new
+ET071201,ET072402,0.004517,1,3.451627,Yem SP Woreda,Fofa,likely_split_old_to_many_new
+ET070206,ET070214,0.004493,1,3.284802,Soro,Jajura town,likely_split_old_to_many_new
+ET030405OU018,ET030499,0.00443,1,1.966791,Thehulederie,Hike town,likely_split_old_to_many_new
+ET030105OU008,ET030106,0.004357,1,4.768859,Dabat,Dabat town,likely_split_old_to_many_new
+ET030703OU021,ET031309,0.004232,1,3.921855,Yilmana Densa,Adete town,likely_split_old_to_many_new
+ET070105,ET070402,0.00421,1,3.512666,Sodo,Bui town,likely_split_old_to_many_new
+ET030613OU006,ET030698,0.004125,1,2.587817,Dejen,Dejen town,likely_split_old_to_many_new
+ET071005,ET080203,0.004115,1,3.297424,Mirab Abaya,Birbir town,likely_split_old_to_many_new
+ET030502OU009,ET030599,0.00408,1,4.282333,Merhabete,Aleme Ketma town,likely_split_old_to_many_new
+ET041207OU029,ET041296,0.00399,1,16.050351,Yabelo,Yabelo town,likely_split_old_to_many_new
+ET071013,ET080213,0.003965,1,3.141704,Bonke,Geressie town,likely_split_old_to_many_new
+ET070604OU053,ET080116,0.003952,1,3.428792,Humbo,Tebela town,likely_split_old_to_many_new
+ET060204,ET060200,0.003937,1,4.047293,Mandura,Gilgel Beles town,one_to_one_redraw_or_recode
+ET010502,ET990109,0.003874,1,14.717271,Welkait,May Gaba,likely_split_old_to_many_new
+ET030603OU007,ET030620,0.003725,1,3.869063,Goncha Siso Enebse,Gundwoin town,likely_split_old_to_many_new
+ET030308OU012,ET030397,0.003675,1,4.860147,Habru,Mersa town,likely_split_old_to_many_new
+ET030202OU013,ET030299,0.003641,1,3.641099,Libokemekem,Adiss Zemen town,likely_split_old_to_many_new
+ET030414,ET030425,0.003634,1,3.825346,Jama,Degolo town,one_to_one_redraw_or_recode
+ET070902,ET110215,0.003617,1,2.632398,Gesha (Deka),Deka town,likely_split_old_to_many_new
+ET030505OU067,ET030597,0.003606,1,4.013375,Menze Gera Midir,Mehal Meda town,likely_split_old_to_many_new
+ET030605,ET030621,0.003566,1,3.328443,Enarj Enawga,Debrework town,one_to_one_redraw_or_recode
+ET070420,ET160201,0.003478,1,0.715765,Wondo-Genet,Wondo-Genet town,likely_split_old_to_many_new
+ET010408,ET990303,0.003471,0.343124,3.848104,Ofla,Korem town,complex_many_to_many
+ET060305,ET060310,0.003163,1,4.707799,Bambasi,Bambasi town,one_to_one_redraw_or_recode
+ET030905,ET030910,0.003142,1,2.051751,Fagta Lakoma,Adiss Kidame town,one_to_one_redraw_or_recode
+ET070206,ET070213,0.00312,1,2.280849,Soro,Gimbichu town,likely_split_old_to_many_new
+ET030609,ET030618,0.003049,1,2.246661,Michakel,Amanuel town,one_to_one_redraw_or_recode
+ET010202,ET010220,0.003048,1,3.851707,Aheferom,Enticho town,likely_split_old_to_many_new
+ET010303,ET010313,0.002935,1,3.08478,Saesie Tsaedamba,Freweyni town,likely_split_old_to_many_new
+ET030407,ET030429,0.002906,1,2.475874,Kalu,Harbu town,one_to_one_redraw_or_recode
+ET030709,ET030720,0.002841,1,3.40989,Jabi Tehnan,Jiga town,one_to_one_redraw_or_recode
+ET071011,ET080301,0.002822,1,2.127196,Ouba Debretsehaye,Beto town,likely_split_old_to_many_new
+ET010303,ET010311,0.002757,1,2.897692,Saesie Tsaedamba,Edaga Hamus town,likely_split_old_to_many_new
+ET031004,ET031007,0.002606,1,1.59772,Artuma Fursi,Chef Robit town,one_to_one_redraw_or_recode
+ET010602,ET010707,0.002577,0.094649,3.423058,Enderta,Semen Sub City,complex_many_to_many
+ET031111OU004,ET031105,0.002468,1,3.197588,Dembia,Kolla Debba town,likely_split_old_to_many_new
+ET071003,ET080220,0.002463,1,3.427805,Kucha,Selamber town,likely_split_old_to_many_new
+ET030504,ET030528,0.002352,1,1.558147,Moretna Jiru,Enewari town,one_to_one_redraw_or_recode
+ET010406,ET010412,0.002237,1,3.89185,Raya Azebo,Mekhoni town,likely_split_old_to_many_new
+ET030209,ET030218,0.002203,1,3.360863,Dera (Amhara),Hamusit town,one_to_one_redraw_or_recode
+ET030207OU017,ET030216,0.002147,1,4.822256,Semada,Wegeda town,likely_split_old_to_many_new
+ET030509,ET030526,0.002145,1,1.396369,Menze Mama Midir,Molale town,one_to_one_redraw_or_recode
+ET071012,ET080214,0.002078,1,2.412835,Kemba,Kemba town,likely_split_old_to_many_new
+ET030704OU022,ET031302,0.001942,1,2.882954,Mecha,Merawi town,likely_split_old_to_many_new
+ET030612,ET030622,0.001887,1,1.529405,Awabel,Lumame town,one_to_one_redraw_or_recode
+ET030410,ET030428,0.001856,1,1.874908,Legambo,Gimeba town,likely_split_old_to_many_new
+ET030713,ET031308,0.001813,1,1.998425,Debub Achefer,Dure Bete,likely_split_old_to_many_new
+ET031213OU025,ET031224,0.001694,1,9.035543,Metema,Metema Yohanes town,likely_split_old_to_many_new
+ET010602,ET010704,0.001624,0.136139,2.157183,Enderta,Hawelti Sub City,complex_many_to_many
+ET020106,ET020113,0.001541,1,2.290291,Chifra,Chifra town,one_to_one_redraw_or_recode
+ET010106,ET990203,0.001539,1,4.345901,Tselemti,May Tsebri town,likely_split_old_to_many_new
+ET031115,ET031104,0.001429,1,2.801173,Alfa,Shawra town,one_to_one_redraw_or_recode
+ET030413,ET030426,0.001423,1,2.032849,Kelela,Kelala town,one_to_one_redraw_or_recode
+ET010105,ET010114,0.001328,1,3.144867,Asgede Tsimbila,Endabaguna town,likely_split_old_to_many_new
+ET030711,ET030716,0.001309,1,1.8049,Wemberma,Shendi town,one_to_one_redraw_or_recode
+ET031003,ET031008,0.001305,1,1.162038,Jilye Tumuga,Senbete town,one_to_one_redraw_or_recode
+ET071305,ET080903,0.001228,1,2.865515,Konso,Karat town,likely_split_old_to_many_new
+ET010602,ET010705,0.001163,0.406374,1.54549,Enderta,Adihaki Sub City,complex_many_to_many
+ET071703,ET110412,0.001124,1,1.316415,Lome (SNNP),Gesa town,likely_split_old_to_many_new
+ET030518,ET030525,0.00111,1,1.91549,Minjar Shenkora,Arerti town,one_to_one_redraw_or_recode
+ET030416,ET030430,0.001089,1,1.221376,Wegde,Wegedi town,one_to_one_redraw_or_recode
+ET071302,ET080802,0.00101,1,1.640788,Amaro,Kele town,likely_split_old_to_many_new
+ET031112OU003,ET031199,0.000984,1,2.988667,Chilga,Aykel town,likely_split_old_to_many_new
+ET071001,ET080305,0.00092,1,1.427303,Melekoza,Laha town,likely_split_old_to_many_new
+ET020101OU001,ET020107,0.000912,1,6.761423,Dubti,Dubti town,likely_split_old_to_many_new
+ET030201OU015,ET030217,0.000911,1,2.152868,Ebenat,Ebenat town,likely_split_old_to_many_new
+ET070704,ET081207,0.000901,1,5.314552,Hamer,Turmi town,likely_split_old_to_many_new
+ET010307,ET010315,0.000879,1,1.010482,Atsbi Wenberta,Atsbi town,likely_split_old_to_many_new
+ET010208,ET010211,0.000727,0.050379,0.993158,Kola Temben,Abiy Adi town,likely_split_old_to_many_new
+ET041004OU031,ET041000,0.000695,1,3.39484,Babile (Oromia),Babile town,likely_split_old_to_many_new
+ET030803,ET030809,0.000541,1,0.888815,Dehana,Amde Work town,one_to_one_redraw_or_recode
+ET020105,ET020112,0.000478,1,1.945576,Mile,Mile town,likely_split_old_to_many_new
+ET030906,ET030912,0.000442,1,1.452431,Jawi,Fendika town,one_to_one_redraw_or_recode
+ET010409,ET010409,1,0.537861,8.717767,Maychew Town,Maichew town,same_pcode
+ET020102,ET020102,1,0.952785,10900.28498,Elidar,Elidar,same_pcode
+ET020198,ET020198,1,1,75.806451,Logiya-Semera,Samera Logiya town,same_pcode
+ET020201,ET020201,1,1,2613.39071,Erebti,Erebti,same_pcode
+ET020202,ET020202,1,1,349.369008,Kunneba,Kunneba,same_pcode
+ET020204,ET020204,1,1,1128.593718,Megale,Megale,same_pcode
+ET020205,ET020205,1,1,2915.765246,Berahile,Berahile,same_pcode
+ET020206,ET020206,1,1,2232.317182,Dalol,Dalol,same_pcode
+ET020207,ET020207,1,1,12493.92792,Afdera,Afdera,same_pcode
+ET020306,ET020306,1,1,365.063816,Arguba Special,Arguba,same_pcode
+ET020396,ET020396,1,0.170067,11.778126,Awash City,Awash town,same_pcode
+ET020401,ET020401,1,1,2292.717132,Awra,Awra (AF),same_pcode
+ET020402,ET020402,1,1,1444.345014,Ewa,Euwa,same_pcode
+ET020404,ET020404,1,1,764.175252,Yalo,Yalo,same_pcode
+ET020405,ET020405,1,1,846.917933,Gulina,Gulina,same_pcode
+ET020502,ET020502,1,1,1444.974359,Samurobi Gele'alo,Samurobi,same_pcode
+ET020503,ET020503,1,1,749.567583,Dewe,Dawe,same_pcode
+ET020505,ET020505,1,1,1257.344351,Hadelela,Hadelela,same_pcode
+ET030101,ET030101,1,1,1467.387779,Addi Arekay,Addi Arekay,same_pcode
+ET030102,ET030102,1,1,968.375835,Beyeda,Beyeda,same_pcode
+ET030103,ET030103,1,0.999997,1296.695981,Janamora,Janamora,same_pcode
+ET030104,ET030104,1,1,1246.399179,Debark,Debark,same_pcode
+ET030119,ET030119,1,1,776.055999,Telemt,Telemt,same_pcode
+ET030198,ET030198,1,1,5.658017,Debark Town,Debark town,same_pcode
+ET030203,ET030203,1,0.828232,1105.974613,Fogera,Fogera,same_pcode
+ET030206,ET030206,1,1,825.915756,Tach Gayint,Tach Gayint,same_pcode
+ET030210,ET030210,1,1,110.934412,Debre Tabor Town,Debre Tabor town,same_pcode
+ET030211,ET030211,1,1,810.017162,West Esite,Andabet /West Esite,same_pcode
+ET030293,ET030293,1,1,5.84116,Woreta Town,Woreta town,same_pcode
+ET030301,ET030301,1,1,1303.954594,Bugna,Bugna,same_pcode
+ET030302,ET030302,1,1,1922.358923,Raya Kobo,Raya Kobo,same_pcode
+ET030303,ET030303,1,1,1087.319316,Gidan,Gidan,same_pcode
+ET030309,ET030309,1,1,78.911399,Woldiya Town,Woldiya town,same_pcode
+ET030310,ET030310,1,1,1115.935952,Lasta,Lasta,same_pcode
+ET030311,ET030311,1,1,618.683831,Dawunt,Dawunt,same_pcode
+ET030398,ET030398,1,1,7.823159,Lalibela Town,Lalibela town,same_pcode
+ET030399,ET030399,1,1,5.908738,Kobo Town,Kobo town,same_pcode
+ET030401,ET030401,1,1,315.139912,Argoba,Argoba,same_pcode
+ET030402,ET030402,1,1,1317.37395,Tenta,Tenta,same_pcode
+ET030403,ET030403,1,1,720.44794,Kutaber,Kutaber,same_pcode
+ET030404,ET030404,1,1,882.88275,Ambasel,Ambasel,same_pcode
+ET030408,ET030408,1,1,477.012044,Albuko,Albuko,same_pcode
+ET030409,ET030409,1,0.999584,937.997323,Dessie Zuria,Dessie Zuria,same_pcode
+ET030411,ET030411,1,1,1438.41996,Sayint,Sayint,same_pcode
+ET030417,ET030417,1,1,132.239685,Kombolcha Town,Kombolcha town,same_pcode
+ET030418,ET030418,1,1,199.040485,Dessie City Adm.,Dessie town,same_pcode
+ET030419,ET030419,1,1,600.563722,Mehal Sayint,Mehal Sayint,same_pcode
+ET030420,ET030420,1,1,533.62118,Legehida,Legehida,same_pcode
+ET030421,ET030421,1,1,1492.564719,Mekdela,Mekdela,same_pcode
+ET030422,ET030422,1,1,751.006927,Worebabu,Worebabu,same_pcode
+ET030501,ET030501,1,1,848.02476,Mida Woremo,Mida Woremo,same_pcode
+ET030503,ET030503,1,1,451.672326,Ensaro,Ensaro,same_pcode
+ET030506,ET030506,1,1,659.23554,Gishe Rabel,Gishe Rabel,same_pcode
+ET030507,ET030507,1,1,372.404349,Antsokiya,Antsokiya,same_pcode
+ET030511,ET030511,1,1,618.653001,Mojan Wedera,Mojan Wedera,same_pcode
+ET030512,ET030512,1,1,756.626103,Kewet,Kewet,same_pcode
+ET030513,ET030513,1,1,807.536437,Angolelana Tera,Angolelana Tera,same_pcode
+ET030514,ET030514,1,1,499.93687,Assagirt,Assagirt,same_pcode
+ET030515,ET030515,1,1,707.998552,Ankober,Ankober,same_pcode
+ET030517,ET030517,1,1,772.294259,Berehet,Berehet,same_pcode
+ET030519,ET030519,1,1,1215.284258,Basona Worena,Basona Worena,same_pcode
+ET030520,ET030520,1,1,146.37807,Debre Berhan Town,Debre Berhan town,same_pcode
+ET030521,ET030521,1,1,544.814603,Menze Keya Gabriel,Menze Keya Gabriel,same_pcode
+ET030522,ET030522,1,1,381.923303,Menze Lalo Midir,Menze Lalo Midir,same_pcode
+ET030523,ET030523,1,1,463.718761,Siya Debirna Wayu,Siya Debirna Wayu,same_pcode
+ET030595,ET030595,1,1,9.930578,Shoa Robit,Shoa Robit,same_pcode
+ET030601,ET030601,1,1,399.925814,Bibugn,Bibugn,same_pcode
+ET030602,ET030602,1,1,1490.757366,Hulet Ej Enese,Hulet Ej Enese,same_pcode
+ET030607,ET030607,1,1,626.455245,Debay Telatgen,Debay Telatgen,same_pcode
+ET030608,ET030608,1,1,1192.757428,Debre Elias,Debre Elias,same_pcode
+ET030610,ET030610,1,1,1177.500287,Guzamn,Guzamn,same_pcode
+ET030611,ET030611,1,1,1145.519793,Baso Liben,Baso Liben,same_pcode
+ET030614,ET030614,1,1,900.437097,Shebel Bernta,Shebel Bernta,same_pcode
+ET030615,ET030615,1,1,65.8421,Debre Markos Town,Debre Markos town,same_pcode
+ET030616,ET030616,1,1,436.603832,Senan,Senan,same_pcode
+ET030617,ET030617,1,1,682.399585,Aneded,Aneded,same_pcode
+ET030694,ET030694,1,1,6.595652,Mota Town,Mota town,same_pcode
+ET030706,ET030706,1,1,603.035533,Quarit,Quarit,same_pcode
+ET030707,ET030707,1,1,831.424029,Dega Damot,Dega Damot,same_pcode
+ET030710,ET030710,1,0.994947,796.74803,Bure (Amhara),Bure (AM),same_pcode
+ET030798,ET030798,1,1,12.445935,Bure Town,Bure town,same_pcode
+ET030801,ET030801,1,1,1727.453593,Zequala,Zequala,same_pcode
+ET030804,ET030804,1,1,1031.829166,Gaz Gibla,Gaz Gibla,same_pcode
+ET030805,ET030805,1,1,1575.20782,Abergele,Abergele (AM),same_pcode
+ET030807,ET030807,1,1,100.911826,Sekota Town,Sekota town,same_pcode
+ET030901,ET030901,1,1,909.875449,Dangila,Dangila,same_pcode
+ET030902,ET030902,1,1,479.911145,Banja,Banja,same_pcode
+ET030904,ET030904,1,1,2341.561523,Guangua,Guangua,same_pcode
+ET030996,ET030996,1,1,27.889247,Injibara Town,Injibara town,same_pcode
+ET030997,ET030997,1,1,2.796361,Zigem,Zigem town,same_pcode
+ET030998,ET030998,1,1,9.061182,Dangila Town,Dangila town,same_pcode
+ET030999,ET030999,1,1,17.320028,Chagni Town,Chagni town,same_pcode
+ET031001,ET031001,1,1,652.772902,Dewa Cheffa,Dewa Cheffa,same_pcode
+ET031002,ET031002,1,1,1212.116098,Bati,Bati,same_pcode
+ET031005,ET031005,1,1,439.024966,Dewa Harewa,Dewa Harewa,same_pcode
+ET031006,ET031006,1,1,3.753911,Kemisie Town,Kemisie town,same_pcode
+ET031099,ET031099,1,1,3.636154,Bati Town,Bati town,same_pcode
+ET031107,ET031107,1,1,1879.397178,Tsegede (Amhara),Tegede,same_pcode
+ET031108,ET031108,1,1,1059.35124,Lay Armacho,Lay Armacho,same_pcode
+ET031116,ET031116,1,1,1258.305056,West Belesa,West Belesa,same_pcode
+ET031117,ET031117,1,1,1421.424394,East Belesa,East Belesa,same_pcode
+ET031121,ET031121,1,0.894229,1947.668871,Takusa,Takusa,same_pcode
+ET031214,ET031214,1,1,8441.307198,Quara,Quara,same_pcode
+ET031292,ET031292,1,1,11.379054,Gendawuha Town,Gendawuha town,same_pcode
+ET040104,ET040104,1,1,378.506814,Lalo Asabi,Lalo Asabi,same_pcode
+ET040105,ET040105,1,1,419.232665,Kiltu Kara,Kiltu Kara,same_pcode
+ET040106,ET040106,1,1,498.734068,Boji Dirmeji,Boji Dirmeji,same_pcode
+ET040107,ET040107,1,1,514.231388,Ayira,Ayira,same_pcode
+ET040108,ET040108,1,1,469.640255,Jarso (West Wellega),Jarso (West Wellega),same_pcode
+ET040109,ET040109,1,1,1262.869853,Gudetu Kondole,Gudetu Kondole,same_pcode
+ET040110,ET040110,1,1,343.285769,Boji Chekorsa,Boji Chekorsa,same_pcode
+ET040111,ET040111,1,1,898.119484,Babo,Babo,same_pcode
+ET040112,ET040112,1,1,307.94655,Yubdo,Yubdo,same_pcode
+ET040113,ET040113,1,1,302.194442,Gaji,Gaji,same_pcode
+ET040114,ET040114,1,1,463.485264,Haru,Haru,same_pcode
+ET040115,ET040115,1,1,631.312452,Nole Kaba,Nole Kaba,same_pcode
+ET040116,ET040116,1,1,866.108549,Begi,Begi,same_pcode
+ET040117,ET040117,1,1,90.664358,Homa,Homa,same_pcode
+ET040118,ET040118,1,1,613.166641,Sayo Nole,Sayo Nole,same_pcode
+ET040119,ET040119,1,1,577.289234,Guliso,Guliso,same_pcode
+ET040201,ET040201,1,1,1101.115277,Limu (Oromia),Limu (OR),same_pcode
+ET040202,ET040202,1,1,826.824682,Ibantu,Ibantu,same_pcode
+ET040203,ET040203,1,1,1604.460797,Gida Ayana,Gida Ayana,same_pcode
+ET040204,ET040204,1,1,1171.579486,Haro Limu,Haro Limu,same_pcode
+ET040205,ET040205,1,1,474.19962,Boneya Boshe,Boneya Boshe,same_pcode
+ET040207,ET040207,1,1,670.070706,Bila Seyo,Bila Seyo,same_pcode
+ET040208,ET040208,1,1,341.241941,Gobu Seyo,Gobu Seyo,same_pcode
+ET040209,ET040209,1,0.999125,1046.714415,Sibu Sire,Sibu Sire,same_pcode
+ET040211,ET040211,1,1,783.29814,Sasiga,Sasiga,same_pcode
+ET040214,ET040214,1,0.989762,756.546537,Jimma Arjo,Jimma Arjo,same_pcode
+ET040216,ET040216,1,1,620.668796,Wama Hagalo,Wama Hagalo,same_pcode
+ET040217,ET040217,1,1,1060.150144,Kiremu,Kiremu,same_pcode
+ET040301,ET040301,1,1,1377.171552,Darimu,Darimu,same_pcode
+ET040302,ET040302,1,1,873.083062,Alge Sachi,Alge Sachi,same_pcode
+ET040311,ET040311,1,1,562.560786,Ale,Ale,same_pcode
+ET040312,ET040312,1,1,1088.878324,Bure (Oromia),Bure (OR),same_pcode
+ET040313,ET040313,1,1,1708.372371,Sale Nono,Sale Nono,same_pcode
+ET040314,ET040314,1,1,585.240075,Becho (Ilu Aba Bora),Becho (Ilu Aba Bora),same_pcode
+ET040315,ET040315,1,1,395.771175,Bilo Nopha,Bilo Nopha,same_pcode
+ET040316,ET040316,1,1,443.750407,Hurumu,Hurumu,same_pcode
+ET040317,ET040317,1,1,610.793684,Didu,Didu,same_pcode
+ET040319,ET040319,1,1,376.599382,Halu (Huka),Halu /Huka,same_pcode
+ET040320,ET040320,1,0.272902,16.218055,Metu Town,Metu town,same_pcode
+ET040324,ET040324,1,1,422.469286,Dorani,Dorani,same_pcode
+ET040401,ET040401,1,1,1677.074338,Limu Seka,Limu Seka,same_pcode
+ET040402,ET040402,1,1,1315.348838,Limu Kosa,Limu Kosa,same_pcode
+ET040403,ET040403,1,1,923.732698,Sekoru,Sekoru,same_pcode
+ET040404,ET040404,1,1,743.739548,Tiro Afeta,Tiro Afeta,same_pcode
+ET040405,ET040405,1,1,970.236279,Kersa (Jimma),Kersa (Jimma),same_pcode
+ET040406,ET040406,1,1,494.410396,Mena (Jimma),Mena (Jimma),same_pcode
+ET040408,ET040408,1,1,1402.746557,Gera,Gera,same_pcode
+ET040412,ET040412,1,0.895431,890.956603,Sigmo,Sigmo,same_pcode
+ET040413,ET040413,1,1,1031.943621,Setema,Setema,same_pcode
+ET040414,ET040414,1,1,812.807207,Shebe Sambo,Shebe Sambo,same_pcode
+ET040416,ET040416,1,1,407.462468,Gumay,Gumay,same_pcode
+ET040417,ET040417,1,0.264858,8.176467,Agaro Town,Agaro town,same_pcode
+ET040499,ET040499,1,1,828.639103,Nono Benja,Nono Benja,same_pcode
+ET040500,ET040500,1,1,423.821557,Illu Galan,Illu Galan,same_pcode
+ET040501,ET040501,1,1,1287.162363,Ginde Beret,Ginde Beret,same_pcode
+ET040504,ET040504,1,1,910.683097,Mida Kegn,Mida Kegn,same_pcode
+ET040505,ET040505,1,1,389.19267,Cheliya,Cheliya,same_pcode
+ET040506,ET040506,1,1,639.108051,Bako Tibe,Bako Tibe,same_pcode
+ET040507,ET040507,1,1,659.824157,Dano,Dano,same_pcode
+ET040508,ET040508,1,1,693.535907,Nono,Nono,same_pcode
+ET040509,ET040509,1,1,437.561153,Tikur Enchini,Tikur Enchini,same_pcode
+ET040513,ET040513,1,1,945.576775,Adda Berga,Adda Berga,same_pcode
+ET040516,ET040516,1,1,1119.54005,Abuna G/Beret,Abuna Ginde Beret,same_pcode
+ET040517,ET040517,1,1,550.161773,Toke Kutaye,Toke Kutaye,same_pcode
+ET040518,ET040518,1,1,483.381289,Jibat,Jibat,same_pcode
+ET040519,ET040519,1,1,445.349319,Ifata,Ifata,same_pcode
+ET040597,ET040597,1,1,317.731657,Liban Jawi,Liban Jawi,same_pcode
+ET040601,ET040601,1,1,1175.172217,Wara Jarso,Wara Jarso,same_pcode
+ET040602,ET040602,1,1,1539.384393,Dera (Oromia),Dera (OR),same_pcode
+ET040603,ET040603,1,0.990771,503.692239,Hidabu Abote,Hidabu Abote,same_pcode
+ET040605,ET040605,1,1,642.581416,Degem,Degem,same_pcode
+ET040606,ET040606,1,1,473.15047,Gerar Jarso,Gerar Jarso,same_pcode
+ET040607,ET040607,1,1,283.159062,Debre Libanos,Debre Libanos,same_pcode
+ET040608,ET040608,1,0.999622,893.478367,Wuchale,Wuchale,same_pcode
+ET040609,ET040609,1,1,676.481905,Abichugna Gne'a,Abichugna Gne'a,same_pcode
+ET040613,ET040613,1,1,13.322525,Fiche Town,Fiche town,same_pcode
+ET040614,ET040614,1,1,340.826877,Yaya Gulele,Yaya Gulele,same_pcode
+ET040701,ET040701,1,1,1463.525235,Fentale,Fentale,same_pcode
+ET040705,ET040705,1,0.998617,664.75019,Gimbichu,Gimbichu,same_pcode
+ET040707,ET040707,1,1,999.187932,Dugda,Dugda,same_pcode
+ET040711,ET040711,1,0.999536,704.170436,Liben Chukala,Liben Chukala,same_pcode
+ET040714,ET040714,1,0.169889,109.608724,Adama Town,Adama town,same_pcode
+ET040801,ET040801,1,1,872.192914,Merti,Merti,same_pcode
+ET040802,ET040802,1,1,542.26628,Aseko,Aseko,same_pcode
+ET040804,ET040804,1,1,806.347581,Jeju,Jeju,same_pcode
+ET040806,ET040806,1,1,1012.083336,Ziway Dugda,Ziway Dugda,same_pcode
+ET040807,ET040807,1,1,690.793159,Hitosa,Hitosa,same_pcode
+ET040808,ET040808,1,1,1168.113936,Sude,Sude,same_pcode
+ET040809,ET040809,1,1,585.143892,Chole,Chole,same_pcode
+ET040810,ET040810,1,1,1288.208045,Amigna,Amigna,same_pcode
+ET040811,ET040811,1,1,1763.714545,Seru,Seru,same_pcode
+ET040812,ET040812,1,1,1339.305471,Robe,Robe,same_pcode
+ET040813,ET040813,1,1,448.760143,Tena,Tena,same_pcode
+ET040814,ET040814,1,1,1167.520852,Shirka,Shirka,same_pcode
+ET040815,ET040815,1,1,925.73868,Degeluna Tijo,Degeluna Tijo,same_pcode
+ET040816,ET040816,1,1,605.008024,Tiyo,Tiyo,same_pcode
+ET040817,ET040817,1,0.989881,1072.371503,Munessa,Munessa,same_pcode
+ET040819,ET040819,1,1,469.98919,Guna,Guna,same_pcode
+ET040820,ET040820,1,1,528.559889,Sire,Sire,same_pcode
+ET040821,ET040821,1,1,541.739326,Lude Hitosa,Lude Hitosa,same_pcode
+ET040822,ET040822,1,1,398.862562,Diksis,Diksis,same_pcode
+ET040823,ET040823,1,1,638.485508,Bele Gesgar,Bele Gesgar,same_pcode
+ET040824,ET040824,1,1,318.082568,Inkolo Wabe,Inkolo Wabe,same_pcode
+ET040825,ET040825,1,1,16.992482,Asela Town,Asela town,same_pcode
+ET040902,ET040902,1,0.991314,616.761699,Doba,Doba,same_pcode
+ET040903,ET040903,1,1,429.740984,Tulo (Oromia),Tulo (OR),same_pcode
+ET040904,ET040904,1,1,653.95821,Mesela,Mesela /Shen Duggoo,same_pcode
+ET040905,ET040905,1,1,5.90282,Chiro Town,Chiro town,same_pcode
+ET040906,ET040906,1,1,756.587998,Anchar,Anchar,same_pcode
+ET040907,ET040907,1,1,405.463521,Goba Koricha,Goba Koricha,same_pcode
+ET040908,ET040908,1,1,743.130199,Habro,Habro,same_pcode
+ET040909,ET040909,1,1,1326.385133,Daro Lebu,Daro Lebu,same_pcode
+ET040910,ET040910,1,1,1034.329887,Boke,Boke,same_pcode
+ET040911,ET040911,1,1,1373.563911,Kuni,Kuni /Oda Bultum,same_pcode
+ET040912,ET040912,1,1,1041.314529,Gemechis,Gemechis,same_pcode
+ET040913,ET040913,1,1,688.477946,Chiro Zuria,Chiro Zuria,same_pcode
+ET040914,ET040914,1,1,3.019942,Bedesa,Bedesa town,same_pcode
+ET040915,ET040915,1,1,3081.823574,Hawi Gudina,Hawi Gudina,same_pcode
+ET040998,ET040998,1,1,2462.920523,Burqua Dhintu,Burqua Dhintu,same_pcode
+ET041001,ET041001,1,0.961946,299.720332,Kombolcha,Kombolcha,same_pcode
+ET041003,ET041003,1,1,907.555842,Gursum (Oromia),Gursum (OR),same_pcode
+ET041005,ET041005,1,1,700.216853,Fedis,Fedis,same_pcode
+ET041007,ET041007,1,1,243.01743,Kurfa Chele,Kurfa Chele,same_pcode
+ET041010,ET041010,1,1,533.94839,Goro Gutu,Goro Gutu,same_pcode
+ET041011,ET041011,1,1,643.291313,Deder,Deder,same_pcode
+ET041012,ET041012,1,1,1390.50985,Melka Balo,Melka Balo,same_pcode
+ET041013,ET041013,1,1,820.619431,Bedeno,Bedeno,same_pcode
+ET041014,ET041014,1,1,1550.616731,Midhaga Tola,Midhaga Tola,same_pcode
+ET041016,ET041016,1,1,1107.49307,Girawa,Girawa,same_pcode
+ET041017,ET041017,1,1,2047.936415,Golo Oda,Golo Oda,same_pcode
+ET041018,ET041018,1,1,2654.81086,Meyu Muleke,Meyu Muleke,same_pcode
+ET041097,ET041097,1,1,3.017984,Deder Town,Deder town,same_pcode
+ET041098,ET041098,1,1,3281.173042,Kumbi,Kumbi,same_pcode
+ET041104,ET041104,1,1,1222.491896,Agarfa,Agarfa,same_pcode
+ET041106,ET041106,1,1,1129.355531,Gasera,Gasera,same_pcode
+ET041109,ET041109,1,1,1033.270511,Sinana,Sinana,same_pcode
+ET041110,ET041110,1,1,1468.725152,Goba,Goba (OR),same_pcode
+ET041111,ET041111,1,1,1924.888478,Harena Buluk,Harena Buluk,same_pcode
+ET041112,ET041112,1,1,4891.42966,Mena (Bale),Mena (Bale),same_pcode
+ET041114,ET041114,1,1,1569.155634,Berbere,Berbere,same_pcode
+ET041116,ET041116,1,1,1515.09546,Goro (Bale),Goro (Bale),same_pcode
+ET041119,ET041119,1,1,54.935123,Robe Town,Robe town,same_pcode
+ET041120,ET041120,1,1,42.80179,Goba Town,Goba town,same_pcode
+ET041122,ET041122,1,1,650.101062,Dinsho,Dinsho,same_pcode
+ET041216,ET041216,1,0.999998,2573.609471,Miyo,Miyo,same_pcode
+ET041219,ET041219,1,1,3912.626652,Dilo,Dilo,same_pcode
+ET041301,ET041301,1,1,950.836539,Ameya,Ameya,same_pcode
+ET041302,ET041302,1,0.990619,461.275978,Wenchi,Wenchi,same_pcode
+ET041304,ET041304,1,1,461.631171,Dawo,Dawo,same_pcode
+ET041305,ET041305,1,1,243.601581,Ilu,Ilu,same_pcode
+ET041307,ET041307,1,1,610.288355,Kersana Malima,Kersana Malima,same_pcode
+ET041308,ET041308,1,1,420.967623,Tole,Tole,same_pcode
+ET041309,ET041309,1,1,436.720831,Becho (SW Shewa),Becho (SW Shewa),same_pcode
+ET041310,ET041310,1,1,559.722055,Seden Sodo,Seden Sodo,same_pcode
+ET041311,ET041311,1,0.512027,12.933976,Woliso Town,Woliso town,same_pcode
+ET041312,ET041312,1,1,430.185335,Goro (SW Shewa),Goro (SW Shewa),same_pcode
+ET041314,ET041314,1,1,429.698519,Sodo Daci,Sodo Daci,same_pcode
+ET041402,ET041402,1,1,453.394152,Bore,Bore,same_pcode
+ET041403,ET041403,1,1,1213.226641,Adola,Adola,same_pcode
+ET041404,ET041404,1,1,953.359765,Wadera,Wadera,same_pcode
+ET041408,ET041408,1,1,357.117581,Afele Kola (Dima),Dama,same_pcode
+ET041410,ET041410,1,1,904.381552,Girja (Harenfema),Girja /Harenfema,same_pcode
+ET041492,ET041492,1,1,27.392677,Adola Town,Adola town,same_pcode
+ET041499,ET041499,1,1,15.599568,Shakiso Town,Shakiso town,same_pcode
+ET041509,ET041509,1,1,603.291679,Hambela Wamena,Hambela Wamena,same_pcode
+ET041515,ET041515,1,1,1827.198324,Dugda Dawa,Dugda Dawa,same_pcode
+ET041517,ET041517,1,1,1209.939942,Gelana (West Guji),Gelana (West Guji),same_pcode
+ET041518,ET041518,1,1,1600.726089,Melka Soda,Melka Soda,same_pcode
+ET041587,ET041587,1,0.259218,12.529234,Bule Hora Town,Bule Hora town,same_pcode
+ET041594,ET041594,1,1,784.780311,Suro Berguda,Suro Berguda,same_pcode
+ET041603,ET041603,1,1,823.80309,Chora (Buno Bedele),Chora (Buno Bedele),same_pcode
+ET041604,ET041604,1,1,353.531104,Dega,Dega,same_pcode
+ET041605,ET041605,1,1,746.159251,Dabo Hana,Dabo Hana,same_pcode
+ET041606,ET041606,1,1,633.283233,Gechi,Gechi,same_pcode
+ET041607,ET041607,1,1,738.781447,Borecha,Borecha,same_pcode
+ET041608,ET041608,1,1,841.207072,Dedesa,Dedesa,same_pcode
+ET041618,ET041618,1,1,570.628545,Meko,Meko,same_pcode
+ET041621,ET041621,1,1,8.511125,Bedele Town,Bedele town,same_pcode
+ET041622,ET041622,1,1,743.985666,Badele Zuria,Bedele Zuria,same_pcode
+ET041701,ET041701,1,1,631.36674,Siraro,Siraro,same_pcode
+ET041705,ET041705,1,1,502.21362,Kore,Kore,same_pcode
+ET041706,ET041706,1,1,1148.412415,Gedeb Asasa,Gedeb Asasa,same_pcode
+ET041707,ET041707,1,1,1648.614102,Dodola,Dodola,same_pcode
+ET041708,ET041708,1,1,633.247897,Kokosa,Kokosa,same_pcode
+ET041709,ET041709,1,1,1638.621051,Nenesebo (Wereka),Nenesebo,same_pcode
+ET041710,ET041710,1,1,2163.636652,Adaba,Adaba,same_pcode
+ET041711,ET041711,1,0.022717,10.750927,Shashemene Town,Shashemene town,same_pcode
+ET041801,ET041801,1,1,792.236355,Hawa Galan,Hawa Galan,same_pcode
+ET041802,ET041802,1,1,566.70828,Yama Logi Welel,Yama Logi Welel,same_pcode
+ET041804,ET041804,1,1,1139.877146,Gawo Kebe,Gawo Kebe,same_pcode
+ET041805,ET041805,1,1,1123.114679,Sayo,Sayo,same_pcode
+ET041806,ET041806,1,1,16.751201,Denbi Dollo Town,Denbi Dollo town,same_pcode
+ET041807,ET041807,1,1,1570.790752,Anfilo,Anfilo,same_pcode
+ET041808,ET041808,1,1,577.055838,Dale Sadi,Dale Sadi,same_pcode
+ET041809,ET041809,1,1,2159.053477,Gidami,Gidami,same_pcode
+ET041810,ET041810,1,1,418.135971,Jimma Horo,Jimma Horo,same_pcode
+ET041811,ET041811,1,1,473.299353,Lalo Kile,Lalo Kile,same_pcode
+ET041902,ET041902,1,1,5.131269,Shambu Town,Shambu town,same_pcode
+ET041907,ET041907,1,1,344.107345,Jimma Rare,Jimma Rare,same_pcode
+ET041909,ET041909,1,1,1257.719804,Amuru,Amuru,same_pcode
+ET041910,ET041910,1,1,1095.566998,Abe Dongoro,Abe Dongoro,same_pcode
+ET050293,ET050293,1,0.321125,80.411697,Jigjiga City,Jigjiga town,same_pcode
+ET050307,ET050307,1,0.03206,7.766675,Degahabur City,Degahabur town,same_pcode
+ET050399,ET050399,1,0.413429,670.680377,Dig,Dig,same_pcode
+ET050592,ET050592,1,0.09764,11.255067,Kebridehar City,Kebridehar town,same_pcode
+ET050696,ET050696,1,0.372091,29.089102,Godey City,Godey town,same_pcode
+ET060201,ET060201,1,1,4757.773363,Dangura,Dangur,same_pcode
+ET060202,ET060202,1,1,6762.214024,Guba,Guba,same_pcode
+ET060203,ET060203,1,1,7154.63793,Wenbera,Wembera,same_pcode
+ET060205,ET060205,1,1,2164.663981,Debati,Dibate,same_pcode
+ET060206,ET060206,1,1,653.886106,Pawe,Pawe,same_pcode
+ET060207,ET060207,1,1,2957.721295,Bulen,Bulen,same_pcode
+ET060302,ET060302,1,1,1256.679652,Kurmuk,Kurmuk,same_pcode
+ET060304,ET060304,1,1,1860.219184,Sherkole,Sherkole,same_pcode
+ET060306,ET060306,1,1,1705.05073,Oda Bilidigilu,Bilidigilu,same_pcode
+ET060307,ET060307,1,1,704.875849,Homosha,Homosha,same_pcode
+ET060401,ET060401,1,1,2628.489372,Yaso,Zayi,same_pcode
+ET060402,ET060402,1,1,2455.769409,Sodal/Sirba Abay,Sedal,same_pcode
+ET060404,ET060404,1,1,1800.173774,Agalometi,Dembe,same_pcode
+ET060508,ET060508,1,1,3181.421686,Maokomo Special,Mao-komo Special,same_pcode
+ET070102,ET070102,1,1,522.210709,Abeshege,Abeshege,same_pcode
+ET070103,ET070103,1,1,334.610818,Ezha,Ezha,same_pcode
+ET070104,ET070104,1,1,483.519427,Kokir Gedbano,Gedebano Gutazer Welene,same_pcode
+ET070108,ET070108,1,1,151.21744,Endiguagn,Endiguagn,same_pcode
+ET070112,ET070112,1,1,473.17417,Muhur Na Aklil,Muhur Na Aklil,same_pcode
+ET070114,ET070114,1,1,10.299545,Welkite Town,Welkite town,same_pcode
+ET070202,ET070202,1,1,462.667904,Gibe,Gombora,same_pcode
+ET070203,ET070203,1,1,354.513686,Limu (SNNP),Lemmo,same_pcode
+ET070204,ET070204,1,1,355.808842,Shashogo,Shashogo,same_pcode
+ET070207,ET070207,1,1,222.530512,Dune,Duna,same_pcode
+ET070208,ET070208,1,1,224.252505,Analemmo,Analemmo,same_pcode
+ET070209,ET070209,1,1,150.51825,Mirab Badowach,Mirab Badowach,same_pcode
+ET070210,ET070210,1,1,447.951917,Gembora,Gibe,same_pcode
+ET070211,ET070211,1,1,40.485835,Hosaena Town,Hosaena town,same_pcode
+ET070302,ET070302,1,1,153.138686,Anigacha,Angacha,same_pcode
+ET070306,ET070306,1,1,130.620521,Doya Gena,Doyogena,same_pcode
+ET070307,ET070307,1,1,163.196598,Damboya,Damboya,same_pcode
+ET070308,ET070308,1,1,13.588839,Durame Town,Durame town,same_pcode
+ET072001,ET072001,1,1,262.66217,Alicho Woriro,Alicho Woriro,same_pcode
+ET072004,ET072004,1,0.987798,151.29991,Mierab Azenet Berbere,Mierab Azenet Berbere,same_pcode
+ET072006,ET072006,1,1,277.183993,Sankura,Sankura,same_pcode
+ET072007,ET072007,1,1,167.980624,Misrak Azenet Berbere,Misrak Azenet Berbere,same_pcode
+ET120101,ET120101,1,1,2141.209242,Akobo,Akobo,same_pcode
+ET120102,ET120102,1,1,568.373394,Lare,Lare,same_pcode
+ET120104,ET120104,1,1,941.649464,Wantawo,Wantawo,same_pcode
+ET120105,ET120105,1,0.999997,409.165977,Makuey,Makuey,same_pcode
+ET120201,ET120201,1,1,3141.129856,Abobo,Abobo,same_pcode
+ET120202,ET120202,1,1,3286.771012,Gambela Zuria,Gambela Zuria,same_pcode
+ET120203,ET120203,1,1,3236.765638,Gog,Gog,same_pcode
+ET120204,ET120204,1,1,3320.503978,Jore,Jore,same_pcode
+ET120205,ET120205,1,1,8525.019352,Dima,Dima (GM),same_pcode
+ET120206,ET120206,1,1,15.497289,Gambella Town,Gambela town,same_pcode
+ET120301,ET120301,1,1,653.967881,Godere,Godere,same_pcode
+ET120308,ET120308,1,1,1672.151451,Mengesh,Mengesh,same_pcode
+ET120407,ET120407,1,1,2198.87665,Itang,Itang,same_pcode
+ET130101,ET130101,1,1,131.455364,Sofi,Sofi,same_pcode
+ET130102,ET130102,1,1,27.139109,Shenkor,Shenkor,same_pcode
+ET130103,ET130103,1,1,19.054486,Jinela,Jinela,same_pcode
+ET130104,ET130104,1,1,41.65856,Hakim,Hakim,same_pcode
+ET130105,ET130105,1,1,98.831104,Erer (Harari),Erer (HR),same_pcode
+ET130106,ET130106,1,1,11.362365,Dire Teyara,Dire Teyara,same_pcode
+ET130107,ET130107,1,1,11.851369,Amir Nur,Amir Nur,same_pcode
+ET130108,ET130108,1,1,10.219786,Aboker,Aboker,same_pcode
+ET130109,ET130109,1,1,19.203793,Abadir,Abadir,same_pcode
+ET150103,ET150103,1,1,19.726741,Sabian,Sabian,same_pcode
+ET150104,ET150104,1,1,22.002559,Malka Jabti (M/jebdu),Malka Jabti /M.Jebdu,same_pcode
+ET150105,ET150105,1,1,0.720995,Legehare,Legehare,same_pcode
+ET150109,ET150109,1,1,11.035508,Addis Ketema (Dire Dawa),Addis Ketema (DD),same_pcode
+ET150110,ET150110,1,1,0.734364,Gende Kore,Gende Kore,same_pcode
+ET150206,ET150206,1,0.999999,339.935949,Jeldessa,Jeldessa,same_pcode
+ET150207,ET150207,1,1,183.167584,Wahil,Wahil,same_pcode
+ET150208,ET150208,1,1,350.015547,Biyoawale,Biyoawale,same_pcode
+ET020304,ET020304,0.999999,0.999935,1485.105488,Dulecha,Dulecha,same_pcode
+ET040409,ET040409,0.999999,1,824.335477,Seka Chekorsa,Seka Chekorsa,same_pcode
+ET120103,ET120103,0.999998,1,662.646142,Jikawo,Jikawo,same_pcode
+ET030806,ET030806,0.999997,1,1145.213177,Sahila,Sahila,same_pcode
+ET020504,ET020504,0.999986,1,978.310483,Dalifage,Dalefage,same_pcode
+ET020501,ET020501,0.999956,1,1104.959546,Telalak,Telalek,same_pcode
+ET040210,ET040210,0.999809,0.9757,564.201661,Diga,Diga,same_pcode
+ET040212,ET040212,0.999729,0.999998,616.691902,Leka Dulecha,Leka Dulecha,same_pcode
+ET030906,ET030906,0.999558,1,3288.088454,Jawi,Jawi,same_pcode
+ET041405,ET041405,0.999486,1,1254.841353,Odo Shakiso,Odo Shakiso,same_pcode
+ET030803,ET030803,0.999459,1,1643.438035,Dehana,Dehana,same_pcode
+ET040511,ET040511,0.999459,0.997321,581.082436,Ejere (Addis Alem),Ejere /Addis Alem,same_pcode
+ET041115,ET041115,0.999388,0.994098,5108.194455,Gura Damole,Gura Damole,same_pcode
+ET040615,ET040615,0.999306,1,487.381183,Jida,Jida,same_pcode
+ET030416,ET030416,0.998911,1,1120.529068,Wegde,Wegde,same_pcode
+ET031110,ET031110,0.998911,0.813443,1107.560241,Gonder Zuria,Gonder Zuria,same_pcode
+ET030518,ET030518,0.99889,1,1724.38478,Minjar Shenkora,Minjar Shenkora,same_pcode
+ET030714,ET030714,0.998848,1,42.649034,Finote Selam Town,Finote Selam town,same_pcode
+ET031003,ET031003,0.998695,1,889.117812,Jilye Tumuga,Jilye Tumuga,same_pcode
+ET030711,ET030711,0.998691,1,1377.036282,Wemberma,Wemberma,same_pcode
+ET030413,ET030413,0.998577,1,1426.856436,Kelela,Kelela,same_pcode
+ET031115,ET031115,0.998571,0.926429,1957.476193,Alfa,Alefa,same_pcode
+ET050991,ET050991,0.99853,0.894608,3660.924034,Deka suftu,Deka Suftu,same_pcode
+ET031118,ET031118,0.998522,1,292.397351,Gonder City Adm.,Gondar town,same_pcode
+ET041513,ET041513,0.998504,0.999989,1835.061336,Abaya,Abaya,same_pcode
+ET020106,ET020106,0.998459,1,1484.027903,Chifra,Chifra,same_pcode
+ET030612,ET030612,0.998113,1,809.144548,Awabel,Awabel,same_pcode
+ET030509,ET030509,0.997855,1,649.463222,Menze Mama Midir,Menze Mama Midir,same_pcode
+ET030209,ET030209,0.997797,0.8844,1522.309656,Dera (Amhara),Dera (AM),same_pcode
+ET030504,ET030504,0.997648,1,660.89177,Moretna Jiru,Moretna Jiru,same_pcode
+ET031004,ET031004,0.997394,1,611.55029,Artuma Fursi,Artuma Fursi,same_pcode
+ET030709,ET030709,0.997159,0.999959,1196.991196,Jabi Tehnan,Jabi Tehnan,same_pcode
+ET030407,ET030407,0.997094,1,849.570964,Kalu,Kalu,same_pcode
+ET030609,ET030609,0.996951,1,734.582118,Michakel,Michakel,same_pcode
+ET030905,ET030905,0.996858,1,651.008593,Fagta Lakoma,Fagta Lakoma,same_pcode
+ET060305,ET060305,0.996837,1,1483.557673,Bambasi,Bambasi,same_pcode
+ET030605,ET030605,0.996434,1,930.114858,Enarj Enawga,Enarj Enawga,same_pcode
+ET030414,ET030414,0.996366,1,1048.922595,Jama,Jama,same_pcode
+ET010108,ET010108,0.99632,0.474055,6.93578,Shire,Shire Endaslasie town,same_pcode
+ET060204,ET060204,0.996063,1,1023.99026,Mandura,Mandura,same_pcode
+ET030406,ET030406,0.994867,1,1052.345677,Delanta,Delanta,same_pcode
+ET030705,ET030705,0.994745,1,765.928479,Sekela,Sekela,same_pcode
+ET031109,ET031109,0.993368,1,1230.264305,Wegera,Wegera,same_pcode
+ET030510,ET030510,0.991249,1,560.646451,Tarema Ber,Tarema Ber,same_pcode
+ET070113,ET070113,0.990752,1,200.234381,Geta,Geta,same_pcode
+ET140110,ET140110,0.989055,0.812822,30.180616,Gulele,Gulele Sub City,same_pcode
+ET060405,ET060405,0.988776,1,1683.608946,Belojiganfo,Mezniga,same_pcode
+ET030907,ET030907,0.988708,1,292.592866,Guagusa Shikudad,Guagusa Shikudad,same_pcode
+ET030410,ET030410,0.987834,1,998.036688,Legambo,Legambo,same_pcode
+ET040215,ET040215,0.987219,1,604.443544,Nunu Kumba,Nunu Kumba,same_pcode
+ET070110,ET070110,0.987126,1,559.84016,Cheha,Cheha,same_pcode
+ET030604,ET030604,0.987042,1,1061.967663,Enebse Sarmder,Enebse Sarmder,same_pcode
+ET050501,ET050501,0.986464,0.820988,1421.637022,Shekosh,Shaygosh,same_pcode
+ET040515,ET040515,0.985616,0.453373,39.615562,Ambo Town,Ambo town,same_pcode
+ET051187,ET051187,0.985219,0.761586,5654.326787,Mubarek,Mubarek,same_pcode
+ET050607,ET050607,0.985172,0.937591,2058.932421,Ferfer,Ferfer,same_pcode
+ET040206,ET040206,0.984257,0.99996,397.563712,Wayu Tuka,Wayu Tuka,same_pcode
+ET041303,ET041303,0.983353,1,728.122574,Waliso,Waliso,same_pcode
+ET041002,ET041002,0.982416,1,566.759561,Jarso (East Hararghe),Jarso (East Hararge),same_pcode
+ET140101,ET140101,0.982074,0.989773,124.636665,Akaki - Kalit,Akaki Kality Sub City,same_pcode
+ET050497,ET050497,0.981793,0.935743,526.787745,Qubi,Qubi,same_pcode
+ET060403,ET060403,0.981528,1,1484.523114,Kamashi,Kamashi,same_pcode
+ET010107,ET010107,0.981085,0.360292,26.066384,Sheraro Town,Sheraro town,same_pcode
+ET040103,ET040103,0.976742,0.97382,878.873697,Gimbi,Gimbi,same_pcode
+ET040702,ET040702,0.976559,1,1300.856585,Boset,Boset,same_pcode
+ET040604,ET040604,0.975336,1,923.915595,Kuyu,Kuyu,same_pcode
+ET040818,ET040818,0.974333,1,1150.459061,Limu Bilbilo,Limu Bilbilo,same_pcode
+ET040213,ET040213,0.97402,0.99312,917.20953,Guto Gida,Guto Gida,same_pcode
+ET040407,ET040407,0.973727,0.999999,841.111611,Goma,Goma,same_pcode
+ET040610,ET040610,0.971335,1,616.22929,Kimbibit,Kimbibit,same_pcode
+ET041906,ET041906,0.969867,1,410.719743,Jimma Genete,Jimma Genete,same_pcode
+ET041704,ET041704,0.968201,1,649.440479,Kofele,Kofele,same_pcode
+ET010309,ET010309,0.967698,0.381109,7.77381,Wukro Town,Wukro town,same_pcode
+ET010308,ET010308,0.966938,0.741567,14.331431,Adigrat Town,Adigrat town,same_pcode
+ET050608,ET050608,0.966697,0.555054,1427.464648,Berocano,Berocano,same_pcode
+ET030305,ET030305,0.965669,1,826.580176,Wadla,Wadla,same_pcode
+ET041623,ET041623,0.96453,0.991355,601.478792,Chwaka,Chwaka,same_pcode
+ET041501,ET041501,0.963002,1,931.955717,Bule Hora,Bule Hora,same_pcode
+ET040710,ET040710,0.961258,1,475.297184,Bora,Bora (OR),same_pcode
+ET050304,ET050304,0.958364,0.958164,11053.34257,Gashamo,Gashamo,same_pcode
+ET040709,ET040709,0.956137,0.332068,170.011622,Bishoftu Town,Bishoftu town,same_pcode
+ET010212,ET010212,0.954893,0.40159,10.965254,Adwa Town,Adwa town,same_pcode
+ET050808,ET050808,0.952954,0.549861,2203.041776,Dolobay,Dolobay,same_pcode
+ET050283,ET050283,0.952189,0.866634,371.145185,Tuliguled,Tuliguled,same_pcode
+ET050407,ET050407,0.951668,0.914595,514.906357,Lagahida,Lagahida,same_pcode
+ET050392,ET050392,0.951118,0.916661,6536.807425,Daror,Daror,same_pcode
+ET040193,ET040193,0.94914,0.576595,28.498809,Gimbi Town,Gimbi town,same_pcode
+ET040503,ET040503,0.948948,0.999349,887.832048,Ambo Zuria,Ambo Zuria,same_pcode
+ET050901,ET050901,0.945928,0.85832,10254.69191,Filtu,Filtu,same_pcode
+ET140106,ET140106,0.945411,0.936575,13.834125,Kirkos,Kirkos Sub City,same_pcode
+ET020302,ET020302,0.943367,1,957.430421,Awash Fentale,Awash Fantale,same_pcode
+ET040310,ET040310,0.942418,1,707.204516,Metu Zuria,Metu Zuria,same_pcode
+ET040805,ET040805,0.941898,0.966368,486.747092,Dodota,Dodota,same_pcode
+ET041008,ET041008,0.935027,1,446.514321,Kersa (East Hararge),Kersa (East Hararge),same_pcode
+ET050788,ET050788,0.935023,0.793199,929.377558,Daratole,Daratole,same_pcode
+ET010204,ET010204,0.93407,0.926048,609.638794,Adwa,Adwa,same_pcode
+ET050104,ET050104,0.930594,0.687719,2843.391856,Erer (Somali),Erer (SM),same_pcode
+ET041702,ET041702,0.928643,1,769.89999,Shala,Shala,same_pcode
+ET050207,ET050207,0.928131,0.92491,4193.379609,Harshin,Harshin,same_pcode
+ET050602,ET050602,0.927323,0.967065,8383.657926,Adadle,Adadle,same_pcode
+ET050408,ET050408,0.924265,0.982154,960.612908,Meyumuluka,Meyumuluka,same_pcode
+ET010302,ET010302,0.920869,0.981582,902.097905,Erob,Erob,same_pcode
+ET051095,ET051095,0.918668,0.484569,1079.280093,Horshagah,Horshagah,same_pcode
+ET140108,ET140108,0.913092,0.320374,6.769272,Addis Ketema,Addis Ketema Sub City,same_pcode
+ET010213,ET010213,0.906381,0.859542,15.585929,Axum Town,Axum town,same_pcode
+ET020104,ET020104,0.906309,0.760646,1549.706795,Afambo,Afambo,same_pcode
+ET030516,ET030516,0.904851,1,646.917996,Hagere Mariam,Hagere Mariam,same_pcode
+ET050102,ET050102,0.902911,0.95831,2585.459376,Dembel,Dembel,same_pcode
+ET050503,ET050503,0.902151,0.973642,11146.74075,Shilabo,Shilabo,same_pcode
+ET140109,ET140109,0.899992,0.898784,8.929709,Arada,Arada Sub City,same_pcode
+ET050605,ET050605,0.892923,0.957455,5395.27884,Kelafo,Kelafo,same_pcode
+ET040297,ET040297,0.892775,0.635036,52.009595,Nekemte Town,Nekemte town,same_pcode
+ET072008,ET072008,0.888382,1,397.995286,Wilbareg,Wulbareg,same_pcode
+ET040309,ET040309,0.885906,1,807.889347,Yayu,Yayu,same_pcode
+ET050101,ET050101,0.884744,0.968036,5202.525018,Ayisha,Ayisha,same_pcode
+ET050606,ET050606,0.869718,0.961092,2840.913423,Mustahil,Mustahil,same_pcode
+ET050103,ET050103,0.865702,0.89441,3199.342508,Shinile,Shinile,same_pcode
+ET050599,ET050599,0.863613,0.460397,1490.3336,Bodaley,Bodaley,same_pcode
+ET040617,ET040617,0.86271,1,424.954246,Aleltu,Aleltu,same_pcode
+ET050701,ET050701,0.861039,0.956819,6944.647161,Danod,Danod,same_pcode
+ET050805,ET050805,0.860932,0.670146,2635.2734,West Imi,West Imi,same_pcode
+ET072005,ET072005,0.855474,0.9977,300.584295,Dalocha,Dalocha,same_pcode
+ET040708,ET040708,0.850972,1,1300.269284,Adama Tulu Jido Kombolcha,Adama Tulu Jido Kombolcha,same_pcode
+ET010305,ET010305,0.847359,0.972001,737.542453,Hawzen,Hawzen,same_pcode
+ET050394,ET050394,0.840049,0.84073,2209.134682,Burqod,Burqod,same_pcode
+ET140102,ET140102,0.839572,0.988769,50.732051,Nefas Silk,Nifas Silk Lafto Sub City,same_pcode
+ET050204,ET050204,0.839342,0.253954,411.782332,Shabeeley,Shabeeley,same_pcode
+ET010104,ET010104,0.837975,0.680896,560.084436,Tahtay Koraro,Tahtay Koraro,same_pcode
+ET010301,ET010301,0.833506,0.981612,496.775899,Gulo Mekeda,Gulo Mekeda,same_pcode
+ET050802,ET050802,0.829861,0.885227,7506.932462,Charati/Weyib,Charati,same_pcode
+ET050586,ET050586,0.826926,0.469922,1571.890033,Marsin,Marsin,same_pcode
+ET050807,ET050807,0.817798,0.495322,3044.077452,Barey,Barey,same_pcode
+ET050703,ET050703,0.817513,0.995891,10261.77162,Galadi,Galadi,same_pcode
+ET010602,ET010602,0.809332,0.668338,1075.186185,Enderta,Enderta,same_pcode
+ET041015,ET041015,0.79794,1,1243.600735,Chinaksen,Chinaksen,same_pcode
+ET050597,ET050597,0.786653,0.463805,1208.476928,Higloley,Higloley,same_pcode
+ET050904,ET050904,0.786648,0.686334,1940.290105,Guradamole,Guradamole,same_pcode
+ET010211,ET010211,0.778159,0.949621,18.720523,Abi Adi Town,Abiy Adi town,same_pcode
+ET010205,ET010205,0.770625,0.872521,412.854108,Laelay Maychew,Laelay Maychew,same_pcode
+ET140105,ET140105,0.766112,0.468332,7.034686,Lideta,Lideta Sub City,same_pcode
+ET010210,ET010210,0.761366,0.976887,1100.789167,Tanqua Abergele,Abergele (TG),same_pcode
+ET050303,ET050303,0.758589,0.913608,2363.68631,Aware,Aware,same_pcode
+ET050305,ET050305,0.757737,0.828505,2018.859703,Gunagado,Gunagado,same_pcode
+ET051005,ET051005,0.754508,0.737437,1881.023984,Sagag,Sagag,same_pcode
+ET010101,ET010101,0.752868,0.99612,2898.046424,Tahtay Adiyabo,Tahtay Adiyabo,same_pcode
+ET041908,ET041908,0.749864,1,768.905397,Jarte Jardega,Jarte Jardega,same_pcode
+ET030802,ET030802,0.737844,1,1249.631981,Sekota,Sekota,same_pcode
+ET050806,ET050806,0.733525,0.935025,7866.369947,Hargele,Hargele,same_pcode
+ET050903,ET050903,0.732621,0.725693,3362.584082,Goro Baqaqsa,Goro Baqaqsa,same_pcode
+ET050804,ET050804,0.731126,0.916658,6154.813599,Elkare/Serer,Elkare /Serer,same_pcode
+ET050504,ET050504,0.714342,0.64418,1437.668515,Debeweyin,Debeweyin,same_pcode
+ET050603,ET050603,0.710021,0.960268,2067.202924,Danan,Danan,same_pcode
+ET060303,ET060303,0.708625,1,2069.752967,Assosa,Abrahmo,same_pcode
+ET140103,ET140103,0.705844,0.945637,48.341831,Kolfe - Keran,Kolfe Keraniyo Sub City,same_pcode
+ET060301,ET060301,0.700112,1,1078.966503,Menge,Menge,same_pcode
+ET050596,ET050596,0.695814,0.504378,782.702683,Lasdhankayre,Lasdhankayre,same_pcode
+ET050298,ET050298,0.694098,0.902888,750.238478,Haroreys,Haroreys,same_pcode
+ET010405,ET010405,0.688349,0.976506,441.931915,Endamehoni,Endamehoni,same_pcode
+ET050395,ET050395,0.687355,0.896853,872.604089,Ararso,Ararso,same_pcode
+ET010304,ET010304,0.686831,0.774844,360.525863,Ganta Afeshum,Ganta Afeshum,same_pcode
+ET070206,ET070206,0.683034,1,499.340197,Soro,Soro,same_pcode
+ET072002,ET072002,0.674929,1,337.111767,Silti,Siltie,same_pcode
+ET140107,ET140107,0.658394,0.96361,56.23008,Yeka,Yeka Sub City,same_pcode
+ET040706,ET040706,0.655927,0.981887,498.121632,Ada'a,Ada'a,same_pcode
+ET051198,ET051198,0.651639,0.503097,1092.863695,Qada Duma,Qada Duma,same_pcode
+ET050107,ET050107,0.650203,1,561.508778,Miesso,Miesso,same_pcode
+ET041904,ET041904,0.645766,1,616.340929,Ababo,Ababo,same_pcode
+ET070111,ET070111,0.632104,1,574.3211,Enemorina Eaner,Enemor Ener,same_pcode
+ET051003,ET051003,0.631075,0.826073,2864.481757,Garbo,Garbo,same_pcode
+ET050301,ET050301,0.626941,0.842051,2968.041785,Degehamedo,Degehamedo,same_pcode
+ET041411,ET041411,0.613043,1,466.831726,Ana Sora,Ana Sora,same_pcode
+ET020103,ET020103,0.599938,0.941892,1006.242107,Asayita,Asayita,same_pcode
+ET050202,ET050202,0.59594,0.971047,194.730889,Gursum (Somali),Gursum (SM),same_pcode
+ET010207,ET010207,0.579095,0.843481,543.762283,Naeder Adet,Adet,same_pcode
+ET010105,ET010105,0.578657,0.853408,1370.349052,Asgede Tsimbila,Asgede,same_pcode
+ET010406,ET010406,0.562233,0.96164,978.169318,Raya Azebo,Raya Azebo,same_pcode
+ET070303,ET070303,0.551278,1,97.302835,Kediada Gambela,Kediada Gambela,same_pcode
+ET010206,ET010206,0.550177,0.974068,324.401384,Tahtay Mayechew,Tahtay Maychew,same_pcode
+ET051002,ET051002,0.548884,0.958744,2061.486203,Elwayne,Elwayne,same_pcode
+ET020105,ET020105,0.54597,0.999855,2220.884633,Mile,Mile,same_pcode
+ET050105,ET050105,0.543403,0.730281,1071.851694,Afdem,Afdem,same_pcode
+ET041712,ET041712,0.528777,0.977584,371.419969,Shashemene Zuria,Shashemene,same_pcode
+ET010103,ET010103,0.523836,0.95572,545.816883,Medebay Zana,Zana,same_pcode
+ET020403,ET020403,0.520419,1,3015.221055,Teru,Teru,same_pcode
+ET010307,ET010307,0.520341,0.990758,597.950806,Atsbi Wenberta,Atsbi,same_pcode
+ET050899,ET050899,0.517025,0.760177,1210.483494,God-god,God-God,same_pcode
+ET050699,ET050699,0.51159,0.277244,599.727398,Aba-korow,Aba-Korow,same_pcode
+ET041290,ET041290,0.506072,0.305937,736.016126,Guchi,Guchi,same_pcode
+ET050290,ET050290,0.502719,0.535595,368.292418,Goljano,Goljano,same_pcode
+ET010303,ET010303,0.50143,0.869156,526.96815,Saesie Tsaedamba,Sebuha Saesie,same_pcode
+ET140104,ET140104,0.498325,0.962635,63.152895,Bole,Bole Sub City,same_pcode
+ET072003,ET072003,0.497284,1,229.527033,Lanfero,Lanfero,same_pcode
+ET031120,ET031120,0.495419,1,1342.411125,Tach Armacho,Tach Armacho,same_pcode
+ET041006,ET041006,0.485397,1,247.14014,Haro Maya,Haro Maya,same_pcode
+ET070201,ET070201,0.482081,1,175.045805,Misha,Misha,same_pcode
+ET010208,ET010208,0.466404,0.887908,637.534,Kola Temben,Kola Tembien,same_pcode
+ET051006,ET051006,0.452699,0.592816,1342.867445,Dihun,Dihun,same_pcode
+ET010603,ET010603,0.44327,0.938453,878.183221,Hintalo Wajirat,Hintalo,same_pcode
+ET010306,ET010306,0.433821,0.848953,419.519784,Kelete Awelallo,Kilte Awulaelo,same_pcode
+ET041797,ET041797,0.424205,0.803318,31.946457,Wondo,Wondo,same_pcode
+ET040703,ET040703,0.41993,0.937474,345.174521,Adama,Adama,same_pcode
+ET051103,ET051103,0.413933,0.522686,731.716593,Moyale (Somali),Moyale (SM),same_pcode
+ET010404,ET010404,0.413366,0.951638,327.461235,Alage,Emba Alaje,same_pcode
+ET010604,ET010604,0.411075,0.978615,427.780973,Dega Temben,Degua Temben,same_pcode
+ET051104,ET051104,0.410422,0.999885,1259.095984,Hudet,Hudet,same_pcode
+ET020203,ET020203,0.397673,1,458.143977,Aba 'Ala,Abaala,same_pcode
+ET041210,ET041210,0.375353,0.583451,1005.185725,Moyale (Oromia),Moyale (OR),same_pcode
+ET010601,ET010601,0.356618,0.989696,620.981246,Saharti Samre,Saharti,same_pcode
+ET010202,ET010202,0.352574,0.969008,445.524606,Aheferom,Aheferom,same_pcode
+ET050106,ET050106,0.349773,0.909672,3569.729616,Hadhagala,Hadhagala,same_pcode
+ET041905,ET041905,0.324502,0.910395,275.089216,Abay Chomen,Abay Chomen,same_pcode
+ET010203,ET010203,0.319301,0.998134,405.052909,Werei Leke,Endaba Tsahma,same_pcode
+ET010201,ET010201,0.307969,0.642613,379.480564,Mereb Lehe,Chila,same_pcode
+ET050898,ET050898,0.291543,0.267866,755.8394,Kohle/Qoxle,Kohle /Qoxle,same_pcode
+ET042001,ET042001,0.281489,0.953373,23.741996,Burayu,Burayu,same_pcode
+ET020301,ET020301,0.237574,1,824.274313,Amibara,Amibara,same_pcode
+ET050198,ET050198,0.233719,0.216774,245.988508,Gota-biki,Gota-Biki,same_pcode
+ET020303,ET020303,0.052625,1,455.714975,Gewane,Gewane,same_pcode

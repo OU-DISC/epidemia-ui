@@ -97,7 +97,19 @@ def cache_is_valid(req: EpidemiaRunRequest) -> bool:
     if not meta:
         return False
     expected = compute_data_fingerprint(req)
-    return meta.get("data_fingerprint") == expected and int(meta.get("horizon_weeks", -1)) == req.horizon_weeks
+    # Fingerprint match is enough to serve. Horizon may be longer or shorter than
+    # requested; load_cached_response truncates when the cache is longer.
+    return meta.get("data_fingerprint") == expected
+
+
+def _truncate_payload_horizon(payload: dict, horizon_weeks: int) -> dict:
+    """Trim forecast points when the cache was built with a longer horizon."""
+    horizon_weeks = int(horizon_weeks)
+    for forecast in payload.get("forecasts") or []:
+        points = forecast.get("forecast") or []
+        if len(points) > horizon_weeks:
+            forecast["forecast"] = points[:horizon_weeks]
+    return payload
 
 
 def load_cached_response(req: EpidemiaRunRequest) -> Optional[EpidemiaRunResponse]:
@@ -106,6 +118,7 @@ def load_cached_response(req: EpidemiaRunRequest) -> Optional[EpidemiaRunRespons
     report_path = report_json_path(req)
     with report_path.open("r", encoding="utf-8") as handle:
         payload = json.load(handle)
+    payload = _truncate_payload_horizon(payload, req.horizon_weeks)
     payload.setdefault("artifacts", {"report_data": str(report_path)})
     payload["message"] = "Loaded cached EPIDEMIA forecast"
     return EpidemiaRunResponse.model_validate(payload)

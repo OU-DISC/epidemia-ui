@@ -6,7 +6,7 @@ export const DASHBOARD_HELP = {
     "Filter the map and district lists to one admin region, or show all of Ethiopia.",
   district:
     "Focus charts and map selection on one district, or view all districts.",
-  forecastWeeks: "Number of future weeks shown in forecasts. After Refresh Forecast, 4-, 8-, and 12-week results are cached; switching here loads instantly without re-running the pipeline.",
+  forecastWeeks: "Number of future weeks shown in forecasts. After Refresh Forecast, a long horizon (e.g. 26 weeks) is cached; shorter selections (4–20 weeks) load from that cache without re-running the pipeline.",
   forecastValueMode:
     "Show weekly case counts or incidence per 100,000 population on the forecast chart, table, comparison chart, and PDF control charts. Alerts still use the underlying count-based pipeline.",
   seasonalContext:

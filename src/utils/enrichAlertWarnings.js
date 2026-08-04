@@ -3,12 +3,22 @@ function finiteNumber(value) {
   return Number.isFinite(n) ? n : null;
 }
 
-/** Count forecast weeks where projected cases exceed the seasonal expected level. */
+/**
+ * Count forecast weeks where projected cases exceed the warning / alarm band.
+ *
+ * Prefer warning_threshold (GAM upper / Farrington-style band on the point).
+ * Fall back to alarm_threshold. Do NOT use detection_threshold: in the current
+ * pipeline that field is often equal to the forecast median (expected level),
+ * which would incorrectly clear every early-warning flag.
+ */
 export function countEarlyWarningWeeks(forecastRow) {
   return (forecastRow?.forecast || []).filter((point) => {
     const median = finiteNumber(point?.median);
-    const expected = finiteNumber(point?.detection_threshold);
-    return median != null && expected != null && median > expected;
+    if (median == null) return false;
+    const warning = finiteNumber(point?.warning_threshold);
+    const alarm = finiteNumber(point?.alarm_threshold);
+    const threshold = warning ?? alarm;
+    return threshold != null && median > threshold;
   }).length;
 }
 
@@ -18,18 +28,44 @@ export function earlyWarningLevelFromCount(count) {
   return "Low";
 }
 
-/** Align alert EW flags with forecast-vs-expected logic used by the map and regional chart. */
+/**
+ * Optionally refresh EW from forecast points, but never erase a backend EW flag
+ * when point-level thresholds cannot reproduce it (common when detection_threshold
+ * == median, or when EW came from Farrington on the combined series).
+ */
 export function enrichAlertWithForecastWarning(alert, forecastRow) {
   if (!alert) return alert;
+  if (!forecastRow?.forecast?.length) return alert;
 
-  const ewAlertCount = countEarlyWarningWeeks(forecastRow);
-  const ewLevel = earlyWarningLevelFromCount(ewAlertCount);
+  const recomputedCount = countEarlyWarningWeeks(forecastRow);
+  const backendCount = Number(alert.ew_alert_count) || 0;
+  const backendEw = Boolean(alert.early_warning);
+
+  // If client recomputation finds EW weeks, prefer that (keeps UI aligned with chart).
+  if (recomputedCount >= 1) {
+    return {
+      ...alert,
+      early_warning: true,
+      ew_alert_count: recomputedCount,
+      ew_level: earlyWarningLevelFromCount(recomputedCount),
+    };
+  }
+
+  // Otherwise keep pipeline/backend EW summary unchanged.
+  if (backendEw || backendCount >= 1) {
+    return {
+      ...alert,
+      early_warning: backendEw || backendCount >= 1,
+      ew_alert_count: backendCount,
+      ew_level: alert.ew_level || earlyWarningLevelFromCount(backendCount),
+    };
+  }
 
   return {
     ...alert,
-    early_warning: ewAlertCount >= 1,
-    ew_alert_count: ewAlertCount,
-    ew_level: ewLevel,
+    early_warning: false,
+    ew_alert_count: 0,
+    ew_level: "Low",
   };
 }
 

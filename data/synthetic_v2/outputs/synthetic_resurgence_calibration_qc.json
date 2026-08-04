@@ -1,0 +1,92 @@
+{
+  "method": {
+    "2020_2023": "scale synthetic national annual Pf to remapped Pf totals",
+    "2024": "target_2023 * 1.268 (WHO WMR 2025 incidence rise ~26.8%)",
+    "2025": "target_2024 * 1.1 (continued rise; synthetic extension)",
+    "within_year": "uniform scale per calendar year; preserves spatial/seasonal shares",
+    "absolute_level": "surveillance-style remapped magnitude; not WHO estimated 12.4M"
+  },
+  "scales": {
+    "2020": 0.9623949761776776,
+    "2021": 0.8256626643498507,
+    "2022": 0.8605895954695156,
+    "2023": 0.8650089791409422,
+    "2024": 1.0900163302855974,
+    "2025": 1.2227472749095205
+  },
+  "annual": [
+    {
+      "year": 2020,
+      "remapped_pf": 704173.976449,
+      "synthetic_before": 731689.1649266,
+      "target_pf": 704173.976449,
+      "scale": 0.9623949761776776,
+      "synthetic_after": 704173.976449,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2021,
+      "remapped_pf": 666514.615983,
+      "synthetic_before": 807248.09872302,
+      "target_pf": 666514.615983,
+      "scale": 0.8256626643498507,
+      "synthetic_after": 666514.615983,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2022,
+      "remapped_pf": 681276.203167,
+      "synthetic_before": 791638.90285626,
+      "target_pf": 681276.203167,
+      "scale": 0.8605895954695156,
+      "synthetic_after": 681276.203167,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2023,
+      "remapped_pf": 762544.291131,
+      "synthetic_before": 881544.94290718,
+      "target_pf": 762544.291131,
+      "scale": 0.8650089791409422,
+      "synthetic_after": 762544.2911309999,
+      "method": "match_remapped"
+    },
+    {
+      "year": 2024,
+      "remapped_pf": 800979.235255,
+      "synthetic_before": 887056.58281355,
+      "target_pf": 966906.161154108,
+      "scale": 1.0900163302855974,
+      "synthetic_after": 966906.1611541079,
+      "method": "target_2023*1.268"
+    },
+    {
+      "year": 2025,
+      "remapped_pf": 884996.729906,
+      "synthetic_before": 869841.87091991,
+      "target_pf": 1063596.777269519,
+      "scale": 1.2227472749095205,
+      "synthetic_after": 1063596.777269519,
+      "method": "target_2024*1.1"
+    }
+  ],
+  "yoy_calibrated": {
+    "2021": -0.05348019342593158,
+    "2022": 0.02214743207428249,
+    "2023": 0.11928801796718402,
+    "2024": 0.268,
+    "2025": 0.10000000000000031
+  },
+  "outputs": [
+    "synthetic_malaria_2020_2025_cod_ab_v04.csv",
+    "epi_data_synthetic_2020_2025_cod_ab_v04_pf.csv",
+    "synthetic_malaria_2020_2025_cod_ab_v04_uncalibrated.csv",
+    "epi_data_synthetic_2020_2025_cod_ab_v04_pf_uncalibrated.csv",
+    "synthetic_resurgence_calibration_annual.csv",
+    "national_pf_annual_u_shape_series.csv"
+  ],
+  "references": [
+    "https://www.severemalaria.org/countries/ethiopia",
+    "WHO World Malaria Report 2025"
+  ]
+}

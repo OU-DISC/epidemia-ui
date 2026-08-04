@@ -1,0 +1,24 @@
+{
+  "old_file": "eth_admin3.geojson.bak-pre-cod-ab-v04",
+  "new_file": "eth_admin3.geojson",
+  "area_method": "WGS84 geodesic (pyproj.Geod), absolute area in km^2",
+  "old_feature_count": 851,
+  "new_feature_count": 1148,
+  "union_pcode_count": 1393,
+  "old_total_area_km2": 1126025.032,
+  "new_total_area_km2": 1129937.501,
+  "matched_pcode_count_with_area": 606,
+  "matched_old_area_km2": 761912.032,
+  "matched_new_area_km2": 725663.876,
+  "matched_area_delta_km2": -36248.156,
+  "status_counts": {
+    "matched_name_same_admin_changed": 88,
+    "matched_pcode_name_changed": 166,
+    "matched_same_attributes": 352,
+    "only_in_new": 365,
+    "only_in_new_name_existed_under_other_pcode": 177,
+    "only_in_old": 73,
+    "only_in_old_name_exists_under_other_pcode": 172
+  },
+  "output_csv": "eth_admin3_old_vs_new_cod_ab_v04.csv"
+}

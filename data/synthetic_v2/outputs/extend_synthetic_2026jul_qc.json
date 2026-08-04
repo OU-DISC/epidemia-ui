@@ -1,0 +1,26 @@
+{
+  "method": {
+    "env": "woreda x week_of_year mean over 2020-2025",
+    "population": "2025 pop x woreda 2024->2025 growth (clipped 0.98-1.08)",
+    "calibration": "Jan-Jul 2026 national = Jan-Jul 2025 calibrated x 1.05",
+    "end_date": "2026-07-31"
+  },
+  "species": {
+    "pf": {
+      "rows": 34410,
+      "pcodes": 1147,
+      "cases_sum": 512240.2011255376,
+      "scale": 1.297565250529179,
+      "date_min": "2026-01-05",
+      "date_max": "2026-07-27"
+    },
+    "pv": {
+      "rows": 34410,
+      "pcodes": 1147,
+      "cases_sum": 329525.2791956685,
+      "scale": 2.041329787531709,
+      "date_min": "2026-01-05",
+      "date_max": "2026-07-27"
+    }
+  }
+}

@@ -1,0 +1,1396 @@
+relation,likely_change_type,old_adm3_pcode,old_adm3_name,old_adm1_name,new_adm3_pcode,new_adm3_name,new_adm1_name,intersection_km2,share_of_old,share_of_new,old_area_km2,new_area_km2
+cross_pcode_overlap,likely_merge_many_old_to_new,ET010504,Setit Humera,Tigray,ET990101,Setit Humera town,Contested,14.462336,1,0.139265,14.462336,103.847826
+cross_pcode_overlap,likely_merge_many_old_to_new,ET011063,Kuha,Tigray,ET010701,Kuiha Sub City,Tigray,5.535343,1,0.037783,5.535343,146.502445
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET0201011,Kurri,Afar,ET020108,Kori,Afar,2868.541625,1,1,2868.541625,2868.541625
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET0202071,Bidu,Afar,ET020208,Bidu,Afar,6985.8938,1,1,6985.8938,6985.8938
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET020305,Gelealo,Afar,ET020309,Borimodaytu,Afar,792.470187,1,1,792.470188,792.470187
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030701,Semen Achefer,Amhara,ET031301,Semen Achefer,Amhara,1151.933333,1,0.919781,1151.933333,1252.399895
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030712,Bahir Dar Town,Amhara,ET031401,Bahir Dar town,Amhara,213.439371,1,0.810383,213.439371,263.380969
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030718,Gonje,Amhara,ET031307,Gonje,Amhara,633.914834,1,1,633.914834,633.914834
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET031122O,Kinfaz,Amhara,ET031122,Kinfaz Begela,Amhara,1782.448683,1,1,1782.448683,1782.448683
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040199O,Nejo Town,Oromia,ET040199,Nejo town,Oromia,26.962371,1,1,26.962371,26.962371
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040401O,Jimma/Town/,Oromia,ET040418,Jimma town,Oromia,91.592975,1,1,91.592975,91.592975
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040799O,Metehara Town,Oromia,ET040799,Metehara town,Oromia,5.696294,1,1,5.696294,5.696294
+cross_pcode_overlap,likely_merge_many_old_to_new,ET040894O,Bekoji Town,Oromia,ET040894,Bokoji town,Oromia,4.405847,1,0.126923,4.405847,34.712785
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041001O,Haromaya Town,Oromia,ET041019,Maya town,Oromia,5.630867,1,0.015813,5.630867,356.08047
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041107,Lege Hida,Oromia,ET042102,Lege Hida,Oromia,4777.453156,1,1,4777.453156,4777.453164
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041108,Ginir,Oromia,ET042103,Ginir,Oromia,2329.510192,1,0.994591,2329.510192,2342.180041
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041117,Rayitu,Oromia,ET042104,Rayitu,Oromia,5039.453293,1,0.97223,5039.453599,5183.394381
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041121,Dawe Ketchen,Oromia,ET042106,Dawe Ketchen,Oromia,1689.574946,1,1,1689.57497,1689.574946
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041198,Ginir Town,Oromia,ET042107,Ginir town,Oromia,34.831495,1,1,34.831495,34.831495
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041220,Dhas,Oromia,ET042209,Dhas,Oromia,3172.94842,1,0.998825,3172.94842,3176.682546
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041413,Gora Dola,Oromia,ET042205,Gora Dola,Oromia,2361.2496,1,1,2361.2496,2361.2496
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041414O,Negele /Town/,Oromia,ET042201,Negele town,Oromia,8.930036,1,1,8.930036,8.930036
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041700O,Dodola Town,Oromia,ET041700,Dodola town,Oromia,8.248082,1,1,8.248082,8.248082
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041798,Bishan Guracha,Oromia,ET041711,Shashemene town,Oromia,45.322218,1,0.095768,45.322219,473.249753
+cross_pcode_overlap,likely_merge_many_old_to_new,ET042005O,Sululta Town,Oromia,ET042012,Sululta,Oromia,8.461312,1,0.057137,8.461312,148.087819
+cross_pcode_overlap,likely_merge_many_old_to_new,ET042008O,Dukem,Oromia,ET040709,Bishoftu town,Oromia,0.578486,1,0.00113,0.578486,511.978768
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET042016,Mulo,Oromia,ET040622,Mulo,Oromia,343.823033,1,1,343.823033,343.823033
+cross_pcode_overlap,likely_merge_many_old_to_new,ET042018,Sendafa Town,Oromia,ET040623,Sendafa town,Oromia,4.197919,1,0.029264,4.197919,143.447581
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070101,Kebena,SNNP,ET070001,Kebena Special,Central Ethiopia,235.983063,1,1,235.983063,235.983063
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070109OU049,Gumer,SNNP,ET070109,Gumer,Central Ethiopia,233.163288,1,1,233.163288,233.163288
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070115,Butajira Town,SNNP,ET070401,Butajira town,Central Ethiopia,16.137437,1,1,16.137437,16.137437
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070301,Tembaro,SNNP,ET072601,Tembaro Special,Central Ethiopia,339.645453,1,1,339.645453,339.645453
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070412,Malga,SNNP,ET160203,Malga,Sidama,179.16209,1,1,179.16209,179.16209
+cross_pcode_overlap,likely_merge_many_old_to_new,ET070419,Hawasa Town,SNNP,ET160101,Hawassa town,Sidama,27.77707,1,0.133783,27.77707,207.627588
+cross_pcode_overlap,likely_merge_many_old_to_new,ET070421O,Tula Town,SNNP,ET160101,Hawassa town,Sidama,1.329886,1,0.006405,1.329886,207.627588
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070486,Yirgalem Town Adm.,SNNP,ET160304,Yirgalem town,Sidama,13.673183,1,1,13.673183,13.673183
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070487,Aleta Wondo Town,SNNP,ET160404,Aleta Wondo town,Sidama,5.247563,1,1,5.247563,5.247563
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070505,Dila Zuria,SNNP,ET081105,Dila Zuria,South Ethiopia,125.062726,1,1,125.062726,125.062726
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070507,Dila City Admin,SNNP,ET081109,Dila town,South Ethiopia,14.244283,1,1,14.244283,14.244283
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070587,Yirgachefe Town,SNNP,ET081111,Yirgachefe town,South Ethiopia,2.205947,1,1,2.205947,2.205947
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070601,Boloso sore,SNNP,ET080101,Boloso Sore,South Ethiopia,288.287596,1,1,288.287596,288.287596
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070602,Damot Gale,SNNP,ET080102,Damot Gale,South Ethiopia,241.962993,1,1,241.962993,241.962993
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070608,Boloso Bombe,SNNP,ET080108,Boloso Bombe,South Ethiopia,272.265924,1,1,272.265924,272.265924
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070611,Damot Pulasa,SNNP,ET080111,Damot Pullasa,South Ethiopia,165.099524,1,1,165.099524,165.099524
+cross_pcode_overlap,likely_merge_many_old_to_new,ET070612,Diguna Fango,SNNP,ET080112,Duguna Fango,South Ethiopia,391.275059,1,0.931505,391.275059,420.046001
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070613,Sodo Town,SNNP,ET080113,Sodo town,South Ethiopia,25.624979,1,1,25.624979,25.624979
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070614O,Areka Town,SNNP,ET080114,Areka town,South Ethiopia,14.870532,1,1,14.870532,14.870532
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070615O,Boditi Town,SNNP,ET080115,Boditi town,South Ethiopia,13.686772,1,1,13.686772,13.686772
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070705,Bena Tsemay,SNNP,ET081201,Bena Tsemay,South Ethiopia,3603.64075,1,1,3603.641311,3603.640752
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070706,Dasenech (Kuraz),SNNP,ET081202,Dasenech /Kuraz,South Ethiopia,2584.642146,1,1,2584.642146,2584.642146
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070707,Male,SNNP,ET081204,Malie,South Ethiopia,1431.239865,1,1,1431.239865,1431.239865
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070708,Gnangatom,SNNP,ET081205,Nyngatom,South Ethiopia,2807.671867,1,1,2807.671867,2807.671867
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070709,Selamgo,SNNP,ET081206,Salamago,South Ethiopia,4571.868854,1,1,4571.868854,4571.868854
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070793,Jinka Town Admin,SNNP,ET080506,Jinka town,South Ethiopia,8.885813,1,1,8.885813,8.885813
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070801,Masha,SNNP,ET110101,Anderacha,South West Ethiopia,755.682019,1,1,755.682019,755.682019
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070802,Anderacha,SNNP,ET110102,Masha,South West Ethiopia,1008.420294,1,1,1008.420294,1008.420294
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070803,Yeki,SNNP,ET110103,Yeki,South West Ethiopia,562.292837,1,1,562.292837,562.292837
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070804O,Tepi Town,SNNP,ET110104,Tepi,South West Ethiopia,13.71144,1,1,13.71144,13.71144
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070805O,Masha Town,SNNP,ET110105,Masha town,South West Ethiopia,1.0031,1,1,1.0031,1.0031
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070901,Sayilem,SNNP,ET110201,Saylem,South West Ethiopia,781.247709,1,1,781.247709,781.247709
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070903,Getawa,SNNP,ET110203,Gewata,South West Ethiopia,953.558596,1,1,953.558596,953.558596
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070904,Gimbo,SNNP,ET110204,Gimbo,South West Ethiopia,780.366212,1,1,780.366213,780.366212
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070905,Menjiwo,SNNP,ET110205,Adiyio,South West Ethiopia,1011.243175,1,1,1011.243175,1011.243175
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070906,Tulo (SNNP),SNNP,ET110206,Tullo,South West Ethiopia,481.837031,1,1,481.837031,481.837031
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070907,Cheta,SNNP,ET110207,Cheta,South West Ethiopia,685.140292,1,1,685.140292,685.140292
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070910,Bita (Big),SNNP,ET110210,Bita,South West Ethiopia,1086.694459,1,1,1086.694459,1086.694459
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070911,Bonga Town,SNNP,ET110211,Bonga town,South West Ethiopia,13.672155,1,1,13.672155,13.672155
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071002,Denibu Gofa,SNNP,ET080303,Denba Gofa,South Ethiopia,795.233133,1,1,795.233133,795.233133
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071004,Boreda,SNNP,ET080205,Boreda,South Ethiopia,464.231793,1,1,464.231793,464.231793
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071008,Dita,SNNP,ET080209,Dita,South Ethiopia,283.273454,1,1,283.273454,283.273454
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071009,Daramalo,SNNP,ET080208,Daramalo,South Ethiopia,361.954252,1,1,361.954252,361.954252
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071010,Zala,SNNP,ET080311,Zala,South Ethiopia,730.212264,1,1,730.212264,730.212264
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071015,Ayida,SNNP,ET080308,O'yida,South Ethiopia,174.750286,1,1,174.750286,174.750286
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071096,Arba Minch Town,SNNP,ET080201,Arba Minch town,South Ethiopia,33.369811,1,1,33.369811,33.369811
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071097,Sawla Town,SNNP,ET080309,Sawla town,South Ethiopia,16.729192,1,1,16.729192,16.729192
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071103,Debub Bench,SNNP,ET110303,Debub Bench,South West Ethiopia,623.490002,1,1,623.490002,623.490002
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071108,Bero,SNNP,ET110505,Bero,South West Ethiopia,594.443187,1,1,594.443187,594.443187
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071109,Surma,SNNP,ET110506,Surma,South West Ethiopia,4960.852134,1,1,4960.852134,4960.852134
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071111,Mizan Aman Town,SNNP,ET110307,Mizan Aman town,South West Ethiopia,24.379574,1,1,24.379574,24.379574
+cross_pcode_overlap,likely_merge_many_old_to_new,ET071301,Alle,SNNP,ET080601,Alle Special,South Ethiopia,787.819138,1,0.9462,787.819138,832.613506
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071303,Burji,SNNP,ET081001,Burji,South Ethiopia,1377.010736,1,1,1377.010736,1377.010736
+cross_pcode_overlap,likely_merge_many_old_to_new,ET071306,Segen town,SNNP,ET080904,Segen Zuria,South Ethiopia,3.880999,1,0.010359,3.880999,374.636743
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071705,Esira,SNNP,ET110405,Esara,South West Ethiopia,1077.533191,1,1,1077.533191,1077.533191
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET071790,Tercha Town,SNNP,ET110411,Tercha town,South West Ethiopia,5.066498,1,1,5.066498,5.066498
+cross_pcode_overlap,likely_merge_many_old_to_new,ET072098,Worabe Town,SNNP,ET072010,Worabe town,Central Ethiopia,25.481431,1,0.201805,25.481431,126.267772
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET150111O,Dechatu,Dire Dawa,ET150111,Dechatu,Dire Dawa,1.338396,1,1,1.338396,1.338396
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET150112O,Hafat Issa,Dire Dawa,ET150112,Hafat Issa,Dire Dawa,0.379421,1,1,0.379421,0.379421
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET150113O,Kazira,Dire Dawa,ET150113,Kazira,Dire Dawa,12.815284,1,1,12.815284,12.815284
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET150114O,Police Maret,Dire Dawa,ET150114,Police Maret,Dire Dawa,8.893232,1,1,8.893232,8.893232
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET150201O,Aseliso,Dire Dawa,ET150201,Aseliso,Dire Dawa,102.551602,1,1,102.551602,102.551613
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070107,Mareko,SNNP,ET072501,Mareko Special,Central Ethiopia,300.454246,0.999998,1,300.454733,300.454246
+cross_pcode_overlap,likely_split_old_to_many_new,ET041004OU031,Babile (Oromia),Oromia,ET041004,Babile (OR),Oromia,4879.355714,0.999305,1,4882.750925,4879.355753
+cross_pcode_overlap,likely_split_old_to_many_new,ET070704,Hamer,SNNP,ET081203,Hamer,South Ethiopia,5890.341501,0.999099,1,5895.656053,5890.342062
+cross_pcode_overlap,likely_split_old_to_many_new,ET071302,Amaro,SNNP,ET080801,Amaro,South Ethiopia,1623.514083,0.99899,1,1625.15487,1623.514083
+cross_pcode_overlap,likely_split_old_to_many_new,ET031213OU025,Metema,Amhara,ET031213,Metema,Amhara,5325.991162,0.998306,1,5335.026707,5325.991194
+cross_pcode_overlap,likely_split_old_to_many_new,ET030713,Debub Achefer,Amhara,ET031305,Debub Achefer,Amhara,1100.111108,0.998187,1,1102.109533,1100.111108
+cross_pcode_overlap,likely_split_old_to_many_new,ET071011,Ouba Debretsehaye,SNNP,ET080310,Uba Debre Tsehay,South Ethiopia,751.765143,0.997178,1,753.892339,751.765143
+cross_pcode_overlap,likely_split_old_to_many_new,ET070420,Wondo-Genet,SNNP,ET160202,Wondo-Genet,Sidama,205.054549,0.996522,1,205.770313,205.05457
+cross_pcode_overlap,likely_split_old_to_many_new,ET030505OU067,Menze Gera Midir,Amhara,ET030505,Menze Gera Midir,Amhara,1109.022262,0.996394,1,1113.035638,1109.022262
+cross_pcode_overlap,likely_split_old_to_many_new,ET070902,Gesha (Deka),SNNP,ET110202,Gesha,South West Ethiopia,725.199107,0.996383,1,727.831505,725.199107
+cross_pcode_overlap,likely_split_old_to_many_new,ET030202OU013,Libokemekem,Amhara,ET030202,Libokemekem,Amhara,996.432785,0.996359,0.862645,1000.073883,1155.090083
+cross_pcode_overlap,likely_split_old_to_many_new,ET030308OU012,Habru,Amhara,ET030308,Habru,Amhara,1317.630561,0.996325,1,1322.490716,1317.630564
+cross_pcode_overlap,likely_split_old_to_many_new,ET030502OU009,Merhabete,Amhara,ET030502,Merhabete,Amhara,1045.210311,0.99592,1,1049.492652,1045.210312
+cross_pcode_overlap,likely_split_old_to_many_new,ET071005,Mirab Abaya,SNNP,ET080219,Mirab Abaya,South Ethiopia,798.101654,0.995885,1,801.399078,798.101654
+cross_pcode_overlap,likely_split_old_to_many_new,ET030613OU006,Dejen,Amhara,ET030613,Dejen,Amhara,624.823834,0.995875,1,627.411729,624.823835
+cross_pcode_overlap,likely_split_old_to_many_new,ET030703OU021,Yilmana Densa,Amhara,ET031303,Yilmana Densa,Amhara,922.781593,0.995768,1,926.703447,922.781593
+cross_pcode_overlap,likely_split_old_to_many_new,ET030105OU008,Dabat,Amhara,ET030105,Dabat,Amhara,1089.731049,0.995643,1,1094.499908,1089.731049
+cross_pcode_overlap,likely_split_old_to_many_new,ET030405OU018,Thehulederie,Amhara,ET030405,Thehulederie,Amhara,441.966289,0.99557,1,443.933079,441.966289
+cross_pcode_overlap,likely_split_old_to_many_new,ET030606OU005,Enemay,Amhara,ET030606,Enemay,Amhara,729.93111,0.995193,1,733.457202,729.93111
+cross_pcode_overlap,likely_split_old_to_many_new,ET030415OU020,Were Ilu,Amhara,ET030415,Were Ilu,Amhara,737.765809,0.99495,1,741.510196,737.765809
+cross_pcode_overlap,likely_split_old_to_many_new,ET030205OU016,Lay Gayint,Amhara,ET030205,Lay Gayint,Amhara,1515.782874,0.994938,1,1523.495467,1515.782874
+cross_pcode_overlap,likely_split_old_to_many_new,ET071102,Gurafereda,SNNP,ET110302,Gurafereda,South West Ethiopia,2516.550305,0.994879,1,2529.503423,2516.550305
+cross_pcode_overlap,likely_split_old_to_many_new,ET070703,Gelila / North Ari,SNNP,ET080508,North Ari,South Ethiopia,279.396266,0.994335,1,280.98819,279.396266
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041105,Gololcha Bale,Oromia,ET042101,Gololcha Bale,Oromia,2209.529326,0.994299,1,2222.199175,2209.529326
+cross_pcode_overlap,likely_split_old_to_many_new,ET031206OU024,Mirab Armacho,Amhara,ET031206,Mirab Armacho,Amhara,1488.777579,0.993603,1,1498.362996,1488.777617
+cross_pcode_overlap,likely_split_old_to_many_new,ET030708OU023,Dembecha,Amhara,ET030708,Dembecha,Amhara,964.366231,0.992871,1,971.291023,964.366231
+cross_pcode_overlap,likely_split_old_to_many_new,ET070701,Basketo SP Woreda,SNNP,ET080401,Basketo Special,South Ethiopia,407.588168,0.992479,1,410.676854,407.588168
+cross_pcode_overlap,likely_merge_many_old_to_new,ET042098,Gelana (Finfine),Oromia,ET042004,Galan,Oromia,30.171315,0.992335,0.243781,30.404368,123.763941
+cross_pcode_overlap,likely_split_old_to_many_new,ET071304,Derashe,SNNP,ET080701,Derashe,South Ethiopia,693.276201,0.991268,1,699.383393,693.276201
+cross_pcode_overlap,likely_merge_many_old_to_new,ET010411,Alamata Town,Tigray,ET990304,Alamata town,Contested,5.493457,0.991246,0.434554,5.541973,12.64161
+cross_pcode_overlap,likely_split_old_to_many_new,ET030412OU019,Borena / Debresina,Amhara,ET030412,Borena /Debresina,Amhara,1017.611648,0.989508,1,1028.401273,1017.611648
+cross_pcode_overlap,likely_split_old_to_many_new,ET071104,Shay Bench,SNNP,ET110304,Shay Bench,South West Ethiopia,553.640416,0.988471,1,560.097962,553.640416
+cross_pcode_overlap,likely_split_old_to_many_new,ET030508OU066,Eferatana Gidem,Amhara,ET030508,Eferatana Gidem,Amhara,511.116117,0.988338,1,517.147335,511.116117
+cross_pcode_overlap,likely_split_old_to_many_new,ET071017,Geze Gofa,SNNP,ET080304,Gezei Gofa,South Ethiopia,518.745255,0.985868,1,526.180995,518.745255
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050201,Babile (Somali),Somali,ET050204,Shabeeley,Somali,400.663815,0.985716,0.247097,406.469959,1621.484028
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041118,Seweyna,Oromia,ET042105,Seweyna,Oromia,9055.491225,0.984353,1,9199.432385,9055.491227
+cross_pcode_overlap,likely_split_old_to_many_new,ET040101OU048,Mana Sibu,Oromia,ET040101,Mana Sibu,Oromia,1806.88483,0.981457,1,1841.022153,1806.88483
+cross_pcode_overlap,likely_merge_many_old_to_new,ET011067,Ayder,Tigray,ET010703,Ayder Sub City,Tigray,8.803972,0.98132,0.211404,8.971558,41.645155
+cross_pcode_overlap,likely_split_old_to_many_new,ET030208OU063,East Esite,Amhara,ET030208,East Esite,Amhara,1332.313568,0.975389,1,1365.929926,1332.313568
+cross_pcode_overlap,likely_split_old_to_many_new,ET071107,Maji,SNNP,ET110507,Maji,South West Ethiopia,4541.244617,0.974859,1,4658.362689,4541.244617
+cross_pcode_overlap,likely_split_old_to_many_new,ET070609,Damot Sore,SNNP,ET080109,Damot Sore,South Ethiopia,176.306775,0.974259,1,180.964958,176.306775
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041099O,Aweday Town,Oromia,ET041019,Maya town,Oromia,57.411613,0.97103,0.161232,59.124429,356.08047
+cross_pcode_overlap,likely_merge_many_old_to_new,ET010410,Korem Town,Tigray,ET990303,Korem town,Contested,7.366806,0.969396,0.656876,7.59938,11.21491
+cross_pcode_overlap,likely_split_old_to_many_new,ET070304OU052,Kacha Bira,SNNP,ET070304,Kacha Bira,Central Ethiopia,183.312842,0.968545,1,189.266221,183.312842
+cross_pcode_overlap,likely_split_old_to_many_new,ET070414,Loka Abaya,SNNP,ET160307,Loka Abaya,Sidama,848.010207,0.965417,1,878.387766,848.010207
+cross_pcode_overlap,likely_split_old_to_many_new,ET071101,Sheka,SNNP,ET110301,Sheko,South West Ethiopia,468.909855,0.958542,1,489.190773,468.909855
+cross_pcode_overlap,likely_split_old_to_many_new,ET070606,Kindo Koyesha,SNNP,ET080106,Kindo Koyesha,South Ethiopia,502.85579,0.955312,1,526.378728,502.85579
+cross_pcode_overlap,likely_merge_many_old_to_new,ET070404,Dale,SNNP,ET160305,Dale,Sidama,251.34001,0.954211,0.874021,263.400862,287.567631
+cross_pcode_overlap,complex_many_to_many,ET010407,Alamata,Tigray,ET990301,Raya Alamata,Contested,716.727968,0.953118,0.929878,751.982592,770.776091
+cross_pcode_overlap,likely_split_old_to_many_new,ET0201051,Adaa'r,Afar,ET020109,Adar,Afar,2210.45825,0.944346,0.955472,2340.729261,2313.472856
+cross_pcode_overlap,likely_split_old_to_many_new,ET070417,Chuko,SNNP,ET160405,Aleta Chuko,Sidama,288.86448,0.944132,1,305.957785,288.86448
+cross_pcode_overlap,likely_split_old_to_many_new,ET070501,Wenago,SNNP,ET081101,Wenago,South Ethiopia,136.242022,0.926006,1,147.128708,136.242022
+cross_pcode_overlap,likely_split_old_to_many_new,ET070305OU051,Hadero Tunto,SNNP,ET070305,Hadero Tunto,Central Ethiopia,175.706949,0.923048,1,190.355118,175.706949
+cross_pcode_overlap,complex_many_to_many,ET042004O,Lege tafo-Lege Dadi Town,Oromia,ET042002,Eka Tafo,Oromia,29.74813,0.918516,0.303526,32.38715,98.008518
+cross_pcode_overlap,likely_split_old_to_many_new,ET070418,Bona Zuria,SNNP,ET160502,Bona Zuria,Sidama,200.778119,0.909182,1,220.833845,200.778119
+cross_pcode_overlap,likely_split_old_to_many_new,ET070605,Sodo Zuria,SNNP,ET080105,Sodo Zuria,South Ethiopia,366.315398,0.905659,1,404.473779,366.315398
+cross_pcode_overlap,complex_many_to_many,ET041799O,Arsi Negele Town,Oromia,ET041799,Arsi Negele town,Oromia,28.087548,0.895047,0.549182,31.381078,51.144287
+cross_pcode_overlap,complex_many_to_many,ET011062,Debub & Semen Mekele,Tigray,ET010707,Semen Sub City,Tigray,30.317174,0.887142,0.838279,34.173976,36.165967
+cross_pcode_overlap,likely_split_old_to_many_new,ET030307OU011,Guba Lafto,Amhara,ET030307,Guba Lafto,Amhara,791.342459,0.87815,1,901.146898,791.342459
+cross_pcode_overlap,complex_many_to_many,ET011068,Adhaki,Tigray,ET010704,Hawelti Sub City,Tigray,4.791392,0.877906,0.302384,5.45775,15.845385
+cross_pcode_overlap,likely_split_old_to_many_new,ET070405,Aleta Wendo,SNNP,ET160403,Aleta Wendo,Sidama,197.402028,0.875731,1,225.414072,197.402028
+cross_pcode_overlap,likely_split_old_to_many_new,ET071201,Yem SP Woreda,SNNP,ET072404,Toba,Central Ethiopia,668.228501,0.874474,1,764.149172,668.228521
+cross_pcode_overlap,likely_split_old_to_many_new,ET030702,Bahirdar Zuria,Amhara,ET031310,Bahir Dar Zuria,Amhara,1251.417115,0.867012,0.791905,1443.367792,1580.262294
+cross_pcode_overlap,likely_split_old_to_many_new,ET070502,Yirgachefe,SNNP,ET081102,Yirgachefe,South Ethiopia,245.478147,0.857434,1,286.293921,245.478147
+cross_pcode_overlap,likely_split_old_to_many_new,ET071016,Arba Minch Zuria,SNNP,ET080202,Arba Minch Zuria,South Ethiopia,1489.860319,0.84994,0.999815,1752.900001,1490.13559
+cross_pcode_overlap,likely_split_old_to_many_new,ET040704OU068,Lome (Oromia),Oromia,ET040704,Lome (OR),Oromia,630.459614,0.848265,0.989192,743.234007,637.348143
+cross_pcode_overlap,likely_split_old_to_many_new,ET071013,Bonke,SNNP,ET080212,Geressie,South Ethiopia,662.930726,0.836736,1,792.281838,662.930726
+cross_pcode_overlap,likely_split_old_to_many_new,ET041113,Meda Welabu,Oromia,ET042203,Meda Welabu,Oromia,7291.082591,0.828132,0.999571,8804.254216,7294.210327
+cross_pcode_overlap,likely_split_old_to_many_new,ET070702,South Ari (Bako Gazer),SNNP,ET080511,South Ari,South Ethiopia,1637.964333,0.805752,1,2032.839849,1637.964333
+cross_pcode_overlap,likely_split_old_to_many_new,ET070607,Ofa,SNNP,ET080107,Ofa,South Ethiopia,310.276078,0.805003,0.999262,385.434512,310.505154
+cross_pcode_overlap,likely_split_old_to_many_new,ET070205OU065,Misrak Badawacho,SNNP,ET070205,Misrak Badawacho,Central Ethiopia,239.178612,0.803222,1,297.773811,239.178612
+cross_pcode_overlap,likely_split_old_to_many_new,ET070413,Wonosho,SNNP,ET160303,Wonosho,Sidama,143.816125,0.800653,1,179.623448,143.816125
+cross_pcode_overlap,likely_split_old_to_many_new,ET070503,Kochere,SNNP,ET081103,Kochere,South Ethiopia,153.877091,0.792529,1,194.159671,153.877091
+cross_pcode_overlap,likely_split_old_to_many_new,ET010501,Kafta Humera,Tigray,ET990103,Kafta Humera,Contested,4915.343082,0.792473,0.982591,6202.536138,5002.432392
+cross_pcode_overlap,likely_split_old_to_many_new,ET041412OU033,Saba Boru,Oromia,ET041412,Saba Boru,Oromia,2263.895145,0.781327,1,2897.50183,2263.895145
+cross_pcode_overlap,likely_split_old_to_many_new,ET071007,Chencha,SNNP,ET080207,Chencha Zuriya,South Ethiopia,290.226161,0.776869,1,373.584642,290.226161
+cross_pcode_overlap,likely_split_old_to_many_new,ET042013,Sululta,Oromia,ET040620,Sululta (OR),Oromia,883.990394,0.774995,1,1140.639821,883.990394
+cross_pcode_overlap,complex_many_to_many,ET050704OU055,Warder,Somali,ET050704,Warder,Somali,8108.204522,0.770989,0.746544,10516.6292,10860.98238
+cross_pcode_overlap,likely_split_old_to_many_new,ET070106,Meskan,SNNP,ET070404,Meskan,Central Ethiopia,331.058868,0.753466,1,439.381099,331.058868
+cross_pcode_overlap,likely_split_old_to_many_new,ET050598,El-Ogaden,Somali,ET050586,Marsin,Somali,1606.211801,0.736032,0.480183,2182.258963,3344.999674
+cross_pcode_overlap,complex_many_to_many,ET020101OU001,Dubti,Afar,ET020101,Dubti,Afar,5426.572005,0.731776,0.902747,7415.62243,6011.174984
+cross_pcode_overlap,likely_split_old_to_many_new,ET041502OU064,Kercha,Oromia,ET041502,Kercha,Oromia,552.938177,0.721776,1,766.079895,552.938177
+cross_pcode_overlap,likely_split_old_to_many_new,ET070416,Bursa,SNNP,ET160401,Bursa,Sidama,159.40897,0.717515,0.998555,222.168073,159.639639
+cross_pcode_overlap,likely_split_old_to_many_new,ET070610,Kindo Dida,SNNP,ET080110,Kindo Daddaye,South Ethiopia,271.679425,0.7141,1,380.450308,271.679425
+cross_pcode_overlap,likely_split_old_to_many_new,ET071701,Tocha,SNNP,ET110401,Tocha,South West Ethiopia,529.155852,0.710375,1,744.896535,529.155852
+cross_pcode_overlap,likely_split_old_to_many_new,ET071003,Kucha,SNNP,ET080217,Kucha,South Ethiopia,987.184924,0.709246,1,1391.879148,987.184924
+cross_pcode_overlap,complex_many_to_many,ET011065,Hawelti,Tigray,ET010704,Hawelti Sub City,Tigray,8.606308,0.704162,0.543143,12.222053,15.845385
+cross_pcode_overlap,likely_split_old_to_many_new,ET041401OU035,Uraga,Oromia,ET041401,Uraga,Oromia,612.655885,0.702693,1,871.868769,612.655885
+cross_pcode_overlap,likely_split_old_to_many_new,ET070403,Arbe Gonna,SNNP,ET160301,Arbegona,Sidama,227.109356,0.695508,1,326.537376,227.109358
+cross_pcode_overlap,complex_many_to_many,ET050198,Gota-biki,Somali,ET050104,Erer (SM),Somali,729.165996,0.692796,0.17636,1052.497156,4134.525855
+cross_pcode_overlap,complex_many_to_many,ET050199,Gablalu,Somali,ET050109,Dhunyar,Somali,716.670027,0.691784,0.317938,1035.972957,2254.122091
+cross_pcode_overlap,likely_split_old_to_many_new,ET030304OU010,Meket,Amhara,ET030304,Meket,Amhara,1320.260072,0.690965,1,1910.747137,1320.260073
+cross_pcode_overlap,complex_many_to_many,ET070411,Gorche,SNNP,ET160204,Gorche,Sidama,147.317351,0.690295,0.868261,213.412142,169.66939
+cross_pcode_overlap,likely_split_old_to_many_new,ET040102OU047,Nejo,Oromia,ET040102,Nejo,Oromia,645.35018,0.689633,1,935.787673,645.35018
+cross_pcode_overlap,likely_split_old_to_many_new,ET071110,Semen Bench,SNNP,ET110305,Semen Bench,South West Ethiopia,269.444784,0.68801,1,391.629006,269.444784
+cross_pcode_overlap,complex_many_to_many,ET041703OU042,Arsi Negele,Oromia,ET041703,Arsi Negele,Oromia,1263.778752,0.687241,0.997401,1838.917551,1267.072283
+cross_pcode_overlap,likely_split_old_to_many_new,ET010408,Ofla,Tigray,ET990302,Ofla,Contested,761.835019,0.687134,0.977993,1108.714541,778.977772
+cross_pcode_overlap,likely_split_old_to_many_new,ET050206OU059,Kebribeyah,Somali,ET050206,Kebribeyah,Somali,2745.948735,0.686196,0.969305,4001.696524,2832.905826
+cross_pcode_overlap,likely_split_old_to_many_new,ET030201OU015,Ebenat,Amhara,ET030201,Ebenat,Amhara,1614.939921,0.683633,1,2362.289839,1614.939921
+cross_pcode_overlap,likely_split_old_to_many_new,ET041009OU032,Meta,Oromia,ET041009,Meta,Oromia,462.146014,0.680395,1,679.232322,462.146014
+cross_pcode_overlap,complex_many_to_many,ET050402OU057,Fik,Somali,ET050402,Fik,Somali,2787.154785,0.680004,0.910996,4098.73449,3059.459636
+cross_pcode_overlap,likely_split_old_to_many_new,ET040510OU045,Dendi,Oromia,ET040510,Dendi,Oromia,726.815657,0.679134,0.989512,1070.210118,734.519093
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041905,Abay Chomen,Oromia,ET041913,Sulula Finca'a,Oromia,563.642439,0.664887,0.446013,847.726727,1263.736371
+cross_pcode_overlap,likely_split_old_to_many_new,ET041212OU028,Teltale,Oromia,ET041212,Teltale,Oromia,7817.541837,0.664444,1,11765.53628,7817.541842
+cross_pcode_overlap,likely_split_old_to_many_new,ET070105,Sodo,SNNP,ET070403,Sodo,Central Ethiopia,553.542285,0.663471,1,834.312315,553.542287
+cross_pcode_overlap,likely_split_old_to_many_new,ET041207OU029,Yabelo,Oromia,ET041207,Yabelo,Oromia,2661.269537,0.661503,1,4023.064056,2661.269537
+cross_pcode_overlap,likely_split_old_to_many_new,ET071105,Menit Goldiye,SNNP,ET110502,Menit Goldiye,South West Ethiopia,1111.759768,0.66031,1,1683.693269,1111.759768
+cross_pcode_overlap,likely_split_old_to_many_new,ET040803OU026,Golocha,Oromia,ET040803,Golocha,Oromia,1111.356341,0.654326,1,1698.474325,1111.356341
+cross_pcode_overlap,likely_split_old_to_many_new,ET010503,Tsegede (Tigray),Tigray,ET990105,Tsegede,Contested,2148.600859,0.653662,0.983517,3287.022503,2184.610534
+cross_pcode_overlap,likely_split_old_to_many_new,ET042014OU069,Welmera,Oromia,ET040520,Welmera,Oromia,437.270577,0.648449,1,674.332832,437.270577
+cross_pcode_overlap,likely_split_old_to_many_new,ET010106,Tselemti,Tigray,ET990201,Tselemti /West Telemt,Contested,1830.116451,0.647991,0.996336,2824.293079,1836.847293
+cross_pcode_overlap,likely_split_old_to_many_new,ET041803OU041,Dale Wabera,Oromia,ET041803,Dale Wabera,Oromia,529.466673,0.639362,1,828.117246,529.466673
+cross_pcode_overlap,likely_split_old_to_many_new,ET071703,Lome (SNNP),SNNP,ET110409,Disa,South West Ethiopia,745.791974,0.636631,1,1171.465966,745.791974
+cross_pcode_overlap,likely_split_old_to_many_new,ET070908,Decha,SNNP,ET110212,Goba (SW),South West Ethiopia,1879.096219,0.636182,1,2953.70889,1879.096219
+cross_pcode_overlap,likely_split_old_to_many_new,ET042006,Sebeta Hawas,Oromia,ET041306,Sebeta Hawas,Oromia,475.498522,0.633833,1,750.195201,475.498522
+cross_pcode_overlap,likely_split_old_to_many_new,ET041903OU036,Guduru,Oromia,ET041903,Guduru,Oromia,829.469675,0.632194,0.975636,1312.04901,850.183577
+cross_pcode_overlap,likely_split_old_to_many_new,ET030704OU022,Mecha,Amhara,ET031306,Debub Mecha,Amhara,935.36605,0.629979,1,1484.758252,935.36605
+cross_pcode_overlap,complex_many_to_many,ET070401,Shebe Dino,SNNP,ET160207,Shebe Dino,Sidama,124.047351,0.629007,0.748936,197.21142,165.631442
+cross_pcode_overlap,likely_split_old_to_many_new,ET010502,Welkait,Tigray,ET990104,Welkait,Contested,2374.888953,0.62513,0.965468,3799.029963,2459.83231
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041210,Moyale (Oromia),Oromia,ET041290,Guchi,Oromia,1669.761825,0.623517,0.694063,2677.971532,2405.777951
+cross_pcode_overlap,likely_split_old_to_many_new,ET070402,Hawassa Zuria,SNNP,ET160210,Hawassa Zuria,Sidama,339.116069,0.623124,1,544.219284,339.116071
+cross_pcode_overlap,likely_split_old_to_many_new,ET030204OU014,Farta,Amhara,ET030204,Farta,Amhara,755.083314,0.618792,1,1220.253418,755.083314
+cross_pcode_overlap,likely_split_old_to_many_new,ET070408,Bensa,SNNP,ET160503,Bensa,Sidama,335.799016,0.614712,1,546.270644,335.799016
+cross_pcode_overlap,likely_split_old_to_many_new,ET070603,Damot Weydie,SNNP,ET080103,Damot Woide,South Ethiopia,215.779292,0.612785,1,352.12864,215.779292
+cross_pcode_overlap,likely_split_old_to_many_new,ET071001,Melekoza,SNNP,ET080306,Melekoza,South Ethiopia,941.466947,0.606943,1,1551.161522,941.466947
+cross_pcode_overlap,likely_split_old_to_many_new,ET020301,Amibara,Afar,ET020307,Hanruka,Afar,2104.052455,0.606434,0.999993,3469.550395,2104.066767
+cross_pcode_overlap,complex_many_to_many,ET011066,Hadnet,Tigray,ET010702,Hadnet Sub City,Tigray,12.896458,0.604323,0.198641,21.340332,64.923395
+cross_pcode_overlap,likely_split_old_to_many_new,ET031111OU004,Dembia,Amhara,ET031125,West Dembiya,Amhara,778.667513,0.60091,0.619194,1295.81457,1257.55043
+cross_pcode_overlap,likely_split_old_to_many_new,ET070506,Kochere Gedeb,SNNP,ET081106,Gedeb,South Ethiopia,189.969271,0.597978,1,317.686081,189.969278
+cross_pcode_overlap,likely_split_old_to_many_new,ET070406,Dara,SNNP,ET160407,Dara,Sidama,147.966661,0.597264,1,247.740928,147.966661
+cross_pcode_overlap,likely_split_old_to_many_new,ET030207OU017,Semada,Amhara,ET030207,Semada,Amhara,1335.036323,0.594278,1,2246.486014,1335.036323
+cross_pcode_overlap,likely_split_old_to_many_new,ET050702OU054,Bokh,Somali,ET050702,Bokh,Somali,8043.158795,0.589031,0.996179,13654.90407,8074.00826
+cross_pcode_overlap,likely_split_old_to_many_new,ET010601,Saharti Samre,Tigray,ET010606,Samre,Tigray,1022.623143,0.587273,0.986231,1741.308126,1036.900563
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET051103,Moyale (Somali),Somali,ET051198,Qada Duma,Somali,1035.99967,0.586067,0.47692,1767.716263,2172.27195
+cross_pcode_overlap,likely_split_old_to_many_new,ET030603OU007,Goncha Siso Enebse,Amhara,ET030619,Sedae,Amhara,605.879738,0.583255,1,1038.790322,605.879738
+cross_pcode_overlap,likely_split_old_to_many_new,ET071012,Kemba,SNNP,ET080215,Kemba Zuria,South Ethiopia,673.602379,0.580062,1,1161.259598,673.602379
+cross_pcode_overlap,complex_many_to_many,ET050898,Kohle/Qoxle,Somali,ET050807,Barey,Somali,1483.082589,0.572056,0.241322,2592.546368,6145.655717
+cross_pcode_overlap,likely_merge_many_old_to_new,ET040703,Adama,Oromia,ET040714,Adama town,Oromia,469.119976,0.570719,0.727117,821.98079,645.178476
+cross_pcode_overlap,likely_split_old_to_many_new,ET040502OU044,Jeldu,Oromia,ET040502,Jeldu,Oromia,749.007165,0.570491,1,1312.917555,749.007165
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET051104,Hudet,Somali,ET051187,Mubarek,Somali,1737.900492,0.566496,0.234079,3067.807618,7424.41385
+cross_pcode_overlap,likely_split_old_to_many_new,ET071704,Gena Bosa,SNNP,ET110410,Zabagazo,South West Ethiopia,512.9391,0.56411,1,909.288401,512.9391
+cross_pcode_overlap,likely_split_old_to_many_new,ET070407,Hulla,SNNP,ET160409,Hulla,Sidama,161.755514,0.558639,1,289.552988,161.755514
+cross_pcode_overlap,likely_split_old_to_many_new,ET071106,Menit Shasha,SNNP,ET110504,Menit Shasha,South West Ethiopia,1585.765873,0.542383,1,2923.701607,1585.765873
+cross_pcode_overlap,likely_split_old_to_many_new,ET041211OU027,Dire,Oromia,ET041211,Dire,Oromia,2744.705488,0.54042,1,5078.84071,2744.706434
+cross_pcode_overlap,complex_many_to_many,ET070504,Bule,SNNP,ET081107,Rape,South Ethiopia,148.29479,0.540029,0.886372,274.605272,167.305452
+cross_pcode_overlap,complex_many_to_many,ET050404OU056,Hamero,Somali,ET050404,Hamero,Somali,1768.772353,0.53905,0.775329,3281.277202,2281.318035
+cross_pcode_overlap,likely_split_old_to_many_new,ET050601OU071,East Imi,Somali,ET050601,East Imi,Somali,2965.140625,0.538126,0.990855,5510.127038,2992.506747
+cross_pcode_overlap,likely_split_old_to_many_new,ET040415OU038,Chora (Jimma),Oromia,ET040495,Botor Tolay,Oromia,958.01,0.534385,1,1792.733398,958.01
+cross_pcode_overlap,likely_split_old_to_many_new,ET041208OU030,Arero,Oromia,ET042208,Wachile,Oromia,5066.440433,0.529646,1,9565.712582,5066.440433
+cross_pcode_overlap,likely_split_old_to_many_new,ET040514OU046,Meta Robi,Oromia,ET040594,Meta Walkite,Oromia,506.322894,0.527842,1,959.231273,506.322894
+cross_pcode_overlap,likely_split_old_to_many_new,ET050205OU058,Aw-bare,Somali,ET050205,Aw-Bare,Somali,1764.665731,0.527544,0.999824,3345.05704,1764.976131
+cross_pcode_overlap,likely_split_old_to_many_new,ET040901OU043,Mieso,Oromia,ET040901,Mieso,Oromia,1507.25945,0.520479,1,2895.909205,1507.259542
+cross_pcode_overlap,likely_split_old_to_many_new,ET070909,Chena,SNNP,ET110213,Shisho Ande,South West Ethiopia,549.477752,0.520247,1,1056.186227,549.477752
+cross_pcode_overlap,likely_split_old_to_many_new,ET050302OU060,Degehabur,Somali,ET050302,Degehabur,Somali,3417.867321,0.519238,0.948391,6582.46208,3603.858193
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070201,Misha,SNNP,ET070215,Ameka,Central Ethiopia,188.058338,0.517918,1,363.104185,188.058339
+cross_pcode_overlap,likely_split_old_to_many_new,ET030903OU002,Ankasha,Amhara,ET030908,Ayehu Guwagusa,Amhara,537.979899,0.515534,1,1043.539353,537.979899
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041006,Haro Maya,Oromia,ET041019,Maya town,Oromia,262.010742,0.514603,0.735819,509.150887,356.08047
+cross_pcode_overlap,likely_split_old_to_many_new,ET010202,Aheferom,Tigray,ET010216,Egela,Tigray,649.425071,0.513934,0.967728,1263.63402,671.082135
+cross_pcode_overlap,complex_many_to_many,ET010208,Kola Temben,Tigray,ET010221,Keyhe tekli,Tigray,700.921035,0.512777,0.979842,1366.912575,715.341003
+cross_pcode_overlap,likely_split_old_to_many_new,ET072101OU050,Halaba SP Woreda,SNNP,ET071404,Wera Djo,Central Ethiopia,501.080826,0.512558,1,977.607094,501.080826
+cross_pcode_overlap,likely_split_old_to_many_new,ET041407OU034,Liben,Oromia,ET042202,Liben,Oromia,2645.120142,0.511999,1,5166.258104,2645.120142
+cross_pcode_overlap,likely_split_old_to_many_new,ET040410OU039,Dedo,Oromia,ET040410,Dedo,Oromia,784.823094,0.508848,1,1542.352653,784.823094
+cross_pcode_overlap,likely_split_old_to_many_new,ET071901,Ela (Konta) SP Woreda,SNNP,ET110601,Konta Koysha,South West Ethiopia,1193.361014,0.507052,1,2353.526841,1193.361014
+cross_pcode_overlap,likely_split_old_to_many_new,ET040411OU040,Omo Nada,Oromia,ET040491,Omo Beyam,Oromia,799.698153,0.505782,1,1581.112136,799.698155
+cross_pcode_overlap,likely_merge_many_old_to_new,ET031120,Tach Armacho,Amhara,ET031119,Masero Denb /Central Armacho,Amhara,1367.234566,0.504581,0.920538,2709.645691,1485.255269
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050290,Goljano,Somali,ET050301,Degehamedo,Somali,364.309038,0.497281,0.103357,732.601456,3524.777979
+cross_pcode_overlap,likely_split_old_to_many_new,ET040411OU040,Omo Nada,Oromia,ET040411,Omo Nada,Oromia,781.413981,0.494218,1,1581.112136,781.413981
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041290,Guchi,Oromia,ET041210,Moyale (OR),Oromia,717.642142,0.493438,0.416549,1454.370212,1722.827867
+cross_pcode_overlap,likely_split_old_to_many_new,ET040410OU039,Dedo,Oromia,ET040490,Mancho,Oromia,757.529559,0.491152,1,1542.352653,757.529559
+cross_pcode_overlap,likely_split_old_to_many_new,ET041901OU037,Horo,Oromia,ET041912,Horo Buluk,Oromia,440.983927,0.489343,1,901.175356,440.983927
+cross_pcode_overlap,complex_many_to_many,ET070409,Aroresa,SNNP,ET160507,Aroresa,Sidama,368.917918,0.48921,0.906311,754.110283,407.054328
+cross_pcode_overlap,likely_split_old_to_many_new,ET031112OU003,Chilga,Amhara,ET031205,Adagn Ager Chaqo,Amhara,1482.082706,0.48813,1,3036.247883,1482.082706
+cross_pcode_overlap,likely_split_old_to_many_new,ET041407OU034,Liben,Oromia,ET042206,Gumi Idalo,Oromia,2521.137962,0.488001,1,5166.258104,2521.137963
+cross_pcode_overlap,likely_split_old_to_many_new,ET070415,Chire,SNNP,ET160506,Chire,Sidama,165.031662,0.485787,1,339.72002,165.031675
+cross_pcode_overlap,likely_merge_many_old_to_new,ET140104,Bole,Addis Ababa,ET140111,Lemi Kura Sub City,Addis Ababa,61.322347,0.483881,0.686485,126.730344,89.32796
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050899,God-god,Somali,ET050807,Barey,Somali,1130.761636,0.482974,0.183994,2341.246102,6145.655717
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET020403,Teru,Afar,ET020406,Mabay,Afar,2778.613629,0.479581,1,5793.834685,2778.613629
+cross_pcode_overlap,likely_split_old_to_many_new,ET040901OU043,Mieso,Oromia,ET040991,Gumbi Bordede,Oromia,1383.245563,0.477655,1,2895.909205,1383.24566
+cross_pcode_overlap,likely_split_old_to_many_new,ET050604OU062,Gode,Somali,ET050604,Gode,Somali,1971.4402,0.476684,0.94835,4135.741619,2078.810503
+cross_pcode_overlap,likely_split_old_to_many_new,ET030903OU002,Ankasha,Amhara,ET030903,Ankasha,Amhara,497.344268,0.476594,1,1043.539353,497.344268
+cross_pcode_overlap,likely_split_old_to_many_new,ET040514OU046,Meta Robi,Oromia,ET040514,Meta Robi,Oromia,452.908379,0.472158,1,959.231273,452.908379
+cross_pcode_overlap,complex_many_to_many,ET050604OU062,Gode,Somali,ET050698,Elale,Somali,1950.17228,0.471541,0.71437,4135.741619,2729.920721
+cross_pcode_overlap,likely_split_old_to_many_new,ET050902OU061,Dolo Odo,Somali,ET050999,Bokolmayo,Somali,4462.153598,0.470637,0.9532,9481.088512,4681.23526
+cross_pcode_overlap,likely_split_old_to_many_new,ET041208OU030,Arero,Oromia,ET042207,Arero,Oromia,4499.272132,0.470354,1,9565.712582,4499.272132
+cross_pcode_overlap,likely_split_old_to_many_new,ET040415OU038,Chora (Jimma),Oromia,ET040415,Chora (Jimma),Oromia,834.723398,0.465615,1,1792.733398,834.723398
+cross_pcode_overlap,likely_split_old_to_many_new,ET070409,Aroresa,SNNP,ET160508,Hokko,Sidama,350.046754,0.464185,1,754.110283,350.046754
+cross_pcode_overlap,complex_many_to_many,ET041797,Wondo,Oromia,ET041711,Shashemene town,Oromia,34.845782,0.462704,0.073631,75.30905,473.249753
+cross_pcode_overlap,complex_many_to_many,ET041712,Shashemene Zuria,Oromia,ET041711,Shashemene town,Oromia,323.171892,0.460088,0.682878,702.413543,473.249753
+cross_pcode_overlap,likely_split_old_to_many_new,ET070504,Bule,SNNP,ET081104,Bule,South Ethiopia,126.310482,0.459971,1,274.605272,126.310482
+cross_pcode_overlap,likely_split_old_to_many_new,ET041211OU027,Dire,Oromia,ET041291,Dubluk,Oromia,2334.135217,0.45958,1,5078.84071,2334.135217
+cross_pcode_overlap,likely_split_old_to_many_new,ET050106,Hadhagala,Somali,ET050199,Gablalu,Somali,4659.492938,0.456551,0.928231,10205.85028,5019.75823
+cross_pcode_overlap,likely_split_old_to_many_new,ET071106,Menit Shasha,SNNP,ET110503,Gori Gesha,South West Ethiopia,1321.856693,0.452118,1,2923.701607,1321.856693
+cross_pcode_overlap,likely_split_old_to_many_new,ET042011,Bereh,Oromia,ET040619,Bereh,Oromia,318.225514,0.451246,0.998979,705.215077,318.550889
+cross_pcode_overlap,complex_many_to_many,ET010307,Atsbi Wenberta,Tigray,ET010316,Agulae,Tigray,518.012431,0.450778,0.551739,1149.151551,938.872362
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET050105,Afdem,Somali,ET050198,Gota-Biki,Somali,886.019347,0.449191,0.780791,1972.479574,1134.771135
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070303,Kediada Gambela,SNNP,ET070309,Adilo,Central Ethiopia,79.201408,0.448722,1,176.504243,79.201408
+cross_pcode_overlap,likely_split_old_to_many_new,ET072003,Lanfero,SNNP,ET072012,Mito,Central Ethiopia,205.872603,0.446035,1,461.561036,205.872603
+cross_pcode_overlap,likely_split_old_to_many_new,ET042012,Akaki,Oromia,ET040712,Akaki,Oromia,242.417375,0.44564,0.999999,543.97588,242.417582
+cross_pcode_overlap,likely_split_old_to_many_new,ET010603,Hintalo Wajirat,Tigray,ET010608,Wajirat,Tigray,868.310564,0.438287,0.988678,1981.147208,878.25422
+cross_pcode_overlap,likely_split_old_to_many_new,ET020203,Aba 'Ala,Afar,ET020210,Wasama,Afar,504.688415,0.438074,1,1152.062621,504.688415
+cross_pcode_overlap,likely_split_old_to_many_new,ET071704,Gena Bosa,SNNP,ET110404,Gena,South West Ethiopia,396.349301,0.43589,1,909.288401,396.349301
+cross_pcode_overlap,likely_split_old_to_many_new,ET040502OU044,Jeldu,Oromia,ET040592,Cobi,Oromia,563.91039,0.429509,1,1312.917555,563.91039
+cross_pcode_overlap,complex_many_to_many,ET042009O,Sebeta /Town/,Oromia,ET042011,Sebeta,Oromia,55.914171,0.428879,0.259852,130.372905,215.176674
+cross_pcode_overlap,complex_many_to_many,ET010303,Saesie Tsaedamba,Tigray,ET010314,Tsaeda Emba,Tigray,450.208559,0.42839,0.884845,1050.931519,508.799513
+cross_pcode_overlap,likely_split_old_to_many_new,ET010406,Raya Azebo,Tigray,ET990306,Chercher,Contested,741.152388,0.426,0.990335,1739.794364,748.385542
+cross_pcode_overlap,complex_many_to_many,ET042001,Burayu,Oromia,ET042006,Gefersa Guje,Oromia,35.925792,0.425942,0.209551,84.344338,171.441385
+cross_pcode_overlap,likely_split_old_to_many_new,ET071012,Kemba,SNNP,ET080211,Garda Marta,South Ethiopia,485.244384,0.41786,1,1161.259598,485.244384
+cross_pcode_overlap,complex_many_to_many,ET070410,Boricha,SNNP,ET160209,Bilate Zuria,Sidama,245.251116,0.416251,0.90221,589.190689,271.8337
+cross_pcode_overlap,complex_many_to_many,ET051006,Dihun,Somali,ET051001,Ayun,Somali,1229.715154,0.414554,0.633304,2966.360109,1941.745535
+cross_pcode_overlap,likely_split_old_to_many_new,ET030603OU007,Goncha Siso Enebse,Amhara,ET030603,Goncha Siso Enebse,Amhara,429.041521,0.41302,1,1038.790322,429.04169
+cross_pcode_overlap,likely_split_old_to_many_new,ET010105,Asgede Tsimbila,Tigray,ET010113,Tsimbla,Tigray,974.750671,0.411608,0.971439,2368.154595,1003.40917
+cross_pcode_overlap,complex_many_to_many,ET010306,Kelete Awelallo,Tigray,ET010316,Agulae,Tigray,397.384266,0.410931,0.423257,967.035195,938.872362
+cross_pcode_overlap,complex_many_to_many,ET011064,Kedamay Weyane,Tigray,ET010707,Semen Sub City,Tigray,1.929601,0.410656,0.053354,4.698829,36.165967
+cross_pcode_overlap,likely_merge_many_old_to_new,ET010207,Naeder Adet,Tigray,ET010209,Naeder,Tigray,384.65737,0.409652,0.785617,938.986527,489.624441
+cross_pcode_overlap,likely_split_old_to_many_new,ET070909,Chena,SNNP,ET110209,Chena,South West Ethiopia,432.036352,0.409053,1,1056.186227,432.036352
+cross_pcode_overlap,likely_split_old_to_many_new,ET071305,Konso,SNNP,ET080902,Karat Zuria,South Ethiopia,953.274331,0.40845,1,2333.884889,953.274331
+cross_pcode_overlap,likely_split_old_to_many_new,ET030207OU017,Semada,Amhara,ET030214,Sede Muja,Amhara,906.627435,0.403576,1,2246.486014,906.627435
+cross_pcode_overlap,complex_many_to_many,ET070406,Dara,SNNP,ET160408,Dara Otilicho,Sidama,99.774267,0.402736,0.868417,247.740928,114.892058
+cross_pcode_overlap,complex_many_to_many,ET070415,Chire,SNNP,ET160505,Daella,Sidama,136.551949,0.401954,0.884429,339.72002,154.395544
+cross_pcode_overlap,complex_many_to_many,ET050205OU058,Aw-bare,Somali,ET050299,Harawo,Somali,1334.476238,0.39894,0.869187,3345.05704,1535.315861
+cross_pcode_overlap,complex_many_to_many,ET070410,Boricha,SNNP,ET160306,Darara,Sidama,233.287983,0.395946,0.846085,589.190689,275.72639
+cross_pcode_overlap,likely_split_old_to_many_new,ET071702,Mareka,SNNP,ET110402,Mareka,South West Ethiopia,182.584557,0.395127,1,462.091185,182.584557
+cross_pcode_overlap,likely_split_old_to_many_new,ET041901OU037,Horo,Oromia,ET041901,Horo,Oromia,355.97072,0.395007,1,901.175356,355.97072
+cross_pcode_overlap,likely_split_old_to_many_new,ET010102,Laelay Adiabo,Tigray,ET010110,Seyemti Adyabo,Tigray,706.534649,0.394289,0.996535,1791.920657,708.991051
+cross_pcode_overlap,likely_split_old_to_many_new,ET050702OU054,Bokh,Somali,ET050799,Galhamur,Somali,5367.810042,0.393105,1,13654.90407,5367.810509
+cross_pcode_overlap,likely_split_old_to_many_new,ET071702,Mareka,SNNP,ET110408,Mari Mansa,South West Ethiopia,181.377539,0.392515,1,462.091185,181.377539
+cross_pcode_overlap,likely_split_old_to_many_new,ET071001,Melekoza,SNNP,ET080307,Melo Gada,South Ethiopia,608.267272,0.392137,1,1551.161522,608.267272
+cross_pcode_overlap,complex_many_to_many,ET070604OU053,Humbo,SNNP,ET080119,Hobicha Abaya,South Ethiopia,335.897202,0.387188,0.752753,867.530089,446.225117
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041411,Ana Sora,Oromia,ET041409,Arda Jila,Oromia,294.66762,0.386957,1,761.499346,294.66762
+cross_pcode_overlap,likely_split_old_to_many_new,ET030204OU014,Farta,Amhara,ET030212,Guna Begemider,Amhara,465.170104,0.381208,1,1220.253418,465.170104
+cross_pcode_overlap,likely_split_old_to_many_new,ET010201,Mereb Lehe,Tigray,ET010214,Rama Adi Arbaete,Tigray,468.954407,0.380582,0.980014,1232.202215,478.518186
+cross_pcode_overlap,complex_many_to_many,ET050699,Aba-korow,Somali,ET050608,Berocano,Somali,440.298708,0.375591,0.171205,1172.281232,2571.759866
+cross_pcode_overlap,likely_split_old_to_many_new,ET070604OU053,Humbo,SNNP,ET080104,Humbo,South Ethiopia,323.302219,0.37267,1,867.530089,323.302219
+cross_pcode_overlap,likely_split_old_to_many_new,ET010102,Laelay Adiabo,Tigray,ET010111,Adi Daero,Tigray,664.942996,0.371078,0.992622,1791.920657,669.885174
+cross_pcode_overlap,likely_split_old_to_many_new,ET031111OU004,Dembia,Amhara,ET031111,East Dembia,Amhara,479.993067,0.370418,0.688562,1295.81457,697.094709
+cross_pcode_overlap,likely_split_old_to_many_new,ET010103,Medebay Zana,Tigray,ET010109,Laelay Koraro,Tigray,383.847968,0.36839,0.960941,1041.961312,399.449991
+cross_pcode_overlap,likely_split_old_to_many_new,ET030704OU022,Mecha,Amhara,ET031304,Mecha,Amhara,546.509248,0.36808,1,1484.758252,546.509248
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070111,Enemorina Eaner,SNNP,ET070120,Enor Ener,Central Ethiopia,334.264922,0.367896,1,908.586023,334.264922
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050202,Gursum (Somali),Somali,ET050204,Shabeeley,Somali,120.095323,0.367531,0.074065,326.762566,1621.484028
+cross_pcode_overlap,likely_split_old_to_many_new,ET071703,Lome (SNNP),SNNP,ET110403,Loma,South West Ethiopia,424.357577,0.362245,1,1171.465966,424.357577
+cross_pcode_overlap,likely_split_old_to_many_new,ET041803OU041,Dale Wabera,Oromia,ET041812,Sedi Chenka,Oromia,298.650573,0.360638,1,828.117246,298.650573
+cross_pcode_overlap,likely_split_old_to_many_new,ET010203,Werei Leke,Tigray,ET010218,Endafelasi,Tigray,455.188155,0.358823,0.986816,1268.559519,461.269428
+cross_pcode_overlap,likely_split_old_to_many_new,ET071901,Ela (Konta) SP Woreda,SNNP,ET110605,Ameya Zuria,South West Ethiopia,844.37851,0.358772,1,2353.526841,844.37851
+cross_pcode_overlap,likely_split_old_to_many_new,ET070908,Decha,SNNP,ET110208,Decha,South West Ethiopia,1046.730397,0.354378,1,2953.70889,1046.730398
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041904,Ababo,Oromia,ET041913,Sulula Finca'a,Oromia,338.092394,0.354234,0.267534,954.433323,1263.736371
+cross_pcode_overlap,complex_many_to_many,ET070401,Shebe Dino,SNNP,ET160205,Hawela,Sidama,69.820398,0.354038,0.740163,197.21142,94.331098
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET050107,Miesso,Somali,ET050108,Daymeed,Somali,302.067451,0.349781,0.95477,863.589692,316.377357
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET051198,Qada Duma,Somali,ET051103,Moyale (SM),Somali,584.236721,0.348361,0.417337,1677.100418,1399.916465
+cross_pcode_overlap,likely_split_old_to_many_new,ET050902OU061,Dolo Odo,Somali,ET050902,Dolo Ado,Somali,3296.624927,0.347705,0.957048,9481.088512,3444.577187
+cross_pcode_overlap,likely_split_old_to_many_new,ET040803OU026,Golocha,Oromia,ET040893,Shanan Kolu,Oromia,587.117984,0.345674,1,1698.474325,587.117984
+cross_pcode_overlap,complex_many_to_many,ET070506,Kochere Gedeb,SNNP,ET081108,Churso,South Ethiopia,109.330146,0.344145,0.612235,317.686081,178.575481
+cross_pcode_overlap,likely_merge_many_old_to_new,ET040706,Ada'a,Oromia,ET040709,Bishoftu town,Oromia,261.106824,0.343825,0.509995,759.416828,511.978768
+cross_pcode_overlap,complex_many_to_many,ET042011,Bereh,Oromia,ET042008,Kura Jida,Oromia,240.456728,0.340969,0.979873,705.215077,245.395745
+cross_pcode_overlap,likely_split_old_to_many_new,ET041903OU036,Guduru,Oromia,ET041911,Choman Guduru,Oromia,445.474095,0.339525,0.978522,1312.04901,455.25223
+cross_pcode_overlap,complex_many_to_many,ET042009O,Sebeta /Town/,Oromia,ET042005,Galan Gudo,Oromia,43.85962,0.336417,0.289928,130.372905,151.277866
+cross_pcode_overlap,likely_split_old_to_many_new,ET041212OU028,Teltale,Oromia,ET041295,Elwaya,Oromia,3947.99444,0.335556,1,11765.53628,3947.994461
+cross_pcode_overlap,likely_split_old_to_many_new,ET041207OU029,Yabelo,Oromia,ET041223,Gomole,Oromia,1345.744147,0.334507,1,4023.064056,1345.744147
+cross_pcode_overlap,likely_split_old_to_many_new,ET010106,Tselemti,Tigray,ET990202,Laelay Tselemti,Contested,943.372451,0.334021,0.99977,2824.293079,943.589288
+cross_pcode_overlap,likely_split_old_to_many_new,ET070105,Sodo,SNNP,ET070406,Debub Sodo,Central Ethiopia,277.257356,0.332318,1,834.312315,277.257356
+cross_pcode_overlap,likely_split_old_to_many_new,ET010503,Tsegede (Tigray),Tigray,ET990107,Dansha town,Contested,1085.645124,0.330282,0.998861,3287.022503,1086.883263
+cross_pcode_overlap,complex_many_to_many,ET070402,Hawassa Zuria,SNNP,ET160101,Hawassa town,Sidama,178.520631,0.328031,0.859812,544.219284,207.627588
+cross_pcode_overlap,likely_split_old_to_many_new,ET072101OU050,Halaba SP Woreda,SNNP,ET071402,Wera,Central Ethiopia,318.668214,0.325968,1,977.607094,318.668214
+cross_pcode_overlap,likely_merge_many_old_to_new,ET140107,Yeka,Addis Ababa,ET140111,Lemi Kura Sub City,Addis Ababa,27.823811,0.325787,0.311479,85.404917,89.32796
+cross_pcode_overlap,likely_split_old_to_many_new,ET040510OU045,Dendi,Oromia,ET040590,Ejersa Lafo,Oromia,343.394461,0.320866,1,1070.210118,343.394461
+cross_pcode_overlap,likely_split_old_to_many_new,ET041009OU032,Meta,Oromia,ET041089,Goro Muti,Oromia,217.086308,0.319605,1,679.232322,217.086308
+cross_pcode_overlap,likely_split_old_to_many_new,ET030201OU015,Ebenat,Amhara,ET030213,Mena Meketewa,Amhara,745.19705,0.315455,1,2362.289839,745.19705
+cross_pcode_overlap,complex_many_to_many,ET010604,Dega Temben,Tigray,ET010602,Enderta,Tigray,327.026563,0.314256,0.203281,1040.638506,1608.745266
+cross_pcode_overlap,likely_split_old_to_many_new,ET071110,Semen Bench,SNNP,ET110306,Gidi Bench,South West Ethiopia,122.184222,0.31199,1,391.629006,122.184222
+cross_pcode_overlap,likely_split_old_to_many_new,ET040102OU047,Nejo,Oromia,ET040197,Leta Sibu,Oromia,290.437492,0.310367,1,935.787673,290.437492
+cross_pcode_overlap,likely_split_old_to_many_new,ET071105,Menit Goldiye,SNNP,ET110501,Gachit,South West Ethiopia,521.447193,0.309704,1,1683.693269,521.447193
+cross_pcode_overlap,likely_split_old_to_many_new,ET070206,Soro,SNNP,ET070217,Mirab Soro,Central Ethiopia,226.156364,0.309353,1,731.062213,226.156366
+cross_pcode_overlap,complex_many_to_many,ET050199,Gablalu,Somali,ET050105,Afdem,Somali,317.723742,0.306691,0.216474,1035.972957,1467.724505
+cross_pcode_overlap,complex_many_to_many,ET070603,Damot Weydie,SNNP,ET080119,Hobicha Abaya,South Ethiopia,107.578406,0.305509,0.241086,352.12864,446.225117
+cross_pcode_overlap,likely_split_old_to_many_new,ET030304OU010,Meket,Amhara,ET030312,Gazo,Amhara,578.96838,0.303006,1,1910.747137,578.96838
+cross_pcode_overlap,likely_split_old_to_many_new,ET041703OU042,Arsi Negele,Oromia,ET041783,Heban Arsi,Oromia,552.082059,0.300221,1,1838.917551,552.082059
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET060301,Menge,Benishangul Gumz,ET060308,Undulu,Benishangul-Gumuz,462.166937,0.299888,1,1541.13344,462.166937
+cross_pcode_overlap,likely_split_old_to_many_new,ET041401OU035,Uraga,Oromia,ET041490,Haro Walabu,Oromia,259.212883,0.297307,1,871.868769,259.212883
+cross_pcode_overlap,complex_many_to_many,ET011065,Hawelti,Tigray,ET010703,Ayder Sub City,Tigray,3.575761,0.292566,0.085863,12.222053,41.645155
+cross_pcode_overlap,likely_split_old_to_many_new,ET071305,Konso,SNNP,ET080905,Kolme,South Ethiopia,680.566616,0.291602,1,2333.884889,680.566616
+cross_pcode_overlap,likely_split_old_to_many_new,ET071701,Tocha,SNNP,ET110406,Kachi,South West Ethiopia,215.740683,0.289625,1,744.896535,215.740683
+cross_pcode_overlap,complex_many_to_many,ET042001,Burayu,Oromia,ET042010,Melka Nonno,Oromia,24.411354,0.289425,0.610094,84.344338,40.012454
+cross_pcode_overlap,likely_split_old_to_many_new,ET071003,Kucha,SNNP,ET080218,Kucha Alpha,South Ethiopia,401.266419,0.288291,1,1391.879148,401.266419
+cross_pcode_overlap,likely_split_old_to_many_new,ET010201,Mereb Lehe,Tigray,ET010215,Ahsea,Tigray,353.395286,0.2868,0.976457,1232.202215,361.91583
+cross_pcode_overlap,likely_split_old_to_many_new,ET060303,Assosa,Benishangul Gumz,ET060311,Ura,Benishangul-Gumuz,836.53752,0.286407,1,2920.801233,836.53752
+cross_pcode_overlap,complex_many_to_many,ET070610,Kindo Dida,SNNP,ET080120,Kawo Koyesha,South Ethiopia,108.541807,0.285298,0.664199,380.450308,163.417668
+cross_pcode_overlap,likely_split_old_to_many_new,ET010304,Ganta Afeshum,Tigray,ET010310,Bizet,Tigray,148.154439,0.282246,0.926492,524.912278,159.908991
+cross_pcode_overlap,complex_many_to_many,ET010404,Alage,Tigray,ET010401,Selewa,Tigray,213.017064,0.268899,0.773304,792.182639,275.463523
+cross_pcode_overlap,likely_split_old_to_many_new,ET041502OU064,Kercha,Oromia,ET041596,Birbirsa Kojowa,Oromia,204.739081,0.267256,1,766.079895,204.739081
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030802,Sekota,Amhara,ET030808,Tsagbeji,Amhara,443.994804,0.262156,1,1693.62679,443.994808
+cross_pcode_overlap,likely_split_old_to_many_new,ET050502OU070,Kebridehar,Somali,ET050502,Kebridehar,Somali,2340.347691,0.261722,0.999074,8942.102647,2342.516676
+cross_pcode_overlap,likely_split_old_to_many_new,ET010405,Endamehoni,Tigray,ET010403,Neqsege,Tigray,164.572479,0.256336,0.976267,642.017368,168.573284
+cross_pcode_overlap,likely_split_old_to_many_new,ET042012,Akaki,Oromia,ET042007,Koye,Oromia,139.411737,0.256283,0.996916,543.97588,139.843022
+cross_pcode_overlap,likely_split_old_to_many_new,ET020303,Gewane,Afar,ET020604,Sibaybi,Afar,2175.693753,0.251244,0.999994,8659.700837,2175.707871
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041908,Jarte Jardega,Oromia,ET041913,Sulula Finca'a,Oromia,256.487361,0.250136,0.20296,1025.392758,1263.736371
+cross_pcode_overlap,likely_split_old_to_many_new,ET010408,Ofla,Tigray,ET990305,Zata,Contested,276.21265,0.249129,0.990934,1108.714541,278.739819
+cross_pcode_overlap,likely_split_old_to_many_new,ET070106,Meskan,SNNP,ET070405,Misrak Meskan,Central Ethiopia,108.322231,0.246534,0.999995,439.381099,108.322719
+cross_pcode_overlap,likely_split_old_to_many_new,ET010203,Werei Leke,Tigray,ET010219,Emba Sieneti,Tigray,312.24275,0.24614,0.974114,1268.559519,320.540271
+cross_pcode_overlap,complex_many_to_many,ET050404OU056,Hamero,Somali,ET050498,Yahob,Somali,804.788644,0.245267,0.471733,3281.277202,1706.027363
+cross_pcode_overlap,likely_split_old_to_many_new,ET020103,Asayita,Afar,ET020104,Afambo,Afar,397.263198,0.236855,0.19499,1677.244492,2037.355179
+cross_pcode_overlap,likely_split_old_to_many_new,ET031112OU003,Chilga,Amhara,ET031106,Chilga 1,Amhara,719.004087,0.236807,1,3036.247883,719.004087
+cross_pcode_overlap,complex_many_to_many,ET011066,Hadnet,Tigray,ET010706,Qedamay Weyane Sub City,Tigray,5.045581,0.236434,0.797397,21.340332,6.327568
+cross_pcode_overlap,likely_split_old_to_many_new,ET070604OU053,Humbo,SNNP,ET080121,Abela Abaya,South Ethiopia,204.881693,0.236167,1,867.530089,204.881693
+cross_pcode_overlap,complex_many_to_many,ET070403,Arbe Gonna,SNNP,ET160302,Shafamo,Sidama,77.075982,0.23604,0.664553,326.537376,115.981733
+cross_pcode_overlap,likely_split_old_to_many_new,ET031112OU003,Chilga,Amhara,ET031112,Chilga 2,Amhara,714.151719,0.235209,0.95461,3036.247883,748.108122
+cross_pcode_overlap,complex_many_to_many,ET042009O,Sebeta /Town/,Oromia,ET042003,Furi,Oromia,30.599114,0.234705,0.645279,130.372905,47.419999
+cross_pcode_overlap,complex_many_to_many,ET050598,El-Ogaden,Somali,ET050595,Goglo,Somali,511.221365,0.234262,0.216809,2182.258963,2357.931524
+cross_pcode_overlap,likely_split_old_to_many_new,ET010101,Tahtay Adiyabo,Tigray,ET010112,Maekel Adiyabo,Tigray,891.276437,0.23154,0.980887,3849.340268,908.643059
+cross_pcode_overlap,likely_split_old_to_many_new,ET010404,Alage,Tigray,ET010402,Bora (TG),Tigray,182.965955,0.230964,0.980098,792.182639,186.681302
+cross_pcode_overlap,likely_split_old_to_many_new,ET072002,Silti,SNNP,ET072013,Misrak Siltie,Central Ethiopia,114.216555,0.228672,1,499.477697,114.216555
+cross_pcode_overlap,complex_many_to_many,ET070407,Hulla,SNNP,ET160410,Chirone,Sidama,65.614673,0.226607,0.906225,289.552988,72.404378
+cross_pcode_overlap,complex_many_to_many,ET011064,Kedamay Weyane,Tigray,ET010701,Kuiha Sub City,Tigray,1.064189,0.22648,0.007264,4.698829,146.502445
+cross_pcode_overlap,complex_many_to_many,ET020303,Gewane,Afar,ET020603,Yangudi,Afar,1958.242713,0.226133,0.937625,8659.700837,2088.513723
+cross_pcode_overlap,complex_many_to_many,ET011064,Kedamay Weyane,Tigray,ET010706,Qedamay Weyane Sub City,Tigray,1.060813,0.225761,0.167649,4.698829,6.327568
+cross_pcode_overlap,complex_many_to_many,ET020101OU001,Dubti,Afar,ET020601,Gerani,Afar,1673.067315,0.225614,0.799667,7415.62243,2092.205422
+cross_pcode_overlap,complex_many_to_many,ET050704OU055,Warder,Somali,ET050798,Lehel-Yucub,Somali,2360.352958,0.22444,0.824426,10516.6292,2863.025594
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050395,Ararso,Somali,ET050297,Koran /Mulla,Somali,278.089078,0.219052,0.189265,1269.510063,1469.310605
+cross_pcode_overlap,likely_split_old_to_many_new,ET041412OU033,Saba Boru,Oromia,ET041482,Aga Wayu,Oromia,633.606685,0.218673,0.998983,2897.50183,634.25184
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050603,Danan,Somali,ET051095,Horshagah,Somali,630.27958,0.216482,0.28298,2911.466782,2227.296859
+cross_pcode_overlap,complex_many_to_many,ET051003,Garbo,Somali,ET051096,Hararey,Somali,975.721951,0.214962,0.690247,4539.053764,1413.582897
+cross_pcode_overlap,complex_many_to_many,ET070407,Hulla,SNNP,ET160402,Teticha,Sidama,62.182787,0.214754,0.48842,289.552988,127.314205
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050597,Higloley,Somali,ET050504,Debeweyin,Somali,327.749278,0.213347,0.146855,1536.226206,2231.781052
+cross_pcode_overlap,likely_split_old_to_many_new,ET010502,Welkait,Tigray,ET990108,Awra,Contested,810.341583,0.213302,0.951081,3799.029963,852.021779
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050904,Guradamole,Somali,ET050903,Goro Baqaqsa,Somali,524.545254,0.212665,0.113204,2466.529382,4633.619036
+cross_pcode_overlap,likely_split_old_to_many_new,ET071702,Mareka,SNNP,ET110407,Tercha Zuriya,South West Ethiopia,98.12909,0.212359,1,462.091185,98.12909
+cross_pcode_overlap,likely_split_old_to_many_new,ET071007,Chencha,SNNP,ET080216,Kogota /Ezo,South Ethiopia,78.484655,0.210085,1,373.584642,78.484655
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050504,Debeweyin,Somali,ET050698,Elale,Somali,416.66881,0.207032,0.15263,2012.577034,2729.920721
+cross_pcode_overlap,complex_many_to_many,ET020105,Mile,Afar,ET020602,Kilalu,Afar,838.727376,0.206188,0.359841,4067.774878,2330.827023
+cross_pcode_overlap,likely_split_old_to_many_new,ET140103,Kolfe - Keran,Addis Ababa,ET140108,Addis Ketema Sub City,Addis Ababa,14.077149,0.205542,0.666238,68.487954,21.129302
+cross_pcode_overlap,complex_many_to_many,ET050502OU070,Kebridehar,Somali,ET050595,Goglo,Somali,1837.348774,0.205472,0.779221,8942.102647,2357.931524
+cross_pcode_overlap,complex_many_to_many,ET010206,Tahtay Mayechew,Tigray,ET010201,Chila,Tigray,119.192413,0.202147,0.201841,589.631031,590.527579
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041015,Chinaksen,Oromia,ET041020,Mekanisa Oromo,Oromia,314.913909,0.20206,1,1558.514664,314.913922
+cross_pcode_overlap,complex_many_to_many,ET070503,Kochere,SNNP,ET081108,Churso,South Ethiopia,38.684286,0.19924,0.216627,194.159671,178.575481
+cross_pcode_overlap,complex_many_to_many,ET042014OU069,Welmera,Oromia,ET042006,Gefersa Guje,Oromia,133.602541,0.198126,0.77929,674.332832,171.441385
+cross_pcode_overlap,complex_many_to_many,ET070413,Wonosho,SNNP,ET160305,Dale,Sidama,35.576653,0.198062,0.123716,179.623448,287.567631
+cross_pcode_overlap,complex_many_to_many,ET050402OU057,Fik,Somali,ET050498,Yahob,Somali,810.900909,0.197842,0.475315,4098.73449,1706.027363
+cross_pcode_overlap,complex_many_to_many,ET070411,Gorche,SNNP,ET160207,Shebe Dino,Sidama,41.58409,0.194853,0.251064,213.412142,165.631442
+cross_pcode_overlap,complex_many_to_many,ET070408,Bensa,SNNP,ET160509,Chabe Gambeltu,Sidama,105.725249,0.19354,0.859364,546.270644,123.027279
+cross_pcode_overlap,likely_split_old_to_many_new,ET050903,Goro Baqaqsa,Somali,ET050904,Guradamole,Somali,882.999484,0.192383,0.312341,4589.799326,2827.034252
+cross_pcode_overlap,likely_split_old_to_many_new,ET070410,Boricha,SNNP,ET160208,Boricha,Sidama,110.651589,0.187803,1,589.190689,110.651589
+cross_pcode_overlap,likely_split_old_to_many_new,ET070408,Bensa,SNNP,ET160501,Bura,Sidama,102.177194,0.187045,1,546.270644,102.177194
+cross_pcode_overlap,complex_many_to_many,ET010205,Laelay Maychew,Tigray,ET010209,Naeder,Tigray,98.950612,0.184699,0.202095,535.739348,489.624441
+cross_pcode_overlap,complex_many_to_many,ET050298,Haroreys,Somali,ET050204,Shabeeley,Somali,198.33915,0.183497,0.12232,1080.882433,1621.484028
+cross_pcode_overlap,likely_split_old_to_many_new,ET050502OU070,Kebridehar,Somali,ET050598,El-Ogaden,Somali,1639.784207,0.183378,1,8942.102647,1639.784207
+cross_pcode_overlap,complex_many_to_many,ET010210,Tanqua Abergele,Tigray,ET010222,Tanqua Melashe,Tigray,264.586113,0.183002,0.712405,1445.808649,371.398265
+cross_pcode_overlap,likely_merge_many_old_to_new,ET010211,Abi Adi Town,Tigray,ET010221,Keyhe tekli,Tigray,4.375081,0.18186,0.006116,24.057449,715.341003
+cross_pcode_overlap,likely_split_old_to_many_new,ET010501,Kafta Humera,Tigray,ET990106,May Kadra,Contested,1119.589827,0.180505,0.995236,6202.536138,1124.948918
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050703,Galadi,Somali,ET050704,Warder,Somali,2239.716206,0.178429,0.206217,12552.41906,10860.98238
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET140105,Lideta,Addis Ababa,ET140103,Kolfe Keraniyo Sub City,Addis Ababa,1.617499,0.176154,0.031641,9.18232,51.120913
+cross_pcode_overlap,complex_many_to_many,ET020303,Gewane,Afar,ET020602,Kilalu,Afar,1492.099647,0.172304,0.640159,8659.700837,2330.827023
+cross_pcode_overlap,complex_many_to_many,ET050502OU070,Kebridehar,Somali,ET050599,Bodaley,Somali,1540.723038,0.1723,0.475963,8942.102647,3237.064262
+cross_pcode_overlap,complex_many_to_many,ET051002,Elwayne,Somali,ET050608,Berocano,Somali,642.448936,0.171056,0.249809,3755.778653,2571.759866
+cross_pcode_overlap,complex_many_to_many,ET050601OU071,East Imi,Somali,ET050699,Aba-Korow,Somali,942.513037,0.171051,0.435708,5510.127038,2163.174357
+cross_pcode_overlap,likely_split_old_to_many_new,ET050902OU061,Dolo Odo,Somali,ET050901,Filtu,Somali,1614.286221,0.170264,0.135116,9481.088512,11947.39837
+cross_pcode_overlap,complex_many_to_many,ET050302OU060,Degehabur,Somali,ET050382,Yocale,Somali,1120.322409,0.170198,0.741988,6582.46208,1509.893294
+cross_pcode_overlap,likely_split_old_to_many_new,ET070205OU065,Misrak Badawacho,SNNP,ET070216,Siraro Badawacho,Central Ethiopia,50.426148,0.169344,1,297.773811,50.426148
+cross_pcode_overlap,likely_split_old_to_many_new,ET041113,Meda Welabu,Oromia,ET042204,West Welabu,Oromia,1482.844761,0.168424,1,8804.254216,1482.844761
+cross_pcode_overlap,complex_many_to_many,ET070416,Bursa,SNNP,ET160402,Teticha,Sidama,37.119374,0.167078,0.291557,222.168073,127.314205
+cross_pcode_overlap,complex_many_to_many,ET042006,Sebeta Hawas,Oromia,ET042011,Sebeta,Oromia,124.785023,0.166337,0.579919,750.195201,215.176674
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050586,Marsin,Somali,ET050399,Dig,Somali,312.723499,0.164515,0.192773,1900.884563,1622.238578
+cross_pcode_overlap,likely_split_old_to_many_new,ET020203,Aba 'Ala,Afar,ET020209,Abaala town,Afar,189.230229,0.164253,1,1152.062621,189.230229
+cross_pcode_overlap,complex_many_to_many,ET051002,Elwayne,Somali,ET050699,Aba-Korow,Somali,610.571976,0.162569,0.282257,3755.778653,2163.174357
+cross_pcode_overlap,complex_many_to_many,ET010604,Dega Temben,Tigray,ET010317,Geraleta,Tigray,167.703932,0.161155,0.483468,1040.638506,346.876694
+cross_pcode_overlap,likely_split_old_to_many_new,ET010206,Tahtay Mayechew,Tigray,ET010207,Adet,Tigray,94.11591,0.159618,0.145992,589.631031,644.664362
+cross_pcode_overlap,likely_split_old_to_many_new,ET071013,Bonke,SNNP,ET080204,Bonke,South Ethiopia,126.209408,0.159299,1,792.281838,126.209408
+cross_pcode_overlap,complex_many_to_many,ET071305,Konso,SNNP,ET080904,Segen Zuria,South Ethiopia,370.755744,0.158858,0.989641,2333.884889,374.636743
+cross_pcode_overlap,complex_many_to_many,ET050301,Degehamedo,Somali,ET050297,Koran /Mulla,Somali,747.222928,0.157836,0.508553,4734.16783,1469.310605
+cross_pcode_overlap,complex_many_to_many,ET020303,Gewane,Afar,ET020305,Gala'alu,Afar,1358.16841,0.156838,0.743852,8659.700837,1825.85815
+cross_pcode_overlap,complex_many_to_many,ET042012,Akaki,Oromia,ET042004,Galan,Oromia,84.874884,0.156027,0.68578,543.97588,123.763941
+cross_pcode_overlap,complex_many_to_many,ET050806,Hargele,Somali,ET050898,Kohle /Qoxle,Somali,1655.408741,0.154364,0.58667,10724.07096,2821.705019
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050807,Barey,Somali,ET050808,Dolobay,Somali,567.851307,0.152555,0.141731,3722.284614,4006.543336
+cross_pcode_overlap,complex_many_to_many,ET050302OU060,Degehabur,Somali,ET050306,Bilcil-Bur,Somali,1003.243853,0.152412,0.727776,6582.46208,1378.505654
+cross_pcode_overlap,complex_many_to_many,ET050305,Gunagado,Somali,ET050399,Dig,Somali,403.541453,0.151461,0.248756,2664.32808,1622.238578
+cross_pcode_overlap,likely_split_old_to_many_new,ET072101OU050,Halaba SP Woreda,SNNP,ET071403,Atote Ulo,Central Ethiopia,148.017116,0.151408,1,977.607094,148.017116
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050204,Shabeeley,Somali,ET050293,Jigjiga town,Somali,73.427887,0.149669,0.293235,490.601432,250.406609
+cross_pcode_overlap,likely_split_old_to_many_new,ET071016,Arba Minch Zuria,SNNP,ET080210,Gacho Baba,South Ethiopia,261.299278,0.149067,1,1752.900001,261.299278
+cross_pcode_overlap,likely_merge_many_old_to_new,ET072005,Dalocha,SNNP,ET072010,Worabe town,Central Ethiopia,50.781536,0.144526,0.402173,351.365831,126.267772
+cross_pcode_overlap,complex_many_to_many,ET020105,Mile,Afar,ET020101,Dubti,Afar,584.602978,0.143716,0.097253,4067.774878,6011.174984
+cross_pcode_overlap,complex_many_to_many,ET042006,Sebeta Hawas,Oromia,ET042005,Galan Gudo,Oromia,107.418246,0.143187,0.710072,750.195201,151.277866
+cross_pcode_overlap,likely_split_old_to_many_new,ET050601OU071,East Imi,Somali,ET051006,Dihun,Somali,787.514095,0.142921,0.347653,5510.127038,2265.233102
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040708,Adama Tulu Jido Kombolcha,Oromia,ET040798,Batu town,Oromia,216.750216,0.141854,1,1527.982153,216.750216
+cross_pcode_overlap,complex_many_to_many,ET042012,Akaki,Oromia,ET040709,Bishoftu town,Oromia,75.262073,0.138356,0.147002,543.97588,511.978768
+cross_pcode_overlap,likely_merge_many_old_to_new,ET040617,Aleltu,Oromia,ET040623,Sendafa town,Oromia,67.572071,0.13718,0.471058,492.580835,143.447581
+cross_pcode_overlap,complex_many_to_many,ET011064,Kedamay Weyane,Tigray,ET010703,Ayder Sub City,Tigray,0.644227,0.137104,0.015469,4.698829,41.645155
+cross_pcode_overlap,complex_many_to_many,ET050804,Elkare/Serer,Somali,ET050805,West Imi,Somali,1153.365381,0.137007,0.293299,8418.26864,3932.388848
+cross_pcode_overlap,likely_split_old_to_many_new,ET010102,Laelay Adiabo,Tigray,ET010104,Tahtay Koraro,Tigray,244.050476,0.136195,0.296693,1791.920657,822.569744
+cross_pcode_overlap,likely_split_old_to_many_new,ET050898,Kohle/Qoxle,Somali,ET050899,God-God,Somali,352.6409,0.136021,0.221457,2592.546368,1592.370458
+cross_pcode_overlap,complex_many_to_many,ET020301,Amibara,Afar,ET020305,Gala'alu,Afar,467.689735,0.134798,0.256148,3469.550395,1825.85815
+cross_pcode_overlap,complex_many_to_many,ET050596,Lasdhankayre,Somali,ET050599,Bodaley,Somali,150.082533,0.133422,0.046364,1124.872962,3237.064262
+cross_pcode_overlap,complex_many_to_many,ET020103,Asayita,Afar,ET020102,Elidar,Afar,223.522313,0.133268,0.019538,1677.244492,11440.44557
+cross_pcode_overlap,complex_many_to_many,ET050404OU056,Hamero,Somali,ET050499,Wangey,Somali,434.199875,0.132326,0.884614,3281.277202,490.835549
+cross_pcode_overlap,likely_split_old_to_many_new,ET010301,Gulo Mekeda,Tigray,ET010304,Ganta Afeshum,Tigray,78.339359,0.13144,0.168367,596.00741,465.288039
+cross_pcode_overlap,complex_many_to_many,ET050106,Hadhagala,Somali,ET050109,Dhunyar,Somali,1328.625957,0.130183,0.589421,10205.85028,2254.122091
+cross_pcode_overlap,likely_split_old_to_many_new,ET020303,Gewane,Afar,ET020308,Abida,Afar,1119.291189,0.129253,1,8659.700837,1119.291195
+cross_pcode_overlap,complex_many_to_many,ET050601OU071,East Imi,Somali,ET051001,Ayun,Somali,712.03038,0.129222,0.366696,5510.127038,1941.745535
+cross_pcode_overlap,likely_split_old_to_many_new,ET010502,Welkait,Tigray,ET990102,Korarit,Contested,482.727347,0.127066,0.997423,3799.029963,483.974527
+cross_pcode_overlap,complex_many_to_many,ET051005,Sagag,Somali,ET050404,Hamero,Somali,313.380625,0.125702,0.137368,2493.048681,2281.318035
+cross_pcode_overlap,complex_many_to_many,ET070405,Aleta Wendo,SNNP,ET160402,Teticha,Sidama,28.012044,0.124269,0.220023,225.414072,127.314205
+cross_pcode_overlap,complex_many_to_many,ET010306,Kelete Awelallo,Tigray,ET010317,Geraleta,Tigray,118.610517,0.122654,0.341939,967.035195,346.876694
+cross_pcode_overlap,complex_many_to_many,ET042013,Sululta,Oromia,ET042012,Sululta,Oromia,138.671726,0.121574,0.936415,1140.639821,148.087819
+cross_pcode_overlap,likely_split_old_to_many_new,ET070702,South Ari (Bako Gazer),SNNP,ET080501,Baka Dawula,South Ethiopia,246.853327,0.121433,1,2032.839849,246.853327
+cross_pcode_overlap,likely_split_old_to_many_new,ET071305,Konso,SNNP,ET080901,Kena,South Ethiopia,281.628309,0.120669,1,2333.884889,281.628309
+cross_pcode_overlap,complex_many_to_many,ET050206OU059,Kebribeyah,Somali,ET050204,Shabeeley,Somali,477.85931,0.119414,0.294705,4001.696524,1621.484028
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET140102,Nefas Silk,Addis Ababa,ET140105,Lideta Sub City,Addis Ababa,7.168934,0.11864,0.47727,60.42607,15.020712
+cross_pcode_overlap,complex_many_to_many,ET070607,Ofa,SNNP,ET080120,Kawo Koyesha,South Ethiopia,45.324106,0.117592,0.277351,385.434512,163.417668
+cross_pcode_overlap,complex_many_to_many,ET070416,Bursa,SNNP,ET160302,Shafamo,Sidama,25.639729,0.115407,0.221067,222.168073,115.981733
+cross_pcode_overlap,complex_many_to_many,ET070411,Gorche,SNNP,ET160205,Hawela,Sidama,24.5107,0.114851,0.259837,213.412142,94.331098
+cross_pcode_overlap,complex_many_to_many,ET051002,Elwayne,Somali,ET051096,Hararey,Somali,430.59235,0.114648,0.304611,3755.778653,1413.582897
+cross_pcode_overlap,likely_split_old_to_many_new,ET030307OU011,Guba Lafto,Amhara,ET030313,Angot,Amhara,103.216374,0.114539,1,901.146898,103.216374
+cross_pcode_overlap,complex_many_to_many,ET010202,Aheferom,Tigray,ET010217,Hahayle,Tigray,144.468922,0.114328,0.704699,1263.63402,205.007973
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040309,Yayu,Oromia,ET040412,Sigmo,Oromia,104.046702,0.114094,0.104569,911.93605,995.003305
+cross_pcode_overlap,likely_split_old_to_many_new,ET071201,Yem SP Woreda,SNNP,ET072403,Deri Saja zuria,Central Ethiopia,87.102706,0.113987,1,764.149172,87.102709
+cross_pcode_overlap,likely_split_old_to_many_new,ET041797,Wondo,Oromia,ET041712,Shashemene,Oromia,8.516806,0.113091,0.022416,75.30905,379.936775
+cross_pcode_overlap,complex_many_to_many,ET050699,Aba-korow,Somali,ET050805,West Imi,Somali,132.17503,0.11275,0.033612,1172.281232,3932.388848
+cross_pcode_overlap,complex_many_to_many,ET070415,Chire,SNNP,ET160507,Aroresa,Sidama,38.136409,0.112258,0.093689,339.72002,407.054328
+cross_pcode_overlap,likely_merge_many_old_to_new,ET072008,Wilbareg,SNNP,ET072010,Worabe town,Central Ethiopia,50.004804,0.111618,0.396022,448.00009,126.267772
+cross_pcode_overlap,complex_many_to_many,ET050206OU059,Kebribeyah,Somali,ET050297,Koran /Mulla,Somali,443.641126,0.110863,0.301938,4001.696524,1469.310605
+cross_pcode_overlap,complex_many_to_many,ET010104,Tahtay Koraro,Tigray,ET010105,Asgede,Tigray,73.724097,0.110303,0.045913,668.378264,1605.738072
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050606,Mustahil,Somali,ET050597,Higloley,Somali,355.307734,0.108774,0.136365,3266.475678,2605.568505
+cross_pcode_overlap,complex_many_to_many,ET050802,Charati/Weyib,Somali,ET050808,Dolobay,Somali,982.910214,0.108657,0.245326,9046.009367,4006.543336
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040297,Nekemte Town,Oromia,ET040213,Guto Gida,Oromia,6.246519,0.107225,0.006763,58.256114,923.563895
+cross_pcode_overlap,complex_many_to_many,ET070502,Yirgachefe,SNNP,ET081108,Churso,South Ethiopia,30.561049,0.106747,0.171138,286.293921,178.575481
+cross_pcode_overlap,complex_many_to_many,ET041799O,Arsi Negele Town,Oromia,ET041703,Arsi Negele,Oromia,3.293531,0.104953,0.002599,31.381078,1267.072283
+cross_pcode_overlap,complex_many_to_many,ET010602,Enderta,Tigray,ET010701,Kuiha Sub City,Tigray,137.915006,0.103814,0.941384,1328.486653,146.502445
+cross_pcode_overlap,complex_many_to_many,ET020105,Mile,Afar,ET020601,Gerani,Afar,419.138107,0.103039,0.200333,4067.774878,2092.205422
+cross_pcode_overlap,complex_many_to_many,ET042011,Bereh,Oromia,ET040623,Sendafa town,Oromia,71.677591,0.101639,0.499678,705.215077,143.447581
+cross_pcode_overlap,complex_many_to_many,ET010603,Hintalo Wajirat,Tigray,ET010602,Enderta,Tigray,198.867251,0.10038,0.123616,1981.147208,1608.745266
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050103,Shinile,Somali,ET050104,Erer (SM),Somali,365.541203,0.098911,0.088412,3695.663211,4134.525855
+cross_pcode_overlap,complex_many_to_many,ET050596,Lasdhankayre,Somali,ET050698,Elale,Somali,109.294754,0.097162,0.040036,1124.872962,2729.920721
+cross_pcode_overlap,complex_many_to_many,ET042011,Bereh,Oromia,ET042002,Eka Tafo,Oromia,68.260388,0.096794,0.696474,705.215077,98.008518
+cross_pcode_overlap,likely_split_old_to_many_new,ET072002,Silti,SNNP,ET072011,Kibet town,Central Ethiopia,48.149375,0.096399,1,499.477697,48.149375
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030516,Hagere Mariam,Amhara,ET030524,Tulefa town,Amhara,68.025981,0.095149,1,714.943981,68.025996
+cross_pcode_overlap,complex_many_to_many,ET070605,Sodo Zuria,SNNP,ET080122,Bayera Koyesha,South Ethiopia,38.158381,0.094341,0.618244,404.473779,61.720623
+cross_pcode_overlap,likely_merge_many_old_to_new,ET010213,Axum Town,Tigray,ET010205,Laelay Maychew,Tigray,1.609859,0.093619,0.003402,17.195788,473.173707
+cross_pcode_overlap,complex_many_to_many,ET010604,Dega Temben,Tigray,ET010222,Tanqua Melashe,Tigray,97.344104,0.093543,0.262102,1040.638506,371.398265
+cross_pcode_overlap,likely_split_old_to_many_new,ET050303,Aware,Somali,ET050305,Gunagado,Somali,281.375057,0.090303,0.115472,3115.898458,2436.748887
+cross_pcode_overlap,complex_many_to_many,ET011066,Hadnet,Tigray,ET010705,Adihaki Sub City,Tigray,1.900174,0.089041,0.499635,21.340332,3.803121
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050599,Bodaley,Somali,ET050501,Shaygosh,Somali,153.579428,0.088996,0.088691,1725.6967,1731.616896
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050805,West Imi,Somali,ET050809,Raso,Somali,272.044144,0.088876,0.914744,3060.952409,297.399093
+cross_pcode_overlap,likely_split_old_to_many_new,ET071901,Ela (Konta) SP Woreda,SNNP,ET110604,Elahanchano,South West Ethiopia,201.932183,0.0858,1,2353.526841,201.932183
+cross_pcode_overlap,likely_split_old_to_many_new,ET050402OU057,Fik,Somali,ET050203,Babile (SM),Somali,347.453055,0.084771,0.999999,4098.73449,347.453415
+cross_pcode_overlap,likely_split_old_to_many_new,ET042014OU069,Welmera,Oromia,ET040512,Holeta town,Oromia,57.026982,0.084568,0.99451,674.332832,57.341794
+cross_pcode_overlap,complex_many_to_many,ET010102,Laelay Adiabo,Tigray,ET010105,Asgede,Tigray,151.442224,0.084514,0.094313,1791.920657,1605.738072
+cross_pcode_overlap,complex_many_to_many,ET050298,Haroreys,Somali,ET050293,Jigjiga town,Somali,90.773045,0.08398,0.362503,1080.882433,250.406609
+cross_pcode_overlap,complex_many_to_many,ET010103,Medebay Zana,Tigray,ET010201,Chila,Tigray,85.962321,0.0825,0.145569,1041.961312,590.527579
+cross_pcode_overlap,likely_split_old_to_many_new,ET050502OU070,Kebridehar,Somali,ET050596,Lasdhankayre,Somali,732.728307,0.081941,0.472174,8942.102647,1551.818664
+cross_pcode_overlap,complex_many_to_many,ET070603,Damot Weydie,SNNP,ET080112,Duguna Fango,South Ethiopia,28.770942,0.081706,0.068495,352.12864,420.046001
+cross_pcode_overlap,complex_many_to_many,ET042004O,Lege tafo-Lege Dadi Town,Oromia,ET042008,Kura Jida,Oromia,2.639017,0.081483,0.010754,32.38715,245.395745
+cross_pcode_overlap,likely_merge_many_old_to_new,ET051095,Horshagah,Somali,ET051003,Garbo,Somali,94.888249,0.080768,0.027364,1174.831096,3467.588837
+cross_pcode_overlap,complex_many_to_many,ET050804,Elkare/Serer,Somali,ET050903,Goro Baqaqsa,Somali,677.960837,0.080534,0.146313,8418.26864,4633.619036
+cross_pcode_overlap,complex_many_to_many,ET010206,Tahtay Mayechew,Tigray,ET010205,Laelay Maychew,Tigray,47.445163,0.080466,0.10027,589.631031,473.173707
+cross_pcode_overlap,complex_many_to_many,ET051005,Sagag,Somali,ET051003,Garbo,Somali,198.51653,0.079628,0.057249,2493.048681,3467.588837
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET010302,Erob,Tigray,ET010303,Sebuha Saesie,Tigray,76.437541,0.078028,0.126072,979.616214,606.29851
+cross_pcode_overlap,likely_split_old_to_many_new,ET030702,Bahirdar Zuria,Amhara,ET031406,Tis Abay town,Amhara,112.447734,0.077907,1,1443.367792,112.447734
+cross_pcode_overlap,likely_split_old_to_many_new,ET070305OU051,Hadero Tunto,SNNP,ET070312,Hadero town,Central Ethiopia,14.648169,0.076952,1,190.355118,14.648169
+cross_pcode_overlap,complex_many_to_many,ET041901OU037,Horo,Oromia,ET041913,Sulula Finca'a,Oromia,69.037408,0.076608,0.05463,901.175356,1263.736371
+cross_pcode_overlap,complex_many_to_many,ET051003,Garbo,Somali,ET051095,Horshagah,Somali,347.633442,0.076587,0.156079,4539.053764,2227.296859
+cross_pcode_overlap,complex_many_to_many,ET050301,Degehamedo,Somali,ET051005,Sagag,Somali,350.509078,0.074038,0.137414,4734.16783,2550.76039
+cross_pcode_overlap,likely_split_old_to_many_new,ET140103,Kolfe - Keran,Addis Ababa,ET140110,Gulele Sub City,Addis Ababa,5.037773,0.073557,0.135677,68.487954,37.130676
+cross_pcode_overlap,complex_many_to_many,ET050198,Gota-biki,Somali,ET050105,Afdem,Somali,77.342582,0.073485,0.052696,1052.497156,1467.724505
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050408,Meyumuluka,Somali,ET050402,Fik,Somali,76.351518,0.073462,0.024956,1039.3266,3059.459636
+cross_pcode_overlap,complex_many_to_many,ET011062,Debub & Semen Mekele,Tigray,ET010602,Enderta,Tigray,2.492734,0.072942,0.001549,34.173976,1608.745266
+cross_pcode_overlap,likely_split_old_to_many_new,ET070702,South Ari (Bako Gazer),SNNP,ET080513,Wub Ari,South Ethiopia,148.022189,0.072815,1,2032.839849,148.022189
+cross_pcode_overlap,complex_many_to_many,ET050605,Kelafo,Somali,ET050597,Higloley,Somali,434.663387,0.071937,0.166821,6042.266321,2605.568505
+cross_pcode_overlap,likely_split_old_to_many_new,ET050596,Lasdhankayre,Somali,ET050603,Danan,Somali,80.662256,0.071708,0.03747,1124.872962,2152.736105
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041702,Shala,Oromia,ET041711,Shashemene town,Oromia,59.158935,0.071357,0.125006,829.058926,473.249753
+cross_pcode_overlap,complex_many_to_many,ET042013,Sululta,Oromia,ET042009,Mana Abichu,Oromia,80.683683,0.070735,0.850867,1140.639821,94.825287
+cross_pcode_overlap,complex_many_to_many,ET010305,Hawzen,Tigray,ET010317,Geraleta,Tigray,60.562245,0.06958,0.174593,870.400924,346.876694
+cross_pcode_overlap,likely_split_old_to_many_new,ET040704OU068,Lome (Oromia),Oromia,ET040797,Mojo town,Oromia,51.695382,0.069555,1,743.234007,51.695382
+cross_pcode_overlap,complex_many_to_many,ET050301,Degehamedo,Somali,ET050306,Bilcil-Bur,Somali,328.586366,0.069407,0.238364,4734.16783,1378.505654
+cross_pcode_overlap,complex_many_to_many,ET070403,Arbe Gonna,SNNP,ET160204,Gorche,Sidama,22.352039,0.068452,0.131739,326.537376,169.66939
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050104,Erer (Somali),Somali,ET050109,Dhunyar,Somali,208.825875,0.068345,0.092642,3055.460627,2254.122091
+cross_pcode_overlap,complex_many_to_many,ET050903,Goro Baqaqsa,Somali,ET050802,Charati,Somali,308.574182,0.06723,0.036387,4589.799326,8480.232554
+cross_pcode_overlap,complex_many_to_many,ET011068,Adhaki,Tigray,ET010705,Adihaki Sub City,Tigray,0.357457,0.065495,0.093991,5.45775,3.803121
+cross_pcode_overlap,complex_many_to_many,ET050303,Aware,Somali,ET050382,Yocale,Somali,202.793284,0.065083,0.13431,3115.898458,1509.893294
+cross_pcode_overlap,likely_merge_many_old_to_new,ET041008,Kersa (East Hararge),Oromia,ET041019,Maya town,Oromia,31.027241,0.064973,0.087135,477.541562,356.08047
+cross_pcode_overlap,likely_split_old_to_many_new,ET070909,Chena,SNNP,ET110217,Shishinda town,South West Ethiopia,68.303392,0.06467,1,1056.186227,68.303392
+cross_pcode_overlap,likely_split_old_to_many_new,ET050301,Degehamedo,Somali,ET050290,Goljano,Somali,302.443402,0.063885,0.439833,4734.16783,687.632706
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050394,Burqod,Somali,ET051003,Garbo,Somali,164.168732,0.062427,0.047344,2629.770168,3467.588837
+cross_pcode_overlap,likely_split_old_to_many_new,ET050302OU060,Degehabur,Somali,ET050394,Burqod,Somali,408.587604,0.062072,0.155496,6582.46208,2627.638854
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050788,Daratole,Somali,ET050704,Warder,Somali,61.683595,0.062058,0.005679,993.962155,10860.98238
+cross_pcode_overlap,complex_many_to_many,ET070607,Ofa,SNNP,ET080122,Bayera Koyesha,South Ethiopia,23.562242,0.061132,0.381756,385.434512,61.720623
+cross_pcode_overlap,complex_many_to_many,ET070418,Bona Zuria,SNNP,ET160302,Shafamo,Sidama,13.266019,0.060072,0.11438,220.833845,115.981733
+cross_pcode_overlap,likely_split_old_to_many_new,ET050101,Ayisha,Somali,ET050106,Hadhagala,Somali,352.012503,0.059863,0.089703,5880.263011,3924.195298
+cross_pcode_overlap,complex_many_to_many,ET050404OU056,Hamero,Somali,ET050402,Fik,Somali,195.953332,0.059719,0.064048,3281.277202,3059.459636
+cross_pcode_overlap,likely_split_old_to_many_new,ET010404,Alage,Tigray,ET010603,Hintalo,Tigray,47.209343,0.059594,0.050449,792.182639,935.777781
+cross_pcode_overlap,complex_many_to_many,ET070501,Wenago,SNNP,ET081107,Rape,South Ethiopia,8.755936,0.059512,0.052335,147.128708,167.305452
+cross_pcode_overlap,complex_many_to_many,ET051003,Garbo,Somali,ET051005,Sagag,Somali,264.708913,0.058318,0.103776,4539.053764,2550.76039
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040805,Dodota,Oromia,ET040895,Dera town,Oromia,30.025296,0.058102,1,516.772388,30.025296
+cross_pcode_overlap,likely_split_old_to_many_new,ET070506,Kochere Gedeb,SNNP,ET081110,Gedeb town,South Ethiopia,18.386664,0.057877,1,317.686081,18.386672
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040310,Metu Zuria,Oromia,ET040320,Metu town,Oromia,43.210012,0.057582,0.727098,750.414527,59.428067
+cross_pcode_overlap,complex_many_to_many,ET020104,Afambo,Afar,ET020102,Elidar,Afar,98.123935,0.057385,0.008577,1709.909426,11440.44557
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET020302,Awash Fentale,Afar,ET020396,Awash town,Afar,57.477471,0.056633,0.829933,1014.90795,69.255597
+cross_pcode_overlap,complex_many_to_many,ET0201051,Adaa'r,Afar,ET020603,Yangudi,Afar,130.27101,0.055654,0.062375,2340.729261,2088.513723
+cross_pcode_overlap,likely_split_old_to_many_new,ET050701,Danod,Somali,ET050304,Gashamo,Somali,447.269585,0.055455,0.038772,8065.426429,11535.95586
+cross_pcode_overlap,likely_split_old_to_many_new,ET072003,Lanfero,SNNP,ET072009,Tora town,Central Ethiopia,25.468396,0.055179,1,461.561036,25.468396
+cross_pcode_overlap,likely_split_old_to_many_new,ET050206OU059,Kebribeyah,Somali,ET050207,Harshin,Somali,220.218704,0.055031,0.048572,4001.696524,4533.822369
+cross_pcode_overlap,likely_split_old_to_many_new,ET010210,Tanqua Abergele,Tigray,ET010208,Kola Tembien,Tigray,77.182097,0.053383,0.107493,1445.808649,718.018066
+cross_pcode_overlap,complex_many_to_many,ET050806,Hargele,Somali,ET050802,Charati,Somali,552.924869,0.051559,0.065202,10724.07096,8480.232554
+cross_pcode_overlap,complex_many_to_many,ET042014OU069,Welmera,Oromia,ET042011,Sebeta,Oromia,34.47748,0.051128,0.160229,674.332832,215.176674
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040503,Ambo Zuria,Oromia,ET040515,Ambo town,Oromia,47.764135,0.051052,0.546627,935.596183,87.379697
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040193,Gimbi Town,Oromia,ET040103,Gimbi,Oromia,1.527118,0.05086,0.001692,30.025927,902.500869
+cross_pcode_overlap,complex_many_to_many,ET070417,Chuko,SNNP,ET160408,Dara Otilicho,Sidama,15.117791,0.049411,0.131583,305.957785,114.892058
+cross_pcode_overlap,complex_many_to_many,ET070402,Hawassa Zuria,SNNP,ET160209,Bilate Zuria,Sidama,26.582583,0.048845,0.09779,544.219284,271.8337
+cross_pcode_overlap,complex_many_to_many,ET040704OU068,Lome (Oromia),Oromia,ET040714,Adama town,Oromia,35.223848,0.047393,0.054596,743.234007,645.178476
+cross_pcode_overlap,complex_many_to_many,ET050305,Gunagado,Somali,ET050501,Shaygosh,Somali,124.105398,0.04658,0.07167,2664.32808,1731.616896
+cross_pcode_overlap,complex_many_to_many,ET010408,Ofla,Tigray,ET990301,Raya Alamata,Contested,50.543536,0.045588,0.065575,1108.714541,770.776091
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050602,Adadle,Somali,ET050898,Kohle /Qoxle,Somali,410.456878,0.045401,0.145464,9040.704857,2821.705019
+cross_pcode_overlap,likely_split_old_to_many_new,ET050802,Charati/Weyib,Somali,ET050804,Elkare /Serer,Somali,408.589808,0.045168,0.060853,9046.009367,6714.404832
+cross_pcode_overlap,complex_many_to_many,ET010203,Werei Leke,Tigray,ET010217,Hahayle,Tigray,57.129605,0.045035,0.27867,1268.559519,205.007973
+cross_pcode_overlap,complex_many_to_many,ET050503,Shilabo,Somali,ET050597,Higloley,Somali,529.321224,0.04284,0.20315,12355.73105,2605.568505
+cross_pcode_overlap,complex_many_to_many,ET050806,Hargele,Somali,ET050807,Barey,Somali,447.159419,0.041697,0.07276,10724.07096,6145.655717
+cross_pcode_overlap,likely_split_old_to_many_new,ET071101,Sheka,SNNP,ET110310,Sheko town,South West Ethiopia,20.280918,0.041458,1,489.190773,20.280918
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050102,Dembel,Somali,ET050299,Harawo,Somali,118.369114,0.041338,0.077098,2863.469787,1535.315861
+cross_pcode_overlap,complex_many_to_many,ET050503,Shilabo,Somali,ET050798,Lehel-Yucub,Somali,492.302568,0.039844,0.171952,12355.73105,2863.025594
+cross_pcode_overlap,complex_many_to_many,ET010602,Enderta,Tigray,ET010702,Hadnet Sub City,Tigray,52.026937,0.039163,0.801359,1328.486653,64.923395
+cross_pcode_overlap,complex_many_to_many,ET010303,Saesie Tsaedamba,Tigray,ET010306,Kilte Awulaelo,Tigray,41.02615,0.039038,0.083022,1050.931519,494.161618
+cross_pcode_overlap,complex_many_to_many,ET031112OU003,Chilga,Amhara,ET031119,Masero Denb /Central Armacho,Amhara,118.020703,0.038871,0.079462,3036.247883,1485.255269
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET050901,Filtu,Somali,ET050991,Deka Suftu,Somali,415.230783,0.038302,0.101469,10840.87919,4092.209528
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041501,Bule Hora,Oromia,ET041587,Bule Hora town,Oromia,35.805422,0.036998,0.740782,967.761139,48.334656
+cross_pcode_overlap,complex_many_to_many,ET050207,Harshin,Somali,ET050382,Yocale,Somali,166.711766,0.036899,0.110413,4518.088336,1509.893294
+cross_pcode_overlap,likely_split_old_to_many_new,ET020104,Afambo,Afar,ET020103,Asayita,Afar,62.078323,0.036305,0.058108,1709.909426,1068.32043
+cross_pcode_overlap,complex_many_to_many,ET050502OU070,Kebridehar,Somali,ET050504,Debeweyin,Somali,321.868132,0.035995,0.14422,8942.102647,2231.781052
+cross_pcode_overlap,complex_many_to_many,ET010601,Saharti Samre,Tigray,ET010401,Selewa,Tigray,62.446459,0.035862,0.226696,1741.308126,275.463523
+cross_pcode_overlap,complex_many_to_many,ET070502,Yirgachefe,SNNP,ET081107,Rape,South Ethiopia,10.254725,0.035819,0.061293,286.293921,167.305452
+cross_pcode_overlap,likely_split_old_to_many_new,ET050302OU060,Degehabur,Somali,ET050307,Degahabur town,Somali,234.484317,0.035623,0.96794,6582.46208,242.250992
+cross_pcode_overlap,complex_many_to_many,ET070414,Loka Abaya,SNNP,ET160306,Darara,Sidama,30.377554,0.034583,0.110173,878.387766,275.72639
+cross_pcode_overlap,likely_split_old_to_many_new,ET050205OU058,Aw-bare,Somali,ET050295,Wajale town,Somali,115.12847,0.034417,0.999997,3345.05704,115.128759
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030305,Wadla,Amhara,ET030315,Gashena town,Amhara,29.385944,0.034331,1,855.96612,29.385944
+cross_pcode_overlap,complex_many_to_many,ET010305,Hawzen,Tigray,ET010306,Kilte Awulaelo,Tigray,28.743114,0.033023,0.058165,870.400924,494.161618
+cross_pcode_overlap,likely_split_old_to_many_new,ET050106,Hadhagala,Somali,ET050103,Shinile,Somali,333.766134,0.032703,0.093308,10205.85028,3577.040945
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041704,Kofele,Oromia,ET041713,Kofele town,Oromia,21.330063,0.031799,1,670.770542,21.330063
+cross_pcode_overlap,likely_split_old_to_many_new,ET070304OU052,Kacha Bira,SNNP,ET070310,Shinshincho town,Central Ethiopia,5.953379,0.031455,1,189.266221,5.953379
+cross_pcode_overlap,likely_split_old_to_many_new,ET042013,Sululta,Oromia,ET040621,Chancho town,Oromia,35.350434,0.030992,1,1140.639821,35.350434
+cross_pcode_overlap,complex_many_to_many,ET070418,Bona Zuria,SNNP,ET160410,Chirone,Sidama,6.789706,0.030746,0.093775,220.833845,72.404378
+cross_pcode_overlap,complex_many_to_many,ET051006,Dihun,Somali,ET050403,Salahad,Somali,90.017353,0.030346,0.605167,2966.360109,148.74797
+cross_pcode_overlap,likely_split_old_to_many_new,ET071105,Menit Goldiye,SNNP,ET110509,Bachuma town,South West Ethiopia,50.486309,0.029985,1,1683.693269,50.486309
+cross_pcode_overlap,likely_split_old_to_many_new,ET020103,Asayita,Afar,ET020111,Asayita town,Afar,50.216873,0.02994,1,1677.244492,50.216873
+cross_pcode_overlap,likely_split_old_to_many_new,ET041901OU037,Horo,Oromia,ET041905,Abay Chomen,Oromia,26.447091,0.029347,0.087525,901.175356,302.164764
+cross_pcode_overlap,likely_split_old_to_many_new,ET050701,Danod,Somali,ET050788,Daratole,Somali,233.117797,0.028903,0.19896,8065.426429,1171.682285
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040610,Kimbibit,Oromia,ET040611,Sheno town,Oromia,18.18564,0.028665,1,634.414952,18.185643
+cross_pcode_overlap,likely_split_old_to_many_new,ET050298,Haroreys,Somali,ET050283,Tuliguled,Somali,29.711927,0.027489,0.069378,1080.882433,428.260491
+cross_pcode_overlap,likely_split_old_to_many_new,ET070205OU065,Misrak Badawacho,SNNP,ET070212,Shone town,Central Ethiopia,8.169016,0.027434,1,297.773811,8.169016
+cross_pcode_overlap,complex_many_to_many,ET050302OU060,Degehabur,Somali,ET050301,Degehamedo,Somali,180.151785,0.027368,0.05111,6582.46208,3524.777979
+cross_pcode_overlap,likely_split_old_to_many_new,ET040704OU068,Lome (Oromia),Oromia,ET040703,Adama,Oromia,20.008327,0.026921,0.054341,743.234007,368.196558
+cross_pcode_overlap,likely_split_old_to_many_new,ET070606,Kindo Koyesha,SNNP,ET080123,Bale Awassa town,South Ethiopia,13.971183,0.026542,1,526.378728,13.971183
+cross_pcode_overlap,complex_many_to_many,ET010307,Atsbi Wenberta,Tigray,ET010314,Tsaeda Emba,Tigray,30.428589,0.026479,0.059805,1149.151551,508.799513
+cross_pcode_overlap,likely_split_old_to_many_new,ET071901,Ela (Konta) SP Woreda,SNNP,ET110603,Amaya town,South West Ethiopia,62.042166,0.026361,1,2353.526841,62.042166
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040407,Goma,Oromia,ET040417,Agaro town,Oromia,22.694661,0.026273,0.735142,863.806291,30.871129
+cross_pcode_overlap,likely_merge_many_old_to_new,ET040213,Guto Gida,Oromia,ET040297,Nekemte town,Oromia,24.448461,0.025963,0.298515,941.67391,81.900283
+cross_pcode_overlap,likely_split_old_to_many_new,ET070609,Damot Sore,SNNP,ET080118,Gununo Hamus town,South Ethiopia,4.658184,0.025741,1,180.964958,4.658184
+cross_pcode_overlap,likely_merge_many_old_to_new,ET040818,Limu Bilbilo,Oromia,ET040894,Bokoji town,Oromia,30.306937,0.025667,0.873077,1180.765999,34.712785
+cross_pcode_overlap,likely_split_old_to_many_new,ET071107,Maji,SNNP,ET110511,Maji Tum town,South West Ethiopia,117.118062,0.025141,1,4658.362689,117.118062
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET010204,Adwa,Tigray,ET010212,Adwa town,Tigray,16.339317,0.025035,0.59841,652.669542,27.304571
+cross_pcode_overlap,likely_split_old_to_many_new,ET030208OU063,East Esite,Amhara,ET030298,Mekan Eyesuse,Amhara,33.616358,0.024611,1,1365.929926,33.616358
+cross_pcode_overlap,complex_many_to_many,ET070409,Aroresa,SNNP,ET160505,Daella,Sidama,17.843581,0.023662,0.115571,754.110283,154.395544
+cross_pcode_overlap,complex_many_to_many,ET050605,Kelafo,Somali,ET050504,Debeweyin,Somali,141.881054,0.023481,0.063573,6042.266321,2231.781052
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040103,Gimbi,Oromia,ET040193,Gimbi town,Oromia,20.927226,0.023258,0.423405,899.800922,49.426034
+cross_pcode_overlap,complex_many_to_many,ET070409,Aroresa,SNNP,ET160509,Chabe Gambeltu,Sidama,17.30203,0.022944,0.140636,754.110283,123.027279
+cross_pcode_overlap,complex_many_to_many,ET042006,Sebeta Hawas,Oromia,ET042003,Furi,Oromia,16.82088,0.022422,0.354721,750.195201,47.419999
+cross_pcode_overlap,likely_split_old_to_many_new,ET071901,Ela (Konta) SP Woreda,SNNP,ET110602,Chida town,South West Ethiopia,51.812968,0.022015,1,2353.526841,51.812968
+cross_pcode_overlap,complex_many_to_many,ET050502OU070,Kebridehar,Somali,ET050698,Elale,Somali,195.877839,0.021905,0.071752,8942.102647,2729.920721
+cross_pcode_overlap,complex_many_to_many,ET010602,Enderta,Tigray,ET010703,Ayder Sub City,Tigray,28.278239,0.021286,0.679028,1328.486653,41.645155
+cross_pcode_overlap,likely_split_old_to_many_new,ET030702,Bahirdar Zuria,Amhara,ET031405,Meshenti town,Amhara,30.719803,0.021283,1,1443.367792,30.719803
+cross_pcode_overlap,likely_split_old_to_many_new,ET020301,Amibara,Afar,ET020310,Werer,Afar,73.437637,0.021166,1,3469.550395,73.437637
+cross_pcode_overlap,complex_many_to_many,ET042006,Sebeta Hawas,Oromia,ET042010,Melka Nonno,Oromia,15.528616,0.020699,0.388095,750.195201,40.012454
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET040604,Kuyu,Oromia,ET040616,Garba Guracha,Oromia,18.671402,0.019711,1,947.278893,18.671402
+cross_pcode_overlap,complex_many_to_many,ET071305,Konso,SNNP,ET080601,Alle Special,South Ethiopia,44.794368,0.019193,0.0538,2333.884889,832.613506
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET050392,Daror,Somali,ET050303,Aware,Somali,130.685385,0.019015,0.050512,6872.762874,2587.199133
+cross_pcode_overlap,likely_split_old_to_many_new,ET040101OU048,Mana Sibu,Oromia,ET040198,Mendi town,Oromia,34.137323,0.018543,1,1841.022153,34.137323
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET060403,Kamashi,Benishangul Gumz,ET060400,Kamashi town,Benishangul-Gumuz,27.937952,0.018472,1,1512.461066,27.937952
+cross_pcode_overlap,complex_many_to_many,ET070606,Kindo Koyesha,SNNP,ET080120,Kawo Koyesha,South Ethiopia,9.551755,0.018146,0.05845,526.378728,163.417668
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET041303,Waliso,Oromia,ET041311,Woliso town,Oromia,12.326373,0.016647,0.487973,740.448948,25.260349
+cross_pcode_overlap,likely_split_old_to_many_new,ET070607,Ofa,SNNP,ET080117,Gesuba town,South Ethiopia,6.272086,0.016273,1,385.434512,6.272086
+cross_pcode_overlap,likely_split_old_to_many_new,ET050207,Harshin,Somali,ET050395,Ararso,Somali,69.460938,0.015374,0.071391,4518.088336,972.962631
+cross_pcode_overlap,likely_split_old_to_many_new,ET030702,Bahirdar Zuria,Amhara,ET031403,Zege town,Amhara,20.903631,0.014483,0.303354,1443.367792,68.908448
+cross_pcode_overlap,likely_split_old_to_many_new,ET070501,Wenago,SNNP,ET081113,Wonago town,South Ethiopia,2.130751,0.014482,1,147.128708,2.130751
+cross_pcode_overlap,complex_many_to_many,ET010501,Kafta Humera,Tigray,ET990101,Setit Humera town,Contested,89.383681,0.014411,0.860718,6202.536138,103.847826
+cross_pcode_overlap,complex_many_to_many,ET042014OU069,Welmera,Oromia,ET042009,Mana Abichu,Oromia,9.632043,0.014284,0.101577,674.332832,94.825287
+cross_pcode_overlap,likely_split_old_to_many_new,ET071017,Geze Gofa,SNNP,ET080302,Buleqi town,South Ethiopia,7.43574,0.014132,1,526.180995,7.43574
+cross_pcode_overlap,complex_many_to_many,ET050101,Ayisha,Somali,ET050299,Harawo,Somali,82.470508,0.014025,0.053716,5880.263011,1535.315861
+cross_pcode_overlap,likely_split_old_to_many_new,ET070401,Shebe Dino,SNNP,ET160206,Leku town,Sidama,2.692702,0.013654,1,197.21142,2.692702
+cross_pcode_overlap,likely_merge_many_old_to_new,ET040206,Wayu Tuka,Oromia,ET040297,Nekemte town,Oromia,5.442228,0.013473,0.066449,403.922599,81.900283
+cross_pcode_overlap,likely_split_old_to_many_new,ET010306,Kelete Awelallo,Tigray,ET010309,Wukro town,Tigray,12.624066,0.013054,0.618891,967.035195,20.397876
+cross_pcode_overlap,likely_split_old_to_many_new,ET071007,Chencha,SNNP,ET080206,Chencha town,South Ethiopia,4.873825,0.013046,1,373.584642,4.873825
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030604,Enebse Sarmder,Amhara,ET030623,Merto Lemariyam town,Amhara,13.941717,0.012958,1,1075.909548,13.941717
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET070110,Cheha,SNNP,ET070116,Emdebir town,Central Ethiopia,7.301517,0.012874,1,567.141678,7.301517
+cross_pcode_overlap,complex_many_to_many,ET041703OU042,Arsi Negele,Oromia,ET041799,Arsi Negele town,Oromia,23.05674,0.012538,0.450818,1838.917551,51.144287
+cross_pcode_overlap,likely_split_old_to_many_new,ET010101,Tahtay Adiyabo,Tigray,ET010107,Sheraro town,Tigray,46.281529,0.012023,0.639708,3849.340268,72.347914
+cross_pcode_overlap,complex_many_to_many,ET051006,Dihun,Somali,ET050499,Wangey,Somali,35.276526,0.011892,0.07187,2966.360109,490.835549
+cross_pcode_overlap,likely_split_old_to_many_new,ET010405,Endamehoni,Tigray,ET010409,Maichew town,Tigray,7.490445,0.011667,0.462139,642.017368,16.208212
+cross_pcode_overlap,likely_split_old_to_many_new,ET030508OU066,Eferatana Gidem,Amhara,ET030598,Ataye town,Amhara,6.031218,0.011662,1,517.147335,6.031218
+cross_pcode_overlap,likely_split_old_to_many_new,ET050502OU070,Kebridehar,Somali,ET050592,Kebridehar town,Somali,104.016051,0.011632,0.90236,8942.102647,115.271119
+cross_pcode_overlap,complex_many_to_many,ET042006,Sebeta Hawas,Oromia,ET042004,Galan,Oromia,8.717741,0.011621,0.070438,750.195201,123.763941
+cross_pcode_overlap,likely_split_old_to_many_new,ET071104,Shay Bench,SNNP,ET110308,Size town,South West Ethiopia,6.457546,0.011529,1,560.097962,6.457546
+cross_pcode_overlap,likely_split_old_to_many_new,ET010104,Tahtay Koraro,Tigray,ET010108,Shire Endaslasie town,Tigray,7.694973,0.011513,0.525945,668.378264,14.630753
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030907,Guagusa Shikudad,Amhara,ET030911,Tilili town,Amhara,3.341668,0.011292,1,295.934534,3.341668
+cross_pcode_overlap,likely_split_old_to_many_new,ET050604OU062,Gode,Somali,ET050696,Godey town,Somali,46.67878,0.011287,0.597088,4135.741619,78.177432
+cross_pcode_overlap,likely_split_old_to_many_new,ET041712,Shashemene Zuria,Oromia,ET041797,Wondo,Oromia,7.821667,0.011135,0.196682,702.413543,39.768124
+cross_pcode_overlap,likely_split_old_to_many_new,ET041502OU064,Kercha,Oromia,ET041503,Kercha town,Oromia,8.402638,0.010968,1,766.079895,8.402638
+cross_pcode_overlap,likely_split_old_to_many_new,ET050206OU059,Kebribeyah,Somali,ET050298,Haroreys,Somali,42.962459,0.010736,0.051704,4001.696524,830.932095
+cross_pcode_overlap,complex_many_to_many,ET050601OU071,East Imi,Somali,ET050403,Salahad,Somali,58.73056,0.010659,0.394833,5510.127038,148.74797
+cross_pcode_overlap,likely_split_old_to_many_new,ET030412OU019,Borena / Debresina,Amhara,ET030498,Mekane Selam town,Amhara,10.789626,0.010492,1,1028.401273,10.789626
+cross_pcode_overlap,likely_split_old_to_many_new,ET030410,Legambo,Amhara,ET030427,Akeseta town,Amhara,10.417005,0.010311,1,1010.328602,10.417005
+cross_pcode_overlap,likely_split_old_to_many_new,ET072101OU050,Halaba SP Woreda,SNNP,ET071401,Kulito town,Central Ethiopia,9.840931,0.010066,1,977.607094,9.840931
+cross_pcode_overlap,likely_split_old_to_many_new,ET010304,Ganta Afeshum,Tigray,ET010308,Adigrat town,Tigray,4.994454,0.009515,0.258433,524.912278,19.325886
+cross_pcode_overlap,complex_many_to_many,ET010407,Alamata,Tigray,ET990304,Alamata town,Contested,7.148154,0.009506,0.565446,751.982592,12.64161
+cross_pcode_overlap,likely_split_old_to_many_new,ET070908,Decha,SNNP,ET110216,Awurada town,South West Ethiopia,27.882274,0.00944,1,2953.70889,27.882274
+cross_pcode_overlap,likely_merge_many_old_to_new,ET050304,Gashamo,Somali,ET050399,Dig,Somali,107.14513,0.00929,0.066048,11533.55278,1622.238578
+cross_pcode_overlap,likely_split_old_to_many_new,ET050404OU056,Hamero,Somali,ET050497,Qubi,Somali,29.955832,0.009129,0.053211,3281.277202,562.961916
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030510,Tarema Ber,Amhara,ET030527,Debre Sina town,Amhara,4.949497,0.008751,1,565.595964,4.949497
+cross_pcode_overlap,likely_split_old_to_many_new,ET071304,Derashe,SNNP,ET080702,Gidole town,South Ethiopia,6.107192,0.008732,1,699.383393,6.107192
+cross_pcode_overlap,likely_split_old_to_many_new,ET070503,Kochere,SNNP,ET081112,Chelelektu town,South Ethiopia,1.598288,0.008232,1,194.159671,1.598288
+cross_pcode_overlap,likely_split_old_to_many_new,ET010603,Hintalo Wajirat,Tigray,ET010607,Adigudom,Tigray,16.071345,0.008112,0.990106,1981.147208,16.23194
+cross_pcode_overlap,likely_split_old_to_many_new,ET030903OU002,Ankasha,Amhara,ET030909,Agew Gimija Bet town,Amhara,8.215186,0.007872,1,1043.539353,8.215186
+cross_pcode_overlap,likely_split_old_to_many_new,ET070701,Basketo SP Woreda,SNNP,ET080402,Laska town,South Ethiopia,3.088686,0.007521,1,410.676854,3.088686
+cross_pcode_overlap,likely_split_old_to_many_new,ET030307OU011,Guba Lafto,Amhara,ET030306,Hara town,Amhara,6.588058,0.007311,1,901.146898,6.588058
+cross_pcode_overlap,likely_split_old_to_many_new,ET050206OU059,Kebribeyah,Somali,ET050296,Kebribayah town,Somali,29.062821,0.007263,1,4001.696524,29.062821
+cross_pcode_overlap,likely_split_old_to_many_new,ET030708OU023,Dembecha,Amhara,ET030717,Denbecha town,Amhara,6.924792,0.007129,1,971.291023,6.924792
+cross_pcode_overlap,likely_split_old_to_many_new,ET071201,Yem SP Woreda,SNNP,ET072401,Saja town,Central Ethiopia,5.366332,0.007023,1,764.149172,5.366332
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET031109,Wegera,Amhara,ET031103,Amba Giorgis town,Amhara,8.214009,0.006632,1,1238.478314,8.214009
+cross_pcode_overlap,likely_split_old_to_many_new,ET070417,Chuko,SNNP,ET160406,Chuko town,Sidama,1.975514,0.006457,1,305.957785,1.975514
+cross_pcode_overlap,likely_split_old_to_many_new,ET031206OU024,Mirab Armacho,Amhara,ET031223,Midre Genet,Amhara,9.585415,0.006397,1,1498.362996,9.585415
+cross_pcode_overlap,likely_split_old_to_many_new,ET070909,Chena,SNNP,ET110214,Wacha town,South West Ethiopia,6.368731,0.00603,1,1056.186227,6.368731
+cross_pcode_overlap,likely_split_old_to_many_new,ET030304OU010,Meket,Amhara,ET030314,Filakit town,Amhara,11.518685,0.006028,1,1910.747137,11.518685
+cross_pcode_overlap,likely_split_old_to_many_new,ET070703,Gelila / North Ari,SNNP,ET080504,Gelila town,South Ethiopia,1.591924,0.005665,1,280.98819,1.591924
+cross_pcode_overlap,likely_split_old_to_many_new,ET071106,Menit Shasha,SNNP,ET110510,Jemu town,South West Ethiopia,16.079041,0.0055,1,2923.701607,16.079041
+cross_pcode_overlap,likely_split_old_to_many_new,ET010301,Gulo Mekeda,Tigray,ET010318,Zala Anbesa town,Tigray,3.097375,0.005197,1,596.00741,3.097375
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030406,Delanta,Amhara,ET030424,Wegel tena town,Amhara,5.429162,0.005133,1,1057.77486,5.429162
+cross_pcode_overlap,likely_split_old_to_many_new,ET071102,Gurafereda,SNNP,ET110309,Biftu town,South West Ethiopia,12.953118,0.005121,1,2529.503423,12.953118
+cross_pcode_overlap,likely_split_old_to_many_new,ET030205OU016,Lay Gayint,Amhara,ET030215,Nefas Mewicha town,Amhara,7.712592,0.005062,1,1523.495467,7.712592
+cross_pcode_overlap,likely_split_old_to_many_new,ET010604,Dega Temben,Tigray,ET010605,Hagere Selam town,Tigray,5.230905,0.005027,1,1040.638506,5.230905
+cross_pcode_overlap,likely_split_old_to_many_new,ET060303,Assosa,Benishangul Gumz,ET060309,Assosa town Admin,Benishangul-Gumuz,14.510746,0.004968,1,2920.801233,14.510746
+cross_pcode_overlap,likely_split_old_to_many_new,ET030606OU005,Enemay,Amhara,ET030699,Bechena town,Amhara,3.526092,0.004807,1,733.457202,3.526092
+cross_pcode_overlap,likely_split_old_to_many_new,ET010205,Laelay Maychew,Tigray,ET010213,Axum town,Tigray,2.546892,0.004754,0.140458,535.739348,18.132821
+cross_pcode_overlap,likely_split_old_to_many_new,ET070408,Bensa,SNNP,ET160504,Daye town,Sidama,2.569186,0.004703,1,546.270644,2.569186
+cross_pcode_overlap,likely_split_old_to_many_new,ET010305,Hawzen,Tigray,ET010312,Hawzen town,Tigray,4.091803,0.004701,1,870.400924,4.091803
+cross_pcode_overlap,complex_many_to_many,ET050601OU071,East Imi,Somali,ET050809,Raso,Somali,25.354864,0.004602,0.085255,5510.127038,297.399093
+cross_pcode_overlap,likely_split_old_to_many_new,ET030415OU020,Were Ilu,Amhara,ET030423,Wereilu town,Amhara,3.353998,0.004523,1,741.510196,3.353998
+cross_pcode_overlap,likely_split_old_to_many_new,ET071201,Yem SP Woreda,SNNP,ET072402,Fofa,Central Ethiopia,3.451627,0.004517,1,764.149172,3.451627
+cross_pcode_overlap,likely_split_old_to_many_new,ET070206,Soro,SNNP,ET070214,Jajura town,Central Ethiopia,3.284802,0.004493,1,731.062213,3.284802
+cross_pcode_overlap,likely_split_old_to_many_new,ET030405OU018,Thehulederie,Amhara,ET030499,Hike town,Amhara,1.966791,0.00443,1,443.933079,1.966791
+cross_pcode_overlap,likely_split_old_to_many_new,ET030105OU008,Dabat,Amhara,ET030106,Dabat town,Amhara,4.768859,0.004357,1,1094.499908,4.768859
+cross_pcode_overlap,likely_split_old_to_many_new,ET030703OU021,Yilmana Densa,Amhara,ET031309,Adete town,Amhara,3.921855,0.004232,1,926.703447,3.921855
+cross_pcode_overlap,likely_split_old_to_many_new,ET070105,Sodo,SNNP,ET070402,Bui town,Central Ethiopia,3.512666,0.00421,1,834.312315,3.512666
+cross_pcode_overlap,likely_split_old_to_many_new,ET030613OU006,Dejen,Amhara,ET030698,Dejen town,Amhara,2.587817,0.004125,1,627.411729,2.587817
+cross_pcode_overlap,likely_split_old_to_many_new,ET071005,Mirab Abaya,SNNP,ET080203,Birbir town,South Ethiopia,3.297424,0.004115,1,801.399078,3.297424
+cross_pcode_overlap,likely_split_old_to_many_new,ET030502OU009,Merhabete,Amhara,ET030599,Aleme Ketma town,Amhara,4.282333,0.00408,1,1049.492652,4.282333
+cross_pcode_overlap,likely_split_old_to_many_new,ET041207OU029,Yabelo,Oromia,ET041296,Yabelo town,Oromia,16.050351,0.00399,1,4023.064056,16.050351
+cross_pcode_overlap,likely_split_old_to_many_new,ET071013,Bonke,SNNP,ET080213,Geressie town,South Ethiopia,3.141704,0.003965,1,792.281838,3.141704
+cross_pcode_overlap,likely_split_old_to_many_new,ET070604OU053,Humbo,SNNP,ET080116,Tebela town,South Ethiopia,3.428792,0.003952,1,867.530089,3.428792
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET060204,Mandura,Benishangul Gumz,ET060200,Gilgel Beles town,Benishangul-Gumuz,4.047293,0.003937,1,1028.037561,4.047293
+cross_pcode_overlap,likely_split_old_to_many_new,ET010502,Welkait,Tigray,ET990109,May Gaba,Contested,14.717271,0.003874,1,3799.029963,14.717271
+cross_pcode_overlap,likely_split_old_to_many_new,ET030603OU007,Goncha Siso Enebse,Amhara,ET030620,Gundwoin town,Amhara,3.869063,0.003725,1,1038.790322,3.869063
+cross_pcode_overlap,likely_split_old_to_many_new,ET030308OU012,Habru,Amhara,ET030397,Mersa town,Amhara,4.860147,0.003675,1,1322.490716,4.860147
+cross_pcode_overlap,likely_split_old_to_many_new,ET030202OU013,Libokemekem,Amhara,ET030299,Adiss Zemen town,Amhara,3.641099,0.003641,1,1000.073883,3.641099
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030414,Jama,Amhara,ET030425,Degolo town,Amhara,3.825346,0.003634,1,1052.747942,3.825346
+cross_pcode_overlap,likely_split_old_to_many_new,ET070902,Gesha (Deka),SNNP,ET110215,Deka town,South West Ethiopia,2.632398,0.003617,1,727.831505,2.632398
+cross_pcode_overlap,likely_split_old_to_many_new,ET030505OU067,Menze Gera Midir,Amhara,ET030597,Mehal Meda town,Amhara,4.013375,0.003606,1,1113.035638,4.013375
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030605,Enarj Enawga,Amhara,ET030621,Debrework town,Amhara,3.328443,0.003566,1,933.443301,3.328443
+cross_pcode_overlap,likely_split_old_to_many_new,ET070420,Wondo-Genet,SNNP,ET160201,Wondo-Genet town,Sidama,0.715765,0.003478,1,205.770313,0.715765
+cross_pcode_overlap,complex_many_to_many,ET010408,Ofla,Tigray,ET990303,Korem town,Contested,3.848104,0.003471,0.343124,1108.714541,11.21491
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET060305,Bambasi,Benishangul Gumz,ET060310,Bambasi town,Benishangul-Gumuz,4.707799,0.003163,1,1488.265472,4.707799
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030905,Fagta Lakoma,Amhara,ET030910,Adiss Kidame town,Amhara,2.051751,0.003142,1,653.060345,2.051751
+cross_pcode_overlap,likely_split_old_to_many_new,ET070206,Soro,SNNP,ET070213,Gimbichu town,Central Ethiopia,2.280849,0.00312,1,731.062213,2.280849
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030609,Michakel,Amhara,ET030618,Amanuel town,Amhara,2.246661,0.003049,1,736.828779,2.246661
+cross_pcode_overlap,likely_split_old_to_many_new,ET010202,Aheferom,Tigray,ET010220,Enticho town,Tigray,3.851707,0.003048,1,1263.63402,3.851707
+cross_pcode_overlap,likely_split_old_to_many_new,ET010303,Saesie Tsaedamba,Tigray,ET010313,Freweyni town,Tigray,3.08478,0.002935,1,1050.931519,3.08478
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030407,Kalu,Amhara,ET030429,Harbu town,Amhara,2.475874,0.002906,1,852.046838,2.475874
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030709,Jabi Tehnan,Amhara,ET030720,Jiga town,Amhara,3.40989,0.002841,1,1200.401086,3.40989
+cross_pcode_overlap,likely_split_old_to_many_new,ET071011,Ouba Debretsehaye,SNNP,ET080301,Beto town,South Ethiopia,2.127196,0.002822,1,753.892339,2.127196
+cross_pcode_overlap,likely_split_old_to_many_new,ET010303,Saesie Tsaedamba,Tigray,ET010311,Edaga Hamus town,Tigray,2.897692,0.002757,1,1050.931519,2.897692
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET031004,Artuma Fursi,Amhara,ET031007,Chef Robit town,Amhara,1.59772,0.002606,1,613.14801,1.59772
+cross_pcode_overlap,complex_many_to_many,ET010602,Enderta,Tigray,ET010707,Semen Sub City,Tigray,3.423058,0.002577,0.094649,1328.486653,36.165967
+cross_pcode_overlap,likely_split_old_to_many_new,ET031111OU004,Dembia,Amhara,ET031105,Kolla Debba town,Amhara,3.197588,0.002468,1,1295.81457,3.197588
+cross_pcode_overlap,likely_split_old_to_many_new,ET071003,Kucha,SNNP,ET080220,Selamber town,South Ethiopia,3.427805,0.002463,1,1391.879148,3.427805
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030504,Moretna Jiru,Amhara,ET030528,Enewari town,Amhara,1.558147,0.002352,1,662.449916,1.558147
+cross_pcode_overlap,likely_split_old_to_many_new,ET010406,Raya Azebo,Tigray,ET010412,Mekhoni town,Tigray,3.89185,0.002237,1,1739.794364,3.89185
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030209,Dera (Amhara),Amhara,ET030218,Hamusit town,Amhara,3.360863,0.002203,1,1525.670519,3.360863
+cross_pcode_overlap,likely_split_old_to_many_new,ET030207OU017,Semada,Amhara,ET030216,Wegeda town,Amhara,4.822256,0.002147,1,2246.486014,4.822256
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030509,Menze Mama Midir,Amhara,ET030526,Molale town,Amhara,1.396369,0.002145,1,650.859591,1.396369
+cross_pcode_overlap,likely_split_old_to_many_new,ET071012,Kemba,SNNP,ET080214,Kemba town,South Ethiopia,2.412835,0.002078,1,1161.259598,2.412835
+cross_pcode_overlap,likely_split_old_to_many_new,ET030704OU022,Mecha,Amhara,ET031302,Merawi town,Amhara,2.882954,0.001942,1,1484.758252,2.882954
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030612,Awabel,Amhara,ET030622,Lumame town,Amhara,1.529405,0.001887,1,810.673954,1.529405
+cross_pcode_overlap,likely_split_old_to_many_new,ET030410,Legambo,Amhara,ET030428,Gimeba town,Amhara,1.874908,0.001856,1,1010.328602,1.874908
+cross_pcode_overlap,likely_split_old_to_many_new,ET030713,Debub Achefer,Amhara,ET031308,Dure Bete,Amhara,1.998425,0.001813,1,1102.109533,1.998425
+cross_pcode_overlap,likely_split_old_to_many_new,ET031213OU025,Metema,Amhara,ET031224,Metema Yohanes town,Amhara,9.035543,0.001694,1,5335.026707,9.035543
+cross_pcode_overlap,complex_many_to_many,ET010602,Enderta,Tigray,ET010704,Hawelti Sub City,Tigray,2.157183,0.001624,0.136139,1328.486653,15.845385
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET020106,Chifra,Afar,ET020113,Chifra town,Afar,2.290291,0.001541,1,1486.318195,2.290291
+cross_pcode_overlap,likely_split_old_to_many_new,ET010106,Tselemti,Tigray,ET990203,May Tsebri town,Contested,4.345901,0.001539,1,2824.293079,4.345901
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET031115,Alfa,Amhara,ET031104,Shawra town,Amhara,2.801173,0.001429,1,1960.277365,2.801173
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030413,Kelela,Amhara,ET030426,Kelala town,Amhara,2.032849,0.001423,1,1428.889285,2.032849
+cross_pcode_overlap,likely_split_old_to_many_new,ET010105,Asgede Tsimbila,Tigray,ET010114,Endabaguna town,Tigray,3.144867,0.001328,1,2368.154595,3.144867
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030711,Wemberma,Amhara,ET030716,Shendi town,Amhara,1.8049,0.001309,1,1378.841181,1.8049
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET031003,Jilye Tumuga,Amhara,ET031008,Senbete town,Amhara,1.162038,0.001305,1,890.279856,1.162038
+cross_pcode_overlap,likely_split_old_to_many_new,ET071305,Konso,SNNP,ET080903,Karat town,South Ethiopia,2.865515,0.001228,1,2333.884889,2.865515
+cross_pcode_overlap,complex_many_to_many,ET010602,Enderta,Tigray,ET010705,Adihaki Sub City,Tigray,1.54549,0.001163,0.406374,1328.486653,3.803121
+cross_pcode_overlap,likely_split_old_to_many_new,ET071703,Lome (SNNP),SNNP,ET110412,Gesa town,South West Ethiopia,1.316415,0.001124,1,1171.465966,1.316415
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030518,Minjar Shenkora,Amhara,ET030525,Arerti town,Amhara,1.91549,0.00111,1,1726.300274,1.91549
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030416,Wegde,Amhara,ET030430,Wegedi town,Amhara,1.221376,0.001089,1,1121.750444,1.221376
+cross_pcode_overlap,likely_split_old_to_many_new,ET071302,Amaro,SNNP,ET080802,Kele town,South Ethiopia,1.640788,0.00101,1,1625.15487,1.640788
+cross_pcode_overlap,likely_split_old_to_many_new,ET031112OU003,Chilga,Amhara,ET031199,Aykel town,Amhara,2.988667,0.000984,1,3036.247883,2.988667
+cross_pcode_overlap,likely_split_old_to_many_new,ET071001,Melekoza,SNNP,ET080305,Laha town,South Ethiopia,1.427303,0.00092,1,1551.161522,1.427303
+cross_pcode_overlap,likely_split_old_to_many_new,ET020101OU001,Dubti,Afar,ET020107,Dubti town,Afar,6.761423,0.000912,1,7415.62243,6.761423
+cross_pcode_overlap,likely_split_old_to_many_new,ET030201OU015,Ebenat,Amhara,ET030217,Ebenat town,Amhara,2.152868,0.000911,1,2362.289839,2.152868
+cross_pcode_overlap,likely_split_old_to_many_new,ET070704,Hamer,SNNP,ET081207,Turmi town,South Ethiopia,5.314552,0.000901,1,5895.656053,5.314552
+cross_pcode_overlap,likely_split_old_to_many_new,ET010307,Atsbi Wenberta,Tigray,ET010315,Atsbi town,Tigray,1.010482,0.000879,1,1149.151551,1.010482
+cross_pcode_overlap,likely_split_old_to_many_new,ET010208,Kola Temben,Tigray,ET010211,Abiy Adi town,Tigray,0.993158,0.000727,0.050379,1366.912575,19.71368
+cross_pcode_overlap,likely_split_old_to_many_new,ET041004OU031,Babile (Oromia),Oromia,ET041000,Babile town,Oromia,3.39484,0.000695,1,4882.750925,3.39484
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030803,Dehana,Amhara,ET030809,Amde Work town,Amhara,0.888815,0.000541,1,1644.326851,0.888815
+cross_pcode_overlap,likely_split_old_to_many_new,ET020105,Mile,Afar,ET020112,Mile town,Afar,1.945576,0.000478,1,4067.774878,1.945576
+cross_pcode_overlap,one_to_one_redraw_or_recode,ET030906,Jawi,Amhara,ET030912,Fendika town,Amhara,1.452431,0.000442,1,3289.540895,1.452431
+same_pcode_overlap,same_pcode,ET010409,Maychew Town,Tigray,ET010409,Maichew town,Tigray,8.717767,1,0.537861,8.717767,16.208212
+same_pcode_overlap,same_pcode,ET020102,Elidar,Afar,ET020102,Elidar,Afar,10900.28498,1,0.952785,10900.28498,11440.44557
+same_pcode_overlap,same_pcode,ET020198,Logiya-Semera,Afar,ET020198,Samera Logiya town,Afar,75.806451,1,1,75.806451,75.806451
+same_pcode_overlap,same_pcode,ET020201,Erebti,Afar,ET020201,Erebti,Afar,2613.39071,1,1,2613.39071,2613.39071
+same_pcode_overlap,same_pcode,ET020202,Kunneba,Afar,ET020202,Kunneba,Afar,349.369008,1,1,349.369008,349.369009
+same_pcode_overlap,same_pcode,ET020204,Megale,Afar,ET020204,Megale,Afar,1128.593718,1,1,1128.593719,1128.593771
+same_pcode_overlap,same_pcode,ET020205,Berahile,Afar,ET020205,Berahile,Afar,2915.765246,1,1,2915.765246,2915.765246
+same_pcode_overlap,same_pcode,ET020206,Dalol,Afar,ET020206,Dalol,Afar,2232.317182,1,1,2232.317182,2232.317186
+same_pcode_overlap,same_pcode,ET020207,Afdera,Afar,ET020207,Afdera,Afar,12493.92792,1,1,12493.92792,12493.92792
+same_pcode_overlap,same_pcode,ET020306,Arguba Special,Afar,ET020306,Arguba,Afar,365.063816,1,1,365.063837,365.063825
+same_pcode_overlap,same_pcode,ET020396,Awash City,Afar,ET020396,Awash town,Afar,11.778126,1,0.170067,11.778126,69.255597
+same_pcode_overlap,same_pcode,ET020401,Awra,Afar,ET020401,Awra (AF),Afar,2292.717132,1,1,2292.717132,2292.717132
+same_pcode_overlap,same_pcode,ET020402,Ewa,Afar,ET020402,Euwa,Afar,1444.345014,1,1,1444.345014,1444.345014
+same_pcode_overlap,same_pcode,ET020404,Yalo,Afar,ET020404,Yalo,Afar,764.175252,1,1,764.175252,764.175252
+same_pcode_overlap,same_pcode,ET020405,Gulina,Afar,ET020405,Gulina,Afar,846.917933,1,1,846.917936,846.917937
+same_pcode_overlap,same_pcode,ET020502,Samurobi Gele'alo,Afar,ET020502,Samurobi,Afar,1444.974359,1,1,1444.974363,1444.974371
+same_pcode_overlap,same_pcode,ET020503,Dewe,Afar,ET020503,Dawe,Afar,749.567583,1,1,749.567585,749.567591
+same_pcode_overlap,same_pcode,ET020505,Hadelela,Afar,ET020505,Hadelela,Afar,1257.344351,1,1,1257.344351,1257.344358
+same_pcode_overlap,same_pcode,ET030101,Addi Arekay,Amhara,ET030101,Addi Arekay,Amhara,1467.387779,1,1,1467.388354,1467.387807
+same_pcode_overlap,same_pcode,ET030102,Beyeda,Amhara,ET030102,Beyeda,Amhara,968.375835,1,1,968.375835,968.375835
+same_pcode_overlap,same_pcode,ET030103,Janamora,Amhara,ET030103,Janamora,Amhara,1296.695981,1,0.999997,1296.69601,1296.699233
+same_pcode_overlap,same_pcode,ET030104,Debark,Amhara,ET030104,Debark,Amhara,1246.399179,1,1,1246.399181,1246.399454
+same_pcode_overlap,same_pcode,ET030119,Telemt,Amhara,ET030119,Telemt,Amhara,776.055999,1,1,776.056013,776.056008
+same_pcode_overlap,same_pcode,ET030198,Debark Town,Amhara,ET030198,Debark town,Amhara,5.658017,1,1,5.658017,5.658017
+same_pcode_overlap,same_pcode,ET030203,Fogera,Amhara,ET030203,Fogera,Amhara,1105.974613,1,0.828232,1105.974613,1335.343593
+same_pcode_overlap,same_pcode,ET030206,Tach Gayint,Amhara,ET030206,Tach Gayint,Amhara,825.915756,1,1,825.915756,825.915756
+same_pcode_overlap,same_pcode,ET030210,Debre Tabor Town,Amhara,ET030210,Debre Tabor town,Amhara,110.934412,1,1,110.934412,110.934412
+same_pcode_overlap,same_pcode,ET030211,West Esite,Amhara,ET030211,Andabet /West Esite,Amhara,810.017162,1,1,810.017162,810.017162
+same_pcode_overlap,same_pcode,ET030293,Woreta Town,Amhara,ET030293,Woreta town,Amhara,5.84116,1,1,5.84116,5.84116
+same_pcode_overlap,same_pcode,ET030301,Bugna,Amhara,ET030301,Bugna,Amhara,1303.954594,1,1,1303.954594,1303.954594
+same_pcode_overlap,same_pcode,ET030302,Raya Kobo,Amhara,ET030302,Raya Kobo,Amhara,1922.358923,1,1,1922.358928,1922.358944
+same_pcode_overlap,same_pcode,ET030303,Gidan,Amhara,ET030303,Gidan,Amhara,1087.319316,1,1,1087.319316,1087.319316
+same_pcode_overlap,same_pcode,ET030309,Woldiya Town,Amhara,ET030309,Woldiya town,Amhara,78.911399,1,1,78.911399,78.911399
+same_pcode_overlap,same_pcode,ET030310,Lasta,Amhara,ET030310,Lasta,Amhara,1115.935952,1,1,1115.935952,1115.935952
+same_pcode_overlap,same_pcode,ET030311,Dawunt,Amhara,ET030311,Dawunt,Amhara,618.683831,1,1,618.683831,618.683831
+same_pcode_overlap,same_pcode,ET030398,Lalibela Town,Amhara,ET030398,Lalibela town,Amhara,7.823159,1,1,7.823159,7.823159
+same_pcode_overlap,same_pcode,ET030399,Kobo Town,Amhara,ET030399,Kobo town,Amhara,5.908738,1,1,5.908738,5.908738
+same_pcode_overlap,same_pcode,ET030401,Argoba,Amhara,ET030401,Argoba,Amhara,315.139912,1,1,315.139912,315.139912
+same_pcode_overlap,same_pcode,ET030402,Tenta,Amhara,ET030402,Tenta,Amhara,1317.37395,1,1,1317.37395,1317.37395
+same_pcode_overlap,same_pcode,ET030403,Kutaber,Amhara,ET030403,Kutaber,Amhara,720.44794,1,1,720.44794,720.44794
+same_pcode_overlap,same_pcode,ET030404,Ambasel,Amhara,ET030404,Ambasel,Amhara,882.88275,1,1,882.88275,882.88275
+same_pcode_overlap,same_pcode,ET030408,Albuko,Amhara,ET030408,Albuko,Amhara,477.012044,1,1,477.012044,477.012044
+same_pcode_overlap,same_pcode,ET030409,Dessie Zuria,Amhara,ET030409,Dessie Zuria,Amhara,937.997323,1,0.999584,937.997323,938.387712
+same_pcode_overlap,same_pcode,ET030411,Sayint,Amhara,ET030411,Sayint,Amhara,1438.41996,1,1,1438.41996,1438.41996
+same_pcode_overlap,same_pcode,ET030417,Kombolcha Town,Amhara,ET030417,Kombolcha town,Amhara,132.239685,1,1,132.239685,132.239685
+same_pcode_overlap,same_pcode,ET030418,Dessie City Adm.,Amhara,ET030418,Dessie town,Amhara,199.040485,1,1,199.040485,199.040485
+same_pcode_overlap,same_pcode,ET030419,Mehal Sayint,Amhara,ET030419,Mehal Sayint,Amhara,600.563722,1,1,600.563722,600.563722
+same_pcode_overlap,same_pcode,ET030420,Legehida,Amhara,ET030420,Legehida,Amhara,533.62118,1,1,533.62118,533.62118
+same_pcode_overlap,same_pcode,ET030421,Mekdela,Amhara,ET030421,Mekdela,Amhara,1492.564719,1,1,1492.564719,1492.564719
+same_pcode_overlap,same_pcode,ET030422,Worebabu,Amhara,ET030422,Worebabu,Amhara,751.006927,1,1,751.006933,751.006927
+same_pcode_overlap,same_pcode,ET030501,Mida Woremo,Amhara,ET030501,Mida Woremo,Amhara,848.02476,1,1,848.02476,848.024762
+same_pcode_overlap,same_pcode,ET030503,Ensaro,Amhara,ET030503,Ensaro,Amhara,451.672326,1,1,451.672327,451.672328
+same_pcode_overlap,same_pcode,ET030506,Gishe Rabel,Amhara,ET030506,Gishe Rabel,Amhara,659.23554,1,1,659.23554,659.23554
+same_pcode_overlap,same_pcode,ET030507,Antsokiya,Amhara,ET030507,Antsokiya,Amhara,372.404349,1,1,372.404349,372.404349
+same_pcode_overlap,same_pcode,ET030511,Mojan Wedera,Amhara,ET030511,Mojan Wedera,Amhara,618.653001,1,1,618.653001,618.653001
+same_pcode_overlap,same_pcode,ET030512,Kewet,Amhara,ET030512,Kewet,Amhara,756.626103,1,1,756.62611,756.62612
+same_pcode_overlap,same_pcode,ET030513,Angolelana Tera,Amhara,ET030513,Angolelana Tera,Amhara,807.536437,1,1,807.53645,807.53645
+same_pcode_overlap,same_pcode,ET030514,Assagirt,Amhara,ET030514,Assagirt,Amhara,499.93687,1,1,499.93687,499.93687
+same_pcode_overlap,same_pcode,ET030515,Ankober,Amhara,ET030515,Ankober,Amhara,707.998552,1,1,707.998562,707.998573
+same_pcode_overlap,same_pcode,ET030517,Berehet,Amhara,ET030517,Berehet,Amhara,772.294259,1,1,772.294275,772.294265
+same_pcode_overlap,same_pcode,ET030519,Basona Worena,Amhara,ET030519,Basona Worena,Amhara,1215.284258,1,1,1215.284259,1215.284261
+same_pcode_overlap,same_pcode,ET030520,Debre Berhan Town,Amhara,ET030520,Debre Berhan town,Amhara,146.37807,1,1,146.37807,146.37807
+same_pcode_overlap,same_pcode,ET030521,Menze Keya Gabriel,Amhara,ET030521,Menze Keya Gabriel,Amhara,544.814603,1,1,544.814603,544.814603
+same_pcode_overlap,same_pcode,ET030522,Menze Lalo Midir,Amhara,ET030522,Menze Lalo Midir,Amhara,381.923303,1,1,381.923303,381.923303
+same_pcode_overlap,same_pcode,ET030523,Siya Debirna Wayu,Amhara,ET030523,Siya Debirna Wayu,Amhara,463.718761,1,1,463.718762,463.718762
+same_pcode_overlap,same_pcode,ET030595,Shoa Robit,Amhara,ET030595,Shoa Robit,Amhara,9.930578,1,1,9.930579,9.930578
+same_pcode_overlap,same_pcode,ET030601,Bibugn,Amhara,ET030601,Bibugn,Amhara,399.925814,1,1,399.925814,399.925814
+same_pcode_overlap,same_pcode,ET030602,Hulet Ej Enese,Amhara,ET030602,Hulet Ej Enese,Amhara,1490.757366,1,1,1490.757366,1490.757366
+same_pcode_overlap,same_pcode,ET030607,Debay Telatgen,Amhara,ET030607,Debay Telatgen,Amhara,626.455245,1,1,626.455245,626.455245
+same_pcode_overlap,same_pcode,ET030608,Debre Elias,Amhara,ET030608,Debre Elias,Amhara,1192.757428,1,1,1192.757429,1192.75743
+same_pcode_overlap,same_pcode,ET030610,Guzamn,Amhara,ET030610,Guzamn,Amhara,1177.500287,1,1,1177.500287,1177.500287
+same_pcode_overlap,same_pcode,ET030611,Baso Liben,Amhara,ET030611,Baso Liben,Amhara,1145.519793,1,1,1145.519793,1145.519794
+same_pcode_overlap,same_pcode,ET030614,Shebel Bernta,Amhara,ET030614,Shebel Bernta,Amhara,900.437097,1,1,900.437098,900.437099
+same_pcode_overlap,same_pcode,ET030615,Debre Markos Town,Amhara,ET030615,Debre Markos town,Amhara,65.8421,1,1,65.8421,65.8421
+same_pcode_overlap,same_pcode,ET030616,Senan,Amhara,ET030616,Senan,Amhara,436.603832,1,1,436.603832,436.603832
+same_pcode_overlap,same_pcode,ET030617,Aneded,Amhara,ET030617,Aneded,Amhara,682.399585,1,1,682.399585,682.399586
+same_pcode_overlap,same_pcode,ET030694,Mota Town,Amhara,ET030694,Mota town,Amhara,6.595652,1,1,6.595652,6.595652
+same_pcode_overlap,same_pcode,ET030706,Quarit,Amhara,ET030706,Quarit,Amhara,603.035533,1,1,603.035533,603.035533
+same_pcode_overlap,same_pcode,ET030707,Dega Damot,Amhara,ET030707,Dega Damot,Amhara,831.424029,1,1,831.424029,831.424029
+same_pcode_overlap,same_pcode,ET030710,Bure (Amhara),Amhara,ET030710,Bure (AM),Amhara,796.74803,1,0.994947,796.74803,800.794457
+same_pcode_overlap,same_pcode,ET030798,Bure Town,Amhara,ET030798,Bure town,Amhara,12.445935,1,1,12.445935,12.445935
+same_pcode_overlap,same_pcode,ET030801,Zequala,Amhara,ET030801,Zequala,Amhara,1727.453593,1,1,1727.453593,1727.453607
+same_pcode_overlap,same_pcode,ET030804,Gaz Gibla,Amhara,ET030804,Gaz Gibla,Amhara,1031.829166,1,1,1031.829166,1031.829166
+same_pcode_overlap,same_pcode,ET030805,Abergele,Amhara,ET030805,Abergele (AM),Amhara,1575.20782,1,1,1575.207842,1575.207823
+same_pcode_overlap,same_pcode,ET030807,Sekota Town,Amhara,ET030807,Sekota town,Amhara,100.911826,1,1,100.911826,100.911826
+same_pcode_overlap,same_pcode,ET030901,Dangila,Amhara,ET030901,Dangila,Amhara,909.875449,1,1,909.875449,909.875449
+same_pcode_overlap,same_pcode,ET030902,Banja,Amhara,ET030902,Banja,Amhara,479.911145,1,1,479.911145,479.911145
+same_pcode_overlap,same_pcode,ET030904,Guangua,Amhara,ET030904,Guangua,Amhara,2341.561523,1,1,2341.561534,2341.561543
+same_pcode_overlap,same_pcode,ET030996,Injibara Town,Amhara,ET030996,Injibara town,Amhara,27.889247,1,1,27.889247,27.889247
+same_pcode_overlap,same_pcode,ET030997,Zigem,Amhara,ET030997,Zigem town,Amhara,2.796361,1,1,2.796361,2.796361
+same_pcode_overlap,same_pcode,ET030998,Dangila Town,Amhara,ET030998,Dangila town,Amhara,9.061182,1,1,9.061182,9.061182
+same_pcode_overlap,same_pcode,ET030999,Chagni Town,Amhara,ET030999,Chagni town,Amhara,17.320028,1,1,17.320028,17.320028
+same_pcode_overlap,same_pcode,ET031001,Dewa Cheffa,Amhara,ET031001,Dewa Cheffa,Amhara,652.772902,1,1,652.772902,652.772902
+same_pcode_overlap,same_pcode,ET031002,Bati,Amhara,ET031002,Bati,Amhara,1212.116098,1,1,1212.116105,1212.116099
+same_pcode_overlap,same_pcode,ET031005,Dewa Harewa,Amhara,ET031005,Dewa Harewa,Amhara,439.024966,1,1,439.024973,439.024968
+same_pcode_overlap,same_pcode,ET031006,Kemisie Town,Amhara,ET031006,Kemisie town,Amhara,3.753911,1,1,3.753911,3.753911
+same_pcode_overlap,same_pcode,ET031099,Bati Town,Amhara,ET031099,Bati town,Amhara,3.636154,1,1,3.636154,3.636154
+same_pcode_overlap,same_pcode,ET031107,Tsegede (Amhara),Amhara,ET031107,Tegede,Amhara,1879.397178,1,1,1879.397184,1879.397181
+same_pcode_overlap,same_pcode,ET031108,Lay Armacho,Amhara,ET031108,Lay Armacho,Amhara,1059.35124,1,1,1059.35124,1059.351256
+same_pcode_overlap,same_pcode,ET031116,West Belesa,Amhara,ET031116,West Belesa,Amhara,1258.305056,1,1,1258.305056,1258.305056
+same_pcode_overlap,same_pcode,ET031117,East Belesa,Amhara,ET031117,East Belesa,Amhara,1421.424394,1,1,1421.424394,1421.424394
+same_pcode_overlap,same_pcode,ET031121,Takusa,Amhara,ET031121,Takusa,Amhara,1947.668871,1,0.894229,1947.668871,2178.041492
+same_pcode_overlap,same_pcode,ET031214,Quara,Amhara,ET031214,Quara,Amhara,8441.307198,1,1,8441.307206,8441.307234
+same_pcode_overlap,same_pcode,ET031292,Gendawuha Town,Amhara,ET031292,Gendawuha town,Amhara,11.379054,1,1,11.379054,11.379054
+same_pcode_overlap,same_pcode,ET040104,Lalo Asabi,Oromia,ET040104,Lalo Asabi,Oromia,378.506814,1,1,378.506814,378.506814
+same_pcode_overlap,same_pcode,ET040105,Kiltu Kara,Oromia,ET040105,Kiltu Kara,Oromia,419.232665,1,1,419.232665,419.232665
+same_pcode_overlap,same_pcode,ET040106,Boji Dirmeji,Oromia,ET040106,Boji Dirmeji,Oromia,498.734068,1,1,498.734068,498.734068
+same_pcode_overlap,same_pcode,ET040107,Ayira,Oromia,ET040107,Ayira,Oromia,514.231388,1,1,514.231388,514.231388
+same_pcode_overlap,same_pcode,ET040108,Jarso (West Wellega),Oromia,ET040108,Jarso (West Wellega),Oromia,469.640255,1,1,469.640255,469.640255
+same_pcode_overlap,same_pcode,ET040109,Gudetu Kondole,Oromia,ET040109,Gudetu Kondole,Oromia,1262.869853,1,1,1262.869853,1262.869853
+same_pcode_overlap,same_pcode,ET040110,Boji Chekorsa,Oromia,ET040110,Boji Chekorsa,Oromia,343.285769,1,1,343.285769,343.285769
+same_pcode_overlap,same_pcode,ET040111,Babo,Oromia,ET040111,Babo,Oromia,898.119484,1,1,898.119484,898.119484
+same_pcode_overlap,same_pcode,ET040112,Yubdo,Oromia,ET040112,Yubdo,Oromia,307.94655,1,1,307.94655,307.94655
+same_pcode_overlap,same_pcode,ET040113,Gaji,Oromia,ET040113,Gaji,Oromia,302.194442,1,1,302.194442,302.194442
+same_pcode_overlap,same_pcode,ET040114,Haru,Oromia,ET040114,Haru,Oromia,463.485264,1,1,463.485264,463.485264
+same_pcode_overlap,same_pcode,ET040115,Nole Kaba,Oromia,ET040115,Nole Kaba,Oromia,631.312452,1,1,631.312452,631.312452
+same_pcode_overlap,same_pcode,ET040116,Begi,Oromia,ET040116,Begi,Oromia,866.108549,1,1,866.108549,866.108549
+same_pcode_overlap,same_pcode,ET040117,Homa,Oromia,ET040117,Homa,Oromia,90.664358,1,1,90.664358,90.664358
+same_pcode_overlap,same_pcode,ET040118,Sayo Nole,Oromia,ET040118,Sayo Nole,Oromia,613.166641,1,1,613.166641,613.166641
+same_pcode_overlap,same_pcode,ET040119,Guliso,Oromia,ET040119,Guliso,Oromia,577.289234,1,1,577.289234,577.289234
+same_pcode_overlap,same_pcode,ET040201,Limu (Oromia),Oromia,ET040201,Limu (OR),Oromia,1101.115277,1,1,1101.115277,1101.115277
+same_pcode_overlap,same_pcode,ET040202,Ibantu,Oromia,ET040202,Ibantu,Oromia,826.824682,1,1,826.824682,826.824682
+same_pcode_overlap,same_pcode,ET040203,Gida Ayana,Oromia,ET040203,Gida Ayana,Oromia,1604.460797,1,1,1604.460797,1604.460797
+same_pcode_overlap,same_pcode,ET040204,Haro Limu,Oromia,ET040204,Haro Limu,Oromia,1171.579486,1,1,1171.579486,1171.579486
+same_pcode_overlap,same_pcode,ET040205,Boneya Boshe,Oromia,ET040205,Boneya Boshe,Oromia,474.19962,1,1,474.19962,474.19962
+same_pcode_overlap,same_pcode,ET040207,Bila Seyo,Oromia,ET040207,Bila Seyo,Oromia,670.070706,1,1,670.070706,670.070706
+same_pcode_overlap,same_pcode,ET040208,Gobu Seyo,Oromia,ET040208,Gobu Seyo,Oromia,341.241941,1,1,341.241941,341.241941
+same_pcode_overlap,same_pcode,ET040209,Sibu Sire,Oromia,ET040209,Sibu Sire,Oromia,1046.714415,1,0.999125,1046.714415,1047.631074
+same_pcode_overlap,same_pcode,ET040211,Sasiga,Oromia,ET040211,Sasiga,Oromia,783.29814,1,1,783.29814,783.29814
+same_pcode_overlap,same_pcode,ET040214,Jimma Arjo,Oromia,ET040214,Jimma Arjo,Oromia,756.546537,1,0.989762,756.546537,764.371879
+same_pcode_overlap,same_pcode,ET040216,Wama Hagalo,Oromia,ET040216,Wama Hagalo,Oromia,620.668796,1,1,620.668796,620.668796
+same_pcode_overlap,same_pcode,ET040217,Kiremu,Oromia,ET040217,Kiremu,Oromia,1060.150144,1,1,1060.150144,1060.150144
+same_pcode_overlap,same_pcode,ET040301,Darimu,Oromia,ET040301,Darimu,Oromia,1377.171552,1,1,1377.171552,1377.171552
+same_pcode_overlap,same_pcode,ET040302,Alge Sachi,Oromia,ET040302,Alge Sachi,Oromia,873.083062,1,1,873.083062,873.083062
+same_pcode_overlap,same_pcode,ET040311,Ale,Oromia,ET040311,Ale,Oromia,562.560786,1,1,562.560786,562.560786
+same_pcode_overlap,same_pcode,ET040312,Bure (Oromia),Oromia,ET040312,Bure (OR),Oromia,1088.878324,1,1,1088.878324,1088.878324
+same_pcode_overlap,same_pcode,ET040313,Sale Nono,Oromia,ET040313,Sale Nono,Oromia,1708.372371,1,1,1708.372371,1708.372371
+same_pcode_overlap,same_pcode,ET040314,Becho (Ilu Aba Bora),Oromia,ET040314,Becho (Ilu Aba Bora),Oromia,585.240075,1,1,585.240075,585.240075
+same_pcode_overlap,same_pcode,ET040315,Bilo Nopha,Oromia,ET040315,Bilo Nopha,Oromia,395.771175,1,1,395.771175,395.771175
+same_pcode_overlap,same_pcode,ET040316,Hurumu,Oromia,ET040316,Hurumu,Oromia,443.750407,1,1,443.750407,443.750408
+same_pcode_overlap,same_pcode,ET040317,Didu,Oromia,ET040317,Didu,Oromia,610.793684,1,1,610.793684,610.793684
+same_pcode_overlap,same_pcode,ET040319,Halu (Huka),Oromia,ET040319,Halu /Huka,Oromia,376.599382,1,1,376.599382,376.599382
+same_pcode_overlap,same_pcode,ET040320,Metu Town,Oromia,ET040320,Metu town,Oromia,16.218055,1,0.272902,16.218055,59.428067
+same_pcode_overlap,same_pcode,ET040324,Dorani,Oromia,ET040324,Dorani,Oromia,422.469286,1,1,422.469286,422.469286
+same_pcode_overlap,same_pcode,ET040401,Limu Seka,Oromia,ET040401,Limu Seka,Oromia,1677.074338,1,1,1677.074338,1677.074338
+same_pcode_overlap,same_pcode,ET040402,Limu Kosa,Oromia,ET040402,Limu Kosa,Oromia,1315.348838,1,1,1315.348838,1315.348838
+same_pcode_overlap,same_pcode,ET040403,Sekoru,Oromia,ET040403,Sekoru,Oromia,923.732698,1,1,923.732722,923.732702
+same_pcode_overlap,same_pcode,ET040404,Tiro Afeta,Oromia,ET040404,Tiro Afeta,Oromia,743.739548,1,1,743.739548,743.739548
+same_pcode_overlap,same_pcode,ET040405,Kersa (Jimma),Oromia,ET040405,Kersa (Jimma),Oromia,970.236279,1,1,970.236279,970.236279
+same_pcode_overlap,same_pcode,ET040406,Mena (Jimma),Oromia,ET040406,Mena (Jimma),Oromia,494.410396,1,1,494.410396,494.410396
+same_pcode_overlap,same_pcode,ET040408,Gera,Oromia,ET040408,Gera,Oromia,1402.746557,1,1,1402.746557,1402.746557
+same_pcode_overlap,same_pcode,ET040412,Sigmo,Oromia,ET040412,Sigmo,Oromia,890.956603,1,0.895431,890.956603,995.003305
+same_pcode_overlap,same_pcode,ET040413,Setema,Oromia,ET040413,Setema,Oromia,1031.943621,1,1,1031.943621,1031.943621
+same_pcode_overlap,same_pcode,ET040414,Shebe Sambo,Oromia,ET040414,Shebe Sambo,Oromia,812.807207,1,1,812.807207,812.807207
+same_pcode_overlap,same_pcode,ET040416,Gumay,Oromia,ET040416,Gumay,Oromia,407.462468,1,1,407.462468,407.462468
+same_pcode_overlap,same_pcode,ET040417,Agaro Town,Oromia,ET040417,Agaro town,Oromia,8.176467,1,0.264858,8.176467,30.871129
+same_pcode_overlap,same_pcode,ET040499,Nono Benja,Oromia,ET040499,Nono Benja,Oromia,828.639103,1,1,828.639103,828.639103
+same_pcode_overlap,same_pcode,ET040500,Illu Galan,Oromia,ET040500,Illu Galan,Oromia,423.821557,1,1,423.821557,423.821557
+same_pcode_overlap,same_pcode,ET040501,Ginde Beret,Oromia,ET040501,Ginde Beret,Oromia,1287.162363,1,1,1287.162364,1287.162363
+same_pcode_overlap,same_pcode,ET040504,Mida Kegn,Oromia,ET040504,Mida Kegn,Oromia,910.683097,1,1,910.683097,910.683097
+same_pcode_overlap,same_pcode,ET040505,Cheliya,Oromia,ET040505,Cheliya,Oromia,389.19267,1,1,389.19267,389.19267
+same_pcode_overlap,same_pcode,ET040506,Bako Tibe,Oromia,ET040506,Bako Tibe,Oromia,639.108051,1,1,639.108051,639.108051
+same_pcode_overlap,same_pcode,ET040507,Dano,Oromia,ET040507,Dano,Oromia,659.824157,1,1,659.824157,659.824157
+same_pcode_overlap,same_pcode,ET040508,Nono,Oromia,ET040508,Nono,Oromia,693.535907,1,1,693.535907,693.535907
+same_pcode_overlap,same_pcode,ET040509,Tikur Enchini,Oromia,ET040509,Tikur Enchini,Oromia,437.561153,1,1,437.561153,437.561153
+same_pcode_overlap,same_pcode,ET040513,Adda Berga,Oromia,ET040513,Adda Berga,Oromia,945.576775,1,1,945.576775,945.576775
+same_pcode_overlap,same_pcode,ET040516,Abuna G/Beret,Oromia,ET040516,Abuna Ginde Beret,Oromia,1119.54005,1,1,1119.540051,1119.540051
+same_pcode_overlap,same_pcode,ET040517,Toke Kutaye,Oromia,ET040517,Toke Kutaye,Oromia,550.161773,1,1,550.161773,550.161773
+same_pcode_overlap,same_pcode,ET040518,Jibat,Oromia,ET040518,Jibat,Oromia,483.381289,1,1,483.381289,483.381289
+same_pcode_overlap,same_pcode,ET040519,Ifata,Oromia,ET040519,Ifata,Oromia,445.349319,1,1,445.349319,445.349319
+same_pcode_overlap,same_pcode,ET040597,Liban Jawi,Oromia,ET040597,Liban Jawi,Oromia,317.731657,1,1,317.731657,317.731657
+same_pcode_overlap,same_pcode,ET040601,Wara Jarso,Oromia,ET040601,Wara Jarso,Oromia,1175.172217,1,1,1175.172221,1175.172219
+same_pcode_overlap,same_pcode,ET040602,Dera (Oromia),Oromia,ET040602,Dera (OR),Oromia,1539.384393,1,1,1539.384399,1539.384403
+same_pcode_overlap,same_pcode,ET040603,Hidabu Abote,Oromia,ET040603,Hidabu Abote,Oromia,503.692239,1,0.990771,503.69224,508.384135
+same_pcode_overlap,same_pcode,ET040605,Degem,Oromia,ET040605,Degem,Oromia,642.581416,1,1,642.581416,642.581416
+same_pcode_overlap,same_pcode,ET040606,Gerar Jarso,Oromia,ET040606,Gerar Jarso,Oromia,473.15047,1,1,473.150472,473.15047
+same_pcode_overlap,same_pcode,ET040607,Debre Libanos,Oromia,ET040607,Debre Libanos,Oromia,283.159062,1,1,283.159062,283.159062
+same_pcode_overlap,same_pcode,ET040608,Wuchale,Oromia,ET040608,Wuchale,Oromia,893.478367,1,0.999622,893.478368,893.816625
+same_pcode_overlap,same_pcode,ET040609,Abichugna Gne'a,Oromia,ET040609,Abichugna Gne'a,Oromia,676.481905,1,1,676.481911,676.48191
+same_pcode_overlap,same_pcode,ET040613,Fiche Town,Oromia,ET040613,Fiche town,Oromia,13.322525,1,1,13.322525,13.322525
+same_pcode_overlap,same_pcode,ET040614,Yaya Gulele,Oromia,ET040614,Yaya Gulele,Oromia,340.826877,1,1,340.826877,340.826877
+same_pcode_overlap,same_pcode,ET040701,Fentale,Oromia,ET040701,Fentale,Oromia,1463.525235,1,1,1463.525237,1463.525236
+same_pcode_overlap,same_pcode,ET040705,Gimbichu,Oromia,ET040705,Gimbichu,Oromia,664.75019,1,0.998617,664.750197,665.670795
+same_pcode_overlap,same_pcode,ET040707,Dugda,Oromia,ET040707,Dugda,Oromia,999.187932,1,1,999.187947,999.18794
+same_pcode_overlap,same_pcode,ET040711,Liben Chukala,Oromia,ET040711,Liben Chukala,Oromia,704.170436,1,0.999536,704.170437,704.497278
+same_pcode_overlap,same_pcode,ET040714,Adama Town,Oromia,ET040714,Adama town,Oromia,109.608724,1,0.169889,109.608724,645.178476
+same_pcode_overlap,same_pcode,ET040801,Merti,Oromia,ET040801,Merti,Oromia,872.192914,1,1,872.192914,872.192914
+same_pcode_overlap,same_pcode,ET040802,Aseko,Oromia,ET040802,Aseko,Oromia,542.26628,1,1,542.26628,542.26628
+same_pcode_overlap,same_pcode,ET040804,Jeju,Oromia,ET040804,Jeju,Oromia,806.347581,1,1,806.347581,806.347581
+same_pcode_overlap,same_pcode,ET040806,Ziway Dugda,Oromia,ET040806,Ziway Dugda,Oromia,1012.083336,1,1,1012.083336,1012.083348
+same_pcode_overlap,same_pcode,ET040807,Hitosa,Oromia,ET040807,Hitosa,Oromia,690.793159,1,1,690.793159,690.793159
+same_pcode_overlap,same_pcode,ET040808,Sude,Oromia,ET040808,Sude,Oromia,1168.113936,1,1,1168.113936,1168.113936
+same_pcode_overlap,same_pcode,ET040809,Chole,Oromia,ET040809,Chole,Oromia,585.143892,1,1,585.143892,585.143892
+same_pcode_overlap,same_pcode,ET040810,Amigna,Oromia,ET040810,Amigna,Oromia,1288.208045,1,1,1288.208045,1288.208045
+same_pcode_overlap,same_pcode,ET040811,Seru,Oromia,ET040811,Seru,Oromia,1763.714545,1,1,1763.714545,1763.714545
+same_pcode_overlap,same_pcode,ET040812,Robe,Oromia,ET040812,Robe,Oromia,1339.305471,1,1,1339.305471,1339.305471
+same_pcode_overlap,same_pcode,ET040813,Tena,Oromia,ET040813,Tena,Oromia,448.760143,1,1,448.760143,448.760143
+same_pcode_overlap,same_pcode,ET040814,Shirka,Oromia,ET040814,Shirka,Oromia,1167.520852,1,1,1167.520852,1167.520852
+same_pcode_overlap,same_pcode,ET040815,Degeluna Tijo,Oromia,ET040815,Degeluna Tijo,Oromia,925.73868,1,1,925.73868,925.73868
+same_pcode_overlap,same_pcode,ET040816,Tiyo,Oromia,ET040816,Tiyo,Oromia,605.008024,1,1,605.008024,605.008024
+same_pcode_overlap,same_pcode,ET040817,Munessa,Oromia,ET040817,Munessa,Oromia,1072.371503,1,0.989881,1072.371503,1083.334156
+same_pcode_overlap,same_pcode,ET040819,Guna,Oromia,ET040819,Guna,Oromia,469.98919,1,1,469.98919,469.98919
+same_pcode_overlap,same_pcode,ET040820,Sire,Oromia,ET040820,Sire,Oromia,528.559889,1,1,528.559889,528.559889
+same_pcode_overlap,same_pcode,ET040821,Lude Hitosa,Oromia,ET040821,Lude Hitosa,Oromia,541.739326,1,1,541.739326,541.739326
+same_pcode_overlap,same_pcode,ET040822,Diksis,Oromia,ET040822,Diksis,Oromia,398.862562,1,1,398.862562,398.862562
+same_pcode_overlap,same_pcode,ET040823,Bele Gesgar,Oromia,ET040823,Bele Gesgar,Oromia,638.485508,1,1,638.485508,638.485508
+same_pcode_overlap,same_pcode,ET040824,Inkolo Wabe,Oromia,ET040824,Inkolo Wabe,Oromia,318.082568,1,1,318.082568,318.082568
+same_pcode_overlap,same_pcode,ET040825,Asela Town,Oromia,ET040825,Asela town,Oromia,16.992482,1,1,16.992482,16.992482
+same_pcode_overlap,same_pcode,ET040902,Doba,Oromia,ET040902,Doba,Oromia,616.761699,1,0.991314,616.761699,622.166058
+same_pcode_overlap,same_pcode,ET040903,Tulo (Oromia),Oromia,ET040903,Tulo (OR),Oromia,429.740984,1,1,429.740984,429.740984
+same_pcode_overlap,same_pcode,ET040904,Mesela,Oromia,ET040904,Mesela /Shen Duggoo,Oromia,653.95821,1,1,653.95821,653.95821
+same_pcode_overlap,same_pcode,ET040905,Chiro Town,Oromia,ET040905,Chiro town,Oromia,5.90282,1,1,5.90282,5.90282
+same_pcode_overlap,same_pcode,ET040906,Anchar,Oromia,ET040906,Anchar,Oromia,756.587998,1,1,756.587998,756.587998
+same_pcode_overlap,same_pcode,ET040907,Goba Koricha,Oromia,ET040907,Goba Koricha,Oromia,405.463521,1,1,405.463521,405.463521
+same_pcode_overlap,same_pcode,ET040908,Habro,Oromia,ET040908,Habro,Oromia,743.130199,1,1,743.130199,743.130199
+same_pcode_overlap,same_pcode,ET040909,Daro Lebu,Oromia,ET040909,Daro Lebu,Oromia,1326.385133,1,1,1326.385133,1326.385133
+same_pcode_overlap,same_pcode,ET040910,Boke,Oromia,ET040910,Boke,Oromia,1034.329887,1,1,1034.329887,1034.329887
+same_pcode_overlap,same_pcode,ET040911,Kuni,Oromia,ET040911,Kuni /Oda Bultum,Oromia,1373.563911,1,1,1373.563911,1373.563911
+same_pcode_overlap,same_pcode,ET040912,Gemechis,Oromia,ET040912,Gemechis,Oromia,1041.314529,1,1,1041.314529,1041.314529
+same_pcode_overlap,same_pcode,ET040913,Chiro Zuria,Oromia,ET040913,Chiro Zuria,Oromia,688.477946,1,1,688.477946,688.477946
+same_pcode_overlap,same_pcode,ET040914,Bedesa,Oromia,ET040914,Bedesa town,Oromia,3.019942,1,1,3.019942,3.019942
+same_pcode_overlap,same_pcode,ET040915,Hawi Gudina,Oromia,ET040915,Hawi Gudina,Oromia,3081.823574,1,1,3081.823574,3081.823574
+same_pcode_overlap,same_pcode,ET040998,Burqua Dhintu,Oromia,ET040998,Burqua Dhintu,Oromia,2462.920523,1,1,2462.920523,2462.920523
+same_pcode_overlap,same_pcode,ET041001,Kombolcha,Oromia,ET041001,Kombolcha,Oromia,299.720332,1,0.961946,299.720332,311.577166
+same_pcode_overlap,same_pcode,ET041003,Gursum (Oromia),Oromia,ET041003,Gursum (OR),Oromia,907.555842,1,1,907.555846,907.555842
+same_pcode_overlap,same_pcode,ET041005,Fedis,Oromia,ET041005,Fedis,Oromia,700.216853,1,1,700.216853,700.216853
+same_pcode_overlap,same_pcode,ET041007,Kurfa Chele,Oromia,ET041007,Kurfa Chele,Oromia,243.01743,1,1,243.01743,243.01743
+same_pcode_overlap,same_pcode,ET041010,Goro Gutu,Oromia,ET041010,Goro Gutu,Oromia,533.94839,1,1,533.94839,533.94846
+same_pcode_overlap,same_pcode,ET041011,Deder,Oromia,ET041011,Deder,Oromia,643.291313,1,1,643.291313,643.291313
+same_pcode_overlap,same_pcode,ET041012,Melka Balo,Oromia,ET041012,Melka Balo,Oromia,1390.50985,1,1,1390.50985,1390.50985
+same_pcode_overlap,same_pcode,ET041013,Bedeno,Oromia,ET041013,Bedeno,Oromia,820.619431,1,1,820.619431,820.619431
+same_pcode_overlap,same_pcode,ET041014,Midhaga Tola,Oromia,ET041014,Midhaga Tola,Oromia,1550.616731,1,1,1550.616765,1550.616731
+same_pcode_overlap,same_pcode,ET041016,Girawa,Oromia,ET041016,Girawa,Oromia,1107.49307,1,1,1107.49307,1107.49307
+same_pcode_overlap,same_pcode,ET041017,Golo Oda,Oromia,ET041017,Golo Oda,Oromia,2047.936415,1,1,2047.936415,2047.936415
+same_pcode_overlap,same_pcode,ET041018,Meyu Muleke,Oromia,ET041018,Meyu Muleke,Oromia,2654.81086,1,1,2654.810875,2654.81086
+same_pcode_overlap,same_pcode,ET041097,Deder Town,Oromia,ET041097,Deder town,Oromia,3.017984,1,1,3.017984,3.017984
+same_pcode_overlap,same_pcode,ET041098,Kumbi,Oromia,ET041098,Kumbi,Oromia,3281.173042,1,1,3281.173049,3281.173042
+same_pcode_overlap,same_pcode,ET041104,Agarfa,Oromia,ET041104,Agarfa,Oromia,1222.491896,1,1,1222.491896,1222.491896
+same_pcode_overlap,same_pcode,ET041106,Gasera,Oromia,ET041106,Gasera,Oromia,1129.355531,1,1,1129.355531,1129.355531
+same_pcode_overlap,same_pcode,ET041109,Sinana,Oromia,ET041109,Sinana,Oromia,1033.270511,1,1,1033.270511,1033.270511
+same_pcode_overlap,same_pcode,ET041110,Goba,Oromia,ET041110,Goba (OR),Oromia,1468.725152,1,1,1468.725152,1468.725152
+same_pcode_overlap,same_pcode,ET041111,Harena Buluk,Oromia,ET041111,Harena Buluk,Oromia,1924.888478,1,1,1924.888479,1924.888478
+same_pcode_overlap,same_pcode,ET041112,Mena (Bale),Oromia,ET041112,Mena (Bale),Oromia,4891.42966,1,1,4891.42966,4891.42966
+same_pcode_overlap,same_pcode,ET041114,Berbere,Oromia,ET041114,Berbere,Oromia,1569.155634,1,1,1569.155634,1569.155634
+same_pcode_overlap,same_pcode,ET041116,Goro (Bale),Oromia,ET041116,Goro (Bale),Oromia,1515.09546,1,1,1515.09546,1515.09546
+same_pcode_overlap,same_pcode,ET041119,Robe Town,Oromia,ET041119,Robe town,Oromia,54.935123,1,1,54.935123,54.935123
+same_pcode_overlap,same_pcode,ET041120,Goba Town,Oromia,ET041120,Goba town,Oromia,42.80179,1,1,42.80179,42.80179
+same_pcode_overlap,same_pcode,ET041122,Dinsho,Oromia,ET041122,Dinsho,Oromia,650.101062,1,1,650.101062,650.101062
+same_pcode_overlap,same_pcode,ET041216,Miyo,Oromia,ET041216,Miyo,Oromia,2573.609471,1,0.999998,2573.609471,2573.614123
+same_pcode_overlap,same_pcode,ET041219,Dilo,Oromia,ET041219,Dilo,Oromia,3912.626652,1,1,3912.626652,3912.626652
+same_pcode_overlap,same_pcode,ET041301,Ameya,Oromia,ET041301,Ameya,Oromia,950.836539,1,1,950.836539,950.836539
+same_pcode_overlap,same_pcode,ET041302,Wenchi,Oromia,ET041302,Wenchi,Oromia,461.275978,1,0.990619,461.275978,465.644403
+same_pcode_overlap,same_pcode,ET041304,Dawo,Oromia,ET041304,Dawo,Oromia,461.631171,1,1,461.631171,461.631171
+same_pcode_overlap,same_pcode,ET041305,Ilu,Oromia,ET041305,Ilu,Oromia,243.601581,1,1,243.601581,243.601581
+same_pcode_overlap,same_pcode,ET041307,Kersana Malima,Oromia,ET041307,Kersana Malima,Oromia,610.288355,1,1,610.288357,610.288355
+same_pcode_overlap,same_pcode,ET041308,Tole,Oromia,ET041308,Tole,Oromia,420.967623,1,1,420.967623,420.967623
+same_pcode_overlap,same_pcode,ET041309,Becho (SW Shewa),Oromia,ET041309,Becho (SW Shewa),Oromia,436.720831,1,1,436.720831,436.720831
+same_pcode_overlap,same_pcode,ET041310,Seden Sodo,Oromia,ET041310,Seden Sodo,Oromia,559.722055,1,1,559.722055,559.722055
+same_pcode_overlap,same_pcode,ET041311,Woliso Town,Oromia,ET041311,Woliso town,Oromia,12.933976,1,0.512027,12.933976,25.260349
+same_pcode_overlap,same_pcode,ET041312,Goro (SW Shewa),Oromia,ET041312,Goro (SW Shewa),Oromia,430.185335,1,1,430.185338,430.185335
+same_pcode_overlap,same_pcode,ET041314,Sodo Daci,Oromia,ET041314,Sodo Daci,Oromia,429.698519,1,1,429.698519,429.698519
+same_pcode_overlap,same_pcode,ET041402,Bore,Oromia,ET041402,Bore,Oromia,453.394152,1,1,453.394152,453.394166
+same_pcode_overlap,same_pcode,ET041403,Adola,Oromia,ET041403,Adola,Oromia,1213.226641,1,1,1213.226641,1213.226641
+same_pcode_overlap,same_pcode,ET041404,Wadera,Oromia,ET041404,Wadera,Oromia,953.359765,1,1,953.359765,953.359765
+same_pcode_overlap,same_pcode,ET041408,Afele Kola (Dima),Oromia,ET041408,Dama,Oromia,357.117581,1,1,357.117581,357.117581
+same_pcode_overlap,same_pcode,ET041410,Girja (Harenfema),Oromia,ET041410,Girja /Harenfema,Oromia,904.381552,1,1,904.381552,904.381552
+same_pcode_overlap,same_pcode,ET041492,Adola Town,Oromia,ET041492,Adola town,Oromia,27.392677,1,1,27.392677,27.392677
+same_pcode_overlap,same_pcode,ET041499,Shakiso Town,Oromia,ET041499,Shakiso town,Oromia,15.599568,1,1,15.599568,15.599568
+same_pcode_overlap,same_pcode,ET041509,Hambela Wamena,Oromia,ET041509,Hambela Wamena,Oromia,603.291679,1,1,603.291682,603.291679
+same_pcode_overlap,same_pcode,ET041515,Dugda Dawa,Oromia,ET041515,Dugda Dawa,Oromia,1827.198324,1,1,1827.198324,1827.198324
+same_pcode_overlap,same_pcode,ET041517,Gelana (West Guji),Oromia,ET041517,Gelana (West Guji),Oromia,1209.939942,1,1,1209.939953,1209.939947
+same_pcode_overlap,same_pcode,ET041518,Melka Soda,Oromia,ET041518,Melka Soda,Oromia,1600.726089,1,1,1600.726089,1600.726089
+same_pcode_overlap,same_pcode,ET041587,Bule Hora Town,Oromia,ET041587,Bule Hora town,Oromia,12.529234,1,0.259218,12.529234,48.334656
+same_pcode_overlap,same_pcode,ET041594,Suro Berguda,Oromia,ET041594,Suro Berguda,Oromia,784.780311,1,1,784.780312,784.780311
+same_pcode_overlap,same_pcode,ET041603,Chora (Buno Bedele),Oromia,ET041603,Chora (Buno Bedele),Oromia,823.80309,1,1,823.80309,823.80309
+same_pcode_overlap,same_pcode,ET041604,Dega,Oromia,ET041604,Dega,Oromia,353.531104,1,1,353.531104,353.531104
+same_pcode_overlap,same_pcode,ET041605,Dabo Hana,Oromia,ET041605,Dabo Hana,Oromia,746.159251,1,1,746.159251,746.159251
+same_pcode_overlap,same_pcode,ET041606,Gechi,Oromia,ET041606,Gechi,Oromia,633.283233,1,1,633.283233,633.283233
+same_pcode_overlap,same_pcode,ET041607,Borecha,Oromia,ET041607,Borecha,Oromia,738.781447,1,1,738.781447,738.781447
+same_pcode_overlap,same_pcode,ET041608,Dedesa,Oromia,ET041608,Dedesa,Oromia,841.207072,1,1,841.207072,841.207072
+same_pcode_overlap,same_pcode,ET041618,Meko,Oromia,ET041618,Meko,Oromia,570.628545,1,1,570.628545,570.628545
+same_pcode_overlap,same_pcode,ET041621,Bedele Town,Oromia,ET041621,Bedele town,Oromia,8.511125,1,1,8.511125,8.511125
+same_pcode_overlap,same_pcode,ET041622,Badele Zuria,Oromia,ET041622,Bedele Zuria,Oromia,743.985666,1,1,743.985666,743.985666
+same_pcode_overlap,same_pcode,ET041701,Siraro,Oromia,ET041701,Siraro,Oromia,631.36674,1,1,631.366741,631.366782
+same_pcode_overlap,same_pcode,ET041705,Kore,Oromia,ET041705,Kore,Oromia,502.21362,1,1,502.21362,502.21362
+same_pcode_overlap,same_pcode,ET041706,Gedeb Asasa,Oromia,ET041706,Gedeb Asasa,Oromia,1148.412415,1,1,1148.412415,1148.412415
+same_pcode_overlap,same_pcode,ET041707,Dodola,Oromia,ET041707,Dodola,Oromia,1648.614102,1,1,1648.614102,1648.614102
+same_pcode_overlap,same_pcode,ET041708,Kokosa,Oromia,ET041708,Kokosa,Oromia,633.247897,1,1,633.247902,633.247897
+same_pcode_overlap,same_pcode,ET041709,Nenesebo (Wereka),Oromia,ET041709,Nenesebo,Oromia,1638.621051,1,1,1638.621078,1638.621051
+same_pcode_overlap,same_pcode,ET041710,Adaba,Oromia,ET041710,Adaba,Oromia,2163.636652,1,1,2163.636652,2163.636652
+same_pcode_overlap,same_pcode,ET041711,Shashemene Town,Oromia,ET041711,Shashemene town,Oromia,10.750927,1,0.022717,10.750927,473.249753
+same_pcode_overlap,same_pcode,ET041801,Hawa Galan,Oromia,ET041801,Hawa Galan,Oromia,792.236355,1,1,792.236355,792.236355
+same_pcode_overlap,same_pcode,ET041802,Yama Logi Welel,Oromia,ET041802,Yama Logi Welel,Oromia,566.70828,1,1,566.70828,566.70828
+same_pcode_overlap,same_pcode,ET041804,Gawo Kebe,Oromia,ET041804,Gawo Kebe,Oromia,1139.877146,1,1,1139.877146,1139.877146
+same_pcode_overlap,same_pcode,ET041805,Sayo,Oromia,ET041805,Sayo,Oromia,1123.114679,1,1,1123.114679,1123.114679
+same_pcode_overlap,same_pcode,ET041806,Denbi Dollo Town,Oromia,ET041806,Denbi Dollo town,Oromia,16.751201,1,1,16.751201,16.751201
+same_pcode_overlap,same_pcode,ET041807,Anfilo,Oromia,ET041807,Anfilo,Oromia,1570.790752,1,1,1570.790752,1570.790752
+same_pcode_overlap,same_pcode,ET041808,Dale Sadi,Oromia,ET041808,Dale Sadi,Oromia,577.055838,1,1,577.055838,577.055838
+same_pcode_overlap,same_pcode,ET041809,Gidami,Oromia,ET041809,Gidami,Oromia,2159.053477,1,1,2159.053477,2159.053477
+same_pcode_overlap,same_pcode,ET041810,Jimma Horo,Oromia,ET041810,Jimma Horo,Oromia,418.135971,1,1,418.135971,418.135971
+same_pcode_overlap,same_pcode,ET041811,Lalo Kile,Oromia,ET041811,Lalo Kile,Oromia,473.299353,1,1,473.299353,473.299353
+same_pcode_overlap,same_pcode,ET041902,Shambu Town,Oromia,ET041902,Shambu town,Oromia,5.131269,1,1,5.131269,5.131269
+same_pcode_overlap,same_pcode,ET041907,Jimma Rare,Oromia,ET041907,Jimma Rare,Oromia,344.107345,1,1,344.107345,344.107345
+same_pcode_overlap,same_pcode,ET041909,Amuru,Oromia,ET041909,Amuru,Oromia,1257.719804,1,1,1257.719806,1257.719804
+same_pcode_overlap,same_pcode,ET041910,Abe Dongoro,Oromia,ET041910,Abe Dongoro,Oromia,1095.566998,1,1,1095.566998,1095.566998
+same_pcode_overlap,same_pcode,ET050293,Jigjiga City,Somali,ET050293,Jigjiga town,Somali,80.411697,1,0.321125,80.411697,250.406609
+same_pcode_overlap,same_pcode,ET050307,Degahabur City,Somali,ET050307,Degahabur town,Somali,7.766675,1,0.03206,7.766675,242.250992
+same_pcode_overlap,same_pcode,ET050399,Dig,Somali,ET050399,Dig,Somali,670.680377,1,0.413429,670.680377,1622.238578
+same_pcode_overlap,same_pcode,ET050592,Kebridehar City,Somali,ET050592,Kebridehar town,Somali,11.255067,1,0.09764,11.255067,115.271119
+same_pcode_overlap,same_pcode,ET050696,Godey City,Somali,ET050696,Godey town,Somali,29.089102,1,0.372091,29.089102,78.177432
+same_pcode_overlap,same_pcode,ET060201,Dangura,Benishangul Gumz,ET060201,Dangur,Benishangul-Gumuz,4757.773363,1,1,4757.77337,4757.773367
+same_pcode_overlap,same_pcode,ET060202,Guba,Benishangul Gumz,ET060202,Guba,Benishangul-Gumuz,6762.214024,1,1,6762.214039,6762.214025
+same_pcode_overlap,same_pcode,ET060203,Wenbera,Benishangul Gumz,ET060203,Wembera,Benishangul-Gumuz,7154.63793,1,1,7154.63793,7154.63793
+same_pcode_overlap,same_pcode,ET060205,Debati,Benishangul Gumz,ET060205,Dibate,Benishangul-Gumuz,2164.663981,1,1,2164.663994,2164.663986
+same_pcode_overlap,same_pcode,ET060206,Pawe,Benishangul Gumz,ET060206,Pawe,Benishangul-Gumuz,653.886106,1,1,653.886112,653.886111
+same_pcode_overlap,same_pcode,ET060207,Bulen,Benishangul Gumz,ET060207,Bulen,Benishangul-Gumuz,2957.721295,1,1,2957.721295,2957.721295
+same_pcode_overlap,same_pcode,ET060302,Kurmuk,Benishangul Gumz,ET060302,Kurmuk,Benishangul-Gumuz,1256.679652,1,1,1256.679652,1256.679652
+same_pcode_overlap,same_pcode,ET060304,Sherkole,Benishangul Gumz,ET060304,Sherkole,Benishangul-Gumuz,1860.219184,1,1,1860.219184,1860.219184
+same_pcode_overlap,same_pcode,ET060306,Oda Bilidigilu,Benishangul Gumz,ET060306,Bilidigilu,Benishangul-Gumuz,1705.05073,1,1,1705.05073,1705.05073
+same_pcode_overlap,same_pcode,ET060307,Homosha,Benishangul Gumz,ET060307,Homosha,Benishangul-Gumuz,704.875849,1,1,704.875849,704.875849
+same_pcode_overlap,same_pcode,ET060401,Yaso,Benishangul Gumz,ET060401,Zayi,Benishangul-Gumuz,2628.489372,1,1,2628.489374,2628.489372
+same_pcode_overlap,same_pcode,ET060402,Sodal/Sirba Abay,Benishangul Gumz,ET060402,Sedal,Benishangul-Gumuz,2455.769409,1,1,2455.769409,2455.769409
+same_pcode_overlap,same_pcode,ET060404,Agalometi,Benishangul Gumz,ET060404,Dembe,Benishangul-Gumuz,1800.173774,1,1,1800.173774,1800.173774
+same_pcode_overlap,same_pcode,ET060508,Maokomo Special,Benishangul Gumz,ET060508,Mao-komo Special,Benishangul-Gumuz,3181.421686,1,1,3181.421686,3181.421686
+same_pcode_overlap,same_pcode,ET070102,Abeshege,SNNP,ET070102,Abeshege,Central Ethiopia,522.210709,1,1,522.210709,522.210712
+same_pcode_overlap,same_pcode,ET070103,Ezha,SNNP,ET070103,Ezha,Central Ethiopia,334.610818,1,1,334.610818,334.610818
+same_pcode_overlap,same_pcode,ET070104,Kokir Gedbano,SNNP,ET070104,Gedebano Gutazer Welene,Central Ethiopia,483.519427,1,1,483.519427,483.519427
+same_pcode_overlap,same_pcode,ET070108,Endiguagn,SNNP,ET070108,Endiguagn,Central Ethiopia,151.21744,1,1,151.21744,151.217482
+same_pcode_overlap,same_pcode,ET070112,Muhur Na Aklil,SNNP,ET070112,Muhur Na Aklil,Central Ethiopia,473.17417,1,1,473.17417,473.17417
+same_pcode_overlap,same_pcode,ET070114,Welkite Town,SNNP,ET070114,Welkite town,Central Ethiopia,10.299545,1,1,10.299545,10.299545
+same_pcode_overlap,same_pcode,ET070202,Gibe,SNNP,ET070202,Gombora,Central Ethiopia,462.667904,1,1,462.667904,462.667904
+same_pcode_overlap,same_pcode,ET070203,Limu (SNNP),SNNP,ET070203,Lemmo,Central Ethiopia,354.513686,1,1,354.513686,354.513686
+same_pcode_overlap,same_pcode,ET070204,Shashogo,SNNP,ET070204,Shashogo,Central Ethiopia,355.808842,1,1,355.808842,355.808842
+same_pcode_overlap,same_pcode,ET070207,Dune,SNNP,ET070207,Duna,Central Ethiopia,222.530512,1,1,222.530512,222.530512
+same_pcode_overlap,same_pcode,ET070208,Analemmo,SNNP,ET070208,Analemmo,Central Ethiopia,224.252505,1,1,224.252505,224.252505
+same_pcode_overlap,same_pcode,ET070209,Mirab Badowach,SNNP,ET070209,Mirab Badowach,Central Ethiopia,150.51825,1,1,150.51825,150.51825
+same_pcode_overlap,same_pcode,ET070210,Gembora,SNNP,ET070210,Gibe,Central Ethiopia,447.951917,1,1,447.951917,447.951917
+same_pcode_overlap,same_pcode,ET070211,Hosaena Town,SNNP,ET070211,Hosaena town,Central Ethiopia,40.485835,1,1,40.485835,40.485835
+same_pcode_overlap,same_pcode,ET070302,Anigacha,SNNP,ET070302,Angacha,Central Ethiopia,153.138686,1,1,153.138686,153.138686
+same_pcode_overlap,same_pcode,ET070306,Doya Gena,SNNP,ET070306,Doyogena,Central Ethiopia,130.620521,1,1,130.620521,130.620521
+same_pcode_overlap,same_pcode,ET070307,Damboya,SNNP,ET070307,Damboya,Central Ethiopia,163.196598,1,1,163.196598,163.196598
+same_pcode_overlap,same_pcode,ET070308,Durame Town,SNNP,ET070308,Durame town,Central Ethiopia,13.588839,1,1,13.588839,13.588839
+same_pcode_overlap,same_pcode,ET072001,Alicho Woriro,SNNP,ET072001,Alicho Woriro,Central Ethiopia,262.66217,1,1,262.66217,262.66217
+same_pcode_overlap,same_pcode,ET072004,Mierab Azenet Berbere,SNNP,ET072004,Mierab Azenet Berbere,Central Ethiopia,151.29991,1,0.987798,151.29991,153.168941
+same_pcode_overlap,same_pcode,ET072006,Sankura,SNNP,ET072006,Sankura,Central Ethiopia,277.183993,1,1,277.183993,277.183993
+same_pcode_overlap,same_pcode,ET072007,Misrak Azenet Berbere,SNNP,ET072007,Misrak Azenet Berbere,Central Ethiopia,167.980624,1,1,167.980642,167.980624
+same_pcode_overlap,same_pcode,ET120101,Akobo,Gambela,ET120101,Akobo,Gambela,2141.209242,1,1,2141.209242,2141.209242
+same_pcode_overlap,same_pcode,ET120102,Lare,Gambela,ET120102,Lare,Gambela,568.373394,1,1,568.373394,568.373394
+same_pcode_overlap,same_pcode,ET120104,Wantawo,Gambela,ET120104,Wantawo,Gambela,941.649464,1,1,941.649464,941.649464
+same_pcode_overlap,same_pcode,ET120105,Makuey,Gambela,ET120105,Makuey,Gambela,409.165977,1,0.999997,409.165977,409.167115
+same_pcode_overlap,same_pcode,ET120201,Abobo,Gambela,ET120201,Abobo,Gambela,3141.129856,1,1,3141.129856,3141.13
+same_pcode_overlap,same_pcode,ET120202,Gambela Zuria,Gambela,ET120202,Gambela Zuria,Gambela,3286.771012,1,1,3286.771012,3286.771012
+same_pcode_overlap,same_pcode,ET120203,Gog,Gambela,ET120203,Gog,Gambela,3236.765638,1,1,3236.765782,3236.765638
+same_pcode_overlap,same_pcode,ET120204,Jore,Gambela,ET120204,Jore,Gambela,3320.503978,1,1,3320.503978,3320.503978
+same_pcode_overlap,same_pcode,ET120205,Dima,Gambela,ET120205,Dima (GM),Gambela,8525.019352,1,1,8525.019352,8525.022274
+same_pcode_overlap,same_pcode,ET120206,Gambella Town,Gambela,ET120206,Gambela town,Gambela,15.497289,1,1,15.497289,15.497289
+same_pcode_overlap,same_pcode,ET120301,Godere,Gambela,ET120301,Godere,Gambela,653.967881,1,1,653.967881,653.967881
+same_pcode_overlap,same_pcode,ET120308,Mengesh,Gambela,ET120308,Mengesh,Gambela,1672.151451,1,1,1672.151451,1672.151451
+same_pcode_overlap,same_pcode,ET120407,Itang,Gambela,ET120407,Itang,Gambela,2198.87665,1,1,2198.87665,2198.87665
+same_pcode_overlap,same_pcode,ET130101,Sofi,Harari,ET130101,Sofi,Harari,131.455364,1,1,131.455364,131.455364
+same_pcode_overlap,same_pcode,ET130102,Shenkor,Harari,ET130102,Shenkor,Harari,27.139109,1,1,27.139109,27.139109
+same_pcode_overlap,same_pcode,ET130103,Jinela,Harari,ET130103,Jinela,Harari,19.054486,1,1,19.054486,19.054491
+same_pcode_overlap,same_pcode,ET130104,Hakim,Harari,ET130104,Hakim,Harari,41.65856,1,1,41.65856,41.65856
+same_pcode_overlap,same_pcode,ET130105,Erer (Harari),Harari,ET130105,Erer (HR),Harari,98.831104,1,1,98.831104,98.831104
+same_pcode_overlap,same_pcode,ET130106,Dire Teyara,Harari,ET130106,Dire Teyara,Harari,11.362365,1,1,11.362365,11.362366
+same_pcode_overlap,same_pcode,ET130107,Amir Nur,Harari,ET130107,Amir Nur,Harari,11.851369,1,1,11.851369,11.851369
+same_pcode_overlap,same_pcode,ET130108,Aboker,Harari,ET130108,Aboker,Harari,10.219786,1,1,10.219786,10.219786
+same_pcode_overlap,same_pcode,ET130109,Abadir,Harari,ET130109,Abadir,Harari,19.203793,1,1,19.203793,19.203793
+same_pcode_overlap,same_pcode,ET150103,Sabian,Dire Dawa,ET150103,Sabian,Dire Dawa,19.726741,1,1,19.726741,19.726741
+same_pcode_overlap,same_pcode,ET150104,Malka Jabti (M/jebdu),Dire Dawa,ET150104,Malka Jabti /M.Jebdu,Dire Dawa,22.002559,1,1,22.002559,22.002559
+same_pcode_overlap,same_pcode,ET150105,Legehare,Dire Dawa,ET150105,Legehare,Dire Dawa,0.720995,1,1,0.720995,0.720995
+same_pcode_overlap,same_pcode,ET150109,Addis Ketema (Dire Dawa),Dire Dawa,ET150109,Addis Ketema (DD),Dire Dawa,11.035508,1,1,11.035508,11.035508
+same_pcode_overlap,same_pcode,ET150110,Gende Kore,Dire Dawa,ET150110,Gende Kore,Dire Dawa,0.734364,1,1,0.734364,0.734364
+same_pcode_overlap,same_pcode,ET150206,Jeldessa,Dire Dawa,ET150206,Jeldessa,Dire Dawa,339.935949,1,0.999999,339.935957,339.936185
+same_pcode_overlap,same_pcode,ET150207,Wahil,Dire Dawa,ET150207,Wahil,Dire Dawa,183.167584,1,1,183.1676,183.167584
+same_pcode_overlap,same_pcode,ET150208,Biyoawale,Dire Dawa,ET150208,Biyoawale,Dire Dawa,350.015547,1,1,350.015547,350.015547
+same_pcode_overlap,same_pcode,ET020304,Dulecha,Afar,ET020304,Dulecha,Afar,1485.105488,0.999999,0.999935,1485.106432,1485.201695
+same_pcode_overlap,same_pcode,ET040409,Seka Chekorsa,Oromia,ET040409,Seka Chekorsa,Oromia,824.335477,0.999999,1,824.336127,824.335477
+same_pcode_overlap,same_pcode,ET120103,Jikawo,Gambela,ET120103,Jikawo,Gambela,662.646142,0.999998,1,662.64728,662.646142
+same_pcode_overlap,same_pcode,ET030806,Sahila,Amhara,ET030806,Sahila,Amhara,1145.213177,0.999997,1,1145.216143,1145.213177
+same_pcode_overlap,same_pcode,ET020504,Dalifage,Afar,ET020504,Dalefage,Afar,978.310483,0.999986,1,978.324613,978.310483
+same_pcode_overlap,same_pcode,ET020501,Telalak,Afar,ET020501,Telalek,Afar,1104.959546,0.999956,1,1105.008222,1104.959553
+same_pcode_overlap,same_pcode,ET040210,Diga,Oromia,ET040210,Diga,Oromia,564.201661,0.999809,0.9757,564.309507,578.253324
+same_pcode_overlap,same_pcode,ET040212,Leka Dulecha,Oromia,ET040212,Leka Dulecha,Oromia,616.691902,0.999729,0.999998,616.858788,616.69297
+same_pcode_overlap,same_pcode,ET030906,Jawi,Amhara,ET030906,Jawi,Amhara,3288.088454,0.999558,1,3289.540895,3288.088475
+same_pcode_overlap,same_pcode,ET041405,Odo Shakiso,Oromia,ET041405,Odo Shakiso,Oromia,1254.841353,0.999486,1,1255.486507,1254.841353
+same_pcode_overlap,same_pcode,ET030803,Dehana,Amhara,ET030803,Dehana,Amhara,1643.438035,0.999459,1,1644.326851,1643.438035
+same_pcode_overlap,same_pcode,ET040511,Ejere (Addis Alem),Oromia,ET040511,Ejere /Addis Alem,Oromia,581.082436,0.999459,0.997321,581.397248,582.643516
+same_pcode_overlap,same_pcode,ET041115,Gura Damole,Oromia,ET041115,Gura Damole,Oromia,5108.194455,0.999388,0.994098,5111.322167,5138.521346
+same_pcode_overlap,same_pcode,ET040615,Jida,Oromia,ET040615,Jida,Oromia,487.381183,0.999306,1,487.71944,487.381183
+same_pcode_overlap,same_pcode,ET030416,Wegde,Amhara,ET030416,Wegde,Amhara,1120.529068,0.998911,1,1121.750444,1120.529069
+same_pcode_overlap,same_pcode,ET031110,Gonder Zuria,Amhara,ET031110,Gonder Zuria,Amhara,1107.560241,0.998911,0.813443,1108.767556,1361.570174
+same_pcode_overlap,same_pcode,ET030518,Minjar Shenkora,Amhara,ET030518,Minjar Shenkora,Amhara,1724.38478,0.99889,1,1726.300274,1724.384795
+same_pcode_overlap,same_pcode,ET030714,Finote Selam Town,Amhara,ET030714,Finote Selam town,Amhara,42.649034,0.998848,1,42.698228,42.649034
+same_pcode_overlap,same_pcode,ET031003,Jilye Tumuga,Amhara,ET031003,Jilye Tumuga,Amhara,889.117812,0.998695,1,890.279856,889.117812
+same_pcode_overlap,same_pcode,ET030711,Wemberma,Amhara,ET030711,Wemberma,Amhara,1377.036282,0.998691,1,1378.841181,1377.036284
+same_pcode_overlap,same_pcode,ET030413,Kelela,Amhara,ET030413,Kelela,Amhara,1426.856436,0.998577,1,1428.889285,1426.856436
+same_pcode_overlap,same_pcode,ET031115,Alfa,Amhara,ET031115,Alefa,Amhara,1957.476193,0.998571,0.926429,1960.277365,2112.926025
+same_pcode_overlap,same_pcode,ET050991,Deka suftu,Somali,ET050991,Deka Suftu,Somali,3660.924034,0.99853,0.894608,3666.312268,4092.209528
+same_pcode_overlap,same_pcode,ET031118,Gonder City Adm.,Amhara,ET031118,Gondar town,Amhara,292.397351,0.998522,1,292.830097,292.397351
+same_pcode_overlap,same_pcode,ET041513,Abaya,Oromia,ET041513,Abaya,Oromia,1835.061336,0.998504,0.999989,1837.810845,1835.081523
+same_pcode_overlap,same_pcode,ET020106,Chifra,Afar,ET020106,Chifra,Afar,1484.027903,0.998459,1,1486.318195,1484.027915
+same_pcode_overlap,same_pcode,ET030612,Awabel,Amhara,ET030612,Awabel,Amhara,809.144548,0.998113,1,810.673954,809.144627
+same_pcode_overlap,same_pcode,ET030509,Menze Mama Midir,Amhara,ET030509,Menze Mama Midir,Amhara,649.463222,0.997855,1,650.859591,649.463222
+same_pcode_overlap,same_pcode,ET030209,Dera (Amhara),Amhara,ET030209,Dera (AM),Amhara,1522.309656,0.997797,0.8844,1525.670519,1721.290263
+same_pcode_overlap,same_pcode,ET030504,Moretna Jiru,Amhara,ET030504,Moretna Jiru,Amhara,660.89177,0.997648,1,662.449916,660.89177
+same_pcode_overlap,same_pcode,ET031004,Artuma Fursi,Amhara,ET031004,Artuma Fursi,Amhara,611.55029,0.997394,1,613.14801,611.550302
+same_pcode_overlap,same_pcode,ET030709,Jabi Tehnan,Amhara,ET030709,Jabi Tehnan,Amhara,1196.991196,0.997159,0.999959,1200.401086,1197.040391
+same_pcode_overlap,same_pcode,ET030407,Kalu,Amhara,ET030407,Kalu,Amhara,849.570964,0.997094,1,852.046838,849.570964
+same_pcode_overlap,same_pcode,ET030609,Michakel,Amhara,ET030609,Michakel,Amhara,734.582118,0.996951,1,736.828779,734.582118
+same_pcode_overlap,same_pcode,ET030905,Fagta Lakoma,Amhara,ET030905,Fagta Lakoma,Amhara,651.008593,0.996858,1,653.060345,651.008593
+same_pcode_overlap,same_pcode,ET060305,Bambasi,Benishangul Gumz,ET060305,Bambasi,Benishangul-Gumuz,1483.557673,0.996837,1,1488.265472,1483.557673
+same_pcode_overlap,same_pcode,ET030605,Enarj Enawga,Amhara,ET030605,Enarj Enawga,Amhara,930.114858,0.996434,1,933.443301,930.114858
+same_pcode_overlap,same_pcode,ET030414,Jama,Amhara,ET030414,Jama,Amhara,1048.922595,0.996366,1,1052.747942,1048.922595
+same_pcode_overlap,same_pcode,ET010108,Shire,Tigray,ET010108,Shire Endaslasie town,Tigray,6.93578,0.99632,0.474055,6.961398,14.630753
+same_pcode_overlap,same_pcode,ET060204,Mandura,Benishangul Gumz,ET060204,Mandura,Benishangul-Gumuz,1023.99026,0.996063,1,1028.037561,1023.990267
+same_pcode_overlap,same_pcode,ET030406,Delanta,Amhara,ET030406,Delanta,Amhara,1052.345677,0.994867,1,1057.77486,1052.345705
+same_pcode_overlap,same_pcode,ET030705,Sekela,Amhara,ET030705,Sekela,Amhara,765.928479,0.994745,1,769.974906,765.928479
+same_pcode_overlap,same_pcode,ET031109,Wegera,Amhara,ET031109,Wegera,Amhara,1230.264305,0.993368,1,1238.478314,1230.264305
+same_pcode_overlap,same_pcode,ET030510,Tarema Ber,Amhara,ET030510,Tarema Ber,Amhara,560.646451,0.991249,1,565.595964,560.646452
+same_pcode_overlap,same_pcode,ET070113,Geta,SNNP,ET070113,Geta,Central Ethiopia,200.234381,0.990752,1,202.103412,200.234399
+same_pcode_overlap,same_pcode,ET140110,Gulele,Addis Ababa,ET140110,Gulele Sub City,Addis Ababa,30.180616,0.989055,0.812822,30.514606,37.130676
+same_pcode_overlap,same_pcode,ET060405,Belojiganfo,Benishangul Gumz,ET060405,Mezniga,Benishangul-Gumuz,1683.608946,0.988776,1,1702.720822,1683.608946
+same_pcode_overlap,same_pcode,ET030907,Guagusa Shikudad,Amhara,ET030907,Guagusa Shikudad,Amhara,292.592866,0.988708,1,295.934534,292.592866
+same_pcode_overlap,same_pcode,ET030410,Legambo,Amhara,ET030410,Legambo,Amhara,998.036688,0.987834,1,1010.328602,998.036688
+same_pcode_overlap,same_pcode,ET040215,Nunu Kumba,Oromia,ET040215,Nunu Kumba,Oromia,604.443544,0.987219,1,612.268886,604.443544
+same_pcode_overlap,same_pcode,ET070110,Cheha,SNNP,ET070110,Cheha,Central Ethiopia,559.84016,0.987126,1,567.141678,559.84016
+same_pcode_overlap,same_pcode,ET030604,Enebse Sarmder,Amhara,ET030604,Enebse Sarmder,Amhara,1061.967663,0.987042,1,1075.909548,1061.967663
+same_pcode_overlap,same_pcode,ET050501,Shekosh,Somali,ET050501,Shaygosh,Somali,1421.637022,0.986464,0.820988,1441.14448,1731.616896
+same_pcode_overlap,same_pcode,ET040515,Ambo Town,Oromia,ET040515,Ambo town,Oromia,39.615562,0.985616,0.453373,40.193692,87.379697
+same_pcode_overlap,same_pcode,ET051187,Mubarek,Somali,ET051187,Mubarek,Somali,5654.326787,0.985219,0.761586,5739.154767,7424.41385
+same_pcode_overlap,same_pcode,ET050607,Ferfer,Somali,ET050607,Ferfer,Somali,2058.932421,0.985172,0.937591,2089.921812,2195.980692
+same_pcode_overlap,same_pcode,ET040206,Wayu Tuka,Oromia,ET040206,Wayu Tuka,Oromia,397.563712,0.984257,0.99996,403.922599,397.579632
+same_pcode_overlap,same_pcode,ET041303,Waliso,Oromia,ET041303,Waliso,Oromia,728.122574,0.983353,1,740.448948,728.122574
+same_pcode_overlap,same_pcode,ET041002,Jarso (East Hararghe),Oromia,ET041002,Jarso (East Hararge),Oromia,566.759561,0.982416,1,576.903572,566.759562
+same_pcode_overlap,same_pcode,ET140101,Akaki - Kalit,Addis Ababa,ET140101,Akaki Kality Sub City,Addis Ababa,124.636665,0.982074,0.989773,126.911692,125.924493
+same_pcode_overlap,same_pcode,ET050497,Qubi,Somali,ET050497,Qubi,Somali,526.787745,0.981793,0.935743,536.556595,562.961916
+same_pcode_overlap,same_pcode,ET060403,Kamashi,Benishangul Gumz,ET060403,Kamashi,Benishangul-Gumuz,1484.523114,0.981528,1,1512.461066,1484.523114
+same_pcode_overlap,same_pcode,ET010107,Sheraro Town,Tigray,ET010107,Sheraro town,Tigray,26.066384,0.981085,0.360292,26.56893,72.347914
+same_pcode_overlap,same_pcode,ET040103,Gimbi,Oromia,ET040103,Gimbi,Oromia,878.873697,0.976742,0.97382,899.800922,902.500869
+same_pcode_overlap,same_pcode,ET040702,Boset,Oromia,ET040702,Boset,Oromia,1300.856585,0.976559,1,1332.082515,1300.856586
+same_pcode_overlap,same_pcode,ET040604,Kuyu,Oromia,ET040604,Kuyu,Oromia,923.915595,0.975336,1,947.278893,923.915595
+same_pcode_overlap,same_pcode,ET040818,Limu Bilbilo,Oromia,ET040818,Limu Bilbilo,Oromia,1150.459061,0.974333,1,1180.765999,1150.459061
+same_pcode_overlap,same_pcode,ET040213,Guto Gida,Oromia,ET040213,Guto Gida,Oromia,917.20953,0.97402,0.99312,941.67391,923.563895
+same_pcode_overlap,same_pcode,ET040407,Goma,Oromia,ET040407,Goma,Oromia,841.111611,0.973727,0.999999,863.806291,841.112281
+same_pcode_overlap,same_pcode,ET040610,Kimbibit,Oromia,ET040610,Kimbibit,Oromia,616.22929,0.971335,1,634.414952,616.229298
+same_pcode_overlap,same_pcode,ET041906,Jimma Genete,Oromia,ET041906,Jimma Genete,Oromia,410.719743,0.969867,1,423.480482,410.719743
+same_pcode_overlap,same_pcode,ET041704,Kofele,Oromia,ET041704,Kofele,Oromia,649.440479,0.968201,1,670.770542,649.440479
+same_pcode_overlap,same_pcode,ET010309,Wukro Town,Tigray,ET010309,Wukro town,Tigray,7.77381,0.967698,0.381109,8.033305,20.397876
+same_pcode_overlap,same_pcode,ET010308,Adigrat Town,Tigray,ET010308,Adigrat town,Tigray,14.331431,0.966938,0.741567,14.821459,19.325886
+same_pcode_overlap,same_pcode,ET050608,Berocano,Somali,ET050608,Berocano,Somali,1427.464648,0.966697,0.555054,1476.640522,2571.759866
+same_pcode_overlap,same_pcode,ET030305,Wadla,Amhara,ET030305,Wadla,Amhara,826.580176,0.965669,1,855.96612,826.580176
+same_pcode_overlap,same_pcode,ET041623,Chwaka,Oromia,ET041623,Chwaka,Oromia,601.478792,0.96453,0.991355,623.597931,606.723908
+same_pcode_overlap,same_pcode,ET041501,Bule Hora,Oromia,ET041501,Bule Hora,Oromia,931.955717,0.963002,1,967.761139,931.955717
+same_pcode_overlap,same_pcode,ET040710,Bora,Oromia,ET040710,Bora (OR),Oromia,475.297184,0.961258,1,494.453073,475.297184
+same_pcode_overlap,same_pcode,ET050304,Gashamo,Somali,ET050304,Gashamo,Somali,11053.34257,0.958364,0.958164,11533.55278,11535.95586
+same_pcode_overlap,same_pcode,ET040709,Bishoftu Town,Oromia,ET040709,Bishoftu town,Oromia,170.011622,0.956137,0.332068,177.810915,511.978768
+same_pcode_overlap,same_pcode,ET010212,Adwa Town,Tigray,ET010212,Adwa town,Tigray,10.965254,0.954893,0.40159,11.483224,27.304571
+same_pcode_overlap,same_pcode,ET050808,Dolobay,Somali,ET050808,Dolobay,Somali,2203.041776,0.952954,0.549861,2311.803828,4006.543336
+same_pcode_overlap,same_pcode,ET050283,Tuliguled,Somali,ET050283,Tuliguled,Somali,371.145185,0.952189,0.866634,389.780953,428.260491
+same_pcode_overlap,same_pcode,ET050407,Lagahida,Somali,ET050407,Lagahida,Somali,514.906357,0.951668,0.914595,541.056771,562.988109
+same_pcode_overlap,same_pcode,ET050392,Daror,Somali,ET050392,Daror,Somali,6536.807425,0.951118,0.916661,6872.762874,7131.110253
+same_pcode_overlap,same_pcode,ET040193,Gimbi Town,Oromia,ET040193,Gimbi town,Oromia,28.498809,0.94914,0.576595,30.025927,49.426034
+same_pcode_overlap,same_pcode,ET040503,Ambo Zuria,Oromia,ET040503,Ambo Zuria,Oromia,887.832048,0.948948,0.999349,935.596183,888.410178
+same_pcode_overlap,same_pcode,ET050901,Filtu,Somali,ET050901,Filtu,Somali,10254.69191,0.945928,0.85832,10840.87919,11947.39837
+same_pcode_overlap,same_pcode,ET140106,Kirkos,Addis Ababa,ET140106,Kirkos Sub City,Addis Ababa,13.834125,0.945411,0.936575,14.632915,14.770971
+same_pcode_overlap,same_pcode,ET020302,Awash Fentale,Afar,ET020302,Awash Fantale,Afar,957.430421,0.943367,1,1014.90795,957.43043
+same_pcode_overlap,same_pcode,ET040310,Metu Zuria,Oromia,ET040310,Metu Zuria,Oromia,707.204516,0.942418,1,750.414527,707.204516
+same_pcode_overlap,same_pcode,ET040805,Dodota,Oromia,ET040805,Dodota,Oromia,486.747092,0.941898,0.966368,516.772388,503.687035
+same_pcode_overlap,same_pcode,ET041008,Kersa (East Hararge),Oromia,ET041008,Kersa (East Hararge),Oromia,446.514321,0.935027,1,477.541562,446.514329
+same_pcode_overlap,same_pcode,ET050788,Daratole,Somali,ET050788,Daratole,Somali,929.377558,0.935023,0.793199,993.962155,1171.682285
+same_pcode_overlap,same_pcode,ET010204,Adwa,Tigray,ET010204,Adwa,Tigray,609.638794,0.93407,0.926048,652.669542,658.322999
+same_pcode_overlap,same_pcode,ET050104,Erer (Somali),Somali,ET050104,Erer (SM),Somali,2843.391856,0.930594,0.687719,3055.460627,4134.525855
+same_pcode_overlap,same_pcode,ET041702,Shala,Oromia,ET041702,Shala,Oromia,769.89999,0.928643,1,829.058926,769.899991
+same_pcode_overlap,same_pcode,ET050207,Harshin,Somali,ET050207,Harshin,Somali,4193.379609,0.928131,0.92491,4518.088336,4533.822369
+same_pcode_overlap,same_pcode,ET050602,Adadle,Somali,ET050602,Adadle,Somali,8383.657926,0.927323,0.967065,9040.704857,8669.17923
+same_pcode_overlap,same_pcode,ET050408,Meyumuluka,Somali,ET050408,Meyumuluka,Somali,960.612908,0.924265,0.982154,1039.3266,978.067797
+same_pcode_overlap,same_pcode,ET010302,Erob,Tigray,ET010302,Erob,Tigray,902.097905,0.920869,0.981582,979.616214,919.024918
+same_pcode_overlap,same_pcode,ET051095,Horshagah,Somali,ET051095,Horshagah,Somali,1079.280093,0.918668,0.484569,1174.831096,2227.296859
+same_pcode_overlap,same_pcode,ET140108,Addis Ketema,Addis Ababa,ET140108,Addis Ketema Sub City,Addis Ababa,6.769272,0.913092,0.320374,7.413569,21.129302
+same_pcode_overlap,same_pcode,ET010213,Axum Town,Tigray,ET010213,Axum town,Tigray,15.585929,0.906381,0.859542,17.195788,18.132821
+same_pcode_overlap,same_pcode,ET020104,Afambo,Afar,ET020104,Afambo,Afar,1549.706795,0.906309,0.760646,1709.909426,2037.355179
+same_pcode_overlap,same_pcode,ET030516,Hagere Mariam,Amhara,ET030516,Hagere Mariam,Amhara,646.917996,0.904851,1,714.943981,646.917999
+same_pcode_overlap,same_pcode,ET050102,Dembel,Somali,ET050102,Dembel,Somali,2585.459376,0.902911,0.95831,2863.469787,2697.93569
+same_pcode_overlap,same_pcode,ET050503,Shilabo,Somali,ET050503,Shilabo,Somali,11146.74075,0.902151,0.973642,12355.73105,11448.49638
+same_pcode_overlap,same_pcode,ET140109,Arada,Addis Ababa,ET140109,Arada Sub City,Addis Ababa,8.929709,0.899992,0.898784,9.921982,9.93532
+same_pcode_overlap,same_pcode,ET050605,Kelafo,Somali,ET050605,Kelafo,Somali,5395.27884,0.892923,0.957455,6042.266321,5635.01877
+same_pcode_overlap,same_pcode,ET040297,Nekemte Town,Oromia,ET040297,Nekemte town,Oromia,52.009595,0.892775,0.635036,58.256114,81.900283
+same_pcode_overlap,same_pcode,ET072008,Wilbareg,SNNP,ET072008,Wulbareg,Central Ethiopia,397.995286,0.888382,1,448.00009,397.995286
+same_pcode_overlap,same_pcode,ET040309,Yayu,Oromia,ET040309,Yayu,Oromia,807.889347,0.885906,1,911.93605,807.889347
+same_pcode_overlap,same_pcode,ET050101,Ayisha,Somali,ET050101,Ayisha,Somali,5202.525018,0.884744,0.968036,5880.263011,5374.306819
+same_pcode_overlap,same_pcode,ET050606,Mustahil,Somali,ET050606,Mustahil,Somali,2840.913423,0.869718,0.961092,3266.475678,2955.923139
+same_pcode_overlap,same_pcode,ET050103,Shinile,Somali,ET050103,Shinile,Somali,3199.342508,0.865702,0.89441,3695.663211,3577.040945
+same_pcode_overlap,same_pcode,ET050599,Bodaley,Somali,ET050599,Bodaley,Somali,1490.3336,0.863613,0.460397,1725.6967,3237.064262
+same_pcode_overlap,same_pcode,ET040617,Aleltu,Oromia,ET040617,Aleltu,Oromia,424.954246,0.86271,1,492.580835,424.954248
+same_pcode_overlap,same_pcode,ET050701,Danod,Somali,ET050701,Danod,Somali,6944.647161,0.861039,0.956819,8065.426429,7258.053651
+same_pcode_overlap,same_pcode,ET050805,West Imi,Somali,ET050805,West Imi,Somali,2635.2734,0.860932,0.670146,3060.952409,3932.388848
+same_pcode_overlap,same_pcode,ET072005,Dalocha,SNNP,ET072005,Dalocha,Central Ethiopia,300.584295,0.855474,0.9977,351.365831,301.277293
+same_pcode_overlap,same_pcode,ET040708,Adama Tulu Jido Kombolcha,Oromia,ET040708,Adama Tulu Jido Kombolcha,Oromia,1300.269284,0.850972,1,1527.982153,1300.269294
+same_pcode_overlap,same_pcode,ET010305,Hawzen,Tigray,ET010305,Hawzen,Tigray,737.542453,0.847359,0.972001,870.400924,758.787874
+same_pcode_overlap,same_pcode,ET050394,Burqod,Somali,ET050394,Burqod,Somali,2209.134682,0.840049,0.84073,2629.770168,2627.638854
+same_pcode_overlap,same_pcode,ET140102,Nefas Silk,Addis Ababa,ET140102,Nifas Silk Lafto Sub City,Addis Ababa,50.732051,0.839572,0.988769,60.42607,51.30829
+same_pcode_overlap,same_pcode,ET050204,Shabeeley,Somali,ET050204,Shabeeley,Somali,411.782332,0.839342,0.253954,490.601432,1621.484028
+same_pcode_overlap,same_pcode,ET010104,Tahtay Koraro,Tigray,ET010104,Tahtay Koraro,Tigray,560.084436,0.837975,0.680896,668.378264,822.569744
+same_pcode_overlap,same_pcode,ET010301,Gulo Mekeda,Tigray,ET010301,Gulo Mekeda,Tigray,496.775899,0.833506,0.981612,596.00741,506.081525
+same_pcode_overlap,same_pcode,ET050802,Charati/Weyib,Somali,ET050802,Charati,Somali,7506.932462,0.829861,0.885227,9046.009367,8480.232554
+same_pcode_overlap,same_pcode,ET050586,Marsin,Somali,ET050586,Marsin,Somali,1571.890033,0.826926,0.469922,1900.884563,3344.999674
+same_pcode_overlap,same_pcode,ET050807,Barey,Somali,ET050807,Barey,Somali,3044.077452,0.817798,0.495322,3722.284614,6145.655717
+same_pcode_overlap,same_pcode,ET050703,Galadi,Somali,ET050703,Galadi,Somali,10261.77162,0.817513,0.995891,12552.41906,10304.11154
+same_pcode_overlap,same_pcode,ET010602,Enderta,Tigray,ET010602,Enderta,Tigray,1075.186185,0.809332,0.668338,1328.486653,1608.745266
+same_pcode_overlap,same_pcode,ET041015,Chinaksen,Oromia,ET041015,Chinaksen,Oromia,1243.600735,0.79794,1,1558.514664,1243.600805
+same_pcode_overlap,same_pcode,ET050597,Higloley,Somali,ET050597,Higloley,Somali,1208.476928,0.786653,0.463805,1536.226206,2605.568505
+same_pcode_overlap,same_pcode,ET050904,Guradamole,Somali,ET050904,Guradamole,Somali,1940.290105,0.786648,0.686334,2466.529382,2827.034252
+same_pcode_overlap,same_pcode,ET010211,Abi Adi Town,Tigray,ET010211,Abiy Adi town,Tigray,18.720523,0.778159,0.949621,24.057449,19.71368
+same_pcode_overlap,same_pcode,ET010205,Laelay Maychew,Tigray,ET010205,Laelay Maychew,Tigray,412.854108,0.770625,0.872521,535.739348,473.173707
+same_pcode_overlap,same_pcode,ET140105,Lideta,Addis Ababa,ET140105,Lideta Sub City,Addis Ababa,7.034686,0.766112,0.468332,9.18232,15.020712
+same_pcode_overlap,same_pcode,ET010210,Tanqua Abergele,Tigray,ET010210,Abergele (TG),Tigray,1100.789167,0.761366,0.976887,1445.808649,1126.833154
+same_pcode_overlap,same_pcode,ET050303,Aware,Somali,ET050303,Aware,Somali,2363.68631,0.758589,0.913608,3115.898458,2587.199133
+same_pcode_overlap,same_pcode,ET050305,Gunagado,Somali,ET050305,Gunagado,Somali,2018.859703,0.757737,0.828505,2664.32808,2436.748887
+same_pcode_overlap,same_pcode,ET051005,Sagag,Somali,ET051005,Sagag,Somali,1881.023984,0.754508,0.737437,2493.048681,2550.76039
+same_pcode_overlap,same_pcode,ET010101,Tahtay Adiyabo,Tigray,ET010101,Tahtay Adiyabo,Tigray,2898.046424,0.752868,0.99612,3849.340268,2909.334315
+same_pcode_overlap,same_pcode,ET041908,Jarte Jardega,Oromia,ET041908,Jarte Jardega,Oromia,768.905397,0.749864,1,1025.392758,768.905397
+same_pcode_overlap,same_pcode,ET030802,Sekota,Amhara,ET030802,Sekota,Amhara,1249.631981,0.737844,1,1693.62679,1249.631981
+same_pcode_overlap,same_pcode,ET050806,Hargele,Somali,ET050806,Hargele,Somali,7866.369947,0.733525,0.935025,10724.07096,8413.007892
+same_pcode_overlap,same_pcode,ET050903,Goro Baqaqsa,Somali,ET050903,Goro Baqaqsa,Somali,3362.584082,0.732621,0.725693,4589.799326,4633.619036
+same_pcode_overlap,same_pcode,ET050804,Elkare/Serer,Somali,ET050804,Elkare /Serer,Somali,6154.813599,0.731126,0.916658,8418.26864,6714.404832
+same_pcode_overlap,same_pcode,ET050504,Debeweyin,Somali,ET050504,Debeweyin,Somali,1437.668515,0.714342,0.64418,2012.577034,2231.781052
+same_pcode_overlap,same_pcode,ET050603,Danan,Somali,ET050603,Danan,Somali,2067.202924,0.710021,0.960268,2911.466782,2152.736105
+same_pcode_overlap,same_pcode,ET060303,Assosa,Benishangul Gumz,ET060303,Abrahmo,Benishangul-Gumuz,2069.752967,0.708625,1,2920.801233,2069.752967
+same_pcode_overlap,same_pcode,ET140103,Kolfe - Keran,Addis Ababa,ET140103,Kolfe Keraniyo Sub City,Addis Ababa,48.341831,0.705844,0.945637,68.487954,51.120913
+same_pcode_overlap,same_pcode,ET060301,Menge,Benishangul Gumz,ET060301,Menge,Benishangul-Gumuz,1078.966503,0.700112,1,1541.13344,1078.966503
+same_pcode_overlap,same_pcode,ET050596,Lasdhankayre,Somali,ET050596,Lasdhankayre,Somali,782.702683,0.695814,0.504378,1124.872962,1551.818664
+same_pcode_overlap,same_pcode,ET050298,Haroreys,Somali,ET050298,Haroreys,Somali,750.238478,0.694098,0.902888,1080.882433,830.932095
+same_pcode_overlap,same_pcode,ET010405,Endamehoni,Tigray,ET010405,Endamehoni,Tigray,441.931915,0.688349,0.976506,642.017368,452.564399
+same_pcode_overlap,same_pcode,ET050395,Ararso,Somali,ET050395,Ararso,Somali,872.604089,0.687355,0.896853,1269.510063,972.962631
+same_pcode_overlap,same_pcode,ET010304,Ganta Afeshum,Tigray,ET010304,Ganta Afeshum,Tigray,360.525863,0.686831,0.774844,524.912278,465.288039
+same_pcode_overlap,same_pcode,ET070206,Soro,SNNP,ET070206,Soro,Central Ethiopia,499.340197,0.683034,1,731.062213,499.340197
+same_pcode_overlap,same_pcode,ET072002,Silti,SNNP,ET072002,Siltie,Central Ethiopia,337.111767,0.674929,1,499.477697,337.111767
+same_pcode_overlap,same_pcode,ET140107,Yeka,Addis Ababa,ET140107,Yeka Sub City,Addis Ababa,56.23008,0.658394,0.96361,85.404917,58.353546
+same_pcode_overlap,same_pcode,ET040706,Ada'a,Oromia,ET040706,Ada'a,Oromia,498.121632,0.655927,0.981887,759.416828,507.31032
+same_pcode_overlap,same_pcode,ET051198,Qada Duma,Somali,ET051198,Qada Duma,Somali,1092.863695,0.651639,0.503097,1677.100418,2172.27195
+same_pcode_overlap,same_pcode,ET050107,Miesso,Somali,ET050107,Miesso,Somali,561.508778,0.650203,1,863.589692,561.508784
+same_pcode_overlap,same_pcode,ET041904,Ababo,Oromia,ET041904,Ababo,Oromia,616.340929,0.645766,1,954.433323,616.340929
+same_pcode_overlap,same_pcode,ET070111,Enemorina Eaner,SNNP,ET070111,Enemor Ener,Central Ethiopia,574.3211,0.632104,1,908.586023,574.3211
+same_pcode_overlap,same_pcode,ET051003,Garbo,Somali,ET051003,Garbo,Somali,2864.481757,0.631075,0.826073,4539.053764,3467.588837
+same_pcode_overlap,same_pcode,ET050301,Degehamedo,Somali,ET050301,Degehamedo,Somali,2968.041785,0.626941,0.842051,4734.16783,3524.777979
+same_pcode_overlap,same_pcode,ET041411,Ana Sora,Oromia,ET041411,Ana Sora,Oromia,466.831726,0.613043,1,761.499346,466.831726
+same_pcode_overlap,same_pcode,ET020103,Asayita,Afar,ET020103,Asayita,Afar,1006.242107,0.599938,0.941892,1677.244492,1068.32043
+same_pcode_overlap,same_pcode,ET050202,Gursum (Somali),Somali,ET050202,Gursum (SM),Somali,194.730889,0.59594,0.971047,326.762566,200.537038
+same_pcode_overlap,same_pcode,ET010207,Naeder Adet,Tigray,ET010207,Adet,Tigray,543.762283,0.579095,0.843481,938.986527,644.664362
+same_pcode_overlap,same_pcode,ET010105,Asgede Tsimbila,Tigray,ET010105,Asgede,Tigray,1370.349052,0.578657,0.853408,2368.154595,1605.738072
+same_pcode_overlap,same_pcode,ET010406,Raya Azebo,Tigray,ET010406,Raya Azebo,Tigray,978.169318,0.562233,0.96164,1739.794364,1017.189005
+same_pcode_overlap,same_pcode,ET070303,Kediada Gambela,SNNP,ET070303,Kediada Gambela,Central Ethiopia,97.302835,0.551278,1,176.504243,97.302835
+same_pcode_overlap,same_pcode,ET010206,Tahtay Mayechew,Tigray,ET010206,Tahtay Maychew,Tigray,324.401384,0.550177,0.974068,589.631031,333.037757
+same_pcode_overlap,same_pcode,ET051002,Elwayne,Somali,ET051002,Elwayne,Somali,2061.486203,0.548884,0.958744,3755.778653,2150.195107
+same_pcode_overlap,same_pcode,ET020105,Mile,Afar,ET020105,Mile,Afar,2220.884633,0.54597,0.999855,4067.774878,2221.20702
+same_pcode_overlap,same_pcode,ET050105,Afdem,Somali,ET050105,Afdem,Somali,1071.851694,0.543403,0.730281,1972.479574,1467.724505
+same_pcode_overlap,same_pcode,ET041712,Shashemene Zuria,Oromia,ET041712,Shashemene,Oromia,371.419969,0.528777,0.977584,702.413543,379.936775
+same_pcode_overlap,same_pcode,ET010103,Medebay Zana,Tigray,ET010103,Zana,Tigray,545.816883,0.523836,0.95572,1041.961312,571.10554
+same_pcode_overlap,same_pcode,ET020403,Teru,Afar,ET020403,Teru,Afar,3015.221055,0.520419,1,5793.834685,3015.221055
+same_pcode_overlap,same_pcode,ET010307,Atsbi Wenberta,Tigray,ET010307,Atsbi,Tigray,597.950806,0.520341,0.990758,1149.151551,603.528735
+same_pcode_overlap,same_pcode,ET050899,God-god,Somali,ET050899,God-God,Somali,1210.483494,0.517025,0.760177,2341.246102,1592.370458
+same_pcode_overlap,same_pcode,ET050699,Aba-korow,Somali,ET050699,Aba-Korow,Somali,599.727398,0.51159,0.277244,1172.281232,2163.174357
+same_pcode_overlap,same_pcode,ET041290,Guchi,Oromia,ET041290,Guchi,Oromia,736.016126,0.506072,0.305937,1454.370212,2405.777951
+same_pcode_overlap,same_pcode,ET050290,Goljano,Somali,ET050290,Goljano,Somali,368.292418,0.502719,0.535595,732.601456,687.632706
+same_pcode_overlap,same_pcode,ET010303,Saesie Tsaedamba,Tigray,ET010303,Sebuha Saesie,Tigray,526.96815,0.50143,0.869156,1050.931519,606.29851
+same_pcode_overlap,same_pcode,ET140104,Bole,Addis Ababa,ET140104,Bole Sub City,Addis Ababa,63.152895,0.498325,0.962635,126.730344,65.604193
+same_pcode_overlap,same_pcode,ET072003,Lanfero,SNNP,ET072003,Lanfero,Central Ethiopia,229.527033,0.497284,1,461.561036,229.527033
+same_pcode_overlap,same_pcode,ET031120,Tach Armacho,Amhara,ET031120,Tach Armacho,Amhara,1342.411125,0.495419,1,2709.645691,1342.411125
+same_pcode_overlap,same_pcode,ET041006,Haro Maya,Oromia,ET041006,Haro Maya,Oromia,247.14014,0.485397,1,509.150887,247.14014
+same_pcode_overlap,same_pcode,ET070201,Misha,SNNP,ET070201,Misha,Central Ethiopia,175.045805,0.482081,1,363.104185,175.045805
+same_pcode_overlap,same_pcode,ET010208,Kola Temben,Tigray,ET010208,Kola Tembien,Tigray,637.534,0.466404,0.887908,1366.912575,718.018066
+same_pcode_overlap,same_pcode,ET051006,Dihun,Somali,ET051006,Dihun,Somali,1342.867445,0.452699,0.592816,2966.360109,2265.233102
+same_pcode_overlap,same_pcode,ET010603,Hintalo Wajirat,Tigray,ET010603,Hintalo,Tigray,878.183221,0.44327,0.938453,1981.147208,935.777781
+same_pcode_overlap,same_pcode,ET010306,Kelete Awelallo,Tigray,ET010306,Kilte Awulaelo,Tigray,419.519784,0.433821,0.848953,967.035195,494.161618
+same_pcode_overlap,same_pcode,ET041797,Wondo,Oromia,ET041797,Wondo,Oromia,31.946457,0.424205,0.803318,75.30905,39.768124
+same_pcode_overlap,same_pcode,ET040703,Adama,Oromia,ET040703,Adama,Oromia,345.174521,0.41993,0.937474,821.98079,368.196558
+same_pcode_overlap,same_pcode,ET051103,Moyale (Somali),Somali,ET051103,Moyale (SM),Somali,731.716593,0.413933,0.522686,1767.716263,1399.916465
+same_pcode_overlap,same_pcode,ET010404,Alage,Tigray,ET010404,Emba Alaje,Tigray,327.461235,0.413366,0.951638,792.182639,344.102564
+same_pcode_overlap,same_pcode,ET010604,Dega Temben,Tigray,ET010604,Degua Temben,Tigray,427.780973,0.411075,0.978615,1040.638506,437.128887
+same_pcode_overlap,same_pcode,ET051104,Hudet,Somali,ET051104,Hudet,Somali,1259.095984,0.410422,0.999885,3067.807618,1259.240423
+same_pcode_overlap,same_pcode,ET020203,Aba 'Ala,Afar,ET020203,Abaala,Afar,458.143977,0.397673,1,1152.062621,458.143977
+same_pcode_overlap,same_pcode,ET041210,Moyale (Oromia),Oromia,ET041210,Moyale (OR),Oromia,1005.185725,0.375353,0.583451,2677.971532,1722.827867
+same_pcode_overlap,same_pcode,ET010601,Saharti Samre,Tigray,ET010601,Saharti,Tigray,620.981246,0.356618,0.989696,1741.308126,627.446262
+same_pcode_overlap,same_pcode,ET010202,Aheferom,Tigray,ET010202,Aheferom,Tigray,445.524606,0.352574,0.969008,1263.63402,459.774152
+same_pcode_overlap,same_pcode,ET050106,Hadhagala,Somali,ET050106,Hadhagala,Somali,3569.729616,0.349773,0.909672,10205.85028,3924.195298
+same_pcode_overlap,same_pcode,ET041905,Abay Chomen,Oromia,ET041905,Abay Chomen,Oromia,275.089216,0.324502,0.910395,847.726727,302.164764
+same_pcode_overlap,same_pcode,ET010203,Werei Leke,Tigray,ET010203,Endaba Tsahma,Tigray,405.052909,0.319301,0.998134,1268.559519,405.810035
+same_pcode_overlap,same_pcode,ET010201,Mereb Lehe,Tigray,ET010201,Chila,Tigray,379.480564,0.307969,0.642613,1232.202215,590.527579
+same_pcode_overlap,same_pcode,ET050898,Kohle/Qoxle,Somali,ET050898,Kohle /Qoxle,Somali,755.8394,0.291543,0.267866,2592.546368,2821.705019
+same_pcode_overlap,same_pcode,ET042001,Burayu,Oromia,ET042001,Burayu,Oromia,23.741996,0.281489,0.953373,84.344338,24.903156
+same_pcode_overlap,same_pcode,ET020301,Amibara,Afar,ET020301,Amibara,Afar,824.274313,0.237574,1,3469.550395,824.274314
+same_pcode_overlap,same_pcode,ET050198,Gota-biki,Somali,ET050198,Gota-Biki,Somali,245.988508,0.233719,0.216774,1052.497156,1134.771135
+same_pcode_overlap,same_pcode,ET020303,Gewane,Afar,ET020303,Gewane,Afar,455.714975,0.052625,1,8659.700837,455.714975

@@ -12,7 +12,10 @@ import SeasonalContextRing from "../SeasonalContextRing";
 import MobileSummaryView from "../MobileSummaryView";
 import HelpTip from "../HelpTip";
 import AboutPanel from "../AboutPanel";
-import DashboardTour, { shouldAutoStartDashboardTour } from "../DashboardTour";
+import DashboardTour, {
+  markDashboardTourAutoStartAttempted,
+  shouldAutoStartDashboardTour,
+} from "../DashboardTour";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
@@ -229,6 +232,7 @@ function Dashboard({
     () => speciesToDisease(projectConfig?.defaultSpecies) || "Plasmodium falciparum malaria"
   );
   const [country, setCountry] = useState("Ethiopia");
+  // Default to 12 until a longer cached horizon exists; 20/26 are available after rebuild.
   const [forecastWeeks, setForecastWeeks] = useState(projectConfig?.horizonWeeks || 12);
   const [forecastValueMode, setForecastValueMode] = useState(FORECAST_VALUE_MODE.CASES);
   const [selectedAdminRegion, setSelectedAdminRegion] = useState(
@@ -346,13 +350,15 @@ function Dashboard({
 
   useEffect(() => {
     if (!shouldAutoStartDashboardTour()) return undefined;
+    // Run once — do not re-fire when startTour identity changes (compact layout flips).
     const timer = window.setTimeout(() => {
-      if (shouldAutoStartDashboardTour()) {
-        startTour();
-      }
+      if (!shouldAutoStartDashboardTour()) return;
+      markDashboardTourAutoStartAttempted();
+      startTour();
     }, 1400);
     return () => window.clearTimeout(timer);
-  }, [startTour]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional one-shot auto-start
+  }, []);
 
   // Decision layers states
   const [showEarlyWarning, setShowEarlyWarning] = useState(true);
@@ -2088,6 +2094,8 @@ function Dashboard({
                               <option value={4}>4 wk</option>
                               <option value={8}>8 wk</option>
                               <option value={12}>12 wk</option>
+                              <option value={20}>20 wk</option>
+                              <option value={26}>26 wk</option>
                             </select>
                             <HelpTip
                               text={DASHBOARD_HELP.forecastWeeks}

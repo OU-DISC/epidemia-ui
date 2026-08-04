@@ -1,0 +1,31 @@
+{
+  "projection_for_iou_and_overlap": "Africa Albers Equal Area Conic",
+  "centroid_shift_method": "WGS84 geodesic distance between polygon centroids",
+  "shared_pcode_count": 606,
+  "iou_mean": 0.864373,
+  "iou_median": 1.0,
+  "iou_lt_0_5_count": 73,
+  "iou_lt_0_9_count": 169,
+  "centroid_shift_km_mean": 4.2819,
+  "centroid_shift_km_median": 0.0,
+  "centroid_shift_km_gt_5_count": 90,
+  "split_merge_link_count": 1395,
+  "likely_change_type_counts": {
+    "complex_many_to_many": 201,
+    "likely_merge_many_old_to_new": 65,
+    "likely_split_old_to_many_new": 389,
+    "one_to_one_redraw_or_recode": 146,
+    "same_pcode": 594
+  },
+  "forecast_district_count": 851,
+  "forecast_match_method_counts": {
+    "pcode_crosswalk": 814,
+    "unmatched": 37
+  },
+  "outputs": [
+    "eth_admin3_shared_pcode_geometry_compare.csv",
+    "eth_admin3_split_merge_links.csv",
+    "eth_admin3_forecast_coverage_new_map.csv",
+    "eth_admin3_region_rollup_old_vs_new.csv"
+  ]
+}

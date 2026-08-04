@@ -1,0 +1,1149 @@
+adm3_pcode,adm3_name,adm2_name,adm1_name
+ET140108,Addis Ketema Sub City,Region 14,Addis Ababa
+ET140101,Akaki Kality Sub City,Region 14,Addis Ababa
+ET140109,Arada Sub City,Region 14,Addis Ababa
+ET140104,Bole Sub City,Region 14,Addis Ababa
+ET140110,Gulele Sub City,Region 14,Addis Ababa
+ET140106,Kirkos Sub City,Region 14,Addis Ababa
+ET140103,Kolfe Keraniyo Sub City,Region 14,Addis Ababa
+ET140111,Lemi Kura Sub City,Region 14,Addis Ababa
+ET140105,Lideta Sub City,Region 14,Addis Ababa
+ET140102,Nifas Silk Lafto Sub City,Region 14,Addis Ababa
+ET140107,Yeka Sub City,Region 14,Addis Ababa
+ET020109,Adar,Awsi /Zone 1,Afar
+ET020104,Afambo,Awsi /Zone 1,Afar
+ET020103,Asayita,Awsi /Zone 1,Afar
+ET020111,Asayita town,Awsi /Zone 1,Afar
+ET020106,Chifra,Awsi /Zone 1,Afar
+ET020113,Chifra town,Awsi /Zone 1,Afar
+ET020101,Dubti,Awsi /Zone 1,Afar
+ET020107,Dubti town,Awsi /Zone 1,Afar
+ET020102,Elidar,Awsi /Zone 1,Afar
+ET020108,Kori,Awsi /Zone 1,Afar
+ET020105,Mile,Awsi /Zone 1,Afar
+ET020112,Mile town,Awsi /Zone 1,Afar
+ET020198,Samera Logiya town,Awsi /Zone 1,Afar
+ET020401,Awra (AF),Fanti /Zone 4,Afar
+ET020402,Euwa,Fanti /Zone 4,Afar
+ET020405,Gulina,Fanti /Zone 4,Afar
+ET020406,Mabay,Fanti /Zone 4,Afar
+ET020403,Teru,Fanti /Zone 4,Afar
+ET020404,Yalo,Fanti /Zone 4,Afar
+ET020308,Abida,Gabi /Zone 3,Afar
+ET020301,Amibara,Gabi /Zone 3,Afar
+ET020306,Arguba,Gabi /Zone 3,Afar
+ET020302,Awash Fantale,Gabi /Zone 3,Afar
+ET020396,Awash town,Gabi /Zone 3,Afar
+ET020309,Borimodaytu,Gabi /Zone 3,Afar
+ET020304,Dulecha,Gabi /Zone 3,Afar
+ET020305,Gala'alu,Gabi /Zone 3,Afar
+ET020303,Gewane,Gabi /Zone 3,Afar
+ET020307,Hanruka,Gabi /Zone 3,Afar
+ET020310,Werer,Gabi /Zone 3,Afar
+ET020504,Dalefage,Hari /Zone 5,Afar
+ET020503,Dawe,Hari /Zone 5,Afar
+ET020505,Hadelela,Hari /Zone 5,Afar
+ET020502,Samurobi,Hari /Zone 5,Afar
+ET020501,Telalek,Hari /Zone 5,Afar
+ET020203,Abaala,Kilbati /Zone 2,Afar
+ET020209,Abaala town,Kilbati /Zone 2,Afar
+ET020207,Afdera,Kilbati /Zone 2,Afar
+ET020205,Berahile,Kilbati /Zone 2,Afar
+ET020208,Bidu,Kilbati /Zone 2,Afar
+ET020206,Dalol,Kilbati /Zone 2,Afar
+ET020201,Erebti,Kilbati /Zone 2,Afar
+ET020202,Kunneba,Kilbati /Zone 2,Afar
+ET020204,Megale,Kilbati /Zone 2,Afar
+ET020210,Wasama,Kilbati /Zone 2,Afar
+ET020601,Gerani,Mahi /Zone 6,Afar
+ET020602,Kilalu,Mahi /Zone 6,Afar
+ET020604,Sibaybi,Mahi /Zone 6,Afar
+ET020603,Yangudi,Mahi /Zone 6,Afar
+ET030910,Adiss Kidame town,Awi,Amhara
+ET030909,Agew Gimija Bet town,Awi,Amhara
+ET030903,Ankasha,Awi,Amhara
+ET030908,Ayehu Guwagusa,Awi,Amhara
+ET030902,Banja,Awi,Amhara
+ET030999,Chagni town,Awi,Amhara
+ET030901,Dangila,Awi,Amhara
+ET030998,Dangila town,Awi,Amhara
+ET030905,Fagta Lakoma,Awi,Amhara
+ET030912,Fendika town,Awi,Amhara
+ET030907,Guagusa Shikudad,Awi,Amhara
+ET030904,Guangua,Awi,Amhara
+ET030996,Injibara town,Awi,Amhara
+ET030906,Jawi,Awi,Amhara
+ET030911,Tilili town,Awi,Amhara
+ET030997,Zigem town,Awi,Amhara
+ET031401,Bahir Dar town,Bahir Dar town Admin,Amhara
+ET031404,Deq,Bahir Dar town Admin,Amhara
+ET031405,Meshenti town,Bahir Dar town Admin,Amhara
+ET031406,Tis Abay town,Bahir Dar town Admin,Amhara
+ET031403,Zege town,Bahir Dar town Admin,Amhara
+ET031115,Alefa,Central Gondar,Amhara
+ET031103,Amba Giorgis town,Central Gondar,Amhara
+ET031199,Aykel town,Central Gondar,Amhara
+ET031106,Chilga 1,Central Gondar,Amhara
+ET031112,Chilga 2,Central Gondar,Amhara
+ET031117,East Belesa,Central Gondar,Amhara
+ET031111,East Dembia,Central Gondar,Amhara
+ET031118,Gondar town,Central Gondar,Amhara
+ET031110,Gonder Zuria,Central Gondar,Amhara
+ET031122,Kinfaz Begela,Central Gondar,Amhara
+ET031105,Kolla Debba town,Central Gondar,Amhara
+ET031108,Lay Armacho,Central Gondar,Amhara
+ET031119,Masero Denb /Central Armacho,Central Gondar,Amhara
+ET031104,Shawra town,Central Gondar,Amhara
+ET031120,Tach Armacho,Central Gondar,Amhara
+ET031121,Takusa,Central Gondar,Amhara
+ET031107,Tegede,Central Gondar,Amhara
+ET031109,Wegera,Central Gondar,Amhara
+ET031116,West Belesa,Central Gondar,Amhara
+ET031125,West Dembiya,Central Gondar,Amhara
+ET030618,Amanuel town,East Gojam,Amhara
+ET030617,Aneded,East Gojam,Amhara
+ET030612,Awabel,East Gojam,Amhara
+ET030611,Baso Liben,East Gojam,Amhara
+ET030699,Bechena town,East Gojam,Amhara
+ET030601,Bibugn,East Gojam,Amhara
+ET030607,Debay Telatgen,East Gojam,Amhara
+ET030608,Debre Elias,East Gojam,Amhara
+ET030615,Debre Markos town,East Gojam,Amhara
+ET030621,Debrework town,East Gojam,Amhara
+ET030613,Dejen,East Gojam,Amhara
+ET030698,Dejen town,East Gojam,Amhara
+ET030605,Enarj Enawga,East Gojam,Amhara
+ET030604,Enebse Sarmder,East Gojam,Amhara
+ET030606,Enemay,East Gojam,Amhara
+ET030603,Goncha Siso Enebse,East Gojam,Amhara
+ET030620,Gundwoin town,East Gojam,Amhara
+ET030610,Guzamn,East Gojam,Amhara
+ET030602,Hulet Ej Enese,East Gojam,Amhara
+ET030622,Lumame town,East Gojam,Amhara
+ET030623,Merto Lemariyam town,East Gojam,Amhara
+ET030609,Michakel,East Gojam,Amhara
+ET030694,Mota town,East Gojam,Amhara
+ET030619,Sedae,East Gojam,Amhara
+ET030616,Senan,East Gojam,Amhara
+ET030614,Shebel Bernta,East Gojam,Amhara
+ET031309,Adete town,North Gojam,Amhara
+ET031310,Bahir Dar Zuria,North Gojam,Amhara
+ET031305,Debub Achefer,North Gojam,Amhara
+ET031306,Debub Mecha,North Gojam,Amhara
+ET031308,Dure Bete,North Gojam,Amhara
+ET031307,Gonje,North Gojam,Amhara
+ET031304,Mecha,North Gojam,Amhara
+ET031302,Merawi town,North Gojam,Amhara
+ET031301,Semen Achefer,North Gojam,Amhara
+ET031303,Yilmana Densa,North Gojam,Amhara
+ET030101,Addi Arekay,North Gondar,Amhara
+ET030102,Beyeda,North Gondar,Amhara
+ET030105,Dabat,North Gondar,Amhara
+ET030106,Dabat town,North Gondar,Amhara
+ET030104,Debark,North Gondar,Amhara
+ET030198,Debark town,North Gondar,Amhara
+ET030103,Janamora,North Gondar,Amhara
+ET030119,Telemt,North Gondar,Amhara
+ET030599,Aleme Ketma town,North Shewa (AM),Amhara
+ET030513,Angolelana Tera,North Shewa (AM),Amhara
+ET030515,Ankober,North Shewa (AM),Amhara
+ET030507,Antsokiya,North Shewa (AM),Amhara
+ET030525,Arerti town,North Shewa (AM),Amhara
+ET030514,Assagirt,North Shewa (AM),Amhara
+ET030598,Ataye town,North Shewa (AM),Amhara
+ET030519,Basona Worena,North Shewa (AM),Amhara
+ET030517,Berehet,North Shewa (AM),Amhara
+ET030520,Debre Berhan town,North Shewa (AM),Amhara
+ET030527,Debre Sina town,North Shewa (AM),Amhara
+ET030508,Eferatana Gidem,North Shewa (AM),Amhara
+ET030528,Enewari town,North Shewa (AM),Amhara
+ET030503,Ensaro,North Shewa (AM),Amhara
+ET030506,Gishe Rabel,North Shewa (AM),Amhara
+ET030516,Hagere Mariam,North Shewa (AM),Amhara
+ET030512,Kewet,North Shewa (AM),Amhara
+ET030597,Mehal Meda town,North Shewa (AM),Amhara
+ET030505,Menze Gera Midir,North Shewa (AM),Amhara
+ET030521,Menze Keya Gabriel,North Shewa (AM),Amhara
+ET030522,Menze Lalo Midir,North Shewa (AM),Amhara
+ET030509,Menze Mama Midir,North Shewa (AM),Amhara
+ET030502,Merhabete,North Shewa (AM),Amhara
+ET030501,Mida Woremo,North Shewa (AM),Amhara
+ET030518,Minjar Shenkora,North Shewa (AM),Amhara
+ET030511,Mojan Wedera,North Shewa (AM),Amhara
+ET030526,Molale town,North Shewa (AM),Amhara
+ET030504,Moretna Jiru,North Shewa (AM),Amhara
+ET030595,Shoa Robit,North Shewa (AM),Amhara
+ET030523,Siya Debirna Wayu,North Shewa (AM),Amhara
+ET030510,Tarema Ber,North Shewa (AM),Amhara
+ET030524,Tulefa town,North Shewa (AM),Amhara
+ET030313,Angot,North Wello,Amhara
+ET030301,Bugna,North Wello,Amhara
+ET030311,Dawunt,North Wello,Amhara
+ET030314,Filakit town,North Wello,Amhara
+ET030315,Gashena town,North Wello,Amhara
+ET030312,Gazo,North Wello,Amhara
+ET030303,Gidan,North Wello,Amhara
+ET030307,Guba Lafto,North Wello,Amhara
+ET030308,Habru,North Wello,Amhara
+ET030306,Hara town,North Wello,Amhara
+ET030399,Kobo town,North Wello,Amhara
+ET030398,Lalibela town,North Wello,Amhara
+ET030310,Lasta,North Wello,Amhara
+ET030304,Meket,North Wello,Amhara
+ET030397,Mersa town,North Wello,Amhara
+ET030302,Raya Kobo,North Wello,Amhara
+ET030305,Wadla,North Wello,Amhara
+ET030309,Woldiya town,North Wello,Amhara
+ET031004,Artuma Fursi,Oromo Nationality Administration,Amhara
+ET031002,Bati,Oromo Nationality Administration,Amhara
+ET031099,Bati town,Oromo Nationality Administration,Amhara
+ET031007,Chef Robit town,Oromo Nationality Administration,Amhara
+ET031001,Dewa Cheffa,Oromo Nationality Administration,Amhara
+ET031005,Dewa Harewa,Oromo Nationality Administration,Amhara
+ET031003,Jilye Tumuga,Oromo Nationality Administration,Amhara
+ET031006,Kemisie town,Oromo Nationality Administration,Amhara
+ET031008,Senbete town,Oromo Nationality Administration,Amhara
+ET030299,Adiss Zemen town,South Gondar,Amhara
+ET030211,Andabet /West Esite,South Gondar,Amhara
+ET030210,Debre Tabor town,South Gondar,Amhara
+ET030209,Dera (AM),South Gondar,Amhara
+ET030208,East Esite,South Gondar,Amhara
+ET030201,Ebenat,South Gondar,Amhara
+ET030217,Ebenat town,South Gondar,Amhara
+ET030204,Farta,South Gondar,Amhara
+ET030203,Fogera,South Gondar,Amhara
+ET030212,Guna Begemider,South Gondar,Amhara
+ET030218,Hamusit town,South Gondar,Amhara
+ET030205,Lay Gayint,South Gondar,Amhara
+ET030202,Libokemekem,South Gondar,Amhara
+ET030298,Mekan Eyesuse,South Gondar,Amhara
+ET030213,Mena Meketewa,South Gondar,Amhara
+ET030215,Nefas Mewicha town,South Gondar,Amhara
+ET030214,Sede Muja,South Gondar,Amhara
+ET030207,Semada,South Gondar,Amhara
+ET030206,Tach Gayint,South Gondar,Amhara
+ET030216,Wegeda town,South Gondar,Amhara
+ET030293,Woreta town,South Gondar,Amhara
+ET030427,Akeseta town,South Wello,Amhara
+ET030408,Albuko,South Wello,Amhara
+ET030404,Ambasel,South Wello,Amhara
+ET030401,Argoba,South Wello,Amhara
+ET030412,Borena /Debresina,South Wello,Amhara
+ET030425,Degolo town,South Wello,Amhara
+ET030406,Delanta,South Wello,Amhara
+ET030409,Dessie Zuria,South Wello,Amhara
+ET030418,Dessie town,South Wello,Amhara
+ET030428,Gimeba town,South Wello,Amhara
+ET030429,Harbu town,South Wello,Amhara
+ET030499,Hike town,South Wello,Amhara
+ET030414,Jama,South Wello,Amhara
+ET030407,Kalu,South Wello,Amhara
+ET030426,Kelala town,South Wello,Amhara
+ET030413,Kelela,South Wello,Amhara
+ET030417,Kombolcha town,South Wello,Amhara
+ET030403,Kutaber,South Wello,Amhara
+ET030410,Legambo,South Wello,Amhara
+ET030420,Legehida,South Wello,Amhara
+ET030419,Mehal Sayint,South Wello,Amhara
+ET030498,Mekane Selam town,South Wello,Amhara
+ET030421,Mekdela,South Wello,Amhara
+ET030411,Sayint,South Wello,Amhara
+ET030402,Tenta,South Wello,Amhara
+ET030405,Thehulederie,South Wello,Amhara
+ET030416,Wegde,South Wello,Amhara
+ET030430,Wegedi town,South Wello,Amhara
+ET030424,Wegel tena town,South Wello,Amhara
+ET030415,Were Ilu,South Wello,Amhara
+ET030423,Wereilu town,South Wello,Amhara
+ET030422,Worebabu,South Wello,Amhara
+ET030805,Abergele (AM),Wag Hamra,Amhara
+ET030809,Amde Work town,Wag Hamra,Amhara
+ET030803,Dehana,Wag Hamra,Amhara
+ET030804,Gaz Gibla,Wag Hamra,Amhara
+ET030806,Sahila,Wag Hamra,Amhara
+ET030802,Sekota,Wag Hamra,Amhara
+ET030807,Sekota town,Wag Hamra,Amhara
+ET030808,Tsagbeji,Wag Hamra,Amhara
+ET030801,Zequala,Wag Hamra,Amhara
+ET030710,Bure (AM),West Gojam,Amhara
+ET030798,Bure town,West Gojam,Amhara
+ET030707,Dega Damot,West Gojam,Amhara
+ET030708,Dembecha,West Gojam,Amhara
+ET030717,Denbecha town,West Gojam,Amhara
+ET030714,Finote Selam town,West Gojam,Amhara
+ET030709,Jabi Tehnan,West Gojam,Amhara
+ET030720,Jiga town,West Gojam,Amhara
+ET030706,Quarit,West Gojam,Amhara
+ET030705,Sekela,West Gojam,Amhara
+ET030716,Shendi town,West Gojam,Amhara
+ET030711,Wemberma,West Gojam,Amhara
+ET031205,Adagn Ager Chaqo,West Gondar,Amhara
+ET031292,Gendawuha town,West Gondar,Amhara
+ET031213,Metema,West Gondar,Amhara
+ET031224,Metema Yohanes town,West Gondar,Amhara
+ET031223,Midre Genet,West Gondar,Amhara
+ET031206,Mirab Armacho,West Gondar,Amhara
+ET031214,Quara,West Gondar,Amhara
+ET060303,Abrahmo,Assosa,Benishangul-Gumuz
+ET060309,Assosa town Admin,Assosa,Benishangul-Gumuz
+ET060305,Bambasi,Assosa,Benishangul-Gumuz
+ET060310,Bambasi town,Assosa,Benishangul-Gumuz
+ET060306,Bilidigilu,Assosa,Benishangul-Gumuz
+ET060307,Homosha,Assosa,Benishangul-Gumuz
+ET060302,Kurmuk,Assosa,Benishangul-Gumuz
+ET060301,Menge,Assosa,Benishangul-Gumuz
+ET060304,Sherkole,Assosa,Benishangul-Gumuz
+ET060308,Undulu,Assosa,Benishangul-Gumuz
+ET060311,Ura,Assosa,Benishangul-Gumuz
+ET060404,Dembe,Kamashi,Benishangul-Gumuz
+ET060403,Kamashi,Kamashi,Benishangul-Gumuz
+ET060400,Kamashi town,Kamashi,Benishangul-Gumuz
+ET060405,Mezniga,Kamashi,Benishangul-Gumuz
+ET060402,Sedal,Kamashi,Benishangul-Gumuz
+ET060401,Zayi,Kamashi,Benishangul-Gumuz
+ET060508,Mao-komo Special,Mao-komo Special,Benishangul-Gumuz
+ET060207,Bulen,Metekel,Benishangul-Gumuz
+ET060201,Dangur,Metekel,Benishangul-Gumuz
+ET060205,Dibate,Metekel,Benishangul-Gumuz
+ET060200,Gilgel Beles town,Metekel,Benishangul-Gumuz
+ET060202,Guba,Metekel,Benishangul-Gumuz
+ET060204,Mandura,Metekel,Benishangul-Gumuz
+ET060206,Pawe,Metekel,Benishangul-Gumuz
+ET060203,Wembera,Metekel,Benishangul-Gumuz
+ET070402,Bui town,East Guraghe,Central Ethiopia
+ET070401,Butajira town,East Guraghe,Central Ethiopia
+ET070406,Debub Sodo,East Guraghe,Central Ethiopia
+ET070404,Meskan,East Guraghe,Central Ethiopia
+ET070405,Misrak Meskan,East Guraghe,Central Ethiopia
+ET070403,Sodo,East Guraghe,Central Ethiopia
+ET070102,Abeshege,Guraghe,Central Ethiopia
+ET070110,Cheha,Guraghe,Central Ethiopia
+ET070116,Emdebir town,Guraghe,Central Ethiopia
+ET070108,Endiguagn,Guraghe,Central Ethiopia
+ET070111,Enemor Ener,Guraghe,Central Ethiopia
+ET070120,Enor Ener,Guraghe,Central Ethiopia
+ET070103,Ezha,Guraghe,Central Ethiopia
+ET070104,Gedebano Gutazer Welene,Guraghe,Central Ethiopia
+ET070113,Geta,Guraghe,Central Ethiopia
+ET070109,Gumer,Guraghe,Central Ethiopia
+ET070112,Muhur Na Aklil,Guraghe,Central Ethiopia
+ET070114,Welkite town,Guraghe,Central Ethiopia
+ET070215,Ameka,Hadiya,Central Ethiopia
+ET070208,Analemmo,Hadiya,Central Ethiopia
+ET070207,Duna,Hadiya,Central Ethiopia
+ET070210,Gibe,Hadiya,Central Ethiopia
+ET070213,Gimbichu town,Hadiya,Central Ethiopia
+ET070202,Gombora,Hadiya,Central Ethiopia
+ET070211,Hosaena town,Hadiya,Central Ethiopia
+ET070214,Jajura town,Hadiya,Central Ethiopia
+ET070203,Lemmo,Hadiya,Central Ethiopia
+ET070209,Mirab Badowach,Hadiya,Central Ethiopia
+ET070217,Mirab Soro,Hadiya,Central Ethiopia
+ET070201,Misha,Hadiya,Central Ethiopia
+ET070205,Misrak Badawacho,Hadiya,Central Ethiopia
+ET070204,Shashogo,Hadiya,Central Ethiopia
+ET070212,Shone town,Hadiya,Central Ethiopia
+ET070216,Siraro Badawacho,Hadiya,Central Ethiopia
+ET070206,Soro,Hadiya,Central Ethiopia
+ET071403,Atote Ulo,Halaba,Central Ethiopia
+ET071401,Kulito town,Halaba,Central Ethiopia
+ET071402,Wera,Halaba,Central Ethiopia
+ET071404,Wera Djo,Halaba,Central Ethiopia
+ET070001,Kebena Special,Kebena Special,Central Ethiopia
+ET070309,Adilo,Kembata,Central Ethiopia
+ET070302,Angacha,Kembata,Central Ethiopia
+ET070307,Damboya,Kembata,Central Ethiopia
+ET070306,Doyogena,Kembata,Central Ethiopia
+ET070308,Durame town,Kembata,Central Ethiopia
+ET070305,Hadero Tunto,Kembata,Central Ethiopia
+ET070312,Hadero town,Kembata,Central Ethiopia
+ET070304,Kacha Bira,Kembata,Central Ethiopia
+ET070303,Kediada Gambela,Kembata,Central Ethiopia
+ET070310,Shinshincho town,Kembata,Central Ethiopia
+ET072501,Mareko Special,Mareko Special,Central Ethiopia
+ET072001,Alicho Woriro,Siltie,Central Ethiopia
+ET072005,Dalocha,Siltie,Central Ethiopia
+ET072011,Kibet town,Siltie,Central Ethiopia
+ET072003,Lanfero,Siltie,Central Ethiopia
+ET072004,Mierab Azenet Berbere,Siltie,Central Ethiopia
+ET072007,Misrak Azenet Berbere,Siltie,Central Ethiopia
+ET072013,Misrak Siltie,Siltie,Central Ethiopia
+ET072012,Mito,Siltie,Central Ethiopia
+ET072006,Sankura,Siltie,Central Ethiopia
+ET072002,Siltie,Siltie,Central Ethiopia
+ET072009,Tora town,Siltie,Central Ethiopia
+ET072010,Worabe town,Siltie,Central Ethiopia
+ET072008,Wulbareg,Siltie,Central Ethiopia
+ET072601,Tembaro Special,Tembaro Special,Central Ethiopia
+ET072403,Deri Saja zuria,Yem,Central Ethiopia
+ET072402,Fofa,Yem,Central Ethiopia
+ET072401,Saja town,Yem,Central Ethiopia
+ET072404,Toba,Yem,Central Ethiopia
+ET990108,Awra,Area 1,Contested
+ET990107,Dansha town,Area 1,Contested
+ET990103,Kafta Humera,Area 1,Contested
+ET990102,Korarit,Area 1,Contested
+ET990109,May Gaba,Area 1,Contested
+ET990106,May Kadra,Area 1,Contested
+ET990101,Setit Humera town,Area 1,Contested
+ET990105,Tsegede,Area 1,Contested
+ET990104,Welkait,Area 1,Contested
+ET990202,Laelay Tselemti,Area 2,Contested
+ET990203,May Tsebri town,Area 2,Contested
+ET990201,Tselemti /West Telemt,Area 2,Contested
+ET990304,Alamata town,Area 3,Contested
+ET990306,Chercher,Area 3,Contested
+ET990303,Korem town,Area 3,Contested
+ET990302,Ofla,Area 3,Contested
+ET990301,Raya Alamata,Area 3,Contested
+ET990305,Zata,Area 3,Contested
+ET150201,Aseliso,Dire Dawa rural,Dire Dawa
+ET150208,Biyoawale,Dire Dawa rural,Dire Dawa
+ET150206,Jeldessa,Dire Dawa rural,Dire Dawa
+ET150207,Wahil,Dire Dawa rural,Dire Dawa
+ET150109,Addis Ketema (DD),Dire Dawa urban,Dire Dawa
+ET150111,Dechatu,Dire Dawa urban,Dire Dawa
+ET150110,Gende Kore,Dire Dawa urban,Dire Dawa
+ET150112,Hafat Issa,Dire Dawa urban,Dire Dawa
+ET150113,Kazira,Dire Dawa urban,Dire Dawa
+ET150105,Legehare,Dire Dawa urban,Dire Dawa
+ET150104,Malka Jabti /M.Jebdu,Dire Dawa urban,Dire Dawa
+ET150114,Police Maret,Dire Dawa urban,Dire Dawa
+ET150103,Sabian,Dire Dawa urban,Dire Dawa
+ET120201,Abobo,Agnewak,Gambela
+ET120205,Dima (GM),Agnewak,Gambela
+ET120200,Gambela National Park,Agnewak,Gambela
+ET120202,Gambela Zuria,Agnewak,Gambela
+ET120206,Gambela town,Agnewak,Gambela
+ET120203,Gog,Agnewak,Gambela
+ET120204,Jore,Agnewak,Gambela
+ET120407,Itang,Itang Special,Gambela
+ET120301,Godere,Majang,Gambela
+ET120308,Mengesh,Majang,Gambela
+ET120101,Akobo,Nuwer,Gambela
+ET120103,Jikawo,Nuwer,Gambela
+ET120102,Lare,Nuwer,Gambela
+ET120105,Makuey,Nuwer,Gambela
+ET120104,Wantawo,Nuwer,Gambela
+ET130109,Abadir,Harari,Harari
+ET130108,Aboker,Harari,Harari
+ET130107,Amir Nur,Harari,Harari
+ET130106,Dire Teyara,Harari,Harari
+ET130105,Erer (HR),Harari,Harari
+ET130104,Hakim,Harari,Harari
+ET130103,Jinela,Harari,Harari
+ET130102,Shenkor,Harari,Harari
+ET130101,Sofi,Harari,Harari
+ET040810,Amigna,Arsi,Oromia
+ET040802,Aseko,Arsi,Oromia
+ET040825,Asela town,Arsi,Oromia
+ET040823,Bele Gesgar,Arsi,Oromia
+ET040894,Bokoji town,Arsi,Oromia
+ET040809,Chole,Arsi,Oromia
+ET040815,Degeluna Tijo,Arsi,Oromia
+ET040895,Dera town,Arsi,Oromia
+ET040822,Diksis,Arsi,Oromia
+ET040805,Dodota,Arsi,Oromia
+ET040803,Golocha,Arsi,Oromia
+ET040819,Guna,Arsi,Oromia
+ET040807,Hitosa,Arsi,Oromia
+ET040824,Inkolo Wabe,Arsi,Oromia
+ET040804,Jeju,Arsi,Oromia
+ET040818,Limu Bilbilo,Arsi,Oromia
+ET040821,Lude Hitosa,Arsi,Oromia
+ET040801,Merti,Arsi,Oromia
+ET040817,Munessa,Arsi,Oromia
+ET040812,Robe,Arsi,Oromia
+ET040811,Seru,Arsi,Oromia
+ET040893,Shanan Kolu,Arsi,Oromia
+ET040814,Shirka,Arsi,Oromia
+ET040820,Sire,Arsi,Oromia
+ET040808,Sude,Arsi,Oromia
+ET040813,Tena,Arsi,Oromia
+ET040816,Tiyo,Arsi,Oromia
+ET040806,Ziway Dugda,Arsi,Oromia
+ET041104,Agarfa,Bale,Oromia
+ET041114,Berbere,Bale,Oromia
+ET041122,Dinsho,Bale,Oromia
+ET041106,Gasera,Bale,Oromia
+ET041110,Goba (OR),Bale,Oromia
+ET041120,Goba town,Bale,Oromia
+ET041116,Goro (Bale),Bale,Oromia
+ET041115,Gura Damole,Bale,Oromia
+ET041111,Harena Buluk,Bale,Oromia
+ET041112,Mena (Bale),Bale,Oromia
+ET041119,Robe town,Bale,Oromia
+ET041109,Sinana,Bale,Oromia
+ET041219,Dilo,Borena,Oromia
+ET041211,Dire,Borena,Oromia
+ET041291,Dubluk,Borena,Oromia
+ET041295,Elwaya,Borena,Oromia
+ET041223,Gomole,Borena,Oromia
+ET041290,Guchi,Borena,Oromia
+ET041216,Miyo,Borena,Oromia
+ET041210,Moyale (OR),Borena,Oromia
+ET041212,Teltale,Borena,Oromia
+ET041207,Yabelo,Borena,Oromia
+ET041296,Yabelo town,Borena,Oromia
+ET041622,Bedele Zuria,Buno Bedele,Oromia
+ET041621,Bedele town,Buno Bedele,Oromia
+ET041607,Borecha,Buno Bedele,Oromia
+ET041603,Chora (Buno Bedele),Buno Bedele,Oromia
+ET041623,Chwaka,Buno Bedele,Oromia
+ET041605,Dabo Hana,Buno Bedele,Oromia
+ET041608,Dedesa,Buno Bedele,Oromia
+ET041604,Dega,Buno Bedele,Oromia
+ET041606,Gechi,Buno Bedele,Oromia
+ET041618,Meko,Buno Bedele,Oromia
+ET042106,Dawe Ketchen,East Bale,Oromia
+ET042103,Ginir,East Bale,Oromia
+ET042107,Ginir town,East Bale,Oromia
+ET042101,Gololcha Bale,East Bale,Oromia
+ET042102,Lege Hida,East Bale,Oromia
+ET042104,Rayitu,East Bale,Oromia
+ET042105,Seweyna,East Bale,Oromia
+ET042207,Arero,East Borena,Oromia
+ET042209,Dhas,East Borena,Oromia
+ET042205,Gora Dola,East Borena,Oromia
+ET042206,Gumi Idalo,East Borena,Oromia
+ET042202,Liben,East Borena,Oromia
+ET042203,Meda Welabu,East Borena,Oromia
+ET042201,Negele town,East Borena,Oromia
+ET042208,Wachile,East Borena,Oromia
+ET042204,West Welabu,East Borena,Oromia
+ET041004,Babile (OR),East Hararge,Oromia
+ET041000,Babile town,East Hararge,Oromia
+ET041013,Bedeno,East Hararge,Oromia
+ET041015,Chinaksen,East Hararge,Oromia
+ET041011,Deder,East Hararge,Oromia
+ET041097,Deder town,East Hararge,Oromia
+ET041005,Fedis,East Hararge,Oromia
+ET041016,Girawa,East Hararge,Oromia
+ET041017,Golo Oda,East Hararge,Oromia
+ET041010,Goro Gutu,East Hararge,Oromia
+ET041089,Goro Muti,East Hararge,Oromia
+ET041003,Gursum (OR),East Hararge,Oromia
+ET041006,Haro Maya,East Hararge,Oromia
+ET041002,Jarso (East Hararge),East Hararge,Oromia
+ET041008,Kersa (East Hararge),East Hararge,Oromia
+ET041001,Kombolcha,East Hararge,Oromia
+ET041098,Kumbi,East Hararge,Oromia
+ET041007,Kurfa Chele,East Hararge,Oromia
+ET041019,Maya town,East Hararge,Oromia
+ET041020,Mekanisa Oromo,East Hararge,Oromia
+ET041012,Melka Balo,East Hararge,Oromia
+ET041009,Meta,East Hararge,Oromia
+ET041018,Meyu Muleke,East Hararge,Oromia
+ET041014,Midhaga Tola,East Hararge,Oromia
+ET040706,Ada'a,East Shewa,Oromia
+ET040703,Adama,East Shewa,Oromia
+ET040708,Adama Tulu Jido Kombolcha,East Shewa,Oromia
+ET040714,Adama town,East Shewa,Oromia
+ET040712,Akaki,East Shewa,Oromia
+ET040798,Batu town,East Shewa,Oromia
+ET040709,Bishoftu town,East Shewa,Oromia
+ET040710,Bora (OR),East Shewa,Oromia
+ET040702,Boset,East Shewa,Oromia
+ET040707,Dugda,East Shewa,Oromia
+ET040701,Fentale,East Shewa,Oromia
+ET040705,Gimbichu,East Shewa,Oromia
+ET040711,Liben Chukala,East Shewa,Oromia
+ET040704,Lome (OR),East Shewa,Oromia
+ET040799,Metehara town,East Shewa,Oromia
+ET040797,Mojo town,East Shewa,Oromia
+ET040207,Bila Seyo,East Wellega,Oromia
+ET040205,Boneya Boshe,East Wellega,Oromia
+ET040210,Diga,East Wellega,Oromia
+ET040203,Gida Ayana,East Wellega,Oromia
+ET040208,Gobu Seyo,East Wellega,Oromia
+ET040213,Guto Gida,East Wellega,Oromia
+ET040204,Haro Limu,East Wellega,Oromia
+ET040202,Ibantu,East Wellega,Oromia
+ET040214,Jimma Arjo,East Wellega,Oromia
+ET040217,Kiremu,East Wellega,Oromia
+ET040212,Leka Dulecha,East Wellega,Oromia
+ET040201,Limu (OR),East Wellega,Oromia
+ET040297,Nekemte town,East Wellega,Oromia
+ET040215,Nunu Kumba,East Wellega,Oromia
+ET040211,Sasiga,East Wellega,Oromia
+ET040209,Sibu Sire,East Wellega,Oromia
+ET040216,Wama Hagalo,East Wellega,Oromia
+ET040206,Wayu Tuka,East Wellega,Oromia
+ET041403,Adola,Guji,Oromia
+ET041492,Adola town,Guji,Oromia
+ET041482,Aga Wayu,Guji,Oromia
+ET041411,Ana Sora,Guji,Oromia
+ET041409,Arda Jila,Guji,Oromia
+ET041402,Bore,Guji,Oromia
+ET041408,Dama,Guji,Oromia
+ET041410,Girja /Harenfema,Guji,Oromia
+ET041490,Haro Walabu,Guji,Oromia
+ET041405,Odo Shakiso,Guji,Oromia
+ET041412,Saba Boru,Guji,Oromia
+ET041499,Shakiso town,Guji,Oromia
+ET041401,Uraga,Guji,Oromia
+ET041404,Wadera,Guji,Oromia
+ET041904,Ababo,Horo Gudru Wellega,Oromia
+ET041905,Abay Chomen,Horo Gudru Wellega,Oromia
+ET041910,Abe Dongoro,Horo Gudru Wellega,Oromia
+ET041909,Amuru,Horo Gudru Wellega,Oromia
+ET041911,Choman Guduru,Horo Gudru Wellega,Oromia
+ET041903,Guduru,Horo Gudru Wellega,Oromia
+ET041901,Horo,Horo Gudru Wellega,Oromia
+ET041912,Horo Buluk,Horo Gudru Wellega,Oromia
+ET041908,Jarte Jardega,Horo Gudru Wellega,Oromia
+ET041906,Jimma Genete,Horo Gudru Wellega,Oromia
+ET041907,Jimma Rare,Horo Gudru Wellega,Oromia
+ET041902,Shambu town,Horo Gudru Wellega,Oromia
+ET041913,Sulula Finca'a,Horo Gudru Wellega,Oromia
+ET040311,Ale,Ilu Aba Bora,Oromia
+ET040302,Alge Sachi,Ilu Aba Bora,Oromia
+ET040314,Becho (Ilu Aba Bora),Ilu Aba Bora,Oromia
+ET040315,Bilo Nopha,Ilu Aba Bora,Oromia
+ET040312,Bure (OR),Ilu Aba Bora,Oromia
+ET040301,Darimu,Ilu Aba Bora,Oromia
+ET040317,Didu,Ilu Aba Bora,Oromia
+ET040324,Dorani,Ilu Aba Bora,Oromia
+ET040319,Halu /Huka,Ilu Aba Bora,Oromia
+ET040316,Hurumu,Ilu Aba Bora,Oromia
+ET040310,Metu Zuria,Ilu Aba Bora,Oromia
+ET040320,Metu town,Ilu Aba Bora,Oromia
+ET040313,Sale Nono,Ilu Aba Bora,Oromia
+ET040309,Yayu,Ilu Aba Bora,Oromia
+ET040417,Agaro town,Jimma,Oromia
+ET040495,Botor Tolay,Jimma,Oromia
+ET040415,Chora (Jimma),Jimma,Oromia
+ET040410,Dedo,Jimma,Oromia
+ET040408,Gera,Jimma,Oromia
+ET040407,Goma,Jimma,Oromia
+ET040416,Gumay,Jimma,Oromia
+ET040418,Jimma town,Jimma,Oromia
+ET040405,Kersa (Jimma),Jimma,Oromia
+ET040402,Limu Kosa,Jimma,Oromia
+ET040401,Limu Seka,Jimma,Oromia
+ET040490,Mancho,Jimma,Oromia
+ET040406,Mena (Jimma),Jimma,Oromia
+ET040499,Nono Benja,Jimma,Oromia
+ET040491,Omo Beyam,Jimma,Oromia
+ET040411,Omo Nada,Jimma,Oromia
+ET040409,Seka Chekorsa,Jimma,Oromia
+ET040403,Sekoru,Jimma,Oromia
+ET040413,Setema,Jimma,Oromia
+ET040414,Shebe Sambo,Jimma,Oromia
+ET040412,Sigmo,Jimma,Oromia
+ET040404,Tiro Afeta,Jimma,Oromia
+ET041807,Anfilo,Kelem Wellega,Oromia
+ET041808,Dale Sadi,Kelem Wellega,Oromia
+ET041803,Dale Wabera,Kelem Wellega,Oromia
+ET041806,Denbi Dollo town,Kelem Wellega,Oromia
+ET041804,Gawo Kebe,Kelem Wellega,Oromia
+ET041809,Gidami,Kelem Wellega,Oromia
+ET041801,Hawa Galan,Kelem Wellega,Oromia
+ET041810,Jimma Horo,Kelem Wellega,Oromia
+ET041811,Lalo Kile,Kelem Wellega,Oromia
+ET041805,Sayo,Kelem Wellega,Oromia
+ET041812,Sedi Chenka,Kelem Wellega,Oromia
+ET041802,Yama Logi Welel,Kelem Wellega,Oromia
+ET040609,Abichugna Gne'a,North Shewa (OR),Oromia
+ET040617,Aleltu,North Shewa (OR),Oromia
+ET040619,Bereh,North Shewa (OR),Oromia
+ET040621,Chancho town,North Shewa (OR),Oromia
+ET040607,Debre Libanos,North Shewa (OR),Oromia
+ET040605,Degem,North Shewa (OR),Oromia
+ET040602,Dera (OR),North Shewa (OR),Oromia
+ET040613,Fiche town,North Shewa (OR),Oromia
+ET040616,Garba Guracha,North Shewa (OR),Oromia
+ET040606,Gerar Jarso,North Shewa (OR),Oromia
+ET040603,Hidabu Abote,North Shewa (OR),Oromia
+ET040615,Jida,North Shewa (OR),Oromia
+ET040610,Kimbibit,North Shewa (OR),Oromia
+ET040604,Kuyu,North Shewa (OR),Oromia
+ET040622,Mulo,North Shewa (OR),Oromia
+ET040623,Sendafa town,North Shewa (OR),Oromia
+ET040611,Sheno town,North Shewa (OR),Oromia
+ET040620,Sululta (OR),North Shewa (OR),Oromia
+ET040601,Wara Jarso,North Shewa (OR),Oromia
+ET040608,Wuchale,North Shewa (OR),Oromia
+ET040614,Yaya Gulele,North Shewa (OR),Oromia
+ET042001,Burayu,Shager City,Oromia
+ET042002,Eka Tafo,Shager City,Oromia
+ET042003,Furi,Shager City,Oromia
+ET042004,Galan,Shager City,Oromia
+ET042005,Galan Gudo,Shager City,Oromia
+ET042006,Gefersa Guje,Shager City,Oromia
+ET042007,Koye,Shager City,Oromia
+ET042008,Kura Jida,Shager City,Oromia
+ET042009,Mana Abichu,Shager City,Oromia
+ET042010,Melka Nonno,Shager City,Oromia
+ET042011,Sebeta,Shager City,Oromia
+ET042012,Sululta,Shager City,Oromia
+ET041301,Ameya,South West Shewa,Oromia
+ET041309,Becho (SW Shewa),South West Shewa,Oromia
+ET041304,Dawo,South West Shewa,Oromia
+ET041312,Goro (SW Shewa),South West Shewa,Oromia
+ET041305,Ilu,South West Shewa,Oromia
+ET041307,Kersana Malima,South West Shewa,Oromia
+ET041306,Sebeta Hawas,South West Shewa,Oromia
+ET041310,Seden Sodo,South West Shewa,Oromia
+ET041314,Sodo Daci,South West Shewa,Oromia
+ET041308,Tole,South West Shewa,Oromia
+ET041303,Waliso,South West Shewa,Oromia
+ET041302,Wenchi,South West Shewa,Oromia
+ET041311,Woliso town,South West Shewa,Oromia
+ET041710,Adaba,West Arsi,Oromia
+ET041703,Arsi Negele,West Arsi,Oromia
+ET041799,Arsi Negele town,West Arsi,Oromia
+ET041707,Dodola,West Arsi,Oromia
+ET041700,Dodola town,West Arsi,Oromia
+ET041706,Gedeb Asasa,West Arsi,Oromia
+ET041783,Heban Arsi,West Arsi,Oromia
+ET041704,Kofele,West Arsi,Oromia
+ET041713,Kofele town,West Arsi,Oromia
+ET041708,Kokosa,West Arsi,Oromia
+ET041705,Kore,West Arsi,Oromia
+ET041709,Nenesebo,West Arsi,Oromia
+ET041702,Shala,West Arsi,Oromia
+ET041712,Shashemene,West Arsi,Oromia
+ET041711,Shashemene town,West Arsi,Oromia
+ET041701,Siraro,West Arsi,Oromia
+ET041797,Wondo,West Arsi,Oromia
+ET041513,Abaya,West Guji,Oromia
+ET041596,Birbirsa Kojowa,West Guji,Oromia
+ET041501,Bule Hora,West Guji,Oromia
+ET041587,Bule Hora town,West Guji,Oromia
+ET041515,Dugda Dawa,West Guji,Oromia
+ET041517,Gelana (West Guji),West Guji,Oromia
+ET041509,Hambela Wamena,West Guji,Oromia
+ET041502,Kercha,West Guji,Oromia
+ET041503,Kercha town,West Guji,Oromia
+ET041518,Melka Soda,West Guji,Oromia
+ET041594,Suro Berguda,West Guji,Oromia
+ET040906,Anchar,West Hararge,Oromia
+ET040914,Bedesa town,West Hararge,Oromia
+ET040910,Boke,West Hararge,Oromia
+ET040998,Burqua Dhintu,West Hararge,Oromia
+ET040913,Chiro Zuria,West Hararge,Oromia
+ET040905,Chiro town,West Hararge,Oromia
+ET040909,Daro Lebu,West Hararge,Oromia
+ET040902,Doba,West Hararge,Oromia
+ET040912,Gemechis,West Hararge,Oromia
+ET040907,Goba Koricha,West Hararge,Oromia
+ET040991,Gumbi Bordede,West Hararge,Oromia
+ET040908,Habro,West Hararge,Oromia
+ET040915,Hawi Gudina,West Hararge,Oromia
+ET040911,Kuni /Oda Bultum,West Hararge,Oromia
+ET040904,Mesela /Shen Duggoo,West Hararge,Oromia
+ET040901,Mieso,West Hararge,Oromia
+ET040903,Tulo (OR),West Hararge,Oromia
+ET040516,Abuna Ginde Beret,West Shewa,Oromia
+ET040513,Adda Berga,West Shewa,Oromia
+ET040503,Ambo Zuria,West Shewa,Oromia
+ET040515,Ambo town,West Shewa,Oromia
+ET040506,Bako Tibe,West Shewa,Oromia
+ET040505,Cheliya,West Shewa,Oromia
+ET040592,Cobi,West Shewa,Oromia
+ET040507,Dano,West Shewa,Oromia
+ET040510,Dendi,West Shewa,Oromia
+ET040511,Ejere /Addis Alem,West Shewa,Oromia
+ET040590,Ejersa Lafo,West Shewa,Oromia
+ET040501,Ginde Beret,West Shewa,Oromia
+ET040512,Holeta town,West Shewa,Oromia
+ET040519,Ifata,West Shewa,Oromia
+ET040500,Illu Galan,West Shewa,Oromia
+ET040502,Jeldu,West Shewa,Oromia
+ET040518,Jibat,West Shewa,Oromia
+ET040597,Liban Jawi,West Shewa,Oromia
+ET040514,Meta Robi,West Shewa,Oromia
+ET040594,Meta Walkite,West Shewa,Oromia
+ET040504,Mida Kegn,West Shewa,Oromia
+ET040508,Nono,West Shewa,Oromia
+ET040509,Tikur Enchini,West Shewa,Oromia
+ET040517,Toke Kutaye,West Shewa,Oromia
+ET040520,Welmera,West Shewa,Oromia
+ET040107,Ayira,West Wellega,Oromia
+ET040111,Babo,West Wellega,Oromia
+ET040116,Begi,West Wellega,Oromia
+ET040110,Boji Chekorsa,West Wellega,Oromia
+ET040106,Boji Dirmeji,West Wellega,Oromia
+ET040113,Gaji,West Wellega,Oromia
+ET040103,Gimbi,West Wellega,Oromia
+ET040193,Gimbi town,West Wellega,Oromia
+ET040109,Gudetu Kondole,West Wellega,Oromia
+ET040119,Guliso,West Wellega,Oromia
+ET040114,Haru,West Wellega,Oromia
+ET040117,Homa,West Wellega,Oromia
+ET040108,Jarso (West Wellega),West Wellega,Oromia
+ET040105,Kiltu Kara,West Wellega,Oromia
+ET040104,Lalo Asabi,West Wellega,Oromia
+ET040197,Leta Sibu,West Wellega,Oromia
+ET040101,Mana Sibu,West Wellega,Oromia
+ET040198,Mendi town,West Wellega,Oromia
+ET040102,Nejo,West Wellega,Oromia
+ET040199,Nejo town,West Wellega,Oromia
+ET040115,Nole Kaba,West Wellega,Oromia
+ET040118,Sayo Nole,West Wellega,Oromia
+ET040112,Yubdo,West Wellega,Oromia
+ET160301,Arbegona,Central,Sidama
+ET160305,Dale,Central,Sidama
+ET160306,Darara,Central,Sidama
+ET160307,Loka Abaya,Central,Sidama
+ET160302,Shafamo,Central,Sidama
+ET160303,Wonosho,Central,Sidama
+ET160304,Yirgalem town,Central,Sidama
+ET160507,Aroresa,Eastern,Sidama
+ET160503,Bensa,Eastern,Sidama
+ET160502,Bona Zuria,Eastern,Sidama
+ET160501,Bura,Eastern,Sidama
+ET160509,Chabe Gambeltu,Eastern,Sidama
+ET160506,Chire,Eastern,Sidama
+ET160505,Daella,Eastern,Sidama
+ET160504,Daye town,Eastern,Sidama
+ET160508,Hokko,Eastern,Sidama
+ET160101,Hawassa town,Hawassa town Admin,Sidama
+ET160209,Bilate Zuria,Northern,Sidama
+ET160208,Boricha,Northern,Sidama
+ET160204,Gorche,Northern,Sidama
+ET160210,Hawassa Zuria,Northern,Sidama
+ET160205,Hawela,Northern,Sidama
+ET160206,Leku town,Northern,Sidama
+ET160203,Malga,Northern,Sidama
+ET160207,Shebe Dino,Northern,Sidama
+ET160202,Wondo-Genet,Northern,Sidama
+ET160201,Wondo-Genet town,Northern,Sidama
+ET160405,Aleta Chuko,Southern,Sidama
+ET160403,Aleta Wendo,Southern,Sidama
+ET160404,Aleta Wondo town,Southern,Sidama
+ET160401,Bursa,Southern,Sidama
+ET160410,Chirone,Southern,Sidama
+ET160406,Chuko town,Southern,Sidama
+ET160407,Dara,Southern,Sidama
+ET160408,Dara Otilicho,Southern,Sidama
+ET160409,Hulla,Southern,Sidama
+ET160402,Teticha,Southern,Sidama
+ET050807,Barey,Afder,Somali
+ET050802,Charati,Afder,Somali
+ET050808,Dolobay,Afder,Somali
+ET050804,Elkare /Serer,Afder,Somali
+ET050899,God-God,Afder,Somali
+ET050806,Hargele,Afder,Somali
+ET050898,Kohle /Qoxle,Afder,Somali
+ET050809,Raso,Afder,Somali
+ET050805,West Imi,Afder,Somali
+ET051104,Hudet,Daawa,Somali
+ET051103,Moyale (SM),Daawa,Somali
+ET051187,Mubarek,Daawa,Somali
+ET051198,Qada Duma,Daawa,Somali
+ET050702,Bokh,Doolo,Somali
+ET050701,Danod,Doolo,Somali
+ET050788,Daratole,Doolo,Somali
+ET050703,Galadi,Doolo,Somali
+ET050799,Galhamur,Doolo,Somali
+ET050798,Lehel-Yucub,Doolo,Somali
+ET050704,Warder,Doolo,Somali
+ET050402,Fik,Erer,Somali
+ET050404,Hamero,Erer,Somali
+ET050407,Lagahida,Erer,Somali
+ET050408,Meyumuluka,Erer,Somali
+ET050497,Qubi,Erer,Somali
+ET050403,Salahad,Erer,Somali
+ET050499,Wangey,Erer,Somali
+ET050498,Yahob,Erer,Somali
+ET050205,Aw-Bare,Fafan,Somali
+ET050203,Babile (SM),Fafan,Somali
+ET050290,Goljano,Fafan,Somali
+ET050202,Gursum (SM),Fafan,Somali
+ET050299,Harawo,Fafan,Somali
+ET050298,Haroreys,Fafan,Somali
+ET050207,Harshin,Fafan,Somali
+ET050293,Jigjiga town,Fafan,Somali
+ET050296,Kebribayah town,Fafan,Somali
+ET050206,Kebribeyah,Fafan,Somali
+ET050297,Koran /Mulla,Fafan,Somali
+ET050204,Shabeeley,Fafan,Somali
+ET050283,Tuliguled,Fafan,Somali
+ET050295,Wajale town,Fafan,Somali
+ET050395,Ararso,Jarar,Somali
+ET050303,Aware,Jarar,Somali
+ET050306,Bilcil-Bur,Jarar,Somali
+ET050394,Burqod,Jarar,Somali
+ET050392,Daror,Jarar,Somali
+ET050307,Degahabur town,Jarar,Somali
+ET050302,Degehabur,Jarar,Somali
+ET050301,Degehamedo,Jarar,Somali
+ET050399,Dig,Jarar,Somali
+ET050304,Gashamo,Jarar,Somali
+ET050305,Gunagado,Jarar,Somali
+ET050382,Yocale,Jarar,Somali
+ET050599,Bodaley,Korahe,Somali
+ET050504,Debeweyin,Korahe,Somali
+ET050598,El-Ogaden,Korahe,Somali
+ET050595,Goglo,Korahe,Somali
+ET050597,Higloley,Korahe,Somali
+ET050502,Kebridehar,Korahe,Somali
+ET050592,Kebridehar town,Korahe,Somali
+ET050596,Lasdhankayre,Korahe,Somali
+ET050586,Marsin,Korahe,Somali
+ET050501,Shaygosh,Korahe,Somali
+ET050503,Shilabo,Korahe,Somali
+ET050999,Bokolmayo,Liban,Somali
+ET050991,Deka Suftu,Liban,Somali
+ET050902,Dolo Ado,Liban,Somali
+ET050901,Filtu,Liban,Somali
+ET050903,Goro Baqaqsa,Liban,Somali
+ET050904,Guradamole,Liban,Somali
+ET051001,Ayun,Nogob,Somali
+ET051006,Dihun,Nogob,Somali
+ET051002,Elwayne,Nogob,Somali
+ET051003,Garbo,Nogob,Somali
+ET051096,Hararey,Nogob,Somali
+ET051095,Horshagah,Nogob,Somali
+ET051005,Sagag,Nogob,Somali
+ET050699,Aba-Korow,Shabelle,Somali
+ET050602,Adadle,Shabelle,Somali
+ET050608,Berocano,Shabelle,Somali
+ET050603,Danan,Shabelle,Somali
+ET050601,East Imi,Shabelle,Somali
+ET050698,Elale,Shabelle,Somali
+ET050607,Ferfer,Shabelle,Somali
+ET050604,Gode,Shabelle,Somali
+ET050696,Godey town,Shabelle,Somali
+ET050605,Kelafo,Shabelle,Somali
+ET050606,Mustahil,Shabelle,Somali
+ET050105,Afdem,Siti,Somali
+ET050101,Ayisha,Siti,Somali
+ET050108,Daymeed,Siti,Somali
+ET050102,Dembel,Siti,Somali
+ET050109,Dhunyar,Siti,Somali
+ET050104,Erer (SM),Siti,Somali
+ET050199,Gablalu,Siti,Somali
+ET050198,Gota-Biki,Siti,Somali
+ET050106,Hadhagala,Siti,Somali
+ET050107,Miesso,Siti,Somali
+ET050103,Shinile,Siti,Somali
+ET080601,Alle Special,Alle Special,South Ethiopia
+ET080501,Baka Dawula,Ari,South Ethiopia
+ET080504,Gelila town,Ari,South Ethiopia
+ET080506,Jinka town,Ari,South Ethiopia
+ET080508,North Ari,Ari,South Ethiopia
+ET080511,South Ari,Ari,South Ethiopia
+ET080513,Wub Ari,Ari,South Ethiopia
+ET080401,Basketo Special,Basketo,South Ethiopia
+ET080402,Laska town,Basketo,South Ethiopia
+ET081001,Burji,Burji,South Ethiopia
+ET080701,Derashe,Derashe,South Ethiopia
+ET080702,Gidole town,Derashe,South Ethiopia
+ET080202,Arba Minch Zuria,Gamo,South Ethiopia
+ET080201,Arba Minch town,Gamo,South Ethiopia
+ET080203,Birbir town,Gamo,South Ethiopia
+ET080204,Bonke,Gamo,South Ethiopia
+ET080205,Boreda,Gamo,South Ethiopia
+ET080207,Chencha Zuriya,Gamo,South Ethiopia
+ET080206,Chencha town,Gamo,South Ethiopia
+ET080208,Daramalo,Gamo,South Ethiopia
+ET080209,Dita,Gamo,South Ethiopia
+ET080210,Gacho Baba,Gamo,South Ethiopia
+ET080211,Garda Marta,Gamo,South Ethiopia
+ET080212,Geressie,Gamo,South Ethiopia
+ET080213,Geressie town,Gamo,South Ethiopia
+ET080215,Kemba Zuria,Gamo,South Ethiopia
+ET080214,Kemba town,Gamo,South Ethiopia
+ET080216,Kogota /Ezo,Gamo,South Ethiopia
+ET080217,Kucha,Gamo,South Ethiopia
+ET080218,Kucha Alpha,Gamo,South Ethiopia
+ET080219,Mirab Abaya,Gamo,South Ethiopia
+ET080220,Selamber town,Gamo,South Ethiopia
+ET081104,Bule,Gedeo,South Ethiopia
+ET081112,Chelelektu town,Gedeo,South Ethiopia
+ET081108,Churso,Gedeo,South Ethiopia
+ET081105,Dila Zuria,Gedeo,South Ethiopia
+ET081109,Dila town,Gedeo,South Ethiopia
+ET081106,Gedeb,Gedeo,South Ethiopia
+ET081110,Gedeb town,Gedeo,South Ethiopia
+ET081103,Kochere,Gedeo,South Ethiopia
+ET081107,Rape,Gedeo,South Ethiopia
+ET081101,Wenago,Gedeo,South Ethiopia
+ET081113,Wonago town,Gedeo,South Ethiopia
+ET081102,Yirgachefe,Gedeo,South Ethiopia
+ET081111,Yirgachefe town,Gedeo,South Ethiopia
+ET080301,Beto town,Gofa,South Ethiopia
+ET080302,Buleqi town,Gofa,South Ethiopia
+ET080303,Denba Gofa,Gofa,South Ethiopia
+ET080304,Gezei Gofa,Gofa,South Ethiopia
+ET080305,Laha town,Gofa,South Ethiopia
+ET080306,Melekoza,Gofa,South Ethiopia
+ET080307,Melo Gada,Gofa,South Ethiopia
+ET080308,O'yida,Gofa,South Ethiopia
+ET080309,Sawla town,Gofa,South Ethiopia
+ET080310,Uba Debre Tsehay,Gofa,South Ethiopia
+ET080311,Zala,Gofa,South Ethiopia
+ET080902,Karat Zuria,Konso,South Ethiopia
+ET080903,Karat town,Konso,South Ethiopia
+ET080901,Kena,Konso,South Ethiopia
+ET080905,Kolme,Konso,South Ethiopia
+ET080904,Segen Zuria,Konso,South Ethiopia
+ET080801,Amaro,Kore,South Ethiopia
+ET080802,Kele town,Kore,South Ethiopia
+ET081201,Bena Tsemay,South Omo,South Ethiopia
+ET081202,Dasenech /Kuraz,South Omo,South Ethiopia
+ET081203,Hamer,South Omo,South Ethiopia
+ET081204,Malie,South Omo,South Ethiopia
+ET081205,Nyngatom,South Omo,South Ethiopia
+ET081206,Salamago,South Omo,South Ethiopia
+ET081207,Turmi town,South Omo,South Ethiopia
+ET080121,Abela Abaya,Wolayita,South Ethiopia
+ET080114,Areka town,Wolayita,South Ethiopia
+ET080123,Bale Awassa town,Wolayita,South Ethiopia
+ET080122,Bayera Koyesha,Wolayita,South Ethiopia
+ET080115,Boditi town,Wolayita,South Ethiopia
+ET080108,Boloso Bombe,Wolayita,South Ethiopia
+ET080101,Boloso Sore,Wolayita,South Ethiopia
+ET080102,Damot Gale,Wolayita,South Ethiopia
+ET080111,Damot Pullasa,Wolayita,South Ethiopia
+ET080109,Damot Sore,Wolayita,South Ethiopia
+ET080103,Damot Woide,Wolayita,South Ethiopia
+ET080112,Duguna Fango,Wolayita,South Ethiopia
+ET080117,Gesuba town,Wolayita,South Ethiopia
+ET080118,Gununo Hamus town,Wolayita,South Ethiopia
+ET080119,Hobicha Abaya,Wolayita,South Ethiopia
+ET080104,Humbo,Wolayita,South Ethiopia
+ET080120,Kawo Koyesha,Wolayita,South Ethiopia
+ET080110,Kindo Daddaye,Wolayita,South Ethiopia
+ET080106,Kindo Koyesha,Wolayita,South Ethiopia
+ET080107,Ofa,Wolayita,South Ethiopia
+ET080105,Sodo Zuria,Wolayita,South Ethiopia
+ET080113,Sodo town,Wolayita,South Ethiopia
+ET080116,Tebela town,Wolayita,South Ethiopia
+ET110309,Biftu town,Bench Sheko,South West Ethiopia
+ET110303,Debub Bench,Bench Sheko,South West Ethiopia
+ET110306,Gidi Bench,Bench Sheko,South West Ethiopia
+ET110302,Gurafereda,Bench Sheko,South West Ethiopia
+ET110307,Mizan Aman town,Bench Sheko,South West Ethiopia
+ET110305,Semen Bench,Bench Sheko,South West Ethiopia
+ET110304,Shay Bench,Bench Sheko,South West Ethiopia
+ET110301,Sheko,Bench Sheko,South West Ethiopia
+ET110310,Sheko town,Bench Sheko,South West Ethiopia
+ET110308,Size town,Bench Sheko,South West Ethiopia
+ET110409,Disa,Dawuro,South West Ethiopia
+ET110405,Esara,Dawuro,South West Ethiopia
+ET110404,Gena,Dawuro,South West Ethiopia
+ET110412,Gesa town,Dawuro,South West Ethiopia
+ET110406,Kachi,Dawuro,South West Ethiopia
+ET110403,Loma,Dawuro,South West Ethiopia
+ET110402,Mareka,Dawuro,South West Ethiopia
+ET110408,Mari Mansa,Dawuro,South West Ethiopia
+ET110407,Tercha Zuriya,Dawuro,South West Ethiopia
+ET110411,Tercha town,Dawuro,South West Ethiopia
+ET110401,Tocha,Dawuro,South West Ethiopia
+ET110410,Zabagazo,Dawuro,South West Ethiopia
+ET110205,Adiyio,Kefa,South West Ethiopia
+ET110216,Awurada town,Kefa,South West Ethiopia
+ET110210,Bita,Kefa,South West Ethiopia
+ET110211,Bonga town,Kefa,South West Ethiopia
+ET110209,Chena,Kefa,South West Ethiopia
+ET110207,Cheta,Kefa,South West Ethiopia
+ET110208,Decha,Kefa,South West Ethiopia
+ET110215,Deka town,Kefa,South West Ethiopia
+ET110202,Gesha,Kefa,South West Ethiopia
+ET110203,Gewata,Kefa,South West Ethiopia
+ET110204,Gimbo,Kefa,South West Ethiopia
+ET110212,Goba (SW),Kefa,South West Ethiopia
+ET110201,Saylem,Kefa,South West Ethiopia
+ET110217,Shishinda town,Kefa,South West Ethiopia
+ET110213,Shisho Ande,Kefa,South West Ethiopia
+ET110206,Tullo,Kefa,South West Ethiopia
+ET110214,Wacha town,Kefa,South West Ethiopia
+ET110603,Amaya town,Konta,South West Ethiopia
+ET110605,Ameya Zuria,Konta,South West Ethiopia
+ET110602,Chida town,Konta,South West Ethiopia
+ET110604,Elahanchano,Konta,South West Ethiopia
+ET110601,Konta Koysha,Konta,South West Ethiopia
+ET110101,Anderacha,Sheka,South West Ethiopia
+ET110102,Masha,Sheka,South West Ethiopia
+ET110105,Masha town,Sheka,South West Ethiopia
+ET110104,Tepi,Sheka,South West Ethiopia
+ET110103,Yeki,Sheka,South West Ethiopia
+ET110509,Bachuma town,West Omo,South West Ethiopia
+ET110505,Bero,West Omo,South West Ethiopia
+ET110501,Gachit,West Omo,South West Ethiopia
+ET110503,Gori Gesha,West Omo,South West Ethiopia
+ET110510,Jemu town,West Omo,South West Ethiopia
+ET110507,Maji,West Omo,South West Ethiopia
+ET110511,Maji Tum town,West Omo,South West Ethiopia
+ET110502,Menit Goldiye,West Omo,South West Ethiopia
+ET110504,Menit Shasha,West Omo,South West Ethiopia
+ET110506,Surma,West Omo,South West Ethiopia
+ET010210,Abergele (TG),Central,Tigray
+ET010211,Abiy Adi town,Central,Tigray
+ET010207,Adet,Central,Tigray
+ET010204,Adwa,Central,Tigray
+ET010212,Adwa town,Central,Tigray
+ET010202,Aheferom,Central,Tigray
+ET010215,Ahsea,Central,Tigray
+ET010213,Axum town,Central,Tigray
+ET010201,Chila,Central,Tigray
+ET010216,Egela,Central,Tigray
+ET010219,Emba Sieneti,Central,Tigray
+ET010203,Endaba Tsahma,Central,Tigray
+ET010218,Endafelasi,Central,Tigray
+ET010220,Enticho town,Central,Tigray
+ET010217,Hahayle,Central,Tigray
+ET010221,Keyhe tekli,Central,Tigray
+ET010208,Kola Tembien,Central,Tigray
+ET010205,Laelay Maychew,Central,Tigray
+ET010209,Naeder,Central,Tigray
+ET010214,Rama Adi Arbaete,Central,Tigray
+ET010206,Tahtay Maychew,Central,Tigray
+ET010222,Tanqua Melashe,Central,Tigray
+ET010308,Adigrat town,Eastern,Tigray
+ET010316,Agulae,Eastern,Tigray
+ET010307,Atsbi,Eastern,Tigray
+ET010315,Atsbi town,Eastern,Tigray
+ET010310,Bizet,Eastern,Tigray
+ET010311,Edaga Hamus town,Eastern,Tigray
+ET010302,Erob,Eastern,Tigray
+ET010313,Freweyni town,Eastern,Tigray
+ET010304,Ganta Afeshum,Eastern,Tigray
+ET010317,Geraleta,Eastern,Tigray
+ET010301,Gulo Mekeda,Eastern,Tigray
+ET010305,Hawzen,Eastern,Tigray
+ET010312,Hawzen town,Eastern,Tigray
+ET010306,Kilte Awulaelo,Eastern,Tigray
+ET010303,Sebuha Saesie,Eastern,Tigray
+ET010314,Tsaeda Emba,Eastern,Tigray
+ET010309,Wukro town,Eastern,Tigray
+ET010318,Zala Anbesa town,Eastern,Tigray
+ET010705,Adihaki Sub City,Mekelle,Tigray
+ET010703,Ayder Sub City,Mekelle,Tigray
+ET010702,Hadnet Sub City,Mekelle,Tigray
+ET010704,Hawelti Sub City,Mekelle,Tigray
+ET010701,Kuiha Sub City,Mekelle,Tigray
+ET010706,Qedamay Weyane Sub City,Mekelle,Tigray
+ET010707,Semen Sub City,Mekelle,Tigray
+ET010111,Adi Daero,North Western,Tigray
+ET010105,Asgede,North Western,Tigray
+ET010114,Endabaguna town,North Western,Tigray
+ET010109,Laelay Koraro,North Western,Tigray
+ET010112,Maekel Adiyabo,North Western,Tigray
+ET010110,Seyemti Adyabo,North Western,Tigray
+ET010107,Sheraro town,North Western,Tigray
+ET010108,Shire Endaslasie town,North Western,Tigray
+ET010101,Tahtay Adiyabo,North Western,Tigray
+ET010104,Tahtay Koraro,North Western,Tigray
+ET010113,Tsimbla,North Western,Tigray
+ET010103,Zana,North Western,Tigray
+ET010607,Adigudom,South Eastern,Tigray
+ET010604,Degua Temben,South Eastern,Tigray
+ET010602,Enderta,South Eastern,Tigray
+ET010605,Hagere Selam town,South Eastern,Tigray
+ET010603,Hintalo,South Eastern,Tigray
+ET010601,Saharti,South Eastern,Tigray
+ET010606,Samre,South Eastern,Tigray
+ET010608,Wajirat,South Eastern,Tigray
+ET010402,Bora (TG),Southern,Tigray
+ET010404,Emba Alaje,Southern,Tigray
+ET010405,Endamehoni,Southern,Tigray
+ET010409,Maichew town,Southern,Tigray
+ET010412,Mekhoni town,Southern,Tigray
+ET010403,Neqsege,Southern,Tigray
+ET010406,Raya Azebo,Southern,Tigray
+ET010401,Selewa,Southern,Tigray

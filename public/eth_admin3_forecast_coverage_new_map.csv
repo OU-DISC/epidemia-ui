@@ -1,0 +1,852 @@
+forecast_district,match_method,matched_adm3_pcode,matched_adm3_name,matched_adm1_name,matched_area_km2,matched_centroid_lon,matched_centroid_lat
+Adaa'r,unmatched,,,,,,
+Adhaki,unmatched,,,,,,
+Aweday Town,unmatched,,,,,,
+Ayder,unmatched,,,,,,
+Bekoji Town,unmatched,,,,,,
+Bishan Guracha,unmatched,,,,,,
+Chilga,unmatched,,,,,,
+Debub & Semen Mekele,unmatched,,,,,,
+Dembia,unmatched,,,,,,
+Denibu Gofa,unmatched,,,,,,
+Dolo Odo,unmatched,,,,,,
+Dukem,unmatched,,,,,,
+Ela (Konta) SP Woreda,unmatched,,,,,,
+Esira,unmatched,,,,,,
+Ezo /Kogota,unmatched,,,,,,
+Gena Bosa,unmatched,,,,,,
+Gerese,unmatched,,,,,,
+Getawa,unmatched,,,,,,
+Hadnet,unmatched,,,,,,
+Halaba SP Woreda,unmatched,,,,,,
+Hawasa Town,unmatched,,,,,,
+Hawelti,unmatched,,,,,,
+Jinka Town Admin,unmatched,,,,,,
+Kedamay Weyane,unmatched,,,,,,
+Kinfaz,unmatched,,,,,,
+Konso,unmatched,,,,,,
+Kuha,unmatched,,,,,,
+Kurri,unmatched,,,,,,
+Laelay Adiabo,unmatched,,,,,,
+Lege tafo-Lege Dadi Town,unmatched,,,,,,
+Menjiwo,unmatched,,,,,,
+Sayilem,unmatched,,,,,,
+Segen town,unmatched,,,,,,
+Sheka,unmatched,,,,,,
+Tselemti,unmatched,,,,,,
+Tula Town,unmatched,,,,,,
+Yem SP Woreda,unmatched,,,,,,
+Aba-Korow,pcode_crosswalk,ET050699,Aba-Korow,Somali,2163.174357,42.691608,6.473312
+Abaala,pcode_crosswalk,ET020203,Abaala,Afar,458.143977,39.890309,13.224303
+Ababo,pcode_crosswalk,ET041904,Ababo,Oromia,616.340929,37.549230,9.779854
+Abadir,pcode_crosswalk,ET130109,Abadir,Harari,19.203793,42.122748,9.310441
+Abay Chomen,pcode_crosswalk,ET041905,Abay Chomen,Oromia,302.164764,37.281649,9.633501
+Abaya,pcode_crosswalk,ET041513,Abaya,Oromia,1835.081523,38.016829,6.354723
+Abe Dongoro,pcode_crosswalk,ET041910,Abe Dongoro,Oromia,1095.566998,36.835179,9.599580
+Abergele (AM),pcode_crosswalk,ET030805,Abergele (AM),Amhara,1575.207823,38.881364,13.077399
+Abergele (TG),pcode_crosswalk,ET010210,Abergele (TG),Tigray,1126.833154,38.886203,13.363992
+Abeshege,pcode_crosswalk,ET070102,Abeshege,Central Ethiopia,522.210712,37.622608,8.310922
+Abi Adi town,pcode_crosswalk,ET010211,Abiy Adi town,Tigray,19.713680,38.993495,13.633333
+Abichugna Gne'a,pcode_crosswalk,ET040609,Abichugna Gne'a,Oromia,676.481910,39.233369,9.608612
+Abobo,pcode_crosswalk,ET120201,Abobo,Gambela,3141.130000,34.533277,7.862698
+Aboker,pcode_crosswalk,ET130108,Aboker,Harari,10.219786,42.113044,9.336160
+Abuna Ginde Beret,pcode_crosswalk,ET040516,Abuna Ginde Beret,Oromia,1119.540051,37.981606,9.668009
+Ada'a,pcode_crosswalk,ET040706,Ada'a,Oromia,507.310320,39.036533,8.758885
+Adaba,pcode_crosswalk,ET041710,Adaba,Oromia,2163.636652,39.529652,6.989499
+Adadle,pcode_crosswalk,ET050602,Adadle,Somali,8669.179230,43.479670,5.491399
+Adama,pcode_crosswalk,ET040703,Adama,Oromia,368.196558,39.222302,8.456988
+Adama Tulu Jido Kombolcha,pcode_crosswalk,ET040708,Adama Tulu Jido Kombolcha,Oromia,1300.269294,38.660039,7.807852
+Adama town,pcode_crosswalk,ET040714,Adama town,Oromia,645.178476,39.279435,8.490653
+Adda Berga,pcode_crosswalk,ET040513,Adda Berga,Oromia,945.576775,38.416990,9.427538
+Addi Arekay,pcode_crosswalk,ET030101,Addi Arekay,Amhara,1467.387807,37.979180,13.376595
+Addis Ketema,pcode_crosswalk,ET150109,Addis Ketema (DD),Dire Dawa,11.035508,41.860395,9.588860
+Addis Ketema (DD),pcode_crosswalk,ET150109,Addis Ketema (DD),Dire Dawa,11.035508,41.860395,9.588860
+Adet,pcode_crosswalk,ET010207,Adet,Tigray,644.664362,38.619813,13.831931
+Adigrat town,pcode_crosswalk,ET010308,Adigrat town,Tigray,19.325886,39.465718,14.274871
+Adola,pcode_crosswalk,ET041403,Adola,Oromia,1213.226641,38.998272,5.953324
+Adola town,pcode_crosswalk,ET041492,Adola town,Oromia,27.392677,38.983634,5.883249
+Adwa,pcode_crosswalk,ET010204,Adwa,Tigray,658.322999,38.932250,14.175320
+Adwa town,pcode_crosswalk,ET010212,Adwa town,Tigray,27.304571,38.883749,14.166651
+Afambo,pcode_crosswalk,ET020104,Afambo,Afar,2037.355179,41.654878,11.258196
+Afdem,pcode_crosswalk,ET050105,Afdem,Somali,1467.724505,40.999909,9.768633
+Afdera,pcode_crosswalk,ET020207,Afdera,Afar,12493.927916,40.715799,13.546654
+Agarfa,pcode_crosswalk,ET041104,Agarfa,Oromia,1222.491896,39.784396,7.319267
+Agaro town,pcode_crosswalk,ET040417,Agaro town,Oromia,30.871129,36.596733,7.856471
+Aheferom,pcode_crosswalk,ET010202,Aheferom,Tigray,459.774152,39.148480,14.285624
+Akaki,pcode_crosswalk,ET040712,Akaki,Oromia,242.417582,38.767501,8.680368
+Akaki Kality,pcode_crosswalk,ET140101,Akaki Kality Sub City,Addis Ababa,125.924493,38.803966,8.896834
+Akobo,pcode_crosswalk,ET120101,Akobo,Gambela,2141.209242,33.271625,7.964378
+Alamata town,pcode_crosswalk,ET990304,Alamata town,Contested,12.641610,39.563923,12.417624
+Albuko,pcode_crosswalk,ET030408,Albuko,Amhara,477.012044,39.612998,10.814272
+Ale,pcode_crosswalk,ET040311,Ale,Oromia,562.560786,35.518227,8.121672
+Alefa,pcode_crosswalk,ET031115,Alefa,Amhara,2112.926025,36.765547,11.939307
+Aleltu,pcode_crosswalk,ET040617,Aleltu,Oromia,424.954248,39.130536,9.213323
+Aleta Wendo,pcode_crosswalk,ET160403,Aleta Wendo,Sidama,197.402028,38.436248,6.609355
+Aleta Wondo Town,pcode_crosswalk,ET160404,Aleta Wondo town,Sidama,5.247563,38.419870,6.605858
+Alge Sachi,pcode_crosswalk,ET040302,Alge Sachi,Oromia,873.083062,35.780137,8.594309
+Alicho Woriro,pcode_crosswalk,ET072001,Alicho Woriro,Central Ethiopia,262.662170,38.179497,7.993935
+Ambasel,pcode_crosswalk,ET030404,Ambasel,Amhara,882.882750,39.495097,11.502018
+Ambo Zuria,pcode_crosswalk,ET040503,Ambo Zuria,Oromia,888.410178,37.856835,9.044882
+Ambo town,pcode_crosswalk,ET040515,Ambo town,Oromia,87.379697,37.860989,8.978824
+Ameya,pcode_crosswalk,ET041301,Ameya,Oromia,950.836539,37.695024,8.557799
+Amibara,pcode_crosswalk,ET020301,Amibara,Afar,824.274314,40.237336,9.223474
+Amigna,pcode_crosswalk,ET040810,Amigna,Oromia,1288.208045,40.177967,7.903227
+Amir Nur,pcode_crosswalk,ET130107,Amir Nur,Harari,11.851369,42.175880,9.308168
+Amuru,pcode_crosswalk,ET041909,Amuru,Oromia,1257.719804,37.007864,10.120986
+Ana Sora,pcode_crosswalk,ET041411,Ana Sora,Oromia,466.831726,38.782750,6.236538
+Analemmo,pcode_crosswalk,ET070208,Analemmo,Central Ethiopia,224.252505,37.985245,7.636691
+Anchar,pcode_crosswalk,ET040906,Anchar,Oromia,756.587998,40.202014,8.713512
+Andabet/ West Esite,pcode_crosswalk,ET030211,Andabet /West Esite,Amhara,810.017162,37.913770,11.372810
+Anderacha,pcode_crosswalk,ET110101,Anderacha,South West Ethiopia,755.682019,35.463965,7.732913
+Aneded,pcode_crosswalk,ET030617,Aneded,Amhara,682.399586,37.883007,10.182059
+Anfilo,pcode_crosswalk,ET041807,Anfilo,Oromia,1570.790752,34.526278,8.603486
+Angacha,pcode_crosswalk,ET070302,Angacha,Central Ethiopia,153.138686,37.861224,7.359442
+Angolelana Tera,pcode_crosswalk,ET030513,Angolelana Tera,Amhara,807.536450,39.457701,9.459649
+Ankasha,pcode_crosswalk,ET030903,Ankasha,Amhara,497.344268,36.830992,10.845100
+Ankober,pcode_crosswalk,ET030515,Ankober,Amhara,707.998573,39.776633,9.558133
+Antsokiya,pcode_crosswalk,ET030507,Antsokiya,Amhara,372.404349,39.803548,10.601689
+Arada,pcode_crosswalk,ET140109,Arada Sub City,Addis Ababa,9.935320,38.755949,9.035325
+Ararso,pcode_crosswalk,ET050395,Ararso,Somali,972.962631,43.379004,8.701206
+Arba Minch Town,pcode_crosswalk,ET080201,Arba Minch town,South Ethiopia,33.369811,37.563006,6.039703
+Arba Minch Zuria,pcode_crosswalk,ET080202,Arba Minch Zuria,South Ethiopia,1490.135590,37.559028,5.949041
+Arbe Gonna,pcode_crosswalk,ET070403,Sodo,Central Ethiopia,553.542287,38.581046,8.314742
+Areka Town,pcode_crosswalk,ET080114,Areka town,South Ethiopia,14.870532,37.706250,7.066371
+Arero,pcode_crosswalk,ET042207,Arero,Oromia,4499.272132,38.866740,4.847687
+Argoba,pcode_crosswalk,ET030401,Argoba,Amhara,315.139912,39.969987,10.941479
+Arguba,pcode_crosswalk,ET020306,Arguba,Afar,365.063825,39.870625,9.491642
+Aroresa,pcode_crosswalk,ET160507,Aroresa,Sidama,407.054328,39.011846,6.355351
+Arsi Negele,pcode_crosswalk,ET041703,Arsi Negele,Oromia,1267.072283,38.652387,7.452492
+Arsi Negele Town,pcode_crosswalk,ET041799,Arsi Negele town,Oromia,51.144287,38.671685,7.342209
+Artuma Fursi,pcode_crosswalk,ET031004,Artuma Fursi,Amhara,611.550302,40.011338,10.544857
+Asayita,pcode_crosswalk,ET020103,Asayita,Afar,1068.320430,41.444268,11.614709
+Aseko,pcode_crosswalk,ET040802,Aseko,Oromia,542.266280,40.060057,8.531087
+Asela town,pcode_crosswalk,ET040825,Asela town,Oromia,16.992482,39.134275,7.937482
+Aseliso,pcode_crosswalk,ET150201,Aseliso,Dire Dawa,102.551613,41.783418,9.571585
+Asgede,pcode_crosswalk,ET010105,Asgede,Tigray,1605.738072,37.908482,14.042806
+Assagirt,pcode_crosswalk,ET030514,Assagirt,Amhara,499.936870,39.615334,9.343761
+Assosa,pcode_crosswalk,ET060303,Abrahmo,Benishangul-Gumuz,2069.752967,34.400792,9.931402
+Atsbi,pcode_crosswalk,ET010307,Atsbi,Tigray,603.528735,39.749519,13.921460
+Aw-bare,pcode_crosswalk,ET050205,Aw-Bare,Somali,1764.976131,43.128568,9.602542
+Awabel,pcode_crosswalk,ET030612,Awabel,Amhara,809.144627,38.001312,10.221035
+Aware,pcode_crosswalk,ET050303,Aware,Somali,2587.199133,44.166262,8.071025
+Awash,pcode_crosswalk,ET020396,Awash town,Afar,69.255597,40.147290,8.993920
+Awash town,pcode_crosswalk,ET020396,Awash town,Afar,69.255597,40.147290,8.993920
+Awra (AF),pcode_crosswalk,ET020401,Awra (AF),Afar,2292.717132,40.316288,12.048899
+Axum town,pcode_crosswalk,ET010213,Axum town,Tigray,18.132821,38.727384,14.121744
+Ayira,pcode_crosswalk,ET040107,Ayira,Oromia,514.231388,35.312267,9.131485
+Ayisha,pcode_crosswalk,ET050101,Ayisha,Somali,5374.306819,42.505371,10.689018
+Babile (Oromia),pcode_crosswalk,ET050203,Babile (SM),Somali,347.453415,42.318157,8.520050
+Babile (Somali),pcode_crosswalk,ET050203,Babile (SM),Somali,347.453415,42.318157,8.520050
+Babo,pcode_crosswalk,ET040111,Babo,Oromia,898.119484,35.096742,9.446381
+Bahir Dar town,pcode_crosswalk,ET031401,Bahir Dar town,Amhara,263.380969,37.385714,11.594431
+Bahirdar Zuria,pcode_crosswalk,ET031310,Bahir Dar Zuria,Amhara,1580.262294,37.325622,11.620157
+Bako Tibe,pcode_crosswalk,ET040506,Bako Tibe,Oromia,639.108051,37.154090,9.095934
+Bambasi,pcode_crosswalk,ET060305,Bambasi,Benishangul-Gumuz,1483.557673,34.702168,9.787065
+Banja,pcode_crosswalk,ET030902,Banja,Amhara,479.911145,36.911075,10.971666
+Barey,pcode_crosswalk,ET050807,Barey,Somali,6145.655717,42.698985,4.701756
+Baso Liben,pcode_crosswalk,ET030611,Baso Liben,Amhara,1145.519794,37.716669,10.028157
+Basona Worena,pcode_crosswalk,ET030519,Basona Worena,Amhara,1215.284261,39.531548,9.743879
+Bati,pcode_crosswalk,ET031002,Bati,Amhara,1212.116099,40.056269,11.161631
+Bati Town,pcode_crosswalk,ET031099,Bati town,Amhara,3.636154,40.014913,11.192419
+Becho (Ilu Aba Bora),pcode_crosswalk,ET040314,Becho (Ilu Aba Bora),Oromia,585.240075,35.710439,8.091273
+Becho (SW Shewa),pcode_crosswalk,ET041309,Becho (SW Shewa),Oromia,436.720831,38.244611,8.659263
+Bedele Zuria,pcode_crosswalk,ET041622,Bedele Zuria,Oromia,743.985666,36.382511,8.473117
+Bedele town,pcode_crosswalk,ET041621,Bedele town,Oromia,8.511125,36.348746,8.451591
+Bedeno,pcode_crosswalk,ET041013,Bedeno,Oromia,820.619431,41.638948,9.063957
+Bedesa,pcode_crosswalk,ET040914,Bedesa town,Oromia,3.019942,40.775337,8.904986
+Begi,pcode_crosswalk,ET040116,Begi,Oromia,866.108549,34.543117,9.335817
+Bele Gesgar,pcode_crosswalk,ET040823,Bele Gesgar,Oromia,638.485508,40.057782,7.703236
+Bena Tsemay,pcode_crosswalk,ET081201,Bena Tsemay,South Ethiopia,3603.640752,36.666493,5.451280
+Bensa,pcode_crosswalk,ET160503,Bensa,Sidama,335.799016,38.845120,6.532060
+Berahile,pcode_crosswalk,ET020205,Berahile,Afar,2915.765246,40.180737,13.961027
+Berbere,pcode_crosswalk,ET041114,Berbere,Oromia,1569.155634,40.164502,6.711997
+Bereh,pcode_crosswalk,ET040619,Bereh,Oromia,318.550889,38.974426,9.140295
+Berehet,pcode_crosswalk,ET030517,Berehet,Amhara,772.294265,39.685283,9.187797
+Bero,pcode_crosswalk,ET110505,Bero,South West Ethiopia,594.443187,35.238597,6.342774
+Berocano,pcode_crosswalk,ET050608,Berocano,Somali,2571.759866,43.197171,6.181803
+Beyeda,pcode_crosswalk,ET030102,Beyeda,Amhara,968.375835,38.457989,13.239784
+Bibugn,pcode_crosswalk,ET030601,Bibugn,Amhara,399.925814,37.753793,10.833862
+Bidu,pcode_crosswalk,ET020208,Bidu,Afar,6985.893800,41.379542,13.003283
+Bila Seyo,pcode_crosswalk,ET040207,Bila Seyo,Oromia,670.070706,36.959570,9.350006
+Bilidigilu,pcode_crosswalk,ET060306,Bilidigilu,Benishangul-Gumuz,1705.050730,35.114485,10.128791
+Bilo Nopha,pcode_crosswalk,ET040315,Bilo Nopha,Oromia,395.771175,35.530315,8.430262
+Bishoftu town,pcode_crosswalk,ET040709,Bishoftu town,Oromia,511.978768,38.958858,8.756437
+Bita (Big),pcode_crosswalk,ET110210,Bita,South West Ethiopia,1086.694459,35.673502,7.372049
+Biyoawale,pcode_crosswalk,ET150208,Biyoawale,Dire Dawa,350.015547,41.999683,9.575757
+Bodaley,pcode_crosswalk,ET050599,Bodaley,Somali,3237.064262,43.928120,7.023218
+Boditi Town,pcode_crosswalk,ET080115,Boditi town,South Ethiopia,13.686772,37.861714,6.952943
+Boji Chekorsa,pcode_crosswalk,ET040110,Boji Chekorsa,Oromia,343.285769,35.505824,9.285456
+Boji Dirmeji,pcode_crosswalk,ET040106,Boji Dirmeji,Oromia,498.734068,35.633524,9.401167
+Boke,pcode_crosswalk,ET040910,Boke,Oromia,1034.329887,40.747874,8.613317
+Bokh,pcode_crosswalk,ET050702,Bokh,Somali,8074.008260,46.650934,7.645054
+Bole,pcode_crosswalk,ET140104,Bole Sub City,Addis Ababa,65.604193,38.809285,8.974422
+Boloso Bombe,pcode_crosswalk,ET080108,Boloso Bombe,South Ethiopia,272.265924,37.552739,7.107837
+Boloso Sore,pcode_crosswalk,ET080101,Boloso Sore,South Ethiopia,288.287596,37.710123,7.074692
+Bona Zuria,pcode_crosswalk,ET160502,Bona Zuria,Sidama,200.778119,38.711807,6.501879
+Boneya Boshe,pcode_crosswalk,ET040205,Boneya Boshe,Oromia,474.199620,37.038533,8.915872
+Bonga Town,pcode_crosswalk,ET110211,Bonga town,South West Ethiopia,13.672155,36.243924,7.269602
+Bora (OR),pcode_crosswalk,ET040710,Bora (OR),Oromia,475.297184,38.924797,8.314448
+Bore,pcode_crosswalk,ET041402,Bore,Oromia,453.394166,38.618504,6.365460
+Borecha,pcode_crosswalk,ET041607,Borecha,Oromia,738.781447,36.651963,8.307014
+Boreda,pcode_crosswalk,ET080205,Boreda,South Ethiopia,464.231793,37.656643,6.529360
+Borena / Debresina,pcode_crosswalk,ET030412,Borena /Debresina,Amhara,1017.611648,38.695194,10.749652
+Boricha,pcode_crosswalk,ET160208,Boricha,Sidama,110.651589,38.338059,6.919152
+Boset,pcode_crosswalk,ET040702,Boset,Oromia,1300.856586,39.544976,8.642082
+Bugna,pcode_crosswalk,ET030301,Bugna,Amhara,1303.954594,38.717413,12.171376
+Bule,pcode_crosswalk,ET081104,Bule,South Ethiopia,126.310482,38.393913,6.284237
+Bule Hora,pcode_crosswalk,ET041501,Bule Hora,Oromia,931.955717,38.315787,5.648885
+Bule Hora town,pcode_crosswalk,ET041587,Bule Hora town,Oromia,48.334656,38.233283,5.642601
+Bulen,pcode_crosswalk,ET060207,Bulen,Benishangul-Gumuz,2957.721295,35.956897,10.545135
+Burayu,pcode_crosswalk,ET042001,Burayu,Oromia,24.903156,38.667541,9.078577
+Bure (AM),pcode_crosswalk,ET030710,Bure (AM),Amhara,800.794457,37.049009,10.539101
+Bure (OR),pcode_crosswalk,ET040312,Bure (OR),Oromia,1088.878324,35.128353,8.328262
+Bure town,pcode_crosswalk,ET030798,Bure town,Amhara,12.445935,37.064763,10.705762
+Burqod,pcode_crosswalk,ET050394,Burqod,Somali,2627.638854,43.616508,7.609649
+Burqua Dhintu,pcode_crosswalk,ET040998,Burqua Dhintu,Oromia,2462.920523,41.140081,8.306216
+Bursa,pcode_crosswalk,ET160401,Bursa,Sidama,159.639639,38.589829,6.627323
+Butajira town,pcode_crosswalk,ET070401,Butajira town,Central Ethiopia,16.137437,38.384684,8.119427
+Chagni town,pcode_crosswalk,ET030999,Chagni town,Amhara,17.320028,36.507440,10.957766
+Charati,pcode_crosswalk,ET050802,Charati,Somali,8480.232554,41.677562,5.298139
+Cheha,pcode_crosswalk,ET070110,Cheha,Central Ethiopia,559.840160,37.826871,8.146807
+Cheliya,pcode_crosswalk,ET040505,Cheliya,Oromia,389.192670,37.408251,9.055225
+Chena,pcode_crosswalk,ET110209,Chena,South West Ethiopia,432.036352,35.805779,7.132429
+Chencha,pcode_crosswalk,ET080206,Chencha town,South Ethiopia,4.873825,37.577686,6.243839
+Cheta,pcode_crosswalk,ET110207,Cheta,South West Ethiopia,685.140292,36.367193,6.910911
+Chifra,pcode_crosswalk,ET020106,Chifra,Afar,1484.027915,40.227505,11.584530
+Chila,pcode_crosswalk,ET010201,Chila,Tigray,590.527579,38.574168,14.309642
+Chinaksen,pcode_crosswalk,ET041015,Chinaksen,Oromia,1243.600805,42.570274,9.599108
+Chire,pcode_crosswalk,ET160506,Chire,Sidama,165.031675,39.060434,6.491624
+Chiro Zuria,pcode_crosswalk,ET040913,Chiro Zuria,Oromia,688.477946,40.828238,9.070333
+Chiro town,pcode_crosswalk,ET040905,Chiro town,Oromia,5.902820,40.867076,9.078966
+Chole,pcode_crosswalk,ET040809,Chole,Oromia,585.143892,39.973008,8.112515
+Chora (Buno Bedele),pcode_crosswalk,ET041603,Chora (Buno Bedele),Oromia,823.803090,36.138731,8.390849
+Chora (Jimma),pcode_crosswalk,ET040415,Chora (Jimma),Oromia,834.723398,37.157758,8.354742
+Chuko,pcode_crosswalk,ET160406,Chuko town,Sidama,1.975514,38.335987,6.586618
+Chwaka,pcode_crosswalk,ET041623,Chwaka,Oromia,606.723908,36.134061,8.891698
+Dabat,pcode_crosswalk,ET030105,Dabat,Amhara,1089.731049,37.683789,13.052820
+Dabo Hana,pcode_crosswalk,ET041605,Dabo Hana,Oromia,746.159251,36.288667,8.706184
+Dale,pcode_crosswalk,ET160305,Dale,Sidama,287.567631,38.409517,6.749434
+Dale Sadi,pcode_crosswalk,ET041808,Dale Sadi,Oromia,577.055838,35.200975,8.930806
+Dale Wabera,pcode_crosswalk,ET041803,Dale Wabera,Oromia,529.466673,35.060640,9.025045
+Dalefage,pcode_crosswalk,ET020504,Dalefage,Afar,978.310483,40.365513,10.518793
+Dalocha,pcode_crosswalk,ET072005,Dalocha,Central Ethiopia,301.277293,38.280490,7.764811
+Dalol,pcode_crosswalk,ET020206,Dalol,Afar,2232.317186,40.065804,14.287057
+Dama,pcode_crosswalk,ET041408,Dama,Oromia,357.117581,38.523157,6.260835
+Damboya,pcode_crosswalk,ET070307,Damboya,Central Ethiopia,163.196598,37.957068,7.357614
+Damot Gale,pcode_crosswalk,ET080102,Damot Gale,South Ethiopia,241.962993,37.887687,6.991478
+Damot Pullasa,pcode_crosswalk,ET080111,Damot Pullasa,South Ethiopia,165.099524,37.859874,7.047100
+Damot Sore,pcode_crosswalk,ET080109,Damot Sore,South Ethiopia,176.306775,37.660143,6.947524
+Damot Woide,pcode_crosswalk,ET080103,Damot Woide,South Ethiopia,215.779292,37.933606,6.880158
+Danan,pcode_crosswalk,ET050603,Danan,Somali,2152.736105,43.485564,6.580849
+Dangila,pcode_crosswalk,ET030901,Dangila,Amhara,909.875449,36.770621,11.226918
+Dangila town,pcode_crosswalk,ET030998,Dangila town,Amhara,9.061182,36.845612,11.262754
+Dangur,pcode_crosswalk,ET060201,Dangur,Benishangul-Gumuz,4757.773367,36.025005,11.371908
+Dano,pcode_crosswalk,ET040507,Dano,Oromia,659.824157,37.289958,8.755300
+Danod,pcode_crosswalk,ET050701,Danod,Somali,7258.053651,45.687502,7.711408
+Dara,pcode_crosswalk,ET160407,Dara,Sidama,147.966661,38.360151,6.441771
+Daramalo,pcode_crosswalk,ET080208,Daramalo,South Ethiopia,361.954252,37.297253,6.289604
+Daratole,pcode_crosswalk,ET050788,Daratole,Somali,1171.682285,45.350523,7.284827
+Darimu,pcode_crosswalk,ET040301,Darimu,Oromia,1377.171552,35.377844,8.619185
+Daro Lebu,pcode_crosswalk,ET040909,Daro Lebu,Oromia,1326.385133,40.469142,8.465366
+Daror,pcode_crosswalk,ET050392,Daror,Somali,7131.110253,44.474734,8.429209
+Dasenech /Kuraz,pcode_crosswalk,ET081202,Dasenech /Kuraz,South Ethiopia,2584.642146,36.090778,4.684659
+Dawe,pcode_crosswalk,ET020503,Dawe,Afar,749.567591,40.285946,10.719535
+Dawe Ketchen,pcode_crosswalk,ET042106,Dawe Ketchen,Oromia,1689.574946,40.826820,6.652594
+Dawo,pcode_crosswalk,ET041304,Dawo,Oromia,461.631171,38.132977,8.790881
+Dawunt,pcode_crosswalk,ET030311,Dawunt,Amhara,618.683831,38.839017,11.473613
+Debark,pcode_crosswalk,ET030104,Debark,Amhara,1246.399454,37.803087,13.231611
+Debark town,pcode_crosswalk,ET030198,Debark town,Amhara,5.658017,37.897563,13.150320
+Debay Telatgen,pcode_crosswalk,ET030607,Debay Telatgen,Amhara,626.455245,37.993295,10.543835
+Debeweyin,pcode_crosswalk,ET050504,Debeweyin,Somali,2231.781052,44.389547,6.071295
+Debre Berhan town,pcode_crosswalk,ET030520,Debre Berhan town,Amhara,146.378070,39.525836,9.664373
+Debre Elias,pcode_crosswalk,ET030608,Debre Elias,Amhara,1192.757430,37.322246,10.233485
+Debre Libanos,pcode_crosswalk,ET040607,Debre Libanos,Oromia,283.159062,38.853044,9.659945
+Debre Markos town,pcode_crosswalk,ET030615,Debre Markos town,Amhara,65.842100,37.728717,10.327140
+Debre Tabor town,pcode_crosswalk,ET030210,Debre Tabor town,Amhara,110.934412,38.021204,11.862891
+Debub Achefer,pcode_crosswalk,ET031305,Debub Achefer,Amhara,1100.111108,36.841819,11.476478
+Debub Bench,pcode_crosswalk,ET110303,Debub Bench,South West Ethiopia,623.490002,35.516823,6.868874
+Decha,pcode_crosswalk,ET110208,Decha,South West Ethiopia,1046.730398,36.146267,7.127705
+Dechatu,pcode_crosswalk,ET150111,Dechatu,Dire Dawa,1.338396,41.876926,9.600775
+Deder,pcode_crosswalk,ET041011,Deder,Oromia,643.291313,41.436971,9.214550
+Deder town,pcode_crosswalk,ET041097,Deder town,Oromia,3.017984,41.442026,9.315931
+Dedesa,pcode_crosswalk,ET041608,Dedesa,Oromia,841.207072,36.539459,8.132325
+Dedo,pcode_crosswalk,ET040410,Dedo,Oromia,784.823094,36.839674,7.438643
+Dega,pcode_crosswalk,ET041604,Dega,Oromia,353.531104,36.136819,8.596528
+Dega Damot,pcode_crosswalk,ET030707,Dega Damot,Amhara,831.424029,37.614903,10.861737
+Degahabur town,pcode_crosswalk,ET050307,Degahabur town,Somali,242.250992,43.551218,8.225768
+Degehabur,pcode_crosswalk,ET050302,Degehabur,Somali,3603.858193,43.592112,8.106295
+Degehamedo,pcode_crosswalk,ET050301,Degehamedo,Somali,3524.777979,43.031718,8.057994
+Degeluna Tijo,pcode_crosswalk,ET040815,Degeluna Tijo,Oromia,925.738680,39.229182,7.743367
+Degem,pcode_crosswalk,ET040605,Degem,Oromia,642.581416,38.600693,9.814955
+Degua Temben,pcode_crosswalk,ET010604,Degua Temben,Tigray,437.128887,39.170242,13.631920
+Dehana,pcode_crosswalk,ET030803,Dehana,Amhara,1643.438035,38.673477,12.437397
+Dejen,pcode_crosswalk,ET030613,Dejen,Amhara,624.823835,38.178097,10.202270
+Deka Suftu,pcode_crosswalk,ET050991,Deka Suftu,Somali,4092.209528,40.116329,5.046565
+Delanta,pcode_crosswalk,ET030406,Delanta,Amhara,1052.345705,39.221760,11.614763
+Dembe,pcode_crosswalk,ET060404,Dembe,Benishangul-Gumuz,1800.173774,35.650493,9.800160
+Dembecha,pcode_crosswalk,ET030708,Dembecha,Amhara,964.366231,37.362657,10.526980
+Dembel,pcode_crosswalk,ET050102,Dembel,Somali,2697.935690,42.495739,9.916312
+Denbi Dollo town,pcode_crosswalk,ET041806,Denbi Dollo town,Oromia,16.751201,34.800866,8.532850
+Dendi,pcode_crosswalk,ET040510,Dendi,Oromia,734.519093,38.091162,8.972044
+Dera (AM),pcode_crosswalk,ET030209,Dera (AM),Amhara,1721.290263,37.650051,11.640642
+Dera (OR),pcode_crosswalk,ET040602,Dera (OR),Oromia,1539.384403,38.632810,10.212729
+Dessie Zuria,pcode_crosswalk,ET030409,Dessie Zuria,Amhara,938.387712,39.488373,11.048474
+Dessie town,pcode_crosswalk,ET030418,Dessie town,Amhara,199.040485,39.638094,11.146563
+Dewa Cheffa,pcode_crosswalk,ET031001,Dewa Cheffa,Amhara,652.772902,39.847356,10.779354
+Dewa Harewa,pcode_crosswalk,ET031005,Dewa Harewa,Amhara,439.024968,40.046096,10.765807
+Dhas,pcode_crosswalk,ET042209,Dhas,Oromia,3176.682546,38.893670,4.211993
+Dibate,pcode_crosswalk,ET060205,Dibate,Benishangul-Gumuz,2164.663986,36.213593,10.467455
+Didu,pcode_crosswalk,ET040317,Didu,Oromia,610.793684,35.545343,7.937482
+Dig,pcode_crosswalk,ET050399,Dig,Somali,1622.238578,44.496604,7.686513
+Diga,pcode_crosswalk,ET040210,Diga,Oromia,578.253324,36.318089,9.048873
+Dihun,pcode_crosswalk,ET051006,Dihun,Somali,2265.233102,42.699197,7.100303
+Diksis,pcode_crosswalk,ET040822,Diksis,Oromia,398.862562,39.562884,8.042857
+Dila Zuria,pcode_crosswalk,ET081105,Dila Zuria,South Ethiopia,125.062726,38.342029,6.354117
+Dila town,pcode_crosswalk,ET081109,Dila town,South Ethiopia,14.244283,38.300612,6.409828
+Dilo,pcode_crosswalk,ET041219,Dilo,Oromia,3912.626652,37.774416,4.199027
+Dima (GM),pcode_crosswalk,ET120205,Dima (GM),Gambela,8525.022274,34.683141,7.002811
+Dinsho,pcode_crosswalk,ET041122,Dinsho,Oromia,650.101062,39.771070,7.076817
+Dire,pcode_crosswalk,ET041211,Dire,Oromia,2744.706434,38.216551,3.961724
+Dire Teyara,pcode_crosswalk,ET130106,Dire Teyara,Harari,11.362366,42.126407,9.369641
+Dita,pcode_crosswalk,ET080209,Dita,South Ethiopia,283.273454,37.454654,6.283905
+Doba,pcode_crosswalk,ET040902,Doba,Oromia,622.166058,41.079688,9.299302
+Dodola,pcode_crosswalk,ET041707,Dodola,Oromia,1648.614102,39.152187,6.887088
+Dodola Town,pcode_crosswalk,ET041707,Dodola,Oromia,1648.614102,39.152187,6.887088
+Dodota,pcode_crosswalk,ET040805,Dodota,Oromia,503.687035,39.242580,8.292550
+Dolobay,pcode_crosswalk,ET050808,Dolobay,Somali,4006.543336,42.098601,4.488417
+Dorani,pcode_crosswalk,ET040324,Dorani,Oromia,422.469286,35.820469,8.449313
+Doyogena,pcode_crosswalk,ET070306,Doyogena,Central Ethiopia,130.620521,37.806121,7.386517
+Dubti,pcode_crosswalk,ET020101,Dubti,Afar,6011.174984,40.981740,11.813592
+Dugda,pcode_crosswalk,ET040707,Dugda,Oromia,999.187940,38.764875,8.176849
+Dugda Dawa,pcode_crosswalk,ET041515,Dugda Dawa,Oromia,1827.198324,38.325161,5.314352
+Duguna Fango,pcode_crosswalk,ET080112,Duguna Fango,South Ethiopia,420.046001,38.049904,6.921486
+Dulecha,pcode_crosswalk,ET020304,Dulecha,Afar,1485.201695,40.058916,9.486336
+Duna,pcode_crosswalk,ET070207,Duna,Central Ethiopia,222.530512,37.662528,7.339929
+Durame town,pcode_crosswalk,ET070308,Durame town,Central Ethiopia,13.588839,37.897225,7.241866
+East Belesa,pcode_crosswalk,ET031117,East Belesa,Amhara,1421.424394,38.195315,12.514379
+East Esite,pcode_crosswalk,ET030208,East Esite,Amhara,1332.313568,38.073287,11.490319
+East Imi,pcode_crosswalk,ET050601,East Imi,Somali,2992.506747,42.307582,6.657457
+Ebenat,pcode_crosswalk,ET030201,Ebenat,Amhara,1614.939921,38.189661,12.244092
+Edaga arbi,pcode_crosswalk,ET010203,Endaba Tsahma,Tigray,405.810035,39.117073,13.990602
+Eferatana Gidem,pcode_crosswalk,ET030508,Eferatana Gidem,Amhara,511.116117,39.886283,10.313108
+Ejere /Addis Alem,pcode_crosswalk,ET040511,Ejere /Addis Alem,Oromia,582.643516,38.362837,9.068267
+El-Ogaden,pcode_crosswalk,ET050598,El-Ogaden,Somali,1639.784207,44.437642,6.419699
+Elidar,pcode_crosswalk,ET020102,Elidar,Afar,11440.445571,41.741902,12.286451
+Elkare /Serer,pcode_crosswalk,ET050804,Elkare /Serer,Somali,6714.404832,42.079108,5.951090
+Elwayne,pcode_crosswalk,ET051002,Elwayne,Somali,2150.195107,43.056252,6.561553
+Emba Alaje,pcode_crosswalk,ET010404,Emba Alaje,Tigray,344.102564,39.505136,12.933868
+Enarj Enawga,pcode_crosswalk,ET030605,Enarj Enawga,Amhara,930.114858,38.218105,10.687331
+Endamehoni,pcode_crosswalk,ET010405,Endamehoni,Tigray,452.564399,39.489088,12.755925
+Enderta,pcode_crosswalk,ET010602,Enderta,Tigray,1608.745266,39.497313,13.456375
+Endiguagn,pcode_crosswalk,ET070108,Endiguagn,Central Ethiopia,151.217482,37.855609,7.825143
+Enebse Sarmder,pcode_crosswalk,ET030604,Enebse Sarmder,Amhara,1061.967663,38.394209,10.866095
+Enemay,pcode_crosswalk,ET030606,Enemay,Amhara,729.931110,38.177051,10.506119
+Enemor Ener,pcode_crosswalk,ET070111,Enemor Ener,Central Ethiopia,574.321100,37.753353,8.047618
+Ensaro,pcode_crosswalk,ET030503,Ensaro,Amhara,451.672328,38.906836,9.828918
+Erebti,pcode_crosswalk,ET020201,Erebti,Afar,2613.390710,40.148772,13.140979
+Erer (HR),pcode_crosswalk,ET130105,Erer (HR),Harari,98.831104,42.224561,9.328145
+Erer (SM),pcode_crosswalk,ET050104,Erer (SM),Somali,4134.525855,41.413696,9.903173
+Erob,pcode_crosswalk,ET010302,Erob,Tigray,919.024918,39.677187,14.491156
+Euwa,pcode_crosswalk,ET020402,Euwa,Afar,1444.345014,40.179255,11.816961
+Ezha,pcode_crosswalk,ET070103,Ezha,Central Ethiopia,334.610818,38.036328,8.143517
+Fagta Lakoma,pcode_crosswalk,ET030905,Fagta Lakoma,Amhara,651.008593,36.897757,11.084857
+Farta,pcode_crosswalk,ET030204,Farta,Amhara,755.083314,38.022135,11.829438
+Fedis,pcode_crosswalk,ET041005,Fedis,Oromia,700.216853,42.127195,9.064182
+Fentale,pcode_crosswalk,ET040701,Fentale,Oromia,1463.525236,39.886396,8.884953
+Ferfer,pcode_crosswalk,ET050607,Ferfer,Somali,2195.980692,45.035169,5.215782
+Fiche town,pcode_crosswalk,ET040613,Fiche town,Oromia,13.322525,38.736594,9.787725
+Fik,pcode_crosswalk,ET050402,Fik,Somali,3059.459636,42.305040,8.156395
+Filtu,pcode_crosswalk,ET050901,Filtu,Somali,11947.398366,40.901412,5.029273
+Finote Selam town,pcode_crosswalk,ET030714,Finote Selam town,Amhara,42.649034,37.262562,10.685213
+Fogera,pcode_crosswalk,ET030203,Fogera,Amhara,1335.343593,37.719920,11.904331
+Gablalu,pcode_crosswalk,ET050199,Gablalu,Somali,5019.758230,41.649274,10.639011
+Gacho Baba,pcode_crosswalk,ET080210,Gacho Baba,South Ethiopia,261.299278,37.426109,6.085451
+Gaji,pcode_crosswalk,ET040113,Gaji,Oromia,302.194442,35.595596,9.037139
+Galadi,pcode_crosswalk,ET050703,Galadi,Somali,10304.111540,46.290922,6.994324
+Gambela Zuria,pcode_crosswalk,ET120202,Gambela Zuria,Gambela,3286.771012,34.751276,8.147765
+Gambela town,pcode_crosswalk,ET120206,Gambela town,Gambela,15.497289,34.588600,8.245996
+Ganta Afeshum,pcode_crosswalk,ET010304,Ganta Afeshum,Tigray,465.288039,39.431883,14.243130
+Garbo,pcode_crosswalk,ET051003,Garbo,Somali,3467.588837,43.205502,7.317520
+Gasera,pcode_crosswalk,ET041106,Gasera,Oromia,1129.355531,40.153372,7.382424
+Gashamo,pcode_crosswalk,ET050304,Gashamo,Somali,11535.955855,45.318533,8.151761
+Gawo Kebe,pcode_crosswalk,ET041804,Gawo Kebe,Oromia,1139.877146,34.934106,9.148060
+Gaz Gibla,pcode_crosswalk,ET030804,Gaz Gibla,Amhara,1031.829166,39.070414,12.336637
+Gechi,pcode_crosswalk,ET041606,Gechi,Oromia,633.283233,36.481281,8.363624
+Gedeb,pcode_crosswalk,ET081106,Gedeb,South Ethiopia,189.969278,38.286486,5.916119
+Gedeb Asasa,pcode_crosswalk,ET041706,Gedeb Asasa,Oromia,1148.412415,39.172496,7.183498
+Gedebano Gutazer Welene,pcode_crosswalk,ET070104,Gedebano Gutazer Welene,Central Ethiopia,483.519427,38.195055,8.319105
+Gelalu,pcode_crosswalk,ET020305,Gala'alu,Afar,1825.858150,40.637579,9.853723
+Gelana (Finfine),pcode_crosswalk,ET041517,Gelana (West Guji),Oromia,1209.939947,38.003743,5.988029
+Gelana (West Guji),pcode_crosswalk,ET041517,Gelana (West Guji),Oromia,1209.939947,38.003743,5.988029
+Gemechis,pcode_crosswalk,ET040912,Gemechis,Oromia,1041.314529,40.984474,8.857617
+Gendawuha town,pcode_crosswalk,ET031292,Gendawuha town,Amhara,11.379054,36.407708,12.776815
+Gende Kore,pcode_crosswalk,ET150110,Gende Kore,Dire Dawa,0.734364,41.855149,9.600105
+Gera,pcode_crosswalk,ET040408,Gera,Oromia,1402.746557,36.242266,7.696766
+Gerar Jarso,pcode_crosswalk,ET040606,Gerar Jarso,Oromia,473.150470,38.734425,9.792020
+Gesha (Deka),pcode_crosswalk,ET110202,Gesha,South West Ethiopia,725.199107,35.687971,7.632629
+Geta,pcode_crosswalk,ET070113,Geta,Central Ethiopia,200.234399,37.961880,7.926934
+Gewane,pcode_crosswalk,ET020303,Gewane,Afar,455.714975,40.629798,10.166156
+Gibe,pcode_crosswalk,ET070210,Gibe,Central Ethiopia,447.951917,37.668087,7.740668
+Gida Ayana,pcode_crosswalk,ET040203,Gida Ayana,Oromia,1604.460797,36.646491,9.906003
+Gidami,pcode_crosswalk,ET041809,Gidami,Oromia,2159.053477,34.430973,8.907988
+Gidan,pcode_crosswalk,ET030303,Gidan,Amhara,1087.319316,39.324664,12.056013
+Gimbi,pcode_crosswalk,ET040103,Gimbi,Oromia,902.500869,35.905301,9.155818
+Gimbi town,pcode_crosswalk,ET040193,Gimbi town,Oromia,49.426034,35.830462,9.174177
+Gimbichu,pcode_crosswalk,ET040705,Gimbichu,Oromia,665.670795,39.187526,8.998964
+Gimbo,pcode_crosswalk,ET110204,Gimbo,South West Ethiopia,780.366212,36.227978,7.358700
+Ginde Beret,pcode_crosswalk,ET040501,Ginde Beret,Oromia,1287.162363,37.751682,9.636566
+Ginir,pcode_crosswalk,ET042103,Ginir,Oromia,2342.180041,40.713402,7.120846
+Ginir Town,pcode_crosswalk,ET042107,Ginir town,Oromia,34.831495,40.733024,7.137867
+Girawa,pcode_crosswalk,ET041016,Girawa,Oromia,1107.493070,41.866039,9.029087
+Girja /Harenfema,pcode_crosswalk,ET041410,Girja /Harenfema,Oromia,904.381552,39.192693,6.137483
+Gishe Rabel,pcode_crosswalk,ET030506,Gishe Rabel,Amhara,659.235540,39.600928,10.580080
+Goba (OR),pcode_crosswalk,ET041110,Goba (OR),Oromia,1468.725152,39.896917,6.856846
+Goba Koricha,pcode_crosswalk,ET040907,Goba Koricha,Oromia,405.463521,40.531126,8.926877
+Goba town,pcode_crosswalk,ET041120,Goba town,Oromia,42.801790,39.972529,7.024145
+Gobu Seyo,pcode_crosswalk,ET040208,Gobu Seyo,Oromia,341.241941,36.976061,9.165012
+God-God,pcode_crosswalk,ET050899,God-God,Somali,1592.370458,43.241652,4.858494
+Gode,pcode_crosswalk,ET050604,Gode,Somali,2078.810503,43.700781,6.015624
+Godere,pcode_crosswalk,ET120301,Godere,Gambela,653.967881,35.256051,7.245819
+Godey town,pcode_crosswalk,ET050696,Godey town,Somali,78.177432,43.555691,5.950908
+Gog,pcode_crosswalk,ET120203,Gog,Gambela,3236.765638,34.282560,7.618948
+Goljano,pcode_crosswalk,ET050290,Goljano,Somali,687.632706,42.837280,8.413840
+Golo Oda,pcode_crosswalk,ET041017,Golo Oda,Oromia,2047.936415,41.500768,8.634308
+Golocha,pcode_crosswalk,ET040803,Golocha,Oromia,1111.356341,40.155859,8.216379
+Gololcha Bale,pcode_crosswalk,ET042101,Gololcha Bale,Oromia,2209.529326,40.609588,7.538881
+Goma,pcode_crosswalk,ET040407,Goma,Oromia,841.112281,36.585620,7.880062
+Gombora,pcode_crosswalk,ET070202,Gombora,Central Ethiopia,462.667904,37.620934,7.585511
+Goncha Siso Enebse,pcode_crosswalk,ET030603,Goncha Siso Enebse,Amhara,429.041690,38.135499,10.888074
+Gondar town,pcode_crosswalk,ET031118,Gondar town,Amhara,292.397351,37.450339,12.575528
+Gonder Zuria,pcode_crosswalk,ET031110,Gonder Zuria,Amhara,1361.570174,37.576196,12.345422
+Gonje,pcode_crosswalk,ET031307,Gonje,Amhara,633.914834,37.670023,11.175953
+Gora Dola,pcode_crosswalk,ET042205,Gora Dola,Oromia,2361.249600,39.386462,5.465659
+Gorche,pcode_crosswalk,ET160204,Gorche,Sidama,169.669390,38.603928,6.837727
+Goro (Bale),pcode_crosswalk,ET041116,Goro (Bale),Oromia,1515.095460,40.507871,6.947488
+Goro (SW Shewa),pcode_crosswalk,ET041312,Goro (SW Shewa),Oromia,430.185335,37.852917,8.410975
+Goro Baqaqsa,pcode_crosswalk,ET050903,Goro Baqaqsa,Somali,4633.619036,41.323536,6.161078
+Goro Gutu,pcode_crosswalk,ET041010,Goro Gutu,Oromia,533.948460,41.338815,9.407371
+Gota-Biki,pcode_crosswalk,ET050198,Gota-Biki,Somali,1134.771135,41.177784,9.689540
+Guagusa Shikudad,pcode_crosswalk,ET030907,Guagusa Shikudad,Amhara,292.592866,37.026126,10.827320
+Guangua,pcode_crosswalk,ET030904,Guangua,Amhara,2341.561543,36.503085,10.780426
+Guba,pcode_crosswalk,ET060202,Guba,Benishangul-Gumuz,6762.214025,35.455880,11.496543
+Guba Lafto,pcode_crosswalk,ET030307,Guba Lafto,Amhara,791.342459,39.510417,11.788955
+Guchi,pcode_crosswalk,ET041290,Guchi,Oromia,2405.777951,39.134701,3.946158
+Gudetu Kondole,pcode_crosswalk,ET040109,Gudetu Kondole,Oromia,1262.869853,34.757515,9.397122
+Guduru,pcode_crosswalk,ET041903,Guduru,Oromia,850.183577,37.464113,9.475244
+Gulele,pcode_crosswalk,ET140110,Gulele Sub City,Addis Ababa,37.130676,38.739166,9.070690
+Gulina,pcode_crosswalk,ET020405,Gulina,Afar,846.917937,39.982171,12.180981
+Guliso,pcode_crosswalk,ET040119,Guliso,Oromia,577.289234,35.346205,9.233579
+Gulo Mekeda,pcode_crosswalk,ET010301,Gulo Mekeda,Tigray,506.081525,39.399700,14.414089
+Gumay,pcode_crosswalk,ET040416,Gumay,Oromia,407.462468,36.430626,7.971340
+Gumer,pcode_crosswalk,ET070109,Gumer,Central Ethiopia,233.163288,38.070068,7.995790
+Guna,pcode_crosswalk,ET040819,Guna,Oromia,469.989190,39.912894,8.328708
+Gunagado,pcode_crosswalk,ET050305,Gunagado,Somali,2436.748887,44.145830,7.653402
+Gura Damole,pcode_crosswalk,ET041115,Gura Damole,Oromia,5138.521346,40.572776,6.294202
+Guradamole,pcode_crosswalk,ET050904,Guradamole,Somali,2827.034252,41.013608,6.090592
+Gurafereda,pcode_crosswalk,ET110302,Gurafereda,South West Ethiopia,2516.550305,35.172542,6.898030
+Gursum (OR),pcode_crosswalk,ET041003,Gursum (OR),Oromia,907.555842,42.448176,9.316019
+Gursum (SM),pcode_crosswalk,ET050202,Gursum (SM),Somali,200.537038,42.633880,9.201803
+Guto Gida,pcode_crosswalk,ET040213,Guto Gida,Oromia,923.563895,36.595378,9.278212
+Guzamn,pcode_crosswalk,ET030610,Guzamn,Amhara,1177.500287,37.634936,10.271284
+Habro,pcode_crosswalk,ET040908,Habro,Oromia,743.130199,40.511820,8.753756
+Habru,pcode_crosswalk,ET030308,Habru,Amhara,1317.630564,39.761819,11.671325
+Hadelela,pcode_crosswalk,ET020505,Hadelela,Afar,1257.344358,40.283038,10.272881
+Hadero Tunto,pcode_crosswalk,ET070305,Hadero Tunto,Central Ethiopia,175.706949,37.655682,7.235648
+Hadhagala,pcode_crosswalk,ET050106,Hadhagala,Somali,3924.195298,42.167388,10.407751
+Hafat Issa,pcode_crosswalk,ET150112,Hafat Issa,Dire Dawa,0.379421,41.869281,9.604913
+Hagere Mariam,pcode_crosswalk,ET030516,Hagere Mariam,Amhara,646.917999,39.396905,9.188550
+Hakim,pcode_crosswalk,ET130104,Hakim,Harari,41.658560,42.092629,9.256480
+Halu /Huka,pcode_crosswalk,ET040319,Halu /Huka,Oromia,376.599382,35.347844,8.182406
+Hambela Wamena,pcode_crosswalk,ET041509,Hambela Wamena,Oromia,603.291679,38.484643,5.941888
+Hamer,pcode_crosswalk,ET081203,Hamer,South Ethiopia,5890.342062,36.502543,4.955246
+Hamero,pcode_crosswalk,ET050404,Hamero,Somali,2281.318035,42.302302,7.634554
+Harena Buluk,pcode_crosswalk,ET041111,Harena Buluk,Oromia,1924.888478,39.541821,6.410144
+Hargele,pcode_crosswalk,ET050806,Hargele,Somali,8413.007892,42.463958,5.310266
+Haro Limu,pcode_crosswalk,ET040204,Haro Limu,Oromia,1171.579486,36.254173,9.816516
+Haro Maya,pcode_crosswalk,ET041006,Haro Maya,Oromia,247.140140,41.973260,9.270843
+Haromaya Town,pcode_crosswalk,ET041006,Haro Maya,Oromia,247.140140,41.973260,9.270843
+Haroreys,pcode_crosswalk,ET050298,Haroreys,Somali,830.932095,43.031108,9.372146
+Harshin,pcode_crosswalk,ET050207,Harshin,Somali,4533.822369,43.772116,8.904953
+Haru,pcode_crosswalk,ET040114,Haru,Oromia,463.485264,35.855815,8.980891
+Hawa Galan,pcode_crosswalk,ET041801,Hawa Galan,Oromia,792.236355,34.992100,8.626763
+Hawassa Zuria,pcode_crosswalk,ET160210,Hawassa Zuria,Sidama,339.116071,38.355594,7.053867
+Hawi Gudina,pcode_crosswalk,ET040915,Hawi Gudina,Oromia,3081.823574,40.704843,8.128562
+Hawzen,pcode_crosswalk,ET010305,Hawzen,Tigray,758.787874,39.384512,13.976628
+Hidabu Abote,pcode_crosswalk,ET040603,Hidabu Abote,Oromia,508.384135,38.515743,9.959331
+Higloley,pcode_crosswalk,ET050597,Higloley,Somali,2605.568505,44.572072,5.735374
+Hintalo,pcode_crosswalk,ET010603,Hintalo,Tigray,935.777781,39.485485,13.182501
+Hitosa,pcode_crosswalk,ET040807,Hitosa,Oromia,690.793159,39.242817,8.071434
+Homa,pcode_crosswalk,ET040117,Homa,Oromia,90.664358,35.712865,9.060863
+Homosha,pcode_crosswalk,ET060307,Homosha,Benishangul-Gumuz,704.875849,34.573544,10.313822
+Horo,pcode_crosswalk,ET041901,Horo,Oromia,355.970720,37.068975,9.550612
+Horshagah,pcode_crosswalk,ET051095,Horshagah,Somali,2227.296859,43.460318,6.999612
+Hosaena town,pcode_crosswalk,ET070211,Hosaena town,Central Ethiopia,40.485835,37.846361,7.542753
+Hudet,pcode_crosswalk,ET051104,Hudet,Somali,1259.240423,39.731274,4.378115
+Hulet Ej Enese,pcode_crosswalk,ET030602,Hulet Ej Enese,Amhara,1490.757366,37.900487,10.988849
+Hulla,pcode_crosswalk,ET160409,Hulla,Sidama,161.755514,38.548853,6.486915
+Humbo,pcode_crosswalk,ET080104,Humbo,South Ethiopia,323.302219,37.740845,6.689601
+Hurumu,pcode_crosswalk,ET040316,Hurumu,Oromia,443.750408,35.786411,8.227413
+Ibantu,pcode_crosswalk,ET040202,Ibantu,Oromia,826.824682,36.444565,10.070995
+Ifata,pcode_crosswalk,ET040519,Ifata,Oromia,445.349319,37.924338,9.181277
+Illu Galan,pcode_crosswalk,ET040500,Illu Galan,Oromia,423.821557,37.293861,8.970378
+Ilu,pcode_crosswalk,ET041305,Ilu,Oromia,243.601581,38.335345,8.821946
+Indasilassie town,pcode_crosswalk,ET010108,Shire Endaslasie town,Tigray,14.630753,38.286135,14.103155
+Injibara town,pcode_crosswalk,ET030996,Injibara town,Amhara,27.889247,36.925543,10.967736
+Inkolo Wabe,pcode_crosswalk,ET040824,Inkolo Wabe,Oromia,318.082568,39.447416,7.424470
+Itang,pcode_crosswalk,ET120407,Itang,Gambela,2198.876650,34.219567,8.346315
+Jabi Tehnan,pcode_crosswalk,ET030709,Jabi Tehnan,Amhara,1197.040391,37.276697,10.701864
+Jama,pcode_crosswalk,ET030414,Jama,Amhara,1048.922595,39.261076,10.407610
+Janamora,pcode_crosswalk,ET030103,Janamora,Amhara,1296.699233,38.215798,13.072349
+Jarso (East Hararghe),pcode_crosswalk,ET041002,Jarso (East Hararge),Oromia,566.759562,42.290646,9.554157
+Jarso (West Wellega),pcode_crosswalk,ET040108,Jarso (West Wellega),Oromia,469.640255,35.313670,9.441815
+Jarte Jardega,pcode_crosswalk,ET041908,Jarte Jardega,Oromia,768.905397,37.112577,9.903623
+Jawi,pcode_crosswalk,ET030906,Jawi,Amhara,3288.088475,36.406932,11.709260
+Jeju,pcode_crosswalk,ET040804,Jeju,Oromia,806.347581,39.657113,8.358573
+Jeldessa,pcode_crosswalk,ET150206,Jeldessa,Dire Dawa,339.936185,42.187222,9.690354
+Jeldu,pcode_crosswalk,ET040502,Jeldu,Oromia,749.007165,38.089596,9.304989
+Jibat,pcode_crosswalk,ET040518,Jibat,Oromia,483.381289,37.485374,8.714722
+Jida,pcode_crosswalk,ET040615,Jida,Oromia,487.381183,39.003101,9.399019
+Jigjiga town,pcode_crosswalk,ET050293,Jigjiga town,Somali,250.406609,42.813757,9.368066
+Jikawo,pcode_crosswalk,ET120103,Jikawo,Gambela,662.646142,33.631789,8.345929
+Jilye Tumuga,pcode_crosswalk,ET031003,Jilye Tumuga,Amhara,889.117812,40.051380,10.259992
+Jimma Arjo,pcode_crosswalk,ET040214,Jimma Arjo,Oromia,764.371879,36.547462,8.718401
+Jimma Genete,pcode_crosswalk,ET041906,Jimma Genete,Oromia,410.719743,37.141998,9.388077
+Jimma Horo,pcode_crosswalk,ET041810,Jimma Horo,Oromia,418.135971,34.758054,9.015020
+Jimma Rare,pcode_crosswalk,ET041907,Jimma Rare,Oromia,344.107345,37.340883,9.252165
+Jimma/Town/,pcode_crosswalk,ET040418,Jimma town,Oromia,91.592975,36.829636,7.664451
+Jinela,pcode_crosswalk,ET130103,Jinela,Harari,19.054491,42.088759,9.296922
+Jinka town,pcode_crosswalk,ET080506,Jinka town,South Ethiopia,8.885813,36.567812,5.782550
+Jore,pcode_crosswalk,ET120204,Jore,Gambela,3320.503978,33.739484,7.897086
+Kacha Bira,pcode_crosswalk,ET070304,Kacha Bira,Central Ethiopia,183.312842,37.776314,7.227405
+Kafta Humera,pcode_crosswalk,ET990103,Kafta Humera,Contested,5002.432392,37.021844,14.077125
+Kalu,pcode_crosswalk,ET030407,Kalu,Amhara,849.570964,39.835155,11.074407
+Kamashi,pcode_crosswalk,ET060403,Kamashi,Benishangul-Gumuz,1484.523114,35.910802,9.477261
+Karat Zuria,pcode_crosswalk,ET080902,Karat Zuria,South Ethiopia,953.274331,37.451781,5.367071
+Karat town,pcode_crosswalk,ET080903,Karat town,South Ethiopia,2.865515,37.441505,5.336495
+Kazira,pcode_crosswalk,ET150113,Kazira,Dire Dawa,12.815284,41.854633,9.636145
+Kebena,pcode_crosswalk,ET070001,Kebena Special,Central Ethiopia,235.983063,37.908698,8.322260
+Kebribeyah,pcode_crosswalk,ET050206,Kebribeyah,Somali,2832.905826,43.251965,9.097552
+Kebridehar,pcode_crosswalk,ET050502,Kebridehar,Somali,2342.516676,44.261822,6.731571
+Kebridehar town,pcode_crosswalk,ET050592,Kebridehar town,Somali,115.271119,44.276188,6.732745
+Kediada Gambela,pcode_crosswalk,ET070303,Kediada Gambela,Central Ethiopia,97.302835,37.902050,7.253503
+Kelafo,pcode_crosswalk,ET050605,Kelafo,Somali,5635.018770,44.151570,5.362365
+Kelela,pcode_crosswalk,ET030413,Kelela,Amhara,1426.856436,38.983877,10.540614
+Kelete Awelallo,pcode_crosswalk,ET010306,Kilte Awulaelo,Tigray,494.161618,39.531595,13.837278
+Kemba,pcode_crosswalk,ET080214,Kemba town,South Ethiopia,2.412835,37.172851,6.056360
+Kemba town,pcode_crosswalk,ET080214,Kemba town,South Ethiopia,2.412835,37.172851,6.056360
+Kemisie town,pcode_crosswalk,ET031006,Kemisie town,Amhara,3.753911,39.871846,10.718376
+Kena,pcode_crosswalk,ET080901,Kena,South Ethiopia,281.628309,37.348050,5.246724
+Kercha,pcode_crosswalk,ET041502,Kercha,Oromia,552.938177,38.435931,5.770245
+Kersa (East Hararge),pcode_crosswalk,ET041008,Kersa (East Hararge),Oromia,446.514329,41.799724,9.380661
+Kersa (Jimma),pcode_crosswalk,ET040405,Kersa (Jimma),Oromia,970.236279,37.032632,7.777591
+Kersana Malima,pcode_crosswalk,ET041307,Kersana Malima,Oromia,610.288355,38.518969,8.567653
+Kewet,pcode_crosswalk,ET030512,Kewet,Amhara,756.626120,39.906870,9.977585
+Kiltu Kara,pcode_crosswalk,ET040105,Kiltu Kara,Oromia,419.232665,35.278485,9.711631
+Kimbibit,pcode_crosswalk,ET040610,Kimbibit,Oromia,616.229298,39.229464,9.402421
+Kindo Daddaye,pcode_crosswalk,ET080110,Kindo Daddaye,South Ethiopia,271.679425,37.329171,6.780435
+Kindo Koyesha,pcode_crosswalk,ET080106,Kindo Koyesha,South Ethiopia,502.855790,37.516647,6.929382
+Kiremu,pcode_crosswalk,ET040217,Kiremu,Oromia,1060.150144,36.809540,10.059640
+Kirkos,pcode_crosswalk,ET140106,Kirkos Sub City,Addis Ababa,14.770971,38.759365,9.000037
+Kobo town,pcode_crosswalk,ET030399,Kobo town,Amhara,5.908738,39.633581,12.150882
+Kochere,pcode_crosswalk,ET081103,Kochere,South Ethiopia,153.877091,38.174251,6.029055
+Kofele,pcode_crosswalk,ET041704,Kofele,Oromia,649.440479,38.841782,7.017683
+Kohle /Qoxle,pcode_crosswalk,ET050898,Kohle /Qoxle,Somali,2821.705019,43.126113,5.309271
+Kokosa,pcode_crosswalk,ET041708,Kokosa,Oromia,633.247897,38.810374,6.791027
+Kola Temben,pcode_crosswalk,ET010208,Kola Tembien,Tigray,718.018066,38.773602,13.641186
+Kolfe Keraniyo,pcode_crosswalk,ET140103,Kolfe Keraniyo Sub City,Addis Ababa,51.120913,38.685207,8.993204
+Kombolcha,pcode_crosswalk,ET041001,Kombolcha,Oromia,311.577166,42.153364,9.472172
+Kombolcha town,pcode_crosswalk,ET030417,Kombolcha town,Amhara,132.239685,39.720999,11.095927
+Kore,pcode_crosswalk,ET041705,Kore,Oromia,502.213620,38.930258,7.225074
+Korem town,pcode_crosswalk,ET990303,Korem town,Contested,11.214910,39.516313,12.506544
+Kucha Alpha,pcode_crosswalk,ET080218,Kucha Alpha,South Ethiopia,401.266419,37.249776,6.587693
+Kumbi,pcode_crosswalk,ET041098,Kumbi,Oromia,3281.173042,41.709203,8.062067
+Kuni /Oda Bultum,pcode_crosswalk,ET040911,Kuni /Oda Bultum,Oromia,1373.563911,40.986763,8.683427
+Kunneba,pcode_crosswalk,ET020202,Kunneba,Afar,349.369009,39.897421,13.994795
+Kurfa Chele,pcode_crosswalk,ET041007,Kurfa Chele,Oromia,243.017430,41.872413,9.229680
+Kurmuk,pcode_crosswalk,ET060302,Kurmuk,Benishangul-Gumuz,1256.679652,34.459077,10.567869
+Kutaber,pcode_crosswalk,ET030403,Kutaber,Amhara,720.447940,39.460642,11.280494
+Kuyu,pcode_crosswalk,ET040604,Kuyu,Oromia,923.915595,38.302362,9.746393
+Laelay Maychew,pcode_crosswalk,ET010205,Laelay Maychew,Tigray,473.173707,38.733952,14.111917
+Lagahida,pcode_crosswalk,ET050407,Lagahida,Somali,562.988109,42.037194,7.427643
+Lalibela town,pcode_crosswalk,ET030398,Lalibela town,Amhara,7.823159,39.046434,12.028863
+Lalo Asabi,pcode_crosswalk,ET040104,Lalo Asabi,Oromia,378.506814,35.671316,9.205429
+Lalo Kile,pcode_crosswalk,ET041811,Lalo Kile,Oromia,473.299353,35.331189,8.862658
+Lanfero,pcode_crosswalk,ET072003,Lanfero,Central Ethiopia,229.527033,38.422560,7.847003
+Lare,pcode_crosswalk,ET120102,Lare,Gambela,568.373394,33.943770,8.341706
+Lasdhankayre,pcode_crosswalk,ET050596,Lasdhankayre,Somali,1551.818664,43.897423,6.570253
+Lasta,pcode_crosswalk,ET030310,Lasta,Amhara,1115.935952,39.047844,12.062906
+Lay Armacho,pcode_crosswalk,ET031108,Lay Armacho,Amhara,1059.351256,37.369456,12.765897
+Lay Gayint,pcode_crosswalk,ET030205,Lay Gayint,Amhara,1515.782874,38.434357,11.853895
+Legambo,pcode_crosswalk,ET030410,Legambo,Amhara,998.036688,39.162225,10.856245
+Lege Hida,pcode_crosswalk,ET042102,Lege Hida,Oromia,4777.453164,41.331595,7.793104
+Legehare,pcode_crosswalk,ET150105,Legehare,Dire Dawa,0.720995,41.877284,9.604855
+Legehida,pcode_crosswalk,ET030420,Legehida,Amhara,533.621180,39.258425,10.684580
+Leka Dulecha,pcode_crosswalk,ET040212,Leka Dulecha,Oromia,616.692970,36.464850,8.901913
+Lemmo,pcode_crosswalk,ET070203,Lemmo,Central Ethiopia,354.513686,37.860042,7.542560
+Liban Jawi,pcode_crosswalk,ET040597,Liban Jawi,Oromia,317.731657,37.520945,8.925337
+Liben,pcode_crosswalk,ET042202,Liben,Oromia,2645.120142,39.639778,5.281747
+Liben Chukala,pcode_crosswalk,ET040711,Liben Chukala,Oromia,704.497278,38.889019,8.504006
+Libokemekem,pcode_crosswalk,ET030202,Libokemekem,Amhara,1155.090083,37.749923,12.136019
+Lideta,pcode_crosswalk,ET140105,Lideta Sub City,Addis Ababa,15.020712,38.731465,9.002448
+Limu (OR),pcode_crosswalk,ET040201,Limu (OR),Oromia,1101.115277,36.461467,9.714585
+Limu Bilbilo,pcode_crosswalk,ET040818,Limu Bilbilo,Oromia,1150.459061,39.272151,7.426721
+Limu Kosa,pcode_crosswalk,ET040402,Limu Kosa,Oromia,1315.348838,36.956584,8.027738
+Limu Seka,pcode_crosswalk,ET040401,Limu Seka,Oromia,1677.074338,36.884031,8.400311
+Loka Abaya,pcode_crosswalk,ET160307,Loka Abaya,Sidama,848.010207,38.167558,6.645801
+Lome (Oromia),pcode_crosswalk,ET040704,Lome (OR),Oromia,637.348143,39.142995,8.616399
+Lome (SNNP),pcode_crosswalk,ET040704,Lome (OR),Oromia,637.348143,39.142995,8.616399
+Lude Hitosa,pcode_crosswalk,ET040821,Lude Hitosa,Oromia,541.739326,39.406355,8.096660
+Maichew town,pcode_crosswalk,ET010409,Maichew town,Tigray,16.208212,39.542275,12.785108
+Maji,pcode_crosswalk,ET110507,Maji,South West Ethiopia,4541.244617,35.698262,5.926704
+Makuey,pcode_crosswalk,ET120105,Makuey,Gambela,409.167115,33.712948,8.218705
+Malga,pcode_crosswalk,ET160203,Malga,Sidama,179.162090,38.642680,6.933788
+Malie,pcode_crosswalk,ET081204,Malie,South Ethiopia,1431.239865,36.880938,5.763219
+Malka Jabti /M.Jebdu),pcode_crosswalk,ET150104,Malka Jabti /M.Jebdu,Dire Dawa,22.002559,41.795171,9.628908
+Mana Sibu,pcode_crosswalk,ET040101,Mana Sibu,Oromia,1806.884830,35.027290,9.757417
+Mandura,pcode_crosswalk,ET060204,Mandura,Benishangul-Gumuz,1023.990267,36.279344,11.020435
+Maokomo Special,pcode_crosswalk,ET060508,Mao-komo Special,Benishangul-Gumuz,3181.421686,34.285650,9.356190
+Mareka,pcode_crosswalk,ET110402,Mareka,South West Ethiopia,182.584557,37.191722,7.042578
+Mareko,pcode_crosswalk,ET072501,Mareko Special,Central Ethiopia,300.454246,38.532494,7.994687
+Marsin,pcode_crosswalk,ET050586,Marsin,Somali,3344.999674,44.655484,7.364222
+Masha,pcode_crosswalk,ET110102,Masha,South West Ethiopia,1008.420294,35.340159,7.556295
+Masha Town,pcode_crosswalk,ET110105,Masha town,South West Ethiopia,1.003100,35.471995,7.736289
+Mecha,pcode_crosswalk,ET031304,Mecha,Amhara,546.509248,37.131499,11.462076
+Meda Welabu,pcode_crosswalk,ET042203,Meda Welabu,Oromia,7294.210327,40.151497,5.722550
+Megale,pcode_crosswalk,ET020204,Megale,Afar,1128.593771,39.964258,12.802910
+Mehal Sayint,pcode_crosswalk,ET030419,Mehal Sayint,Amhara,600.563722,38.642263,10.935686
+Mekdela,pcode_crosswalk,ET030421,Mekdela,Amhara,1492.564719,38.934099,11.242773
+Meket,pcode_crosswalk,ET030304,Meket,Amhara,1320.260073,38.734815,11.825924
+Meko,pcode_crosswalk,ET041618,Meko,Oromia,570.628545,35.995952,8.736738
+Melekoza,pcode_crosswalk,ET080306,Melekoza,South Ethiopia,941.466947,36.592605,6.478809
+Melka Balo,pcode_crosswalk,ET041012,Melka Balo,Oromia,1390.509850,41.327567,8.897365
+Melka Soda,pcode_crosswalk,ET041518,Melka Soda,Oromia,1600.726089,38.618464,5.412623
+Mena (Bale),pcode_crosswalk,ET041112,Mena (Bale),Oromia,4891.429660,40.047244,6.266531
+Mena (Jimma),pcode_crosswalk,ET040406,Mena (Jimma),Oromia,494.410396,36.760152,7.781041
+Menge,pcode_crosswalk,ET060301,Menge,Benishangul-Gumuz,1078.966503,34.842444,10.393483
+Mengesh,pcode_crosswalk,ET120308,Mengesh,Gambela,1672.151451,35.079825,7.437109
+Menit Goldiye,pcode_crosswalk,ET110502,Menit Goldiye,South West Ethiopia,1111.759768,35.957324,6.815073
+Menit Shasha,pcode_crosswalk,ET110504,Menit Shasha,South West Ethiopia,1585.765873,35.862813,6.464936
+Menze Gera Midir,pcode_crosswalk,ET030505,Menze Gera Midir,Amhara,1109.022262,39.637839,10.362839
+Menze Keya Gabriel,pcode_crosswalk,ET030521,Menze Keya Gabriel,Amhara,544.814603,39.367316,10.182152
+Menze Lalo Midir,pcode_crosswalk,ET030522,Menze Lalo Midir,Amhara,381.923303,39.514971,10.131752
+Menze Mama Midir,pcode_crosswalk,ET030509,Menze Mama Midir,Amhara,649.463222,39.648013,10.108808
+Merhabete,pcode_crosswalk,ET030502,Merhabete,Amhara,1045.210312,38.976368,10.050367
+Merti,pcode_crosswalk,ET040801,Merti,Oromia,872.192914,39.839484,8.529087
+Mesela,pcode_crosswalk,ET040904,Mesela /Shen Duggoo,Oromia,653.958210,41.178392,8.987303
+Meskan,pcode_crosswalk,ET070404,Meskan,Central Ethiopia,331.058868,38.358962,8.150568
+Meta,pcode_crosswalk,ET041009,Meta,Oromia,462.146014,41.609883,9.404069
+Meta Robi,pcode_crosswalk,ET040514,Meta Robi,Oromia,452.908379,38.234616,9.347245
+Metehara Town,pcode_crosswalk,ET040799,Metehara town,Oromia,5.696294,39.921198,8.898154
+Metema,pcode_crosswalk,ET031213,Metema,Amhara,5325.991194,36.400782,12.837920
+Metu Zuria,pcode_crosswalk,ET040310,Metu Zuria,Oromia,707.204516,35.408439,8.356460
+Metu town,pcode_crosswalk,ET040320,Metu town,Oromia,59.428067,35.579256,8.307011
+Meyu Muleke,pcode_crosswalk,ET041018,Meyu Muleke,Oromia,2654.810860,41.882623,8.502011
+Meyumuluka,pcode_crosswalk,ET050408,Meyumuluka,Somali,978.067797,42.059980,8.264999
+Michakel,pcode_crosswalk,ET030609,Michakel,Amhara,734.582118,37.542843,10.492746
+Mida Kegn,pcode_crosswalk,ET040504,Mida Kegn,Oromia,910.683097,37.569045,9.200746
+Mida Woremo,pcode_crosswalk,ET030501,Mida Woremo,Amhara,848.024762,39.008143,10.246408
+Midhaga Tola,pcode_crosswalk,ET041014,Midhaga Tola,Oromia,1550.616731,42.206087,8.758437
+Mierab Azenet Berbere,pcode_crosswalk,ET072004,Mierab Azenet Berbere,Central Ethiopia,153.168941,37.931879,7.767743
+Mieso,pcode_crosswalk,ET040901,Mieso,Oromia,1507.259542,40.685339,9.274721
+Miesso,pcode_crosswalk,ET050107,Miesso,Somali,561.508784,40.903654,9.466166
+Mile,pcode_crosswalk,ET020105,Mile,Afar,2221.207020,40.729929,11.491885
+Minjar Shenkora,pcode_crosswalk,ET030518,Minjar Shenkora,Amhara,1724.384795,39.497258,8.918154
+Mirab Abaya,pcode_crosswalk,ET080219,Mirab Abaya,South Ethiopia,798.101654,37.735096,6.317980
+Mirab Armacho,pcode_crosswalk,ET031206,Mirab Armacho,Amhara,1488.777617,36.519447,13.330128
+Mirab Badowach,pcode_crosswalk,ET070209,Mirab Badowach,Central Ethiopia,150.518250,37.831852,7.147443
+Misha,pcode_crosswalk,ET070201,Misha,Central Ethiopia,175.045805,37.812515,7.675877
+Misrak Azenet Berbere,pcode_crosswalk,ET072007,Misrak Azenet Berbere,Central Ethiopia,167.980624,38.023779,7.799774
+Misrak Badawacho,pcode_crosswalk,ET070205,Misrak Badawacho,Central Ethiopia,239.178612,38.000535,7.172883
+Miyo,pcode_crosswalk,ET041216,Miyo,Oromia,2573.614123,38.564040,3.843026
+Mizan Aman Town,pcode_crosswalk,ET110307,Mizan Aman town,South West Ethiopia,24.379574,35.561519,6.969527
+Mizyiga,pcode_crosswalk,ET060405,Mezniga,Benishangul-Gumuz,1683.608946,36.200439,9.367467
+Mojan Wedera,pcode_crosswalk,ET030511,Mojan Wedera,Amhara,618.653001,39.529702,9.928199
+Moretna Jiru,pcode_crosswalk,ET030504,Moretna Jiru,Amhara,660.891770,39.154498,9.942905
+Mota Town,pcode_crosswalk,ET030694,Mota town,Amhara,6.595652,37.877003,11.081258
+Moyale (OR),pcode_crosswalk,ET041210,Moyale (OR),Oromia,1722.827867,39.083177,3.684857
+Moyale (SM),pcode_crosswalk,ET051103,Moyale (SM),Somali,1399.916465,39.475263,3.825708
+Mubarek,pcode_crosswalk,ET051187,Mubarek,Somali,7424.413850,40.217398,4.393915
+Muhur Na Aklil,pcode_crosswalk,ET070112,Muhur Na Aklil,Central Ethiopia,473.174170,38.094131,8.217581
+Mulo,pcode_crosswalk,ET040622,Mulo,Oromia,343.823033,38.574154,9.285948
+Munessa,pcode_crosswalk,ET040817,Munessa,Oromia,1083.334156,38.982671,7.524955
+Mustahil,pcode_crosswalk,ET050606,Mustahil,Somali,2955.923139,44.650812,5.197870
+Negele /Town/,pcode_crosswalk,ET042201,Negele town,Oromia,8.930036,39.583781,5.338013
+Nejo,pcode_crosswalk,ET040102,Nejo,Oromia,645.350180,35.517467,9.540141
+Nejo Town,pcode_crosswalk,ET040199,Nejo town,Oromia,26.962371,35.505671,9.502251
+Nekemte town,pcode_crosswalk,ET040297,Nekemte town,Oromia,81.900283,36.544585,9.075897
+Nenesebo,pcode_crosswalk,ET041709,Nenesebo,Oromia,1638.621051,39.205759,6.582820
+Nifas Silk Lafto,pcode_crosswalk,ET140102,Nifas Silk Lafto Sub City,Addis Ababa,51.308290,38.730573,8.947447
+Nole Kaba,pcode_crosswalk,ET040115,Nole Kaba,Oromia,631.312452,35.785099,8.804742
+Nono,pcode_crosswalk,ET040508,Nono,Oromia,693.535907,37.438831,8.522127
+Nono Benja,pcode_crosswalk,ET040499,Nono Benja,Oromia,828.639103,37.088892,8.667847
+North Ari,pcode_crosswalk,ET080508,North Ari,South Ethiopia,279.396266,36.649900,6.175383
+Nunu Kumba,pcode_crosswalk,ET040215,Nunu Kumba,Oromia,604.443544,36.720027,8.712923
+Nyngatom,pcode_crosswalk,ET081205,Nyngatom,South Ethiopia,2807.671867,35.973667,5.240837
+Odo Shakiso,pcode_crosswalk,ET041405,Odo Shakiso,Oromia,1254.841353,38.817764,5.760516
+Ofa,pcode_crosswalk,ET080107,Ofa,South Ethiopia,310.505154,37.545044,6.707174
+Ofla,pcode_crosswalk,ET990302,Ofla,Contested,778.977772,39.417294,12.552060
+Omo Nada,pcode_crosswalk,ET040411,Omo Nada,Oromia,781.413981,37.201621,7.636794
+Pawe,pcode_crosswalk,ET060206,Pawe,Benishangul-Gumuz,653.886111,36.409249,11.297685
+Police Maret,pcode_crosswalk,ET150114,Police Maret,Dire Dawa,8.893232,41.867750,9.639115
+Qada Duma,pcode_crosswalk,ET051198,Qada Duma,Somali,2172.271950,39.630756,3.751861
+Quara,pcode_crosswalk,ET031214,Quara,Amhara,8441.307234,35.860825,12.208402
+Quarit,pcode_crosswalk,ET030706,Quarit,Amhara,603.035533,37.441964,10.975150
+Qubi,pcode_crosswalk,ET050497,Qubi,Somali,562.961916,41.969878,7.721519
+Raya Alamata,pcode_crosswalk,ET990301,Raya Alamata,Contested,770.776091,39.511869,12.386882
+Raya Azebo,pcode_crosswalk,ET010406,Raya Azebo,Tigray,1017.189005,39.738642,12.779584
+Raya Kobo,pcode_crosswalk,ET030302,Raya Kobo,Amhara,1922.358944,39.641684,12.106252
+Rayitu,pcode_crosswalk,ET042104,Rayitu,Oromia,5183.394381,41.462596,6.799941
+Robe,pcode_crosswalk,ET040812,Robe,Oromia,1339.305471,39.800982,7.691060
+Robe Town,pcode_crosswalk,ET041119,Robe town,Oromia,54.935123,40.024738,7.125472
+Saba Boru,pcode_crosswalk,ET041412,Saba Boru,Oromia,2263.895145,39.059246,5.394516
+Sabian,pcode_crosswalk,ET150103,Sabian,Dire Dawa,19.726741,41.834892,9.626899
+Saesie,pcode_crosswalk,ET010303,Sebuha Saesie,Tigray,606.298510,39.628033,14.266332
+Sagag,pcode_crosswalk,ET051005,Sagag,Somali,2550.760390,42.908505,7.632200
+Saharti,pcode_crosswalk,ET010601,Saharti,Tigray,627.446262,39.169058,13.377566
+Sahila,pcode_crosswalk,ET030806,Sahila,Amhara,1145.213177,38.497710,12.935972
+Salamago,pcode_crosswalk,ET081206,Salamago,South Ethiopia,4571.868854,36.165150,5.951219
+Sale Nono,pcode_crosswalk,ET040313,Sale Nono,Oromia,1708.372371,35.188423,7.888761
+Samera Logiya town,pcode_crosswalk,ET020198,Samera Logiya town,Afar,75.806451,40.974978,11.756001
+Samurobi,pcode_crosswalk,ET020502,Samurobi,Afar,1444.974371,40.144813,9.873901
+Sankura,pcode_crosswalk,ET072006,Sankura,Central Ethiopia,277.183993,38.168699,7.547001
+Sasiga,pcode_crosswalk,ET040211,Sasiga,Oromia,783.298140,36.381752,9.228211
+Sawla Town,pcode_crosswalk,ET080309,Sawla town,South Ethiopia,16.729192,36.890876,6.294146
+Sayint,pcode_crosswalk,ET030411,Sayint,Amhara,1438.419960,38.775172,11.069037
+Sayo,pcode_crosswalk,ET041805,Sayo,Oromia,1123.114679,34.826792,8.466296
+Sayo Nole,pcode_crosswalk,ET040118,Sayo Nole,Oromia,613.166641,35.581544,8.838757
+Sebeta /Town/,pcode_crosswalk,ET042011,Sebeta,Oromia,215.176674,38.579725,8.900098
+Sebeta Hawas,pcode_crosswalk,ET041306,Sebeta Hawas,Oromia,475.498522,38.582978,8.752420
+Sedal,pcode_crosswalk,ET060402,Sedal,Benishangul-Gumuz,2455.769409,35.199281,10.562079
+Seden Sodo,pcode_crosswalk,ET041310,Seden Sodo,Oromia,559.722055,38.290671,8.426409
+Segen Zuria,pcode_crosswalk,ET080904,Segen Zuria,South Ethiopia,374.636743,37.559067,5.495851
+Seka Chekorsa,pcode_crosswalk,ET040409,Seka Chekorsa,Oromia,824.335477,36.651422,7.567556
+Sekela,pcode_crosswalk,ET030705,Sekela,Amhara,765.928479,37.208918,11.000838
+Sekoru,pcode_crosswalk,ET040403,Sekoru,Oromia,923.732702,37.462861,8.011367
+Sekota,pcode_crosswalk,ET030802,Sekota,Amhara,1249.631981,39.016541,12.636642
+Sekota town,pcode_crosswalk,ET030807,Sekota town,Amhara,100.911826,39.036284,12.618412
+Selamber town,pcode_crosswalk,ET080220,Selamber town,South Ethiopia,3.427805,37.457783,6.473792
+Semada,pcode_crosswalk,ET030207,Semada,Amhara,1335.036323,38.302851,11.295711
+Semen Achefer,pcode_crosswalk,ET031301,Semen Achefer,Amhara,1252.399895,36.965129,11.720145
+Semen Bench,pcode_crosswalk,ET110305,Semen Bench,South West Ethiopia,269.444784,35.641175,7.033444
+Senan,pcode_crosswalk,ET030616,Senan,Amhara,436.603832,37.768936,10.545841
+Sendafa town,pcode_crosswalk,ET040623,Sendafa town,Oromia,143.447581,39.019924,9.159053
+Seru,pcode_crosswalk,ET040811,Seru,Oromia,1763.714545,40.346361,7.723863
+Setema,pcode_crosswalk,ET040413,Setema,Oromia,1031.943621,36.215123,8.064109
+Setit Humera,pcode_crosswalk,ET990101,Setit Humera town,Contested,103.847826,36.610911,14.249267
+Seweyna,pcode_crosswalk,ET042105,Seweyna,Oromia,9055.491227,41.481001,7.258987
+Shabeeley,pcode_crosswalk,ET050204,Shabeeley,Somali,1621.484028,42.817327,9.133547
+Shakiso town,pcode_crosswalk,ET041499,Shakiso town,Oromia,15.599568,38.910752,5.772252
+Shala,pcode_crosswalk,ET041702,Shala,Oromia,769.899991,38.398486,7.351280
+Shambu town,pcode_crosswalk,ET041902,Shambu town,Oromia,5.131269,37.103409,9.568029
+Shashemene Zuria,pcode_crosswalk,ET041712,Shashemene,Oromia,379.936775,38.609167,7.219480
+Shashemene town,pcode_crosswalk,ET041711,Shashemene town,Oromia,473.249753,38.544404,7.185289
+Shashogo,pcode_crosswalk,ET070204,Shashogo,Central Ethiopia,355.808842,38.034424,7.500480
+Shay Bench,pcode_crosswalk,ET110304,Shay Bench,South West Ethiopia,553.640416,35.751477,6.902782
+Shaygosh,pcode_crosswalk,ET050501,Shaygosh,Somali,1731.616896,44.053950,7.363827
+Shebe Dino,pcode_crosswalk,ET160207,Shebe Dino,Sidama,165.631442,38.451887,6.860330
+Shebe Sambo,pcode_crosswalk,ET040414,Shebe Sambo,Oromia,812.807207,36.462253,7.518044
+Shebel Bernta,pcode_crosswalk,ET030614,Shebel Bernta,Amhara,900.437099,38.372339,10.346465
+Shenkor,pcode_crosswalk,ET130102,Shenkor,Harari,27.139109,42.148626,9.344331
+Sheraro town,pcode_crosswalk,ET010107,Sheraro town,Tigray,72.347914,37.784273,14.407949
+Sherkole,pcode_crosswalk,ET060304,Sherkole,Benishangul-Gumuz,1860.219184,34.829160,10.674972
+Shilabo,pcode_crosswalk,ET050503,Shilabo,Somali,11448.496379,45.217662,5.955740
+Shinile,pcode_crosswalk,ET050103,Shinile,Somali,3577.040945,41.882140,9.934520
+Shirka,pcode_crosswalk,ET040814,Shirka,Oromia,1167.520852,39.577449,7.570988
+Shoa Robit,pcode_crosswalk,ET030595,Shoa Robit,Amhara,9.930578,39.905959,10.006861
+Sibu Sire,pcode_crosswalk,ET040209,Sibu Sire,Oromia,1047.631074,36.810672,9.155345
+Sigmo,pcode_crosswalk,ET040412,Sigmo,Oromia,995.003305,36.019245,7.923319
+Siltie,pcode_crosswalk,ET072002,Siltie,Central Ethiopia,337.111767,38.316495,7.975436
+Sinana,pcode_crosswalk,ET041109,Sinana,Oromia,1033.270511,40.134516,7.128550
+Siraro,pcode_crosswalk,ET041701,Siraro,Oromia,631.366782,38.189632,7.128692
+Sire,pcode_crosswalk,ET040820,Sire,Oromia,528.559889,39.502299,8.297879
+Siya Debirna Wayu,pcode_crosswalk,ET030523,Siya Debirna Wayu,Amhara,463.718762,39.211404,9.784590
+Sodo,pcode_crosswalk,ET070403,Sodo,Central Ethiopia,553.542287,38.581046,8.314742
+Sodo Daci,pcode_crosswalk,ET041314,Sodo Daci,Oromia,429.698519,38.650857,8.478809
+Sodo Town,pcode_crosswalk,ET080113,Sodo town,South Ethiopia,25.624979,37.758645,6.856508
+Sodo Zuria,pcode_crosswalk,ET080105,Sodo Zuria,South Ethiopia,366.315398,37.739490,6.835986
+Sofi,pcode_crosswalk,ET130101,Sofi,Harari,131.455364,42.191380,9.243655
+Soro,pcode_crosswalk,ET070206,Soro,Central Ethiopia,499.340197,37.589264,7.463778
+South Ari,pcode_crosswalk,ET080511,South Ari,South Ethiopia,1637.964333,36.487690,5.901098
+Sude,pcode_crosswalk,ET040808,Sude,Oromia,1168.113936,39.810354,8.011311
+Sululta,pcode_crosswalk,ET042012,Sululta,Oromia,148.087819,38.766621,9.169156
+Sululta Town,pcode_crosswalk,ET042012,Sululta,Oromia,148.087819,38.766621,9.169156
+Surma,pcode_crosswalk,ET110506,Surma,South West Ethiopia,4960.852134,35.259590,5.900909
+Suro Berguda,pcode_crosswalk,ET041594,Suro Berguda,Oromia,784.780311,38.053614,5.555357
+Tach Armacho,pcode_crosswalk,ET031120,Tach Armacho,Amhara,1342.411125,37.238415,13.052718
+Tach Gayint,pcode_crosswalk,ET030206,Tach Gayint,Amhara,825.915756,38.561666,11.563941
+Tahtay Adiyabo,pcode_crosswalk,ET010101,Tahtay Adiyabo,Tigray,2909.334315,37.718802,14.396392
+Tahtay Koraro,pcode_crosswalk,ET010104,Tahtay Koraro,Tigray,822.569744,38.330034,14.170252
+Tahtay Mayechew,pcode_crosswalk,ET010206,Tahtay Maychew,Tigray,333.037757,38.569720,14.073796
+Takusa,pcode_crosswalk,ET031121,Takusa,Amhara,2178.041492,36.805267,12.222337
+Tarema Ber,pcode_crosswalk,ET030510,Tarema Ber,Amhara,560.646452,39.820054,9.865344
+Tegede,pcode_crosswalk,ET031107,Tegede,Amhara,1879.397181,37.051514,13.295643
+Telalek,pcode_crosswalk,ET020501,Telalek,Afar,1104.959553,40.315407,10.975431
+Telemt,pcode_crosswalk,ET030119,Telemt,Amhara,776.056008,38.449443,13.439099
+Teltale,pcode_crosswalk,ET041212,Teltale,Oromia,7817.541842,37.176712,4.700140
+Tembaro,pcode_crosswalk,ET072601,Tembaro Special,Central Ethiopia,339.645453,37.489606,7.272687
+Tena,pcode_crosswalk,ET040813,Tena,Oromia,448.760143,39.504593,7.791012
+Tenta,pcode_crosswalk,ET030402,Tenta,Amhara,1317.373950,39.226030,11.224608
+Tepi Town,pcode_crosswalk,ET110104,Tepi,South West Ethiopia,13.711440,35.420622,7.195596
+Tercha Town,pcode_crosswalk,ET110411,Tercha town,South West Ethiopia,5.066498,37.169264,7.150557
+Teru,pcode_crosswalk,ET020403,Teru,Afar,3015.221055,40.291515,12.479731
+Thehulederie,pcode_crosswalk,ET030405,Thehulederie,Amhara,441.966289,39.693872,11.325056
+Tikur Enchini,pcode_crosswalk,ET040509,Tikur Enchini,Oromia,437.561153,37.644452,8.792853
+Tiro Afeta,pcode_crosswalk,ET040404,Tiro Afeta,Oromia,743.739548,37.253706,7.960155
+Tiyo,pcode_crosswalk,ET040816,Tiyo,Oromia,605.008024,39.126893,7.890429
+Tocha,pcode_crosswalk,ET110401,Tocha,South West Ethiopia,529.155852,36.992521,7.147598
+Toke Kutaye,pcode_crosswalk,ET040517,Toke Kutaye,Oromia,550.161773,37.716950,8.950970
+Tole,pcode_crosswalk,ET041308,Tole,Oromia,420.967623,38.392044,8.620898
+Tsegede (TG),pcode_crosswalk,ET990105,Tsegede,Contested,2184.610534,37.222795,13.472670
+Tuliguled,pcode_crosswalk,ET050283,Tuliguled,Somali,428.260491,42.765316,9.467193
+Tulo (OR),pcode_crosswalk,ET040903,Tulo (OR),Oromia,429.740984,41.122819,9.177194
+Tulo (SNNP),pcode_crosswalk,ET040903,Tulo (OR),Oromia,429.740984,41.122819,9.177194
+Uraga,pcode_crosswalk,ET041401,Uraga,Oromia,612.655885,38.622491,6.058415
+Wadera,pcode_crosswalk,ET041404,Wadera,Oromia,953.359765,39.287114,5.845619
+Wadla,pcode_crosswalk,ET030305,Wadla,Amhara,826.580176,39.017227,11.661050
+Wahil,pcode_crosswalk,ET150207,Wahil,Dire Dawa,183.167584,41.861306,9.520370
+Waliso,pcode_crosswalk,ET041303,Waliso,Oromia,728.122574,38.040615,8.548209
+Wama Hagalo,pcode_crosswalk,ET040216,Wama Hagalo,Oromia,620.668796,36.892095,8.797007
+Wantawo,pcode_crosswalk,ET120104,Wantawo,Gambela,941.649464,33.319394,8.319333
+Wara Jarso,pcode_crosswalk,ET040601,Wara Jarso,Oromia,1175.172219,38.218071,9.954232
+Warder,pcode_crosswalk,ET050704,Warder,Somali,10860.982381,45.557117,6.766522
+Wayu Tuka,pcode_crosswalk,ET040206,Wayu Tuka,Oromia,397.579632,36.685372,9.025711
+Wegde,pcode_crosswalk,ET030416,Wegde,Amhara,1120.529069,38.680077,10.533984
+Wegera,pcode_crosswalk,ET031109,Wegera,Amhara,1230.264305,37.675980,12.781798
+Welkait,pcode_crosswalk,ET990104,Welkait,Contested,2459.832310,37.458698,13.773804
+Welkite town,pcode_crosswalk,ET070114,Welkite town,Central Ethiopia,10.299545,37.779764,8.286035
+Welmera,pcode_crosswalk,ET040520,Welmera,Oromia,437.270577,38.495725,9.059783
+Wembera,pcode_crosswalk,ET060203,Wembera,Benishangul-Gumuz,7154.637930,35.552061,10.605716
+Wemberma,pcode_crosswalk,ET030711,Wemberma,Amhara,1377.036284,36.799227,10.488768
+Wenago,pcode_crosswalk,ET081101,Wenago,South Ethiopia,136.242022,38.258113,6.288214
+Wenchi,pcode_crosswalk,ET041302,Wenchi,Oromia,465.644403,37.888055,8.671637
+Were Ilu,pcode_crosswalk,ET030415,Were Ilu,Amhara,737.765809,39.454242,10.696010
+West Belesa,pcode_crosswalk,ET031116,West Belesa,Amhara,1258.305056,37.847349,12.494307
+West Imi,pcode_crosswalk,ET050805,West Imi,Somali,3932.388848,42.285971,6.240246
+Woldiya town,pcode_crosswalk,ET030309,Woldiya town,Amhara,78.911399,39.594160,11.823346
+Woliso town,pcode_crosswalk,ET041311,Woliso town,Oromia,25.260349,37.977885,8.541890
+Wondo,pcode_crosswalk,ET041797,Wondo,Oromia,39.768124,38.672833,7.079409
+Wondo-Genet,pcode_crosswalk,ET160202,Wondo-Genet,Sidama,205.054570,38.602938,7.035705
+Wonosho,pcode_crosswalk,ET160303,Wonosho,Sidama,143.816125,38.523499,6.746788
+Worabe Town,pcode_crosswalk,ET072010,Worabe town,Central Ethiopia,126.267772,38.198727,7.855097
+Worebabu,pcode_crosswalk,ET030422,Worebabu,Amhara,751.006927,39.894115,11.447225
+Woreta town,pcode_crosswalk,ET030293,Woreta town,Amhara,5.841160,37.698664,11.923283
+Wuchale,pcode_crosswalk,ET040608,Wuchale,Oromia,893.816625,38.915038,9.581703
+Wukro town,pcode_crosswalk,ET010309,Wukro town,Tigray,20.397876,39.590981,13.781024
+Wulbareg,pcode_crosswalk,ET072008,Wulbareg,Central Ethiopia,397.995286,38.127843,7.733604
+Yabelo,pcode_crosswalk,ET041207,Yabelo,Oromia,2661.269537,38.197933,4.829932
+Yalo,pcode_crosswalk,ET020404,Yalo,Afar,764.175252,39.941621,12.424243
+Yama Logi Welel,pcode_crosswalk,ET041802,Yama Logi Welel,Oromia,566.708280,34.858615,8.807094
+Yaya Gulele,pcode_crosswalk,ET040614,Yaya Gulele,Oromia,340.826877,38.621801,9.593006
+Yayu,pcode_crosswalk,ET040309,Yayu,Oromia,807.889347,35.939438,8.272425
+Yeka,pcode_crosswalk,ET140107,Yeka Sub City,Addis Ababa,58.353546,38.809593,9.048899
+Yeki,pcode_crosswalk,ET110103,Yeki,South West Ethiopia,562.292837,35.473725,7.249201
+Yilmana Densa,pcode_crosswalk,ET031303,Yilmana Densa,Amhara,922.781593,37.492034,11.262336
+Yirgachefe,pcode_crosswalk,ET081102,Yirgachefe,South Ethiopia,245.478147,38.192973,6.162840
+Yirgachefe Town,pcode_crosswalk,ET081111,Yirgachefe town,South Ethiopia,2.205947,38.203508,6.158913
+Yirgalem Town Adm.,pcode_crosswalk,ET160304,Yirgalem town,Sidama,13.673183,38.397374,6.744653
+Yubdo,pcode_crosswalk,ET040112,Yubdo,Oromia,307.946550,35.457587,8.973537
+Zana,pcode_crosswalk,ET010103,Zana,Tigray,571.105540,38.438099,13.869437
+Zayi,pcode_crosswalk,ET060401,Zayi,Benishangul-Gumuz,2628.489372,36.137676,10.004544
+Zequala,pcode_crosswalk,ET030801,Zequala,Amhara,1727.453607,38.706170,12.807135
+Zigem,pcode_crosswalk,ET030997,Zigem town,Amhara,2.796361,36.492453,10.712034
+Ziway Dugda,pcode_crosswalk,ET040806,Ziway Dugda,Oromia,1012.083348,38.975184,8.009156
