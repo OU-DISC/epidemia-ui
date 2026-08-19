@@ -16,6 +16,8 @@
   --dash-panel-gap: 12px;
   --dash-viewport-chrome: 450px;
   --dash-chart-height: clamp(150px, calc((100vh - var(--dash-viewport-chrome)) / 2), 320px);
+  --dash-evidence-viewport-chrome: 360px;
+  --dash-evidence-chart-height: clamp(170px, calc((100vh - var(--dash-evidence-viewport-chrome)) / 2), 380px);
   --dash-map-min-height: 0;
   --dash-compare-min-height: 345px;
 }
@@ -1786,9 +1788,137 @@ body {
 .side-panel-body.charts-view {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   min-height: 0;
   overflow: auto;
+  --dash-chart-height: var(--dash-evidence-chart-height);
+}
+
+/* Evidence tab: tighter chrome so forecast/env plots get more height */
+.insights-panel--evidence {
+  padding: 8px;
+}
+
+.insights-panel--evidence .panel-header {
+  margin-bottom: 4px;
+}
+
+.insights-panel--evidence .panel-header h3 {
+  font-size: 0.86rem;
+}
+
+.insights-panel--evidence .panel-header-meta {
+  font-size: 0.72rem;
+}
+
+.insights-panel--evidence .workflow-breadcrumb {
+  display: none;
+}
+
+.insights-panel--evidence .side-panel-tabs {
+  margin-bottom: 6px;
+  padding: 2px;
+  gap: 4px;
+}
+
+.insights-panel--evidence .side-panel-tab {
+  padding: 4px 4px;
+  font-size: 0.74rem;
+}
+
+.insights-panel--evidence .regional-alert-panel {
+  gap: 2px;
+  padding: 0 0 2px;
+}
+
+.insights-panel--evidence .regional-alert-panel-header {
+  gap: 4px 8px;
+}
+
+.insights-panel--evidence .regional-alert-panel-title {
+  font-size: 0.78rem;
+}
+
+.insights-panel--evidence .regional-alert-inline-legend {
+  font-size: 0.66rem;
+  gap: 6px;
+}
+
+.insights-panel--evidence .regional-alert-panel-empty {
+  padding: 4px 0 2px;
+  font-size: 0.74rem;
+}
+
+.insights-panel--evidence .forecast-panel {
+  margin-top: 2px;
+}
+
+.insights-panel--evidence .forecast-panel-header {
+  margin-bottom: 2px;
+}
+
+.insights-panel--evidence .forecast-panel-title {
+  font-size: 0.74rem;
+}
+
+.insights-panel--evidence .forecast-panel-title .seasonal-context-ring {
+  width: 28px;
+  height: 28px;
+}
+
+.insights-panel--evidence .forecast-panel-horizon-control,
+.insights-panel--evidence .forecast-panel-value-mode-control {
+  font-size: 0.68rem;
+}
+
+.insights-panel--evidence .forecast-panel-horizon-control .toolbar-select,
+.insights-panel--evidence .forecast-panel-value-mode-control .toolbar-select,
+.insights-panel--evidence .forecast-panel-refresh-btn {
+  padding: 2px 4px;
+  font-size: 0.68rem;
+}
+
+.insights-panel--evidence .forecast-panel-horizon-control .situation-stat--compact .situation-stat-ring {
+  width: 24px;
+  height: 24px;
+}
+
+.insights-panel--evidence .forecast-panel-loading-note {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+}
+
+.insights-panel--evidence .env-chart-panel {
+  gap: 2px;
+}
+
+.insights-panel--evidence .env-chart-panel-header {
+  gap: 4px 8px;
+  padding: 0;
+}
+
+.insights-panel--evidence .env-chart-panel-title {
+  font-size: 0.78rem;
+}
+
+.insights-panel--evidence .env-chart-dataset-control {
+  gap: 4px;
+  font-size: 0.68rem;
+}
+
+.insights-panel--evidence .env-chart-dataset-control .toolbar-field-label {
+  font-size: 0.68rem;
+}
+
+.insights-panel--evidence .env-chart-dataset-control .toolbar-select {
+  min-width: 132px;
+  padding: 2px 5px;
+  font-size: 0.68rem;
+}
+
+.insights-panel--evidence .chart-state {
+  font-size: 0.74rem;
+  padding: 4px 0;
 }
 
 .side-panel-body.about-view {
@@ -2498,6 +2628,25 @@ body {
   background: rgba(220, 38, 38, 0.08);
   border-color: rgba(220, 38, 38, 0.25);
   color: #b91c1c;
+}
+
+.map-panel-skeleton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 23, 42, 0.04) 25%,
+    rgba(15, 23, 42, 0.08) 50%,
+    rgba(15, 23, 42, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: situation-skeleton-shimmer 1.2s ease-in-out infinite;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .current-situation-visuals--loading {
@@ -3685,6 +3834,18 @@ body {
   .dashboard-shell:not(.dashboard-shell--compact) .district-map {
     flex: 1;
     min-height: 0;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .insights-panel--evidence .panel-header {
+    margin-bottom: 3px;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .insights-panel--evidence .panel-header h3 {
+    font-size: 0.82rem;
+  }
+
+  .dashboard-shell:not(.dashboard-shell--compact) .insights-panel--evidence .side-panel-tabs {
+    margin-bottom: 4px;
   }
 
   .dashboard-shell:not(.dashboard-shell--compact) .panel-header {

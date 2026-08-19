@@ -1,7 +1,6 @@
 // Dashboard.jsx
 import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import TopToolbar from "./TopToolbar";
-import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import AlertStatusIcons from "../AlertStatusIcons";
 import ComparisonPriorityPanel from "../ComparisonPriorityPanel";
@@ -28,11 +27,13 @@ import {
   isEnvMapSurfaceLayer,
 } from "../MapSurfaceLayerPicker";
 import {
+  bootstrapCacheKey,
   fetchDistrictForecastDetail,
   fetchEpidemiaCacheStatus,
   fetchLatestEpidemiaReport,
   fetchMapEpidemiaReport,
   formatForecastApiError,
+  readBootstrapCache,
   runEpidemiaPipeline,
   waitForPipelineIdle,
 } from "../../api";
@@ -105,6 +106,7 @@ const ForecastChart = lazy(() => import("../ForecastChart"));
 const MultiDistrictComparisonChart = lazy(() => import("../MultiDistrictComparisonChart"));
 const RegionalAlertSummaryChart = lazy(() => import("../RegionalAlertSummaryChart"));
 const DecisionPanel = lazy(() => import("../DecisionPanel"));
+const EthiopiaMap = lazy(() => import("../EthiopiaMap"));
 
 /** District choropleth fetch (Earth Engine). Set to true to show the panel again. */
 const SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL = false;
@@ -640,6 +642,13 @@ function Dashboard({
   const loadMapEpidemia = useCallback(async () => {
     const requestId = mapRequestIdRef.current + 1;
     mapRequestIdRef.current = requestId;
+
+    const cached = await readBootstrapCache(bootstrapCacheKey("map", forecastWeeks));
+    if (cached && mapRequestIdRef.current === requestId) {
+      setEpidemiaData((current) => mergeForecastBootstrap(current, cached));
+      setEpidemiaError("");
+    }
+
     try {
       const data = await fetchMapEpidemiaReport({
         outputDir: projectOutputDir,
@@ -651,7 +660,7 @@ function Dashboard({
       }
     } catch (err) {
       console.error("Failed to load map EPIDEMIA report:", err);
-      if (mapRequestIdRef.current === requestId) {
+      if (mapRequestIdRef.current === requestId && !cached) {
         setEpidemiaError(formatForecastApiError(err, "load map forecast report"));
       }
     }
@@ -675,7 +684,19 @@ function Dashboard({
   const loadForecastBootstrap = useCallback(async () => {
     const requestId = forecastRequestIdRef.current + 1;
     forecastRequestIdRef.current = requestId;
-    setEpidemiaLoading(true);
+
+    const cached = await readBootstrapCache(bootstrapCacheKey("bootstrap", forecastWeeks));
+    if (cached && forecastRequestIdRef.current === requestId) {
+      setEpidemiaData((current) => ({
+        ...(current || {}),
+        ...cached,
+        forecasts: cached.forecasts || [],
+        alerts: cached.alerts || [],
+      }));
+      setForecastBootstrapReady(true);
+    }
+
+    setEpidemiaLoading(!cached);
     setEpidemiaError("");
     try {
       const data = await fetchLatestEpidemiaReport({
@@ -694,8 +715,9 @@ function Dashboard({
     } catch (err) {
       console.error("Failed to load latest EPIDEMIA report:", err);
       if (forecastRequestIdRef.current === requestId) {
-        setEpidemiaError(formatForecastApiError(err, "load latest forecast report"));
-        // Allow date hydration from whatever forecast rows we already have.
+        if (!cached) {
+          setEpidemiaError(formatForecastApiError(err, "load latest forecast report"));
+        }
         setForecastBootstrapReady(true);
       }
     } finally {
@@ -818,9 +840,11 @@ function Dashboard({
     }
 
     let cancelled = false;
-    loadMapEpidemia();
-    runAfterFirstPaint(() => {
-      if (!cancelled) loadForecastBootstrap();
+    loadMapEpidemia().finally(() => {
+      if (cancelled) return;
+      return runAfterFirstPaint(() => {
+        if (!cancelled) loadForecastBootstrap();
+      });
     });
 
     return () => {
@@ -829,6 +853,8 @@ function Dashboard({
   }, [loadForecastBootstrap, loadMapEpidemia]);
 
   useEffect(() => {
+    if (!forecastBootstrapReady) return undefined;
+
     let cancelled = false;
     const loadPopulationSurface = async () => {
       try {
@@ -859,9 +885,11 @@ function Dashboard({
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [forecastBootstrapReady]);
 
   useEffect(() => {
+    if (!forecastBootstrapReady) return undefined;
+
     let cancelled = false;
     const loadWoredaPcodeCrosswalk = async () => {
       try {
@@ -882,7 +910,7 @@ function Dashboard({
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [forecastBootstrapReady]);
 
   // Extract unique regions from geoData when it loads
   React.useEffect(() => {
@@ -2256,35 +2284,37 @@ function Dashboard({
               </div>
             </div>
 
-            <EthiopiaMap
-              onSelectRegion={handleMapDistrictSelect}
-              startDate={startDate}
-              endDate={endDate}
-              dataset={mapDataset}
-              envData={mapEnvData}
-              populationYear={populationYear}
-              setGeoData={setGeoData}
-              woredaPcodeCrosswalk={woredaPcodeCrosswalk}
-              filterRegion={mapFilterForView}
-              alerts={mapAlerts}
-              alertTooltipByDistrict={alertTooltipByDistrict}
-              districtTooltipByDistrict={districtTooltipByDistrict}
-              mapTooltipContext={mapTooltipContext}
-              selectedSpecies={mapSpecies}
-              showEarlyWarning={reportExportActive ? false : showEarlyWarning}
-              showEarlyDetection={reportExportActive ? false : showEarlyDetection}
-              alertTimeMode={alertTimeMode}
-              alertAnimationWeek={alertAnimationWeek}
-              selectedDistrictName={mapSelectedDistrict}
-              showRainfallLayer={reportExportActive ? false : showRainfallLayer}
-              showTemperatureLayer={reportExportActive ? false : showTemperatureLayer}
-              showNdviLayer={reportExportActive ? false : showNdviLayer}
-              envTimeMode={envTimeMode}
-              envTimeDate={weekDates[weekIndex]}
-              gibsPrefetchTime={gibsPrefetchTime}
-              onEnvAverageStats={setEnvAverageStats}
-              healthChoroplethEnabled={reportExportActive ? true : healthChoroplethEnabled}
-            />
+            <Suspense fallback={<div className="map-panel-skeleton" role="status">Loading map…</div>}>
+              <EthiopiaMap
+                onSelectRegion={handleMapDistrictSelect}
+                startDate={startDate}
+                endDate={endDate}
+                dataset={mapDataset}
+                envData={mapEnvData}
+                populationYear={populationYear}
+                setGeoData={setGeoData}
+                woredaPcodeCrosswalk={woredaPcodeCrosswalk}
+                filterRegion={mapFilterForView}
+                alerts={mapAlerts}
+                alertTooltipByDistrict={alertTooltipByDistrict}
+                districtTooltipByDistrict={districtTooltipByDistrict}
+                mapTooltipContext={mapTooltipContext}
+                selectedSpecies={mapSpecies}
+                showEarlyWarning={reportExportActive ? false : showEarlyWarning}
+                showEarlyDetection={reportExportActive ? false : showEarlyDetection}
+                alertTimeMode={alertTimeMode}
+                alertAnimationWeek={alertAnimationWeek}
+                selectedDistrictName={mapSelectedDistrict}
+                showRainfallLayer={reportExportActive ? false : showRainfallLayer}
+                showTemperatureLayer={reportExportActive ? false : showTemperatureLayer}
+                showNdviLayer={reportExportActive ? false : showNdviLayer}
+                envTimeMode={envTimeMode}
+                envTimeDate={weekDates[weekIndex]}
+                gibsPrefetchTime={gibsPrefetchTime}
+                onEnvAverageStats={setEnvAverageStats}
+                healthChoroplethEnabled={reportExportActive ? true : healthChoroplethEnabled}
+              />
+            </Suspense>
 
             {SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL && (
               <div className="glass-card fade-in-up delay-2 env-fetch-sidebar">
@@ -2303,7 +2333,11 @@ function Dashboard({
 
           {/* Charts / table tabs */}
           {(!isCompactLayout || mobileMainView === "details") && (
-          <div className="glass-card insights-panel side-panel">
+          <div
+            className={`glass-card insights-panel side-panel${
+              rightPanelView === "charts" ? " insights-panel--evidence" : ""
+            }`}
+          >
             <div className="panel-header">
               <h3>
                 {rightPanelView === "about" ? "About EPIDEMIA" : region}
@@ -2323,7 +2357,7 @@ function Dashboard({
                   </>
                 ) : selectedAlert ? (
                   `Alert · population at risk: ${formatPopulation(selectedAlert.population_at_risk)}`
-                ) : (
+                ) : rightPanelView === "charts" ? null : (
                   <>
                     Alert evidence &amp; charts
                     <HelpTip text={DASHBOARD_HELP.districtInsight} label="Evidence tab" />

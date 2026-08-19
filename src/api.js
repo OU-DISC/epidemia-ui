@@ -1,5 +1,6 @@
 import axios from "axios";
 import { buildSampleEpiCsvFromReport } from "./utils/buildSampleEpiCsv";
+import { bootstrapCacheKey, writeBootstrapCache } from "./utils/bootstrapCache";
 import { normalizeDistrictKey, districtForecastCacheUrl } from "./utils/districtNameMatch";
 import {
   normalizeEnvironmentalSummaryValues,
@@ -118,7 +119,10 @@ async function fetchStaticBootstrapReportDirect(horizonWeeks = 8) {
 
 async function fetchStaticBootstrapReport(historyWeeks = 16, horizonWeeks = 8) {
   const cached = await fetchStaticBootstrapReportDirect(horizonWeeks).catch(() => null);
-  if (cached) return cached;
+  if (cached) {
+    writeBootstrapCache(bootstrapCacheKey("bootstrap", horizonWeeks), cached);
+    return cached;
+  }
 
   throw new Error(STATIC_BOOTSTRAP_MISSING_ERROR);
 }
@@ -151,6 +155,8 @@ export async function fetchForecast(region, horizonWeeks = 8) {
   });
   return response.data;
 }
+
+export { bootstrapCacheKey, readBootstrapCache } from "./utils/bootstrapCache";
 
 export async function fetchEpidemiaCacheStatus({
   dataDir = "data",
@@ -259,7 +265,10 @@ export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeek
 
   const [apiData, staticData] = await Promise.all([apiPromise, staticPromise]);
   const picked = pickFreshestReport(apiData, staticData);
-  if (picked) return picked;
+  if (picked) {
+    writeBootstrapCache(bootstrapCacheKey("map", horizonWeeks), picked);
+    return picked;
+  }
 
   throw new Error("Map forecast report not found");
 }
@@ -294,7 +303,10 @@ export async function fetchLatestEpidemiaReport({
 
   const [apiData, staticData] = await Promise.all([apiPromise, staticPromise]);
   const picked = pickFreshestReport(apiData, staticData);
-  if (picked) return picked;
+  if (picked) {
+    writeBootstrapCache(bootstrapCacheKey("bootstrap", horizonWeeks), picked);
+    return picked;
+  }
 
   return fetchStaticBootstrapReport(historyWeeks, horizonWeeks);
 }
