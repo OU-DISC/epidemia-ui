@@ -15,16 +15,27 @@ function rowsToCsv(rows, columns) {
 }
 
 /**
- * Build a demo epidemiology CSV from the bundled report_data.json.
+ * Build a demo epidemiology CSV from bundled bootstrap files.
  * Mirrors backend build_sample_epi_csv so demos work without the API.
  */
 export async function buildSampleEpiCsvFromReport() {
-  const response = await fetch("/report_data.json");
-  if (!response.ok) {
-    throw new Error("Sample report_data.json was not found in the app bundle.");
+  const bootstrapUrls = [
+    "/report_bootstrap.json",
+    "/report_bootstrap_h12.json",
+    "/report_bootstrap_h8.json",
+  ];
+
+  let payload = null;
+  for (const url of bootstrapUrls) {
+    const response = await fetch(url);
+    if (!response.ok) continue;
+    payload = await response.json();
+    if (payload?.forecasts?.length) break;
   }
 
-  const payload = await response.json();
+  if (!payload?.forecasts?.length) {
+    throw new Error("Sample bootstrap files were not found in the app bundle.");
+  }
   const alertsByDistrict = Object.fromEntries(
     (payload.alerts || [])
       .filter((alert) => alert?.district)

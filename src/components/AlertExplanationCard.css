@@ -144,6 +144,14 @@
   color: var(--ink-soft);
 }
 
+.alert-explanation-card-type-def {
+  margin: 0 0 6px;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: var(--ink-soft, #64748b);
+  font-style: italic;
+}
+
 .alert-explanation-card-why {
   margin: 0;
   font-size: 0.86rem;

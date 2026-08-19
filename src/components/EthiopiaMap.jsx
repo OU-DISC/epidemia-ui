@@ -1,6 +1,6 @@
 // EthiopiaMap.jsx
 import { MapContainer, TileLayer, GeoJSON, Pane, useMap } from "react-leaflet";
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import union from "@turf/union";
 import { featureCollection } from "@turf/helpers";
 import { topojsonToFeatureCollection } from "../utils/topojsonToFeatureCollection";
@@ -9,9 +9,12 @@ import {
   findDistrictFromLookup,
   getDistrictNameVariants,
   normalizeDistrictKey,
+  resolveDistrictFeature,
 } from "../utils/districtNameMatch";
 import { formatDistrictTooltipHtml } from "../utils/alertExplainer";
-import { resolveLookupEntry } from "../utils/buildAlertTooltipLookup";
+import { ALERT_MARKER_KINDS } from "../utils/alertMarkerKinds";
+import { tooltipHtmlHasContent, resolveMapDistrictTooltipHtml } from "../utils/buildAlertTooltipLookup";
+import { buildFallbackDistrictTooltip } from "../utils/buildDistrictTooltipLookup";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -25,6 +28,48 @@ const WEIGHT_REGION_OUTLINE = 2.3;
 const DISTRICT_CLICK_MAX_ZOOM = 8;
 const MAP_DEFAULT_CENTER = [9.0, 40.5];
 const MAP_DEFAULT_ZOOM = 6;
+
+function MapTooltipPaneFix() {
+  const map = useMap();
+
+  useEffect(() => {
+    const tooltipPane = map.getPane("tooltipPane");
+    if (tooltipPane) {
+      tooltipPane.style.zIndex = "900";
+    }
+  }, [map]);
+
+  return null;
+}
+
+/** Close any open tooltips when the map moves so they don't linger on screen. */
+function MapTooltipDismissOnMove() {
+  const map = useMap();
+
+  useEffect(() => {
+    const closeOpenTooltips = () => {
+      map.eachLayer((layer) => {
+        layer.closeTooltip?.();
+      });
+    };
+
+    map.on("movestart", closeOpenTooltips);
+    map.on("zoomstart", closeOpenTooltips);
+    map.on("dragstart", closeOpenTooltips);
+
+    return () => {
+      map.off("movestart", closeOpenTooltips);
+      map.off("zoomstart", closeOpenTooltips);
+      map.off("dragstart", closeOpenTooltips);
+    };
+  }, [map]);
+
+  return null;
+}
+
+function featureDistrictName(feature) {
+  return feature?.properties?.adm3_name || feature?.properties?.W_NAME || null;
+}
 
 /** One merged polygon per adm1; outer ring is the true regional boundary. */
 function buildAdmin1Outlines(geo) {
@@ -418,11 +463,6 @@ function TimedGibsLayer({ layerId, tileMatrixSet, time, opacity = 0.4, pane }) {
   );
 }
 
-const ALERT_MARKER_KINDS = {
-  ew: { icon: "⚠️", color: "#dc2626", label: "Early Warning" },
-  ed: { icon: "🔍", color: "#d97706", label: "Early Detection" },
-};
-
 /**
  * Build an alert pin. When EW and ED both fire for one district, offset them in
  * *screen pixels* (not meters) so small urban polygons (e.g. Mekelle sub-cities)
@@ -460,6 +500,7 @@ function AlertMarkers({
   showEarlyWarning,
   showEarlyDetection = true,
   adm3Lookup,
+  geoData = null,
   selectedSpecies = "pfm",
   onSelectDistrict,
 }) {
@@ -483,7 +524,7 @@ function AlertMarkers({
 
     const markers = [];
 
-    if (alerts && adm3Lookup && adm3Lookup.size > 0) {
+    if (alerts && (adm3Lookup?.size > 0 || geoData?.features?.length)) {
       alerts.forEach(alert => {
         if (alert?.species && alert.species !== selectedSpecies) return;
 
@@ -492,16 +533,27 @@ function AlertMarkers({
         if (Boolean(alert?.early_detection) && showEarlyDetection) kinds.push("ed");
         if (!kinds.length) return;
 
-        const district = findDistrictFromLookup(adm3Lookup, alert.district);
+        const district = resolveDistrictFeature(adm3Lookup, alert.district, geoData);
         if (district && district.geometry) {
           const bounds = L.geoJSON(district).getBounds();
           const centroid = bounds.getCenter();
           const districtName = district?.properties?.adm3_name || alert.district;
           const dualMarkers = kinds.length === 2;
 
-          const alertTooltipHtml =
-            resolveLookupEntry(districtTooltipByDistrict, districtName, adm3Lookup) ||
-            resolveLookupEntry(alertTooltipByDistrict, districtName, adm3Lookup);
+          const alertTooltipHtml = resolveMapDistrictTooltipHtml({
+            districtName,
+            districtTooltipByDistrict,
+            alertTooltipByDistrict,
+            adm3Lookup,
+            geoData,
+          });
+
+          const tooltipContent = tooltipHtmlHasContent(alertTooltipHtml)
+            ? alertTooltipHtml
+            : `${districtName}<br>${kinds
+                .map((kindKey) => ALERT_MARKER_KINDS[kindKey]?.label)
+                .filter(Boolean)
+                .join(" · ")}`;
 
           kinds.forEach((kindKey, index) => {
             const kind = ALERT_MARKER_KINDS[kindKey];
@@ -512,12 +564,13 @@ function AlertMarkers({
               icon: buildAlertMarkerIcon(kind, side),
               pane: ALERTS_MAP_PANE,
             }).bindTooltip(
-              alertTooltipHtml || `${districtName}<br>${kind.label}`,
+              tooltipContent,
               {
                 permanent: false,
                 direction: "top",
-                sticky: true,
-                className: alertTooltipHtml
+                sticky: false,
+                opacity: 1,
+                className: tooltipHtmlHasContent(alertTooltipHtml)
                   ? "alert-explainer-tooltip"
                   : "district-map-tooltip",
               }
@@ -553,7 +606,7 @@ function AlertMarkers({
         }
       });
     };
-  }, [map, alerts, alertTooltipByDistrict, districtTooltipByDistrict, showEarlyWarning, showEarlyDetection, adm3Lookup, selectedSpecies, onSelectDistrict]);
+  }, [map, alerts, alertTooltipByDistrict, districtTooltipByDistrict, showEarlyWarning, showEarlyDetection, adm3Lookup, geoData, selectedSpecies, onSelectDistrict]);
 
   return null;
 }
@@ -583,8 +636,9 @@ function InteractiveDistrictLayer({ data, style, getTooltip, getTooltipClassName
   const layerRef = useRef(null);
 
   const tooltipOptions = (feature) => ({
-    sticky: true,
+    sticky: false,
     direction: "top",
+    opacity: 1,
     className: getTooltipClassName?.(feature) || "district-info-tooltip-wrap",
   });
 
@@ -595,12 +649,6 @@ function InteractiveDistrictLayer({ data, style, getTooltip, getTooltipClassName
         if (layer.feature && layer.setTooltipContent) {
           const feature = layer.feature;
           layer.setTooltipContent(getTooltip(feature));
-          layer.unbindTooltip?.();
-          layer.bindTooltip(getTooltip(feature), {
-            sticky: true,
-            direction: "top",
-            className: getTooltipClassName?.(feature) || "district-info-tooltip-wrap",
-          });
         }
       });
     }
@@ -629,6 +677,9 @@ function InteractiveDistrictLayer({ data, style, getTooltip, getTooltipClassName
       },
       mouseover: () => {
         layer.setTooltipContent?.(getTooltip(feature));
+      },
+      mouseout: () => {
+        layer.closeTooltip?.();
       },
     });
 
@@ -666,7 +717,7 @@ function buildOverlayLegendRows(config) {
   );
 }
 
-function DistrictChoroplethLegend({ title, unit, source, grades, colors, formatValue }) {
+function DistrictChoroplethLegend({ title, unit, note, source, grades, colors, formatValue, showAlertPinKey }) {
   const map = useMap();
 
   useEffect(() => {
@@ -677,31 +728,37 @@ function DistrictChoroplethLegend({ title, unit, source, grades, colors, formatV
       grades,
       formatValue
     );
-    const legend = L.control({ position: "topright" });
+    const legend = L.control({ position: "bottomright" });
 
     legend.onAdd = function () {
-      const div = L.DomUtil.create("div", "info legend");
-      div.style.padding = "8px";
-      div.style.background = "white";
-      div.style.borderRadius = "6px";
-      div.style.boxShadow = "0 0 6px rgba(0,0,0,0.3)";
-      div.style.maxWidth = "220px";
-      div.style.fontSize = "12px";
-      div.style.lineHeight = "1.35";
+      const div = L.DomUtil.create("div", "info legend map-choropleth-legend");
+      const tooltip = [note, source].filter(Boolean).join(" · ");
+      if (tooltip) div.title = tooltip;
 
       const parts = [
-        `<div style="font-weight:700">${title}</div>`,
-        unit ? `<div style="color:#64748b;font-size:11px;margin-bottom:4px">${unit}</div>` : "",
-        source ? `<div style="color:#64748b;font-size:11px;margin-bottom:4px">${source}</div>` : "",
+        `<div class="map-choropleth-legend__head">` +
+          `<span class="map-choropleth-legend__title">${title}</span>` +
+          (unit ? `<span class="map-choropleth-legend__unit">${unit}</span>` : "") +
+        `</div>`,
+        `<div class="map-choropleth-legend__rows">`,
       ];
       rows.forEach((r) => {
         parts.push(
-          `<div style="margin:2px 0">` +
-            `<i style="background:${r.color};width:16px;height:16px;display:inline-block;margin-right:6px;vertical-align:middle;border-radius:2px"></i>` +
-            `<span style="vertical-align:middle">${r.label}</span>` +
-            `</div>`
+          `<div class="map-choropleth-legend__row">` +
+            `<i class="map-choropleth-legend__swatch" style="background:${r.color}"></i>` +
+            `<span class="map-choropleth-legend__label">${r.label}</span>` +
+          `</div>`
         );
       });
+      parts.push(`</div>`);
+      if (showAlertPinKey) {
+        parts.push(
+          `<div class="map-choropleth-legend__pins">` +
+            `<div class="map-choropleth-legend__pin">⚠️ Warning</div>` +
+            `<div class="map-choropleth-legend__pin">🔍 Detection</div>` +
+          `</div>`
+        );
+      }
       div.innerHTML = parts.join("");
       return div;
     };
@@ -710,7 +767,7 @@ function DistrictChoroplethLegend({ title, unit, source, grades, colors, formatV
     return () => {
       legend.remove();
     };
-  }, [map, title, unit, source, grades, colors, formatValue]);
+  }, [map, title, unit, note, source, grades, colors, formatValue, showAlertPinKey]);
 
   return null;
 }
@@ -753,36 +810,33 @@ function MapLegend({ showRainfallLayer, showTemperatureLayer, showNdviLayer }) {
       return undefined;
     }
 
-    const legend = L.control({ position: "topright" });
+    const legend = L.control({ position: "bottomright" });
 
     legend.onAdd = function () {
-      const div = L.DomUtil.create("div", "info legend map-legend-stack");
-      div.style.padding = "8px";
-      div.style.background = "white";
-      div.style.borderRadius = "6px";
-      div.style.boxShadow = "0 0 6px rgba(0,0,0,0.3)";
-      div.style.maxWidth = "220px";
-      div.style.fontSize = "12px";
-      div.style.lineHeight = "1.35";
+      const div = L.DomUtil.create("div", "info legend map-choropleth-legend map-legend-stack");
 
       const parts = [];
 
       overlaySections.forEach((sec, idx) => {
         if (idx > 0) {
-          parts.push(`<div style="margin:8px 0;border-top:1px solid #e5e7eb"></div>`);
+          parts.push(`<div class="map-choropleth-legend__divider"></div>`);
         }
         parts.push(
-          `<div style="font-weight:700">${sec.title}</div>` +
-            `<div style="color:#64748b;font-size:11px;margin-bottom:4px">${sec.subtitle} · ${sec.unit}</div>`
+          `<div class="map-choropleth-legend__head">` +
+            `<span class="map-choropleth-legend__title">${sec.title}</span>` +
+            `<span class="map-choropleth-legend__unit">${sec.subtitle} · ${sec.unit}</span>` +
+          `</div>` +
+          `<div class="map-choropleth-legend__rows">`
         );
         sec.rows.forEach((r) => {
           parts.push(
-            `<div style="margin:2px 0">` +
-              `<i style="background:${r.color};width:16px;height:16px;display:inline-block;margin-right:6px;vertical-align:middle;border-radius:2px"></i>` +
-              `<span style="vertical-align:middle">${r.label}</span>` +
-              `</div>`
+            `<div class="map-choropleth-legend__row">` +
+              `<i class="map-choropleth-legend__swatch" style="background:${r.color}"></i>` +
+              `<span class="map-choropleth-legend__label">${r.label}</span>` +
+            `</div>`
           );
         });
+        parts.push(`</div>`);
       });
 
       div.innerHTML = parts.join("");
@@ -811,6 +865,7 @@ export default function EthiopiaMap({
   alerts = [],
   alertTooltipByDistrict = {},
   districtTooltipByDistrict = {},
+  mapTooltipContext = null,
   showEarlyWarning = true,
   showEarlyDetection = true,
   /** Match toolbar disease: pfm = P. falciparum, pv = P. vivax */
@@ -960,38 +1015,41 @@ export default function EthiopiaMap({
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value)),
     },
     incident_rate: {
-      title: "Incidence Rate",
+      title: "Incidence",
       grades: [0, 10, 50, 100],
-      unit: "cases per 100,000 people (weekly average)",
-      source: "Average weekly cases in selected date range / population at risk",
+      unit: "/100k/week",
+      note: "Shading = incidence rate (separate from alert pins).",
+      source: "Avg weekly malaria cases ÷ population at risk",
       colors: ["#fff7ec", "#fee8c8", "#fdbb84", "#e34a33", "#7f0000"],
       format: (value) =>
         new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(Number(value)),
     },
     ed_alert_level: {
-      title: "Early Detection Alerts",
+      title: "Early Detection",
       grades: [0, 1, 2, 3],
-      unit: "summary level",
-      source: "Farrington alarms over the last 4 observed weeks",
+      unit: "vs Farrington threshold",
+      note: "Shading = alert status (not incidence).",
+      source: "Last 4 observed epiweeks",
       colors: ["#f5f5f5", "#b8d6fd", "#fc8d59", "#d7301f", "#d7301f"],
       format: (value) => {
         if (value >= 3) return "High";
-        if (value >= 2) return "Medium";
+        if (value >= 2) return "Med";
         if (value >= 1) return "Low";
-        return "No Data";
+        return "None";
       },
     },
     ew_alert_level: {
-      title: "Early Warning Alerts",
+      title: "Early Warning",
       grades: [0, 1, 2, 3],
-      unit: "summary level",
-      source: "Farrington alarms over the forecast horizon",
+      unit: "vs seasonal expected",
+      note: "Shading = alert status (not incidence).",
+      source: "Forecast horizon weeks",
       colors: ["#f5f5f5", "#b8d6fd", "#fc8d59", "#d7301f", "#d7301f"],
       format: (value) => {
         if (value >= 3) return "High";
-        if (value >= 2) return "Medium";
+        if (value >= 2) return "Med";
         if (value >= 1) return "Low";
-        return "No Data";
+        return "None";
       },
     },
 
@@ -1065,12 +1123,13 @@ export default function EthiopiaMap({
     colors: ["#f3f4f6", "#d1d5db", "#9ca3af", "#6b7280", "#374151"],
   };
 
-  const { grades, unit, colors } = activeScale;
+  const { grades, unit, note, colors } = activeScale;
   const source =
     dataset === "incident_rate" && startDate && endDate
-      ? `Average weekly cases ${startDate} → ${endDate} / population at risk`
+      ? `Average weekly malaria cases (${startDate} → ${endDate}) ÷ population at risk`
       : activeScale.source;
   const formatMapValue = activeScale.format || ((value) => Number(value).toFixed(2));
+  const showAlertPinKey = false;
 
   const getColor = (value) => {
     if (value == null || Number.isNaN(Number(value))) return "#e5e5e5";
@@ -1216,42 +1275,88 @@ export default function EthiopiaMap({
     interactive: false,
   });
 
-  const resolveDistrictTooltip = (districtName, feature) => {
-    if (!districtName) return null;
+  const resolveDistrictTooltip = useCallback(
+    (districtName, feature) => {
+      const fromLookup = resolveMapDistrictTooltipHtml({
+        districtName,
+        districtTooltipByDistrict,
+        alertTooltipByDistrict,
+        adm3Lookup,
+        geoData,
+        feature,
+      });
+      if (tooltipHtmlHasContent(fromLookup)) return fromLookup;
 
-    const districtTooltip = resolveLookupEntry(
+      if (mapTooltipContext) {
+        const fallback = buildFallbackDistrictTooltip({
+          districtName,
+          regionName: feature?.properties?.adm1_name,
+          ...mapTooltipContext,
+        });
+        if (tooltipHtmlHasContent(fallback)) return fallback;
+      }
+
+      if (feature?.properties) {
+        return formatDistrictTooltipHtml({
+          region: feature.properties.adm1_name,
+          district: districtName,
+          population: undefined,
+          cases: undefined,
+          populationYear,
+        });
+      }
+
+      return null;
+    },
+    [
+      adm3Lookup,
+      alertTooltipByDistrict,
       districtTooltipByDistrict,
-      districtName,
-      adm3Lookup
-    );
-    if (districtTooltip) return districtTooltip;
+      geoData,
+      mapTooltipContext,
+      populationYear,
+    ]
+  );
 
-    if (feature?.properties) {
+  const districtTooltip = useCallback(
+    (feature) => {
+      const districtName = featureDistrictName(feature);
+      const districtInfoTooltip = resolveDistrictTooltip(districtName, feature);
+      if (tooltipHtmlHasContent(districtInfoTooltip)) return districtInfoTooltip;
+
+      const choroplethValue = getDistrictValue(districtName);
+      let casesLabel = "Value";
+      let casesDisplay =
+        choroplethValue !== undefined ? formatMapValue(choroplethValue) : undefined;
+      if (dataset === "incident_rate") {
+        casesLabel = "Incidence (per 100k/week)";
+      } else if (dataset === "ed_alert_level") {
+        casesLabel = "🔍 Early Detection level";
+        casesDisplay =
+          choroplethValue !== undefined ? formatMapValue(choroplethValue) : undefined;
+      } else if (dataset === "ew_alert_level") {
+        casesLabel = "⚠️ Early Warning level";
+      } else if (dataset === "population") {
+        casesLabel = "Population at risk";
+      }
+
       return formatDistrictTooltipHtml({
-        region: feature.properties.adm1_name,
-        district: districtName,
+        region: feature?.properties?.adm1_name,
+        district: districtName || "—",
         population: undefined,
-        cases: undefined,
+        casesFormatted: casesDisplay,
+        casesLabel,
         populationYear,
       });
-    }
-
-    return null;
-  };
-
-  const districtTooltip = (feature) => {
-    const districtName = feature?.properties?.adm3_name;
-    const districtInfoTooltip = resolveDistrictTooltip(districtName, feature);
-    if (districtInfoTooltip) return districtInfoTooltip;
-
-    return formatDistrictTooltipHtml({
-      region: feature?.properties?.adm1_name,
-      district: districtName,
-      population: undefined,
-      cases: undefined,
+    },
+    [
+      dataset,
+      formatMapValue,
+      getDistrictValue,
       populationYear,
-    });
-  };
+      resolveDistrictTooltip,
+    ]
+  );
 
   const districtTooltipClassName = () => "district-info-tooltip-wrap";
 
@@ -1274,6 +1379,8 @@ export default function EthiopiaMap({
       >
         <HomeMapControl />
         <MapAutoResize />
+        <MapTooltipPaneFix />
+        <MapTooltipDismissOnMove />
 
         <TileLayer
           attribution="© OpenStreetMap, © CARTO"
@@ -1383,10 +1490,12 @@ export default function EthiopiaMap({
           <DistrictChoroplethLegend
             title={activeScale.title || dataset}
             unit={unit}
+            note={note}
             source={source}
             grades={grades}
             colors={colors}
             formatValue={formatMapValue}
+            showAlertPinKey={showAlertPinKey}
           />
         )}
 
@@ -1406,6 +1515,7 @@ export default function EthiopiaMap({
           showEarlyWarning={showEarlyWarning}
           showEarlyDetection={showEarlyDetection}
           adm3Lookup={adm3Lookup}
+          geoData={geoData}
           selectedSpecies={selectedSpecies}
           onSelectDistrict={handleSelectDistrict}
         />

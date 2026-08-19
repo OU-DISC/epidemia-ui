@@ -74,12 +74,11 @@ export function buildAlertsForWeek(forecasts, alerts, selectedSpecies, weekStart
       const warningThreshold = finiteNumber(
         point.warning_threshold ?? template.warning_threshold
       );
-      const alarmThreshold = finiteNumber(
-        point.alarm_threshold ?? warningThreshold ?? detectionThreshold
-      );
 
       const earlyDetection =
-        observed != null && alarmThreshold != null && observed > alarmThreshold;
+        observed != null &&
+        detectionThreshold != null &&
+        observed > detectionThreshold;
       if (!earlyDetection) return;
 
       out.push({
@@ -109,6 +108,40 @@ export function countAlertTypes(alerts) {
   });
 
   return { warnings, detections };
+}
+
+/** Keep week-replay markers and add current pipeline EW/ED flags (e.g. rolling 4-week detection). */
+export function mergeMapAlertsWithPipeline(historicalAlerts, pipelineAlerts) {
+  const byDistrict = new Map();
+
+  (historicalAlerts || []).forEach((alert) => {
+    if (!alert?.district) return;
+    byDistrict.set(alert.district, { ...alert });
+  });
+
+  (pipelineAlerts || []).forEach((alert) => {
+    if (!alert?.district) return;
+    if (!alert.early_warning && !alert.early_detection) return;
+
+    const existing = byDistrict.get(alert.district);
+    if (!existing) {
+      byDistrict.set(alert.district, { ...alert });
+      return;
+    }
+
+    byDistrict.set(alert.district, {
+      ...existing,
+      early_warning: Boolean(existing.early_warning || alert.early_warning),
+      early_detection: Boolean(existing.early_detection || alert.early_detection),
+      ed_level: alert.ed_level || existing.ed_level,
+      ew_level: alert.ew_level || existing.ew_level,
+      ed_alert_count: alert.ed_alert_count ?? existing.ed_alert_count,
+      ew_alert_count: alert.ew_alert_count ?? existing.ew_alert_count,
+      population_at_risk: alert.population_at_risk ?? existing.population_at_risk,
+    });
+  });
+
+  return Array.from(byDistrict.values());
 }
 
 export function buildAnimatedAlertTooltipLookup(

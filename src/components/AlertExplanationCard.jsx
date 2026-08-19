@@ -217,6 +217,16 @@ export default function AlertExplanationCard({
         ) : null}
       </div>
 
+      {!compact && (
+        <p className="alert-explanation-card-type-def">
+          {status === "Early Warning"
+            ? "Forecast cases are projected to exceed the seasonal expected level — future risk, not yet observed."
+            : status === "Early Detection"
+            ? "Observed cases have already exceeded the Farrington statistical threshold — confirmed signal now."
+            : null}
+        </p>
+      )}
+
       <p className="alert-explanation-card-why">{whyText}</p>
 
       {!compact && deliberativeBullets ? (

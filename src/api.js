@@ -1,7 +1,6 @@
 import axios from "axios";
 import { buildSampleEpiCsvFromReport } from "./utils/buildSampleEpiCsv";
 import { normalizeDistrictKey, districtForecastCacheUrl } from "./utils/districtNameMatch";
-import { forecastDistrictKey } from "./utils/epidemiaReportMerge";
 import {
   normalizeEnvironmentalSummaryValues,
   normalizeEnvironmentalTimeseries,
@@ -29,6 +28,12 @@ export const ENV_API_BASE = normalizeBase(
 );
 
 const buildApiUrl = (base, path) => `${base}${path}`;
+
+/** Don't block static bootstrap when the forecast API is slow or offline. */
+const BOOTSTRAP_API_TIMEOUT_MS = 8000;
+
+const STATIC_BOOTSTRAP_MISSING_ERROR =
+  "Forecast bootstrap files were not found. Deploy report_bootstrap.json in public/ or run the EPIDEMIA pipeline, then reload.";
 
 function isDefaultReportOutputDir(outputDir) {
   const normalized = String(outputDir || "report")
@@ -69,32 +74,14 @@ function acceptStaticNationalBootstrap(payload) {
   return isLikelyNationalBootstrap(payload) ? payload : null;
 }
 
-async function fetchStaticLatestEpidemiaReport() {
-  if (!isBrowser) {
-    throw new Error("Static latest report is only available in the browser");
-  }
-
-  const response = await fetch("/report_data.json");
-  if (!response.ok) {
-    throw new Error(`Static latest forecast report not found (${response.status})`);
-  }
-  return response.json();
-}
-
-function trimReportClientSide(report, historyWeeks = 16) {
-  if (!report?.forecasts) return report;
-  return {
-    ...report,
-    forecasts: report.forecasts.map((forecast) => {
-      const history = [...(forecast.observed_history || [])].sort((a, b) =>
-        String(a.week_start).localeCompare(String(b.week_start))
-      );
-      return {
-        ...forecast,
-        observed_history: history.slice(-historyWeeks),
-      };
-    }),
-  };
+function resolveStaticBootstrapUrls(horizonWeeks = 8) {
+  const horizon = Number(horizonWeeks);
+  const candidates = [];
+  if (horizon === 4) candidates.push("/report_bootstrap_h4.json");
+  else if (horizon === 8) candidates.push("/report_bootstrap_h8.json");
+  else if (horizon === 12) candidates.push("/report_bootstrap_h12.json");
+  candidates.push("/report_bootstrap.json");
+  return [...new Set(candidates)];
 }
 
 async function fetchStaticMapBootstrapReportDirect() {
@@ -108,23 +95,32 @@ async function fetchStaticMapBootstrapReportDirect() {
   return null;
 }
 
-async function fetchStaticBootstrapReportDirect() {
+async function fetchStaticBootstrapReportDirect(horizonWeeks = 8) {
   if (!isBrowser) return null;
 
-  const response = await fetch("/report_bootstrap.json", { cache: "no-store" });
-  if (!response.ok) return null;
+  for (const url of resolveStaticBootstrapUrls(horizonWeeks)) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) continue;
 
-  const data = await response.json();
-  if (data?.forecasts?.length) return acceptStaticNationalBootstrap(data);
+      const data = await response.json();
+      if (!data?.forecasts?.length) continue;
+
+      const accepted = acceptStaticNationalBootstrap(data);
+      if (accepted) return accepted;
+    } catch {
+      // Try the next bundled bootstrap variant.
+    }
+  }
+
   return null;
 }
 
-async function fetchStaticBootstrapReport(historyWeeks = 16) {
-  const cached = await fetchStaticBootstrapReportDirect().catch(() => null);
+async function fetchStaticBootstrapReport(historyWeeks = 16, horizonWeeks = 8) {
+  const cached = await fetchStaticBootstrapReportDirect(horizonWeeks).catch(() => null);
   if (cached) return cached;
 
-  const report = await fetchStaticLatestEpidemiaReport();
-  return trimReportClientSide(report, historyWeeks);
+  throw new Error(STATIC_BOOTSTRAP_MISSING_ERROR);
 }
 
 export function formatForecastApiError(err, action = "load forecast data") {
@@ -240,6 +236,7 @@ export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeek
     ? axios
         .get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/map"), {
           params: { output_dir: outputDir, horizon_weeks: horizonWeeks },
+          timeout: BOOTSTRAP_API_TIMEOUT_MS,
         })
         .then((response) => response.data || null)
         .catch(() => null)
@@ -250,7 +247,9 @@ export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeek
         .catch(() => null)
         .then(async (mapBootstrap) => {
           if (mapBootstrap) return mapBootstrap;
-          const fullBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
+          const fullBootstrap = await fetchStaticBootstrapReportDirect(horizonWeeks).catch(
+            () => null
+          );
           if (fullBootstrap?.alerts) {
             return { ...fullBootstrap, forecasts: [] };
           }
@@ -283,24 +282,21 @@ export async function fetchLatestEpidemiaReport({
             history_weeks: historyWeeks,
             horizon_weeks: horizonWeeks,
           },
+          timeout: BOOTSTRAP_API_TIMEOUT_MS,
         })
         .then((response) => response.data || null)
         .catch(() => null)
     : Promise.resolve(null);
 
   const staticPromise = useStaticFallback
-    ? fetchStaticBootstrapReportDirect().catch(() => null)
+    ? fetchStaticBootstrapReportDirect(horizonWeeks).catch(() => null)
     : Promise.resolve(null);
 
   const [apiData, staticData] = await Promise.all([apiPromise, staticPromise]);
   const picked = pickFreshestReport(apiData, staticData);
   if (picked) return picked;
 
-  if (!isLocalhost && !FORECAST_API_BASE) {
-    return fetchStaticBootstrapReport(historyWeeks);
-  }
-
-  return fetchStaticBootstrapReport(historyWeeks);
+  return fetchStaticBootstrapReport(historyWeeks, horizonWeeks);
 }
 
 function trimDistrictDetailClientSide(detail, startDate, endDate) {
@@ -383,30 +379,8 @@ export async function fetchDistrictForecastDetail({
     }
   }
 
-  const report = await fetchStaticLatestEpidemiaReport();
-  const targetKey = forecastDistrictKey(district);
-  const match = (report.forecasts || []).find(
-    (forecast) =>
-      forecast.species === species &&
-      (String(forecast.district || "") === String(district) ||
-        forecastDistrictKey(forecast.district) === targetKey)
-  );
-  if (!match) {
-    throw new Error(`No forecast found for district '${district}'`);
-  }
-
-  const filteredHistory = (match.observed_history || []).filter((point) => {
-    const week = point?.week_start;
-    if (!week) return false;
-    if (startDate && week < startDate) return false;
-    if (endDate && week > endDate) return false;
-    return true;
-  });
-
-  return trimDistrictDetailClientSide(
-    { ...match, observed_history: filteredHistory },
-    startDate,
-    endDate
+  throw new Error(
+    `No forecast detail found for district '${district}'. Sync district forecast caches or run Refresh Forecast.`
   );
 }
 

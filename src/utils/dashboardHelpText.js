@@ -36,7 +36,7 @@ export const DASHBOARD_HELP = {
     "Replay how alerts changed over recent weeks using observed case history.",
 
   alertLayers:
-    "Toggle Early Warning and Early Detection overlays on the map. Use alert history to replay how alerts changed week by week.",
+    "Early Warning (⚠️) = forecast weeks exceeding the seasonal GAM expected level — future risk signal. Early Detection (🔍) = observed weeks exceeding the Farrington threshold — confirmed outbreak signal. These are separate; a district can have one, both, or neither. Use 'Active' to see the current week, or 'Historical' to replay how alerts evolved. The map choropleth shows incidence rate (cases per 100k population) — a separate measure from alert status.",
   districtLayers:
     "Map controls for choropleth or satellite base layers, plus alert overlays.",
   mapSurfaceLayer:
@@ -67,6 +67,8 @@ export const DASHBOARD_HELP = {
 
   districtInsight:
     "Charts and metrics for the district selected in the toolbar or on the map.",
+  currentSituation:
+    "Visual readout of alert status, recent case evidence, and near-term forecast for the current map and toolbar selection. Alert dots = last 4 observed weeks in the early-detection window: red when cases exceeded the detection threshold that week. Forecast shows observed vs projected cases only.",
   decisionPanel:
     "Review why an alert was raised, residual uncertainty, and deliberative options—including Challenge this assessment for calibrated skepticism. Confirm, override, or annotate. Outcome feedback and operational approval keep humans in the loop.",
   decisionOutcome:

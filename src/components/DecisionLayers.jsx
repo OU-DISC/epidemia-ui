@@ -1,5 +1,6 @@
 import React from "react";
 import HelpTip from "./HelpTip";
+import AlertStatusIcons from "./AlertStatusIcons";
 import { DASHBOARD_HELP } from "../utils/dashboardHelpText";
 
 function DecisionLayers({
@@ -22,53 +23,65 @@ function DecisionLayers({
   const currentWeek = alertWeekDates.length ? alertWeekDates[alertWeekIndex] : "";
 
   return (
-    <div className="decision-layers decision-layers-compact">
-      <h3>
-        <span className="panel-header-label">
-          Alert layers
-          <HelpTip text={DASHBOARD_HELP.alertLayers} label="Alert layers" />
-        </span>
-      </h3>
+    <div className="decision-layers decision-layers-compact alert-layers-panel">
+      <div className="alert-layers-row">
+        <h3>
+          <span className="panel-header-label">
+            Alert layers
+            <HelpTip text={DASHBOARD_HELP.alertLayers} label="Alert layers" />
+          </span>
+        </h3>
 
-      <div className="layer-item">
-        <input
-          type="checkbox"
-          id="early-warning"
-          className="layer-checkbox"
-          checked={showEarlyWarning}
-          onChange={onToggleEarlyWarning}
-        />
-        <label htmlFor="early-warning" className="layer-label">
-          <div className="layer-icon">⚠️</div>
-          Early Warning Alerts
-        </label>
-      </div>
+        <div className="layer-item">
+          <input
+            type="checkbox"
+            id="early-warning"
+            className="layer-checkbox"
+            checked={showEarlyWarning}
+            onChange={onToggleEarlyWarning}
+          />
+          <label htmlFor="early-warning" className="layer-label">
+            <AlertStatusIcons
+              earlyWarning
+              className="alert-type-status-icons"
+            />
+            <span>
+              <strong>Early Warning</strong>
+              <span className="alert-type-def"> — forecast exceeds expected level</span>
+            </span>
+          </label>
+        </div>
 
-      <div className="layer-item">
-        <input
-          type="checkbox"
-          id="early-detection"
-          className="layer-checkbox"
-          checked={showEarlyDetection}
-          onChange={onToggleEarlyDetection}
-        />
-        <label htmlFor="early-detection" className="layer-label">
-          <div className="layer-icon">🔍</div>
-          Early Detection Alerts
-        </label>
-      </div>
+        <div className="layer-item">
+          <input
+            type="checkbox"
+            id="early-detection"
+            className="layer-checkbox"
+            checked={showEarlyDetection}
+            onChange={onToggleEarlyDetection}
+          />
+          <label htmlFor="early-detection" className="layer-label">
+            <AlertStatusIcons
+              earlyDetection
+              className="alert-type-status-icons"
+            />
+            <span>
+              <strong>Early Detection</strong>
+              <span className="alert-type-def"> — observed cases exceed Farrington threshold</span>
+            </span>
+          </label>
+        </div>
 
-      <div className="alert-layers-time-controls">
         <label className="alert-inline-field">
-          <span>Alert history</span>
+          <span>Time period</span>
           <select
-            className="toolbar-select alert-inline-select"
+            className="toolbar-select alert-inline-select alert-inline-select--time-mode"
             value={alertTimeMode}
             onChange={(e) => onChangeAlertTimeMode?.(e.target.value)}
           >
-            <option value="current">Current</option>
+            <option value="current">Active (current week)</option>
             <option value="animate" disabled={!canAnimate}>
-              Animate (weekly)
+              Historical (week by week)
             </option>
           </select>
         </label>

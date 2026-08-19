@@ -2,16 +2,21 @@ import {
   findDistrictFromLookup,
   getDistrictNameVariants,
   normalizeDistrictKey,
+  resolveDistrictFeature,
 } from "./districtNameMatch";
-import { formatDistrictTooltipHtml } from "./alertExplainer";
+import { buildAlertExplanation, formatAlertTooltipHtml } from "./alertExplainer";
 import {
   resolveForecastForDistrict,
-  resolveTooltipAverageCases,
   resolveTooltipPopulation,
 } from "./buildDistrictTooltipLookup";
 
+export function tooltipHtmlHasContent(html) {
+  if (!html) return false;
+  return String(html).replace(/<[^>]+>/g, "").replace(/\s+/g, "").length > 0;
+}
+
 export function assignTooltipKey(lookup, key, html) {
-  if (!key || !html) return;
+  if (!key || !tooltipHtmlHasContent(html)) return;
   lookup[key] = html;
   lookup[normalizeDistrictKey(key)] = html;
   getDistrictNameVariants(key).forEach((variant) => {
@@ -58,10 +63,73 @@ export function resolveLookupEntry(lookup, districtName, adm3Lookup) {
   return null;
 }
 
+function collectDistrictNameCandidates(districtName, adm3Lookup, geoData, feature) {
+  const names = new Set();
+  const add = (value) => {
+    if (value == null || value === "") return;
+    names.add(String(value).trim());
+    getDistrictNameVariants(value).forEach((variant) => names.add(variant));
+  };
+
+  add(districtName);
+  add(feature?.properties?.adm3_name);
+  add(feature?.properties?.W_NAME);
+
+  const linked = resolveDistrictFeature(adm3Lookup, districtName, geoData);
+  add(linked?.properties?.adm3_name);
+  add(linked?.properties?.W_NAME);
+
+  if (linked && adm3Lookup?.size) {
+    for (const key of adm3Lookup.keys()) {
+      if (findDistrictFromLookup(adm3Lookup, key) === linked) {
+        add(key);
+      }
+    }
+  }
+
+  return Array.from(names).filter(Boolean);
+}
+
+/** Shared map tooltip resolver — district facts first (matches alert pin hover). */
+export function resolveMapDistrictTooltipHtml({
+  districtName,
+  districtTooltipByDistrict,
+  alertTooltipByDistrict,
+  adm3Lookup,
+  geoData = null,
+  feature = null,
+}) {
+  if (!districtName) return null;
+
+  const candidates = collectDistrictNameCandidates(
+    districtName,
+    adm3Lookup,
+    geoData,
+    feature
+  );
+
+  for (const name of candidates) {
+    const districtHtml = resolveLookupEntry(
+      districtTooltipByDistrict,
+      name,
+      adm3Lookup
+    );
+    if (tooltipHtmlHasContent(districtHtml)) return districtHtml;
+  }
+
+  for (const name of candidates) {
+    const alertHtml = resolveLookupEntry(alertTooltipByDistrict, name, adm3Lookup);
+    if (tooltipHtmlHasContent(alertHtml)) return alertHtml;
+  }
+
+  return null;
+}
+
 export function buildAlertTooltipLookup({
   forecastTableRows,
   alerts,
   selectedSpecies,
+  speciesLabel = "P. falciparum",
   populationData,
   populationYear,
   surfaceValueForDistrict,
@@ -95,16 +163,29 @@ export function buildAlertTooltipLookup({
         populationData,
         surfaceValueForDistrict
       );
-      const averageCases = resolveTooltipAverageCases(forecast, alert, startDate, endDate);
-      const html = formatDistrictTooltipHtml({
-        region: row.region,
-        district: row.mapDistrict,
+      const explanation = buildAlertExplanation({
+        districtName: row.mapDistrict,
+        regionName: row.region,
+        speciesLabel,
+        alert,
+        insight: {
+          status: row.status,
+          latestObserved: row.latestObserved,
+          latestForecast: row.latestForecast,
+          activeThreshold: row.activeThreshold,
+          magnitudePercent: row.magnitudePercent,
+          persistenceWeeks: row.persistenceWeeks,
+          warningThreshold: row.warningThreshold,
+          detectionThreshold: row.detectionThreshold,
+          earlyWarning: row.earlyWarning,
+          earlyDetection: row.earlyDetection,
+        },
         population,
-        cases: averageCases,
         populationYear,
-        casesLabel: "Avg weekly cases",
-        status: row.status,
+        observedHistory: forecast?.observed_history || [],
+        forecastPoints: forecast?.forecast || [],
       });
+      const html = formatAlertTooltipHtml(row.mapDistrict, explanation);
 
       assignTooltipKey(lookup, row.mapDistrict, html);
       assignTooltipKey(lookup, row.rawDistrict, html);

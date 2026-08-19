@@ -4,12 +4,10 @@ import TopToolbar from "./TopToolbar";
 import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import AlertStatusIcons from "../AlertStatusIcons";
-import DecisionPanel from "../DecisionPanel";
 import ComparisonPriorityPanel from "../ComparisonPriorityPanel";
 import ForecastAlertsTable from "../ForecastAlertsTable";
-import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
 import SituationStatCircle from "../SituationStatCircle";
-import RegionalAlertSummaryChart from "../RegionalAlertSummaryChart";
+import CurrentSituationSummary from "../CurrentSituationSummary";
 import SeasonalContextRing from "../SeasonalContextRing";
 import MobileSummaryView from "../MobileSummaryView";
 import HelpTip from "../HelpTip";
@@ -57,7 +55,6 @@ import { buildDistrictTooltipLookup } from "../../utils/buildDistrictTooltipLook
 import { buildIncidentRateData } from "../../utils/buildIncidentRateData";
 import { buildAlertLevelSurface } from "../../utils/buildAlertLevelSurface";
 import { buildEpidemiaReportModel } from "../../utils/buildEpidemiaReportModel";
-import { renderAllDistrictControlChartImages } from "../../utils/buildReportControlChartFigure";
 import {
   buildComparisonDistrictOptions,
   buildDistrictForecastSeries,
@@ -69,7 +66,6 @@ import {
   FORECAST_VALUE_MODE_OPTIONS,
   transformForecastTableRow,
 } from "../../utils/forecastValueMode";
-import { captureReportMap, exportEpidemiaReport } from "../../utils/exportEpidemiaReport";
 import {
   canUseReportScope,
   filterAlertsByAdminRegion,
@@ -106,6 +102,9 @@ import "./dashboard-theme.css";
 
 const EnvironmentalTimeSeriesChart = lazy(() => import("../EnvironmentalTimeSeriesChart"));
 const ForecastChart = lazy(() => import("../ForecastChart"));
+const MultiDistrictComparisonChart = lazy(() => import("../MultiDistrictComparisonChart"));
+const RegionalAlertSummaryChart = lazy(() => import("../RegionalAlertSummaryChart"));
+const DecisionPanel = lazy(() => import("../DecisionPanel"));
 
 /** District choropleth fetch (Earth Engine). Set to true to show the panel again. */
 const SHOW_FETCH_ENVIRONMENTAL_DATA_PANEL = false;
@@ -577,24 +576,35 @@ function Dashboard({
     if (alertTimeMode !== "animate" || !alertAnimationWeek) {
       alerts = speciesAlerts;
     } else {
-      alerts = buildAlertsForWeek(
-        epidemiaData?.forecasts,
-        epidemiaData?.alerts,
-        selectedSpecies,
-        alertAnimationWeek
-      );
+      const latestWeek = alertWeekDates.length
+        ? alertWeekDates[alertWeekDates.length - 1]
+        : null;
+      // Latest replay week uses pipeline flags (rolling 4-week ED/EW). Older weeks replay
+      // only what exceeded threshold that week.
+      if (latestWeek && alertAnimationWeek === latestWeek) {
+        alerts = speciesAlerts;
+      } else {
+        alerts = buildAlertsForWeek(
+          epidemiaData?.forecasts,
+          epidemiaData?.alerts,
+          selectedSpecies,
+          alertAnimationWeek
+        );
+      }
     }
 
-    return filterAlertsByAdminRegion(alerts, adm3Lookup, mapFilterRegion);
+    return filterAlertsByAdminRegion(alerts, adm3Lookup, selectedAdminRegion, geoData);
   }, [
     alertTimeMode,
     alertAnimationWeek,
+    alertWeekDates,
     epidemiaData?.forecasts,
     epidemiaData?.alerts,
     speciesAlerts,
     selectedSpecies,
     adm3Lookup,
-    mapFilterRegion,
+    selectedAdminRegion,
+    geoData,
   ]);
 
   const alertWeekCounts = useMemo(() => countAlertTypes(mapAlerts), [mapAlerts]);
@@ -808,11 +818,9 @@ function Dashboard({
     }
 
     let cancelled = false;
-    loadMapEpidemia().finally(() => {
-      if (cancelled) return;
-      return runAfterFirstPaint(() => {
-        if (!cancelled) loadForecastBootstrap();
-      });
+    loadMapEpidemia();
+    runAfterFirstPaint(() => {
+      if (!cancelled) loadForecastBootstrap();
     });
 
     return () => {
@@ -1336,6 +1344,108 @@ function Dashboard({
     return districtFc?.observed_history || [];
   }, [adm3Lookup, epidemiaData, region, selectedSpecies]);
 
+  const isHistoricalAlertWeek =
+    alertTimeMode === "animate" && Boolean(alertAnimationWeek);
+
+  const situationAlert = useMemo(() => {
+    if (!isHistoricalAlertWeek || region === "All Regions") return selectedAlert;
+    return (
+      mapAlerts.find(
+        (alert) =>
+          alert.district === region ||
+          findDistrictFromLookup(adm3Lookup, alert.district)?.properties?.adm3_name ===
+            region
+      ) || null
+    );
+  }, [adm3Lookup, isHistoricalAlertWeek, mapAlerts, region, selectedAlert]);
+
+  const situationWeekObservedPoint = useMemo(() => {
+    if (!isHistoricalAlertWeek || !alertAnimationWeek) return null;
+    return (
+      selectedDecisionObservedHistory.find(
+        (point) => point?.week_start === alertAnimationWeek
+      ) || null
+    );
+  }, [alertAnimationWeek, isHistoricalAlertWeek, selectedDecisionObservedHistory]);
+
+  const situationForecastPoints = useMemo(() => {
+    if (region !== "All Regions") {
+      return selectedDecisionForecastPoints;
+    }
+
+    let scopedRows = [...forecastTableRows];
+    if (
+      selectedAdminRegion &&
+      selectedAdminRegion !== "All Regions" &&
+      selectedAdminRegion !== "No Selection"
+    ) {
+      scopedRows = scopedRows.filter((row) => row.region === selectedAdminRegion);
+    }
+    scopedRows.sort((a, b) => b.priority - a.priority);
+
+    const topRow =
+      scopedRows.find(
+        (row) => row.status === "Early Warning" || row.status === "Early Detection"
+      ) || scopedRows[0];
+    if (!topRow) return [];
+
+    const districtFc = findDistrictForecastRow(
+      epidemiaData,
+      adm3Lookup,
+      topRow.mapDistrict || topRow.rawDistrict,
+      selectedSpecies
+    );
+    return (districtFc?.forecast || []).filter(
+      (point) => point?.median != null && Number.isFinite(Number(point.median))
+    );
+  }, [
+    adm3Lookup,
+    epidemiaData,
+    forecastTableRows,
+    region,
+    selectedAdminRegion,
+    selectedDecisionForecastPoints,
+    selectedSpecies,
+  ]);
+
+  const situationObservedHistory = useMemo(() => {
+    if (region !== "All Regions") {
+      return selectedDecisionObservedHistory;
+    }
+
+    let scopedRows = [...forecastTableRows];
+    if (
+      selectedAdminRegion &&
+      selectedAdminRegion !== "All Regions" &&
+      selectedAdminRegion !== "No Selection"
+    ) {
+      scopedRows = scopedRows.filter((row) => row.region === selectedAdminRegion);
+    }
+    scopedRows.sort((a, b) => b.priority - a.priority);
+
+    const topRow =
+      scopedRows.find(
+        (row) => row.status === "Early Warning" || row.status === "Early Detection"
+      ) || scopedRows[0];
+    if (!topRow) return [];
+
+    const districtFc = findDistrictForecastRow(
+      epidemiaData,
+      adm3Lookup,
+      topRow.mapDistrict || topRow.rawDistrict,
+      selectedSpecies
+    );
+    return districtFc?.observed_history || [];
+  }, [
+    adm3Lookup,
+    epidemiaData,
+    forecastTableRows,
+    region,
+    selectedAdminRegion,
+    selectedDecisionObservedHistory,
+    selectedSpecies,
+  ]);
+
   const topPriorityDistrict = useMemo(() => {
     const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
     return options[0]?.value || null;
@@ -1712,6 +1822,7 @@ function Dashboard({
         forecastTableRows,
         alerts: speciesAlerts,
         selectedSpecies,
+        speciesLabel,
         populationData,
         populationYear,
         surfaceValueForDistrict,
@@ -1724,6 +1835,7 @@ function Dashboard({
       forecastTableRows,
       speciesAlerts,
       selectedSpecies,
+      speciesLabel,
       populationData,
       populationYear,
       epidemiaData,
@@ -1774,6 +1886,32 @@ function Dashboard({
       adm3Lookup,
       speciesAlerts,
       selectedSpecies,
+      startDate,
+      endDate,
+    ]
+  );
+
+  const mapTooltipContext = useMemo(
+    () => ({
+      forecastTableRows,
+      speciesAlerts,
+      epidemiaData,
+      adm3Lookup,
+      selectedSpecies: mapSpecies,
+      populationData,
+      populationYear,
+      surfaceValueForDistrict,
+      startDate,
+      endDate,
+    }),
+    [
+      forecastTableRows,
+      speciesAlerts,
+      epidemiaData,
+      adm3Lookup,
+      mapSpecies,
+      populationData,
+      populationYear,
       startDate,
       endDate,
     ]
@@ -1837,6 +1975,8 @@ function Dashboard({
     ];
 
     try {
+      const { captureReportMap } = await import("../../utils/exportEpidemiaReport");
+
       for (const mode of captureModes) {
         setExportProgressMessage(`Capturing map (${mode.key})…`);
         const envData = mode.incidence
@@ -1875,7 +2015,9 @@ function Dashboard({
       const districtChartImages =
         woredaPageMode === WOREDA_PAGE_MODES.none.value
           ? new Map()
-          : await renderAllDistrictControlChartImages({
+          : await (
+              await import("../../utils/buildReportControlChartFigure")
+            ).renderAllDistrictControlChartImages({
               epidemiaData,
               adm3Lookup,
               districtRows: woredaDistrictRows,
@@ -1890,6 +2032,7 @@ function Dashboard({
             });
 
       setExportProgressMessage("Writing PDF…");
+      const { exportEpidemiaReport } = await import("../../utils/exportEpidemiaReport");
       await exportEpidemiaReport({
         reportModel,
         mapCaptures,
@@ -1906,6 +2049,8 @@ function Dashboard({
       setExporting(false);
     }
   };
+
+  const showDataLoadingBanner = !forecastBootstrapReady;
 
   return (
     <div
@@ -1949,6 +2094,18 @@ function Dashboard({
           {ediEnabled
             ? " — explainable alerts, uncertainty cues, and Decision panel available"
             : " — forecasts and alerts only (Decision / EDI surfaces hidden)"}
+        </div>
+      ) : null}
+
+      {showDataLoadingBanner ? (
+        <div className="dashboard-load-banner" role="status" aria-live="polite">
+          Loading forecast data…
+        </div>
+      ) : null}
+
+      {epidemiaError ? (
+        <div className="dashboard-load-banner dashboard-load-banner--error" role="alert">
+          {epidemiaError}
         </div>
       ) : null}
 
@@ -2027,6 +2184,37 @@ function Dashboard({
           {(!isCompactLayout || mobileMainView === "map") && (
           <div className="glass-card map-panel" data-tour="map-panel">
             <div className="map-panel-controls">
+              <CurrentSituationSummary
+                rows={forecastTableRows}
+                dataLoading={showDataLoadingBanner}
+                selectedAdminRegion={selectedAdminRegion}
+                selectedDistrict={region}
+                speciesLabel={speciesLabel}
+                valueMode={forecastValueMode}
+                insight={selectedDecisionInsight}
+                alert={situationAlert}
+                weekAlerts={isHistoricalAlertWeek ? mapAlerts : null}
+                alertAnimationWeek={isHistoricalAlertWeek ? alertAnimationWeek : null}
+                weekObservedPoint={situationWeekObservedPoint}
+                observedHistory={situationObservedHistory}
+                forecastPoints={situationForecastPoints}
+                population={
+                  selectedDecisionInsight?.populationAtRisk ??
+                  selectedAlert?.population_at_risk ??
+                  null
+                }
+                incidentRate={
+                  region !== "All Regions"
+                    ? incidentRateData?.[region] ??
+                      incidentRateData?.[normalizeDistrictKey(region)] ??
+                      null
+                    : null
+                }
+                startDate={startDate}
+                endDate={endDate}
+                forecastHorizonWeeks={forecastWeeks}
+              />
+
               <div data-tour="decision-layers">
               <DecisionLayers
                 showEarlyWarning={showEarlyWarning}
@@ -2081,6 +2269,7 @@ function Dashboard({
               alerts={mapAlerts}
               alertTooltipByDistrict={alertTooltipByDistrict}
               districtTooltipByDistrict={districtTooltipByDistrict}
+              mapTooltipContext={mapTooltipContext}
               selectedSpecies={mapSpecies}
               showEarlyWarning={reportExportActive ? false : showEarlyWarning}
               showEarlyDetection={reportExportActive ? false : showEarlyDetection}
@@ -2124,18 +2313,42 @@ function Dashboard({
                   "Project overview"
                 ) : rightPanelView === "decision" ? (
                   <>
-                    Recommend · confirm · override
-                    <HelpTip text={DASHBOARD_HELP.decisionTab} label="Decision tab" />
+                    Confirm · override · annotate
+                    <HelpTip text={DASHBOARD_HELP.decisionTab} label="Action tab" />
+                  </>
+                ) : rightPanelView === "table" ? (
+                  <>
+                    Case projections
+                    <HelpTip text={DASHBOARD_HELP.tableTab} label="Forecast tab" />
                   </>
                 ) : selectedAlert ? (
-                  `Population: ${formatPopulation(selectedAlert.population_at_risk)}`
+                  `Alert · population at risk: ${formatPopulation(selectedAlert.population_at_risk)}`
                 ) : (
                   <>
-                    District Insight
-                    <HelpTip text={DASHBOARD_HELP.districtInsight} label="District insight" />
+                    Alert evidence &amp; charts
+                    <HelpTip text={DASHBOARD_HELP.districtInsight} label="Evidence tab" />
                   </>
                 )}
               </span>
+            </div>
+
+            {/* Workflow breadcrumb — shows the intended sequence */}
+            <div className="workflow-breadcrumb" aria-label="Decision workflow">
+              <span className={`workflow-step${rightPanelView === "charts" ? " workflow-step--active" : ""}`}>
+                <span className="workflow-step-num">3</span> Evidence
+              </span>
+              <span className="workflow-step-arrow">›</span>
+              <span className={`workflow-step${rightPanelView === "table" ? " workflow-step--active" : ""}`}>
+                <span className="workflow-step-num">4</span> Forecast
+              </span>
+              {ediEnabled && (
+                <>
+                  <span className="workflow-step-arrow">›</span>
+                  <span className={`workflow-step${rightPanelView === "decision" ? " workflow-step--active" : ""}`}>
+                    <span className="workflow-step-num">5</span> Action
+                  </span>
+                </>
+              )}
             </div>
 
             <div className="side-panel-tabs" role="tablist" aria-label="Insights views">
@@ -2148,8 +2361,8 @@ function Dashboard({
                 data-tour="tab-charts"
               >
                 <span className="side-panel-tab-label">
-                  Charts
-                  <HelpTip text={DASHBOARD_HELP.chartsTab} label="Charts tab" />
+                  Evidence
+                  <HelpTip text={DASHBOARD_HELP.chartsTab} label="Evidence tab" />
                 </span>
               </button>
               <button
@@ -2161,8 +2374,8 @@ function Dashboard({
                 data-tour="tab-table"
               >
                 <span className="side-panel-tab-label">
-                  Forecast Table
-                  <HelpTip text={DASHBOARD_HELP.tableTab} label="Forecast table tab" />
+                  Forecast
+                  <HelpTip text={DASHBOARD_HELP.tableTab} label="Forecast tab" />
                 </span>
               </button>
               {ediEnabled ? (
@@ -2177,8 +2390,8 @@ function Dashboard({
                   data-tour="tab-decision"
                 >
                   <span className="side-panel-tab-label">
-                    Decision
-                    <HelpTip text={DASHBOARD_HELP.decisionTab} label="Decision tab" />
+                    Action
+                    <HelpTip text={DASHBOARD_HELP.decisionTab} label="Action tab" />
                   </span>
                 </button>
               ) : null}
@@ -2464,7 +2677,8 @@ function Dashboard({
 
             {ediEnabled && rightPanelView === "decision" && (
               <div className="side-panel-body decision-view" role="tabpanel">
-                <DecisionPanel
+                <Suspense fallback={<div className="chart-state">Loading decision panel…</div>}>
+                  <DecisionPanel
                   districtName={region !== "All Regions" ? region : null}
                   regionName={
                     selectedDecisionInsight?.region ||
@@ -2495,6 +2709,7 @@ function Dashboard({
                       : null
                   }
                 />
+                </Suspense>
               </div>
             )}
 

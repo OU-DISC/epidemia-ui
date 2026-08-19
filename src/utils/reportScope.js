@@ -1,4 +1,4 @@
-import { findDistrictFromLookup } from "./districtNameMatch";
+import { findDistrictFromLookup, resolveDistrictFeature } from "./districtNameMatch";
 
 export const REPORT_SCOPE_COUNTRY = "country";
 export const REPORT_SCOPE_REGION = "region";
@@ -93,11 +93,11 @@ export function filterDistrictRowsByScope(districtRows, scopeContext) {
   return (districtRows || []).filter((row) => matchesScopeContext(row, scopeContext));
 }
 
-export function filterAlertsByScope(alerts, adm3Lookup, scopeContext) {
+export function filterAlertsByScope(alerts, adm3Lookup, scopeContext, geoData = null) {
   if (scopeContext.scope === REPORT_SCOPE_COUNTRY) return alerts || [];
 
   return (alerts || []).filter((alert) => {
-    const feature = findDistrictFromLookup(adm3Lookup, alert.district);
+    const feature = resolveDistrictFeature(adm3Lookup, alert.district, geoData);
     const mapDistrict = feature?.properties?.adm3_name || alert.district;
     const region = feature?.properties?.adm1_name || "";
     return matchesScopeContext({ mapDistrict, region }, scopeContext);
@@ -105,17 +105,26 @@ export function filterAlertsByScope(alerts, adm3Lookup, scopeContext) {
 }
 
 /** Filter map/report alerts to a single admin region (or all / none). */
-export function filterAlertsByAdminRegion(alerts, adm3Lookup, adminRegion) {
+export function filterAlertsByAdminRegion(alerts, adm3Lookup, adminRegion, geoData = null) {
   if (!adminRegion || adminRegion === "All Regions") {
     return alerts || [];
   }
   if (adminRegion === "No Selection") {
     return [];
   }
-  return filterAlertsByScope(alerts, adm3Lookup, {
-    scope: REPORT_SCOPE_REGION,
-    regionName: adminRegion,
-  });
+  // Before boundaries finish loading, skip region filtering so markers still render.
+  if (!adm3Lookup?.size && !geoData?.features?.length) {
+    return alerts || [];
+  }
+  return filterAlertsByScope(
+    alerts,
+    adm3Lookup,
+    {
+      scope: REPORT_SCOPE_REGION,
+      regionName: adminRegion,
+    },
+    geoData
+  );
 }
 
 export function scopeDescription(scopeContext) {

@@ -156,15 +156,27 @@ export function findDistrictFromLookup(lookup, districtName) {
   return null;
 }
 
+/** Resolve a district GeoJSON feature from lookup, with geojson scan fallback. */
+export function resolveDistrictFeature(lookup, districtName, geoData = null) {
+  const fromLookup = findDistrictFromLookup(lookup, districtName);
+  if (fromLookup) return fromLookup;
+  if (!geoData?.features?.length || districtName == null) return null;
+
+  const key = normalizeDistrictKey(districtName);
+  if (!key) return null;
+
+  return (
+    geoData.features.find((f) => normalizeDistrictKey(f?.properties?.adm3_name) === key) ||
+    geoData.features.find((f) => normalizeDistrictKey(f?.properties?.W_NAME) === key) ||
+    null
+  );
+}
+
 /** Resolve admin-1 region from a selected district name (map adm3_name or pipeline woreda_name). */
 export function resolveAdminRegionForDistrict(lookup, districtName, geoData = null) {
   if (!districtName || districtName === "All Regions") return null;
 
-  let feature = findDistrictFromLookup(lookup, districtName);
-  if (!feature && geoData?.features) {
-    feature = geoData.features.find((f) => f?.properties?.adm3_name === districtName) || null;
-  }
-
+  const feature = resolveDistrictFeature(lookup, districtName, geoData);
   const adm1 = feature?.properties?.adm1_name;
   return adm1 && String(adm1).trim() ? String(adm1).trim() : null;
 }

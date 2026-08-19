@@ -126,12 +126,15 @@ export function formatDistrictTooltipHtml({
   district,
   population,
   cases,
+  casesFormatted,
   populationYear,
   casesLabel = "Avg weekly cases",
   status = null,
 }) {
   const populationLabel = population != null ? formatPopulation(population) : "—";
-  const casesValue = cases != null ? formatNumber(cases, 0) : "—";
+  // casesFormatted lets callers pass a pre-formatted string (e.g. "High — ≥3 alarm weeks")
+  // without going through the numeric formatter.
+  const casesValue = casesFormatted ?? (cases != null ? formatNumber(cases, 0) : "—");
 
   const statusRow = status
     ? `
@@ -346,6 +349,17 @@ export function formatAlertTooltipHtml(districtName, explanation) {
   const magnitudeBullet = explanation.bullets?.find((item) => item.includes("% above threshold"));
   if (magnitudeBullet) {
     rows.push(tooltipRow("Above threshold", magnitudeBullet));
+  }
+
+  if (!rows.length) {
+    rows.push(tooltipRow("District", districtName || "—"));
+    if (explanation?.status) {
+      rows.push(tooltipRow("Status", explanation.status));
+    }
+    const fallbackWhy = explanation?.why || explanation?.summary;
+    if (fallbackWhy) {
+      rows.push(tooltipRow("Why", String(fallbackWhy).split(".")[0]));
+    }
   }
 
   return `<div class="district-info-tooltip">${rows.join("")}</div>`.trim();
