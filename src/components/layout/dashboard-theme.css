@@ -12,7 +12,7 @@
   --accent-strong: #0d6156;
   --warn: #c93e3e;
   --detect: #d17f22;
-  --dash-shell-padding: 14px;
+  --dash-shell-padding: 10px;
   --dash-panel-gap: 12px;
   --dash-viewport-chrome: 450px;
   --dash-chart-height: clamp(150px, calc((100vh - var(--dash-viewport-chrome)) / 2), 320px);
@@ -130,48 +130,162 @@ body {
   box-shadow: none;
 }
 
+/* ── Epiweek range row — always a single horizontal strip ─── */
+
 .env-layers-date-range {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(80, 109, 150, 0.14);
-}
-
-.env-layers-compact .env-layers-date-range {
   flex-direction: row;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 8px;
   width: 100%;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: 0;
 }
 
-.env-layers-date-range .toolbar-field {
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-}
-
-.env-layers-compact .env-layers-date-range .toolbar-field {
+.env-date-field {
+  flex: 0 0 auto;
   flex-direction: row;
   align-items: center;
-  gap: 6px;
-  width: auto;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.env-date-field-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-soft, #64748b);
   white-space: nowrap;
 }
 
 .env-layers-date-range .toolbar-input {
-  width: 100%;
-  min-width: 0;
+  width: 126px;
+  padding: 4px 6px;
+  font-size: 0.8rem;
 }
 
-.env-layers-compact .env-layers-date-range .toolbar-input {
-  width: 136px;
-  padding: 5px 8px;
-  font-size: 0.82rem;
+/* ── Epiweek badge next to date inputs ─────────────────────── */
+
+.env-layers-epiweek-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-primary, #3b82f6);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.env-layers-compact .env-layers-epiweek-badge {
+  margin-left: 2px;
+}
+
+/* ── Epiweek range slicer (dual-thumb) ────────────────────── */
+
+.epiweek-slicer {
+  flex: 1 1 auto;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 2px;
+}
+
+.epiweek-slicer-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.epiweek-slicer-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.epiweek-slicer-label--end {
+  text-align: right;
+}
+
+.epiweek-slicer-week {
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-primary, #3b82f6);
+}
+
+.epiweek-slicer-date {
+  font-size: 0.64rem;
+  font-variant-numeric: tabular-nums;
+  color: rgba(51, 65, 85, 0.55);
+}
+
+.epiweek-slicer-track-wrap {
+  position: relative;
+  height: 24px;
+}
+
+.epiweek-slicer-track-wrap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: translateY(-50%);
+  background: rgba(100, 116, 139, 0.18);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.epiweek-slicer-track-fill {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  transform: translateY(-50%);
+  background: var(--accent-primary, #3b82f6);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.epiweek-slicer-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: none;
+  background: transparent;
+  z-index: 2;
+  height: 24px;
+}
+
+.epiweek-slicer-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-primary, #3b82f6);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+.epiweek-slicer-thumb::-moz-range-thumb {
+  pointer-events: all;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-primary, #3b82f6);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+.epiweek-slicer-thumb--end {
+  z-index: 3;
 }
 
 .env-layers-compact .env-layers-date-range .map-surface-control {
@@ -423,60 +537,77 @@ body {
 
 .top-toolbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
+  gap: 4px;
+  padding: 5px 10px;
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--card);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
   width: 100%;
+  min-height: 0;
+  overflow: visible;
 }
 
 .top-toolbar .brand-mark {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   letter-spacing: 0.06em;
 }
 
 .top-toolbar .toolbar-cluster {
-  gap: 6px;
-  padding: 3px 8px;
-  border-radius: 10px;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 8px;
 }
 
 .top-toolbar .toolbar-actions {
-  gap: 6px;
+  gap: 4px;
 }
 
 .top-toolbar .toolbar-field {
-  gap: 6px;
-  font-size: 0.84rem;
+  gap: 4px;
+  font-size: 0.8rem;
 }
 
 .top-toolbar .toolbar-select,
 .top-toolbar .toolbar-input {
-  padding: 4px 8px;
-  font-size: 0.84rem;
-  border-radius: 8px;
+  padding: 3px 6px;
+  font-size: 0.8rem;
+  border-radius: 6px;
 }
 
 .top-toolbar .toolbar-button {
-  padding: 5px 10px;
-  font-size: 0.84rem;
-  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
 }
 
 .top-toolbar .toolbar-project-name {
-  font-size: 0.76rem;
-  max-width: 160px;
+  font-size: 0.72rem;
+  max-width: 140px;
 }
 
 .top-toolbar .help-tip-icon {
-  width: 13px;
-  height: 13px;
-  font-size: 9px;
+  width: 12px;
+  height: 12px;
+  font-size: 8px;
+}
+
+.toolbar-brand-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.1;
+}
+
+.toolbar-subtitle {
+  font-size: 0.67rem;
+  color: var(--ink-soft, #64748b);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .brand-mark {
@@ -486,6 +617,16 @@ body {
   font-weight: 700;
   margin-right: 2px;
   flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.brand-version {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+  vertical-align: super;
+  line-height: 1;
 }
 
 .toolbar-cluster {
@@ -499,18 +640,46 @@ body {
   border: 1px solid rgba(15, 23, 42, 0.07);
 }
 
+.toolbar-cluster--workspace {
+  flex: 0 0 auto;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0 8px 0 0;
+  border-right: 1px solid rgba(15, 23, 42, 0.10);
+  margin-right: 2px;
+  align-items: center;
+}
+
 .toolbar-cluster--context {
-  flex: 1 1 280px;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
-.toolbar-cluster--project {
-  flex: 0 1 auto;
+/* Constrain individual context selects so they don't over-expand */
+.toolbar-select--disease {
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toolbar-select--country {
+  max-width: 90px;
+}
+
+.toolbar-select--region {
+  max-width: 120px;
+}
+
+.toolbar-select--district {
+  max-width: 150px;
 }
 
 .toolbar-cluster--output {
   margin-left: auto;
   flex: 0 1 auto;
+  padding-left: 10px;
+  border-left: 1px solid rgba(15, 23, 42, 0.10);
 }
 
 .toolbar-actions {
@@ -571,6 +740,49 @@ body {
   background: transparent;
   border: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow: none;
+}
+
+.toolbar-button--upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(15, 123, 108, 0.10);
+  border-color: rgba(15, 123, 108, 0.25);
+  color: #0a6b5e;
+}
+
+.toolbar-button--upload:hover:enabled {
+  background: rgba(15, 123, 108, 0.18);
+  border-color: rgba(15, 123, 108, 0.4);
+  color: #084d45;
+}
+
+.toolbar-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.toolbar-button--help {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: var(--ink-soft, #64748b);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.toolbar-button--help:hover {
+  background: rgba(15, 23, 42, 0.10);
+  color: var(--ink, #1e293b);
 }
 
 .toolbar-button.ghost:hover:enabled {
@@ -2673,6 +2885,10 @@ body {
 
   .dashboard-shell--compact .env-layers-compact .env-layers-date-range .toolbar-input {
     width: 100%;
+  }
+
+  .dashboard-shell--compact .epiweek-slicer {
+    min-width: 0;
   }
 
   .dashboard-shell--compact .env-layers-compact .env-layers-date-range .map-surface-control {

@@ -1,6 +1,15 @@
 // TopToolbar.jsx
 import React from "react";
 
+function DiseaseSubtitle({ disease, country }) {
+  const speciesName = disease.replace(/\s+malaria$/i, "");
+  return (
+    <span className="toolbar-subtitle">
+      <em>{speciesName}</em> malaria · {country}
+    </span>
+  );
+}
+
 function TopToolbar({
   disease,
   onChangeDisease,
@@ -32,72 +41,26 @@ function TopToolbar({
 
   return (
     <header className="top-toolbar fade-in-up" data-tour="toolbar">
-      <strong className="brand-mark">EPIDEMIA</strong>
+      {/* ── Brand + workspace controls (far left) ── */}
+      <div className="toolbar-cluster toolbar-cluster--workspace" role="group" aria-label="Workspace">
+        <div className="toolbar-brand-block">
+          <strong className="brand-mark">EPIDEMIA <span className="brand-version">2.0</span></strong>
+          <DiseaseSubtitle disease={disease} country={country} />
+        </div>
 
-      <div
-        className="toolbar-cluster toolbar-cluster--context"
-        role="group"
-        aria-label="Analysis context"
-        data-tour="toolbar-context"
-      >
-        <label className="toolbar-field">
-          Disease:
-          <select
-            value={disease}
-            onChange={(e) => onChangeDisease(e.target.value)}
-            className="toolbar-select"
-          >
-            {diseases.map((d) => (
-              <option key={d} value={d}>{d}</option>
-            ))}
-          </select>
-        </label>
+        <button
+          type="button"
+          className="toolbar-button toolbar-button--upload"
+          onClick={onNewProject}
+          title="Upload CSV and run your first forecast"
+        >
+          <svg className="toolbar-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M10 14V4m0 0L6.5 7.5M10 4l3.5 3.5" />
+            <path d="M3 13v2a2 2 0 002 2h10a2 2 0 002-2v-2" />
+          </svg>
+          New Project
+        </button>
 
-        <label className="toolbar-field">
-          Country:
-          <select
-            value={country}
-            onChange={(e) => onChangeCountry(e.target.value)}
-            className="toolbar-select"
-          >
-            {countries.map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
-        </label>
-
-        {country === "Ethiopia" && (
-          <>
-            <label className="toolbar-field">
-              Region:
-              <select
-                value={selectedAdminRegion}
-                onChange={(e) => onChangeAdminRegion(e.target.value)}
-                className="toolbar-select"
-              >
-                {availableRegions.map((r) => (
-                  <option key={r} value={r}>{r}</option>
-                ))}
-              </select>
-            </label>
-
-            <label className="toolbar-field">
-              District:
-              <select
-                value={selectedDistrict}
-                onChange={(e) => onChangeDistrict(e.target.value)}
-                className="toolbar-select"
-              >
-                {availableDistricts.map((d) => (
-                  <option key={d} value={d}>{d === "All Regions" ? "All Districts" : d}</option>
-                ))}
-              </select>
-            </label>
-          </>
-        )}
-      </div>
-
-      <div className="toolbar-cluster toolbar-cluster--project" role="group" aria-label="Project">
         {showDefaultDatasetButton && (
           <button
             type="button"
@@ -109,22 +72,91 @@ function TopToolbar({
           </button>
         )}
 
-        <button
-          type="button"
-          className="toolbar-button"
-          onClick={onNewProject}
-          title="Upload CSV and run your first forecast"
-        >
-          New Project
-        </button>
-
         {projectName && (
           <span className="toolbar-project-name" title="Active project">
             {projectName}
           </span>
         )}
+
+        {typeof onStartTour === "function" && (
+          <button
+            type="button"
+            className="toolbar-button toolbar-button--help"
+            onClick={onStartTour}
+            title="Highlight each part of the dashboard with a short explanation"
+            aria-label="Take a tour"
+          >
+            ?
+          </button>
+        )}
       </div>
 
+      {/* ── Analysis context (center) ── */}
+      <div
+        className="toolbar-cluster toolbar-cluster--context"
+        role="group"
+        aria-label="Analysis context"
+        data-tour="toolbar-context"
+      >
+        <label className="toolbar-field">
+          <span className="toolbar-field-label" title="Disease">Pathogen</span>
+          <select
+            value={disease}
+            onChange={(e) => onChangeDisease(e.target.value)}
+            className="toolbar-select toolbar-select--disease"
+            title={disease}
+          >
+            {diseases.map((d) => (
+              <option key={d} value={d}>{d}</option>
+            ))}
+          </select>
+        </label>
+
+        <label className="toolbar-field">
+          <span className="toolbar-field-label" title="Country">Country</span>
+          <select
+            value={country}
+            onChange={(e) => onChangeCountry(e.target.value)}
+            className="toolbar-select toolbar-select--country"
+          >
+            {countries.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </label>
+
+        {country === "Ethiopia" && (
+          <>
+            <label className="toolbar-field">
+              <span className="toolbar-field-label">Region</span>
+              <select
+                value={selectedAdminRegion}
+                onChange={(e) => onChangeAdminRegion(e.target.value)}
+                className="toolbar-select toolbar-select--region"
+              >
+                {availableRegions.map((r) => (
+                  <option key={r} value={r}>{r}</option>
+                ))}
+              </select>
+            </label>
+
+            <label className="toolbar-field">
+              <span className="toolbar-field-label">District</span>
+              <select
+                value={selectedDistrict}
+                onChange={(e) => onChangeDistrict(e.target.value)}
+                className="toolbar-select toolbar-select--district"
+              >
+                {availableDistricts.map((d) => (
+                  <option key={d} value={d}>{d === "All Regions" ? "All Districts" : d}</option>
+                ))}
+              </select>
+            </label>
+          </>
+        )}
+      </div>
+
+      {/* ── Report export (far right) ── */}
       <div
         className="toolbar-cluster toolbar-cluster--output toolbar-actions"
         role="group"
@@ -168,17 +200,6 @@ function TopToolbar({
         <button type="button" onClick={onExportPDF} className="toolbar-button" disabled={exporting}>
           {exportLabel}
         </button>
-
-        {typeof onStartTour === "function" && (
-          <button
-            type="button"
-            className="toolbar-button ghost"
-            onClick={onStartTour}
-            title="Highlight each part of the dashboard with a short explanation"
-          >
-            Take a tour
-          </button>
-        )}
       </div>
     </header>
   );

@@ -84,7 +84,7 @@ import {
   WOREDA_PAGE_MODES,
 } from "../../utils/reportExportConfig";
 import { speciesToDisease } from "../../utils/projectStorage";
-import { resolveChartDateRange } from "../../utils/chartDateRange";
+import { collectEpidemiaDataDates, resolveChartDateRange } from "../../utils/chartDateRange";
 import {
   normalizeChartAxisDate,
   parseXAxisRangeFromRelayoutEvent,
@@ -436,6 +436,10 @@ function Dashboard({
   // Raster time controls
   const [envTimeMode, setEnvTimeMode] = useState("average"); // "average" | "animate"
   const weekDates = useMemo(() => buildWeekDates(startDate, endDate), [startDate, endDate]);
+  const availableEpiweeks = useMemo(
+    () => collectEpidemiaDataDates(epidemiaData),
+    [epidemiaData]
+  );
   const [weekIndex, setWeekIndex] = useState(0);
   const [envPlaying, setEnvPlaying] = useState(false);
   const [envAverageStats, setEnvAverageStats] = useState(null);
@@ -1950,13 +1954,6 @@ function Dashboard({
 
       <div className="dashboard-layout">
         <main className="main-content">
-          <section className="dashboard-hero fade-in-up">
-            <p className="dashboard-kicker">Real-Time Surveillance Platform</p>
-            <h1 className="dashboard-title">
-              <DiseaseTitle disease={disease} country={country} />
-            </h1>
-          </section>
-
         {isCompactLayout ? (
           <nav className="mobile-view-switcher fade-in-up delay-1" role="tablist" aria-label="Dashboard views">
             <button
@@ -2055,6 +2052,7 @@ function Dashboard({
                 endDate={endDate}
                 onChangeStartDate={handleStartDateChange}
                 onChangeEndDate={handleEndDateChange}
+                availableWeeks={availableEpiweeks}
                 mapSurfaceLayer={activeMapSurfaceLayer}
                 onChangeMapSurfaceLayer={handleMapSurfaceLayerChange}
                 showEnvTimeControls={envMapLayerActive}

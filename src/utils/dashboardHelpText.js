@@ -48,7 +48,7 @@ export const DASHBOARD_HELP = {
   envLayers:
     "Satellite time controls when a rainfall, temperature, or vegetation map layer is selected.",
   envDateRange:
-    "Start and end dates filter map layers, environmental charts, transmission forecast charts, and alert history replay.",
+    "Start and end epiweeks (ISO week labels as used in PHEM surveillance) filter map layers, environmental charts, transmission forecast charts, and alert history replay. Calendar week-start dates are shown under each selector.",
   envTime:
     "Animate environmental layers week by week, or average them over the date range.",
 
