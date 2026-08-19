@@ -38,6 +38,29 @@ body {
   padding: var(--dash-shell-padding);
 }
 
+.study-condition-banner {
+  margin: 8px 0 0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--ink);
+  border: 1px solid var(--card-border);
+  background: rgba(239, 243, 248, 0.9);
+}
+
+.study-condition-banner--baseline {
+  color: #6a4a12;
+  border-color: rgba(209, 160, 34, 0.4);
+  background: rgba(209, 160, 34, 0.12);
+}
+
+.study-condition-banner--edi {
+  color: #0f5c52;
+  border-color: rgba(15, 123, 108, 0.35);
+  background: rgba(15, 123, 108, 0.1);
+}
+
 .dashboard-layout {
   min-height: calc(100vh - 96px);
   margin-top: var(--dash-shell-padding);
@@ -1118,14 +1141,15 @@ body {
 }
 
 .side-panel-tab {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   border: 0;
   border-radius: 9px;
-  padding: 6px 10px;
+  padding: 6px 6px;
   background: transparent;
   color: var(--ink-soft);
   font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
@@ -1225,6 +1249,18 @@ body {
 .side-panel-body.charts-view .regional-alert-panel {
   flex: 0 0 auto;
   width: 100%;
+}
+
+.side-panel-body.decision-view {
+  overflow: auto;
+  padding: 2px 0 0;
+  min-height: 0;
+}
+
+.side-panel-body.decision-view .decision-panel {
+  margin: 0;
+  height: 100%;
+  min-height: 0;
 }
 
 .side-panel-body.charts-view .forecast-panel,
@@ -2856,6 +2892,7 @@ body {
   }
 
   .dashboard-shell:not(.dashboard-shell--compact) .side-panel-body.table-view,
+  .dashboard-shell:not(.dashboard-shell--compact) .side-panel-body.decision-view,
   .dashboard-shell:not(.dashboard-shell--compact) .side-panel-body.about-view {
     overflow: auto;
   }

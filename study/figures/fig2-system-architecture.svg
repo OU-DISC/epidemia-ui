@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" role="img">
+  <title>EPIDEMIA 2.0 system architecture A B C</title>
+  <defs>
+    <style>
+      .box { fill: #fff; stroke: #1d2738; stroke-width: 1.4; }
+      .boxC { fill: #f3f7f6; stroke: #1d2738; stroke-width: 1.4; }
+      .layer { fill: #f4f6f8; stroke: #6b778a; stroke-width: 1.2; }
+      .layerC { fill: #eef5f3; stroke: #0f7b6c; stroke-width: 1.3; }
+      .t { font-family: Arial, Helvetica, sans-serif; fill: #1d2738; text-anchor: middle; }
+      .h { font-family: Arial, Helvetica, sans-serif; font-weight: 700; fill: #1d2738; font-size: 13px; }
+      .s { font-family: Arial, Helvetica, sans-serif; fill: #4c5a70; font-size: 11px; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- A -->
+  <rect class="layer" x="40" y="28" width="780" height="108" rx="8"/>
+  <text class="h" x="56" y="50">A. Data and alerting pipeline</text>
+
+  <rect class="box" x="70" y="64" width="200" height="52" rx="5"/>
+  <text class="t" x="170" y="86" style="font-size:12px;font-weight:700;">Surveillance +</text>
+  <text class="t" x="170" y="104" style="font-size:12px;font-weight:700;">env./pop. data</text>
+
+  <rect class="box" x="330" y="64" width="200" height="52" rx="5"/>
+  <text class="t" x="430" y="86" style="font-size:12px;font-weight:700;">Forecast +</text>
+  <text class="t" x="430" y="104" style="font-size:12px;font-weight:700;">threshold pipeline</text>
+
+  <rect class="box" x="590" y="64" width="200" height="52" rx="5"/>
+  <text class="t" x="690" y="86" style="font-size:12px;font-weight:700;">Alert generation</text>
+  <text class="t" x="690" y="104" style="font-size:12px;font-weight:700;">(EW / ED)</text>
+
+  <!-- B -->
+  <rect class="layer" x="40" y="168" width="780" height="108" rx="8"/>
+  <text class="h" x="56" y="190">B. Interactive exploration UI</text>
+
+  <rect class="box" x="70" y="204" width="200" height="52" rx="5"/>
+  <text class="t" x="170" y="226" style="font-size:12px;font-weight:700;">National map</text>
+  <text class="t" x="170" y="244" style="font-size:12px;font-weight:700;">+ layers</text>
+
+  <rect class="box" x="330" y="204" width="200" height="52" rx="5"/>
+  <text class="t" x="430" y="226" style="font-size:12px;font-weight:700;">Forecast table</text>
+  <text class="t" x="430" y="244" style="font-size:12px;font-weight:700;">+ comparison</text>
+
+  <rect class="box" x="590" y="204" width="200" height="52" rx="5"/>
+  <text class="t" x="690" y="226" style="font-size:12px;font-weight:700;">District charts</text>
+  <text class="t" x="690" y="244" style="font-size:12px;font-weight:700;">+ why-alert</text>
+
+  <!-- C -->
+  <rect class="layerC" x="40" y="308" width="780" height="120" rx="8"/>
+  <text class="h" x="56" y="330">C. Human judgment / EDI loop</text>
+
+  <rect class="boxC" x="70" y="348" width="200" height="56" rx="5"/>
+  <text class="t" x="170" y="370" style="font-size:12px;font-weight:700;">Evaluate priority</text>
+  <text class="t" x="170" y="388" style="font-size:11px;">rank 2-3 districts</text>
+
+  <rect class="boxC" x="330" y="348" width="200" height="56" rx="5"/>
+  <text class="t" x="430" y="370" style="font-size:12px;font-weight:700;">Decision panel</text>
+  <text class="t" x="430" y="388" style="font-size:11px;">recommend / act</text>
+
+  <rect class="boxC" x="590" y="348" width="200" height="56" rx="5"/>
+  <text class="t" x="690" y="370" style="font-size:12px;font-weight:700;">HITL loop</text>
+  <text class="t" x="690" y="388" style="font-size:11px;">approve / feedback / memory</text>
+
+  <text class="s" x="430" y="460">A produce signals -&gt; B explore -&gt; C prioritize and commit (Baseline omits C)</text>
+  <text class="s" x="430" y="480">Progressive path for decision makers</text>
+</svg>

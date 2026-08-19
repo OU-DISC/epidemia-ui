@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="460" viewBox="0 0 780 460" role="img">
+  <title>Study procedure Baseline vs EDI</title>
+  <defs>
+    <style>
+      .box { fill: #fff; stroke: #1d2738; stroke-width: 1.4; }
+      .arm { fill: #f2f4f6; stroke: #1d2738; stroke-width: 1.4; }
+      .meas { fill: #f7f8fa; stroke: #4c5a70; stroke-width: 1.2; }
+      .note { fill: #eef5f3; stroke: #0f7b6c; stroke-width: 1.4; }
+      .t { font-family: Arial, Helvetica, sans-serif; fill: #1d2738; text-anchor: middle; }
+      .s { font-family: Arial, Helvetica, sans-serif; fill: #4c5a70; font-size: 10px; text-anchor: middle; }
+      .edge { stroke: #4c5a70; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    </style>
+    <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#4c5a70"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="230" y="24" width="320" height="40" rx="5"/>
+  <text class="t" x="390" y="49" style="font-size:13px;font-weight:700;">Same forecasts / alerts / districts (S1-S3)</text>
+
+  <rect class="arm" x="80" y="100" width="200" height="52" rx="5"/>
+  <text class="t" x="180" y="122" style="font-size:12px;font-weight:700;">Baseline</text>
+  <text class="t" x="180" y="140" style="font-size:11px;">prediction-centric UI</text>
+  <text class="s" x="180" y="92">?condition=baseline</text>
+
+  <rect class="arm" x="500" y="100" width="200" height="52" rx="5"/>
+  <text class="t" x="600" y="122" style="font-size:12px;font-weight:700;">EDI</text>
+  <text class="t" x="600" y="140" style="font-size:11px;">EPIDEMIA 2.0 full UI</text>
+  <text class="s" x="600" y="92">?condition=edi</text>
+
+  <line class="edge" x1="390" y1="64" x2="390" y2="78"/>
+  <path stroke="#4c5a70" stroke-width="1.5" fill="none" d="M180 78 H600"/>
+  <line class="edge" x1="180" y1="78" x2="180" y2="98"/>
+  <line class="edge" x1="600" y1="78" x2="600" y2="98"/>
+
+  <!-- Tasks -->
+  <rect class="box" x="290" y="190" width="200" height="44" rx="5"/>
+  <text class="t" x="390" y="208" style="font-size:12px;font-weight:700;">Task A</text>
+  <text class="t" x="390" y="224" style="font-size:11px;">Explain the alert</text>
+
+  <rect class="box" x="290" y="250" width="200" height="44" rx="5"/>
+  <text class="t" x="390" y="268" style="font-size:12px;font-weight:700;">Task B</text>
+  <text class="t" x="390" y="284" style="font-size:11px;">Act under uncertainty</text>
+
+  <rect class="box" x="290" y="310" width="200" height="44" rx="5"/>
+  <text class="t" x="390" y="328" style="font-size:12px;font-weight:700;">Task C</text>
+  <text class="t" x="390" y="344" style="font-size:11px;">Priority / intervention</text>
+
+  <line class="edge" x1="390" y1="234" x2="390" y2="248"/>
+  <line class="edge" x1="390" y1="294" x2="390" y2="308"/>
+
+  <path class="edge" d="M180 152 C180 190, 280 190, 288 210"/>
+  <path class="edge" d="M600 152 C600 190, 500 190, 492 210"/>
+
+  <!-- Measures -->
+  <rect class="meas" x="560" y="192" width="180" height="40" rx="4"/>
+  <text class="t" x="650" y="208" style="font-size:11px;font-weight:700;">F1 Understanding</text>
+  <text class="s" x="650" y="222">explanation rubric</text>
+
+  <rect class="meas" x="560" y="252" width="180" height="40" rx="4"/>
+  <text class="t" x="650" y="268" style="font-size:11px;font-weight:700;">F2 Calibration</text>
+  <text class="s" x="650" y="282">trust x action</text>
+
+  <rect class="meas" x="560" y="312" width="180" height="40" rx="4"/>
+  <text class="t" x="650" y="328" style="font-size:11px;font-weight:700;">F3 Intervention</text>
+  <text class="s" x="650" y="342">priority + judgment</text>
+
+  <line class="edge" x1="490" y1="212" x2="558" y2="212"/>
+  <line class="edge" x1="490" y1="272" x2="558" y2="272"/>
+  <line class="edge" x1="490" y1="332" x2="558" y2="332"/>
+
+  <rect class="note" x="200" y="390" width="380" height="44" rx="5"/>
+  <text class="t" x="390" y="408" style="font-size:11px;font-weight:700;">EDI-only logged: confirm/override/annotate,</text>
+  <text class="t" x="390" y="424" style="font-size:11px;font-weight:700;">priority save, approval, outcome feedback</text>
+  <line class="edge" x1="390" y1="354" x2="390" y2="388"/>
+</svg>

@@ -1,0 +1,284 @@
+.edi-deliberation {
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 123, 108, 0.22);
+  background: rgba(15, 123, 108, 0.04);
+}
+
+.edi-deliberation-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-bottom: 4px;
+}
+
+.edi-deliberation-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.edi-deliberation-tabs {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.edi-deliberation-tab {
+  border: 1px solid rgba(29, 39, 56, 0.14);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.edi-deliberation-tab.is-active {
+  color: #1a4d45;
+  border-color: rgba(15, 123, 108, 0.35);
+  background: rgba(15, 123, 108, 0.12);
+}
+
+.edi-deliberation-source {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #1a4d45;
+}
+
+.edi-deliberation-uncertainty {
+  margin-left: auto;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.edi-deliberation-uncertainty--low {
+  color: #0f5c52;
+  background: rgba(15, 123, 108, 0.12);
+}
+
+.edi-deliberation-uncertainty--moderate {
+  color: #6a4a12;
+  background: rgba(209, 160, 34, 0.14);
+}
+
+.edi-deliberation-uncertainty--high,
+.edi-deliberation-uncertainty--unavailable {
+  color: #7a2b2b;
+  background: rgba(201, 62, 62, 0.12);
+}
+
+.edi-deliberation-policy {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.edi-deliberation-policy span {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.edi-deliberation-cue {
+  margin: 0 0 6px;
+  padding: 5px 7px;
+  border-radius: 8px;
+  font-size: 0.74rem;
+  line-height: 1.35;
+}
+
+.edi-deliberation-cue--low {
+  color: #0f5c52;
+  background: rgba(15, 123, 108, 0.1);
+}
+
+.edi-deliberation-cue--moderate {
+  color: #6a4a12;
+  background: rgba(209, 160, 34, 0.12);
+}
+
+.edi-deliberation-cue--high,
+.edi-deliberation-cue--unavailable {
+  color: #7a2b2b;
+  background: rgba(201, 62, 62, 0.1);
+}
+
+.edi-deliberation-summary,
+.edi-deliberation-loading {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.edi-deliberation-options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edi-deliberation-option,
+.edi-deliberation-card {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(29, 39, 56, 0.12);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 8px;
+  padding: 6px 8px;
+  color: inherit;
+}
+
+.edi-deliberation-option {
+  cursor: pointer;
+}
+
+.edi-deliberation-option:hover {
+  border-color: rgba(15, 123, 108, 0.35);
+}
+
+.edi-deliberation-option--recommended,
+.edi-deliberation-card--support {
+  border-color: rgba(15, 123, 108, 0.32);
+  background: rgba(15, 123, 108, 0.07);
+}
+
+.edi-deliberation-option--selected {
+  box-shadow: inset 0 0 0 1px rgba(15, 123, 108, 0.45);
+}
+
+.edi-deliberation-card--weaken,
+.edi-deliberation-card--challenge {
+  border-color: rgba(201, 62, 62, 0.22);
+  background: rgba(201, 62, 62, 0.06);
+}
+
+.edi-deliberation-card--gap {
+  border-color: rgba(29, 39, 56, 0.16);
+  background: rgba(29, 39, 56, 0.04);
+}
+
+.edi-deliberation-card--check {
+  border-color: rgba(209, 160, 34, 0.28);
+  background: rgba(209, 160, 34, 0.08);
+}
+
+.edi-deliberation-card .edi-deliberation-option-top strong {
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.edi-deliberation-option-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 0.8rem;
+}
+
+.edi-deliberation-option-top span {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.edi-deliberation-section-label {
+  margin: 6px 0 2px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #1a4d45;
+}
+
+.edi-deliberation-card-body {
+  margin: 6px 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.edi-deliberation-card-list {
+  margin: 6px 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.edi-deliberation-card-list li + li {
+  margin-top: 4px;
+}
+
+.edi-deliberation-card-empty {
+  margin: 6px 0 0;
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+}
+
+.edi-deliberation-pros,
+.edi-deliberation-cons,
+.edi-deliberation-bullets,
+.edi-deliberation-questions,
+.edi-deliberation-card-list {
+  margin: 6px 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.edi-deliberation-pros li + li,
+.edi-deliberation-cons li + li,
+.edi-deliberation-card-list li + li {
+  margin-top: 4px;
+}
+
+.edi-deliberation-pros {
+  color: #1a4d45;
+}
+
+.edi-deliberation-cons {
+  color: #6b4a1e;
+}
+
+.edi-deliberation-option-rationale,
+.edi-deliberation-option-risk {
+  margin: 4px 0 0;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+}
+
+.edi-deliberation-option-rationale span,
+.edi-deliberation-option-risk span {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.edi-deliberation-option-risk {
+  color: #6b4a1e;
+}
+
+.edi-deliberation-footnote {
+  margin: 6px 0 0;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+}
+
+.edi-deliberation-card--challenge .edi-deliberation-option-top strong {
+  font-weight: 600;
+}

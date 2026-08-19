@@ -66,10 +66,11 @@ function clamp(value, min, max) {
  *   open: boolean,
  *   onClose: () => void,
  *   onPrepareStep?: (step: object) => void,
+ *   steps?: object[],
  * }} props
  */
-function DashboardTour({ open, onClose, onPrepareStep }) {
-  const steps = DASHBOARD_TOUR_STEPS;
+function DashboardTour({ open, onClose, onPrepareStep, steps: stepsProp }) {
+  const steps = stepsProp?.length ? stepsProp : DASHBOARD_TOUR_STEPS;
   const [index, setIndex] = useState(0);
   const [targetBox, setTargetBox] = useState(null);
   const [tooltipSize, setTooltipSize] = useState({ width: 320, height: 180 });
@@ -87,7 +88,12 @@ function DashboardTour({ open, onClose, onPrepareStep }) {
     if (!open) return undefined;
     setIndex(0);
     return undefined;
-  }, [open]);
+  }, [open, steps]);
+
+  useEffect(() => {
+    if (index < steps.length) return;
+    setIndex(Math.max(0, steps.length - 1));
+  }, [index, steps.length]);
 
   useEffect(() => {
     if (!open || !step) return undefined;

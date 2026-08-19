@@ -1,4 +1,24 @@
 import os
+from pathlib import Path
+
+
+def _load_dotenv_file() -> None:
+    """Load backend/.env into os.environ if present (does not override existing vars)."""
+    env_path = Path(__file__).resolve().parent / ".env"
+    if not env_path.is_file():
+        return
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+_load_dotenv_file()
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -6,6 +26,13 @@ from starlette.middleware.gzip import GZipMiddleware
 from app.schemas.forecast import ForecastRequest, ForecastResponse
 from app.services.malaria_forecast import run_malaria_forecast
 from app.schemas.epidemia import DistrictForecast, EpidemiaRunRequest, EpidemiaRunResponse, Species
+from app.schemas.edi import (
+    EdiDeliberateRequest,
+    EdiDeliberateResponse,
+    EdiExplainRequest,
+    EdiExplainResponse,
+    EdiStatusResponse,
+)
 from app.schemas.project_setup import EpiValidationResponse, ProjectSetupRequest, ProjectSetupResponse
 from app.services.epidemia_pipeline import (
     load_bootstrap_epidemia_report,
@@ -14,6 +41,7 @@ from app.services.epidemia_pipeline import (
     load_map_epidemia_report,
     run_epidemia_pipeline,
 )
+from app.services.edi_grounded_llm import get_edi_status, grounded_deliberate, grounded_explain
 from app.services.pipeline_input_error import PipelineInputError
 from app.services.project_setup import build_sample_epi_csv, setup_project, validate_epi_csv
 
@@ -183,6 +211,37 @@ async def create_project(
         return setup_project(csv_text, config)
     except PipelineInputError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/edi/status", response_model=EdiStatusResponse)
+def edi_status():
+    """Whether grounded LLM deliberation (Layer 3) is configured."""
+    return get_edi_status()
+
+
+@app.post("/edi/explain", response_model=EdiExplainResponse)
+def edi_explain(request: EdiExplainRequest):
+    """
+    Grounded rewrite of alert evidence (EDI Explain interaction).
+    The LLM may only use the provided evidence pack; humans still decide.
+    """
+    return grounded_explain(
+        evidence=request.evidence,
+        interaction=request.interaction or "explain",
+    )
+
+
+@app.post("/edi/deliberate", response_model=EdiDeliberateResponse)
+def edi_deliberate(request: EdiDeliberateRequest):
+    """
+    Grounded EDI deliberation. Prefer interaction=brief (unified structured schema).
+    Also: explain | suggest | explore | compare. Humans still decide.
+    """
+    return grounded_deliberate(
+        evidence=request.evidence,
+        interaction=request.interaction or "brief",
+    )
+
 
 if __name__ == "__main__":
     import uvicorn

@@ -4,6 +4,8 @@ import TopToolbar from "./TopToolbar";
 import EthiopiaMap from "../EthiopiaMap";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import AlertStatusIcons from "../AlertStatusIcons";
+import DecisionPanel from "../DecisionPanel";
+import ComparisonPriorityPanel from "../ComparisonPriorityPanel";
 import ForecastAlertsTable from "../ForecastAlertsTable";
 import MultiDistrictComparisonChart from "../MultiDistrictComparisonChart";
 import SituationStatCircle from "../SituationStatCircle";
@@ -17,6 +19,10 @@ import DashboardTour, {
   shouldAutoStartDashboardTour,
 } from "../DashboardTour";
 import { DASHBOARD_HELP } from "../../utils/dashboardHelpText";
+import { buildComparisonPriorityCandidates } from "../../utils/buildComparisonPriorityCandidates";
+import { buildNeighborSummaryFromTableRows } from "../../utils/buildDeliberationEvidence";
+import { getDashboardTourSteps } from "../../utils/dashboardTourSteps";
+import { useStudyCondition } from "../../utils/studyCondition";
 import DecisionLayers from "../DecisionLayers";
 import EnvironmentalLayers from "../EnvironmentalLayers";
 import {
@@ -78,11 +84,7 @@ import {
   WOREDA_PAGE_MODES,
 } from "../../utils/reportExportConfig";
 import { speciesToDisease } from "../../utils/projectStorage";
-import {
-  CHART_DEFAULT_START_DATE,
-  getChartDefaultEndDate,
-  resolveChartDateRange,
-} from "../../utils/chartDateRange";
+import { resolveChartDateRange } from "../../utils/chartDateRange";
 import {
   normalizeChartAxisDate,
   parseXAxisRangeFromRelayoutEvent,
@@ -243,7 +245,8 @@ function Dashboard({
     projectConfig?.defaultRegion || "All Regions"
   );
   const mapRegionStepTimerRef = useRef(null);
-  const [region, setRegion] = useState(projectConfig?.defaultDistrict || "All Regions");
+  const initialDistrict = projectConfig?.defaultDistrict || "All Regions";
+  const [region, setRegion] = useState(initialDistrict);
   const [selectedGeometry, setSelectedGeometry] = useState(null);
   const [exporting, setExporting] = useState(false);
   const [exportProgressMessage, setExportProgressMessage] = useState("");
@@ -264,14 +267,17 @@ function Dashboard({
   const skipInitialForecastLoadRef = useRef(false);
   const onBootstrapConsumedRef = useRef(onBootstrapConsumed);
   onBootstrapConsumedRef.current = onBootstrapConsumed;
-  const userPrefersAllDistrictsRef = useRef(false);
+  // Keep national map on load unless the project explicitly sets a default district.
+  const userPrefersAllDistrictsRef = useRef(initialDistrict === "All Regions");
   const lastAutoExtendedDistrictRef = useRef(null);
   const projectDataDir = projectConfig?.dataDir || "data";
   const projectOutputDir = projectConfig?.outputDir || "report";
 
-  // Environmental data states — one year ending at latest report week once data loads.
-  const [startDate, setStartDate] = useState(CHART_DEFAULT_START_DATE);
-  const [endDate, setEndDate] = useState(getChartDefaultEndDate);
+  // Chart dates stay empty until the forecast bootstrap finishes — avoids flashing
+  // placeholder (1/1/2025→today) then stale bootstrap (→3/23) then final report.
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [forecastBootstrapReady, setForecastBootstrapReady] = useState(false);
   const [dataset, setDataset] = useState("totprec");
   const [activeMapSurfaceLayer, setActiveMapSurfaceLayer] = useState("incident_rate");
   const [lastHealthMapLayer, setLastHealthMapLayer] = useState("incident_rate");
@@ -285,13 +291,34 @@ function Dashboard({
   const chartDatesRef = useRef({ startDate, endDate });
   chartDatesRef.current = { startDate, endDate };
   const chartDateResetKeyRef = useRef("");
+  const chartDateScopeKeyRef = useRef("");
+  const chartDatesHydratedRef = useRef(false);
 
-  const applyDefaultChartDateRange = useCallback(() => {
-    const range = resolveChartDateRange(epidemiaData);
-    setStartDate(range.startDate);
-    setEndDate(range.endDate);
-    lastAutoExtendedDistrictRef.current = null;
-  }, [epidemiaData]);
+  const applyDefaultChartDateRange = useCallback(
+    ({ force = false } = {}) => {
+      // Wait until forecast bootstrap finished and forecast rows exist.
+      if (!forecastBootstrapReady) return false;
+      if (!epidemiaData?.forecasts?.length) return false;
+
+      const range = resolveChartDateRange(epidemiaData);
+      if (!range?.startDate || !range?.endDate) return false;
+
+      const nextEnd = String(range.endDate).slice(0, 10);
+      const currentEnd = String(chartDatesRef.current.endDate || "").slice(0, 10);
+
+      // Never replace a newer window with an older/stale bootstrap span.
+      if (!force && chartDatesHydratedRef.current && currentEnd && nextEnd < currentEnd) {
+        return false;
+      }
+
+      setStartDate(range.startDate);
+      setEndDate(range.endDate);
+      lastAutoExtendedDistrictRef.current = null;
+      chartDatesHydratedRef.current = true;
+      return true;
+    },
+    [epidemiaData, forecastBootstrapReady]
+  );
 
   const handleStartDateChange = useCallback((value) => {
     setStartDate(value);
@@ -325,6 +352,30 @@ function Dashboard({
   const [mobileMainView, setMobileMainView] = useState("summary");
   const [tourOpen, setTourOpen] = useState(false);
   const [tourNonce, setTourNonce] = useState(0);
+  const { ediEnabled, studyLabel, isStudyArm, condition: studyCondition } =
+    useStudyCondition();
+  const tourSteps = useMemo(
+    () => getDashboardTourSteps({ ediEnabled }),
+    [ediEnabled]
+  );
+
+  useEffect(() => {
+    if (!ediEnabled && rightPanelView === "decision") {
+      setRightPanelView("charts");
+    }
+  }, [ediEnabled, rightPanelView]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return undefined;
+    if (studyCondition) {
+      document.documentElement.dataset.studyCondition = studyCondition;
+    } else {
+      delete document.documentElement.dataset.studyCondition;
+    }
+    return () => {
+      delete document.documentElement.dataset.studyCondition;
+    };
+  }, [studyCondition]);
 
   const prepareTourStep = useCallback(
     (step) => {
@@ -435,13 +486,30 @@ function Dashboard({
   const selectedSpecies = disease === "Plasmodium falciparum malaria" ? "pfm" : 
                           disease === "Plasmodium vivax malaria" ? "pv" : "pv";
 
-  const chartDateResetKey = `${region}|${selectedSpecies}|${epidemiaData?.generated_at || ""}|${epidemiaData?.forecasts?.length || 0}`;
+  const chartDateResetKey = `${region}|${selectedSpecies}|${epidemiaData?.generated_at || ""}|${epidemiaData?.forecasts?.length || 0}|${forecastBootstrapReady ? 1 : 0}`;
+  const chartDateScopeKey = `${region}|${selectedSpecies}`;
 
   useEffect(() => {
+    if (!forecastBootstrapReady) return;
     if (chartDateResetKeyRef.current === chartDateResetKey) return;
-    chartDateResetKeyRef.current = chartDateResetKey;
-    applyDefaultChartDateRange();
-  }, [chartDateResetKey, applyDefaultChartDateRange]);
+
+    const scopeChanged = chartDateScopeKeyRef.current !== chartDateScopeKey;
+    chartDateScopeKeyRef.current = chartDateScopeKey;
+
+    // Region/species change always resets; data upgrades only move forward in time.
+    const applied = applyDefaultChartDateRange({
+      force: scopeChanged || !chartDatesHydratedRef.current,
+    });
+    if (applied || epidemiaData?.forecasts?.length) {
+      chartDateResetKeyRef.current = chartDateResetKey;
+    }
+  }, [
+    applyDefaultChartDateRange,
+    chartDateResetKey,
+    chartDateScopeKey,
+    epidemiaData?.forecasts?.length,
+    forecastBootstrapReady,
+  ]);
 
   const adm3Lookup = useMemo(
     () => buildAdm3Lookup(geoData, woredaPcodeCrosswalk),
@@ -607,11 +675,14 @@ function Dashboard({
           forecasts: data.forecasts || [],
           alerts: data.alerts || [],
         }));
+        setForecastBootstrapReady(true);
       }
     } catch (err) {
       console.error("Failed to load latest EPIDEMIA report:", err);
       if (forecastRequestIdRef.current === requestId) {
         setEpidemiaError(formatForecastApiError(err, "load latest forecast report"));
+        // Allow date hydration from whatever forecast rows we already have.
+        setForecastBootstrapReady(true);
       }
     } finally {
       if (forecastRequestIdRef.current === requestId) {
@@ -721,6 +792,7 @@ function Dashboard({
     if (!bootstrapEpidemiaData) return;
     setEpidemiaData(bootstrapEpidemiaData);
     setEpidemiaError("");
+    setForecastBootstrapReady(true);
     skipInitialForecastLoadRef.current = true;
     onBootstrapConsumedRef.current?.();
   }, [bootstrapEpidemiaData]);
@@ -1066,7 +1138,8 @@ function Dashboard({
     selectedSpecies,
   ]);
 
-  // When a district is first selected (or horizon changes), align the end date to its forecast span.
+  // If a district forecast extends past the current end date, extend the picker so the
+  // horizon is visible. Never shrink the default one-year window (e.g. 2025-10-19 → 2026-10-19).
   useEffect(() => {
     if (region === "All Regions") {
       lastAutoExtendedDistrictRef.current = null;
@@ -1079,13 +1152,17 @@ function Dashboard({
 
     const maxForecastDate = selectedForecast
       .filter((row) => row?.median !== null && row?.median !== undefined && row?.date)
-      .map((row) => String(row.date))
+      .map((row) => String(row.date).slice(0, 10))
       .sort()
       .slice(-1)[0];
     if (!maxForecastDate) return;
 
-    setEndDate(maxForecastDate);
     lastAutoExtendedDistrictRef.current = districtKey;
+    setEndDate((currentEnd) => {
+      const current = String(currentEnd || "").slice(0, 10);
+      if (current && maxForecastDate <= current) return currentEnd;
+      return maxForecastDate;
+    });
   }, [forecastWeeks, region, selectedSpecies, selectedForecast]);
 
   const mapHealthLayer = HEALTH_MAP_SURFACE_LAYERS.has(activeMapSurfaceLayer)
@@ -1204,29 +1281,61 @@ function Dashboard({
       );
   }, [adm3Lookup, epidemiaData, forecastValueMode, selectedSpecies, speciesAlerts]);
 
+  const selectedDecisionInsight = useMemo(() => {
+    if (region === "All Regions") return null;
+    return (
+      forecastTableRows.find(
+        (row) =>
+          row.mapDistrict === region ||
+          row.rawDistrict === region ||
+          findDistrictFromLookup(adm3Lookup, row.rawDistrict)?.properties?.adm3_name === region
+      ) || null
+    );
+  }, [adm3Lookup, forecastTableRows, region]);
+
+  const selectedDecisionNeighborSummary = useMemo(() => {
+    if (region === "All Regions") return null;
+    const regionName =
+      selectedDecisionInsight?.region ||
+      resolveAdminRegionForDistrict(adm3Lookup, region) ||
+      (selectedAdminRegion !== "All Regions" && selectedAdminRegion !== "No Selection"
+        ? selectedAdminRegion
+        : null);
+    return buildNeighborSummaryFromTableRows({
+      rows: forecastTableRows,
+      regionName,
+      districtName: region,
+    });
+  }, [
+    adm3Lookup,
+    forecastTableRows,
+    region,
+    selectedAdminRegion,
+    selectedDecisionInsight,
+  ]);
+
+  const selectedDecisionForecastPoints = useMemo(() => {
+    if (!selectedForecast?.length) return [];
+    return selectedForecast.filter(
+      (point) => point?.median != null && Number.isFinite(Number(point.median))
+    );
+  }, [selectedForecast]);
+
+  const selectedDecisionObservedHistory = useMemo(() => {
+    if (!epidemiaData?.forecasts || region === "All Regions") return [];
+    const districtFc = findDistrictForecastRow(
+      epidemiaData,
+      adm3Lookup,
+      region,
+      selectedSpecies
+    );
+    return districtFc?.observed_history || [];
+  }, [adm3Lookup, epidemiaData, region, selectedSpecies]);
+
   const topPriorityDistrict = useMemo(() => {
     const options = buildComparisonDistrictOptions(forecastTableRows, selectedAdminRegion);
     return options[0]?.value || null;
   }, [forecastTableRows, selectedAdminRegion]);
-
-  const defaultStartupDistrict = useMemo(() => {
-    if (topPriorityDistrict && districts.includes(topPriorityDistrict)) {
-      return topPriorityDistrict;
-    }
-    const firstAlertDistrict = forecastTableRows[0]?.mapDistrict;
-    if (firstAlertDistrict && districts.includes(firstAlertDistrict)) {
-      return firstAlertDistrict;
-    }
-    return districts.find((name) => name !== "All Regions") || null;
-  }, [districts, forecastTableRows, topPriorityDistrict]);
-
-  // Pick a default district on startup so charts show data (highest-priority alert).
-  React.useEffect(() => {
-    if (userPrefersAllDistrictsRef.current) return;
-    if (region !== "All Regions") return;
-    if (!defaultStartupDistrict) return;
-    updateRegion(defaultStartupDistrict);
-  }, [defaultStartupDistrict, region, updateRegion]);
 
   // If the current district name is missing from the dropdown, recover or reset.
   React.useEffect(() => {
@@ -1570,6 +1679,29 @@ function Dashboard({
 
   const speciesLabel = selectedSpecies === "pv" ? "P. vivax" : "P. falciparum";
 
+  const comparisonPriorityCandidates = useMemo(
+    () =>
+      ediEnabled
+        ? buildComparisonPriorityCandidates({
+            comparisonDistricts,
+            forecastTableRows,
+            epidemiaData,
+            adm3Lookup,
+            selectedSpecies,
+            speciesLabel,
+          })
+        : [],
+    [
+      adm3Lookup,
+      comparisonDistricts,
+      ediEnabled,
+      epidemiaData,
+      forecastTableRows,
+      selectedSpecies,
+      speciesLabel,
+    ]
+  );
+
   const currentAlertTooltipByDistrict = useMemo(
     () =>
       buildAlertTooltipLookup({
@@ -1803,6 +1935,19 @@ function Dashboard({
         onStartTour={startTour}
       />
 
+      {isStudyArm ? (
+        <div
+          className={`study-condition-banner study-condition-banner--${studyCondition}`}
+          role="status"
+          data-study-condition={studyCondition}
+        >
+          Study condition: <strong>{studyLabel}</strong>
+          {ediEnabled
+            ? " — explainable alerts, uncertainty cues, and Decision panel available"
+            : " — forecasts and alerts only (Decision / EDI surfaces hidden)"}
+        </div>
+      ) : null}
+
       <div className="dashboard-layout">
         <main className="main-content">
           <section className="dashboard-hero fade-in-up">
@@ -1973,10 +2118,17 @@ function Dashboard({
           {(!isCompactLayout || mobileMainView === "details") && (
           <div className="glass-card insights-panel side-panel">
             <div className="panel-header">
-              <h3>{rightPanelView === "about" ? "About EPIDEMIA" : region}</h3>
+              <h3>
+                {rightPanelView === "about" ? "About EPIDEMIA" : region}
+              </h3>
               <span className="panel-header-meta">
                 {rightPanelView === "about" ? (
                   "Project overview"
+                ) : rightPanelView === "decision" ? (
+                  <>
+                    Recommend · confirm · override
+                    <HelpTip text={DASHBOARD_HELP.decisionTab} label="Decision tab" />
+                  </>
                 ) : selectedAlert ? (
                   `Population: ${formatPopulation(selectedAlert.population_at_risk)}`
                 ) : (
@@ -2015,6 +2167,23 @@ function Dashboard({
                   <HelpTip text={DASHBOARD_HELP.tableTab} label="Forecast table tab" />
                 </span>
               </button>
+              {ediEnabled ? (
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={rightPanelView === "decision"}
+                  className={
+                    rightPanelView === "decision" ? "side-panel-tab active" : "side-panel-tab"
+                  }
+                  onClick={() => setRightPanelView("decision")}
+                  data-tour="tab-decision"
+                >
+                  <span className="side-panel-tab-label">
+                    Decision
+                    <HelpTip text={DASHBOARD_HELP.decisionTab} label="Decision tab" />
+                  </span>
+                </button>
+              ) : null}
               <button
                 type="button"
                 role="tab"
@@ -2283,8 +2452,51 @@ function Dashboard({
                       alertAnimationWeek={alertAnimationWeek}
                       onSelectDistrict={toggleComparisonDistrict}
                     />
+                    {ediEnabled ? (
+                      <ComparisonPriorityPanel
+                        candidates={comparisonPriorityCandidates}
+                        species={selectedSpecies}
+                        speciesLabel={speciesLabel}
+                      />
+                    ) : null}
                   </div>
                 )}
+              </div>
+            )}
+
+            {ediEnabled && rightPanelView === "decision" && (
+              <div className="side-panel-body decision-view" role="tabpanel">
+                <DecisionPanel
+                  districtName={region !== "All Regions" ? region : null}
+                  regionName={
+                    selectedDecisionInsight?.region ||
+                    resolveAdminRegionForDistrict(adm3Lookup, region) ||
+                    selectedAdminRegion ||
+                    ""
+                  }
+                  species={selectedSpecies}
+                  speciesLabel={speciesLabel}
+                  alert={selectedAlert}
+                  insight={selectedDecisionInsight}
+                  forecastPoints={selectedDecisionForecastPoints}
+                  observedHistory={selectedDecisionObservedHistory}
+                  reportGeneratedAt={epidemiaData?.generated_at || null}
+                  neighborSummary={selectedDecisionNeighborSummary}
+                  districtGeometry={selectedGeometry}
+                  chartEndDate={endDate || null}
+                  population={
+                    selectedDecisionInsight?.populationAtRisk ??
+                    selectedAlert?.population_at_risk ??
+                    null
+                  }
+                  incidentRate={
+                    region !== "All Regions"
+                      ? incidentRateData?.[region] ??
+                        incidentRateData?.[normalizeDistrictKey(region)] ??
+                        null
+                      : null
+                  }
+                />
               </div>
             )}
 
@@ -2305,6 +2517,7 @@ function Dashboard({
         open={tourOpen}
         onClose={() => setTourOpen(false)}
         onPrepareStep={prepareTourStep}
+        steps={tourSteps}
       />
     </div>
   );

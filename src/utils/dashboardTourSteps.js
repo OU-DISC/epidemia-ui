@@ -8,7 +8,7 @@ export const DASHBOARD_TOUR_STORAGE_KEY = "epidemia.dashboardTour.v1.completed";
  * @property {string} title
  * @property {string} body
  * @property {string} [target] CSS selector for the highlighted element
- * @property {"charts"|"table"|"about"|null} [panel] Right-panel tab to open before highlighting
+ * @property {"charts"|"table"|"decision"|"about"|null} [panel] Right-panel tab to open before highlighting
  * @property {"summary"|"map"|"details"|null} [mobileView] Compact-layout view to open
  * @property {"center"|"auto"} [placement] Tooltip placement preference
  */
@@ -74,7 +74,7 @@ export const DASHBOARD_TOUR_STEPS = [
     id: "forecast-chart",
     title: "Transmission forecast",
     body:
-      "Observed cases, the forecast line and uncertainty band, and seasonal thresholds appear here. Change the horizon (4–26 weeks) or switch between counts and incidence.",
+      "Observed cases, the forecast line and uncertainty band, and the warning threshold appear here. Change the horizon (4–26 weeks) or switch between counts and incidence.",
     target: '[data-tour="forecast-panel"]',
     panel: "charts",
     placement: "auto",
@@ -101,6 +101,18 @@ export const DASHBOARD_TOUR_STEPS = [
     mobileView: "details",
   },
   {
+    id: "decision-panel",
+    title: "Decision tab",
+    body:
+      "Open Decision to review alert rationale, uncertainty, and a recommended action. Confirm it, override with another action, or annotate local knowledge—your judgment is saved in this browser.",
+    target: '[data-tour="tab-decision"]',
+    panel: "decision",
+    placement: "auto",
+    mobileView: "details",
+    /** Hidden when ?condition=baseline (study control arm). */
+    ediOnly: true,
+  },
+  {
     id: "export",
     title: "Export and projects",
     body:
@@ -119,3 +131,8 @@ export const DASHBOARD_TOUR_STEPS = [
     mobileView: "map",
   },
 ];
+
+/** @param {{ ediEnabled?: boolean }} [options] */
+export function getDashboardTourSteps({ ediEnabled = true } = {}) {
+  return DASHBOARD_TOUR_STEPS.filter((step) => ediEnabled || !step.ediOnly);
+}

@@ -37,6 +37,18 @@ function isDefaultReportOutputDir(outputDir) {
   return normalized === "report";
 }
 
+function reportGeneratedAtMs(payload) {
+  const parsed = Date.parse(payload?.generated_at || "");
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+/** Prefer the newest report when API and static caches disagree (avoids date-range flash). */
+function pickFreshestReport(...candidates) {
+  return candidates
+    .filter(Boolean)
+    .sort((a, b) => reportGeneratedAtMs(b) - reportGeneratedAtMs(a))[0] || null;
+}
+
 function nationalBootstrapDistrictCount(payload) {
   const districts = new Set();
   for (const alert of payload?.alerts || []) {
@@ -88,7 +100,7 @@ function trimReportClientSide(report, historyWeeks = 16) {
 async function fetchStaticMapBootstrapReportDirect() {
   if (!isBrowser) return null;
 
-  const response = await fetch("/report_map_bootstrap.json");
+  const response = await fetch("/report_map_bootstrap.json", { cache: "no-store" });
   if (!response.ok) return null;
 
   const data = await response.json();
@@ -99,7 +111,7 @@ async function fetchStaticMapBootstrapReportDirect() {
 async function fetchStaticBootstrapReportDirect() {
   if (!isBrowser) return null;
 
-  const response = await fetch("/report_bootstrap.json");
+  const response = await fetch("/report_bootstrap.json", { cache: "no-store" });
   if (!response.ok) return null;
 
   const data = await response.json();
@@ -224,37 +236,31 @@ export async function waitForPipelineIdle(
 export async function fetchMapEpidemiaReport({ outputDir = "report", horizonWeeks = 8 } = {}) {
   const useStaticFallback = isBrowser && isDefaultReportOutputDir(outputDir);
 
-  if (FORECAST_API_BASE) {
-    try {
-      const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/map"), {
-        params: { output_dir: outputDir, horizon_weeks: horizonWeeks },
-      });
-      if (response.data) return response.data;
-    } catch (err) {
-      if (useStaticFallback) {
-        const staticMapBootstrap = await fetchStaticMapBootstrapReportDirect().catch(() => null);
-        if (staticMapBootstrap) return staticMapBootstrap;
-        const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
-        if (staticBootstrap?.alerts) {
-          return {
-            ...staticBootstrap,
-            forecasts: [],
-          };
-        }
-      }
-      throw err;
-    }
-  }
+  const apiPromise = FORECAST_API_BASE
+    ? axios
+        .get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/map"), {
+          params: { output_dir: outputDir, horizon_weeks: horizonWeeks },
+        })
+        .then((response) => response.data || null)
+        .catch(() => null)
+    : Promise.resolve(null);
 
-  if (useStaticFallback) {
-    const staticMapBootstrap = await fetchStaticMapBootstrapReportDirect().catch(() => null);
-    if (staticMapBootstrap) return staticMapBootstrap;
-  }
+  const staticPromise = useStaticFallback
+    ? fetchStaticMapBootstrapReportDirect()
+        .catch(() => null)
+        .then(async (mapBootstrap) => {
+          if (mapBootstrap) return mapBootstrap;
+          const fullBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
+          if (fullBootstrap?.alerts) {
+            return { ...fullBootstrap, forecasts: [] };
+          }
+          return null;
+        })
+    : Promise.resolve(null);
 
-  const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
-  if (staticBootstrap?.alerts) {
-    return { ...staticBootstrap, forecasts: [] };
-  }
+  const [apiData, staticData] = await Promise.all([apiPromise, staticPromise]);
+  const picked = pickFreshestReport(apiData, staticData);
+  if (picked) return picked;
 
   throw new Error("Map forecast report not found");
 }
@@ -266,39 +272,32 @@ export async function fetchLatestEpidemiaReport({
 } = {}) {
   const useStaticFallback = isBrowser && isDefaultReportOutputDir(outputDir);
 
-  if (FORECAST_API_BASE) {
-    try {
-      const response = await axios.get(
-        buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/bootstrap"),
-        {
+  // Fetch API + static in parallel and keep the newer generated_at.
+  // Localhost API often still serves the old root backend/report (max ~2026-03-23)
+  // while public/ has the current 1148-district bootstrap (max ~2026-10-19).
+  const apiPromise = FORECAST_API_BASE
+    ? axios
+        .get(buildApiUrl(FORECAST_API_BASE, "/epidemia/latest/bootstrap"), {
           params: {
             output_dir: outputDir,
             history_weeks: historyWeeks,
             horizon_weeks: horizonWeeks,
           },
-        }
-      );
-      if (response.data) {
-        return response.data;
-      }
-    } catch (err) {
-      if (useStaticFallback) {
-        const staticData = await fetchStaticBootstrapReportDirect().catch(() => null);
-        if (staticData) return staticData;
-        const staticDataLegacy = await fetchStaticBootstrapReport(historyWeeks).catch(() => null);
-        if (staticDataLegacy) return staticDataLegacy;
-      }
-      throw err;
-    }
-  }
+        })
+        .then((response) => response.data || null)
+        .catch(() => null)
+    : Promise.resolve(null);
+
+  const staticPromise = useStaticFallback
+    ? fetchStaticBootstrapReportDirect().catch(() => null)
+    : Promise.resolve(null);
+
+  const [apiData, staticData] = await Promise.all([apiPromise, staticPromise]);
+  const picked = pickFreshestReport(apiData, staticData);
+  if (picked) return picked;
 
   if (!isLocalhost && !FORECAST_API_BASE) {
     return fetchStaticBootstrapReport(historyWeeks);
-  }
-
-  if (useStaticFallback) {
-    const staticBootstrap = await fetchStaticBootstrapReportDirect().catch(() => null);
-    if (staticBootstrap) return staticBootstrap;
   }
 
   return fetchStaticBootstrapReport(historyWeeks);
@@ -498,4 +497,55 @@ export async function setupEpidemiaProject({
     { headers: { "Content-Type": "multipart/form-data" } }
   );
   return response.data;
+}
+
+/** Whether grounded LLM deliberation (EDI Layer 3) is configured on the forecast API. */
+export async function fetchEdiStatus() {
+  if (!FORECAST_API_BASE) {
+    return { available: false, enabled: false, detail: "Forecast API base not set" };
+  }
+  const response = await axios.get(buildApiUrl(FORECAST_API_BASE, "/edi/status"), {
+    timeout: 8000,
+  });
+  return response.data;
+}
+
+/**
+ * Grounded EDI Explain: LLM rewrite over a structured evidence pack only.
+ * Returns source=fallback when LLM is off or grounding fails.
+ */
+export async function fetchEdiExplain(evidence, interaction = "explain") {
+  if (!FORECAST_API_BASE) {
+    throw new Error("Forecast API base not set");
+  }
+  const response = await axios.post(
+    buildApiUrl(FORECAST_API_BASE, "/edi/explain"),
+    { evidence, interaction },
+    { timeout: 60000 }
+  );
+  return response.data;
+}
+
+/**
+ * Grounded EDI deliberation: brief | explain | suggest | explore | compare | challenge.
+ * Always returns a payload (LLM or deterministic fallback).
+ */
+export async function fetchEdiDeliberate(evidence, interaction = "explain") {
+  if (!FORECAST_API_BASE) {
+    throw new Error("Forecast API base not set");
+  }
+  try {
+    const response = await axios.post(
+      buildApiUrl(FORECAST_API_BASE, "/edi/deliberate"),
+      { evidence, interaction },
+      { timeout: 60000 }
+    );
+    return response.data;
+  } catch (err) {
+    // Older API process without /edi/deliberate — fall back to /edi/explain for explain only.
+    if (interaction === "explain") {
+      return fetchEdiExplain(evidence, "explain");
+    }
+    throw err;
+  }
 }

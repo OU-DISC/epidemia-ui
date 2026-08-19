@@ -32,7 +32,8 @@
     "build:boundaries": "node scripts/build-ethiopia-boundaries.cjs",
     "build:population-crosswalk": "node scripts/build-population-crosswalk.cjs",
     "build:population-worldpop": "node scripts/build-worldpop-population-surface.mjs",
-    "sync:district-caches": "node scripts/sync-district-caches.cjs"
+    "sync:district-caches": "node scripts/sync-district-caches.cjs",
+    "api": "cd backend && python -m uvicorn main:app --host 127.0.0.1 --port 8000"
   },
   "eslintConfig": {
     "extends": [

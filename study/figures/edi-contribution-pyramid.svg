@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 640 520" role="img" aria-labelledby="title desc">
+  <title id="title">EDI contribution pyramid</title>
+  <desc id="desc">From concrete EDI mechanisms up through EPIDEMIA, evaluation, design principles, to the EDI paradigm.</desc>
+  <defs>
+    <style>
+      .band { stroke: #1d2738; stroke-width: 1.5; }
+      .t1 { font-family: Arial, Helvetica, sans-serif; font-weight: 700; fill: #1d2738; text-anchor: middle; }
+      .t2 { font-family: Arial, Helvetica, sans-serif; font-weight: 500; fill: #4c5a70; text-anchor: middle; font-size: 11px; }
+      .side { font-family: Arial, Helvetica, sans-serif; fill: #8a93a3; font-size: 10px; }
+    </style>
+    <marker id="up" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,6 L3,0 L6,6 Z" fill="#b0b8c4"/>
+    </marker>
+    <marker id="down" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L3,6 L6,0 Z" fill="#b0b8c4"/>
+    </marker>
+  </defs>
+
+  <polygon class="band" fill="#e8eef0" points="320,36 236,130 404,130"/>
+  <text class="t1" x="320" y="88" style="font-size:16px;">EDI</text>
+  <text class="t2" x="320" y="108">Interaction paradigm</text>
+
+  <polygon class="band" fill="#f2f4f6" points="236,130 180,210 460,210 404,130"/>
+  <text class="t1" x="320" y="162" style="font-size:14px;">Design principles</text>
+  <text class="t2" x="320" y="182">DP1 / DP2 / DP3</text>
+
+  <polygon class="band" fill="#f7f8fa" points="180,210 124,290 516,290 460,210"/>
+  <text class="t1" x="320" y="242" style="font-size:14px;">Task-based evaluation</text>
+  <text class="t2" x="320" y="262">F1 Understanding / F2 Calibration / F3 Intervention</text>
+
+  <polygon class="band" fill="#fafbfc" points="124,290 68,370 572,370 516,290"/>
+  <text class="t1" x="320" y="322" style="font-size:14px;">EPIDEMIA 2.0</text>
+  <text class="t2" x="320" y="342">System instantiation</text>
+
+  <polygon class="band" fill="#ffffff" points="68,370 24,470 616,470 572,370"/>
+  <text class="t1" x="320" y="408" style="font-size:12px;">Explainable alerts / Uncertainty-as-evidence</text>
+  <text class="t1" x="320" y="426" style="font-size:12px;">/ Decision workflow</text>
+  <text class="t2" x="320" y="448">EDI mechanisms</text>
+
+  <text class="side" x="28" y="260" transform="rotate(-90 28,260)">more concrete</text>
+  <text class="side" x="612" y="260" transform="rotate(90 612,260)">more abstract</text>
+  <line x1="42" y1="400" x2="42" y2="80" stroke="#b0b8c4" stroke-width="1" marker-end="url(#up)"/>
+  <line x1="598" y1="80" x2="598" y2="400" stroke="#b0b8c4" stroke-width="1" marker-end="url(#down)"/>
+
+  <text class="t2" x="320" y="500" style="font-size:10px;">Within human-AI collaboration and decision intelligence - not a grand theory</text>
+</svg>

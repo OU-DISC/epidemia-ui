@@ -1,0 +1,67 @@
+% Fig 2: EPIDEMIA 2.0 system architecture (A/B/C)
+% Requires: \usepackage{tikz} \usetikzlibrary{positioning,fit}
+% Arrows intentionally omitted (add later).
+%
+% \input{path/to/fig2-system-architecture.tex}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize,
+  node distance=6mm and 8mm,
+  box/.style={
+    draw=black!70,
+    rounded corners=2pt,
+    align=center,
+    inner sep=5pt,
+    minimum height=9mm,
+    minimum width=27mm
+  },
+  layer/.style={
+    draw=black!55,
+    rounded corners=3pt,
+    inner sep=8pt,
+    fill=black!2
+  },
+  title/.style={font=\sffamily\bfseries\small},
+  lab/.style={font=\sffamily\tiny, text=black!55}
+]
+
+% ----- A. Pipeline -----
+\node[box] (data) {Surveillance +\\env./pop. data};
+\node[box, right=of data] (pipe) {Forecast +\\threshold pipeline};
+\node[box, right=of pipe] (alerts) {Alert generation\\(EW / ED)};
+
+\node[layer, fit=(data)(pipe)(alerts), inner ysep=14pt, inner xsep=10pt] (L1) {};
+\node[title, anchor=north west] at ([xshift=2pt,yshift=-2pt]L1.north west)
+  {A. Data \& alerting pipeline};
+
+% ----- B. UI -----
+\node[box, below=18mm of data] (map) {National map\\+ layers};
+\node[box, right=of map] (table) {Forecast table\\+ comparison};
+\node[box, right=of table] (explore) {District charts\\+ why-alert};
+
+\node[layer, fit=(map)(table)(explore), inner ysep=14pt, inner xsep=10pt] (L2) {};
+\node[title, anchor=north west] at ([xshift=2pt,yshift=-2pt]L2.north west)
+  {B. Interactive exploration UI};
+
+% ----- C. EDI judgment -----
+\node[box, below=18mm of map, fill=black!3] (priority)
+  {Evaluate priority\\(rank 2--3 districts)};
+\node[box, right=of priority, fill=black!3] (decision)
+  {Decision panel\\recommend / act};
+\node[box, right=of decision, fill=black!3] (hitl)
+  {HITL loop\\approve / feedback / memory};
+
+\node[layer, fit=(priority)(decision)(hitl), inner ysep=14pt, inner xsep=10pt, fill=black!1.5] (L3) {};
+\node[title, anchor=north west] at ([xshift=2pt,yshift=-2pt]L3.north west)
+  {C. Human judgment / EDI loop};
+
+\node[lab, below=2mm of L3.south, anchor=north, text width=140mm, align=center]
+  {Progressive path: produce signals (A) $\rightarrow$ explore (B) $\rightarrow$ prioritize \& commit (C).
+   Baseline study arm: A + B without Decision/EDI surfaces in C.};
+
+\end{tikzpicture}
+\caption{EPIDEMIA~2.0 architecture. (A)~Weekly forecasts and early-warning / early-detection alerts are produced from surveillance and contextual data. (B)~The interactive UI supports progressive investigation from national map and forecast table to district explainable-alert views. (C)~The Decision panel instantiates EDI through residual uncertainty, evaluative prioritization, and human judgment (confirm/override/annotate, approval, outcome feedback). The Baseline study arm exposes forecasts and alerts without the Decision/EDI surfaces.}
+\label{fig:system-architecture}
+\end{figure*}

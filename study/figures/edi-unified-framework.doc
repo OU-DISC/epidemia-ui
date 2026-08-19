@@ -1,0 +1,169 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:w="urn:schemas-microsoft-com:office:word"
+ xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8"/>
+<title>EDI unified framework</title>
+<!--[if gte mso 9]>
+<xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+ </w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+  body { font-family: Calibri, Arial, sans-serif; margin: 0.75in; }
+  h1 { font-size: 16pt; text-align: center; }
+  .caption { font-size: 11pt; text-align: justify; margin-top: 12pt; }
+  .fig { text-align: center; }
+  img, svg { max-width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<h1>Figure: EDI unified framework</h1>
+<div class="fig">
+<!-- Embedded from edi-unified-framework.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="980" viewBox="0 0 920 980" role="img" aria-labelledby="title desc">
+  <title id="title">EDI unified framework</title>
+  <desc id="desc">Research program, Interpret-Deliberate-Challenge paradigm, EPIDEMIA instantiation with optional grounded LLM, and study evaluation F1-F3.</desc>
+  <defs>
+    <style>
+      .t { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 700; fill: #1d2738; text-anchor: middle; }
+      .h { font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 700; fill: #1d2738; text-anchor: middle; }
+      .s { font-family: Arial, Helvetica, sans-serif; font-size: 10.5px; font-weight: 500; fill: #4c5a70; text-anchor: middle; }
+      .sec { font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 700; fill: #0f7b6c; text-anchor: middle; letter-spacing: 0.06em; }
+      .box { fill: #ffffff; stroke: #1d2738; stroke-width: 1.3; }
+      .soft { fill: #f7f8fa; stroke: #4c5a70; stroke-width: 1.2; }
+      .stage { fill: #f4f7f6; stroke: #0f7b6c; stroke-width: 1.45; }
+      .human { fill: #eef3f2; stroke: #0f7b6c; stroke-width: 1.6; }
+      .band { fill: #f4f7f6; stroke: #0f7b6c; stroke-width: 1.2; stroke-dasharray: 4 3; }
+      .edge { stroke: #4c5a70; stroke-width: 1.35; fill: none; }
+      .arrow { fill: #4c5a70; }
+    </style>
+    <marker id="a" markerWidth="7" markerHeight="7" refX="5.5" refY="2.5" orient="auto">
+      <path class="arrow" d="M0,0 L5.5,2.5 L0,5 Z"/>
+    </marker>
+  </defs>
+  <text class="sec" x="460" y="22">A. RESEARCH PROGRAM</text>
+  <rect class="soft" x="220" y="32" width="480" height="36" rx="6"/>
+  <text class="t" x="460" y="55">Explainable Decision Intelligence (EDI)</text>
+  <line class="edge" x1="460" y1="68" x2="460" y2="84" marker-end="url(#a)"/>
+  <rect class="box" x="180" y="86" width="560" height="58" rx="6"/>
+  <text class="s" x="460" y="106">What is EDI? How does it differ from XAI / MIVA / DSS?</text>
+  <text class="s" x="460" y="122">What design requirements characterize EDI?</text>
+  <text class="s" x="460" y="138">Does EDI improve decisions under uncertainty?</text>
+  <line class="edge" x1="460" y1="144" x2="460" y2="168" marker-end="url(#a)"/>
+  <text class="sec" x="460" y="162">B. EDI INTERACTION PARADIGM</text>
+  <rect class="soft" x="300" y="172" width="320" height="28" rx="5"/>
+  <text class="h" x="460" y="191">AI-GENERATED EVIDENCE</text>
+  <line class="edge" x1="460" y1="200" x2="460" y2="214"/>
+  <line class="edge" x1="170" y1="214" x2="750" y2="214"/>
+  <line class="edge" x1="170" y1="214" x2="170" y2="226" marker-end="url(#a)"/>
+  <line class="edge" x1="460" y1="214" x2="460" y2="226" marker-end="url(#a)"/>
+  <line class="edge" x1="750" y1="214" x2="750" y2="226" marker-end="url(#a)"/>
+  <rect class="stage" x="70" y="228" width="200" height="108" rx="7"/>
+  <text class="h" x="170" y="250">INTERPRET</text>
+  <text class="s" x="170" y="270">Why this alert?</text>
+  <text class="s" x="170" y="286">Supporting evidence</text>
+  <text class="s" x="170" y="302">Contradicting evidence</text>
+  <text class="s" x="170" y="322">(AI explanation)</text>
+  <rect class="stage" x="360" y="228" width="200" height="108" rx="7"/>
+  <text class="h" x="460" y="250">DELIBERATE</text>
+  <text class="s" x="460" y="270">Alternatives + trade-offs</text>
+  <text class="s" x="460" y="286">Context</text>
+  <text class="s" x="460" y="302">What could change?</text>
+  <text class="s" x="460" y="322">(Actionable uncertainty)</text>
+  <rect class="stage" x="650" y="228" width="200" height="108" rx="7"/>
+  <text class="h" x="750" y="250">CHALLENGE</text>
+  <text class="s" x="750" y="270">Counter-evidence</text>
+  <text class="s" x="750" y="286">Evidence gaps</text>
+  <text class="s" x="750" y="302">Model limitations</text>
+  <text class="s" x="750" y="322">Why might this be wrong?</text>
+  <line class="edge" x1="170" y1="336" x2="170" y2="350"/>
+  <line class="edge" x1="460" y1="336" x2="460" y2="350"/>
+  <line class="edge" x1="750" y1="336" x2="750" y2="350"/>
+  <line class="edge" x1="170" y1="350" x2="750" y2="350"/>
+  <line class="edge" x1="460" y1="350" x2="460" y2="364" marker-end="url(#a)"/>
+  <rect class="human" x="320" y="366" width="280" height="32" rx="6"/>
+  <text class="h" x="460" y="387">HUMAN JUDGMENT</text>
+  <line class="edge" x1="460" y1="398" x2="460" y2="412"/>
+  <line class="edge" x1="300" y1="412" x2="620" y2="412"/>
+  <line class="edge" x1="300" y1="412" x2="300" y2="424" marker-end="url(#a)"/>
+  <line class="edge" x1="460" y1="412" x2="460" y2="424" marker-end="url(#a)"/>
+  <line class="edge" x1="620" y1="412" x2="620" y2="424" marker-end="url(#a)"/>
+  <rect class="box" x="245" y="426" width="110" height="28" rx="5"/>
+  <text class="h" x="300" y="444" style="font-size:11px">Confirm</text>
+  <rect class="box" x="405" y="426" width="110" height="28" rx="5"/>
+  <text class="h" x="460" y="444" style="font-size:11px">Override</text>
+  <rect class="box" x="565" y="426" width="110" height="28" rx="5"/>
+  <text class="h" x="620" y="444" style="font-size:11px">Annotate</text>
+  <line class="edge" x1="460" y1="454" x2="460" y2="470" marker-end="url(#a)"/>
+  <rect class="soft" x="300" y="472" width="320" height="28" rx="5"/>
+  <text class="h" x="460" y="491">Accountable decision + rationale</text>
+  <line class="edge" x1="460" y1="500" x2="460" y2="528" marker-end="url(#a)"/>
+  <text class="sec" x="460" y="522">C. EPIDEMIA 2.0 (EMPIRICAL VEHICLE)</text>
+  <rect class="band" x="60" y="534" width="800" height="198" rx="8"/>
+  <rect class="soft" x="280" y="546" width="360" height="26" rx="5"/>
+  <text class="s" x="460" y="563">Malaria / environmental data  -&gt;  Forecasting pipeline</text>
+  <line class="edge" x1="460" y1="572" x2="460" y2="586" marker-end="url(#a)"/>
+  <rect class="box" x="200" y="588" width="140" height="36" rx="5"/>
+  <text class="h" x="270" y="604" style="font-size:11px">Forecast</text>
+  <text class="s" x="270" y="618">median + PI</text>
+  <rect class="box" x="360" y="588" width="140" height="36" rx="5"/>
+  <text class="h" x="430" y="604" style="font-size:11px">Alerts</text>
+  <text class="s" x="430" y="618">EW / ED</text>
+  <rect class="box" x="520" y="588" width="140" height="36" rx="5"/>
+  <text class="h" x="590" y="604" style="font-size:11px">Uncertainty</text>
+  <text class="s" x="590" y="618">residuals</text>
+  <line class="edge" x1="270" y1="624" x2="270" y2="638"/>
+  <line class="edge" x1="430" y1="624" x2="430" y2="638"/>
+  <line class="edge" x1="590" y1="624" x2="590" y2="638"/>
+  <line class="edge" x1="270" y1="638" x2="590" y2="638"/>
+  <line class="edge" x1="430" y1="638" x2="430" y2="650" marker-end="url(#a)"/>
+  <rect class="soft" x="280" y="652" width="360" height="26" rx="5"/>
+  <text class="h" x="460" y="670">Structured district evidence pack</text>
+  <line class="edge" x1="430" y1="678" x2="300" y2="698" marker-end="url(#a)"/>
+  <line class="edge" x1="490" y1="678" x2="620" y2="698" marker-end="url(#a)"/>
+  <rect class="box" x="190" y="700" width="220" height="40" rx="5"/>
+  <text class="h" x="300" y="718" style="font-size:11px">Deterministic EDI</text>
+  <text class="s" x="300" y="732">rule-based brief fallback</text>
+  <rect class="box" x="510" y="700" width="220" height="40" rx="5"/>
+  <text class="h" x="620" y="718" style="font-size:11px">Grounded LLM (optional)</text>
+  <text class="s" x="620" y="732">Interpret / Deliberate / Challenge</text>
+  <line class="edge" x1="300" y1="740" x2="300" y2="754"/>
+  <line class="edge" x1="620" y1="740" x2="620" y2="754"/>
+  <line class="edge" x1="300" y1="754" x2="620" y2="754"/>
+  <line class="edge" x1="460" y1="754" x2="460" y2="766" marker-end="url(#a)"/>
+  <rect class="human" x="300" y="768" width="320" height="26" rx="5"/>
+  <text class="h" x="460" y="786">EDI Decision Interface</text>
+  <line class="edge" x1="460" y1="794" x2="460" y2="820" marker-end="url(#a)"/>
+  <text class="sec" x="460" y="814">D. EVALUATION (SAME SCENARIOS)</text>
+  <rect class="box" x="120" y="826" width="200" height="48" rx="6"/>
+  <text class="h" x="220" y="846">BASELINE</text>
+  <text class="s" x="220" y="862">Forecast + alert + map/charts</text>
+  <rect class="stage" x="600" y="826" width="200" height="48" rx="6"/>
+  <text class="h" x="700" y="846">EDI ARM</text>
+  <text class="s" x="700" y="862">Full Interpret/Deliberate/Challenge</text>
+  <line class="edge" x1="220" y1="874" x2="220" y2="888"/>
+  <line class="edge" x1="700" y1="874" x2="700" y2="888"/>
+  <line class="edge" x1="220" y1="888" x2="700" y2="888"/>
+  <line class="edge" x1="460" y1="888" x2="460" y2="900" marker-end="url(#a)"/>
+  <rect class="soft" x="160" y="902" width="180" height="36" rx="5"/>
+  <text class="h" x="250" y="918" style="font-size:11px">F1 Understanding</text>
+  <text class="s" x="250" y="932">Task A: understand alert</text>
+  <rect class="soft" x="370" y="902" width="180" height="36" rx="5"/>
+  <text class="h" x="460" y="918" style="font-size:11px">F2 Calibration</text>
+  <text class="s" x="460" y="932">Task B: calibrate trust</text>
+  <rect class="soft" x="580" y="902" width="180" height="36" rx="5"/>
+  <text class="h" x="670" y="918" style="font-size:11px">F3 Decision</text>
+  <text class="s" x="670" y="932">Task C: decide / prioritize</text>
+  <rect class="soft" x="20" y="534" width="32" height="198" rx="4"/>
+  <text class="s" transform="translate(36 633) rotate(-90)" text-anchor="middle" style="font-weight:700;fill:#0f7b6c">C1-3 / DG1-3 / DP1-3</text>
+</svg>
+</div>
+<p class="caption">
+Figure. Unified EDI framework. (A) Research program. (B) Interaction paradigm: Interpret, Deliberate, and Challenge culminate in human judgment and an accountable decision with rationale. (C) EPIDEMIA 2.0 operationalizes the paradigm via a structured evidence pack, deterministic EDI functions, and an optional grounded LLM. (D) A baseline vs. EDI study evaluates understanding (F1), trust calibration (F2), and decision/prioritization (F3).
+</p>
+</body>
+</html>

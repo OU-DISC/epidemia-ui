@@ -1,0 +1,87 @@
+% Fig 6: Study procedure (Baseline vs EDI, Tasks A-C)
+% Requires: \usepackage{tikz} \usetikzlibrary{arrows.meta,positioning,fit}
+%
+% \input{path/to/fig6-study-procedure.tex}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize,
+  node distance=5mm and 7mm,
+  box/.style={
+    draw=black!70,
+    rounded corners=2pt,
+    align=center,
+    inner sep=4.5pt,
+    minimum height=8.5mm
+  },
+  arm/.style={
+    box,
+    minimum width=32mm,
+    fill=black!3
+  },
+  task/.style={
+    box,
+    minimum width=30mm,
+    fill=white
+  },
+  measure/.style={
+    box,
+    minimum width=28mm,
+    fill=black!2,
+    font=\sffamily\tiny
+  },
+  arr/.style={-{Latex[length=1.5mm]}, thick, black!55},
+  title/.style={font=\sffamily\bfseries\small},
+  lab/.style={font=\sffamily\tiny, text=black!55}
+]
+
+% Top: shared setup
+\node[box, minimum width=70mm] (setup)
+  {Same forecasts / alerts / districts (S1--S3)};
+
+\node[arm, below left=10mm and 12mm of setup] (base) {Baseline\\prediction-centric UI};
+\node[arm, below right=10mm and 12mm of setup] (edi) {EDI\\EPIDEMIA 2.0 full UI};
+
+\draw[arr] (setup.south) -- ++(0,-2mm) coordinate (split);
+\draw[thick, black!55] (base.north |- split) -- (edi.north |- split);
+\draw[arr] (split -| base) -- (base.north);
+\draw[arr] (split -| edi) -- (edi.north);
+
+\node[lab, above=1mm of base] {$?$condition=baseline};
+\node[lab, above=1mm of edi] {$?$condition=edi};
+
+% Tasks (shared sequence)
+\node[task, below=14mm of setup] (A) {\textbf{Task A}\\Explain the alert};
+\node[task, below=of A] (B) {\textbf{Task B}\\Act under uncertainty};
+\node[task, below=of B] (C) {\textbf{Task C}\\Priority / intervention};
+
+\draw[arr] (A) -- (B);
+\draw[arr] (B) -- (C);
+
+% Arms feed into task column visually
+\draw[arr, black!40] (base.south) |- (A.west);
+\draw[arr, black!40] (edi.south) |- (A.east);
+
+% Measures
+\node[measure, right=12mm of A] (m1) {F1 Understanding\\explanation rubric};
+\node[measure, right=12mm of B] (m2) {F2 Calibration\\trust $\times$ action};
+\node[measure, right=12mm of C] (m3) {F3 Intervention\\priority + judgment};
+
+\draw[arr] (A) -- (m1);
+\draw[arr] (B) -- (m2);
+\draw[arr] (C) -- (m3);
+
+% EDI-only note
+\node[box, below=8mm of C, minimum width=78mm, fill=black!4] (extra)
+  {EDI-only logged: confirm/override/annotate, priority save, approval, outcome feedback};
+
+\draw[arr] (C) -- (extra);
+
+\node[lab, left=2mm of A.west, anchor=east, text width=20mm, align=right]
+  {Both arms\\same tasks};
+
+\end{tikzpicture}
+\caption{Study procedure. Participants complete the same tasks on the same district scenarios under either a prediction-centric Baseline interface or the full EDI interface (EPIDEMIA~2.0). Task~A probes alert understanding (F1), Task~B probes trust and action under uncertainty (F2), and Task~C probes prioritization and intervention decisions (F3). EDI additionally records confirm/override/annotate, priority judgments, operational approval, and outcome feedback.}
+\label{fig:study-procedure}
+\end{figure*}

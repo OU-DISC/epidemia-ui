@@ -1,0 +1,93 @@
+% Figure: EDI interaction model (central conceptual figure)
+% Requires: \usepackage{tikz} \usetikzlibrary{arrows.meta,positioning}
+%
+% \input{path/to/edi-paradigm.tex}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize,
+  node distance=5mm,
+  box/.style={
+    draw=black!70,
+    rounded corners=2pt,
+    align=center,
+    inner sep=5pt,
+    minimum width=58mm
+  },
+  top/.style={
+    box,
+    fill=black!1.5,
+    font=\sffamily\bfseries\footnotesize,
+    minimum height=8mm
+  },
+  stage/.style={
+    box,
+    fill=black!2,
+    align=center,
+    minimum width=62mm
+  },
+  human/.style={
+    box,
+    fill=black!4,
+    font=\sffamily\bfseries\small,
+    minimum height=9mm
+  },
+  act/.style={
+    draw=black!60,
+    rounded corners=2pt,
+    align=center,
+    inner sep=3.5pt,
+    minimum width=18mm,
+    fill=white,
+    font=\sffamily\scriptsize\bfseries
+  },
+  arr/.style={-{Latex[length=1.6mm]}, thick, black!50}
+]
+
+\node[top] (ev) {AI-generated evidence};
+
+\node[stage, below=of ev] (interpret) {%
+  \textbf{INTERPRET}\\[1pt]
+  {\normalfont\scriptsize Why this alert?}\\[-0.5pt]
+  {\normalfont\scriptsize Supporting evidence}\\[-0.5pt]
+  {\normalfont\scriptsize Contradicting evidence}%
+};
+
+\node[stage, below=of interpret] (deliberate) {%
+  \textbf{DELIBERATE}\\[1pt]
+  {\normalfont\scriptsize Alternatives}\\[-0.5pt]
+  {\normalfont\scriptsize Trade-offs}\\[-0.5pt]
+  {\normalfont\scriptsize Context}\\[-0.5pt]
+  {\normalfont\scriptsize What could change?}%
+};
+
+\node[stage, below=of deliberate] (challenge) {%
+  \textbf{CHALLENGE}\\[1pt]
+  {\normalfont\scriptsize Counter-evidence}\\[-0.5pt]
+  {\normalfont\scriptsize Evidence gaps}\\[-0.5pt]
+  {\normalfont\scriptsize Model limitations}\\[-0.5pt]
+  {\normalfont\scriptsize ``Why might this assessment be wrong?''}%
+};
+
+\node[human, below=6mm of challenge] (human) {Human judgment};
+
+\draw[arr] (ev) -- (interpret);
+\draw[arr] (interpret) -- (deliberate);
+\draw[arr] (deliberate) -- (challenge);
+\draw[arr] (challenge) -- (human);
+
+\node[act, below left=5mm and 1mm of human] (confirm) {Confirm};
+\node[act, below=5mm of human] (override) {Override};
+\node[act, below right=5mm and 1mm of human] (annotate) {Annotate};
+
+\draw[arr] (human.south) -- ++(0,-1.5mm) coordinate (fork);
+\draw[thick, black!50] (confirm.north |- fork) -- (annotate.north |- fork);
+\draw[arr] (fork -| confirm) -- (confirm.north);
+\draw[arr] (fork -| override) -- (override.north);
+\draw[arr] (fork -| annotate) -- (annotate.north);
+
+\end{tikzpicture}
+\caption{The EDI interaction model. AI-generated evidence is organized through Interpret, Deliberate, and Challenge; the human retains accountable decision authority via confirm, override, or annotate. EPIDEMIA~2.0 instantiates this paradigm; a grounded language model is an optional mechanism within it, not a decision maker.}
+\label{fig:edi-paradigm}
+\end{figure}

@@ -172,9 +172,9 @@ export function buildForecastChartLayers(data) {
           y: thresholdPoints.map((point) => Number(point.warning_threshold)),
           type: "scatter",
           mode: "lines",
-          name: "Threshold",
+          name: "Warning threshold",
           line: { color: THRESHOLD_COLOR, width: 1.5, dash: "dot" },
-          hovertemplate: "Alert Threshold: %{y:.2f}<extra></extra>",
+          hovertemplate: "Warning threshold: %{y:.2f}<extra></extra>",
         }
       : null;
 

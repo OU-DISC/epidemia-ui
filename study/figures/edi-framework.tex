@@ -1,0 +1,109 @@
+% Figure: EDI framework overview
+% Requires: \usepackage{tikz} \usetikzlibrary{arrows.meta,positioning}
+%
+% \input{path/to/edi-framework.tex}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize,
+  node distance=7mm and 11mm,
+  box/.style={
+    draw=black!70,
+    rounded corners=2pt,
+    align=center,
+    inner sep=4.5pt,
+    minimum height=8mm
+  },
+  accent/.style={
+    box,
+    draw=black!80,
+    fill=black!3.5,
+    font=\sffamily\bfseries\small,
+    minimum height=9mm
+  },
+  soft/.style={
+    box,
+    fill=black!1.5,
+    minimum width=29mm
+  },
+  mech/.style={
+    box,
+    minimum width=29mm,
+    font=\sffamily\bfseries\footnotesize
+  },
+  arr/.style={-{Latex[length=1.5mm]}, thick, black!50},
+  line/.style={thick, black!50}
+]
+
+\node[accent, minimum width=78mm] (edi) {Explainable Decision Intelligence};
+
+\node[mech, below left=11mm and 16mm of edi] (exp) {Explainability};
+\node[mech, below=11mm of edi] (unc) {Uncertainty};
+\node[mech, below right=11mm and 16mm of edi] (wf) {Workflow};
+
+\draw[arr] (edi.south) -- ++(0,-2.5mm) coordinate (s1);
+\draw[line] (exp.north |- s1) -- (wf.north |- s1);
+\draw[arr] (s1 -| exp) -- (exp.north);
+\draw[arr] (s1 -| unc) -- (unc.north);
+\draw[arr] (s1 -| wf) -- (wf.north);
+
+\node[soft, below=of exp] (dg1) {\textbf{DG1}\\[-1pt]{\scriptsize Explain reasoning}};
+\node[soft, below=of unc] (dg2) {\textbf{DG2}\\[-1pt]{\scriptsize Calibrate trust}};
+\node[soft, below=of wf] (dg3) {\textbf{DG3}\\[-1pt]{\scriptsize Progressive decisions}};
+
+\draw[arr] (exp) -- (dg1);
+\draw[arr] (unc) -- (dg2);
+\draw[arr] (wf) -- (dg3);
+
+\node[accent, below=10mm of dg2, minimum width=46mm] (sys)
+  {EPIDEMIA 2.0\\[-1pt]{\normalsize\normalfont\scriptsize EDI instantiation}};
+
+\draw[line] (dg1.south) -- ++(0,-2.5mm) coordinate (j1);
+\draw[line] (dg2.south) -- ++(0,-2.5mm) coordinate (j2);
+\draw[line] (dg3.south) -- ++(0,-2.5mm) coordinate (j3);
+\draw[line] (j1) -- (j3);
+\draw[arr] (j2) -- (sys);
+
+\node[box, below=of sys, minimum width=30mm, font=\sffamily\bfseries\footnotesize]
+  (study) {User study};
+\draw[arr] (sys) -- (study);
+
+\node[soft, below left=9mm and 16mm of study] (f1)
+  {\textbf{F1}\\[-1pt]{\scriptsize Understanding}};
+\node[soft, below=9mm of study] (f2)
+  {\textbf{F2}\\[-1pt]{\scriptsize Calibration}};
+\node[soft, below right=9mm and 16mm of study] (f3)
+  {\textbf{F3}\\[-1pt]{\scriptsize Intervention decisions}};
+
+\draw[arr] (study.south) -- ++(0,-2mm) coordinate (s2);
+\draw[line] (f1.north |- s2) -- (f3.north |- s2);
+\draw[arr] (s2 -| f1) -- (f1.north);
+\draw[arr] (s2 -| f2) -- (f2.north);
+\draw[arr] (s2 -| f3) -- (f3.north);
+
+\node[accent, below=9mm of f2, minimum width=50mm] (dph)
+  {EDI design principles};
+\draw[line] (f1.south) -- ++(0,-2.5mm) coordinate (k1);
+\draw[line] (f2.south) -- ++(0,-2.5mm) coordinate (k2);
+\draw[line] (f3.south) -- ++(0,-2.5mm) coordinate (k3);
+\draw[line] (k1) -- (k3);
+\draw[arr] (k2) -- (dph);
+
+\node[soft, below left=8mm and 16mm of dph, minimum width=30mm] (dp1)
+  {\textbf{DP1}\\[-1pt]{\scriptsize Explain decisions}};
+\node[soft, below=8mm of dph, minimum width=30mm] (dp2)
+  {\textbf{DP2}\\[-1pt]{\scriptsize Uncertainty actionable}};
+\node[soft, below right=8mm and 16mm of dph, minimum width=30mm] (dp3)
+  {\textbf{DP3}\\[-1pt]{\scriptsize Decision workflows}};
+
+\draw[arr] (dph.south) -- ++(0,-2mm) coordinate (s3);
+\draw[line] (dp1.north |- s3) -- (dp3.north |- s3);
+\draw[arr] (s3 -| dp1) -- (dp1.north);
+\draw[arr] (s3 -| dp2) -- (dp2.north);
+\draw[arr] (s3 -| dp3) -- (dp3.north);
+
+\end{tikzpicture}
+\caption{Overview of Explainable Decision Intelligence (EDI): three mechanisms map to design goals (DG1--DG3), are instantiated in EPIDEMIA~2.0, evaluated in a user study (F1--F3), and synthesized as design principles (DP1--DP3).}
+\label{fig:edi-framework}
+\end{figure*}

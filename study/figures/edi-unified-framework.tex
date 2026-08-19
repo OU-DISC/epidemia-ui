@@ -1,0 +1,149 @@
+% Figure: EDI unified framework (research program + paradigm + EPIDEMIA + evaluation)
+% Requires: \usepackage{tikz} \usetikzlibrary{arrows.meta,positioning,fit}
+% Prefer this as the overview figure; keep edi-paradigm.tex as the clean interaction model.
+%
+% \input{path/to/edi-unified-framework.tex}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize,
+  node distance=3.5mm and 5mm,
+  box/.style={draw=black!65, rounded corners=2pt, align=center, inner sep=3.5pt},
+  soft/.style={box, fill=black!1.5},
+  stage/.style={box, fill=black!2.5, minimum width=32mm, minimum height=18mm},
+  human/.style={box, fill=black!4, font=\sffamily\bfseries\scriptsize},
+  act/.style={box, minimum width=16mm, font=\sffamily\bfseries\tiny},
+  arr/.style={-{Latex[length=1.3mm]}, thick, black!50},
+  line/.style={thick, black!50},
+  sec/.style={font=\sffamily\bfseries\tiny, text=black!55}
+]
+
+% A. Research program
+\node[sec] (seca) at (0,0) {A.\ RESEARCH PROGRAM};
+\node[soft, below=2mm of seca, minimum width=78mm, font=\sffamily\bfseries\footnotesize]
+  (edi) {Explainable Decision Intelligence (EDI)};
+\node[box, below=of edi, minimum width=90mm, align=left, inner sep=4pt] (qs) {%
+  What is EDI? How does it differ from XAI / MIVA / DSS?\\
+  What design requirements characterize EDI?\\
+  Does EDI improve decisions under uncertainty?%
+};
+\draw[arr] (edi) -- (qs);
+
+% B. Interaction paradigm
+\node[sec, below=5mm of qs] (secb) {B.\ EDI INTERACTION PARADIGM};
+\node[soft, below=2mm of secb, minimum width=42mm, font=\sffamily\bfseries\scriptsize]
+  (ev) {AI-generated evidence};
+\draw[arr] (qs) -- (secb);
+\draw[arr] (secb) -- (ev);
+
+\node[stage, below left=6mm and 12mm of ev] (interpret) {%
+  \textbf{INTERPRET}\\[-1pt]
+  {\tiny Why / support / contradict}\\[-1pt]
+  {\tiny (AI explanation)}%
+};
+\node[stage, below=6mm of ev] (deliberate) {%
+  \textbf{DELIBERATE}\\[-1pt]
+  {\tiny Alternatives / trade-offs}\\[-1pt]
+  {\tiny Context / what could change}%
+};
+\node[stage, below right=6mm and 12mm of ev] (challenge) {%
+  \textbf{CHALLENGE}\\[-1pt]
+  {\tiny Counter-evidence / gaps}\\[-1pt]
+  {\tiny Why might this be wrong?}%
+};
+
+\draw[arr] (ev.south) -- ++(0,-1.5mm) coordinate (s1);
+\draw[line] (interpret.north |- s1) -- (challenge.north |- s1);
+\draw[arr] (s1 -| interpret) -- (interpret.north);
+\draw[arr] (s1 -| deliberate) -- (deliberate.north);
+\draw[arr] (s1 -| challenge) -- (challenge.north);
+
+\node[human, below=7mm of deliberate, minimum width=40mm] (human) {Human judgment};
+\draw[line] (interpret.south) -- ++(0,-2mm) coordinate (j1);
+\draw[line] (deliberate.south) -- ++(0,-2mm);
+\draw[line] (challenge.south) -- ++(0,-2mm) coordinate (j3);
+\draw[line] (j1) -- (j3);
+\draw[arr] (deliberate.south |- j1) -- (human);
+
+\node[act, below left=4mm and 2mm of human] (confirm) {Confirm};
+\node[act, below=4mm of human] (override) {Override};
+\node[act, below right=4mm and 2mm of human] (annotate) {Annotate};
+\draw[arr] (human.south) -- ++(0,-1mm) coordinate (fork);
+\draw[line] (confirm.north |- fork) -- (annotate.north |- fork);
+\draw[arr] (fork -| confirm) -- (confirm.north);
+\draw[arr] (fork -| override) -- (override.north);
+\draw[arr] (fork -| annotate) -- (annotate.north);
+
+\node[soft, below=5mm of override, minimum width=48mm]
+  (acct) {Accountable decision + rationale};
+\draw[arr] (override) -- (acct);
+
+% C. EPIDEMIA
+\node[sec, below=5mm of acct] (secc) {C.\ EPIDEMIA~2.0 (EMPIRICAL VEHICLE)};
+\draw[arr] (acct) -- (secc);
+\node[soft, below=2mm of secc, minimum width=70mm]
+  (data) {Malaria / environmental data $\rightarrow$ forecasting pipeline};
+\draw[arr] (secc) -- (data);
+
+\node[box, below left=5mm and 8mm of data, minimum width=24mm] (fc) {Forecast};
+\node[box, below=5mm of data, minimum width=24mm] (al) {Alerts};
+\node[box, below right=5mm and 8mm of data, minimum width=24mm] (un) {Uncertainty};
+\draw[arr] (data.south) -- ++(0,-1.5mm) coordinate (s2);
+\draw[line] (fc.north |- s2) -- (un.north |- s2);
+\draw[arr] (s2 -| fc) -- (fc.north);
+\draw[arr] (s2 -| al) -- (al.north);
+\draw[arr] (s2 -| un) -- (un.north);
+
+\node[soft, below=5mm of al, minimum width=52mm] (pack) {Structured district evidence pack};
+\draw[line] (fc.south) -- ++(0,-1.5mm) coordinate (k1);
+\draw[line] (al.south) -- ++(0,-1.5mm);
+\draw[line] (un.south) -- ++(0,-1.5mm) coordinate (k3);
+\draw[line] (k1) -- (k3);
+\draw[arr] (al.south |- k1) -- (pack);
+
+\node[box, below left=5mm and 6mm of pack, minimum width=34mm]
+  (det) {Deterministic EDI\\[-1pt]{\tiny fallbacks}};
+\node[box, below right=5mm and 6mm of pack, minimum width=34mm]
+  (llm) {Grounded LLM\\[-1pt]{\tiny optional}};
+\draw[arr] (pack.south west) ++(2mm,0) |- (det.north);
+\draw[arr] (pack.south east) ++(-2mm,0) |- (llm.north);
+
+\node[human, below=6mm of pack, yshift=-9mm, minimum width=46mm]
+  (ui) {EDI Decision Interface};
+\draw[arr] (det.south) |- (ui.west);
+\draw[arr] (llm.south) |- (ui.east);
+
+% D. Evaluation
+\node[sec, below=5mm of ui] (secd) {D.\ EVALUATION};
+\draw[arr] (ui) -- (secd);
+\node[box, below left=4mm and 10mm of secd, minimum width=28mm]
+  (base) {\textbf{Baseline}\\[-1pt]{\tiny forecast+alert}};
+\node[stage, below right=4mm and 10mm of secd, minimum width=28mm]
+  (arm) {\textbf{EDI arm}\\[-1pt]{\tiny full workflow}};
+\draw[arr] (secd) -| (base);
+\draw[arr] (secd) -| (arm);
+
+\node[soft, below=8mm of secd, xshift=-34mm, minimum width=28mm]
+  (f1) {\textbf{F1}\\[-1pt]{\tiny Understanding}};
+\node[soft, below=8mm of secd, minimum width=28mm]
+  (f2) {\textbf{F2}\\[-1pt]{\tiny Calibration}};
+\node[soft, below=8mm of secd, xshift=34mm, minimum width=28mm]
+  (f3) {\textbf{F3}\\[-1pt]{\tiny Decision}};
+\draw[line] (base.south) -- ++(0,-2mm) coordinate (m1);
+\draw[line] (arm.south) -- ++(0,-2mm) coordinate (m2);
+\draw[line] (m1) -- (m2);
+\draw[arr] (m1 -| f1) -- (f1.north);
+\draw[arr] (m1 -| f2) -- (f2.north);
+\draw[arr] (m1 -| f3) -- (f3.north);
+
+% Contribution spine note
+\node[sec, right=18mm of deliberate, align=left, text width=28mm]
+  {Contribution spine:\\
+  C$\rightarrow$DG$\rightarrow$F$\rightarrow$DP\\
+  (DP1--DP3)};
+
+\end{tikzpicture}
+\caption{Unified EDI framework. (A)~Research program. (B)~Interaction paradigm: Interpret, Deliberate, and Challenge culminate in human judgment and an accountable decision with rationale. (C)~EPIDEMIA~2.0 operationalizes the paradigm via a structured evidence pack, deterministic EDI functions, and an optional grounded LLM. (D)~A baseline vs.\ EDI study evaluates understanding (F1), trust calibration (F2), and decision/prioritization (F3). Design goals DG1--DG3 and principles DP1--DP3 align with this spine.}
+\label{fig:edi-unified}
+\end{figure*}

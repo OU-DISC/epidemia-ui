@@ -18,6 +18,109 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
+function finiteNumber(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function pointDate(point) {
+  return point?.week_start || point?.date || null;
+}
+
+function formatWeekLabel(value) {
+  if (!value) return "—";
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return String(value).slice(0, 10);
+  }
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function exceedsThreshold(value, warningThreshold, detectionThreshold) {
+  if (value == null) return null;
+  if (warningThreshold != null && value > warningThreshold) {
+    return { type: "warning", threshold: warningThreshold };
+  }
+  if (detectionThreshold != null && value > detectionThreshold) {
+    return { type: "detection", threshold: detectionThreshold };
+  }
+  return null;
+}
+
+/**
+ * Weeks that contribute to the alert rationale (for the explainable-alert card).
+ * ED: last 4 observed weeks above threshold.
+ * EW: forecast weeks above threshold.
+ */
+export function buildTriggeredWeeks({
+  observedHistory = [],
+  forecastPoints = [],
+  status = "Normal",
+} = {}) {
+  const weeks = [];
+
+  if (status === "Early Detection" || status === "Normal") {
+    const recent = (observedHistory || []).slice(-4);
+    recent.forEach((point) => {
+      const observed = finiteNumber(point?.observed);
+      const warning = finiteNumber(
+        point?.warning_threshold ?? point?.warningThreshold
+      );
+      const detection = finiteNumber(
+        point?.detection_threshold ?? point?.detectionThreshold ?? point?.expected
+      );
+      const hit = exceedsThreshold(observed, warning, detection);
+      if (!hit) return;
+      weeks.push({
+        kind: "observed",
+        week: pointDate(point),
+        weekLabel: formatWeekLabel(pointDate(point)),
+        value: observed,
+        thresholdType: hit.type,
+        thresholdValue: hit.threshold,
+        excess: observed - hit.threshold,
+      });
+    });
+  }
+
+  if (status === "Early Warning" || status === "Normal") {
+    (forecastPoints || []).forEach((point) => {
+      const median = finiteNumber(point?.median);
+      const warning = finiteNumber(
+        point?.warning_threshold ?? point?.warningThreshold
+      );
+      const detection = finiteNumber(
+        point?.detection_threshold ?? point?.detectionThreshold
+      );
+      const hit = exceedsThreshold(median, warning, detection);
+      if (!hit) return;
+      weeks.push({
+        kind: "forecast",
+        week: pointDate(point),
+        weekLabel: formatWeekLabel(pointDate(point)),
+        value: median,
+        thresholdType: hit.type,
+        thresholdValue: hit.threshold,
+        excess: median - hit.threshold,
+      });
+    });
+  }
+
+  // For Normal with no crossings, leave empty.
+  // For alert statuses, prefer the matching kind when both were scanned.
+  if (status === "Early Detection") {
+    return weeks.filter((w) => w.kind === "observed");
+  }
+  if (status === "Early Warning") {
+    return weeks.filter((w) => w.kind === "forecast");
+  }
+  return weeks;
+}
+
 export function formatDistrictTooltipHtml({
   region,
   district,
@@ -70,12 +173,21 @@ export function buildAlertExplanation({
   population,
   populationYear,
   incidentRate,
+  observedHistory = [],
+  forecastPoints = [],
 }) {
   if (!alert) {
     return {
       status: null,
+      level: null,
+      alertCount: 0,
       summary: `No forecast alert is available for ${districtName} (${speciesLabel}).`,
+      why: `No forecast alert is available for ${districtName} (${speciesLabel}).`,
       bullets: [],
+      magnitudePercent: null,
+      persistenceWeeks: 0,
+      triggeredWeeks: [],
+      contextLine: null,
     };
   }
 
@@ -93,15 +205,39 @@ export function buildAlertExplanation({
   const persistenceWeeks = insight?.persistenceWeeks ?? 0;
   const edLevel = alert.ed_level;
   const ewLevel = alert.ew_level;
+  const level = status === "Early Warning" ? ewLevel || "Low" : status === "Early Detection" ? edLevel || "Low" : null;
+  const alertCount =
+    status === "Early Warning"
+      ? alert.ew_alert_count ?? 0
+      : status === "Early Detection"
+      ? alert.ed_alert_count ?? 0
+      : 0;
 
-  let summary;
+  const triggeredWeeks = buildTriggeredWeeks({
+    observedHistory,
+    forecastPoints,
+    status,
+  });
+
+  let why;
   if (status === "Early Warning") {
-    summary = `Early warning: ${alert.ew_alert_count ?? 0} forecast week(s) above the expected level (${ewLevel || "Low"}).`;
+    const weekBit =
+      triggeredWeeks.length > 0
+        ? `${triggeredWeeks.length} forecast week${triggeredWeeks.length === 1 ? "" : "s"} above the warning or expected level`
+        : `${alert.ew_alert_count ?? 0} forecast week(s) above the expected level`;
+    why = `Early warning (${level}): ${weekBit}. The near-term forecast sits above the seasonal baseline used for warning.`;
   } else if (status === "Early Detection") {
-    summary = `Early detection: ${alert.ed_alert_count ?? 0} observed week(s) above threshold in the last 4 weeks (${edLevel || "Low"}).`;
+    const weekBit =
+      triggeredWeeks.length > 0
+        ? `${triggeredWeeks.length} of the last 4 observed week${triggeredWeeks.length === 1 ? "" : "s"} exceeded threshold`
+        : `${alert.ed_alert_count ?? 0} observed week(s) above threshold in the last 4 weeks`;
+    why = `Early detection (${level}): ${weekBit}. Recent reported cases are above the expected (detection) level.`;
   } else {
-    summary = "District is within normal transmission levels.";
+    why = "District is within normal transmission levels—no observed or forecast week currently exceeds alert thresholds.";
   }
+
+  // Keep summary as the primary one-line why (card + legacy callers).
+  const summary = why;
 
   const bullets = [];
 
@@ -111,7 +247,7 @@ export function buildAlertExplanation({
 
   if (latestObserved != null || latestForecast != null || activeThreshold != null) {
     bullets.push(
-      `Observed ${formatNumber(latestObserved)} · Forecast ${formatNumber(latestForecast)} · Threshold ${formatNumber(activeThreshold)}`
+      `Observed ${formatNumber(latestObserved)} · Forecast ${formatNumber(latestForecast)} · Warning threshold ${formatNumber(activeThreshold)}`
     );
   }
 
@@ -131,7 +267,31 @@ export function buildAlertExplanation({
     bullets.push(`Average incidence rate: ${formatNumber(incidentRate, 1)} per 100,000`);
   }
 
-  return { status, summary, bullets };
+  const contextParts = [];
+  if (regionName) contextParts.push(regionName);
+  if (speciesLabel) contextParts.push(speciesLabel);
+  if (population != null) contextParts.push(`pop. ${formatPopulation(population)}`);
+  if (incidentRate != null) {
+    contextParts.push(`${formatNumber(incidentRate, 1)} /100k incidence`);
+  }
+  const contextLine = contextParts.length ? contextParts.join(" · ") : null;
+
+  return {
+    status,
+    level,
+    alertCount,
+    summary,
+    why,
+    bullets,
+    magnitudePercent:
+      magnitudePercent != null && magnitudePercent > 0 ? magnitudePercent : null,
+    persistenceWeeks: persistenceWeeks > 0 ? persistenceWeeks : 0,
+    triggeredWeeks,
+    contextLine,
+    latestObserved,
+    latestForecast,
+    activeThreshold,
+  };
 }
 
 function tooltipRow(label, value) {
@@ -156,6 +316,12 @@ export function formatAlertTooltipHtml(districtName, explanation) {
 
   if (explanation.status) {
     rows.push(tooltipRow("Status", explanation.status));
+  }
+
+  // One-line why for map hover; full rationale lives in the Decision card.
+  if (explanation.why || explanation.summary) {
+    const shortWhy = String(explanation.why || explanation.summary).split(".")[0];
+    rows.push(tooltipRow("Why", shortWhy));
   }
 
   const weekBullet = explanation.bullets?.find((item) => item.startsWith("Week of "));
