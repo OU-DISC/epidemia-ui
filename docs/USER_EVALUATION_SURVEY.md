@@ -70,13 +70,16 @@ Unless noted, scale items use:
 **C1.** When I first opened the dashboard, it was clear what the tool is for.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
-**C2.** The overall layout (map + right panel) was easy to understand.  
+**C2.** The overall layout (map + Current situation strip + right panel) was easy to understand.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
 **C3.** The amount of information on the screen felt manageable (not overwhelming).  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
-**C4.** In your own words, what is this dashboard for?  
+**C4.** The initial load time felt acceptable for my connection.  
+1 □ · 2 □ · 3 □ · 4 □ · 5 □
+
+**C5.** In your own words, what is this dashboard for?  
 *(open text)*
 
 ---
@@ -98,20 +101,29 @@ Unless noted, scale items use:
 **D5.** Alert markers / layers on the map helped me identify priority districts.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
-**D6.** Map health or environmental layers (if you tried them) were useful.  
+**D6.** Map tooltips (on hover) helped me understand district status.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not try □
 
-**D7.** What did you like most about the map?  
+**D7.** The **Current situation** tiles above the map (Alert · Evidence · Forecast) were helpful.  
+1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not notice □
+
+**D8.** The four-week detection dots on the Alert tile were understandable.  
+1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not notice □
+
+**D9.** Map health or environmental layers (if you tried them) were useful.  
+1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not try □
+
+**D10.** What did you like most about the map?  
 *(open text)*
 
-**D8.** What was confusing or difficult about the map or alerts?  
+**D11.** What was confusing or difficult about the map or alerts?  
 *(open text)*
 
 ---
 
-## E. Charts (environmental + forecast)
+## E. Evidence tab (forecast + environmental charts)
 
-**E1.** After selecting a district, the Charts tab showed information I expected.  
+**E1.** After selecting a district, the **Evidence** tab showed information I expected.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
 **E2.** I could tell **observed cases** apart from the **forecast**.  
@@ -123,29 +135,32 @@ Unless noted, scale items use:
 **E4.** Threshold lines / alert markers on the forecast chart were understandable.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
-**E5.** Environmental charts (rainfall, temperature, vegetation, etc.) helped explain risk.  
+**E5.** The compact **Alerts by region** chart (if shown) was useful.  
+1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not notice □
+
+**E6.** Weather / environmental charts (rainfall, temperature, vegetation, etc.) helped explain risk.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not try □
 
-**E6.** Changing the forecast horizon (4 / 8 / 12 weeks) was clear and useful.  
+**E7.** Changing the forecast horizon (4 / 8 / 12 weeks) was clear and useful.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not try □
 
-**E7.** Date range controls and chart zoom were easy to use.  
+**E8.** Date range controls (above the map) and chart zoom were easy to use.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not try □
 
-**E8.** Chart legends and labels were readable.  
+**E9.** Chart legends and labels were readable.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
-**E9.** What did you like most about the charts?  
+**E10.** What did you like most about the Evidence charts?  
 *(open text)*
 
-**E10.** What was confusing or difficult about the charts?  
+**E11.** What was confusing or difficult about the Evidence charts?  
 *(open text)*
 
 ---
 
-## F. Forecast Table and comparison
+## F. Forecast tab (priority table and comparison)
 
-**F1.** The Forecast Table helped me see which districts need attention first.  
+**F1.** The **Forecast** tab helped me see which districts need attention first.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □
 
 **F2.** Table columns / ranking were understandable.  
@@ -154,10 +169,10 @@ Unless noted, scale items use:
 **F3.** Comparing districts (selecting rows / comparison chart) was useful.  
 1 □ · 2 □ · 3 □ · 4 □ · 5 □ · Did not try □
 
-**F4.** What did you like most about the table or comparison?  
+**F4.** What did you like most about the Forecast tab or comparison?  
 *(open text)*
 
-**F5.** What was confusing or difficult about the table or comparison?  
+**F5.** What was confusing or difficult about the Forecast tab or comparison?  
 *(open text)*
 
 ---
@@ -168,13 +183,14 @@ For each feature you tried, rate usefulness. If you did not try it, select **Did
 
 | Feature | Not useful | Slightly useful | Useful | Very useful | Did not try |
 |---------|------------|-----------------|--------|-------------|-------------|
-| **G1.** PDF export | □ | □ | □ | □ | □ |
-| **G2.** About tab | □ | □ | □ | □ | □ |
-| **G3.** Refresh Forecast | □ | □ | □ | □ | □ |
-| **G4.** Project Wizard / New Project | □ | □ | □ | □ | □ |
-| **G5.** Alert history / Play animation | □ | □ | □ | □ | □ |
+| **G1.** **Action** tab (confirm / override / annotate) | □ | □ | □ | □ | □ |
+| **G2.** PDF export | □ | □ | □ | □ | □ |
+| **G3.** About tab | □ | □ | □ | □ | □ |
+| **G4.** Refresh Forecast | □ | □ | □ | □ | □ |
+| **G5.** Project Wizard / New Project | □ | □ | □ | □ | □ |
+| **G6.** Alert history / Play animation | □ | □ | □ | □ | □ |
 
-**G6.** Comments on any of the features above:  
+**G7.** Comments on any of the features above:  
 *(open text)*
 
 ---
@@ -292,8 +308,8 @@ Thank you for completing this survey.
 | Section | Purpose |
 |---------|---------|
 | A–B | Consent, completion check, respondent profile |
-| C | First impression / mental model |
-| D–G | Feature feedback aligned with guided tasks |
+| C | First impression / mental model / load time |
+| D–G | Feature feedback aligned with guided tasks (map, Evidence, Forecast, Action) |
 | H | Standard SUS usability score |
 | I | Usefulness, trust, intention to use |
 | J–K | Open feedback for design priorities |

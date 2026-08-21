@@ -27,7 +27,7 @@ const WEIGHT_WOREDA_SELECTED = 2.4;
 const WEIGHT_REGION_OUTLINE = 2.3;
 const DISTRICT_CLICK_MAX_ZOOM = 8;
 const MAP_DEFAULT_CENTER = [9.0, 40.5];
-const MAP_DEFAULT_ZOOM = 6;
+const MAP_DEFAULT_ZOOM = 5;
 
 function MapTooltipPaneFix() {
   const map = useMap();
@@ -1375,6 +1375,7 @@ export default function EthiopiaMap({
       <MapContainer
         center={MAP_DEFAULT_CENTER}
         zoom={MAP_DEFAULT_ZOOM}
+        zoomSnap={0.5}
         className="district-map"
       >
         <HomeMapControl />
