@@ -4,20 +4,20 @@ function finiteNumber(value) {
 }
 
 /**
- * Count forecast weeks where projected cases exceed the warning / alarm band.
+ * Count forecast weeks where projected cases exceed the Farrington alarm band.
  *
- * Prefer warning_threshold (GAM upper / Farrington-style band on the point).
- * Fall back to alarm_threshold. Do NOT use detection_threshold: in the current
- * pipeline that field is often equal to the forecast median (expected level),
- * which would incorrectly clear every early-warning flag.
+ * Prefer alarm_threshold (pipeline Early Warning definition). Fall back to
+ * warning_threshold. Do NOT use detection_threshold: in the current pipeline
+ * that field is often equal to the forecast median (expected level), which
+ * would incorrectly clear every early-warning flag.
  */
 export function countEarlyWarningWeeks(forecastRow) {
   return (forecastRow?.forecast || []).filter((point) => {
     const median = finiteNumber(point?.median);
     if (median == null) return false;
-    const warning = finiteNumber(point?.warning_threshold);
     const alarm = finiteNumber(point?.alarm_threshold);
-    const threshold = warning ?? alarm;
+    const warning = finiteNumber(point?.warning_threshold);
+    const threshold = alarm ?? warning;
     return threshold != null && median > threshold;
   }).length;
 }

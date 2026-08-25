@@ -43,9 +43,14 @@ function resolveAlarmThreshold(point) {
   return finiteNumber(point?.alarm_threshold) ?? finiteNumber(point?.warning_threshold);
 }
 
-/** Seasonal expected level used for forecast early-warning markers. */
-function resolveExpectedThreshold(point) {
-  return finiteNumber(point?.detection_threshold);
+/**
+ * Threshold used for early-warning markers on forecast weeks.
+ * Match the pipeline: Farrington alarm on forecast values (alarm_threshold).
+ * Do NOT use detection_threshold — for GAM forecasts that field often equals
+ * the median (expected level), which would hide every EW marker.
+ */
+function resolveEarlyWarningThreshold(point) {
+  return resolveAlarmThreshold(point);
 }
 
 function bandShape(x0, x1, fill) {
@@ -157,36 +162,31 @@ export function buildForecastChartLayers(data) {
   }
 
   const thresholdPoints = [...data]
-    .filter(
-      (point) =>
-        point.warning_threshold !== null &&
-        point.warning_threshold !== undefined &&
-        point.date
-    )
+    .filter((point) => resolveEarlyWarningThreshold(point) != null && point.date)
     .sort((a, b) => String(a.date).localeCompare(String(b.date)));
 
   const thresholdTrace =
     thresholdPoints.length > 0
       ? {
           x: thresholdPoints.map((point) => point.date),
-          y: thresholdPoints.map((point) => Number(point.warning_threshold)),
+          y: thresholdPoints.map((point) => Number(resolveEarlyWarningThreshold(point))),
           type: "scatter",
           mode: "lines",
-          name: "Warning threshold",
+          name: "Alert threshold",
           line: { color: THRESHOLD_COLOR, width: 1.5, dash: "dot" },
-          hovertemplate: "Warning threshold: %{y:.2f}<extra></extra>",
+          hovertemplate: "Alert threshold: %{y:.2f}<extra></extra>",
         }
       : null;
 
   const floorValues = [];
   observedPoints.forEach((point) => {
     floorValues.push(finiteNumber(point.observed));
-    floorValues.push(finiteNumber(point.warning_threshold));
+    floorValues.push(resolveAlarmThreshold(point));
   });
   forecastPoints.forEach((point) => {
     floorValues.push(finiteNumber(point.median));
     floorValues.push(finiteNumber(point.upper));
-    floorValues.push(finiteNumber(point.warning_threshold));
+    floorValues.push(resolveEarlyWarningThreshold(point));
   });
   const markerY = markerFloorY(floorValues.filter((value) => value != null));
 
@@ -201,7 +201,7 @@ export function buildForecastChartLayers(data) {
 
   const ewAlertDates = [];
   forecastPoints.forEach((point) => {
-    if (weekAlarm(point.median, resolveExpectedThreshold(point))) {
+    if (weekAlarm(point.median, resolveEarlyWarningThreshold(point))) {
       ewAlertDates.push(point.date);
     }
   });

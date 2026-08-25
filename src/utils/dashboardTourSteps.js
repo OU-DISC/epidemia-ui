@@ -46,7 +46,7 @@ export const DASHBOARD_TOUR_STEPS = [
     id: "alerts",
     title: "Early Warning and Early Detection",
     body:
-      "Toggle Early Warning (forecast above expected level) and Early Detection (recent observed weeks above the Farrington alert threshold). You can also replay alert history week by week.",
+      "Toggle Early Warning (forecast above the Farrington alert threshold) and Early Detection (recent observed weeks above the Farrington alert threshold). You can also replay alert history week by week.",
     target: '[data-tour="decision-layers"]',
     placement: "auto",
     mobileView: "map",

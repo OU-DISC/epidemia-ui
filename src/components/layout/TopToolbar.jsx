@@ -3,9 +3,10 @@ import React from "react";
 
 function DiseaseSubtitle({ disease, country }) {
   const speciesName = disease.replace(/\s+malaria$/i, "");
+  const speciesCode = /vivax/i.test(disease) ? "PV" : "PFM";
   return (
     <span className="toolbar-subtitle">
-      <em>{speciesName}</em> malaria · {country}
+      <em>{speciesName}</em> ({speciesCode}) malaria · {country}
     </span>
   );
 }

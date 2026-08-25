@@ -21,7 +21,7 @@ export const DASHBOARD_HELP = {
   pipeline:
     "Forecast data status: loading, ready, running, or error. Shows when the cache was last generated, district count, and background pipeline progress when a refresh is running on the server.",
   earlyWarnings:
-    "Districts with one or more forecast weeks above the seasonal expected level (early warning period).",
+    "Districts with one or more forecast weeks above the Farrington alert threshold (early warning period).",
   earlyDetections:
     "Districts with one or more observed weeks above the Farrington alert threshold in the last 4 epidemiology weeks.",
   districtsModeled: "Number of districts included in the current forecast run.",
@@ -36,7 +36,7 @@ export const DASHBOARD_HELP = {
     "Replay how alerts changed over recent weeks using observed case history.",
 
   alertLayers:
-    "Early Warning (⚠️) = forecast weeks exceeding the seasonal GAM expected level — future risk signal. Early Detection (🔍) = observed weeks exceeding the Farrington threshold — confirmed outbreak signal. These are separate; a district can have one, both, or neither. Use 'Active' to see the current week, or 'Historical' to replay how alerts evolved. The map choropleth shows incidence rate (cases per 100k population) — a separate measure from alert status.",
+    "Early Warning (⚠️) = forecast weeks exceeding the Farrington alert threshold — future risk signal. Early Detection (🔍) = observed weeks exceeding the Farrington threshold — confirmed outbreak signal. These are separate; a district can have one, both, or neither. Use 'Active' to see the current week, or 'Historical' to replay how alerts evolved. The map choropleth shows incidence rate (cases per 100k population) — a separate measure from alert status.",
   districtLayers:
     "Map controls for choropleth or satellite base layers, plus alert overlays.",
   mapSurfaceLayer:
