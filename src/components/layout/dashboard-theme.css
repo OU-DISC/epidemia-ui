@@ -2694,6 +2694,8 @@ body {
   border: 0;
   background: transparent;
   box-shadow: none;
+  /* Leaflet fades opacity; keep readable when open (avoid invisible “empty” look). */
+  opacity: 1;
 }
 
 .leaflet-pane.leaflet-tooltip-pane {

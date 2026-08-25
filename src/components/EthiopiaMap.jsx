@@ -634,12 +634,16 @@ function SelectedDistrictFocus({ districtName, adm3Lookup }) {
 function InteractiveDistrictLayer({ data, style, getTooltip, getTooltipClassName, onSelectDistrict }) {
   const map = useMap();
   const layerRef = useRef(null);
+  const getTooltipRef = useRef(getTooltip);
+  const getTooltipClassNameRef = useRef(getTooltipClassName);
+  getTooltipRef.current = getTooltip;
+  getTooltipClassNameRef.current = getTooltipClassName;
 
-  const tooltipOptions = (feature) => ({
+  const tooltipOptions = () => ({
     sticky: false,
     direction: "top",
     opacity: 1,
-    className: getTooltipClassName?.(feature) || "district-info-tooltip-wrap",
+    className: getTooltipClassNameRef.current?.() || "district-info-tooltip-wrap",
   });
 
   useEffect(() => {
@@ -648,7 +652,8 @@ function InteractiveDistrictLayer({ data, style, getTooltip, getTooltipClassName
       layerRef.current.eachLayer((layer) => {
         if (layer.feature && layer.setTooltipContent) {
           const feature = layer.feature;
-          layer.setTooltipContent(getTooltip(feature));
+          const html = getTooltipRef.current(feature);
+          if (html) layer.setTooltipContent(html);
         }
       });
     }
@@ -676,14 +681,17 @@ function InteractiveDistrictLayer({ data, style, getTooltip, getTooltipClassName
         layer.bringToFront?.();
       },
       mouseover: () => {
-        layer.setTooltipContent?.(getTooltip(feature));
+        // Always use the latest tooltip builder — layers keep the onEachFeature
+        // closure from first mount, when forecast lookups may still be empty.
+        const html = getTooltipRef.current(feature);
+        if (html) layer.setTooltipContent(html);
       },
       mouseout: () => {
         layer.closeTooltip?.();
       },
     });
 
-    layer.bindTooltip(getTooltip(feature), tooltipOptions(feature));
+    layer.bindTooltip(getTooltipRef.current(feature) || " ", tooltipOptions());
   };
 
   return (

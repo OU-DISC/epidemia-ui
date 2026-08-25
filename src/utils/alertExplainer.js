@@ -51,6 +51,18 @@ function exceedsThreshold(value, warningThreshold, detectionThreshold) {
   return null;
 }
 
+/** Forecast EW uses Farrington alarm (same as map markers / pipeline). */
+function exceedsEarlyWarningThreshold(value, point) {
+  if (value == null) return null;
+  const alarm = finiteNumber(point?.alarm_threshold ?? point?.alarmThreshold);
+  const warning = finiteNumber(point?.warning_threshold ?? point?.warningThreshold);
+  const threshold = alarm ?? warning;
+  if (threshold != null && value > threshold) {
+    return { type: alarm != null ? "alarm" : "warning", threshold };
+  }
+  return null;
+}
+
 /**
  * Weeks that contribute to the alert rationale (for the explainable-alert card).
  * ED: last 4 observed weeks above threshold.
@@ -90,13 +102,7 @@ export function buildTriggeredWeeks({
   if (status === "Early Warning" || status === "Normal") {
     (forecastPoints || []).forEach((point) => {
       const median = finiteNumber(point?.median);
-      const warning = finiteNumber(
-        point?.warning_threshold ?? point?.warningThreshold
-      );
-      const detection = finiteNumber(
-        point?.detection_threshold ?? point?.detectionThreshold
-      );
-      const hit = exceedsThreshold(median, warning, detection);
+      const hit = exceedsEarlyWarningThreshold(median, point);
       if (!hit) return;
       weeks.push({
         kind: "forecast",
@@ -226,15 +232,15 @@ export function buildAlertExplanation({
   if (status === "Early Warning") {
     const weekBit =
       triggeredWeeks.length > 0
-        ? `${triggeredWeeks.length} forecast week${triggeredWeeks.length === 1 ? "" : "s"} above the warning or expected level`
-        : `${alert.ew_alert_count ?? 0} forecast week(s) above the expected level`;
-    why = `Early warning (${level}): ${weekBit}. The near-term forecast sits above the seasonal baseline used for warning.`;
+        ? `${triggeredWeeks.length} forecast week${triggeredWeeks.length === 1 ? "" : "s"} above the alert threshold`
+        : `${alert.ew_alert_count ?? 0} forecast week(s) above the alert threshold`;
+    why = `Early warning (${level}): ${weekBit}. The near-term forecast sits above the Farrington alert threshold.`;
   } else if (status === "Early Detection") {
     const weekBit =
       triggeredWeeks.length > 0
         ? `${triggeredWeeks.length} of the last 4 observed week${triggeredWeeks.length === 1 ? "" : "s"} exceeded threshold`
         : `${alert.ed_alert_count ?? 0} observed week(s) above threshold in the last 4 weeks`;
-    why = `Early detection (${level}): ${weekBit}. Recent reported cases are above the expected (detection) level.`;
+    why = `Early detection (${level}): ${weekBit}. Recent reported cases are above the Farrington alert threshold.`;
   } else {
     why = "District is within normal transmission levels—no observed or forecast week currently exceeds alert thresholds.";
   }
