@@ -29,6 +29,11 @@ const DISTRICT_CLICK_MAX_ZOOM = 8;
 const MAP_DEFAULT_CENTER = [9.0, 40.5];
 const MAP_DEFAULT_ZOOM = 5;
 
+const CARTO_API_KEY = process.env.REACT_APP_CARTO_API_KEY || "";
+const CARTO_TILE_URL = CARTO_API_KEY
+  ? `https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=${encodeURIComponent(CARTO_API_KEY)}`
+  : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+
 function MapTooltipPaneFix() {
   const map = useMap();
 
@@ -1393,7 +1398,7 @@ export default function EthiopiaMap({
 
         <TileLayer
           attribution="© OpenStreetMap, © CARTO"
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          url={CARTO_TILE_URL}
         />
 
         <SelectedDistrictFocus
