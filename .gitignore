@@ -38,3 +38,8 @@ yarn-error.log*
 /backend/report/report_data.json
 /backend/report/report_data_*.json
 frontend/epidemia-ui/public/report_data.json
+
+# Google Cloud service account keys
+backend/app/daring-pilot-*.json
+**/*service-account*.json
+**/service-account-key.json

@@ -1,1 +1,4 @@
 /node_modules
+backend/app/daring-pilot-*.json
+**/*service-account*.json
+**/service-account-key.json

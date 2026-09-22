@@ -41,5 +41,7 @@ data/weekly_malaria_with_admin_geo_2014_2025.csv
 report/report_data.json
 report/report_data_*.json
 
-# Service keys
+# Service keys — never commit these
 service-account-key.json
+*service-account*.json
+app/daring-pilot-*.json
