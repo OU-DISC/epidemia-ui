@@ -29,7 +29,7 @@ function DetectionWindowDots({ summary }) {
   const weekStates = summary.detectionWeekStates || [];
   const windowWeeks = summary.detectionWindowWeeks || weekStates.length || 4;
   const activeCount = summary.detectionWeeksActive ?? weekStates.filter(Boolean).length;
-  const label = `${activeCount}/${windowWeeks} wks above threshold`;
+  const label = `${activeCount}/${windowWeeks} weeks above threshold`;
 
   return (
     <div className="situation-persistence situation-detection-window" title={summary.detectionWindowTooltip}>
@@ -181,7 +181,7 @@ function SituationForecastVisual({ summary }) {
         <div className="situation-forecast-visual__body">
           <div className="situation-forecast-bars">
             <div className="situation-forecast-bar-row">
-              <span>Obs</span>
+              <span>Observed</span>
               <div className="situation-forecast-bar-track">
                 <div
                   className="situation-forecast-bar-fill situation-forecast-bar-fill--observed"
@@ -191,7 +191,7 @@ function SituationForecastVisual({ summary }) {
               <strong>{formatMetric(obs, summary.valueMode, 1)}</strong>
             </div>
             <div className="situation-forecast-bar-row">
-              <span>Fcst</span>
+              <span>Forecast</span>
               <div className="situation-forecast-bar-track">
                 <div
                   className={`situation-forecast-bar-fill situation-forecast-bar-fill--forecast ${statusTone(summary.alertStatus)}`}
