@@ -1699,6 +1699,226 @@ body {
   min-height: 0;
 }
 
+.dashboard-grid--split {
+  gap: 0;
+}
+
+.panel-splitter {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 14px;
+  min-width: 14px;
+  height: 100%;
+  align-self: stretch;
+  cursor: col-resize;
+  background: transparent;
+  position: relative;
+  touch-action: none;
+  z-index: 3;
+}
+
+.panel-splitter::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #94a3b8;
+  transition: background 0.15s ease, width 0.15s ease;
+}
+
+.panel-splitter:hover::before,
+.panel-splitter:focus-visible::before,
+.panel-splitter--dragging::before {
+  width: 6px;
+  background: var(--accent, #0f7b6c);
+}
+
+.panel-splitter:focus-visible {
+  outline: 2px solid var(--accent, #0f7b6c);
+  outline-offset: -2px;
+}
+
+.panel-splitter.panel-splitter--row {
+  width: 100%;
+  min-width: 0;
+  height: 14px;
+  min-height: 14px;
+  cursor: row-resize;
+}
+
+.panel-splitter.panel-splitter--row::before {
+  top: 50%;
+  bottom: auto;
+  left: 16px;
+  right: 16px;
+  width: auto;
+  height: 4px;
+  transform: translateY(-50%);
+}
+
+.panel-splitter.panel-splitter--row:hover::before,
+.panel-splitter.panel-splitter--row:focus-visible::before,
+.panel-splitter.panel-splitter--row.panel-splitter--dragging::before {
+  width: auto;
+  height: 6px;
+  background: var(--accent, #0f7b6c);
+}
+
+body.panel-splitter-dragging--col,
+body.panel-splitter-dragging--col * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
+body.panel-splitter-dragging--row,
+body.panel-splitter-dragging--row * {
+  cursor: row-resize !important;
+  user-select: none !important;
+}
+
+.map-panel--split > .map-panel-controls {
+  margin-bottom: 0;
+  min-height: 0;
+}
+
+.map-panel--sized > .map-panel-controls {
+  height: 100%;
+  overflow: auto;
+  container-type: size;
+  container-name: map-controls;
+}
+
+.map-panel--sized .current-situation-layers {
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  height: auto;
+  min-height: min-content;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.map-panel--sized .current-situation-visuals {
+  flex: 1 1 auto;
+  min-height: min-content;
+  align-items: stretch;
+}
+
+.map-panel--sized .situation-visual-card {
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.map-panel--sized .situation-evidence-visual__body,
+.map-panel--sized .situation-forecast-visual__body,
+.map-panel--sized .situation-forecast-bars {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.map-panel--sized .situation-evidence-visual .case-sparkline {
+  display: block;
+  width: 100%;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 36px;
+}
+
+.map-panel--sized .situation-forecast-bars {
+  justify-content: center;
+  gap: 16px;
+}
+
+.map-panel--sized .situation-forecast-bar-row {
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.map-panel--sized .situation-forecast-bar-track {
+  height: 16px;
+  min-height: 16px;
+  align-self: center;
+}
+
+.map-panel--sized .situation-threshold-bar__track {
+  height: clamp(10px, 1.4em, 16px);
+}
+
+.map-panel--sized .situation-alert-visual {
+  justify-content: space-evenly;
+}
+
+.map-panel--sized .situation-count-chip {
+  padding: 6px 12px 6px 6px;
+}
+
+.map-panel--sized .situation-alert-visual .situation-persistence-dot,
+.map-panel--sized .situation-alert-visual .situation-detection-window-dot {
+  width: 12px;
+  height: 12px;
+}
+
+@container map-controls (min-height: 360px) {
+  .situation-visual-label {
+    font-size: 0.875rem;
+  }
+
+  .situation-count-chip,
+  .situation-alert-visual__status,
+  .situation-forecast-bar-row,
+  .situation-threshold-bar__labels,
+  .situation-persistence-label,
+  .current-situation-scope {
+    font-size: 1rem;
+  }
+
+  .situation-forecast-bar-row strong,
+  .situation-count-chip strong {
+    font-size: 1.125rem;
+  }
+
+  .situation-persistence-dot,
+  .situation-detection-window-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@container map-controls (min-height: 480px) {
+  .situation-visual-card {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .situation-visual-label {
+    font-size: 1rem;
+  }
+
+  .situation-count-chip,
+  .situation-alert-visual__status,
+  .situation-forecast-bar-row,
+  .situation-threshold-bar__labels,
+  .situation-persistence-label,
+  .current-situation-scope {
+    font-size: 1.125rem;
+  }
+
+  .situation-forecast-bar-row strong,
+  .situation-count-chip strong {
+    font-size: 1.25rem;
+  }
+}
+
+.map-panel--split > .map-wrap {
+  min-height: 0;
+  height: 100%;
+}
+
 .map-panel,
 .insights-panel {
   padding: 10px;

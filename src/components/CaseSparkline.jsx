@@ -52,8 +52,10 @@ export default function CaseSparkline({
   return (
     <svg
       className={`case-sparkline ${statusClassName(status)}`}
+      viewBox={`0 0 ${width} ${height}`}
       width={width}
       height={height}
+      preserveAspectRatio="none"
       role="img"
       aria-label={`Last ${values.length} weeks of observed cases`}
     >
@@ -73,6 +75,7 @@ export default function CaseSparkline({
           strokeWidth="1.6"
           strokeLinejoin="round"
           strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
         />
       )}
     </svg>

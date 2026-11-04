@@ -1,5 +1,5 @@
 // Dashboard.jsx
-import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, lazy, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import TopToolbar from "./TopToolbar";
 import EnvironmentalDataControls from "../EnvironmentalDataControls";
 import AlertStatusIcons from "../AlertStatusIcons";
@@ -222,6 +222,48 @@ function buildWeekDates(startDate, endDate) {
   return out;
 }
 
+const MAP_PANEL_SHARE_KEY = "epidemia.mapPanelShare";
+const DEFAULT_MAP_PANEL_SHARE = 0.55;
+const MIN_MAP_PANEL_SHARE = 0.26;
+const MAX_MAP_PANEL_SHARE = 0.74;
+
+function clampMapPanelShare(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return DEFAULT_MAP_PANEL_SHARE;
+  return Math.min(MAX_MAP_PANEL_SHARE, Math.max(MIN_MAP_PANEL_SHARE, numeric));
+}
+
+function readMapPanelShare() {
+  try {
+    const raw = window.localStorage.getItem(MAP_PANEL_SHARE_KEY);
+    if (raw == null || raw === "") return DEFAULT_MAP_PANEL_SHARE;
+    return clampMapPanelShare(raw);
+  } catch {
+    return DEFAULT_MAP_PANEL_SHARE;
+  }
+}
+
+const SITUATION_PANEL_SHARE_KEY = "epidemia.situationPanelShare";
+const DEFAULT_SITUATION_PANEL_SHARE = 0.46;
+const MIN_SITUATION_PANEL_SHARE = 0.22;
+const MAX_SITUATION_PANEL_SHARE = 0.72;
+
+function clampSituationPanelShare(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return DEFAULT_SITUATION_PANEL_SHARE;
+  return Math.min(MAX_SITUATION_PANEL_SHARE, Math.max(MIN_SITUATION_PANEL_SHARE, numeric));
+}
+
+function readSituationPanelShare() {
+  try {
+    const raw = window.localStorage.getItem(SITUATION_PANEL_SHARE_KEY);
+    if (raw == null || raw === "" || raw === "auto") return null;
+    return clampSituationPanelShare(raw);
+  } catch {
+    return null;
+  }
+}
+
 function Dashboard({
   projectConfig = null,
   bootstrapEpidemiaData = null,
@@ -351,8 +393,224 @@ function Dashboard({
   const [comparisonHighlightMode, setComparisonHighlightMode] = useState("alert-priority");
   const isCompactLayout = useMediaQuery("(max-width: 1100px)");
   const [mobileMainView, setMobileMainView] = useState("summary");
+  const dashboardGridRef = useRef(null);
+  const mapPanelRef = useRef(null);
+  const [mapPanelShare, setMapPanelShare] = useState(() => readMapPanelShare());
+  const [panelSplitterDragging, setPanelSplitterDragging] = useState(false);
+  const [situationPanelShare, setSituationPanelShare] = useState(() => readSituationPanelShare());
+  const [situationSplitterDragging, setSituationSplitterDragging] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
   const [tourNonce, setTourNonce] = useState(0);
+  const rememberMapPanelShare = useCallback((share) => {
+    const next = clampMapPanelShare(share);
+    setMapPanelShare(next);
+    try {
+      window.localStorage.setItem(MAP_PANEL_SHARE_KEY, String(next));
+    } catch {
+      /* ignore private-mode storage failures */
+    }
+    return next;
+  }, []);
+
+  const shareFromPointer = useCallback((clientX) => {
+    const grid = dashboardGridRef.current;
+    if (!grid) return null;
+    const bounds = grid.getBoundingClientRect();
+    if (bounds.width <= 0) return null;
+    return clampMapPanelShare((clientX - bounds.left) / bounds.width);
+  }, []);
+
+  const handlePanelSplitterPointerDown = useCallback((event) => {
+    if (event.button != null && event.button !== 0) return;
+    event.preventDefault();
+    const handle = event.currentTarget;
+    try {
+      handle.setPointerCapture(event.pointerId);
+    } catch {
+      /* Drag still follows pointermove listeners when capture is unavailable. */
+    }
+    setPanelSplitterDragging(true);
+    document.body.classList.add("panel-splitter-dragging", "panel-splitter-dragging--col");
+
+    const onMove = (moveEvent) => {
+      const next = shareFromPointer(moveEvent.clientX);
+      if (next != null) setMapPanelShare(next);
+    };
+    const onUp = (upEvent) => {
+      const next = shareFromPointer(upEvent.clientX);
+      if (next != null) rememberMapPanelShare(next);
+      setPanelSplitterDragging(false);
+      document.body.classList.remove("panel-splitter-dragging", "panel-splitter-dragging--col");
+      handle.removeEventListener("pointermove", onMove);
+      handle.removeEventListener("pointerup", onUp);
+      handle.removeEventListener("pointercancel", onUp);
+    };
+    handle.addEventListener("pointermove", onMove);
+    handle.addEventListener("pointerup", onUp);
+    handle.addEventListener("pointercancel", onUp);
+  }, [rememberMapPanelShare, shareFromPointer]);
+
+  const handlePanelSplitterDoubleClick = useCallback(() => {
+    if (mapPanelShare > 0.66) rememberMapPanelShare(MIN_MAP_PANEL_SHARE);
+    else if (mapPanelShare < 0.4) rememberMapPanelShare(DEFAULT_MAP_PANEL_SHARE);
+    else rememberMapPanelShare(MAX_MAP_PANEL_SHARE);
+  }, [mapPanelShare, rememberMapPanelShare]);
+
+  const handlePanelSplitterKeyDown = useCallback((event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      rememberMapPanelShare(mapPanelShare - 0.04);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      rememberMapPanelShare(mapPanelShare + 0.04);
+    } else if (event.key === "Home" || event.key === "Enter") {
+      event.preventDefault();
+      rememberMapPanelShare(DEFAULT_MAP_PANEL_SHARE);
+    }
+  }, [mapPanelShare, rememberMapPanelShare]);
+
+  const situationDefaultShareRef = useRef(DEFAULT_SITUATION_PANEL_SHARE);
+
+  const measureSituationDefaultShare = useCallback(() => {
+    const panel = mapPanelRef.current;
+    const controls = panel?.querySelector(":scope > .map-panel-controls");
+    if (!panel || !controls) return situationDefaultShareRef.current;
+    const height = panel.getBoundingClientRect().height;
+    if (height <= 0) return situationDefaultShareRef.current;
+
+    const wasSized = panel.classList.contains("map-panel--sized");
+    const previousRows = panel.style.gridTemplateRows;
+    if (wasSized) {
+      panel.classList.remove("map-panel--sized");
+      panel.style.gridTemplateRows = "auto 14px minmax(0, 1fr)";
+    }
+    const controlsHeight = controls.getBoundingClientRect().height;
+    if (wasSized) {
+      panel.classList.add("map-panel--sized");
+      panel.style.gridTemplateRows = previousRows;
+    }
+    if (controlsHeight > 0) {
+      situationDefaultShareRef.current = controlsHeight / height;
+    }
+    return situationDefaultShareRef.current;
+  }, []);
+
+  const rememberSituationPanelShare = useCallback((share) => {
+    if (share == null) {
+      setSituationPanelShare(null);
+      try {
+        window.localStorage.removeItem(SITUATION_PANEL_SHARE_KEY);
+      } catch {
+        /* ignore private-mode storage failures */
+      }
+      return null;
+    }
+    const next = Math.min(MAX_SITUATION_PANEL_SHARE, Math.max(share, situationDefaultShareRef.current));
+    setSituationPanelShare(next);
+    try {
+      window.localStorage.setItem(SITUATION_PANEL_SHARE_KEY, String(next));
+    } catch {
+      /* ignore private-mode storage failures */
+    }
+    return next;
+  }, []);
+
+  const situationShareFromPointer = useCallback((clientY) => {
+    const panel = mapPanelRef.current;
+    if (!panel) return null;
+    const bounds = panel.getBoundingClientRect();
+    if (bounds.height <= 0) return null;
+    const raw = (clientY - bounds.top) / bounds.height;
+    const floor = situationDefaultShareRef.current;
+    const handleSlack = 14 / bounds.height;
+    if (raw <= floor + handleSlack) return null;
+    return Math.min(MAX_SITUATION_PANEL_SHARE, raw);
+  }, []);
+
+  useEffect(() => {
+    if (isCompactLayout || situationPanelShare != null) return undefined;
+    const panel = mapPanelRef.current;
+    const controls = panel?.querySelector(":scope > .map-panel-controls");
+    if (!panel || !controls) return undefined;
+    const measure = () => {
+      const height = panel.getBoundingClientRect().height;
+      const controlsHeight = controls.getBoundingClientRect().height;
+      if (height > 0 && controlsHeight > 0) {
+        situationDefaultShareRef.current = controlsHeight / height;
+      }
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(panel);
+    observer.observe(controls);
+    return () => observer.disconnect();
+  }, [isCompactLayout, situationPanelShare]);
+
+  useLayoutEffect(() => {
+    if (isCompactLayout || situationPanelShare == null || situationSplitterDragging) return;
+    const floor = measureSituationDefaultShare();
+    if (situationPanelShare <= floor + 0.02) rememberSituationPanelShare(null);
+  }, [
+    isCompactLayout,
+    measureSituationDefaultShare,
+    rememberSituationPanelShare,
+    situationPanelShare,
+    situationSplitterDragging,
+  ]);
+
+  const handleSituationSplitterPointerDown = useCallback((event) => {
+    if (event.button != null && event.button !== 0) return;
+    event.preventDefault();
+    const handle = event.currentTarget;
+    try {
+      handle.setPointerCapture(event.pointerId);
+    } catch {
+      /* Drag still follows pointermove listeners when capture is unavailable. */
+    }
+    measureSituationDefaultShare();
+    setSituationSplitterDragging(true);
+    document.body.classList.add("panel-splitter-dragging", "panel-splitter-dragging--row");
+
+    const onMove = (moveEvent) => {
+      setSituationPanelShare(situationShareFromPointer(moveEvent.clientY));
+    };
+    const onUp = (upEvent) => {
+      rememberSituationPanelShare(situationShareFromPointer(upEvent.clientY));
+      setSituationSplitterDragging(false);
+      document.body.classList.remove("panel-splitter-dragging", "panel-splitter-dragging--row");
+      handle.removeEventListener("pointermove", onMove);
+      handle.removeEventListener("pointerup", onUp);
+      handle.removeEventListener("pointercancel", onUp);
+    };
+    handle.addEventListener("pointermove", onMove);
+    handle.addEventListener("pointerup", onUp);
+    handle.addEventListener("pointercancel", onUp);
+  }, [measureSituationDefaultShare, rememberSituationPanelShare, situationShareFromPointer]);
+
+  const handleSituationSplitterDoubleClick = useCallback(() => {
+    if (situationPanelShare == null) rememberSituationPanelShare(MAX_SITUATION_PANEL_SHARE);
+    else rememberSituationPanelShare(null);
+  }, [rememberSituationPanelShare, situationPanelShare]);
+
+  const handleSituationSplitterKeyDown = useCallback((event) => {
+    const floor = situationDefaultShareRef.current;
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      if (situationPanelShare == null || situationPanelShare - 0.04 <= floor + 0.02) {
+        rememberSituationPanelShare(null);
+      } else {
+        rememberSituationPanelShare(situationPanelShare - 0.04);
+      }
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      const base = situationPanelShare == null ? floor : situationPanelShare;
+      rememberSituationPanelShare(base + 0.04);
+    } else if (event.key === "Home" || event.key === "Enter") {
+      event.preventDefault();
+      rememberSituationPanelShare(null);
+    }
+  }, [rememberSituationPanelShare, situationPanelShare]);
+
   const { ediEnabled, studyLabel, isStudyArm, condition: studyCondition } =
     useStudyCondition();
   const tourSteps = useMemo(
@@ -2207,10 +2465,41 @@ function Dashboard({
             onSelectDistrict={handleSummaryDistrictSelect}
           />
         ) : (
-        <section className="dashboard-grid fade-in-up delay-2">
+        <section
+          ref={dashboardGridRef}
+          className={`dashboard-grid fade-in-up delay-2${
+            isCompactLayout ? "" : " dashboard-grid--split"
+          }${panelSplitterDragging ? " dashboard-grid--dragging" : ""}`}
+          style={
+            isCompactLayout
+              ? undefined
+              : {
+                  gridTemplateColumns: `${mapPanelShare}fr 14px ${1 - mapPanelShare}fr`,
+                }
+          }
+        >
           {/* Map */}
           {(!isCompactLayout || mobileMainView === "map") && (
-          <div className="glass-card map-panel" data-tour="map-panel">
+          <div
+            ref={mapPanelRef}
+            className={`glass-card map-panel${
+              isCompactLayout ? "" : " map-panel--split"
+            }${situationPanelShare != null ? " map-panel--sized" : ""}${
+              situationSplitterDragging ? " map-panel--dragging" : ""
+            }`}
+            data-tour="map-panel"
+            style={
+              isCompactLayout
+                ? undefined
+                : {
+                    display: "grid",
+                    gridTemplateRows:
+                      situationPanelShare == null
+                        ? "auto 14px minmax(0, 1fr)"
+                        : `minmax(0, ${situationPanelShare}fr) 14px minmax(0, ${1 - situationPanelShare}fr)`,
+                  }
+            }
+          >
             <div className="map-panel-controls">
               <CurrentSituationSummary
                 rows={forecastTableRows}
@@ -2284,6 +2573,27 @@ function Dashboard({
               </div>
             </div>
 
+            {!isCompactLayout && (
+              <button
+                type="button"
+                className={`panel-splitter panel-splitter--row${
+                  situationSplitterDragging ? " panel-splitter--dragging" : ""
+                }`}
+                role="separator"
+                aria-orientation="horizontal"
+                aria-label="Resize current situation and map. Drag down to enlarge. Drag up to restore the default size."
+                aria-valuemin={Math.round(MIN_SITUATION_PANEL_SHARE * 100)}
+                aria-valuemax={Math.round(MAX_SITUATION_PANEL_SHARE * 100)}
+                aria-valuenow={
+                  situationPanelShare == null ? undefined : Math.round(situationPanelShare * 100)
+                }
+                title="Drag to resize. Double-click to maximize or restore."
+                onPointerDown={handleSituationSplitterPointerDown}
+                onDoubleClick={handleSituationSplitterDoubleClick}
+                onKeyDown={handleSituationSplitterKeyDown}
+              />
+            )}
+
             <Suspense fallback={<div className="map-panel-skeleton" role="status">Loading map…</div>}>
               <EthiopiaMap
                 onSelectRegion={handleMapDistrictSelect}
@@ -2329,6 +2639,23 @@ function Dashboard({
               </div>
             )}
           </div>
+          )}
+
+          {!isCompactLayout && (
+            <button
+              type="button"
+              className={`panel-splitter${panelSplitterDragging ? " panel-splitter--dragging" : ""}`}
+              role="separator"
+              aria-orientation="vertical"
+              aria-label="Resize map and details panels. Drag the edge, or double-click to maximize and restore."
+              aria-valuemin={Math.round(MIN_MAP_PANEL_SHARE * 100)}
+              aria-valuemax={Math.round(MAX_MAP_PANEL_SHARE * 100)}
+              aria-valuenow={Math.round(mapPanelShare * 100)}
+              title="Drag to resize. Double-click to maximize or restore."
+              onPointerDown={handlePanelSplitterPointerDown}
+              onDoubleClick={handlePanelSplitterDoubleClick}
+              onKeyDown={handlePanelSplitterKeyDown}
+            />
           )}
 
           {/* Charts / table tabs */}
